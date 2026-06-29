@@ -1,1 +1,0 @@
-DROP POLICY IF EXISTS "Perfiles insert policy" ON public.perfiles;

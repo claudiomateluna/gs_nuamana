@@ -1,1 +1,0 @@
-DROP POLICY IF EXISTS "Perfiles edición propia" ON public.perfiles;

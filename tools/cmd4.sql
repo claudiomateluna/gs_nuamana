@@ -1,1 +1,0 @@
-DROP POLICY IF EXISTS "Acuerdos manage" ON public.acta_acuerdos;
