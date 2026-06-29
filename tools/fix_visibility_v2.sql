@@ -1,0 +1,26 @@
+DROP FUNCTION IF EXISTS public.puede_ver_acta_v2(uuid);
+
+CREATE OR REPLACE FUNCTION public.puede_ver_acta_v2(p_acta_id uuid)
+RETURNS boolean
+LANGUAGE plpgsql
+SECURITY DEFINER
+AS $$
+BEGIN
+  -- 1. Staff (Admin, Dirigente, Guiadora) ve todo
+  IF (SELECT rol_id FROM public.perfiles WHERE id = auth.uid()) IN (1, 2, 3) THEN
+    RETURN TRUE;
+  END IF;
+
+  -- 2. Participantes ven su propia acta
+  IF EXISTS (SELECT 1 FROM public.acta_participantes WHERE acta_id = p_acta_id AND perfil_id = auth.uid()) THEN
+    RETURN TRUE;
+  END IF;
+
+  -- 3. Visibilidad pública
+  IF EXISTS (SELECT 1 FROM public.actas WHERE id = p_acta_id AND (confidencialidad = 'Pública' OR confidencialidad = 'Pública Interna')) THEN
+    RETURN TRUE;
+  END IF;
+
+  RETURN FALSE;
+END;
+$$;

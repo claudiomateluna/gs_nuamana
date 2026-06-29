@@ -1,0 +1,876 @@
+Formulario Autorizaciones
+
+1. Datos Personales
+- Nombre Completo (precargado)
+-- Tipo: Input de texto
+-- Precarga: Nombre y Apellido la tabla perfiles
+-- En el Registro y Tabla Perfiles: Si
+-- Similar a: Paso 3 del registro
+-- Requisito: Ninguno
+-- Pregunta: ¿Cuál es tu nombre?
+-- Información: Indica el nombre completo de la persona que esta completando el formulario *Este Dato es Obligatorio
+- Nacionalidad (intégralo a la ficha personal y al registro y precárgalo)
+-- Tipo: Selector
+-- Opciones: Argentina, Boliviana, Brasileña, Chilena, Colombiana, Costarricense, Cubana, Ecuatoriana, Salvadoreña, Guatemalteca, Haitiana, Hondureña, Mexicana, Nicaragüense, Panameña, Paraguaya, Peruana, Dominicana, Uruguaya, Venezolana, Otra
+-- Precarga: nacionalidad en la tabla perfiles, valor por defecto si esta vacía: "Chilena"
+-- En el Registro y Tabla Perfiles: Si
+-- Similar a: Ninguno
+-- Requisito: Ninguno
+-- Pregunta: ¿Cuál es tu Nacionalidad?
+-- Información: Indica la nacionalidad de la persona que esta completando el formulario *Este Dato es Obligatorio
+- Nombre Social (opcional)
+-- Tipo: Input de Texto
+-- Precarga: nombre_social en la tabla perfiles
+-- En el Registro y Tabla Perfiles: Si
+-- Similar a: Agrégalo al registro en el paso 3
+-- Requisito: Ninguno
+-- Pregunta: ¿Cómo te dicen?
+-- Información: Dinos como le dicen o como llaman a la persona que esta completando el formulario *Este Dato es Opcional
+- Asignación Femenina/Masculina entregada al nacer (precárgalo)
+-- Tipo: Radio
+-- Opciones: Masculina, Femenina
+-- Precarga: sexo en la tabla perfiles
+-- En el Registro y Tabla Perfiles: Si
+-- Similar a: Paso 9 del registro
+-- Requisito: Ninguno
+-- Pregunta: ¿Cuál es la asignación Femenina/Masculina entregada al nacer?
+-- Información: Selecciona la asignación femenina/masculina entregada al nacer de la persona que está completando el formulario. *Este Dato es Obligatorio
+- Fecha de Nacimiento (precárgalo)
+-- Tipo: Date (formato DD-MM-AAA)
+-- Precarga: fecha_nacimiento en la tabla perfiles
+-- En el Registro y Tabla Perfiles: Si
+-- Similar a: Paso 6 del registro
+-- Requisito: Ninguno
+-- Pregunta: ¿Cuándo Naciste?
+-- Información: Ingrese la fecha de nacimiento de la persona que está completando el formulario. *Este Dato es Obligatorio
+- R.U.N. (precárgalo - se llama RUT en el registro - usa el mismo formato del registro, mascara y verificación - campo no modificable)
+-- Tipo: Input de texto
+-- Precarga: rut en la tabla perfiles
+-- En el Registro y Tabla Perfiles: Si
+-- Similar a: Paso 4 del registro
+-- Requisito: Ninguno
+-- Pregunta: Cuéntanos cuál es tu R.U.N. o R.U.T.
+-- Información: Escribe el R.U.T. o R.U.N., de la persona que asiste a la actividad, sin puntos y con guión y dígito verificador, por ejemplo, 12345678-9.
+- Edad (precárgalo - calcúlalo a partir de la fecha de nacimiento)
+-- Tipo: Input de texto
+-- Precarga: Calculada a partir de la fecha de nacimiento
+-- Similar a: Ninguno
+-- Requisito: Ninguno
+-- Pregunta: ¿Cuál es tu edad?
+-- Información: Indica la edad del apersona que está completando el formulario. *Este Dato es Obligatorio
+- Estatura (déjalo guardado para el próximo formulario - valor en centímetros)
+-- Tipo: Input de texto
+-- Precarga: estatura_m de la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: Ninguno
+-- Pregunta: ¿Cuánto mides actualmente?
+-- Información: Indica la estatura en centímetros de la persona que está completando el formulario, ejemplo 165 si mide un metro 65 centímetros. *Este Dato es Obligatorio
+- Peso (déjalo guardado para el próximo formulario - valor en kilogramos)
+-- Tipo: Input de texto
+-- Precarga: peso_kg de la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: Ninguno
+-- Pregunta: ¿Cuánto pesas actualmente?
+-- Información: Indica el peso en kilogramos de la persona que está completando el formulario. *Este Dato es Obligatorio
+
+2. Datos de Grupo
+- Nombre de Grupo (precárgalo)
+-- Tipo: Radio
+-- Opciones: Guias y Scouts Nua Mana, Otro
+-- Precarga: nombre_grupo en la tabla de perfiles, valor por defecto si esta vacía: "Guias y Scouts Nua Mana"
+-- En el Registro y Tabla Perfiles: Si
+-- Similar a: Paso 11 primer input del registro
+-- Requisito: Ninguno
+-- Pregunta: ¿A que grupo Guía y Scout perteneces?
+-- Información: Seleccione el grupo guía / scout al que pertenece el niño, niña o joven, normalmente debería ser Nua Mana. *Este Dato es Obligatorio
+- Rama (precárgalo)
+-- Tipo: Selector
+-- Opciones: No Aplica, Manada, Compañía, Tropa, Avanzada, Clan, Sin Unidad - const unidades del registro
+-- Precarga: Unidad en la tabla de perfiles
+-- En el Registro y Tabla Perfiles: Si
+-- Similar a: Paso 11 segundo input del registro
+-- Requisito: Ninguno
+-- Pregunta: ¿A que unidad perteneces?
+-- Información: Seleccione la unidad a la que pertenece la niña, niño o joven de acuerdo a la edad del mismo (si es adulto seleccione su unidad)<br></br><br></br><b>Manada</b> – niños y niñas entre 7 y 11 años (unidad mixta)<br></br><b>Compañía</b> – niñas y jóvenes mujeres entre 11 y 15 años (unidad femenina)<br></br><b>Tropa</b> – niños y jóvenes entre 11 y 15 años (unidad masculina)<br></br><b>Avanzada</b> – jóvenes entre 15 y 17 años (unidad mixta)<br></br><b>Clan</b> – jóvenes entre 17 y 20 años (unidad mixta)<br></br><br></br><span className="font-black text-clr7">* Estos campos son obligatorios</span>
+- Zona (precárgalo)
+-- Tipo: Selector
+-- Opciones: Cajón del Maipo, Santiago Centro, Santiago Cordillera, La Florida, Maipo, Santiago Norte, Santiago Oeste, Santiago Oriente, Santiago Sur
+-- Precarga: zona en la tabla de perfiles, valor por defecto si esta vacía: "La Florida"
+-- En el Registro y Tabla Perfiles: Si
+-- Similar a: Agregar al paso 11 del registro
+-- Requisito: Ninguno
+-- Pregunta: ¿En que Zona esta tu grupo?
+-- Información: Indica la Zona administrativa de la Asociación de Guías y Scouts de Chile a la que pertenece el grupo Guía y Scout que seleccionaste antes, normalmente es "La Florida". *Este Dato es Obligatorio
+- Distrito (precárgalo)
+-- Tipo: Selector
+-- Opciones: Zona "Cajón del Maipo" {"Camilo Henríquez", "Las Vizcachas", "Puente Alto Poniente"}, Zona "Santiago Centro" {"Cerro Huelén", "Santiago Centro", "Providencia"}, Zona "Santiago Cordillera" {"Apoquindo", "Los Leones", "Manquehue", "Vitacura"}, Zona "La Florida" {"Bellavista", "Mapurayen", "Peñimahuida"}, Zona "Maipo" {"San Bernardo", "El Bosque", "Valle del Maipo"}, Zona "Santiago Norte" {"Chacabuco", "Conchalí", "La Cañadilla", "Quilicura", "Renca"}, Zona "Santiago Oeste" {"Cerrillos", "Maipú Nuevo Extremo", "Melipilla", "Pila del Ganso", "Quilamapu", "Quinta Normal-Cerro Navia", "Talakanta"}, Zona "Santiago Oriente" {"La Reina", "Macul", "Ñuñoa", "Pedro de Valdivia", "Peñalolén"}, Zona "Santiago Sur" {"La Cisterna", "La Granja", "Pedro Aguirre Cerda", "San Joaquín", "San Miguel", "Santa Rosa"}
+-- Precarga: distrito en la tabla de perfiles, valor por defecto si esta vacía: "Mapurayen"
+-- En el Registro y Tabla Perfiles: Si
+-- Similar a: Agregar al paso 11 del registro
+-- Requisito: Carga dependiente de la zona seleccionada en Zona
+-- Pregunta: ¿En que Distrito se encuentra tu grupo Guía y Scout?
+-- Información: Indica el Distrito administrativo de la Asociación de Guías y Scouts de Chile a la que pertenece el grupo Guía y Scout que seleccionaste antes, normalmente es "Mapurayen". *Este Dato es Obligatorio
+
+3. Contacto de Emergencia
+- Carga los Contactos de emergencia del usuario, vienen de la tabla "contactos_emergencia", el usuario puede agregar o quitar cuantos contactos de emergencia quiera, los campos de cada contacto de emergencia son los siguientes:
+-- Nombre (Nombre del contacto de emergencia) (precárgalo)
+--- Tipo: Input de Texto
+--- Precarga: nombre en la tabla de contactos_emergencia
+--- En el Registro y Tabla Perfiles: Si
+--- Similar a: Paso 15 del registro, primer input
+--- Requisito: Ninguno
+--- Pregunta: ¿Cómo se llama tu contacto de emergencia?
+--- Información: Indica el nombre de tu contacto de emergencia, a quien llamaremos en caso de una situación de Emergencia
+-- Parentesco (Usa la lista de parentescos de la "const relaciones" en el registro) (precárgalo)
+--- Tipo: Selector
+--- Opciones: No Aplica, Madre, Padre, Hermana (o), Tía (o), Abuela (o), Sobrina (o), Hija (o), Otra. - const relaciones del registro
+--- Precarga: relacion en la tabla de contactos_emergencia
+--- En el Registro y Tabla Perfiles: Si
+--- Similar a: Paso 15 del registro, segundo input
+--- Requisito: Ninguno
+--- Pregunta: ¿Cual es tu relación con el contacto de emergencia?
+--- Información: Indica la relación o parentesco que tienes con la o el contacto de emergencia.
+-- Teléfono (Usa la misma mascara y formato de teléfonos que hay en el registro) (precárgalo)
+--- Tipo: Input de texto
+--- Precarga: telefono en la tabla de contactos_emergencia
+--- En el Registro y Tabla Perfiles: Si
+--- Similar a: Paso 15 del registro, tercer input
+--- Requisito: Ninguno
+--- Pregunta: ¿Cuál es su teléfono?
+--- Información: Indica el teléfono de tu contacto de emergencia
+
+4. Datos Previsionales
+- Previsión (Mismo selector con los mismos datos que tiene el paso 16 del registro (precárgalo))
+-- Tipo: Selector
+-- Opciones: FONASA, Isapre, Fuerzas Armadas, Particular, Otro
+-- Precarga: sistema_salud en la tabla de perfiles
+-- En el Registro y Tabla Perfiles: Si
+-- Similar a: Paso 16 del registro, primer input
+-- Requisito: Ninguno
+-- Pregunta: ¿Cuál es tu Sistema de Salud?
+-- Información: Indícanos detalles de tu sistema de salud, esta información puede ser necesaria en caso de recurrir a un centro medico, selecciona de la lista tu sistema y de ser necesario especifica más abajo
+- Detalle de Previsión (Si se selecciona Isapre en el punto anterior, mostrar un input de texto donde el usuario debe indicar cual Isapre (precárgalo))
+-- Tipo: Input de Texto
+-- Precarga: detalle_sistema_salud en la tabla de perfiles
+-- En el Registro y Tabla Perfiles: Si
+-- Similar a: Paso 16 del registro, segundo input
+-- Requisito: "Previsión", mostrar si se selecciona "Isapre" u "Otro" en el selector
+-- Pregunta: ¿Cuál es el nombre de la Isapre u Otro sistema?
+-- Información: Si es Isapre por favor detalla el nombre de la Isapre, u otro sistema.
+- Seguro Complementario (seleccionar con una casilla "si" o "no")
+-- Tipo: Radio
+-- Opciones: Si, No
+-- Precarga: Agrégalo en el paso 16 del registro y a la tabla perfiles y sácalo de la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: Si
+-- Similar a: Ninguno
+-- Requisito: Ninguno
+-- Pregunta: ¿Tienes un seguro complementario?
+-- Información: Selecciona según corresponda si tienes o no un seguro complementario de salud.
+- Nombre del Seguro Complementario (Si marca "si" en complementario se muestra un input de texto para que el usuario coloque el nombre del seguro y muestra un mensaje que diga "Debe adjuntar documentación del seguro complementario")
+-- Tipo: Input de Texto
+-- Precarga: Agrégalo en el paso 16 del registro y a la tabla perfiles
+-- En el Registro y Tabla Perfiles: Si
+-- Similar a: Ninguno
+-- Requisito: "Seguro Complementario", Si marca "si" en complementario se muestra un input de texto
+-- Pregunta: ¿Cómo se llama el seguro complementario?
+-- Información: Indica el nombre del seguro complementario, debes adjuntar o enviar por correo electrónico la documentación del seguro complementario para usarlo en caso de ser necesario.
+
+5. Antecedentes Médicos
+- Grupo Sanguíneo y factor Rh (precárgalo)
+-- Tipo: Selector
+-- Opciones: A+, A-, AB+, AB-, B+, B-, O+, O-, No Sabe
+-- Precarga: tipo_sangre de la tabla perfiles
+-- En el Registro y Tabla Perfiles: Si
+-- Similar a: Paso 17 del registro
+-- Requisito: Ninguno
+-- Pregunta: ¿Cuál es tu tipo de sangre?
+-- Información: Indique el tipo de sangre, este es un dato vital en caso de una emergencia médica. * Esto es Obligatorio
+- Alergias (si el usuario indica "No tiene" o "Ninguna" en la ficha del registro o en la columna alergias de la tabla perfiles marca la casilla "NO")
+-- Tipo: Radio
+-- Opciones: Si, No
+-- Precarga: Agrégalo en el paso 18 del registro y a la tabla perfiles
+-- En el Registro y Tabla Perfiles: Si
+-- Similar a: Agregar al paso 18 del registro
+-- Requisito: Ninguno
+-- Pregunta: ¿Tienes alguna alergia?
+-- Información: Selecciones si tiene alguna alergia o no
+- Especifique Alergias (precárgalo) - para el diseño del documento si el usuario indica "No tiene" o "Ninguna" en la ficha del registro marca la casilla "NO" con una X en el documento y coloca lo que el usuario tiene indicado en el espacio especifique Alergias.
+-- Tipo: Textarea
+-- Precarga: alergias de la tabla perfiles
+-- En el Registro y Tabla Perfiles: Si
+-- Similar a: Paso 18 del registro
+-- Requisito: "Alergias", si marco "Si" en el item anterior se habilita esta textarea
+-- Pregunta: ¿Qué alergias tienes?
+-- Información: cuéntanos cuales son tus alergias
+- Intolerancia Alimentaria (precárgalo) - Marca "Si" si el usuario tiene indicado menú celiaco o intolerancia a la lactosa en el registro, pero de todas maneras deja al usuario marcar si o no y que especifique cuál
+-- Tipo: Radio
+-- Opciones: Si, No
+-- Precarga: Agrégalo en el paso 22 del registro y a la tabla perfiles
+-- En el Registro y Tabla Perfiles: Si
+-- Similar a: Ninguno
+-- Requisito: Ninguno
+-- Pregunta: ¿Tienes alguna intolerancia Alimentaria?
+-- Información: Marca la opción Si en caso que tengas alguna intolerancia alimentaria
+- Describe Intolerancia Alimentaria 
+-- Tipo: Input de texto
+-- Precarga: Agrégalo en el paso 22 del registro y a la tabla perfiles
+-- En el Registro y Tabla Perfiles: Si
+-- Similar a: Ninguno
+-- Requisito: "Intolerancia Alimentaria", se muestra si el usuario marco Si en el item anterior Intolerancia Alimentaria
+-- Pregunta: ¿Qué intolerancia Alimentaria tienes?
+-- Información: Especifica la intolerancia alimentaria que tengas
+- Menú Alimenticio 
+-- Tipo: checkboxes
+-- Opciones: Menú General, Menú Vegetariano, Menú Vegano, Celiaco, Intolerante Lactosa
+-- Precarga: dieta_alimentaria de la tabla perfiles
+-- En el Registro y Tabla Perfiles: Si
+-- Similar a: Paso 22 del registro
+-- Requisito: Ninguno
+-- Pregunta: ¿Cuál es tu dieta alimentaria?
+-- Información: Selecciona el tipo de comida que consumes en tu vida cotidiana, esta respuesta es importante para establecer el menú de campamento.
+
+6. Enfermedades Crónicas o Importantes
+- Enfermedades Crónicas o Importantes, en Especifique si el usuario puso otra cosa que no sea "No Tiene" o "Ninguna" en el paso 19 del registro (Antecedentes Médicos) precarga ese dato en este espacio u marca la opción "Otra" entre las opciones. Considera también que si el usuario marca la opción "Otra" muestres un input donde el usuario pueda escribir.
+-- Tipo: checkboxes
+-- Opciones: Diabetes mellitus, Hipertensión arterial, Patología cardiaca, Dolor de cabeza, Asma, Tuberculosis, Epilepsia, Enfermedad renal, Alteraciones sanguíneas, Enfermedad autoinmune, Hipo/Hipertiroidismo, Ninguna, Otra
+-- Precarga: Agrégalo en el paso 19 del registro y a la tabla perfiles y quita las columnas en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: Si
+-- Similar a: Ninguno
+-- Requisito: Ninguno
+-- Pregunta: ¿Qué enfermedades crónicas o importantes tienes?
+-- Información: Selecciona si tienes enfermedades crónicas o importantes, si no tienes selecciona la opción Ninguna
+- Especifique el detalle de Enfermedades Crónicas o Importantes.
+-- Tipo: Textarea
+-- Precarga: Agrégalo en el paso 19 del registro y a la tabla perfiles y quítalo de la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: Si
+-- Similar a: Paso 19 del registro
+-- Requisito: "Enfermedades Crónicas o Importantes", si el usuario marca una opción que no sea ninguna en el item anterior habilita este campo
+-- Pregunta: ¿Qué enfermedades crónicas o importantes tienes?
+-- Información: Detalla o especifica la o las enfermedades crónicas o de importancia que tienes
+- Medicamentos, dosis y horarios (precárgalo del paso 21 del registro)
+-- Tipo: textarea
+-- Precarga: medicamentos de la tabla perfiles
+-- En el Registro y Tabla Perfiles: Si
+-- Similar a: Paso 21 del registro
+-- Requisito: Ninguno
+-- Pregunta: ¿Estás consumiendo algún medicamento?
+-- Información: Indique si está consumiendo algún Tipo de medicamento <br></br><br></br>(**indique cual y su horario**) <br></br><br></br>Si no consume, por favor escriba <b>No Consume</b>.<br></br><br></br><span className="font-black text-clr7">* Este campo es obligatorio</span>
+
+7. Antecedentes de Salud Mental
+- ¿Diagnóstico de salud mental? - Casilla "Si" o "No" - si marca "Si" mostrar input para que el usuario pueda escribir - Guárdalo para que se precargue en una próxima autorización del usuario
+-- Tipo: Radio
+-- Opciones: Si, No
+-- Precarga: diagnostico_salud_mental en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: Ninguno
+-- Pregunta: ¿Tienes un diagnostico de Salud Mental?
+-- Información: Cuéntanos si tienes un diagnostico de salud mental, selecciona la opción que corresponda
+- Especifica el diagnostico de salud mental
+-- Tipo: input de texto
+-- Precarga: detalle_salud_mental en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "¿Diagnóstico de salud mental?", si el usuario marca si habilita este input
+-- Pregunta: ¿Qué diagnostico de salud mental te dieron?
+-- Información: Dinos cuál fue el diagnostico de salud mental que te dieron
+- ¿Está en tratamiento actualmente? - Depende de "¿Diagnóstico de salud mental?" - Casilla "Si" o "No" - si marca "Si" Guárdalo para que se precargue en una próxima autorización del usuario
+-- Tipo: Radio
+-- Opciones: Si, No
+-- Precarga: tratamiento_salud_mental en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "¿Diagnóstico de salud mental?", si el usuario marca si habilita este input
+-- Pregunta: ¿Está en un tratamiento de salud mental actualmente?
+-- Información: Seleccione la opción que indique si esta o no en un tratamiento de salud mental actualmente
+- Medicamentos, dosis y horarios -  Depende de "¿Diagnóstico de salud mental?" - (precárgalo del paso 21 del registro y/o del paso anterior)
+-- Tipo: Textarea
+-- Precarga: medicamentos de la tabla perfiles
+-- En el Registro y Tabla Perfiles: Si
+-- Similar a: Paso 21 del registro
+-- Requisito: "¿Diagnóstico de salud mental?", si el usuario marca si habilita este input
+-- Pregunta: ¿Estás consumiendo algún medicamento?
+-- Información: Indique si está consumiendo algún Tipo de medicamento <br></br><br></br>(**indique cual y su horario**) <br></br><br></br>Si no consume, por favor escriba <b>No Consume</b>.<br></br><br></br><span className="font-black text-clr7">* Este campo es obligatorio</span>
+- Profesional Tratante - Depende de "¿Está en tratamiento actualmente?" - Input para el nombre del médico
+-- Tipo: Input de texto
+-- Precarga: profesional_tratante_contacto de la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "¿Está en tratamiento actualmente?", si el usuario marca si habilita este input
+-- Pregunta: ¿Cómo se llama el profesional que esta llevando el tratamiento de salud mental?
+-- Información: Cuentanos cómo se llama el profesional que esta dirigiendo el tratamiento de salud mental
+- Contacto del Profesional - Depende de "Profesional Tratante" - Input para colocar teléfono (misma mascara de los teléfonos del registro)
+-- Tipo: Input de texto
+-- Precarga: Agregalo a la tabla perfiles_ficha_medica al lado de profesional_tratante_contacto
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "Profesional Tratante", si el usuario ingresa texto en el item profesional tratante muestra este campo
+-- Pregunta: ¿Cuál es el telefono del profesional tratante?
+-- Información: Cuentanos cuál es el teléfono del profesional que esta llevando el tratamiento de salud mental
+
+8. Historial Clínico
+- Hospitalizaciones previas - Casilla "Si" o "No" - si marca "Si" mostrar input para que el usuario pueda escribir y otro para fecha - Guárdalo para que se precargue en una próxima autorización del usuario - puede agregar más de una
+-- Tipo: Radio
+-- Opciones: Si, No
+-- Precarga: hospitalizaciones_previas en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: Ninguno
+-- Pregunta: ¿Haz estado hospitalizado?
+-- Información: Cuéntanos si haz estado hospitalizado y en que fecha aproximadamente.
+- Motivo de la Hospitalización - Depende de si marco Si en Hospitalizaciones Previas el usuario puede agregar una o varias hospitalizaciones
+-- Tipo: Input de texto
+-- Precarga: hospitalizaciones_previas en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "Hospitalizaciones previas", habilitar si el usuario marco la opción Si
+-- Pregunta: ¿Cuál fue el motivo de la hospitalización?
+-- Información: Cuéntanos por qué motivo te hospitalizaron
+- Fecha de la Hospitalización
+-- Tipo: date
+-- Precarga: hospitalizaciones_previas en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "Hospitalizaciones previas", habilitar si el usuario marco la opción Si
+-- Pregunta: ¿En que fecha aproximadamente ocurrió la hospitalización?
+-- Información: Cuéntanos en que fecha aproximadamente ocurrió la hospitalización
+- Cirugías previas - Casilla "Si" o "No" - si marca "Si" mostrar input para que el usuario pueda escribir y otro para fecha - Guárdalo para que se precargue en una próxima autorización del usuario - puede agregar más de una
+-- Tipo: Radio
+-- Opciones: Si, No
+-- Precarga: cirugias_previas en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: Ninguno
+-- Pregunta: ¿Haz tenido cirugías?
+-- Información: Cuéntanos si haz cirugías
+- Nombre de la Cirugía - Depende de si marco Si en Hospitalizaciones Previas el usuario puede agregar una o varias hospitalizaciones
+-- Tipo: Input de texto
+-- Precarga: cirugias_previas en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "Cirugías previas", habilitar si el usuario marco la opción Si
+-- Pregunta: ¿Qué cirugía tuviste?
+-- Información: Cuéntanos cómo se llama la cirugía o porque motivo la tuviste
+- Fecha de la Cirugía
+-- Tipo: date
+-- Precarga: cirugias_previas en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "Cirugías previas", habilitar si el usuario marco la opción Si
+-- Pregunta: ¿En que fecha aproximadamente ocurrió la hospitalización?
+-- Información: Cuéntanos en que fecha aproximadamente ocurrió la cirugía
+
+9. CONDICIONES RECIENTES
+- Ha tenido malestares en las últimas 2 semanas (dolor, fiebre, etc)
+-- Tipo: Radio
+-- Opciones: Si, No
+-- Precarga: malestares_recientes en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: Ninguno
+-- Pregunta: ¿Ha tenido malestares en las últimas 2 semanas?
+-- Información: Cuéntanos si has tenido algún malestar recientemente (dolor, fiebre, etc)
+- Especifique malestar
+-- Tipo: Input de Texto
+-- Precarga: malestares_recientes en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "Ha tenido malestares en las últimas 2 semanas", si el usuario marca la opción "Si" se habilita este campo
+-- Pregunta: ¿Qué malestares has tenido en las últimas 2 semanas?
+-- Información: Por favor detalla los malestares recientes que haz tenido
+- Está en tratamiento actualmente
+-- Tipo: Radio
+-- Opciones: Si, No
+-- Precarga: tratamiento_reciente en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "Ha tenido malestares en las últimas 2 semanas", si el usuario marca la opción "Si" se habilita este campo
+-- Pregunta: ¿Estás en tratamiento actualmente?
+-- Información: Cuéntanos si actualmente estas en tratamiento por los malestares que nos indicaste antes
+- Fecha de inicio
+-- Tipo: date
+-- Precarga: tratamiento_reciente en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "Está en tratamiento actualmente", si el usuario marca la opción "Si" se habilita este campo
+-- Pregunta: ¿En que fecha inicio el tratamiento?
+-- Información: Cuéntanos en que fecha se inicio el tratamiento que indicaste antes
+- Medicamentos, dosis y horarios del malestar
+-- Tipo: input de texto
+-- Precarga: tratamiento_reciente en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "Está en tratamiento actualmente", si el usuario marca la opción "Si" se habilita este campo
+-- Pregunta: ¿Qué medicamento? ¿En que horario? y ¿Cuál es la dosis del medicamento?
+-- Información: Cuéntanos en detalle el tratamiento, dinos el medicamento, la dosis del medicamento y el horario en que lo tomas
+
+10. CONTACTO RECIENTE CON ENFERMEDADES INFECTOCONTAGIOSAS
+- Ha estado expuesto de manera reciente a enfermedades infectocontagiosas
+-- Tipo: Radio
+-- Opciones: Si, No
+-- Precarga: contacto_infecto en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: Ninguno
+-- Pregunta: ¿Has estado expuesto de manera reciente a enfermedades infectocontagiosas?
+-- Información: Dinos si has tenido contacto reciente con alguna persona que este enferma
+- Especifique contacto de enfermedad
+-- Tipo: Input de texto
+-- Precarga: contacto_infecto_detalle en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "Ha estado expuesto de manera reciente a enfermedades infectocontagiosas", si el usuario marca la opción "Si" se habilita este campo
+-- Pregunta: ¿A que enfermedad estuviste expuesto o tuviste contacto?
+-- Información: Cuéntanos el detalle de la enfermedad con la que tuviste contacto o estuviste expuesto
+- ¿Ha viajado al extranjero el último año?
+-- Tipo: Radio
+-- Opciones: Si, No
+-- Precarga: viajes_extranjero en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: Ninguno
+-- Pregunta: ¿Ha viajado al extranjero el último año?
+-- Información: Cuéntanos si has hecho algún viaje al extranjero en el último año
+- País que visitó
+-- Tipo: Input de texto
+-- Precarga: viajes_extranjero en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "¿Ha viajado al extranjero el último año?", si el usuario marca la opción "Si" se habilita este campo
+-- Pregunta: ¿Qué país visitaste?
+-- Información: Cuentanos que país visitaste
+- fecha del viaje
+-- Tipo: date
+-- Precarga: viajes_extranjero en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "¿Ha viajado al extranjero el último año?", si el usuario marca la opción "Si" se habilita este campo
+-- Pregunta: ¿En que fecha viajaste?
+-- Información: Cuentanos en que fecha fue el viaje al extranjero
+- Vacuna que se administró para el viaje
+-- Tipo: Input de texto
+-- Precarga: viajes_extranjero en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "¿Ha viajado al extranjero el último año?", si el usuario marca la opción "Si" se habilita este campo
+-- Pregunta: ¿Qué vacunas se admnistró para el viaje?
+-- Información: Cuentanos que vacuna o vacunas tuviste que ponerte par ir a ese viaje al extranjero
+
+11. ANTECEDENTES DE VACUNAS
+- ¿Tiene las vacunas del Plan Nacional de Inmunización al día?
+-- Tipo: Radio
+-- Opciones: Si, No
+-- Precarga: vacunas_al_dia en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: Ninguno
+-- Pregunta: ¿Tiene las vacunas del Plan Nacional de Inmunización al día?
+-- Información: Marca la opción para indicar si tienes o no las vacunas al día con respecto al plan nacional de vacunación
+- ¿Ha recibido otra vacuna?
+-- Tipo: Radio
+-- Opciones: Si, No
+-- Precarga: vacunas_extra en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: Ninguno
+-- Pregunta: ¿Ha recibido otra vacuna?
+-- Información: Indícanos si has recibido alguna otra vacuna, por ejemplo, refuerzo antitetánica, antirrábica, fiebre amarilla, etc.
+- Especifique que otra vacuna
+-- Tipo: Input de texto
+-- Precarga: vacunas_extra en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "¿Ha recibido otra vacuna?", si el usuario marca la opción "Si" se habilita este campo
+-- Pregunta: ¿Qué otra vacuna has recibido?
+-- Información: Danos el detalle sobre las otras vacunas que has recibido
+
+
+12. INFORMACIÓN GINECO-OBSTÉTRICA (sólo si genero es femenino)
+- ¿Tienes menstruaciones?
+-- Tipo: Radio
+-- Opciones: Si, No
+-- Precarga: menstruaciones en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: Ninguno
+-- Pregunta: ¿Tienes menstruaciones?
+-- Información: Por favor cuéntanos si ya has tenido menstruaciones
+- ¿Tus ciclos menstruales son…?
+-- Tipo: Radio
+-- Opciones: Regulares, Irregulares
+-- Precarga: ciclo_regular en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "¿Tienes menstruaciones?", si el usuario marca la opción "Si" se habilita este campo
+-- Pregunta: ¿Tus ciclos menstruales son…?
+-- Información: Cuantanos si tienes ciclos menstruales regulares o irregulares
+- ¿Sufres de dismenorrea (cólicos/dolores)?
+-- Tipo: Radio
+-- Opciones: Si, No
+-- Precarga: dismenorrea en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "¿Tienes menstruaciones?", si el usuario marca la opción "Si" se habilita este campo
+-- Pregunta: ¿Sufres de dismenorrea?
+-- Información: Por favor cuentanos si sufres cólicos o dolores durante tu menstruación
+- Medicamento para cólicos
+-- Tipo: Input de texto
+-- Precarga: medicamento_colicos en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "¿Tienes menstruaciones?", si el usuario marca la opción "Si" se habilita este campo
+-- Pregunta: ¿Qué medicamento consumes para los cólicos menstruales?
+-- Información: Dinos si tomas algún medicamento especifico para los cólicos menstruales
+- Método anticonceptivo (nombre)
+-- Tipo: Input de texto
+-- Precarga: metodo_anticonceptivo en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "¿Tienes menstruaciones?", si el usuario marca la opción "Si" se habilita este campo
+-- Pregunta: ¿Usas un método anticonceptivo? ¿Cuál es su nombre?
+-- Información: Cuéntanos si usas un método anticonceptivo y su nombre en caso de usarlo
+- ¿Estás cursando un embarazo?
+-- Tipo: Radio
+-- Opciones: Si, No
+-- Precarga: embarazo en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "¿Tienes menstruaciones?", si el usuario marca la opción "Si" se habilita este campo
+-- Pregunta: ¿Estás cursando un embarazo?
+-- Información: Cuéntanos si actualmente estas embarazada
+- Semanas de embarazo
+-- Tipo: Selector
+-- Opciones: semana 1 a la semana 42
+-- Precarga: embarazo en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "¿Estás cursando un embarazo?", si el usuario marca la opción "Si" se habilita este campo
+-- Pregunta: ¿En que semana de Embarazo te encuentras?
+-- Información: Indicanos en que semana de embarazo te encuentras
+- Fecha último control
+-- Tipo: date
+-- Precarga: embarazo en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "¿Estás cursando un embarazo?", si el usuario marca la opción "Si" se habilita este campo
+-- Pregunta: ¿En que fecha tuviste el último control?
+-- Información: Indicanos en que fecha tuviste el último control de embarazo por favor
+
+13. ANTECEDENTES DENTALES
+- Fecha del último control dental
+-- Tipo: date
+-- Precarga: ultimo_control_dental en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: Ninguno
+-- Pregunta: ¿Cuándo fue tu último control dental?
+-- Información: Indícanos en que fecha tuviste tu último control dentala
+- ¿Tratamiento dental en curso?
+-- Tipo: Radio
+-- Opciones: Si, No
+-- Precarga: tratamiento_dental_curso en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: Ninguno
+-- Pregunta: ¿Tienes algún tratamiento dental en curso?
+-- Información: Cuéntanos si actualmente estas con algún tratamiento dental
+- Especifique el tratamiento dental
+-- Tipo: Input de texto
+-- Precarga: Agregar en la tabla perfiles_ficha_medica al lado de tratamiento_dental_curso
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "¿Tratamiento dental en curso?", si el usuario marca la opción "Si" se habilita este campo
+-- Pregunta: ¿Qué tratamiento dental estas llevando a cabo?
+-- Información: Por favor detallanos el tratamiento dental que estas haciendo en este momento 
+
+14. NECESIDADES Y RESTRICCIONES ESPECIALES
+- Incluye aspectos médicos, alimentarios, neurodivergencias, religiosos, ayudas técnicas, etc. (precárgalo - paso 20 del registro)
+-- Tipo: textarea
+-- Precarga: tratamientos_medicos de la tabla perfiles
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Paso 20 del registro
+-- Requisito: Ninguno
+-- Pregunta: ¿Tienes necesidades o restricciones especiales?
+-- Información: por favor incluye aspectos médicos, alimentarios, neurodivergencias, religiosos, ayudas técnicas, etc.<br></br><br></br>IMPORTANTE: Debe adjuntar receta médica por tratamientos indicados en ficha. Llevar medicamentos, inhaladores, aerocámara, entre otros. Si está cursando un embarazo debe llevar carné de control.
+
+15. REGISTRO DE NECESIDADES DE REGULACIÓN EMOCIONAL
+- ¿Presenta un diagnóstico o características relevantes?
+-- Tipo: Radio
+-- Opciones: Si, No
+-- Precarga: necesidades_especiales en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: Ninguno
+-- Pregunta: ¿Presenta un diagnóstico o características relevantes?
+-- Información: Esta sección tiene como objetivo recopilar información para prestar apoyo y/o prevenir elementos o situaciones que puedan desencadenar en una desregulación. Para ello necesitamos realizar un trabajo de colaboración entre ustedes como apoderado/os y nosotros como guiadoras/dirigentes en pro de todos los integrantes del Grupo.<br></br><br></br>Esta información será con propósitos informativos y confidencial por lo que rogamos responder con la mayor sinceridad posible.
+- ¿Cuáles diagnósticos o características relevantes?
+-- Tipo: Input de texto
+-- Precarga: necesidades_especiales en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "¿Presenta un diagnóstico o características relevantes?", si el usuario marca la opción "Si" se habilita este campo
+-- Pregunta: ¿Cuáles diagnósticos o características relevantes?
+-- Información: Por favor detallanos la información sobre estas características o diagnósticos
+- ¿Qué intereses y/o experiencias generan disfrute en el niño, niña, adolescente o joven?
+-- Tipo: textarea
+-- Precarga: intereses_disfrute en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "¿Presenta un diagnóstico o características relevantes?", si el usuario marca la opción "Si" se habilita este campo
+-- Pregunta: ¿Qué intereses y/o experiencias generan disfrute en el niño, niña, adolescente o joven?
+-- Información: Por favor cuentanos que intereses o expericias te generan alegria o disfrute
+- Identifique y mencione cuáles son las situaciones que generan estrés, lo que usted observa que gatille las desregulaciones dentro y fuera del hogar. ¿Qué conductas y/o acciones se observan cuando está ansioso/a o nervioso/a? Aquellas que son previas a una desregulación.
+-- Tipo: textarea
+-- Precarga: situaciones_estres en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "¿Presenta un diagnóstico o características relevantes?", si el usuario marca la opción "Si" se habilita este campo
+-- Pregunta: ¿Qué situaciones te generan estrés? ¿Qué conductas y/o acciones se observan cuando está ansioso/a o nervioso/a?
+-- Información: Identifique y mencione cuáles son las situaciones que generan estrés, lo que usted observa que gatille las desregulaciones dentro y fuera del hogar. ¿Qué conductas y/o acciones se observan cuando está ansioso/a o nervioso/a? Aquellas que son previas a una desregulación.
+- Necesidades Específicas
+-- Apoyo en comunicación
+--- Tipo: Radio
+--- Opciones: Si, No
+--- Precarga: apoyo_comunicacion en la tabla perfiles_ficha_medica
+--- En el Registro y Tabla Perfiles: No
+--- Similar a: Ninguno
+--- Requisito: "¿Presenta un diagnóstico o características relevantes?", si el usuario marca la opción "Si" se habilita este campo
+--- Pregunta: ¿Tienes necesidades de apoyo en comunicación?
+--- Información: Cuéntanos si tienes necesidades de apoyo en comunicación, por ejemplo, lenguaje no verbal, pictogramas, etc.
+---- Tipo: input de texto
+---- Precarga: apoyo_comunicacion en la tabla perfiles_ficha_medica
+---- En el Registro y Tabla Perfiles: No
+---- Similar a: Ninguno
+---- Requisito: "Apoyo en comunicación", si el usuario marca la opción "Si" se habilita este campo
+---- Pregunta: ¿Cuáles necesidades de apoyo en comunicación?
+---- Información: Especifica las necesidades de apoyo en comunicación que tienes
+-- Dificultades sensoriales
+--- Tipo: Radio
+--- Opciones: Si, No
+--- Precarga: dificultades_sensoriales en la tabla perfiles_ficha_medica
+--- En el Registro y Tabla Perfiles: No
+--- Similar a: Ninguno
+--- Requisito: "¿Presenta un diagnóstico o características relevantes?", si el usuario marca la opción "Si" se habilita este campo
+--- Pregunta: ¿Tienes necesidades de apoyo por dificultades sensoriales?
+--- Información: Cuéntanos si tienes necesidades de apoyo por dificultades sensoriales, por ejemplo, luces, ruidos, texturas
+---- Tipo: input de texto
+---- Precarga: dificultades_sensoriales en la tabla perfiles_ficha_medica
+---- En el Registro y Tabla Perfiles: No
+---- Similar a: Ninguno
+---- Requisito: "Dificultades sensoriales", si el usuario marca la opción "Si" se habilita este campo
+---- Pregunta: ¿Cuáles necesidades por dificultades sensoriales?
+---- Información: Especifica las necesidades de apoyo por dificultades sensoriales
+-- Ayuda en organización/planificación
+--- Tipo: Radio
+--- Opciones: Si, No
+--- Precarga: ayuda_organizacion en la tabla perfiles_ficha_medica
+--- En el Registro y Tabla Perfiles: No
+--- Similar a: Ninguno
+--- Requisito: "¿Presenta un diagnóstico o características relevantes?", si el usuario marca la opción "Si" se habilita este campo
+--- Pregunta: ¿Tienes necesidades de ayuda en organización y/o planificación?
+--- Información: Cuéntanos si tienes necesidades de ayuda en organización y/o planificación, por ejemplo, rutinas visuales, recordatorios
+---- Tipo: input de texto
+---- Precarga: ayuda_organizacion en la tabla perfiles_ficha_medica
+---- En el Registro y Tabla Perfiles: No
+---- Similar a: Ninguno
+---- Requisito: "Ayuda en organización/planificación", si el usuario marca la opción "Si" se habilita este campo
+---- Pregunta: ¿Cuáles necesidades de ayuda en organización y/o planificación?
+---- Información: Especifica las necesidades de ayuda en organización y/o planificación
+-- Otras necesidades
+--- Tipo: Radio
+--- Opciones: Si, No
+--- Precarga: otras_necesidades en la tabla perfiles_ficha_medica
+--- En el Registro y Tabla Perfiles: No
+--- Similar a: Ninguno
+--- Requisito: "¿Presenta un diagnóstico o características relevantes?", si el usuario marca la opción "Si" se habilita este campo
+--- Pregunta: ¿Tienes Otras necesidades especificas de ayuda?
+--- Información: Cuéntanos si tienes otras necesidades de ayuda o apoyo especificas
+---- Tipo: input de texto
+---- Precarga: otras_necesidades en la tabla perfiles_ficha_medica
+---- En el Registro y Tabla Perfiles: No
+---- Similar a: Ninguno
+---- Requisito: "Otras necesidades", si el usuario marca la opción "Si" se habilita este campo
+---- Pregunta: ¿Cuáles otras necesidades de ayuda o apoyo tienes?
+---- Información: Especifica las otras necesidades de ayuda que tienes
+- Estrategias que funcionan en casa o colegio, ¿Qué acciones y/o apoyos otorgan para que la niña, niño, adolescente o joven para que vuelva a la calma?, ¿Con cuál logra calmarlo?, ¿Qué herramientas usas para calmarse?
+-- Tipo: textarea
+-- Precarga: estrategias_calma en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "¿Presenta un diagnóstico o características relevantes?", si el usuario marca la opción "Si" se habilita este campo
+-- Pregunta: ¿Qué acciones y/o apoyos otorgan para que la niña, niño, adolescente o joven para que vuelva a la calma?, ¿Con cuál logra calmarlo?, ¿Qué herramientas usas para calmarse?
+-- Información: Indícanos que estrategias funcionan para calmar a la niña, niño, adolescente o joven
+- Observaciones adicionales
+-- Tipo: textarea
+-- Precarga: observaciones_adicionales en la tabla perfiles_ficha_medica
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: "¿Presenta un diagnóstico o características relevantes?", si el usuario marca la opción "Si" se habilita este campoQ
+-- Pregunta: ¿Quieres dejarnos alguna observación adicional?
+-- Información: comenta si hay alguna otra observación adicional sobre un diagnóstico o características relevantes
+
+16. Autorización de Participación en Actividades
+- Lógica de Visualización: El sistema debe calcular la Edad del participante (calculada en el Paso 1).
+  - Si la Edad >= 18 años, mostrar el Texto Legal para Mayores de Edad.
+  - Si la Edad < 18 años, mostrar el Texto Legal para Menores de Edad.
+- Datos de la Actividad (Mostrar como texto de solo lectura en la cabecera, igual que en el documento físico)
+-- Nombre de la Actividad: (Precarga desde la actividad creada por el dirigente)
+-- Fechas de la Actividad: (Precarga desde la actividad creada)
+-- Lugar de la Actividad: (Precarga desde la actividad creada)
+- Texto Legal a Mostrar (Solo lectura, bloque de texto):
+-- Si es MAYOR de edad:
+   "Al firmar esta autorización, declaro que no he presentado en las últimas 48 horas signos o síntomas compatibles con enfermedades infecciosas o condiciones de salud que pudieran poner en riesgo mi bienestar o el de los demás durante la realización de la actividad. Asimismo, manifiesto que no tengo conocimiento de que me encuentre cursando alguna condición médica que me impida participar de manera segura. Entiendo y acepto que la organización de la actividad y/o la Asociación de Guías y Scout de Chile no será responsable por eventuales complicaciones de salud que pudieran derivarse de condiciones preexistentes y/o no informadas, siempre que estas no tengan relación directa con accidentes en la actividad desarrollada. Adicionalmente, declaro que he notificado a mi núcleo familiar, círculo cercano y/o las personas con las que vivo de las actividades que realizaré, el lugar donde se desarrollarán y las fechas de las mismas."
+-- Si es MENOR de edad:
+   "Al firmar esta autorización, declaro que el niño, niña o adolescente que represento no ha presentado en las últimas 48 horas signos o síntomas compatibles con enfermedades infecciosas o condiciones de salud que pudieran poner en riesgo su bienestar o el de los demás durante la realización de la actividad. Asimismo, manifiesto que no tengo conocimiento de que se encuentre cursando alguna condición médica que le impida participar de manera segura. Entiendo y acepto que la organización de la actividad y/o la Asociación de Guías y Scout de Chile no será responsable por eventuales complicaciones de salud que pudieran derivarse de condiciones preexistentes y/o no informadas, siempre que estas no tengan relación directa con accidentes en la actividad desarrollada."
+- Decisión de Participación y Tratamiento Médico (El único control interactivo de esta sección)
+-- Tipo: Radio
+-- Opciones: SI, NO
+-- Requisito: Obligatorio
+-- Pregunta (Si MAYOR de edad): "Autorizo a quien es responsable de la actividad para que, en caso de urgencia y bajo recomendación de un profesional médico, disponga el tratamiento o intervenciones quirúrgicas que fueran necesarias realizar."
+-- Pregunta (Si MENOR de edad): "Autorizo a quien es responsable de la actividad para que, en caso de urgencia y bajo recomendación de un profesional médico, disponga el tratamiento o intervenciones quirúrgicas que fueran necesarias realizar al niño, niña o adolescente que represento."
+-- Información: Seleccione SI para autorizar la participación y los tratamientos de urgencia bajo recomendación médica.
+
+- Fecha actual - poner automáticamente la fecha en que se esta haciendo la autorización (sólo lectura)
+-- Tipo: date
+-- Precarga: created_at en la tabla autorizaciones_actividad
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: Ninguno
+-- Pregunta: ¿Qué día es hoy?
+-- Información: Este valor es referencial para saber en que momento se esta firmando la autorización
+- Nombre del Apoderado
+-- Tipo: Input de texto
+-- Precarga: nombre del apoderado se carga desde la tabla perfiles, por apoderado_id usa nombres en la tabla
+-- En el Registro y Tabla Perfiles: No aplica
+-- Similar a: Paso 13 del registro
+-- Requisito: El usuario debe ser menor de edad
+-- Pregunta: ¿Cuál es el nombre del apoderado?
+-- Información: Indícanos el nombre de tu apoderado o tutor legar, que será quien firme esta autorización
+- Apellidos del Apoderado
+-- Tipo: Input de texto
+-- Precarga: apellidos del apoderado se carga desde la tabla perfiles, por apoderado_id usa los apellidos en la tabla
+-- En el Registro y Tabla Perfiles: No aplica
+-- Similar a: Paso 13 del registro
+-- Requisito: El usuario debe ser menor de edad
+-- Pregunta: ¿Cuáles son los apellidos del apoderado?
+-- Información: Indícanos el nombre de tu apoderado o tutor legar, que será quien firme esta autorización
+- RUT Apoderado - usa el mismo formato del rut en el registro, mascara y verificación 
+-- Tipo: Input de texto
+-- Precarga: rut en la tabla perfiles, tómalo basándote en apoderado_id usa el rut del apoderado_id relacionado
+-- En el Registro y Tabla Perfiles: No aplica
+-- Similar a: Ninguno
+-- Requisito: El usuario debe ser menor de edad
+-- Pregunta: ¿Cuál es el R.U.N. del apoderado?
+-- Información: Dinos el R.U.T. o R.U.N. del apoderado
+- Nombre del usuario
+-- Tipo: Input de texto
+-- Precarga: nombres en la tabla perfiles
+-- En el Registro y Tabla Perfiles: No aplica
+-- Similar a: Paso 3 del registro
+-- Requisito: Ninguno
+-- Pregunta: ¿Cuál es tu nombre?
+-- Información: dinos cuál es el nombre de la persona que asiste a la actividad
+- Apellidos del usuario
+-- Tipo: Input de texto
+-- Precarga: apellidos en la tabla perfiles
+-- En el Registro y Tabla Perfiles: No aplica
+-- Similar a: Paso 3 del registro
+-- Requisito: Ninguno
+-- Pregunta: ¿Cuáles son tus apellidos?
+-- Información: dinos cuáles son los apellidos de la persona que asiste a la actividad
+- RUT del usuario - usa el mismo formato del rut en el registro, mascara y verificación
+-- Tipo: Input de texto
+-- Precarga: rut en la tabla perfiles
+-- En el Registro y Tabla Perfiles: No aplica
+-- Similar a: Paso 4 del registro
+-- Requisito: Ninguno
+-- Pregunta: ¿Cuál es tú R.U.N.?
+-- Información: Escribe el R.U.T. o R.U.N., de la persona que asiste a la actividad
+
+
+17. Autorización de Uso de Imagen y Voz
+- Lógica de Visualización: Depende de la Edad calculada (>= 18 o < 18).
+- Fecha actual - poner automáticamente la fecha en que se esta haciendo la autorización (sólo lectura)
+-- Tipo: date
+-- Precarga: created_at en la tabla autorizaciones_actividad
+-- En el Registro y Tabla Perfiles: No
+-- Similar a: Ninguno
+-- Requisito: Ninguno
+-- Pregunta: ¿Qué día es hoy?
+-- Información: Este valor es referencial para saber en que momento se esta firmando la autorización
+- Nombre del Apoderado
+-- Tipo: Input de texto
+-- Precarga: nombre del apoderado se carga desde la tabla perfiles, por apoderado_id usa nombres en la tabla
+-- En el Registro y Tabla Perfiles: No aplica
+-- Similar a: Paso 13 del registro
+-- Requisito: El usuario debe ser menor de edad
+-- Pregunta: ¿Cuál es el nombre del apoderado?
+-- Información: Indícanos el nombre de tu apoderado o tutor legar, que será quien firme esta autorización
+- Apellidos del Apoderado
+-- Tipo: Input de texto
+-- Precarga: apellidos del apoderado se carga desde la tabla perfiles, por apoderado_id usa los apellidos en la tabla
+-- En el Registro y Tabla Perfiles: No aplica
+-- Similar a: Paso 13 del registro
+-- Requisito: El usuario debe ser menor de edad
+-- Pregunta: ¿Cuáles son los apellidos del apoderado?
+-- Información: Indícanos el nombre de tu apoderado o tutor legar, que será quien firme esta autorización
+- RUT Apoderado - usa el mismo formato del rut en el registro, mascara y verificación 
+-- Tipo: Input de texto
+-- Precarga: rut en la tabla perfiles, tómalo basándote en apoderado_id usa el rut del apoderado_id relacionado
+-- En el Registro y Tabla Perfiles: No aplica
+-- Similar a: Ninguno
+-- Requisito: El usuario debe ser menor de edad
+-- Pregunta: ¿Cuál es el R.U.N. del apoderado?
+-- Información: Dinos el R.U.T. o R.U.N. del apoderado
+- Nombre del usuario
+-- Tipo: Input de texto
+-- Precarga: nombres en la tabla perfiles
+-- En el Registro y Tabla Perfiles: No aplica
+-- Similar a: Paso 3 del registro
+-- Requisito: Ninguno
+-- Pregunta: ¿Cuál es tu nombre?
+-- Información: dinos cuál es el nombre de la persona que asiste a la actividad
+- Apellidos del usuario
+-- Tipo: Input de texto
+-- Precarga: apellidos en la tabla perfiles
+-- En el Registro y Tabla Perfiles: No aplica
+-- Similar a: Paso 3 del registro
+-- Requisito: Ninguno
+-- Pregunta: ¿Cuáles son tus apellidos?
+-- Información: dinos cuáles son los apellidos de la persona que asiste a la actividad
+- RUT del usuario - usa el mismo formato del rut en el registro, mascara y verificación
+-- Tipo: Input de texto
+-- Precarga: rut en la tabla perfiles
+-- En el Registro y Tabla Perfiles: No aplica
+-- Similar a: Paso 4 del registro
+-- Requisito: Ninguno
+-- Pregunta: ¿Cuál es tú R.U.N.?
+-- Información: Escribe el R.U.T. o R.U.N., de la persona que asiste a la actividad
+- Decisión de Uso de Imagen (El único control interactivo de esta sección)
+-- Tipo: Radio
+-- Opciones: SI, NO (valor por defecto "SI")
+-- Requisito: Obligatorio
+-- Pregunta (Si MAYOR de edad): "Con fecha {Valor "Fecha actual"}, Yo {Valor "Nombre del Usuario"} {Valor "Apellidos del Usuario"} RUN {Valor "RUT del usuario"} Autorizo voluntariamente a la Asociación de Guías y Scouts de Chile (AGSCh), a Guías y Scouts Nua Mana y a sus representantes, personas voluntarias y/o personal remunerado autorizados por esta, a capturar, difundir, reproducir y utilizar mi imagen y mi voz en fotografías, videos, grabaciones u otros medios visuales o sonoros."
+-- Pregunta (Si MENOR de edad): "Con fecha {Valor "Fecha actual"}, Yo {Valor "Nombre del Apoderado"} {Valor "Apellidos del Apoderado"} RUN {Valor "RUT Apoderado"} Apoderada, apoderado, tutor o tutora legal de {Valor "Nombre del Usuario"} {Valor "Apellidos del Usuario"} RUN {Valor "RUT del usuario"} Autorizo voluntariamente a la Asociación de Guías y Scouts de Chile (AGSCh), a Guías y Scouts Nua Mana y a sus representantes, personas voluntarias y/o personal remunerado autorizados por esta, a capturar, difundir, reproducir y utilizar la imagen y la voz del o de la menor de edad en fotografías, videos, grabaciones u otros medios visuales o sonoros."
+-- Información: Seleccione SI para autorizar el uso de imagen y voz bajo las condiciones descritas en el texto legal.
+- Texto Legal a Mostrar (Solo lectura, bloque de texto):
+-- Si es MAYOR de edad:
+   "Esto incluye el uso de mi imagen y voz para promover, difundir y documentar las actividades, eventos y programas de la AGSCh y Guías y Scouts Nua Mana. Mi imagen y voz podrán ser utilizadas en materiales informativos, educativos, promocionales, comerciales o para cualquier otro fin que la AGSCh y Guías y Scouts Nua Mana estime conveniente, sin limitación de tiempo o de territorios. Esto incluye, pero no se limita a, impresiones, publicaciones digitales, sitios web, redes sociales y otros medios o/y plataformas, actuales o futuros. Reconozco y acepto que la AGSCh y Guías y Scouts Nua Mana tiene el derecho de editar, modificar, adaptar y alterar el material audiovisual y gráfico de acuerdo con sus necesidades, respetando siempre los principios de moral y buenas costumbres. Entiendo que la AGSCh y Guías y Scouts Nua Mana pueden optar por no utilizar el material capturado o utilizar solo una parte de este, y que no tengo derecho a recibir compensación económica alguna por el uso de dicho material. Aunque la autorización es amplia, tengo el derecho de solicitar la eliminación de mi imagen y voz de futuros materiales mediante notificación escrita a quien corresponda en Guías y Scouts Nua Mana y la AGSCh (Nivel Grupal, Distrital, Zonal o Nacional), quien procederá a efectuar la eliminación en un plazo razonable. Declaro que he leído y comprendido en su totalidad el contenido de este documento y confirmo que soy mayor de edad con capacidad legal para otorgar esta autorización."
+-- Si es MENOR de edad:
+   "Esto incluye el uso de la imagen y la voz de la persona menor de edad para promover, difundir y documentar las actividades, eventos y programas de la AGSCh y Guías y Scouts Nua Mana. La imagen y voz podrán ser utilizadas en materiales informativos, educativos, promocionales, comerciales o para cualquier otro fin que la AGSCh y Guías y Scouts Nua Mana estime conveniente, sin limitación de tiempo o de territorios. Esto incluye, pero no se limita a, impresiones, publicaciones digitales, sitios web, redes sociales y otros medios o plataformas, actuales o futuros. Declaro que la o el menor de edad ha sido informado sobre esta autorización, que asiente y se encuentra de acuerdo con la utilización de su imagen y voz. Reconozco y acepto que la AGSCh y Guías y Scouts Nua Mana tiene el derecho de editar, modificar, adaptar y alterar el material audiovisual y gráfico de acuerdo con sus necesidades, respetando siempre los principios de moral y buenas costumbres. Entiendo que la AGSCh y Guías y Scouts Nua Mana puede optar por no utilizar el material capturado o utilizar solo una parte de este, y que no tengo derecho a recibir compensación económica alguna por el uso de dicho material. Aunque la autorización es amplia, tengo el derecho de solicitar la eliminación de la imagen y voz de la persona menor de edad de futuros materiales mediante notificación escrita a quien corresponda en Guías y Scouts Nua Mana y la AGSCh (Nivel Grupal, Distrital, Zonal o Nacional), quien procederá a efectuar la eliminación en un plazo razonable. Declaro que he leído y comprendido en su totalidad el contenido de este documento y confirmo que soy la tutora o el tutor legal, de la persona menor de edad mencionada, con la capacidad legal para otorgar esta autorización."
+
+18. Firma Digital
+- Firma del Responsable
+-- Tipo: Signature Pad (Canvas)
+-- Precarga: Nombre y RUN del firmante (Participante si Edad >= 18, Apoderado si Edad < 18)
+-- Requisito: Obligatorio
+-- Información: Esta firma es la aceptación legal de todo el documento de autorización (Ficha médica, Participación e Imagen).
+
+
+
+
+
+
+gemini --resume '2a7f6565-216e-4222-85e5-ff3b7f6610c7'

@@ -1,0 +1,14 @@
+{
+  "name": "nuamana-root-scripts",
+  "version": "1.0.0",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.97.0",
+    "dotenv": "^17.3.1",
+    "fast-xml-parser": "^5.3.8",
+    "xml2js": "^0.6.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.0",
+    "tailwindcss": "^4.3.0"
+  }
+}

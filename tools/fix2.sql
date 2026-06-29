@@ -1,0 +1,1 @@
+CREATE POLICY "Perfiles update policy" ON public.perfiles FOR UPDATE TO authenticated USING (auth.uid() = id OR get_my_rol() IN (1, 2, 3) OR apoderado_id = auth.uid() OR (get_my_rol() BETWEEN 2 AND 8 AND apoderado_id IS NULL)) WITH CHECK (auth.uid() = id OR get_my_rol() IN (1, 2, 3) OR apoderado_id = auth.uid());

@@ -1,0 +1,1 @@
+CREATE POLICY "Perfiles insert policy" ON public.perfiles FOR INSERT TO authenticated WITH CHECK (auth.uid() = id);

@@ -1,0 +1,172 @@
+@import "tailwindcss";
+@source "../**/*.{ts,tsx,js,jsx,mdx}";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --clr1: #FFFFFF; --clr2: #95a5a6; --clr3: #333333; --clr4: #1d1d1d; 
+  --clr5: #2c3e50; --clr6: #3eb34b; --clr7: #cb3327; --clr8: #ffc41d; 
+  --clr9: #f8f9fa; --clr10: #e9ecef;
+  
+  /* Colores oscuros personalizados */
+  --dclr1: #121212; --dclr2: #b0b0b0; --dclr3: #1e1e1e; --dclr4: #0a0a0a;
+  --dclr5: #1a2a3a; --dclr6: #2d8a3a; --dclr7: #a3281f; --dclr8: #e6b01a;
+
+  --background: var(--clr1);
+  --foreground: var(--clr4);
+}
+
+.dark {
+  --background: var(--clr4);
+  --foreground: var(--clr1);
+}
+
+@theme {
+  --color-clr1: var(--clr1); --color-clr2: var(--clr2); --color-clr3: var(--clr3); 
+  --color-clr4: var(--clr4); --color-clr5: var(--clr5); --color-clr6: var(--clr6); 
+  --color-clr7: var(--clr7); --color-clr8: var(--clr8); --color-clr9: var(--clr9); 
+  --color-clr10: var(--clr10); --color-dclr1: var(--dclr1); --color-dclr2: var(--dclr2); --color-dclr3: var(--dclr3); 
+  --color-dclr4: var(--dclr4); --color-dclr5: var(--dclr5); --color-dclr6: var(--dclr6); --color-dclr7: var(--dclr7); --color-dclr8: var(--dclr8);
+  
+  /* Vinculación de fuentes para Tailwind v4 */
+  --font-display: var(--font-inika);
+  --font-body: var(--font-quicksand);
+  --font-slab: var(--font-roboto-slab);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-quicksand), sans-serif;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: var(--font-inika), serif;
+}
+
+.font-body {
+  font-family: var(--font-quicksand), sans-serif;
+}
+
+.font-slab {
+  font-family: var(--font-roboto-slab), serif;
+}
+
+.font-inika {
+  font-family: var(--font-inika), serif;
+}
+
+.blog-content {
+  font-family: var(--font-quicksand), sans-serif;
+  line-height: 2;
+}
+
+.blog-content h1, .blog-content h2, .blog-content h3 { 
+  font-family: var(--font-roboto-slab), serif;
+  margin-bottom: 1em;
+}
+.blog-content p {
+  margin-bottom: 1em;
+}
+
+/* Soporte para SunEditor Alignment */
+.__se__float-left {
+  float: left;
+  margin-right: 2rem;
+  margin-bottom: 1.5rem;
+  max-width: 45%;
+}
+
+.__se__float-right {
+  float: right;
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
+  max-width: 45%;
+}
+
+.__se__float-center {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.btn-save {
+  background-color: var(--clr7) !important;
+  color: white !important;
+}
+
+/* Estilos para scrollbars institucionales */
+:root {
+  scrollbar-width: thin;
+  scrollbar-color: var(--clr7) var(--clr1);
+}
+
+.dark {
+  scrollbar-color: var(--clr7) var(--clr4);
+}
+
+/* For Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--clr1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--clr7);
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: var(--clr4);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--clr7);
+}
+
+/* Scrollbar para áreas específicas con fondo transparente opcional */
+.custom-scrollbar::-webkit-scrollbar { width: 6px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: var(--clr7); border-radius: 10px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: var(--clr6); }
+
+/* Scrollbar dinámico con color de la unidad */
+.unit-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb, var(--clr7)) transparent;
+}
+.unit-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.unit-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.unit-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb, var(--clr7));
+  border-radius: 10px;
+}
+.unit-scrollbar::-webkit-scrollbar-thumb:hover {
+  opacity: 0.8;
+}
+
+/* Clase para ocultar barra de scroll manteniendo funcionamiento de scroll */
+.scrollbar-none {
+  -ms-overflow-style: none;  /* IE y Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, Edge, Opera */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 1.5rem;
+}

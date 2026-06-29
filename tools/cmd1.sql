@@ -1,0 +1,1 @@
+DROP POLICY IF EXISTS "Actas insert policy" ON public.actas;

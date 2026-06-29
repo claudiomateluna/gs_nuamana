@@ -1,0 +1,32 @@
+# Local AI/agent runtime state
+.atl/
+sdd/
+_archive/
+
+# dependencies
+node_modules/
+**/node_modules/
+
+# next.js build output
+.next/
+**/.next/
+out/
+**/out/
+build/
+**/build/
+
+# env files (contains secrets)
+.env*
+**/.env*
+
+# debug logs
+*.log
+**/*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Supabase local temp files
+supabase/.branches/
+supabase/.temp/

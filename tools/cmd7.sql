@@ -1,0 +1,1 @@
+DROP POLICY IF EXISTS "Acuerdos insert policy" ON public.acta_acuerdos;

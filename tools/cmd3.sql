@@ -1,0 +1,1 @@
+CREATE POLICY "Actas insert policy" ON public.actas FOR INSERT TO authenticated WITH CHECK (puede_crear_tipo_acta(tipo));
