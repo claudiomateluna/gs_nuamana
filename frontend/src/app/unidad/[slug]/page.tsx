@@ -124,10 +124,17 @@ export default async function UnidadPage({ params }: PageProps) {
       <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
         {/* Background Flag */}
         <div className="absolute inset-0 z-0">
+          {/* Imagen 1: Object-cover con escala */}
+          <img 
+            src={unit.bandera_url || "/images/unidades/bandera_manada.jpg"} 
+            alt=""
+            className="w-full h-full object-cover scale-150 md:scale-105 object-top md:object-center" 
+          />
+          {/* Imagen 2: Object-contain en móvil para mostrar la bandera completa sin recortes */}
           <img 
             src={unit.bandera_url || "/images/unidades/bandera_manada.jpg"} 
             alt={`Bandera de ${unit.nombre}`}
-            className="w-full h-full object-cover scale-150 md:scale-105 object-top md:object-center" 
+            className="absolute inset-0 w-full h-full object-contain md:hidden" 
           />
           <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/50 via-zinc-950/70 to-zinc-50 dark:to-clr4 transition-colors duration-300" />
         </div>
