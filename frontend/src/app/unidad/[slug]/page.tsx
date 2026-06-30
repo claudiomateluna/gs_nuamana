@@ -50,7 +50,7 @@ function getUnitIdBySlug(slug: string): number | null {
 }
 
 const detailedDescriptions: { [key: number]: string } = {
-  1: "La Manada de Lobatos es la primera etapa del camino scout. Aquí, niños y niñas de 7 a 11 años viven la fantasía del 'Libro de las Tierras Vírgenes' (Mowgli). Aprenden a convivir en el Pueblo Libre, guiados por Akela, Baloo y Bagheera, bajo el lema 'Siempre Mejor'. A través de juegos, talleres y el contacto con la naturaleza, los lobatos desarrollan su carácter, afectividad y sociabilidad, aprendiendo el valor de la buena acción diaria.",
+  1: "La Manada de Lobatos es la primera etapa del camino scout. Aquí, niños y niñas de 7 a 11 años viven la fantasía del 'Libro de las Tierras Vírgenes' (Mowgli). Aprenden a convivir en el Pueblo Libre, guiados por Akela, Baloo y Bagheera, bajo el lema 'Siempre Mejor'. A través de juegos, talleres y el contacto con la naturaleza, los lobatos desarrollan su carácter, afectividad and sociabilidad, aprendiendo el valor de la buena acción diaria.",
   2: "La Compañía de Guías reúne a jóvenes de 11 a 15 años que se organizan en Patrullas para vivir grandes aventuras al aire libre. Guiadas por el espíritu del Escultismo, desarrollan su autonomía, liderazgo y trabajo en equipo, preparándose para ser ciudadanas activas bajo el lema 'Siempre Listas'. El sistema de patrulla les permite asumir responsabilidades reales, tomar decisiones democráticas y planificar sus propias excursiones y proyectos.",
   3: "La Tropa de Scouts es el espacio para jóvenes de 11 a 15 años donde la vida en patrulla cobra todo su sentido. A través de campamentos, excursiones, técnicas de supervivencia y especialidades, cada scout descubre su potencial y se compromete a dejar el mundo en mejores condiciones de cómo lo encontró, bajo el lema 'Siempre Listos'. La vida al aire libre es su principal aula, donde aprenden civismo, cabuyería, orientación y primeros auxilios.",
   4: "La Avanzada de Pioneros reúne a jóvenes de 15 a 17 años en la Comunidad de Pioneros. Es una etapa de grandes desafíos, proyectos colectivos ('Aventuras') y exploración de competencias. Los pioneros definen su propio rumbo, debaten ideas y construyen su identidad bajo el lema 'Siempre Adelante'. En esta unidad, las especialidades tradicionales se transforman en Competencias en 7 rumbos clave, impulsando el liderazgo juvenil y la participación comunitaria.",
@@ -70,6 +70,10 @@ export default async function UnidadPage({ params }: PageProps) {
     .single()
 
   if (!unit) return notFound()
+
+  // Parsear colores de la unidad
+  const colors = (typeof unit.colores === 'string' ? JSON.parse(unit.colores) : unit.colores) || { primario: '#cb3327', secundario: '#1b1b1b' }
+  const primario = colors.primario || '#cb3327'
 
   // 2. Obtener categorías para resolver las rutas jerárquicas del blog
   const { data: allCats } = await supabase.from('categorias').select('*')
@@ -131,7 +135,10 @@ export default async function UnidadPage({ params }: PageProps) {
         <div className="relative z-10 max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-8 items-center text-white w-full">
           {/* Columna 1: Logo de la Unidad */}
           <div className="md:col-span-4 flex justify-center">
-            <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-white/10 backdrop-blur-md border-4 border-white/20 p-6 shadow-2xl flex items-center justify-center transform hover:rotate-6 transition-transform duration-500">
+            <div 
+              className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-white/10 backdrop-blur-md border-4 p-6 shadow-2xl flex items-center justify-center transform hover:rotate-6 transition-transform duration-500"
+              style={{ borderColor: primario }}
+            >
               <img 
                 src={unit.logo_unidad_url || "/images/logos/LogoColor.svg"} 
                 alt={`Logo de ${unit.nombre}`}
@@ -142,16 +149,14 @@ export default async function UnidadPage({ params }: PageProps) {
 
           {/* Columna 2: Nombre y Descripción Corta */}
           <div className="md:col-span-8 text-center md:text-left space-y-4">
-            <span className="text-[0.9em] font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full inline-block bg-white/15 backdrop-blur-sm border border-white/10" style={{ color: unit.colores || '#cb3327' }}>
-              Unidad del Grupo
-            </span>
-            <h1 className="text-[3.5em] md:text-[5.5em] font-black uppercase tracking-tighter leading-none text-white drop-shadow-lg">
+            <span 
+              className="text-[1.1em] font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full inline-block bg-white/15 backdrop-blur-sm border border-white/10 shadow-sm"
+              style={{ color: primario }}
+            >
               {unit.nombre}
-              {unit.nombre_unidad && (
-                <span className="block text-[0.4em] font-semibold tracking-normal text-zinc-200 capitalize mt-3 font-body">
-                  "{unit.nombre_unidad}"
-                </span>
-              )}
+            </span>
+            <h1 className="text-[3.5em] md:text-[5.5em] font-black uppercase tracking-tighter leading-none text-white drop-shadow-lg font-inika">
+              {unit.nombre_unidad || unit.nombre}
             </h1>
             <p className="text-[1.25em] md:text-[1.75em] font-bold text-zinc-100 leading-relaxed max-w-2xl drop-shadow">
               {unit.descripcion}
@@ -165,7 +170,7 @@ export default async function UnidadPage({ params }: PageProps) {
         <div className="max-w-5xl mx-auto px-6 space-y-20">
           {/* Descripción Detallada */}
           <div className="space-y-6">
-            <h2 className="text-[2em] font-black uppercase tracking-tight" style={{ color: unit.colores || '#cb3327' }}>
+            <h2 className="text-[2em] font-black uppercase tracking-tight" style={{ color: primario }}>
               Nuestra Propuesta Pedagógica
             </h2>
             <p className="text-[1.15em] text-zinc-700 dark:text-zinc-300 leading-relaxed whitespace-pre-line font-medium">
@@ -180,7 +185,7 @@ export default async function UnidadPage({ params }: PageProps) {
                 Actividades y Vida en la Unidad
               </h2>
               <p className="text-[0.9em] text-zinc-500 dark:text-zinc-400 font-medium">
-                Explora las bitácoras, dinámicas e historias de la {unit.nombre}.
+                Explora las bitácoras, dinámicas e historias de la {unit.nombre_unidad || unit.nombre}.
               </p>
             </div>
 
@@ -197,7 +202,8 @@ export default async function UnidadPage({ params }: PageProps) {
                     <a 
                       key={art.id} 
                       href={`/blog/${art.path}`}
-                      className="group rounded-3xl bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/5 hover:border-zinc-300 dark:hover:border-white/10 overflow-hidden shadow-sm hover:shadow-xl hover:scale-[1.01] transition-all flex flex-col justify-between"
+                      className="group rounded-3xl bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/5 hover:border-zinc-300 dark:hover:border-white/10 overflow-hidden shadow-sm hover:shadow-xl hover:scale-[1.01] transition-all flex flex-col justify-between border-l-[6px]"
+                      style={{ borderLeftColor: primario }}
                     >
                       <div>
                         <div className="h-48 w-full overflow-hidden relative">
@@ -217,7 +223,10 @@ export default async function UnidadPage({ params }: PageProps) {
                         </div>
                       </div>
                       <div className="p-5 pt-0 flex justify-end">
-                        <span className="text-[0.8em] font-bold uppercase tracking-wider group-hover:translate-x-1 transition-transform" style={{ color: unit.colores || '#cb3327' }}>
+                        <span 
+                          className="text-[0.8em] font-bold uppercase tracking-wider group-hover:translate-x-1 transition-transform" 
+                          style={{ color: primario }}
+                        >
                           Leer Más →
                         </span>
                       </div>
