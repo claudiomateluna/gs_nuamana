@@ -120,46 +120,24 @@ export default async function UnidadPage({ params }: PageProps) {
     <div className="bg-zinc-50 dark:bg-clr4 text-zinc-900 dark:text-zinc-100 min-h-screen flex flex-col transition-colors duration-300">
       <Header />
       
-      {/* Sección Hero / Bandera Full-Screen en desktop, adaptada en móvil */}
-      <section className="relative w-full min-h-[90vh] md:h-screen flex items-center justify-center overflow-hidden bg-zinc-950 pt-20 md:pt-0">
-        {/* Background Ambient Glow (Blurred Flag) */}
+      {/* Sección Hero / Bandera Full-Screen */}
+      <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Flag */}
         <div className="absolute inset-0 z-0">
           <img 
             src={unit.bandera_url || "/images/unidades/bandera_manada.jpg"} 
-            alt=""
-            className="w-full h-full object-cover scale-110 blur-3xl opacity-40 dark:opacity-30" 
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/40 via-zinc-950/70 to-zinc-50 dark:to-clr4 transition-colors duration-300" />
-        </div>
-
-        {/* Desktop Background: Clean Cover */}
-        <div className="absolute inset-0 z-0 hidden md:block">
-          <img 
-            src={unit.bandera_url || "/images/unidades/bandera_manada.jpg"} 
             alt={`Bandera de ${unit.nombre}`}
-            className="w-full h-full object-cover scale-105" 
+            className="w-full h-full object-cover scale-150  md:scale-105" 
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/50 via-zinc-950/70 to-zinc-50 dark:to-clr4 transition-colors duration-300" />
+          <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/30 via-zinc-950/70 to-zinc-50 dark:to-clr4 transition-colors duration-300" />
         </div>
 
-        {/* Mobile Background Card: Muestra la bandera en una proporción ideal (landscape) para no perder su ancho */}
-        <div className="absolute inset-x-0 top-24 z-0 md:hidden flex justify-center px-6">
-          <div className="w-full aspect-[16/10] relative rounded-3xl overflow-hidden shadow-2xl border border-white/10">
-            <img 
-              src={unit.bandera_url || "/images/unidades/bandera_manada.jpg"} 
-              alt={`Bandera de ${unit.nombre}`}
-              className="w-full h-full object-cover" 
-            />
-            <div className="absolute inset-0 bg-black/20" />
-          </div>
-        </div>
-
-        {/* Contenido principal */}
-        <div className="relative z-10 max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-8 items-center text-white w-full py-12 md:py-0">
+        {/* Contenido en 2 Columnas */}
+        <div className="relative z-10 max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-8 items-center text-white w-full">
           {/* Columna 1: Logo de la Unidad */}
-          <div className="md:col-span-4 flex justify-center mt-[25vh] md:mt-0">
+          <div className="md:col-span-4 flex justify-center">
             <div 
-              className="w-36 h-36 md:w-64 md:h-64 rounded-full bg-white/15 backdrop-blur-md border-4 p-5 shadow-2xl flex items-center justify-center transform hover:rotate-6 transition-transform duration-500"
+              className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-white/10 backdrop-blur-md border-4 p-6 shadow-2xl flex items-center justify-center transform hover:rotate-6 transition-transform duration-500"
               style={{ borderColor: primario }}
             >
               <img 
@@ -173,19 +151,24 @@ export default async function UnidadPage({ params }: PageProps) {
           {/* Columna 2: Nombre y Descripción Corta */}
           <div className="md:col-span-8 text-center md:text-left space-y-4">
             <span 
-              className="text-[1em] font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full inline-block backdrop-blur-sm border shadow-sm"
+              className="text-[1.1em] font-bold uppercase tracking-widest px-4 py-1 rounded-full inline-block backdrop-blur-sm border border-2 shadow-sm mb-[-2px]"
               style={{ 
                 color: primario, 
-                backgroundColor: `${secundario}20`,
-                borderColor: `${secundario}40`
+                backgroundColor: secundario,
+                borderColor: `${secundario}80`
               }}
             >
               {unit.nombre}
             </span>
-            <h1 className="text-[3em] md:text-[5.5em] font-black uppercase tracking-tighter leading-none text-white drop-shadow-lg font-inika">
+            <h1 className="text-[2.5em] md:text-[4.5em] font-bold px-4 py-0.1 rounded-[1em] uppercase tracking-tighter leading-none text-white drop-shadow-lg font-inika"
+              style={{ 
+                color: secundario,
+                backgroundColor: primario,
+              }}
+            >
               {unit.nombre_unidad || unit.nombre}
             </h1>
-            <p className="text-[1.2em] md:text-[1.75em] font-bold text-zinc-150 dark:text-zinc-200 leading-relaxed max-w-2xl drop-shadow">
+            <p className="text-[1em] md:text-[1.25em] text-center md:text-right font-bold text-zinc-100 leading-relaxed max-w-2xl drop-shadow">
               {unit.descripcion}
             </p>
           </div>
