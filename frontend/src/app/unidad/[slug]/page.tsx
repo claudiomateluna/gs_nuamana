@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!unit) return {}
 
   return {
-    title: `${unit.nombre} - Guías y Scouts Nua Mana`,
+    title: `${unit.nombre} ${unit.nombre_unidad ? `"${unit.nombre_unidad}"` : ''} - Guías y Scouts Nua Mana`,
     description: `${unit.descripcion}. Conoce más sobre la propuesta pedagógica, actividades y desafíos de la unidad.`,
   }
 }
@@ -71,14 +71,24 @@ export default async function UnidadPage({ params }: PageProps) {
 
   if (!unit) return notFound()
 
-  // 2. Obtener artículos del blog
+  // 2. Obtener categorías para resolver las rutas jerárquicas del blog
+  const { data: allCats } = await supabase.from('categorias').select('*')
+  const cats = allCats || []
+
+  const buildCatPathSlugs = (catId: number): string[] => {
+    const cat = cats.find(c => c.id === catId)
+    if (!cat) return []
+    return cat.parent_id ? [...buildCatPathSlugs(cat.parent_id), cat.slug] : [cat.slug]
+  }
+
+  // 3. Obtener artículos del blog con sus categorías vinculadas
   const { data: articles } = await supabase
     .from('articulos')
-    .select('*')
+    .select('*, articulo_categorias(categoria_id, categorias(id, nombre, slug, parent_id))')
     .eq('estado', 'publicado')
     .order('created_at', { ascending: false })
 
-  // 3. Filtrar en memoria por la unidad especificada en el array metadata->unidades
+  // 4. Filtrar en memoria por la unidad especificada en el array metadata->unidades
   const slugQuery = slug === 'compania' ? 'compania' : slug
   const filteredArticles = articles?.filter(art => {
     const unidades = art.metadata?.unidades
@@ -92,8 +102,17 @@ export default async function UnidadPage({ params }: PageProps) {
     return false
   }).slice(0, 6) || []
 
+  // 5. Procesar las URLs de los artículos utilizando la lógica jerárquica del blog
+  const processedArticles = filteredArticles.map(post => {
+    const linkedCats = post.articulo_categorias?.map((ac: any) => ac.categorias).filter(Boolean) || []
+    const sortedCats = [...linkedCats].sort((a, b) => buildCatPathSlugs(b.id).length - buildCatPathSlugs(a.id).length)
+    const mainCat = sortedCats[0]
+    const path = mainCat ? `${buildCatPathSlugs(mainCat.id).join('/')}/${post.slug}` : `general/${post.slug}`
+    return { ...post, path }
+  })
+
   return (
-    <div className="bg-zinc-950 min-h-screen flex flex-col">
+    <div className="bg-zinc-50 dark:bg-clr4 text-zinc-900 dark:text-zinc-100 min-h-screen flex flex-col transition-colors duration-300">
       <Header />
       
       {/* Sección Hero / Bandera Full-Screen */}
@@ -105,7 +124,7 @@ export default async function UnidadPage({ params }: PageProps) {
             alt={`Bandera de ${unit.nombre}`}
             className="w-full h-full object-cover scale-105" 
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/40 via-zinc-950/70 to-zinc-950" />
+          <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/50 via-zinc-950/70 to-zinc-50 dark:to-clr4 transition-colors duration-300" />
         </div>
 
         {/* Contenido en 2 Columnas */}
@@ -128,8 +147,13 @@ export default async function UnidadPage({ params }: PageProps) {
             </span>
             <h1 className="text-[3.5em] md:text-[5.5em] font-black uppercase tracking-tighter leading-none text-white drop-shadow-lg">
               {unit.nombre}
+              {unit.nombre_unidad && (
+                <span className="block text-[0.4em] font-semibold tracking-normal text-zinc-200 capitalize mt-3 font-body">
+                  "{unit.nombre_unidad}"
+                </span>
+              )}
             </h1>
-            <p className="text-[1.25em] md:text-[1.75em] font-bold text-zinc-200 leading-relaxed max-w-2xl drop-shadow">
+            <p className="text-[1.25em] md:text-[1.75em] font-bold text-zinc-100 leading-relaxed max-w-2xl drop-shadow">
               {unit.descripcion}
             </p>
           </div>
@@ -137,43 +161,43 @@ export default async function UnidadPage({ params }: PageProps) {
       </section>
 
       {/* Sección Fuera del Full-Screen */}
-      <section className="bg-zinc-950 text-zinc-100 py-20 relative z-10 border-t border-white/5">
+      <section className="py-20 relative z-10 border-t border-zinc-200 dark:border-white/5 bg-zinc-50 dark:bg-clr4 transition-colors duration-300">
         <div className="max-w-5xl mx-auto px-6 space-y-20">
           {/* Descripción Detallada */}
           <div className="space-y-6">
             <h2 className="text-[2em] font-black uppercase tracking-tight" style={{ color: unit.colores || '#cb3327' }}>
               Nuestra Propuesta Pedagógica
             </h2>
-            <p className="text-[1.1em] text-zinc-300 leading-relaxed whitespace-pre-line font-medium">
+            <p className="text-[1.15em] text-zinc-700 dark:text-zinc-300 leading-relaxed whitespace-pre-line font-medium">
               {detailedDescriptions[unit.id]}
             </p>
           </div>
 
           {/* Muestra de Actividades (Artículos) */}
           <div className="space-y-8">
-            <div className="border-b border-white/10 pb-4">
-              <h2 className="text-[2em] font-black uppercase tracking-tight text-white">
+            <div className="border-b border-zinc-200 dark:border-white/10 pb-4">
+              <h2 className="text-[2em] font-black uppercase tracking-tight text-zinc-900 dark:text-white">
                 Actividades y Vida en la Unidad
               </h2>
-              <p className="text-[0.9em] text-zinc-400 font-medium">
+              <p className="text-[0.9em] text-zinc-500 dark:text-zinc-400 font-medium">
                 Explora las bitácoras, dinámicas e historias de la {unit.nombre}.
               </p>
             </div>
 
-            {filteredArticles.length === 0 ? (
-              <div className="p-8 rounded-3xl bg-white/5 border border-white/5 text-center">
+            {processedArticles.length === 0 ? (
+              <div className="p-12 rounded-3xl bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/5 text-center">
                 <span className="text-4xl mb-2 block">🎒</span>
-                <p className="text-zinc-400 font-bold">Aún no hay actividades publicadas para esta unidad.</p>
+                <p className="text-zinc-500 dark:text-zinc-400 font-bold">Aún no hay actividades publicadas para esta unidad.</p>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredArticles.map(art => {
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {processedArticles.map(art => {
                   const imgUrl = art.metadata?.imagen_destacada_url || "/images/especialidades/generico.svg"
                   return (
                     <a 
                       key={art.id} 
-                      href={`/blog/${art.slug}`}
-                      className="group rounded-3xl bg-white/5 border border-white/5 hover:border-white/10 overflow-hidden shadow-lg hover:shadow-2xl hover:scale-[1.01] transition-all flex flex-col justify-between"
+                      href={`/blog/${art.path}`}
+                      className="group rounded-3xl bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/5 hover:border-zinc-300 dark:hover:border-white/10 overflow-hidden shadow-sm hover:shadow-xl hover:scale-[1.01] transition-all flex flex-col justify-between"
                     >
                       <div>
                         <div className="h-48 w-full overflow-hidden relative">
@@ -184,10 +208,10 @@ export default async function UnidadPage({ params }: PageProps) {
                           />
                         </div>
                         <div className="p-5 space-y-3">
-                          <h4 className="font-bold text-[1.25em] text-white group-hover:text-zinc-300 line-clamp-2 leading-tight uppercase">
+                          <h4 className="font-bold text-[1.25em] text-zinc-900 dark:text-white group-hover:text-zinc-650 dark:group-hover:text-zinc-300 line-clamp-2 leading-tight uppercase">
                             {art.titulo}
                           </h4>
-                          <p className="text-[0.9em] text-zinc-400 line-clamp-3 leading-relaxed">
+                          <p className="text-[0.95em] text-zinc-650 dark:text-zinc-400 line-clamp-3 leading-relaxed font-body italic">
                             {art.extracto || "Sin descripción disponible."}
                           </p>
                         </div>

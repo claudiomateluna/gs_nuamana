@@ -39,7 +39,7 @@ interface SidebarDrawerProps {
 
 const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
   const router = useRouter();
-  const [currentView, setCurrentView] = useState<'main' | 'acerca-de' | 'lo-que-hacemos'>('main');
+  const [currentView, setCurrentView] = useState<'main' | 'acerca-de' | 'lo-que-hacemos' | 'unidades'>('main');
   const [user, setUser] = useState<any>(null);
 
   useEffect(() => {
@@ -140,6 +140,14 @@ const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
                   </div>
                   <span className="font-bold text-clr5 dark:text-clr1 group-hover:text-clr7">Bitácora Scout</span>
                 </button>
+                <button onClick={() => setCurrentView('unidades')} className="flex items-center w-full p-3 rounded-2xl hover:bg-clr7/5 transition-all group">
+                  <div className="w-8 h-8 mr-4 flex items-center justify-center bg-clr7 rounded-lg text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  <span className="font-bold text-clr5 dark:text-clr1 group-hover:text-clr7">Nuestras Unidades</span>
+                </button>
               </nav>
             )}
 
@@ -161,6 +169,24 @@ const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
                 {loQueHacemosItems.map((item, i) => (
                   <button key={i} onClick={() => { item.action(); onClose(); }} className="flex items-center w-full p-3 rounded-2xl hover:bg-clr7/5 transition-all group">
                     {React.createElement(item.icon, { className: "w-8 h-8 mr-4 text-clr7" })}
+                    <span className="font-bold text-clr5 dark:text-clr1 group-hover:text-clr7">{item.title}</span>
+                  </button>
+                ))}
+              </nav>
+            )}
+
+            {currentView === 'unidades' && (
+              <nav className="space-y-1">
+                <h3 className="px-3 mb-4 text-[0.8em] font-black uppercase tracking-widest text-clr2">Nuestras Unidades</h3>
+                {[
+                  { title: "Manada (Ahi Niho Vænga)", slug: "manada", icon: "/images/logos/iconos_lobatos.svg" },
+                  { title: "Compañía (Põ Vui Vaikava)", slug: "compania", icon: "/images/logos/iconos_guias.svg" },
+                  { title: "Tropa (A'ata)", slug: "tropa", icon: "/images/logos/iconos_scouts.svg" },
+                  { title: "Avanzada (Rapahango)", slug: "avanzada", icon: "/images/logos/iconos_pioneres.svg" },
+                  { title: "Clan (Ahu Akivi)", slug: "clan", icon: "/images/logos/iconos_caminantes.svg" }
+                ].map((item, i) => (
+                  <button key={i} onClick={() => { router.push(`/unidad/${item.slug}`); onClose(); }} className="flex items-center w-full p-3 rounded-2xl hover:bg-clr7/5 transition-all group">
+                    <img src={item.icon} alt="" className="w-8 h-8 mr-4 object-contain" />
                     <span className="font-bold text-clr5 dark:text-clr1 group-hover:text-clr7">{item.title}</span>
                   </button>
                 ))}
