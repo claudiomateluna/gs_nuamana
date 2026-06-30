@@ -121,26 +121,20 @@ export default async function UnidadPage({ params }: PageProps) {
       <Header />
       
       {/* Sección Hero / Bandera Full-Screen */}
-      <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative w-full h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
         {/* Background Flag */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-cover bg-bottom bg-no-repeat transition-all duration-1000" style={{ backgroundImage: `url('/images/unidades/blur.jpg')` }}>
           {/* Imagen 1: Object-cover con escala */}
           <img 
             src={unit.bandera_url || "/images/unidades/bandera_manada.jpg"} 
-            alt=""
-            className="w-full h-full object-cover scale-150 md:scale-105 object-top md:object-center" 
-          />
-          {/* Imagen 2: Object-contain en móvil para mostrar la bandera completa sin recortes */}
-          <img 
-            src={unit.bandera_url || "/images/unidades/bandera_manada.jpg"} 
             alt={`Bandera de ${unit.nombre}`}
-            className="absolute inset-0 w-full h-full object-contain md:hidden" 
+            className="w-full h-full object-cover scale-140 md:scale-105 object-top md:object-center z-2" 
           />
           <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/50 via-zinc-950/70 to-zinc-50 dark:to-clr4 transition-colors duration-300" />
         </div>
 
         {/* Contenido en 2 Columnas */}
-        <div className="relative z-10 max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-8 items-center text-white w-full">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-8 items-center text-white w-full pt-28 pb-12 md:py-0">
           {/* Columna 1: Logo de la Unidad */}
           <div className="md:col-span-4 flex justify-center">
             <div 
