@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Header from '@/components/Header'
 import { supabase } from '@/lib/supabase'
+import ClanCustomContent from '@/components/unidades/clan'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -124,7 +125,7 @@ export default async function UnidadPage({ params }: PageProps) {
       <section className="relative w-full h-screen min-h-[700px] overflow-hidden bg-clr5">
         {/* Fondo Base (Igual al inicio) */}
         <div 
-          className="absolute inset-0 bg-cover bg-bottom bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-bottom bg-no-repeat blur-xs"
           style={{ backgroundImage: "url('/images/inicio/fondo.webp')" }}
         />
 
@@ -136,7 +137,7 @@ export default async function UnidadPage({ params }: PageProps) {
         />
 
         {/* Gradiente y Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/50 via-zinc-950/70 to-zinc-50 dark:to-clr4 transition-colors duration-300 z-2" />
+        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/30 via-zinc-950/50 to-zinc-50/90 dark:to-clr4 transition-colors duration-300 z-2" />
 
         {/* Contenido centrado absolutamente */}
         <div className="absolute inset-0 flex items-center justify-center z-10">
@@ -188,25 +189,32 @@ export default async function UnidadPage({ params }: PageProps) {
         <div className="max-w-5xl mx-auto px-6 space-y-20">
           {/* Descripción Detallada */}
           <div className="space-y-6">
+            <div className="p-1 rounded-[1rem] shadow-sm hover:shadow-xl" style={{ backgroundColor: secundario }}>
             <h2 className="text-[2em] font-black uppercase tracking-tight flex items-center gap-3">
-              <span className="w-2.5 h-8 rounded-full inline-block" style={{ backgroundColor: secundario }} />
-              <span style={{ color: primario }}>Nuestra Propuesta Pedagógica</span>
+              <span className="w-2.5 h-8 rounded-full inline-block" style={{ backgroundColor: primario }} />
+              <span style={{ color: primario }}>Nuestra {unit.nombre} </span>
             </h2>
-            <p className="text-[1.15em] text-zinc-700 dark:text-zinc-300 leading-relaxed whitespace-pre-line font-medium">
-              {detailedDescriptions[unit.id]}
-            </p>
+            </div>
+            {slug === 'clan' ? (
+              <ClanCustomContent />
+            ) : (
+              <p className="text-[1.15em] text-zinc-700 dark:text-zinc-300 leading-relaxed whitespace-pre-line font-medium">
+                {detailedDescriptions[unit.id]}
+              </p>
+            )}
           </div>
 
           {/* Muestra de Actividades (Artículos) */}
           <div className="space-y-8">
-            <div className="border-b border-zinc-200 dark:border-white/10 pb-4 flex items-center gap-3">
-              <span className="w-2.5 h-8 rounded-full inline-block" style={{ backgroundColor: primario }} />
+            <div className="p-1 rounded-[1rem] shadow-sm border-b border-zinc-200 dark:border-white/10 flex items-center gap-3" style={{ backgroundColor: primario }}>
+              <span className="w-2.5 h-8 rounded-full inline-block" style={{ backgroundColor: secundario }} />
               <div>
-                <h2 className="text-[2em] font-black uppercase tracking-tight text-zinc-900 dark:text-white leading-none">
-                  Actividades y Vida en la Unidad
+                <h2 className="text-[2em] font-black uppercase tracking-tight text-zinc-900 dark:text-white leading-none"
+                  style={{ color: secundario }}>
+                  Actividades y Vida en la {unit.nombre}
                 </h2>
-                <p className="text-[0.9em] text-zinc-500 dark:text-zinc-400 font-medium mt-1">
-                  Explora las bitácoras, dinámicas e historias de la {unit.nombre_unidad || unit.nombre}.
+                <p className="text-[0.9em] text-zinc-500 dark:text-zinc-400 font-medium mt-1"style={{ color: secundario }}>
+                  Explora las bitácoras, dinámicas e historias de la {unit.nombre} {unit.nombre_unidad || unit.nombre}.
                 </p>
               </div>
             </div>
@@ -246,8 +254,8 @@ export default async function UnidadPage({ params }: PageProps) {
                       </div>
                       <div className="p-5 pt-0 flex justify-end">
                         <span 
-                          className="text-[0.8em] font-bold uppercase tracking-wider group-hover:translate-x-1 transition-transform duration-300" 
-                          style={{ color: secundario }}
+                          className="text-[0.8em] p-1 rounded-full font-bold uppercase tracking-wider group-hover:translate-x-1 transition-transform duration-300" 
+                          style={{ backgroundColor: primario, color: secundario }}
                         >
                           Leer Más →
                         </span>
