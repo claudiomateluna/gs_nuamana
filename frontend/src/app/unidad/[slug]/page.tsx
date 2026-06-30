@@ -121,57 +121,64 @@ export default async function UnidadPage({ params }: PageProps) {
       <Header />
       
       {/* Sección Hero / Bandera Full-Screen */}
-      <section className="relative w-full h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
-        {/* Background Flag */}
-        <div className="absolute inset-0 bg-cover bg-bottom bg-no-repeat transition-all duration-1000" style={{ backgroundImage: `url('/images/unidades/blur.jpg')` }}>
-          {/* Imagen 1: Object-cover con escala */}
-          <img 
-            src={unit.bandera_url || "/images/unidades/bandera_manada.jpg"} 
-            alt={`Bandera de ${unit.nombre}`}
-            className="w-full h-full object-cover scale-140 md:scale-105 object-top md:object-center z-2" 
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/50 via-zinc-950/70 to-zinc-50 dark:to-clr4 transition-colors duration-300" />
-        </div>
+      <section className="relative w-full h-screen min-h-[700px] overflow-hidden bg-clr5">
+        {/* Fondo Base (Igual al inicio) */}
+        <div 
+          className="absolute inset-0 bg-cover bg-bottom bg-no-repeat"
+          style={{ backgroundImage: "url('/images/inicio/fondo.webp')" }}
+        />
 
-        {/* Contenido en 2 Columnas */}
-        <div className="relative z-10 max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-8 items-center text-white w-full pt-28 pb-12 md:py-0">
-          {/* Columna 1: Logo de la Unidad */}
-          <div className="md:col-span-4 flex justify-center">
-            <div 
-              className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-white/10 backdrop-blur-md border-4 p-6 shadow-2xl flex items-center justify-center transform hover:rotate-6 transition-transform duration-500"
-              style={{ borderColor: primario }}
-            >
-              <img 
-                src={unit.logo_unidad_url || "/images/logos/LogoColor.svg"} 
-                alt={`Logo de ${unit.nombre}`}
-                className="w-full h-full object-contain filter drop-shadow-xl" 
-              />
+        {/* Imagen de la Bandera encima del fondo */}
+        <img 
+          src={unit.bandera_url || "/images/unidades/bandera_manada.jpg"} 
+          alt={`Bandera de ${unit.nombre}`}
+          className="absolute inset-0 w-full h-full object-cover scale-140 md:scale-105 object-top md:object-center z-1" 
+        />
+
+        {/* Gradiente y Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/50 via-zinc-950/70 to-zinc-50 dark:to-clr4 transition-colors duration-300 z-2" />
+
+        {/* Contenido centrado absolutamente */}
+        <div className="absolute inset-0 flex items-center justify-center z-10">
+          <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-8 items-center text-white w-full">
+            {/* Columna 1: Logo de la Unidad */}
+            <div className="md:col-span-4 flex justify-center">
+              <div 
+                className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-white/10 backdrop-blur-md border-4 p-6 shadow-2xl flex items-center justify-center transform hover:rotate-6 transition-transform duration-500"
+                style={{ borderColor: primario }}
+              >
+                <img 
+                  src={unit.logo_unidad_url || "/images/logos/LogoColor.svg"} 
+                  alt={`Logo de ${unit.nombre}`}
+                  className="w-full h-full object-contain filter drop-shadow-xl" 
+                />
+              </div>
             </div>
-          </div>
 
-          {/* Columna 2: Nombre y Descripción Corta */}
-          <div className="md:col-span-8 text-center md:text-left space-y-4">
-            <span 
-              className="text-[1.1em] font-bold uppercase tracking-widest px-4 py-1 rounded-full inline-block backdrop-blur-sm border border-2 shadow-sm mb-[-2px]"
-              style={{ 
-                color: primario, 
-                backgroundColor: secundario,
-                borderColor: `${secundario}80`
-              }}
-            >
-              {unit.nombre}
-            </span>
-            <h1 className="text-[2.5em] md:text-[4.5em] font-bold px-4 py-0.1 rounded-[1em] uppercase tracking-tighter leading-none text-white drop-shadow-lg font-inika"
-              style={{ 
-                color: secundario,
-                backgroundColor: primario,
-              }}
-            >
-              {unit.nombre_unidad || unit.nombre}
-            </h1>
-            <p className="text-[1em] md:text-[1.25em] text-center md:text-right font-bold text-zinc-100 leading-relaxed max-w-2xl drop-shadow">
-              {unit.descripcion}
-            </p>
+            {/* Columna 2: Nombre y Descripción Corta */}
+            <div className="md:col-span-8 text-center md:text-left space-y-4">
+              <span 
+                className="text-[1.1em] font-bold uppercase tracking-widest px-4 py-1 rounded-full inline-block backdrop-blur-sm border border-2 shadow-sm mb-[-2px]"
+                style={{ 
+                  color: primario, 
+                  backgroundColor: secundario,
+                  borderColor: `${secundario}80`
+                }}
+              >
+                {unit.nombre}
+              </span>
+              <h1 className="text-[2.5em] md:text-[4.5em] font-bold px-4 py-0.1 rounded-[1em] uppercase tracking-tighter leading-none text-white drop-shadow-lg font-inika"
+                style={{ 
+                  color: secundario,
+                  backgroundColor: primario,
+                }}
+              >
+                {unit.nombre_unidad || unit.nombre}
+              </h1>
+              <p className="text-[1em] md:text-[1.25em] text-center md:text-right font-bold text-zinc-100 leading-relaxed max-w-2xl drop-shadow">
+                {unit.descripcion}
+              </p>
+            </div>
           </div>
         </div>
       </section>
