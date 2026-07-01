@@ -13,7 +13,7 @@ interface ClanCustomContentProps {
 }
 
 export default function ClanCustomContent({ objectives = [] }: ClanCustomContentProps) {
-  const [activeTab, setActiveTab] = useState<'camino' | 'proyectos' | 'mistica' | 'objetivos'>('camino');
+  const [activeTab, setActiveTab] = useState<'camino' | 'perfil' | 'objetivos' | 'proyectos' | 'mistica'>('camino');
 
   // Colores del Clan: Rojo (#e32328) y Amarillo (#fac620)
   const primario = '#e32328';
@@ -49,6 +49,28 @@ export default function ClanCustomContent({ objectives = [] }: ClanCustomContent
             El Camino del Caminante
           </button>
           <button
+            onClick={() => setActiveTab('perfil')}
+            className={`px-5 py-2.5 rounded-2xl text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
+              activeTab === 'perfil'
+                ? 'text-white shadow-lg'
+                : 'bg-zinc-100 dark:bg-white/5 text-zinc-650 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-white/10'
+            }`}
+            style={{ backgroundColor: activeTab === 'perfil' ? primario : undefined }}
+          >
+            Perfil de Egreso
+          </button>
+          <button
+            onClick={() => setActiveTab('objetivos')}
+            className={`px-5 py-2.5 rounded-2xl text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
+              activeTab === 'objetivos'
+                ? 'text-white shadow-lg'
+                : 'bg-zinc-100 dark:bg-white/5 text-zinc-650 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-white/10'
+            }`}
+            style={{ backgroundColor: activeTab === 'objetivos' ? primario : undefined }}
+          >
+            Objetivos Terminales
+          </button>
+          <button
             onClick={() => setActiveTab('proyectos')}
             className={`px-5 py-2.5 rounded-2xl text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
               activeTab === 'proyectos'
@@ -69,17 +91,6 @@ export default function ClanCustomContent({ objectives = [] }: ClanCustomContent
             style={{ backgroundColor: activeTab === 'mistica' ? primario : undefined }}
           >
             Mística y Horqueta
-          </button>
-          <button
-            onClick={() => setActiveTab('objetivos')}
-            className={`px-5 py-2.5 rounded-2xl text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
-              activeTab === 'objetivos'
-                ? 'text-white shadow-lg'
-                : 'bg-zinc-100 dark:bg-white/5 text-zinc-650 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-white/10'
-            }`}
-            style={{ backgroundColor: activeTab === 'objetivos' ? primario : undefined }}
-          >
-            Objetivos Terminales
           </button>
         </div>
       </div>
@@ -138,7 +149,135 @@ export default function ClanCustomContent({ objectives = [] }: ClanCustomContent
         </div>
       )}
 
-      {/* Contenido de la Pestaña 2: Servicio y Proyectos */}
+      {/* Contenido de la Pestaña 2: Perfil de Egreso */}
+      {activeTab === 'perfil' && (
+        <div className="space-y-8 animate-in fade-in duration-300">
+          <div className="space-y-6">
+            <h3 className="text-[1.5em] font-black uppercase tracking-tight" style={{ color: primario }}>
+              Perfil de Egreso del Caminante
+            </h3>
+            <div className="space-y-4 text-zinc-700 dark:text-zinc-300">
+              <p className="text-[1.05em] leading-relaxed font-bold">
+                A continuación, te presentamos el perfil de egreso de nuestra asociación, para leer y analizar junto a tu equipo y clan.
+              </p>
+              <p className="text-[1.05em] leading-relaxed">
+                Las personas que compartimos en los Movimientos Guía y Scout, aspiramos a hacer todo lo que de nosotros dependa para ser:
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+                <div className="bg-white dark:bg-white/5 border border-zinc-150 dark:border-white/5 rounded-3xl p-6 shadow-md space-y-3">
+                  <span className="bg-clr7/15 dark:bg-clr7/20 text-clr7 px-3 py-1 rounded-[0.5rem] text-[0.95em] font-extrabold uppercase tracking-wide inline-block" style={{ color: primario }}>
+                    Una persona íntegra y libre
+                  </span>
+                  <p className="text-[1.02em] leading-relaxed italic text-zinc-600 dark:text-zinc-300">
+                    Limpia de pensamiento y recta de corazón,<br />
+                    de voluntad fuerte, responsable de sí misma,<br />
+                    que ha optado por un proyecto personal de vida<br />
+                    y que, fiel a la palabra dada, es lo que dice ser.
+                  </p>
+                </div>
+
+                <div className="bg-white dark:bg-white/5 border border-zinc-150 dark:border-white/5 rounded-3xl p-6 shadow-md space-y-3">
+                  <span className="bg-clr7/15 dark:bg-clr7/20 text-clr7 px-3 py-1 rounded-[0.5rem] text-[0.95em] font-extrabold uppercase tracking-wide inline-block" style={{ color: primario }}>
+                    Una persona al servicio de los demás
+                  </span>
+                  <p className="text-[1.02em] leading-relaxed italic text-zinc-600 dark:text-zinc-300">
+                    Solidaria con su comunidad, defensora de los derechos de los otros,<br />
+                    comprometida con la democracia, integrada al desarrollo,<br />
+                    amante de la justicia, promotora de la paz, que valora el trabajo humano,<br />
+                    que construye su familia en el amor,<br />
+                    que reconoce su dignidad y la del sexo complementario<br />
+                    y que, alegre y afectuosa, comparte con todos.
+                  </p>
+                </div>
+
+                <div className="bg-white dark:bg-white/5 border border-zinc-150 dark:border-white/5 rounded-3xl p-6 shadow-md space-y-3">
+                  <span className="bg-clr7/15 dark:bg-clr7/20 text-clr7 px-3 py-1 rounded-[0.5rem] text-[0.95em] font-extrabold uppercase tracking-wide inline-block" style={{ color: primario }}>
+                    Una persona creativa
+                  </span>
+                  <p className="text-[1.02em] leading-relaxed italic text-zinc-600 dark:text-zinc-300">
+                    Que se esfuerza por dejar el mundo mejor de como lo encontró,<br />
+                    comprometida con la integridad de la naturaleza,<br />
+                    interesada por aprender continuamente,<br />
+                    en búsqueda de pistas aún no exploradas, que hace bien su trabajo<br />
+                    y que, libre del afán de poseer, es independiente ante las cosas.
+                  </p>
+                </div>
+
+                <div className="bg-white dark:bg-white/5 border border-zinc-150 dark:border-white/5 rounded-3xl p-6 shadow-md space-y-3">
+                  <span className="bg-clr7/15 dark:bg-clr7/20 text-clr7 px-3 py-1 rounded-[0.5rem] text-[0.95em] font-extrabold uppercase tracking-wide inline-block" style={{ color: primario }}>
+                    Una persona espiritual
+                  </span>
+                  <p className="text-[1.02em] leading-relaxed italic text-zinc-600 dark:text-zinc-300">
+                    Con un sentido trascendente para su vida,<br />
+                    que camina al encuentro con su felicidad,<br />
+                    que vive alegremente su fe y la integra a su conducta y que, abierta al diálogo y a la comprensión, respeta las opciones religiosas de los demás.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Contenido de la Pestaña 3: Objetivos Terminales */}
+      {activeTab === 'objetivos' && (
+        <div className="space-y-8 animate-in fade-in duration-300">
+          <div className="space-y-4">
+            <h3 className="text-[1.5em] font-black uppercase tracking-tight" style={{ color: primario }}>
+              Objetivos Terminales del Caminante
+            </h3>
+            <p className="text-[1.05em] leading-relaxed text-zinc-700 dark:text-zinc-300">
+              Los objetivos terminales son los propósitos educativos que un joven aspira a alcanzar al egresar del Clan. Están estructurados en las 6 áreas de desarrollo de la propuesta educativa scout.
+            </p>
+          </div>
+
+          {/* Grilla de las 6 Áreas de Desarrollo */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {areas.map(area => {
+              const areaObjectives = getObjectivesByArea(area.id);
+              return (
+                <div key={area.id} className="bg-white dark:bg-white/5 border border-zinc-150 dark:border-white/5 rounded-3xl p-6 shadow-md space-y-4 flex flex-col justify-between">
+                  <div className="space-y-4">
+                    {/* Encabezado del Área */}
+                    <div className="flex items-center gap-4">
+                      <div className="w-14 h-14 flex-shrink-0 bg-zinc-50 dark:bg-white/5 rounded-2xl p-1.5 border" style={{ borderColor: `${area.color}30` }}>
+                        <img src={area.img} alt={area.name} className="w-full h-full object-contain" />
+                      </div>
+                      <div>
+                        <h4 className="font-extrabold uppercase text-[1.25em]" style={{ color: area.color }}>
+                          {area.name}
+                        </h4>
+                        <p className="text-[0.8em] text-zinc-500 dark:text-zinc-400 font-semibold leading-tight">
+                          {area.desc}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Lista de Objetivos */}
+                    <div className="pt-2">
+                      {areaObjectives.length === 0 ? (
+                        <p className="text-[0.9em] text-zinc-500 dark:text-zinc-400 italic">No hay objetivos registrados para esta área.</p>
+                      ) : (
+                        <ul className="space-y-2">
+                          {areaObjectives.map((obj, i) => (
+                            <li key={obj.id} className="text-[0.95em] text-zinc-700 dark:text-zinc-300 flex items-start gap-2.5 leading-relaxed">
+                              <span className="font-bold text-[1.1em] mt-0.5" style={{ color: area.color }}>•</span>
+                              <span>{obj.texto_terminal}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Contenido de la Pestaña 4: Servicio y Proyectos */}
       {activeTab === 'proyectos' && (
         <div className="space-y-8 animate-in fade-in duration-300">
           <div className="space-y-4">
@@ -199,7 +338,7 @@ export default function ClanCustomContent({ objectives = [] }: ClanCustomContent
         </div>
       )}
 
-      {/* Contenido de la Pestaña 3: Mística y Tradición */}
+      {/* Contenido de la Pestaña 5: Mística y Tradición */}
       {activeTab === 'mistica' && (
         <div className="space-y-8 animate-in fade-in duration-300">
           <div className="space-y-4">
@@ -251,63 +390,6 @@ export default function ClanCustomContent({ objectives = [] }: ClanCustomContent
                 "Remar tu propia canoa hacia el puerto del servicio desinteresado."
               </p>
             </div>
-          </div>
-        </div>
-      )}
-
-      {/* Contenido de la Pestaña 4: Objetivos Terminales */}
-      {activeTab === 'objetivos' && (
-        <div className="space-y-8 animate-in fade-in duration-300">
-          <div className="space-y-4">
-            <h3 className="text-[1.5em] font-black uppercase tracking-tight" style={{ color: primario }}>
-              Objetivos Terminales del Caminante
-            </h3>
-            <p className="text-[1.05em] leading-relaxed text-zinc-700 dark:text-zinc-300">
-              Los objetivos terminales son los propósitos educativos que un joven aspira a alcanzar al egresar del Clan. Estan estructurados en las 6 áreas de desarrollo de la propuesta educativa scout.
-            </p>
-          </div>
-
-          {/* Grilla de las 6 Áreas de Desarrollo */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {areas.map(area => {
-              const areaObjectives = getObjectivesByArea(area.id);
-              return (
-                <div key={area.id} className="bg-white dark:bg-white/5 border border-zinc-150 dark:border-white/5 rounded-3xl p-6 shadow-md space-y-4 flex flex-col justify-between">
-                  <div className="space-y-4">
-                    {/* Encabezado del Área */}
-                    <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 flex-shrink-0 bg-zinc-50 dark:bg-white/5 rounded-2xl p-1.5 border" style={{ borderColor: `${area.color}30` }}>
-                        <img src={area.img} alt={area.name} className="w-full h-full object-contain" />
-                      </div>
-                      <div>
-                        <h4 className="font-extrabold uppercase text-[1.25em]" style={{ color: area.color }}>
-                          {area.name}
-                        </h4>
-                        <p className="text-[0.8em] text-zinc-500 dark:text-zinc-400 font-semibold leading-tight">
-                          {area.desc}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Lista de Objetivos */}
-                    <div className="pt-2">
-                      {areaObjectives.length === 0 ? (
-                        <p className="text-[0.9em] text-zinc-500 dark:text-zinc-400 italic">No hay objetivos registrados para esta área.</p>
-                      ) : (
-                        <ul className="space-y-2">
-                          {areaObjectives.map((obj, i) => (
-                            <li key={obj.id} className="text-[0.95em] text-zinc-700 dark:text-zinc-300 flex items-start gap-2.5 leading-relaxed">
-                              <span className="font-bold text-[1.1em] mt-0.5" style={{ color: area.color }}>•</span>
-                              <span>{obj.texto_terminal}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
           </div>
         </div>
       )}
