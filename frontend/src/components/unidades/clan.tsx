@@ -2,12 +2,35 @@
 
 import { useState } from 'react';
 
-export default function ClanCustomContent() {
-  const [activeTab, setActiveTab] = useState<'camino' | 'proyectos' | 'mistica'>('camino');
+interface Objective {
+  id: string;
+  area_id: number;
+  texto_terminal: string;
+}
+
+interface ClanCustomContentProps {
+  objectives: Objective[];
+}
+
+export default function ClanCustomContent({ objectives = [] }: ClanCustomContentProps) {
+  const [activeTab, setActiveTab] = useState<'camino' | 'proyectos' | 'mistica' | 'objetivos'>('camino');
 
   // Colores del Clan: Rojo (#e32328) y Amarillo (#fac620)
   const primario = '#e32328';
   const secundario = '#fac620';
+
+  const areas = [
+    { id: 1, name: "Corporalidad", img: "/images/progresion/clan/area_corporalidad.png", color: "#1e90ff", desc: "Desarrollo del cuerpo y cuidado de la salud." },
+    { id: 2, name: "Creatividad", img: "/images/progresion/clan/area_creatividad.png", color: "#ff8c00", desc: "Estimular el pensamiento, innovar y adquirir habilidades." },
+    { id: 3, name: "Carácter", img: "/images/progresion/clan/area_caracter.png", color: "#2ed573", desc: "Conocerse a sí mismo, madurez y escala de valores." },
+    { id: 4, name: "Afectividad", img: "/images/progresion/clan/area_afectividad.png", color: "#ff4757", desc: "Lograr y mantener la madurez y equilibrio emocional." },
+    { id: 5, name: "Sociabilidad", img: "/images/progresion/clan/area_sociabilidad.png", color: "#a55eea", desc: "Compromiso social y convivencia en comunidad." },
+    { id: 6, name: "Espiritualidad", img: "/images/progresion/clan/area_espiritualidad.png", color: "#8e44ad", desc: "Búsqueda del sentido trascendente y la fe." }
+  ];
+
+  const getObjectivesByArea = (areaId: number) => {
+    return objectives.filter(o => o.area_id === areaId);
+  };
 
   return (
     <div className="space-y-12">
@@ -18,7 +41,7 @@ export default function ClanCustomContent() {
             onClick={() => setActiveTab('camino')}
             className={`px-5 py-2.5 rounded-2xl text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
               activeTab === 'camino'
-                ? 'bg-clr6 text-white shadow-lg'
+                ? 'text-white shadow-lg'
                 : 'bg-zinc-100 dark:bg-white/5 text-zinc-650 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-white/10'
             }`}
             style={{ backgroundColor: activeTab === 'camino' ? primario : undefined }}
@@ -29,7 +52,7 @@ export default function ClanCustomContent() {
             onClick={() => setActiveTab('proyectos')}
             className={`px-5 py-2.5 rounded-2xl text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
               activeTab === 'proyectos'
-                ? 'bg-clr6 text-white shadow-lg'
+                ? 'text-white shadow-lg'
                 : 'bg-zinc-100 dark:bg-white/5 text-zinc-650 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-white/10'
             }`}
             style={{ backgroundColor: activeTab === 'proyectos' ? primario : undefined }}
@@ -40,12 +63,23 @@ export default function ClanCustomContent() {
             onClick={() => setActiveTab('mistica')}
             className={`px-5 py-2.5 rounded-2xl text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
               activeTab === 'mistica'
-                ? 'bg-clr6 text-white shadow-lg'
+                ? 'text-white shadow-lg'
                 : 'bg-zinc-100 dark:bg-white/5 text-zinc-650 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-white/10'
             }`}
             style={{ backgroundColor: activeTab === 'mistica' ? primario : undefined }}
           >
             Mística y Horqueta
+          </button>
+          <button
+            onClick={() => setActiveTab('objetivos')}
+            className={`px-5 py-2.5 rounded-2xl text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
+              activeTab === 'objetivos'
+                ? 'text-white shadow-lg'
+                : 'bg-zinc-100 dark:bg-white/5 text-zinc-650 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-white/10'
+            }`}
+            style={{ backgroundColor: activeTab === 'objetivos' ? primario : undefined }}
+          >
+            Objetivos Terminales
           </button>
         </div>
       </div>
@@ -94,7 +128,7 @@ export default function ClanCustomContent() {
                   <h4 className="font-extrabold uppercase text-[1.1em] text-zinc-900 dark:text-white" style={{ color: idx === 3 ? secundario : undefined }}>
                     {etapa.title}
                   </h4>
-                  <p className="text-[0.9em] text-zinc-600 dark:text-zinc-400 mt-2 leading-relaxed">
+                  <p className="text-[0.9em] text-zinc-650 dark:text-zinc-400 mt-2 leading-relaxed">
                     {etapa.desc}
                   </p>
                 </div>
@@ -134,7 +168,7 @@ export default function ClanCustomContent() {
                 <h4 className="text-[1.35em] font-black uppercase text-zinc-900 dark:text-white leading-tight">
                   Reforestación Nativa en la Quebrada
                 </h4>
-                <p className="text-[0.95em] text-zinc-650 dark:text-zinc-450 leading-relaxed">
+                <p className="text-[0.95em] text-zinc-650 dark:text-zinc-400 leading-relaxed">
                   Plantamos más de 150 árboles nativos en la quebrada del sector, colaborando con la junta de vecinos para crear un cortafuegos natural y recuperar el suelo degradado.
                 </p>
               </div>
@@ -156,7 +190,7 @@ export default function ClanCustomContent() {
                 <h4 className="text-[1.35em] font-black uppercase text-zinc-900 dark:text-white leading-tight">
                   Construcción de Rampa de Acceso Universal
                 </h4>
-                <p className="text-[0.95em] text-zinc-650 dark:text-zinc-450 leading-relaxed">
+                <p className="text-[0.95em] text-zinc-650 dark:text-zinc-400 leading-relaxed">
                   Diseñamos y construimos una rampa de acceso universal para la sede del club de adulto mayor, facilitando el acceso a abuelos y personas con movilidad reducida del barrio.
                 </p>
               </div>
@@ -186,15 +220,15 @@ export default function ClanCustomContent() {
               </h4>
               <ul className="space-y-3 text-[0.95em] text-zinc-700 dark:text-zinc-300 leading-relaxed font-medium pl-2">
                 <li className="flex items-start gap-2">
-                  <span className="text-clr6 font-black" style={{ color: primario }}>✓</span>
+                  <span className="font-black animate-pulse" style={{ color: primario }}>✓</span>
                   <span><strong>El Clan sirve:</strong> El caminante busca ser útil a su comunidad activamente.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-clr6 font-black" style={{ color: primario }}>✓</span>
+                  <span className="font-black animate-pulse" style={{ color: primario }}>✓</span>
                   <span><strong>El Clan reflexiona:</strong> Espacios de autocrítica y crecimiento espiritual.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-clr6 font-black" style={{ color: primario }}>✓</span>
+                  <span className="font-black animate-pulse" style={{ color: primario }}>✓</span>
                   <span><strong>El Clan camina:</strong> Avanzamos juntos sin dejar a nadie atrás.</span>
                 </li>
               </ul>
@@ -202,7 +236,7 @@ export default function ClanCustomContent() {
 
             {/* Columna Derecha: Lema del Rover */}
             <div 
-              className="md:col-span-5 rounded-3xl p-8 flex flex-col items-center justify-center text-center shadow-xl border border-white/10 text-white"
+              className="md:col-span-5 rounded-3xl p-8 flex flex-col items-center justify-center text-center shadow-xl border border-white/10 text-white animate-pulse-slow"
               style={{ 
                 background: `linear-gradient(135deg, ${primario}ee, ${primario}bb)`,
               }}
@@ -217,6 +251,63 @@ export default function ClanCustomContent() {
                 "Remar tu propia canoa hacia el puerto del servicio desinteresado."
               </p>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Contenido de la Pestaña 4: Objetivos Terminales */}
+      {activeTab === 'objetivos' && (
+        <div className="space-y-8 animate-in fade-in duration-300">
+          <div className="space-y-4">
+            <h3 className="text-[1.5em] font-black uppercase tracking-tight" style={{ color: primario }}>
+              Objetivos Terminales del Caminante
+            </h3>
+            <p className="text-[1.05em] leading-relaxed text-zinc-700 dark:text-zinc-300">
+              Los objetivos terminales son los propósitos educativos que un joven aspira a alcanzar al egresar del Clan. Estan estructurados en las 6 áreas de desarrollo de la propuesta educativa scout.
+            </p>
+          </div>
+
+          {/* Grilla de las 6 Áreas de Desarrollo */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {areas.map(area => {
+              const areaObjectives = getObjectivesByArea(area.id);
+              return (
+                <div key={area.id} className="bg-white dark:bg-white/5 border border-zinc-150 dark:border-white/5 rounded-3xl p-6 shadow-md space-y-4 flex flex-col justify-between">
+                  <div className="space-y-4">
+                    {/* Encabezado del Área */}
+                    <div className="flex items-center gap-4">
+                      <div className="w-14 h-14 flex-shrink-0 bg-zinc-50 dark:bg-white/5 rounded-2xl p-1.5 border" style={{ borderColor: `${area.color}30` }}>
+                        <img src={area.img} alt={area.name} className="w-full h-full object-contain" />
+                      </div>
+                      <div>
+                        <h4 className="font-extrabold uppercase text-[1.25em]" style={{ color: area.color }}>
+                          {area.name}
+                        </h4>
+                        <p className="text-[0.8em] text-zinc-500 dark:text-zinc-400 font-semibold leading-tight">
+                          {area.desc}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Lista de Objetivos */}
+                    <div className="pt-2">
+                      {areaObjectives.length === 0 ? (
+                        <p className="text-[0.9em] text-zinc-500 dark:text-zinc-400 italic">No hay objetivos registrados para esta área.</p>
+                      ) : (
+                        <ul className="space-y-2">
+                          {areaObjectives.map((obj, i) => (
+                            <li key={obj.id} className="text-[0.95em] text-zinc-700 dark:text-zinc-300 flex items-start gap-2.5 leading-relaxed">
+                              <span className="font-bold text-[1.1em] mt-0.5" style={{ color: area.color }}>•</span>
+                              <span>{obj.texto_terminal}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       )}
