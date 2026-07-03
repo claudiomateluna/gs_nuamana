@@ -533,24 +533,27 @@ export default function ClanCustomContent({ objectives = [] }: ClanCustomContent
           </div>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             {/* Columna Derecha: Bastón Rover */}
-            <div className="md:col-span-7 bg-white dark:bg-white/5 border border-zinc-150 dark:border-white/5 rounded-3xl p-6 shadow-lg relative overflow-hidden">
+            <div className="md:col-span-7 bg-white dark:bg-white/5 border border-zinc-150 dark:border-white/5 rounded-3xl py-6 pl-0 pr-6 shadow-lg relative overflow-hidden">
               <div className="absolute top-0 left-0 w-2 h-full" style={{ backgroundColor: primario }} />
-              <div className="grid grid-cols-12 gap-6 items-center pl-2">
+              <div className="grid grid-cols-12 gap-1 items-center pl-2">
                 {/* Columna Izquierda: Imagen */}
-                <div className="col-span-4 sm:col-span-3 flex justify-center">
+                <div className="col-span-4 sm:col-span-4 mx-2 flex justify-center">
                   <img 
-                    src="/images/logos/iconos_caminantes.svg" 
+                    src="/images/unidades/baston_rover.jpg" 
                     alt="Bastón Rover" 
-                    className="w-20 h-20 sm:w-24 sm:h-24 object-contain" 
+                    className="" 
                   />
                 </div>
                 {/* Columna Derecha: Contenido */}
-                <div className="col-span-8 sm:col-span-9 space-y-2">
+                <div className="col-span-8 sm:col-span-8 space-y-2">
                   <h4 className="text-[1.25em] font-black uppercase text-zinc-900 dark:text-white">
                     Bastón Rover
                   </h4>
                   <p className="text-[0.95em] text-zinc-650 dark:text-zinc-300 leading-relaxed italic">
-                    El bastón rover es un símbolo identificatorio de los y las caminantes, que representa el liderazgo y la responsabilidad que asume un joven al tomar decisiones en beneficio del grupo. Este está presente en las insignias de progresión: Bastón Rover y Antorcha.
+                    El bastón Rover es una vara de un largo ligeramente mayor al de un bastón habitual, puede ser terminado en horquilla o en su forma natural. Lo importante es que se utiliza por los y las jóvenes caminantes como un apoyo para sostenerse, avanzar, abrir camino y defenderse. A pesar de que en Chile la Rama se llama Caminantes, la costumbre y la tradición han mantenido el nombre Rover para singularizar este bastón, aun cuando en otras asociaciones se le conoce también como Horqueta Rover.
+                  </p>
+                  <p className="text-[0.95em] text-zinc-650 dark:text-zinc-300 leading-relaxed italic">
+                    El bastón rover es un símbolo identificatorio de los y las caminantes, que representa el liderazgo y la responsabilidad que asume un joven al tomar decisiones en beneficio del grupo. Este está presente en las insignias de progresión: Fuego y Antorcha.
                   </p>
                 </div>
               </div>
@@ -569,6 +572,36 @@ export default function ClanCustomContent({ objectives = [] }: ClanCustomContent
               <p className="text-[1em] ¿text-zinc-100 italic mt-3 max-w-xs leading-relaxed">
                 El fuego es un símbolo identificatorio de los y las caminan­tes, que representa el coraje y la entereza de un joven por llevar adelante su Proyecto Personal, a pesar todas las dificultades que naturalmente va a encontrar. El fuego permite al caminante iluminar sus caminos cuando existe oscuridad. Este está presente en las insignias de progresión: Fuego y Antorcha.
               </p>
+            </div>
+          </div>
+
+          {/* Bandera del Clan (Full Width) */}
+          <div 
+            className="rounded-3xl overflow-hidden shadow-xl border border-zinc-150 dark:border-white/5 relative min-h-[300px] flex items-center mt-8 group"
+            style={{
+              backgroundImage: "url('/images/unidades/Bandera_clan_1.jpg')",
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
+          >
+            {/* Overlay de gradiente oscuro para legibilidad */}
+            <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/90 via-zinc-950/75 to-zinc-950/40 z-0 transition-opacity group-hover:opacity-95" />
+            
+            <div className="relative z-10 p-8 md:p-12 space-y-4 max-w-3xl text-white">
+              <div className="flex items-center gap-3">
+                <span className="w-2.5 h-8 rounded-full inline-block" style={{ backgroundColor: secundario }} />
+                <h4 className="text-[1.5em] font-black uppercase tracking-tight text-white">
+                  Bandera del Clan
+                </h4>
+              </div>
+              <div className="space-y-4 text-[0.98em] text-zinc-200 leading-relaxed font-medium">
+                <p>
+                  La Bandera de la Rama reúne el color y el símbolo que nos identifican, el trébol y la flor de lis se transforman en la llama que ilumina los pasos de los caminantes.
+                </p>
+                <p>
+                  Nuestra bandera como Clan Ahu Akivi, muestra la imagen que representa al ahu akivi en Rapa Nui, como los primeros colonos Rapa Nui que se asentaron en Te Pito o Te Henua, detrás del ahu se muestra la flor de lis y trébol del clan, marcada por el color rojo y una inscripción en clave en la parte superior, la clave también está contenida dentro de la misma bandera.
+                </p>
+              </div>
             </div>
           </div>
         </div>
