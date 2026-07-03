@@ -91,7 +91,7 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
             }`}
             style={{ backgroundColor: activeTab === 'mistica' ? secundario : undefined }}
           >
-            Mística y Símbolos
+            Símbolos
           </button>
         </div>
       </div>
@@ -164,7 +164,7 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
                 <div className="bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 shadow-md space-y-3">
-                  <span className="px-3 py-1 rounded-[0.5rem] text-[0.95em] font-extrabold uppercase tracking-wide inline-block" style={{ backgroundColor: `${primario}20`, color: secundario }}>
+                  <span className="px-3 py-1 rounded-[0.5rem] text-[0.95em] font-extrabold uppercase tracking-wide inline-block" style={{ backgroundColor: primario, color: secundario }}>
                     Activo y Lleno de Energía
                   </span>
                   <p className="text-[1.02em] leading-relaxed italic text-zinc-600 dark:text-zinc-400">
@@ -173,7 +173,7 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
                 </div>
 
                 <div className="bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 shadow-md space-y-3">
-                  <span className="px-3 py-1 rounded-[0.5rem] text-[0.95em] font-extrabold uppercase tracking-wide inline-block" style={{ backgroundColor: `${primario}20`, color: secundario }}>
+                  <span className="px-3 py-1 rounded-[0.5rem] text-[0.95em] font-extrabold uppercase tracking-wide inline-block" style={{ backgroundColor: primario, color: secundario }}>
                     Curioso y Creador
                   </span>
                   <p className="text-[1.02em] leading-relaxed italic text-zinc-600 dark:text-zinc-400">
@@ -182,7 +182,7 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
                 </div>
 
                 <div className="bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 shadow-md space-y-3">
-                  <span className="px-3 py-1 rounded-[0.5rem] text-[0.95em] font-extrabold uppercase tracking-wide inline-block" style={{ backgroundColor: `${primario}20`, color: secundario }}>
+                  <span className="px-3 py-1 rounded-[0.5rem] text-[0.95em] font-extrabold uppercase tracking-wide inline-block" style={{ backgroundColor: primario, color: secundario }}>
                     Justo y Sincero
                   </span>
                   <p className="text-[1.02em] leading-relaxed italic text-zinc-600 dark:text-zinc-400">
@@ -191,7 +191,7 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
                 </div>
 
                 <div className="bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 shadow-md space-y-3">
-                  <span className="px-3 py-1 rounded-[0.5rem] text-[0.95em] font-extrabold uppercase tracking-wide inline-block" style={{ backgroundColor: `${primario}20`, color: secundario }}>
+                  <span className="px-3 py-1 rounded-[0.5rem] text-[0.95em] font-extrabold uppercase tracking-wide inline-block" style={{ backgroundColor: primario, color: secundario }}>
                     Comprometido y Colaborador
                   </span>
                   <p className="text-[1.02em] leading-relaxed italic text-zinc-600 dark:text-zinc-400">
@@ -285,7 +285,7 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
             <div className="flex flex-col md:flex-row gap-6 bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 shadow-md items-center">
               <div className="w-full md:w-1/3 aspect-[4/3] rounded-2xl overflow-hidden relative shadow-inner">
                 <img 
-                  src="/images/unidades/bandera_manada.jpg" 
+                  src="/images/unidades/bandera_manada.webp" 
                   alt="Lobatos campamento" 
                   className="w-full h-full object-cover filter brightness-90 hover:scale-105 transition-transform duration-500" 
                 />
@@ -328,12 +328,12 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
         </div>
       )}
 
-      {/* Contenido de la Pestaña 5: Mística y Marco Simbólico */}
+      {/* Contenido de la Pestaña 5: Marco Simbólico */}
       {activeTab === 'mistica' && (
         <div className="space-y-8 animate-in fade-in duration-300">
           <div className="space-y-4">
             <h3 className="text-[1.5em] font-black uppercase tracking-tight" style={{ color: secundario }}>
-              Mística y Marco Simbólico de la Manada
+              Marco Simbólico de la Manada
             </h3>
             <p className="text-[1.05em] leading-relaxed text-zinc-700 dark:text-zinc-300">
               El Marco Simbólico de la Manada se basa en la historia del Pueblo Libre de Seeonee, inspirada en "El Libro de las Tierras Vírgenes" de Rudyard Kipling. A través de la fantasía de la selva, los lobatos asimilan valores de convivencia, respeto y superación.
@@ -458,7 +458,7 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
           <div 
             className="rounded-3xl overflow-hidden shadow-xl border border-zinc-200 dark:border-white/10 relative min-h-[300px] flex items-center group mt-8"
             style={{
-              backgroundImage: "url('/images/unidades/bandera_manada.jpg')",
+              backgroundImage: "url('/images/unidades/Bandera_manada_webP.webp')",
               backgroundSize: 'cover',
               backgroundPosition: 'center'
             }}
