@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import Header from '@/components/Header'
 import { supabase } from '@/lib/supabase'
 import ClanCustomContent from '@/components/unidades/clan'
+import ManadaCustomContent from '@/components/unidades/manada'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -117,16 +118,16 @@ export default async function UnidadPage({ params }: PageProps) {
     return { ...post, path }
   })
 
-  // 6. Obtener objetivos educativos (objetivos terminales) para el clan
-  let clanObjectives: any[] = []
-  if (slug === 'clan') {
+  // 6. Obtener objetivos educativos (objetivos terminales o infantiles) para la unidad activa
+  let unitObjectives: any[] = []
+  if (slug === 'clan' || slug === 'manada') {
     const { data: objs } = await supabase
       .from('progresion_objetivos')
-      .select('id, area_id, texto_terminal')
-      .eq('unidad_id', 5)
+      .select('id, area_id, texto_infantil, texto_terminal')
+      .eq('unidad_id', unitId)
       .order('area_id')
     
-    clanObjectives = objs || []
+    unitObjectives = objs || []
   }
 
   return (
@@ -208,7 +209,9 @@ export default async function UnidadPage({ params }: PageProps) {
             </h2>
             </div>
             {slug === 'clan' ? (
-              <ClanCustomContent objectives={clanObjectives} />
+              <ClanCustomContent objectives={unitObjectives} />
+            ) : slug === 'manada' ? (
+              <ManadaCustomContent objectives={unitObjectives} />
             ) : (
               <p className="text-[1.15em] text-zinc-700 dark:text-zinc-300 leading-relaxed whitespace-pre-line font-medium">
                 {detailedDescriptions[unit.id]}
