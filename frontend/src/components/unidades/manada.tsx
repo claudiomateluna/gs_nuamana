@@ -14,7 +14,7 @@ interface ManadaCustomContentProps {
 }
 
 export default function ManadaCustomContent({ objectives = [] }: ManadaCustomContentProps) {
-  const [activeTab, setActiveTab] = useState<'camino' | 'perfil' | 'objetivos' | 'cacerias' | 'compromiso'>('camino');
+  const [activeTab, setActiveTab] = useState<'camino' | 'perfil' | 'objetivos' | 'cacerias' | 'mistica'>('camino');
 
   // Colores de la Manada: Amarillo (#f5cd16) y Azul (#2b2c77)
   const primario = '#f5cd16';
@@ -42,8 +42,8 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
             onClick={() => setActiveTab('camino')}
             className={`px-5 py-2.5 rounded-2xl text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
               activeTab === 'camino'
-                ? 'text-white shadow-lg shadow-yellow-500/20'
-                : 'bg-zinc-100 dark:bg-white/5 text-zinc-650 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-white/10'
+                ? 'text-white shadow-lg'
+                : 'bg-zinc-100 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-white/10'
             }`}
             style={{ backgroundColor: activeTab === 'camino' ? secundario : undefined }}
           >
@@ -54,7 +54,7 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
             className={`px-5 py-2.5 rounded-2xl text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
               activeTab === 'perfil'
                 ? 'text-white shadow-lg'
-                : 'bg-zinc-100 dark:bg-white/5 text-zinc-650 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-white/10'
+                : 'bg-zinc-100 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-white/10'
             }`}
             style={{ backgroundColor: activeTab === 'perfil' ? secundario : undefined }}
           >
@@ -65,7 +65,7 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
             className={`px-5 py-2.5 rounded-2xl text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
               activeTab === 'objetivos'
                 ? 'text-white shadow-lg'
-                : 'bg-zinc-100 dark:bg-white/5 text-zinc-650 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-white/10'
+                : 'bg-zinc-100 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-white/10'
             }`}
             style={{ backgroundColor: activeTab === 'objetivos' ? secundario : undefined }}
           >
@@ -76,22 +76,22 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
             className={`px-5 py-2.5 rounded-2xl text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
               activeTab === 'cacerias'
                 ? 'text-white shadow-lg'
-                : 'bg-zinc-100 dark:bg-white/5 text-zinc-650 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-white/10'
+                : 'bg-zinc-100 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-white/10'
             }`}
             style={{ backgroundColor: activeTab === 'cacerias' ? secundario : undefined }}
           >
             Cacerías y Ciclo
           </button>
           <button
-            onClick={() => setActiveTab('compromiso')}
+            onClick={() => setActiveTab('mistica')}
             className={`px-5 py-2.5 rounded-2xl text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
-              activeTab === 'compromiso'
+              activeTab === 'mistica'
                 ? 'text-white shadow-lg'
-                : 'bg-zinc-100 dark:bg-white/5 text-zinc-650 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-white/10'
+                : 'bg-zinc-100 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-white/10'
             }`}
-            style={{ backgroundColor: activeTab === 'compromiso' ? secundario : undefined }}
+            style={{ backgroundColor: activeTab === 'mistica' ? secundario : undefined }}
           >
-            Promesa y Ley
+            Mística y Símbolos
           </button>
         </div>
       </div>
@@ -104,7 +104,7 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
               La Ruta del Crecimiento en Seeonee
             </h3>
             <p className="text-[1.05em] leading-relaxed text-zinc-700 dark:text-zinc-300">
-              En la Manada, la progresión personal se vive en una senda adaptada a la niñez, donde las insignias representan el crecimiento del lobato dentro del Pueblo Libre. El camino se divide en cuatro etapas de acuerdo con el rango de edad y madurez.
+              En la Manada, la progresión personal se vive en una senda adaptada a la niñez, donde las insignias de progresión reconocen el avance en el crecimiento del niño, evaluado a través de sus objetivos personales. El camino se divide en cuatro etapas de acuerdo con el rango de edad y madurez.
             </p>
           </div>
 
@@ -113,34 +113,34 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
             {[
               {
                 title: "Lobezno",
-                desc: "Etapa introductoria. El niño ingresa a la Manada, se adapta al Cubil, y empieza a conocer la Ley de la Selva para formular su Promesa.",
+                desc: "Se entrega cuando el niño comienza con sus objetivos personales correspondientes a la Infancia Media. Es la bienvenida formal al cubil de Seeonee.",
                 img: "/images/progresion/manada/etapa_lobezno.png"
               },
               {
                 title: "Saltador",
-                desc: "Infancia Media (7 a 9 años). Se alcanza cuando el lobato ha logrado aproximadamente la mitad de sus objetivos personales de infancia media.",
+                desc: "Se reconoce cuando el lobato ha alcanzado aproximadamente la mitad de sus objetivos personales de Infancia Media (7 a 9 años).",
                 img: "/images/progresion/manada/etapa_saltador.png"
               },
               {
                 title: "Diestro",
-                desc: "Infancia Tardía (9 a 11 años). Se entrega cuando el niño pasa al rango de infancia tardía y comienza a trazar sus objetivos del nuevo Mapa.",
+                desc: "Comienza cuando el niño avanza al rango de Infancia Tardía (9 a 11 años) y comienza a trabajar en sus objetivos del segundo Mapa del Lobato.",
                 img: "/images/progresion/manada/etapa_diestro.png"
               },
               {
                 title: "Cazador",
-                desc: "Etapa terminal. El lobato ha logrado la mitad de sus objetivos de infancia tardía, liderando cacerías y preparándose para dar el salto a la Tropa o Compañía.",
+                desc: "Se reconoce cuando el lobato ha logrado aproximadamente la mitad de los objetivos correspondientes a la Infancia Tardía, preparándose para la transición.",
                 img: "/images/progresion/manada/etapa_cazador.png"
               }
             ].map((etapa, idx) => (
-              <div key={idx} className="bg-white dark:bg-white/5 border border-zinc-150 dark:border-white/5 rounded-3xl p-5 space-y-4 flex flex-col items-center text-center shadow-md">
+              <div key={idx} className="bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-5 space-y-4 flex flex-col items-center text-center shadow-md">
                 <div className="w-24 h-24 flex items-center justify-center bg-zinc-50 dark:bg-white/5 rounded-2xl p-2">
                   <img src={etapa.img} alt={etapa.title} className="max-w-full max-h-full object-contain" />
                 </div>
                 <div>
-                  <h4 className="font-extrabold uppercase text-[1.1em] text-zinc-900 dark:text-white" style={{ color: idx === 3 ? primario : undefined }}>
+                  <h4 className="font-extrabold uppercase text-[1.1em] text-zinc-900 dark:text-white">
                     {etapa.title}
                   </h4>
-                  <p className="text-[0.9em] text-zinc-650 dark:text-zinc-400 mt-2 leading-relaxed">
+                  <p className="text-[0.9em] text-zinc-600 dark:text-zinc-400 mt-2 leading-relaxed">
                     {etapa.desc}
                   </p>
                 </div>
@@ -159,43 +159,43 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
             </h3>
             <div className="space-y-4 text-zinc-700 dark:text-zinc-300">
               <p className="text-[1.05em] leading-relaxed font-bold">
-                El perfil de egreso o características de los lobatos describe las cualidades físicas, intelectuales y sociales de los niños en esta rica etapa de crecimiento.
+                El perfil de manada describe las características de los niños durante este ciclo de desarrollo, abarcando de forma transversal todos los aspectos de su personalidad.
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
-                <div className="bg-white dark:bg-white/5 border border-zinc-150 dark:border-white/5 rounded-3xl p-6 shadow-md space-y-3">
+                <div className="bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 shadow-md space-y-3">
                   <span className="px-3 py-1 rounded-[0.5rem] text-[0.95em] font-extrabold uppercase tracking-wide inline-block" style={{ backgroundColor: `${primario}20`, color: secundario }}>
                     Activo y Lleno de Energía
                   </span>
-                  <p className="text-[1.02em] leading-relaxed italic text-zinc-600 dark:text-zinc-300">
-                    Siempre listos para correr y jugar, con un entusiasmo inagotable por inventar nuevas aventuras y explorar de cabo a rabo la naturaleza en cada campamento.
+                  <p className="text-[1.02em] leading-relaxed italic text-zinc-600 dark:text-zinc-400">
+                    Llenos de dinamismo, exploran el deporte y la naturaleza. Les cuesta irse a dormir en campamento e inventan juegos y aventuras desafiando al cansancio del equipo de Viejos Lobos.
                   </p>
                 </div>
 
-                <div className="bg-white dark:bg-white/5 border border-zinc-150 dark:border-white/5 rounded-3xl p-6 shadow-md space-y-3">
+                <div className="bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 shadow-md space-y-3">
                   <span className="px-3 py-1 rounded-[0.5rem] text-[0.95em] font-extrabold uppercase tracking-wide inline-block" style={{ backgroundColor: `${primario}20`, color: secundario }}>
-                    Curioso y Observador
+                    Curioso y Creador
                   </span>
-                  <p className="text-[1.02em] leading-relaxed italic text-zinc-600 dark:text-zinc-300">
-                    Buscador de respuestas y creador de herramientas sencillas. Le fascina saber por qué ocurren las cosas y probar el funcionamiento de todo lo que le rodea.
+                  <p className="text-[1.02em] leading-relaxed italic text-zinc-600 dark:text-zinc-400">
+                    Buscadores de respuestas, inventan máquinas y herramientas. Disfrutan construyendo cosas con sus manos y exigen el máximo esfuerzo de sus dirigentes para alimentar su curiosidad.
                   </p>
                 </div>
 
-                <div className="bg-white dark:bg-white/5 border border-zinc-150 dark:border-white/5 rounded-3xl p-6 shadow-md space-y-3">
+                <div className="bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 shadow-md space-y-3">
                   <span className="px-3 py-1 rounded-[0.5rem] text-[0.95em] font-extrabold uppercase tracking-wide inline-block" style={{ backgroundColor: `${primario}20`, color: secundario }}>
-                    Defensor de la Verdad y Justicia
+                    Justo y Sincero
                   </span>
-                  <p className="text-[1.02em] leading-relaxed italic text-zinc-600 dark:text-zinc-300">
-                    Rechaza las trampas en los juegos y reclama la equidad. Poco a poco aprende a considerar las opiniones de los demás y comprende que no todo puede hacerse bajo su propio deseo.
+                  <p className="text-[1.02em] leading-relaxed italic text-zinc-600 dark:text-zinc-400">
+                    Defensores de la verdad y justicia en sus juegos concretos. No toleran trampas ni repartos desiguales. Comprenden gradualmente los intereses de los demás y que no todo puede hacerse a su manera.
                   </p>
                 </div>
 
-                <div className="bg-white dark:bg-white/5 border border-zinc-150 dark:border-white/5 rounded-3xl p-6 shadow-md space-y-3">
+                <div className="bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 shadow-md space-y-3">
                   <span className="px-3 py-1 rounded-[0.5rem] text-[0.95em] font-extrabold uppercase tracking-wide inline-block" style={{ backgroundColor: `${primario}20`, color: secundario }}>
-                    Consciente del Compromiso
+                    Comprometido y Colaborador
                   </span>
-                  <p className="text-[1.02em] leading-relaxed italic text-zinc-600 dark:text-zinc-300">
-                    Acepta pequeñas tareas y responsabilidades en su Seisena. Aunque falle en el intento, aprende progresivamente el valor de su palabra y la constancia.
+                  <p className="text-[1.02em] leading-relaxed italic text-zinc-600 dark:text-zinc-400">
+                    Aceptan pequeñas tareas y se esfuerzan por cumplirlas. Aunque fallen en el proceso, este ejercicio les enseña el significado de un compromiso voluntario y les ayuda a forjar su responsabilidad.
                   </p>
                 </div>
               </div>
@@ -212,7 +212,7 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
               Objetivos Educativos de la Manada (Huellas)
             </h3>
             <p className="text-[1.05em] leading-relaxed text-zinc-700 dark:text-zinc-300">
-              Las "Huellas" son las conductas esperables que los lobatos convienen y desarrollan individualmente. Están divididas en las 6 áreas de desarrollo, mostrando tanto la redacción infantil como la terminal.
+              Las "Huellas" son conductas previstas que los lobatos pueden lograr según su edad y madurez. En esta sección se muestran las conductas infantiles del Mapa del Lobato vinculadas a su correspondiente objetivo terminal.
             </p>
           </div>
 
@@ -221,11 +221,11 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
             {areas.map(area => {
               const areaObjectives = getObjectivesByArea(area.id);
               return (
-                <div key={area.id} className="bg-white dark:bg-white/5 border border-zinc-150 dark:border-white/5 rounded-3xl p-6 shadow-md space-y-4 flex flex-col justify-between">
+                <div key={area.id} className="bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 shadow-md space-y-4 flex flex-col justify-between">
                   <div className="space-y-4">
                     {/* Encabezado del Área */}
                     <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 flex-shrink-0 bg-zinc-50 dark:bg-white/5 rounded-2xl p-1.5 border" style={{ borderColor: `${area.color}30` }}>
+                      <div className="w-14 h-14 flex-shrink-0 bg-zinc-50 dark:bg-white/5 rounded-2xl p-1.5 border border-zinc-200 dark:border-white/10" style={{ borderColor: `${area.color}30` }}>
                         <img src={area.img} alt={area.name} className="w-full h-full object-contain" />
                       </div>
                       <div>
@@ -238,14 +238,14 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
                       </div>
                     </div>
 
-                    {/* Lista de Objetivos (Scrollable) */}
+                    {/* Lista de Objetivos (Scrollable con alto contraste) */}
                     <div className="pt-2">
                       {areaObjectives.length === 0 ? (
                         <p className="text-[0.9em] text-zinc-500 dark:text-zinc-400 italic">No hay objetivos registrados para esta área.</p>
                       ) : (
                         <div className="max-h-64 overflow-y-auto pr-2 space-y-3 scrollbar-thin scrollbar-thumb-zinc-200 dark:scrollbar-thumb-white/10">
-                          {areaObjectives.map((obj, i) => (
-                            <div key={obj.id} className="text-[0.95em] text-zinc-700 dark:text-zinc-300 leading-relaxed border-b border-zinc-100 dark:border-white/5 pb-2 last:border-0">
+                          {areaObjectives.map((obj) => (
+                            <div key={obj.id} className="text-[0.95em] text-zinc-700 dark:text-zinc-300 leading-relaxed border-b border-zinc-150 dark:border-white/5 pb-2 last:border-0">
                               <div className="flex items-start gap-2.5">
                                 <span className="font-bold text-[1.1em] mt-0.5" style={{ color: area.color }}>•</span>
                                 <div>
@@ -282,7 +282,7 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
 
           <div className="space-y-8">
             {/* Qué es una cacería */}
-            <div className="flex flex-col md:flex-row gap-6 bg-white dark:bg-white/5 border border-zinc-150 dark:border-white/5 rounded-3xl p-6 shadow-md items-center">
+            <div className="flex flex-col md:flex-row gap-6 bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 shadow-md items-center">
               <div className="w-full md:w-1/3 aspect-[4/3] rounded-2xl overflow-hidden relative shadow-inner">
                 <img 
                   src="/images/unidades/bandera_manada.jpg" 
@@ -291,21 +291,21 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
                 />
               </div>
               <div className="w-full md:w-2/3 space-y-3">
-                <span className="text-[0.8em] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-yellow-100 dark:bg-yellow-950/40 text-yellow-600 dark:text-yellow-450 border border-yellow-250">
+                <span className="text-[0.8em] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-yellow-100 dark:bg-yellow-950/40 text-yellow-600 dark:text-yellow-500 border border-yellow-200 dark:border-yellow-900/30">
                   Método Scout
                 </span>
                 <h4 className="text-[1.35em] font-black uppercase text-zinc-900 dark:text-white leading-tight">
                   ¿Qué es una Cacería?
                 </h4>
-                <p className="text-[0.95em] text-zinc-650 dark:text-zinc-400 leading-relaxed">
+                <p className="text-[0.95em] text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Es un proyecto de corta duración estructurado a partir del juego y el marco simbólico. Toda la Manada participa activamente aportando ideas, eligiendo la cacería de forma democrática y asumiendo roles en las seisenas.
                 </p>
               </div>
             </div>
 
             {/* Ciclo de programa en la manada */}
-            <div className="bg-white dark:bg-white/5 border border-zinc-150 dark:border-white/5 rounded-3xl p-6 shadow-md space-y-6">
-              <h4 className="text-[1.25em] font-black uppercase text-zinc-900 dark:text-white border-b pb-2">
+            <div className="bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 shadow-md space-y-6">
+              <h4 className="text-[1.25em] font-black uppercase text-zinc-900 dark:text-white border-b border-zinc-200 dark:border-white/10 pb-2">
                 Fases del Ciclo de Programa
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-5 gap-4">
@@ -316,10 +316,10 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
                   { name: "Evaluación", desc: "Se evalúan los logros individuales y grupales, registrándose en el Libro de Mohwa." },
                   { name: "Celebración", desc: "Fiesta y reconocimiento de las insignias y huellas alcanzadas." }
                 ].map((fase, i) => (
-                  <div key={i} className="bg-zinc-50 dark:bg-white/5 rounded-2xl p-4 space-y-2 border">
+                  <div key={i} className="bg-zinc-50 dark:bg-white/5 rounded-2xl p-4 space-y-2 border border-zinc-150 dark:border-white/5">
                     <span className="text-[1.5em] font-black text-yellow-500">0{i+1}</span>
                     <h5 className="font-extrabold uppercase text-[0.95em] text-zinc-900 dark:text-white">{fase.name}</h5>
-                    <p className="text-[0.85em] text-zinc-600 dark:text-zinc-450 mt-1">{fase.desc}</p>
+                    <p className="text-[0.85em] text-zinc-500 dark:text-zinc-400 mt-1 leading-snug">{fase.desc}</p>
                   </div>
                 ))}
               </div>
@@ -328,21 +328,21 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
         </div>
       )}
 
-      {/* Contenido de la Pestaña 5: Promesa y Ley */}
-      {activeTab === 'compromiso' && (
+      {/* Contenido de la Pestaña 5: Mística y Marco Simbólico */}
+      {activeTab === 'mistica' && (
         <div className="space-y-8 animate-in fade-in duration-300">
           <div className="space-y-4">
             <h3 className="text-[1.5em] font-black uppercase tracking-tight" style={{ color: secundario }}>
-              La Promesa y Ley de la Manada
+              Mística y Marco Simbólico de la Manada
             </h3>
             <p className="text-[1.05em] leading-relaxed text-zinc-700 dark:text-zinc-300">
-              La Promesa es el compromiso voluntario y personal que toma el lobato para vivir de acuerdo con los valores del movimiento scout, mientras que la Ley resume el código de conducta en acciones simples y directas.
+              El Marco Simbólico de la Manada se basa en la historia del Pueblo Libre de Seeonee, inspirada en "El Libro de las Tierras Vírgenes" de Rudyard Kipling. A través de la fantasía de la selva, los lobatos asimilan valores de convivencia, respeto y superación.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
             {/* Columna Izquierda: Promesa de la Manada */}
-            <div className="md:col-span-7 bg-white dark:bg-white/5 border border-zinc-150 dark:border-white/5 rounded-3xl p-6 shadow-lg space-y-4 relative overflow-hidden flex flex-col justify-between">
+            <div className="md:col-span-7 bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 shadow-lg space-y-4 relative overflow-hidden flex flex-col justify-between">
               <div className="absolute top-0 left-0 w-2 h-full" style={{ backgroundColor: primario }} />
               <div className="space-y-4">
                 <h4 className="text-[1.25em] font-black uppercase text-zinc-900 dark:text-white pl-2">
@@ -355,23 +355,27 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
 
                 <div className="space-y-2 pl-2">
                   <h5 className="font-extrabold text-[0.95em] uppercase text-zinc-800 dark:text-zinc-350">Significado del Compromiso:</h5>
-                  <ul className="space-y-2 text-[0.9em] text-zinc-650 dark:text-zinc-400 leading-relaxed font-semibold">
-                    <li>• <strong>Ser siempre mejor:</strong> Espíritu de superación constante para ser hoy mejor que ayer.</li>
-                    <li>• <strong>Amar a Dios y a mi familia:</strong> Compartir valores de fe y retribuir el amor del hogar.</li>
-                    <li>• <strong>Ayudar a los demás:</strong> Aprender a ser útil y servicial con el entorno.</li>
+                  <ul className="space-y-2 text-[0.9em] text-zinc-600 dark:text-zinc-400 leading-relaxed font-semibold">
+                    <li>• <strong>Yo prometo:</strong> Reafirma el carácter personal y voluntario del compromiso asumido.</li>
+                    <li>• <strong>Ser siempre mejor:</strong> Refuerza el lema e invita a la superación permanente del niño.</li>
+                    <li>• <strong>Amar a Dios y a mi familia:</strong> Compartir y vivir los valores de la fe y el hogar.</li>
+                    <li>• <strong>Ayudar a los demás:</strong> Fomentar la actitud solidaria para hacer del mundo un lugar mejor.</li>
                   </ul>
                 </div>
               </div>
             </div>
 
             {/* Columna Derecha: Ley de la Manada */}
-            <div className="md:col-span-5 bg-white dark:bg-white/5 border border-zinc-150 dark:border-white/5 rounded-3xl p-6 shadow-lg space-y-4 relative overflow-hidden flex flex-col justify-between">
+            <div className="md:col-span-5 bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 shadow-lg space-y-4 relative overflow-hidden flex flex-col justify-between">
               <div className="absolute top-0 left-0 w-2 h-full" style={{ backgroundColor: secundario }} />
               <div className="space-y-4">
                 <h4 className="text-[1.25em] font-black uppercase text-zinc-900 dark:text-white pl-2">
                   La Ley de la Manada
                 </h4>
-                <div className="grid grid-cols-2 gap-3 pt-2">
+                <p className="text-[0.9em] text-zinc-500 dark:text-zinc-400 pl-2 leading-relaxed">
+                  Còdigo de conducta que resume los valores guías y scouts en acciones directas para el lobato:
+                </p>
+                <div className="grid grid-cols-1 gap-2 pt-2 pl-2">
                   {[
                     "Dice la verdad",
                     "Es alegre",
@@ -380,9 +384,9 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
                     "Cuida la naturaleza y las cosas",
                     "Busca aprender"
                   ].map((ley, i) => (
-                    <div key={i} className="p-3 bg-zinc-50 dark:bg-white/5 rounded-xl border flex items-center gap-2">
+                    <div key={i} className="p-2.5 bg-zinc-50 dark:bg-white/5 rounded-xl border border-zinc-150 dark:border-white/5 flex items-center gap-2.5">
                       <span className="font-black text-yellow-500">✓</span>
-                      <span className="text-[0.88em] font-extrabold text-zinc-800 dark:text-zinc-250 leading-tight">{ley}</span>
+                      <span className="text-[0.88em] font-extrabold text-zinc-800 dark:text-zinc-200 leading-tight">{ley}</span>
                     </div>
                   ))}
                 </div>
@@ -390,31 +394,91 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
             </div>
           </div>
 
-          {/* Símbolo: El Gran Aullido (Full Width) */}
+          {/* Símbolos del Pueblo Libre: Tótem, Cubil, Libro de Mohwa */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+            <div className="bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 shadow-md space-y-3 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1" style={{ backgroundColor: secundario }} />
+              <h4 className="font-extrabold uppercase text-[1.1em] text-zinc-900 dark:text-white flex items-center gap-2">
+                🐺 El Tótem
+              </h4>
+              <p className="text-[0.9em] text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                Una representación en madera de la cabeza de un lobo que encarna al Pueblo Libre. En él se cuelgan las cintas de colores que celebran las especialidades e hitos que los lobatos logran en su progresión.
+              </p>
+            </div>
+
+            <div className="bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 shadow-md space-y-3 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1" style={{ backgroundColor: primario }} />
+              <h4 className="font-extrabold uppercase text-[1.1em] text-zinc-900 dark:text-white flex items-center gap-2">
+                🏕️ El Cubil
+              </h4>
+              <p className="text-[0.9em] text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                La guarida de la Manada. Es el local o rincón decorado y mantenido por los propios niños, sirviendo como un espacio exclusivo para planificar sus cacerías y resguardar los testimonios de su historia común.
+              </p>
+            </div>
+
+            <div className="bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 shadow-md space-y-3 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1" style={{ backgroundColor: secundario }} />
+              <h4 className="font-extrabold uppercase text-[1.1em] text-zinc-900 dark:text-white flex items-center gap-2">
+                📖 El Libro de Mohwa
+              </h4>
+              <p className="text-[0.9em] text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                El libro histórico de la Manada. En él, los lobatos plasman bitácoras, anécdotas, dibujos y fotos de sus múltiples "cacerías", consolidando la tradición de la unidad en un valioso registro físico.
+              </p>
+            </div>
+          </div>
+
+          {/* Color de la Rama y Flor Roja */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch pt-4">
+            <div className="md:col-span-6 bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 shadow-md space-y-3 relative overflow-hidden flex flex-col justify-between">
+              <div className="absolute top-0 left-0 w-2 h-full" style={{ backgroundColor: primario }} />
+              <div className="space-y-3">
+                <h4 className="text-[1.2em] font-black uppercase text-zinc-900 dark:text-white pl-2">
+                  El Color Amarillo
+                </h4>
+                <p className="text-[0.92em] text-zinc-600 dark:text-zinc-400 leading-relaxed pl-2">
+                  Históricamente, las primeras insignias scouts se bordaban en amarillo sobre fondo verde. Al expandir el Movimiento a los niños más pequeños, se eligió el **color amarillo** (uno de los colores propios del Escultismo) como el color oficial de identificación de los lobatos a nivel mundial, evocando alegría, luz y energía.
+                </p>
+              </div>
+            </div>
+
+            <div className="md:col-span-6 bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 shadow-md space-y-3 relative overflow-hidden flex flex-col justify-between">
+              <div className="absolute top-0 left-0 w-2 h-full" style={{ backgroundColor: secundario }} />
+              <div className="space-y-3">
+                <h4 className="text-[1.2em] font-black uppercase text-zinc-900 dark:text-white pl-2">
+                  La Flor Roja
+                </h4>
+                <p className="text-[0.92em] text-zinc-600 dark:text-zinc-400 leading-relaxed pl-2">
+                  La Flor Roja es la fiesta del fuego de la Manada. Deriva del episodio donde Mowgli busca el fuego en la aldea de los hombres para ahuyentar a Shere Khan y proteger a Akela. Simboliza el espacio para cantar, bailar y desplegar libremente la capacidad de expresión artística de los lobatos en torno a la fogata.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Bandera de la Manada (Full Width con imagen de fondo) */}
           <div 
-            className="rounded-3xl overflow-hidden shadow-xl border border-zinc-150 dark:border-white/5 relative min-h-[300px] flex items-center group"
+            className="rounded-3xl overflow-hidden shadow-xl border border-zinc-200 dark:border-white/10 relative min-h-[300px] flex items-center group mt-8"
             style={{
               backgroundImage: "url('/images/unidades/bandera_manada.jpg')",
               backgroundSize: 'cover',
               backgroundPosition: 'center'
             }}
           >
-            {/* Overlay de gradiente oscuro para legibilidad */}
-            <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/90 via-zinc-950/75 to-zinc-950/40 z-0 transition-opacity group-hover:opacity-95" />
+            {/* Overlay de gradiente oscuro con alto contraste para legibilidad en ambos modos */}
+            <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/95 via-zinc-950/80 to-zinc-950/40 z-0 transition-opacity group-hover:opacity-95" />
             
             <div className="relative z-10 p-8 md:p-12 space-y-4 max-w-3xl text-white">
               <div className="flex items-center gap-3">
                 <span className="w-2.5 h-8 rounded-full inline-block" style={{ backgroundColor: primario }} />
                 <h4 className="text-[1.5em] font-black uppercase tracking-tight text-white">
-                  El Gran Aullido y la Roca del Consejo
+                  La Bandera de la Manada
                 </h4>
               </div>
-              <div className="space-y-4 text-[0.98em] text-zinc-200 leading-relaxed font-medium">
+              <div className="space-y-4 text-[0.98em] text-zinc-200 leading-relaxed font-semibold">
                 <p>
-                  El Gran Aullido es la ceremonia tradicional más importante de la Manada. En ella, reunidos en círculo alrededor de la Roca del Consejo, los lobatos saludan a Akela y reafirman en comunidad su compromiso de "hacer siempre lo mejor".
+                  La bandera de la Manada es el símbolo de reunión de la Rama y del Pueblo Libre de lobos. Es obligatoriamente de **color amarillo**, en representación de la Rama, y lleva en su centro la cabeza de un lobo y el nombre de la Manada bordado o pintado sobre ella.
                 </p>
                 <p>
-                  A través de este gran saludo colectivo, la Manada revive los pasajes del Libro de la Selva donde Mowgli es reconocido por el Pueblo Libre. Simboliza la cohesión, la alegría y la fraternidad de los lobatos bajo un mismo marco de valores y respeto a la Ley.
+                  Generalmente, la bandera tiene un lugar destacado y de honor en el Cubil (local de la Manada) y encabeza a los lobatos en las excursiones, juegos y ceremonias comunitarias del grupo.
                 </p>
               </div>
             </div>
