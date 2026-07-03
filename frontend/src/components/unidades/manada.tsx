@@ -37,10 +37,10 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
     <div className="space-y-12">
       {/* Sistema de Pestañas Interactivas */}
       <div className="border-b border-zinc-200 dark:border-white/10 pb-2">
-        <div className="flex flex-wrap gap-2 sm:gap-4">
+        <div className="flex flex-wrap gap-2">
           <button
             onClick={() => setActiveTab('camino')}
-            className={`px-5 py-2.5 rounded-2xl text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
+            className={`px-2 py-1 rounded-[0.5rem] text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
               activeTab === 'camino'
                 ? 'text-white shadow-lg'
                 : 'bg-zinc-100 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-white/10'
@@ -51,7 +51,7 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
           </button>
           <button
             onClick={() => setActiveTab('perfil')}
-            className={`px-5 py-2.5 rounded-2xl text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
+            className={`px-2 py-1 rounded-[0.5rem] text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
               activeTab === 'perfil'
                 ? 'text-white shadow-lg'
                 : 'bg-zinc-100 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-white/10'
@@ -62,7 +62,7 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
           </button>
           <button
             onClick={() => setActiveTab('objetivos')}
-            className={`px-5 py-2.5 rounded-2xl text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
+            className={`px-2 py-1 rounded-[0.5rem] text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
               activeTab === 'objetivos'
                 ? 'text-white shadow-lg'
                 : 'bg-zinc-100 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-white/10'
@@ -73,7 +73,7 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
           </button>
           <button
             onClick={() => setActiveTab('cacerias')}
-            className={`px-5 py-2.5 rounded-2xl text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
+            className={`px-2 py-1 rounded-[0.5rem] text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
               activeTab === 'cacerias'
                 ? 'text-white shadow-lg'
                 : 'bg-zinc-100 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-white/10'
@@ -84,7 +84,7 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
           </button>
           <button
             onClick={() => setActiveTab('mistica')}
-            className={`px-5 py-2.5 rounded-2xl text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
+            className={`px-2 py-1 rounded-[0.5rem] text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
               activeTab === 'mistica'
                 ? 'text-white shadow-lg'
                 : 'bg-zinc-100 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-white/10'
@@ -109,7 +109,7 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
           </div>
 
           {/* Línea de Tiempo de Progresión */}
-          <div className="grid grid-cols-1 sm:grid-cols-4 gap-6 pt-4">
+          <div className="grid grid-cols-1 sm:grid-cols-4 gap-2 pt-4">
             {[
               {
                 title: "Lobezno",
@@ -132,9 +132,9 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
                 img: "/images/progresion/manada/etapa_cazador.png"
               }
             ].map((etapa, idx) => (
-              <div key={idx} className="bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-5 space-y-4 flex flex-col items-center text-center shadow-md">
-                <div className="w-24 h-24 flex items-center justify-center bg-zinc-50 dark:bg-white/5 rounded-2xl p-2">
-                  <img src={etapa.img} alt={etapa.title} className="max-w-full max-h-full object-contain" />
+              <div key={idx} className="bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-2 space-y-4 flex flex-col items-center text-center shadow-md">
+                <div className="w-30 h-30 flex items-center justify-center bg-zinc-50 dark:bg-white/5 rounded-[1.55rem]">
+                  <img src={etapa.img} alt={etapa.title} className="max-w-full max-h-full object-contain rounded-[0.01rem]" />
                 </div>
                 <div>
                   <h4 className="font-extrabold uppercase text-[1.1em] text-zinc-900 dark:text-white">
@@ -155,11 +155,14 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
         <div className="space-y-8 animate-in fade-in duration-300">
           <div className="space-y-6">
             <h3 className="text-[1.5em] font-black uppercase tracking-tight" style={{ color: secundario }}>
-              Perfil del Lobato (Niños de 7 a 11 años)
+              Perfil del Lobato
             </h3>
             <div className="space-y-4 text-zinc-700 dark:text-zinc-300">
               <p className="text-[1.05em] leading-relaxed font-bold">
-                El perfil de manada describe las características de los niños durante este ciclo de desarrollo, abarcando de forma transversal todos los aspectos de su personalidad.
+                Niñas y Niños de 7 a 11 años
+              </p>
+              <p className="text-[1.05em] leading-relaxed font-bold">
+                El perfil de manada describe las características de los niños y niñas durante este ciclo de desarrollo, abarcando de forma transversal todos los aspectos de su personalidad.
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
@@ -283,7 +286,7 @@ export default function ManadaCustomContent({ objectives = [] }: ManadaCustomCon
           <div className="space-y-8">
             {/* Qué es una cacería */}
             <div className="flex flex-col md:flex-row gap-6 bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 shadow-md items-center">
-              <div className="w-full md:w-1/3 aspect-[4/3] rounded-2xl overflow-hidden relative shadow-inner">
+              <div className="w-full md:w-1/3 rounded-2xl overflow-hidden relative">
                 <img 
                   src="/images/unidades/bandera_manada.webp" 
                   alt="Lobatos campamento" 

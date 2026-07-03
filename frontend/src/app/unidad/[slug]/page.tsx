@@ -5,6 +5,7 @@ import { supabase } from '@/lib/supabase'
 import ClanCustomContent from '@/components/unidades/clan'
 import ManadaCustomContent from '@/components/unidades/manada'
 import CompaniaCustomContent from '@/components/unidades/compania'
+import TropaCustomContent from '@/components/unidades/tropa'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -53,7 +54,7 @@ function getUnitIdBySlug(slug: string): number | null {
 }
 
 const detailedDescriptions: { [key: number]: string } = {
-  1: "La Manada de Lobatos es la primera etapa del camino scout. Aquí, niños y niñas de 7 a 11 años viven la fantasía del 'Libro de las Tierras Vírgenes' (Mowgli). Aprenden a convivir en el Pueblo Libre, guiados por Akela, Baloo y Bagheera, bajo el lema 'Siempre Mejor'. A través de juegos, talleres y el contacto con la naturaleza, los lobatos desarrollan su carácter, afectividad y sociabilidad, aprendiendo el valor de la buena acción diaria.",
+  1: "La Manada de Lobatos es la primera etapa del camino scout. Aquí, niños y niñas de 7 a 11 años viven la fantasía del 'Libro de las Tierras Vírgenes' (Mowgli). Aprenden a convivir en el Pueblo Libre, guiados por Akela, Baloo y Bagheera, bajo el lema 'Siempre Mejor'. A través de juegos, talleres y el contact con la naturaleza, los lobatos desarrollan su carácter, afectividad y sociabilidad, aprendiendo el valor de la buena acción diaria.",
   2: "La Compañía de Guías reúne a jóvenes de 11 a 15 años que se organizan en Patrullas para vivir grandes aventuras al aire libre. Guiadas por el espíritu del Escultismo, desarrollan su autonomía, liderazgo y trabajo en equipo, preparándose para ser ciudadanas activas bajo el lema 'Siempre Listas'. El sistema de patrulla les permite asumir responsabilidades reales, tomar decisiones democráticas y planificar sus propias excursiones y proyectos.",
   3: "La Tropa de Scouts es el espacio para jóvenes de 11 a 15 años donde la vida en patrulla cobra todo su sentido. A través de campamentos, excursiones, técnicas de supervivencia y especialidades, cada scout descubre su potencial y se compromete a dejar el mundo en mejores condiciones de cómo lo encontró, bajo el lema 'Siempre Listos'. La vida al aire libre es su principal aula, donde aprenden civismo, cabuyería, orientación y primeros auxilios.",
   4: "La Avanzada de Pioneros reúne a jóvenes de 15 a 17 años en la Comunidad de Pioneros. Es una etapa de grandes desafíos, proyectos colectivos ('Aventuras') y exploración de competencias. Los pioneros definen su propio rumbo, debaten ideas y construyen su identidad bajo el lema 'Siempre Adelante'. En esta unidad, las especialidades tradicionales se transforman en Competencias en 7 rumbos clave, impulsando el liderazgo juvenil y la participación comunitaria.",
@@ -121,7 +122,7 @@ export default async function UnidadPage({ params }: PageProps) {
 
   // 6. Obtener objetivos educativos (objetivos terminales o infantiles) para la unidad activa
   let unitObjectives: any[] = []
-  if (slug === 'clan' || slug === 'manada' || slug === 'compania') {
+  if (slug === 'clan' || slug === 'manada' || slug === 'compania' || slug === 'tropa') {
     const { data: objs } = await supabase
       .from('progresion_objetivos')
       .select('id, area_id, texto_infantil, texto_terminal')
@@ -173,7 +174,7 @@ export default async function UnidadPage({ params }: PageProps) {
             {/* Columna 2: Nombre y Descripción Corta */}
             <div className="md:col-span-8 text-center md:text-left space-y-4">
               <span 
-                className="text-[1.1em] font-bold uppercase tracking-widest px-4 py-1 rounded-full inline-block backdrop-blur-sm border border-2 shadow-sm mb-[-2px]"
+                className="text-[1.1em] font-bold uppercase tracking-widest px-4 py-1 rounded-tl-xl rounded-tr-xl inline-block backdrop-blur-sm border border-2 shadow-sm mb-[-2px]"
                 style={{ 
                   color: primario, 
                   backgroundColor: secundario,
@@ -182,7 +183,7 @@ export default async function UnidadPage({ params }: PageProps) {
               >
                 {unit.nombre}
               </span>
-              <h1 className="text-[2.5em] md:text-[4.5em] font-bold px-4 py-0.1 rounded-[1em] uppercase tracking-tighter leading-none text-white drop-shadow-lg font-inika"
+              <h1 className="text-[2.5em] md:text-[4.5em] font-bold px-4 pt-4 pb-1 rounded-bl-3xl rounded-br-3xl rounded-tr-3xl uppercase tracking-tighter leading-none text-white drop-shadow-lg font-inika"
                 style={{ 
                   color: secundario,
                   backgroundColor: primario,
@@ -215,6 +216,8 @@ export default async function UnidadPage({ params }: PageProps) {
               <ManadaCustomContent objectives={unitObjectives} />
             ) : slug === 'compania' ? (
               <CompaniaCustomContent objectives={unitObjectives} />
+            ) : slug === 'tropa' ? (
+              <TropaCustomContent objectives={unitObjectives} />
             ) : (
               <p className="text-[1.15em] text-zinc-700 dark:text-zinc-300 leading-relaxed whitespace-pre-line font-medium">
                 {detailedDescriptions[unit.id]}

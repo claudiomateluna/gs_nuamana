@@ -9,24 +9,24 @@ interface Objective {
   texto_terminal: string;
 }
 
-interface CompaniaCustomContentProps {
+interface TropaCustomContentProps {
   objectives: Objective[];
 }
 
-export default function CompaniaCustomContent({ objectives = [] }: CompaniaCustomContentProps) {
+export default function TropaCustomContent({ objectives = [] }: TropaCustomContentProps) {
   const [activeTab, setActiveTab] = useState<'camino' | 'perfil' | 'objetivos' | 'proyectos' | 'mistica'>('camino');
 
-  // Colores de la Compañía: Celeste (#00b7dc) y Amarillo/Dorado (#e7a913)
-  const primario = '#00b7dc';
-  const secundario = '#e7a913';
+  // Colores de la Tropa: Verde (#009b3a) y Amarillo (#f5cd16) o Blanco
+  const primario = '#009b3a';
+  const secundario = '#1b1b1b'; // Neutro para texto y bordes de realce
 
   const areas = [
-    { id: 1, name: "Corporalidad", icon: "🌱", img: "/images/progresion/compania/area_corporalidad.png", color: "#00b7dc", symbol: "El Alerce", symbolDesc: "Refleja fuerza y longevidad, creciendo de manera constante con agua y luz.", desc: "Desarrollo del cuerpo y cuidado de la salud." },
-    { id: 2, name: "Creatividad", icon: "🔥", img: "/images/progresion/compania/area_creatividad.png", color: "#ff8c00", symbol: "El Fuego", symbolDesc: "Elemento de vital importancia para crear e innovar desde lo que tenemos.", desc: "Estimular el pensamiento, innovar y adquirir habilidades." },
-    { id: 3, name: "Carácter", icon: "🏔️", img: "/images/progresion/compania/area_caracter.png", color: "#2ed573", symbol: "La Montaña", symbolDesc: "De base sólida y estable, nos desafía y reafirma quiénes somos.", desc: "Conocerse a sí mismo, madurez y escala de valores." },
-    { id: 4, name: "Afectividad", icon: "🕊️", img: "/images/progresion/compania/area_afectividad.png", color: "#ff4757", symbol: "La Torcaza", symbolDesc: "Representa el andar seguro en bandada, la protección familiar y los afectos.", desc: "Lograr y mantener la madurez y equilibrio emocional." },
-    { id: 5, name: "Sociabilidad", icon: "🐝", img: "/images/progresion/compania/area_sociabilidad.png", color: "#a55eea", symbol: "Las Abejas", symbolDesc: "Trabajo en sociedad para un fin común, comunicándose activamente.", desc: "Compromiso social y convivencia en comunidad." },
-    { id: 6, name: "Espiritualidad", icon: "🌌", img: "/images/progresion/compania/area_espiritualidad.png", color: "#8e44ad", symbol: "La Constelación", symbolDesc: "La mirada al cielo nocturno buscando respuestas y trascendencia con Dios.", desc: "Búsqueda del sentido trascendente y la fe." }
+    { id: 1, name: "Corporalidad", icon: "🦅", img: "/images/progresion/tropa/area_corporalidad.png", color: "#00b7dc", symbol: "Hombre Pájaro", symbolDesc: "Inspirado en la cultura de Rapanui y la hazaña física de buscar el primer huevo del Manutara.", desc: "Desarrollo del cuerpo y cuidado de la salud." },
+    { id: 2, name: "Creatividad", icon: "🏺", img: "/images/progresion/tropa/area_creatividad.png", color: "#ff8c00", symbol: "Vasija Diaguita", symbolDesc: "Símbolo de la capacidad de usar el conocimiento de manera original en la vida cotidiana.", desc: "Estimular el pensamiento, innovar y adquirir habilidades." },
+    { id: 3, name: "Carácter", icon: "🧱", img: "/images/progresion/tropa/area_caracter.png", color: "#2ed573", symbol: "El Pucará", symbolDesc: "Fuerte incaico de piedra atacameño que representa solidez, tranquilidad y entereza moral.", desc: "Conocerse a sí mismo, madurez y escala de valores." },
+    { id: 4, name: "Afectividad", icon: "🌸", img: "/images/progresion/tropa/area_afectividad.png", color: "#ff4757", symbol: "Chamanto de Doñihue", symbolDesc: "La flor tejida en el chamanto como símbolo de belleza, armonía y expresión de los afectos.", desc: "Lograr y mantener la madurez y equilibrio emocional." },
+    { id: 5, name: "Sociabilidad", icon: "🐧", img: "/images/progresion/tropa/area_sociabilidad.png", color: "#a55eea", symbol: "Pingüino Emperador", symbolDesc: "Representa el trabajo cooperativo y la subsistencia comunitaria frente al clima antártico.", desc: "Compromiso social y convivencia en comunidad." },
+    { id: 6, name: "Espiritualidad", icon: "🌲", img: "/images/progresion/tropa/area_espiritualidad.png", color: "#8e44ad", symbol: "Araucaria o Pehuén", symbolDesc: "Árbol venerado de raíces profundas y ramas al cielo, símbolo de la subsistencia y búsqueda de Dios.", desc: "Búsqueda del sentido trascendente y la fe." }
   ];
 
   const getObjectivesByArea = (areaId: number) => {
@@ -37,32 +37,32 @@ export default function CompaniaCustomContent({ objectives = [] }: CompaniaCusto
     <div className="space-y-12">
       {/* Sistema de Pestañas Interactivas */}
       <div className="border-b border-zinc-200 dark:border-white/10 pb-2">
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 sm:gap-4">
           <button
             onClick={() => setActiveTab('camino')}
-            className={`px-1 py-2 rounded-2xl text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
+            className={`px-5 py-2.5 rounded-2xl text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
               activeTab === 'camino'
                 ? 'text-white shadow-lg'
                 : 'bg-zinc-100 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-white/10'
             }`}
             style={{ backgroundColor: activeTab === 'camino' ? primario : undefined }}
           >
-            Etapas de Progresión
+            Etapas de Tropa
           </button>
           <button
             onClick={() => setActiveTab('perfil')}
-            className={`px-1 py-2 rounded-2xl text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
+            className={`px-5 py-2.5 rounded-2xl text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
               activeTab === 'perfil'
                 ? 'text-white shadow-lg'
                 : 'bg-zinc-100 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-white/10'
             }`}
             style={{ backgroundColor: activeTab === 'perfil' ? primario : undefined }}
           >
-            Perfil de la Guía
+            Perfil del Scout
           </button>
           <button
             onClick={() => setActiveTab('objetivos')}
-            className={`px-1 py-2 rounded-2xl text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
+            className={`px-5 py-2.5 rounded-2xl text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
               activeTab === 'objetivos'
                 ? 'text-white shadow-lg'
                 : 'bg-zinc-100 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-white/10'
@@ -73,18 +73,18 @@ export default function CompaniaCustomContent({ objectives = [] }: CompaniaCusto
           </button>
           <button
             onClick={() => setActiveTab('proyectos')}
-            className={`px-1 py-2 rounded-2xl text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
+            className={`px-5 py-2.5 rounded-2xl text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
               activeTab === 'proyectos'
                 ? 'text-white shadow-lg'
                 : 'bg-zinc-100 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-white/10'
             }`}
             style={{ backgroundColor: activeTab === 'proyectos' ? primario : undefined }}
           >
-            Proyectos y Ciclo
+            Aventuras y Ciclo
           </button>
           <button
             onClick={() => setActiveTab('mistica')}
-            className={`px-1 py-2 rounded-2xl text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
+            className={`px-5 py-2.5 rounded-2xl text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
               activeTab === 'mistica'
                 ? 'text-white shadow-lg'
                 : 'bg-zinc-100 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-white/10'
@@ -96,15 +96,15 @@ export default function CompaniaCustomContent({ objectives = [] }: CompaniaCusto
         </div>
       </div>
 
-      {/* Contenido de la Pestaña 1: Etapas de Progresión */}
+      {/* Contenido de la Pestaña 1: Etapas de Tropa */}
       {activeTab === 'camino' && (
         <div className="space-y-8 animate-in fade-in duration-300">
           <div className="space-y-4">
             <h3 className="text-[1.5em] font-black uppercase tracking-tight" style={{ color: primario }}>
-              La Ruta del Crecimiento en la Compañía
+              La Ruta del Crecimiento en la Tropa
             </h3>
             <p className="text-[1.05em] leading-relaxed text-zinc-700 dark:text-zinc-300">
-              En la Compañía, el crecimiento personal se vive como una exploración continua de nuevos territorios con un grupo de amigas. Las insignias de progresión se entregan al comienzo de cada etapa como un estímulo para seguir adelante en tu propio Diario de los Desafíos.
+              En la Tropa, el camino de progresión personal se recorre explorando nuevos territorios con tu grupo de amigos. Las insignias de progresión representan el estímulo que se entrega al comenzar cada etapa, registrando tus avances en tu Bitácora.
             </p>
           </div>
 
@@ -112,28 +112,28 @@ export default function CompaniaCustomContent({ objectives = [] }: CompaniaCusto
           <div className="grid grid-cols-1 sm:grid-cols-4 gap-6 pt-4">
             {[
               {
-                title: "Etapa Alba",
-                subtitle: "La Primera Luz",
-                desc: "El camino nos presenta los primeros destellos del sol por la cordillera. La guía se reconoce dentro de su patrulla y comienza a explorar los desafíos de 11 a 13 años.",
-                img: "/images/progresion/compania/etapa_alba.png"
+                title: "Etapa Cernícalo",
+                subtitle: "Aprender a Observar",
+                desc: "Se busca tener una visión panorámica de todo el conjunto que nos rodea, tal como hace el cernícalo al posarse en las ramas altas para detectar señales del entorno.",
+                img: "/images/progresion/tropa/etapa_cernicalo.png"
               },
               {
-                title: "Etapa Amanecer",
-                subtitle: "El Camino Se Ensancha",
-                desc: "El sol ya se asoma indicando que el viaje ha comenzado. Se entrega al alcanzar aproximadamente la mitad de los desafíos del rango de 11 a 13 años, brindando más dirección a la senda.",
-                img: "/images/progresion/compania/etapa_amanecer.png"
+                title: "Etapa Halcón",
+                subtitle: "Nuevos Caminos",
+                desc: "Tal como el halcón, que cubre territorios más amplios, estamos preparados para descubrir nuevos caminos que nos muestren con mayor claridad el rumbo de nuestra Tropa.",
+                img: "/images/progresion/tropa/etapa_halcon.png"
               },
               {
-                title: "Etapa Luz",
-                subtitle: "Exploración Eficaz",
-                desc: "Con el sol alto en el cielo azul, la ruta se hace más visible y segura. Se inicia al interactuar con los objetivos de 13 a 15 años, marcando la senda para las demás.",
-                img: "/images/progresion/compania/etapa_luz.png"
+                title: "Etapa Águila",
+                subtitle: "Ensanchar el Horizonte",
+                desc: "Como el águila, que vive a grandes alturas, encontramos nuevas perspectivas que ensanchan nuestro horizonte y nos permiten saber las condiciones necesarias para avanzar.",
+                img: "/images/progresion/tropa/etapa_aguila.png"
               },
               {
-                title: "Etapa Resplandor",
-                subtitle: "Legado y Compromiso",
-                desc: "El sol brilla fuerte sobre nuestros hombros y la travesía es más intensa. Se entrega al promediar los objetivos de 13 a 15 años, preparándote para el paso a la Avanzada.",
-                img: "/images/progresion/compania/etapa_resplandor.png"
+                title: "Etapa Cóndor",
+                subtitle: "Excelencia en el Vuelo",
+                desc: "Como el cóndor, cuya excelencia le permite aprovechar las corrientes para cruzar valles y montañas, nuestra búsqueda nunca termina en pos de ser siempre mejores.",
+                img: "/images/progresion/tropa/etapa_condor.png"
               }
             ].map((etapa, idx) => (
               <div key={idx} className="bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-5 space-y-4 flex flex-col items-center text-center shadow-md">
@@ -157,24 +157,24 @@ export default function CompaniaCustomContent({ objectives = [] }: CompaniaCusto
 
           <div className="bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 space-y-4">
             <h4 className="font-extrabold uppercase text-[1.2em] text-zinc-900 dark:text-white">
-              El Diario de los Desafíos y los Sellos
+              El Reconocimiento y la Bitácora
             </h4>
             <p className="text-[1.02em] leading-relaxed text-zinc-700 dark:text-zinc-300">
-              Cuando al final de un ciclo de programa se evalúan tus objetivos y se consideran logrados, se procede a estampar un <strong>sello</strong> en tu pasaporte personal (Diario de los Desafíos). Cada área de desarrollo tiene su propio diseño inspirado en símbolos de la naturaleza que representan el crecimiento personal y la exploración de nuevos territorios.
+              Al finalizar cada ciclo de programa, se evalúan de común acuerdo tus objetivos en la patrulla y con tu dirigente de seguimiento. El logro de cada objetivo personal se reconoce pegando un **sello** de diseño temático en tu Bitácora. Con los timbres de tu Tropa, tu Bitácora adquiere el aspecto de un pasaporte personal de viaje.
             </p>
           </div>
         </div>
       )}
 
-      {/* Contenido de la Pestaña 2: Perfil de la Guía */}
+      {/* Contenido de la Pestaña 2: Perfil del Scout */}
       {activeTab === 'perfil' && (
         <div className="space-y-8 animate-in fade-in duration-300">
           <div className="space-y-4">
             <h3 className="text-[1.5em] font-black uppercase tracking-tight" style={{ color: primario }}>
-              Perfil de Egreso de la Guía
+              Perfil de Egreso del Scout
             </h3>
             <p className="text-[1.05em] leading-relaxed text-zinc-700 dark:text-zinc-300">
-              En el Movimiento Guía y Scout aspiramos a que, al finalizar tu paso por la Compañía y el Grupo, seas capaz de forjar tu propio proyecto de vida basándote en los siguientes pilares de la personalidad:
+              El proyecto educativo del Movimiento Scout propone que cada joven construya de forma autónoma su propio proyecto de vida, orientando su carácter hacia los siguientes ideales:
             </p>
           </div>
 
@@ -216,10 +216,10 @@ export default function CompaniaCustomContent({ objectives = [] }: CompaniaCusto
         <div className="space-y-8 animate-in fade-in duration-300">
           <div className="space-y-4">
             <h3 className="text-[1.5em] font-black uppercase tracking-tight" style={{ color: primario }}>
-              Objetivos Educativos (Desafíos de la Guía)
+              Objetivos Educativos (Desafíos del Scout)
             </h3>
             <p className="text-[1.05em] leading-relaxed text-zinc-700 dark:text-zinc-300">
-              La progresión personal se organiza en seis áreas de desarrollo. Cada una posee un símbolo protector en la naturaleza de la Compañía. Descubre tus objetivos y desafíate a explorar nuevos caminos junto a tu patrulla.
+              La progresión personal se organiza en seis áreas de desarrollo. En cada una, la Tropa utiliza un símbolo de identidad nacional y local para representar tu crecimiento personal.
             </p>
           </div>
 
@@ -284,15 +284,15 @@ export default function CompaniaCustomContent({ objectives = [] }: CompaniaCusto
         </div>
       )}
 
-      {/* Contenido de la Pestaña 4: Proyectos y Ciclo */}
+      {/* Contenido de la Pestaña 4: Aventuras y Ciclo */}
       {activeTab === 'proyectos' && (
         <div className="space-y-8 animate-in fade-in duration-300">
           <div className="space-y-4">
             <h3 className="text-[1.5em] font-black uppercase tracking-tight" style={{ color: primario }}>
-              Ciclo de Programa y Proyectos de Patrulla
+              Ciclo de Programa y Aventuras de Patrulla
             </h3>
             <p className="text-[1.05em] leading-relaxed text-zinc-700 dark:text-zinc-300">
-              En la Compañía, el juego democrático y el protagonismo de las guías organizan la vida común. A través de ciclos que ocurren tres veces al año, planificamos, preparamos, desarrollamos y evaluamos nuestras aventuras.
+              La Tropa es una escuela de democracia y autogobierno donde los muchachos eligen y conducen su programa de actividades a través de ciclos estructurados en 4 fases sucesivas.
             </p>
           </div>
 
@@ -303,10 +303,10 @@ export default function CompaniaCustomContent({ objectives = [] }: CompaniaCusto
               </h4>
               <div className="space-y-4">
                 {[
-                  { phase: "Fase 1: Diagnóstico de la Unidad", desc: "El Consejo de Compañía y los Consejos de Patrulla analizan el clima educativo, el avance de objetivos y las guiadoras, fijando el Énfasis del Ciclo." },
-                  { phase: "Fase 2: Propuesta y Selección", desc: "Las patrullas exponen ideas de proyectos y actividades variables. Mediante Juegos Democráticos en Asamblea se eligen las favoritas." },
-                  { phase: "Fase 3: Diseño y Preparación", desc: "Se arma un calendario flexible aprobado por la Asamblea. Cada actividad se diseña definiendo objetivos claros y se preparan materiales." },
-                  { phase: "Fase 4: Desarrollo y Evaluación", desc: "¡La emoción de hacer cosas! Se ejecutan los proyectos, se evalúa el cumplimiento de metas y se reconoce la progresión con sellos." }
+                  { phase: "Fase 1: Propuesta y Selección", desc: "Se inicia tras el diagnóstico del ciclo anterior. Las patrullas proponen ideas y mediante Juegos Democráticos en Asamblea se eligen las actividades comunes." },
+                  { phase: "Fase 2: Organización, Diseño y Preparación", desc: "Las actividades se organizan en un calendario flexible de Tropa. Cada patrulla diseña los componentes y prepara los recursos necesarios." },
+                  { phase: "Fase 3: Desarrollo y Evaluación de Actividades", desc: "¡La emoción de hacer cosas! Se ejecutan los proyectos, campamentos y dinámicas. Se evalúa el cumplimiento de metas y progresión en 360 grados." },
+                  { phase: "Fase 4: Cambio de Ciclo", desc: "Fase de transición: conclusiones de autoevaluación, entrega de reconocimientos, diagnóstico general de la Tropa y fijación de un nuevo Énfasis." }
                 ].map((item, idx) => (
                   <div key={idx} className="flex gap-3">
                     <span className="w-6 h-6 rounded-full bg-zinc-100 dark:bg-white/5 flex items-center justify-center font-bold text-[0.85em] text-zinc-600 dark:text-zinc-300 shrink-0 mt-0.5 border border-zinc-200 dark:border-white/10">
@@ -324,15 +324,17 @@ export default function CompaniaCustomContent({ objectives = [] }: CompaniaCusto
             <div className="space-y-6">
               <div className="bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 space-y-3">
                 <h4 className="font-extrabold uppercase text-[1.2em] text-zinc-900 dark:text-white" style={{ color: primario }}>
-                  Los Proyectos de Compañía
+                  Los Proyectos de Tropa
                 </h4>
                 <p className="text-[0.98em] text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Los proyectos son actividades de mediana o larga duración organizadas por las patrullas en pos de un objetivo común. Las jóvenes son las protagonistas absolutas de sus proyectos: proponen ideas, diseñan las tareas, asumen responsabilidades individuales y evalúan los resultados juntas.
+                  Los proyectos (o Aventuras) son actividades de mediana o larga duración en las que las patrullas asumen tareas de forma cooperativa en pos de un objetivo común. Deben cumplir la sigla <strong>`DURAS`</strong>:
                 </p>
-                <div className="pt-2">
-                  <span className="inline-block text-[0.8em] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-cyan-100 dark:bg-cyan-950/40 text-cyan-700 dark:text-cyan-400 border border-cyan-200 dark:border-cyan-900/30">
-                    DURAS: Desafiantes • Útiles • Recompensantes • Atractivas • Seguras
-                  </span>
+                <div className="grid grid-cols-2 gap-2 text-[0.88em] font-semibold text-zinc-700 dark:text-zinc-300 pl-2">
+                  <span>• Desafiantes</span>
+                  <span>• Útiles</span>
+                  <span>• Recompensantes</span>
+                  <span>• Atractivas</span>
+                  <span className="col-span-2">• Seguras (Minimizando riesgos)</span>
                 </div>
               </div>
 
@@ -341,7 +343,7 @@ export default function CompaniaCustomContent({ objectives = [] }: CompaniaCusto
                   Las Actividades Fijas
                 </h4>
                 <p className="text-[0.98em] text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Aquellas rutinas que dan estructura a nuestra vida común: las <strong>Reuniones de Patrulla</strong> y de Compañía, los <strong>Campamentos</strong> y excursiones (que refuerzan la vida al aire libre), los juegos, los relatos e historias inspiradoras, y la tradicional <strong>Fiesta del Trébol</strong> en campamento.
+                  Son las actividades que estructuran el programa: las **Reuniones de Patrulla** y Tropa, los **Campamentos** y excursiones (que promueven la autonomía al aire libre), los juegos scout de despliegue físico y el fogón tradicional.
                 </p>
               </div>
             </div>
@@ -355,14 +357,14 @@ export default function CompaniaCustomContent({ objectives = [] }: CompaniaCusto
           {/* Promesa y Ley */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 space-y-4">
-              <span className="text-[0.8em] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-cyan-100 dark:bg-cyan-950/40 text-cyan-700 dark:text-cyan-400 border border-cyan-200 dark:border-cyan-900/30">
+              <span className="text-[0.8em] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-green-100 dark:bg-green-950/40 text-green-700 dark:text-green-400 border border-green-200 dark:border-green-900/30">
                 Compromiso de Honor
               </span>
               <h4 className="font-extrabold uppercase text-[1.3em] text-zinc-900 dark:text-white leading-tight">
-                La Promesa Guía
+                La Promesa Scout
               </h4>
-              <p className="text-[1.08em] leading-relaxed text-zinc-700 dark:text-zinc-300 italic pl-4 border-l-2 border-cyan-500">
-                "Hacer cuanto de mí dependa para buscar a Dios, amar a mi familia, ayudar a los demás, servir a mi país, trabajar por la paz y vivir la Ley Guía."
+              <p className="text-[1.08em] leading-relaxed text-zinc-700 dark:text-zinc-300 italic pl-4 border-l-2 border-green-600">
+                "Por mi honor prometo hacer cuanto de mí dependa para buscar a Dios, amar a mi familia, ayudar a los demás, servir a mi país, trabajar por la paz y vivir la Ley Scout."
               </p>
             </div>
 
@@ -371,11 +373,11 @@ export default function CompaniaCustomContent({ objectives = [] }: CompaniaCusto
                 Código de Conducta
               </span>
               <h4 className="font-extrabold uppercase text-[1.3em] text-zinc-900 dark:text-white leading-tight">
-                La Ley Guía
+                La Ley Scout
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[0.92em]">
                 {[
-                  "1. Es digna de confianza.",
+                  "1. Es digno de confianza.",
                   "2. Es leal.",
                   "3. Sirve sin esperar recompensa.",
                   "4. Comparte con todos.",
@@ -393,82 +395,103 @@ export default function CompaniaCustomContent({ objectives = [] }: CompaniaCusto
           </div>
 
           {/* Símbolos Principales */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <div className="bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 space-y-3">
-              <h4 className="font-extrabold uppercase text-[1.1em] text-zinc-900 dark:text-white">
-                El Color Cian
+          <div className="grid grid-cols-1 sm:grid-cols-4 gap-6">
+            <div className="bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 space-y-2">
+              <h4 className="font-extrabold uppercase text-[1.05em] text-zinc-900 dark:text-white">
+                El Color Verde
               </h4>
-              <p className="text-[0.9em] text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                Es la mezcla exacta de verde y azul claro: los colores más significativos del entorno de exploración de las guías en la naturaleza. Representa la tierra fértil y el cielo abierto de Seeonee.
+              <p className="text-[0.88em] text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                Color histórico de la primera rama en crearse. Baden-Powell adoptó el verde del Transvaal en las primeras insignias scouts bordadas en amarillo.
               </p>
             </div>
-            <div className="bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 space-y-3">
-              <h4 className="font-extrabold uppercase text-[1.1em] text-zinc-900 dark:text-white">
-                El Trébol Mundial
+            <div className="bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 space-y-2">
+              <h4 className="font-extrabold uppercase text-[1.05em] text-zinc-900 dark:text-white">
+                La Flor de Lis
               </h4>
-              <p className="text-[0.9em] text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                Símbolo de la Asociación Mundial (WAGGGS). Sus tres hojas recuerdan los principios de la promesa, y su aguja en el centro representa la brújula que nos señala el norte en el camino.
+              <p className="text-[0.88em] text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                Indica la buena senda en la rosa de los vientos de los antiguos mapas. Recuerda a todo scout mantener su ideal y señalar el norte correcto.
               </p>
             </div>
-            <div className="bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 space-y-3">
-              <h4 className="font-extrabold uppercase text-[1.1em] text-zinc-900 dark:text-white">
-                Saludo Izquierdo
+            <div className="bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 space-y-2">
+              <h4 className="font-extrabold uppercase text-[1.05em] text-zinc-900 dark:text-white">
+                Saludo Scout
               </h4>
-              <p className="text-[0.9em] text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                Seña de confianza heredada del pueblo Ashanti: al saludar con la mano izquierda, el guerrero dejaba de lado su escudo protector, simbolizando que se encuentra ante amigas en quienes confía plenamente.
+              <p className="text-[0.88em] text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                Dedo pulgar sobre el meñique (el fuerte protege al débil) y tres dedos alzados (las tres partes de la promesa), levantado a la altura del hombro.
+              </p>
+            </div>
+            <div className="bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 space-y-2">
+              <h4 className="font-extrabold uppercase text-[1.05em] text-zinc-900 dark:text-white">
+                Buena Acción
+              </h4>
+              <p className="text-[0.88em] text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                Compromiso diario de servicio tangible y concreto hacia los demás, combatiendo la indiferencia y poniendo de manifiesto al prójimo.
               </p>
             </div>
           </div>
 
-          {/* Himno Guía */}
+          {/* Oración Scout */}
+          <div className="bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 space-y-3">
+            <h4 className="font-extrabold uppercase text-[1.25em] text-zinc-900 dark:text-white">
+              La Oración Scout
+            </h4>
+            <p className="italic text-zinc-700 dark:text-zinc-300 leading-relaxed pl-4 border-l-2 border-green-500 max-w-xl text-[1.05em]">
+              "Señor,<br />
+              enséñanos a ser generosos,<br />
+              a servirte como lo mereces,<br />
+              a dar sin medida,<br />
+              a combatir sin miedo a que nos hieran,<br />
+              a trabajar sin descanso<br />
+              y a no buscar otra recompensa<br />
+              que saber que hacemos Tu voluntad."
+            </p>
+          </div>
+
+          {/* Himno Scout */}
           <div className="bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 rounded-3xl p-6 space-y-4">
             <h4 className="font-extrabold uppercase text-[1.2em] text-zinc-900 dark:text-white">
-              Himno de la Rama: Siempre Lista
+              Himno de la Rama: Avanzan las Patrullas
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-[0.95em]">
               <div className="space-y-1">
                 <span className="font-bold text-zinc-800 dark:text-zinc-200 block text-[0.9em] uppercase tracking-wide">Coro</span>
                 <p className="italic text-zinc-650 dark:text-zinc-400 leading-relaxed pl-3 border-l border-zinc-200 dark:border-white/10">
-                  Siempre lista, hermana guía,<br />
-                  es el deber nuestra misión,<br />
-                  ser la luz que brilla y brilla<br />
-                  por la Patria y el honor.<br />
-                  A la cumbre subiremos<br />
-                  sin descanso hasta el final<br />
-                  con el alma siempre abierta<br />
-                  en pos de nuestro ideal.
+                  Juntos escalemos la montaña altiva,<br />
+                  juntos escalemos el picacho azul.<br />
+                  Solo los halcones sobre nuestras frentes<br />
+                  giran majestuosos en el cielo azul.
                 </p>
               </div>
               <div className="space-y-1">
                 <span className="font-bold text-zinc-800 dark:text-zinc-200 block text-[0.9em] uppercase tracking-wide">Estrofa I</span>
                 <p className="italic text-zinc-650 dark:text-zinc-400 leading-relaxed pl-3 border-l border-zinc-200 dark:border-white/10">
-                  Guías, avanzad en alegre caravana<br />
-                  porque la luz nos espera al final<br />
-                  siempre en la paz, amor y amistad<br />
-                  el triunfo será de nuestra hermandad.
+                  Avanzan las patrullas,<br />
+                  a lo lejos, adelante.<br />
+                  Avanzan las patrullas<br />
+                  al toque del tambor. ¡Adelante!
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Bandera de la Compañía */}
+          {/* Bandera de la Tropa */}
           <div className="relative rounded-[2rem] overflow-hidden border border-zinc-200 dark:border-white/10 bg-zinc-900 shadow-xl" style={{ minHeight: '280px' }}>
             <div className="absolute inset-0 z-0 select-none pointer-events-none opacity-40 dark:opacity-30">
               <img
-                src="/images/unidades/bandera_compania.jpg"
-                alt="Bandera de la Compañía de Guías"
+                src="/images/unidades/bandera_tropa.jpg"
+                alt="Bandera de la Tropa de Scouts"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="relative z-10 p-8 sm:p-10 flex flex-col justify-end h-full space-y-4 max-w-2xl bg-gradient-to-t from-zinc-950/90 via-zinc-950/40 to-transparent">
-              <span className="text-[0.8em] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 align-self-start self-start">
-                Símbolo de Unidad
+              <span className="text-[0.8em] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-green-500/20 text-green-300 border border-green-500/30 align-self-start self-start">
+                Símbolo de Hermandad
               </span>
               <h4 className="text-[1.5em] font-black uppercase tracking-tight text-white leading-tight">
-                La Bandera de la Compañía
+                La Bandera de la Rama Scouts
               </h4>
               <p className="text-[1.02em] leading-relaxed text-zinc-200">
-                La bandera oficial de la Rama lleva como fondo el color <strong>cian</strong> y en su centro, en amarillo dorado, el <strong>trébol</strong> de la insignia Guía Mundial. Representa la hermandad internacional de niñas y jóvenes que exploran y sirven unidas a lo largo de todo el planeta.
+                La bandera oficial de la Rama Scouts lleva como fondo el color <strong>verde</strong> y en su centro, en color blanco, el diseño de la <strong>flor de lis</strong> utilizada en la insignia Scout Mundial, uniendo a todos los scouts del mundo.
               </p>
             </div>
           </div>

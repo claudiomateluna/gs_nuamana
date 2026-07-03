@@ -133,16 +133,16 @@ const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
                   <span className="font-bold text-clr5 dark:text-clr1 group-hover:text-clr7">Lo que hacemos</span>
                 </button>
                 <button onClick={() => { router.push('/blog'); onClose(); }} className="flex items-center w-full p-3 rounded-2xl hover:bg-clr7/5 transition-all group">
-                  <div className="w-8 h-8 mr-4 flex items-center justify-center bg-clr7 rounded-lg text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="w-8 h-8 mr-4 flex items-center justify-center text-clr7">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
                     </svg>
                   </div>
-                  <span className="font-bold text-clr5 dark:text-clr1 group-hover:text-clr7">Bitácora Scout</span>
+                  <span className="font-bold text-clr5 dark:text-clr1 group-hover:text-clr7">Blog</span>
                 </button>
                 <button onClick={() => setCurrentView('unidades')} className="flex items-center w-full p-3 rounded-2xl hover:bg-clr7/5 transition-all group">
-                  <div className="w-8 h-8 mr-4 flex items-center justify-center bg-clr7 rounded-lg text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="w-8 h-8 mr-4 flex items-center justify-center text-clr7">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
                   </div>
