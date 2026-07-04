@@ -25,7 +25,17 @@ const robotoSlab = Roboto_Slab({
 export const metadata: Metadata = {
   title: "Guías y Scouts Nua Mana - Una Nueva Aventura",
   description: "Portal oficial del Grupo Guía y Scout Nua Mana. Educación para la vida, empoderamiento juvenil y aventuras al aire libre.",
-  manifest: "/manifest.json",
+  manifest: "/manifest.webmanifest",
+  icons: {
+    icon: [
+      { url: '/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512x512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    shortcut: '/icon-192x192.png',
+    apple: [
+      { url: '/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+    ],
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",

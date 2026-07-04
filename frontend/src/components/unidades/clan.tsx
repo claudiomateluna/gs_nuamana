@@ -574,36 +574,6 @@ export default function ClanCustomContent({ objectives = [] }: ClanCustomContent
               </p>
             </div>
           </div>
-
-          {/* Bandera del Clan (Full Width) */}
-          <div 
-            className="rounded-3xl overflow-hidden shadow-xl border border-zinc-150 dark:border-white/5 relative min-h-[300px] flex items-center mt-8 group"
-            style={{
-              backgroundImage: "url('/images/unidades/Bandera_clan_1.jpg')",
-              backgroundSize: 'cover',
-              backgroundPosition: 'center'
-            }}
-          >
-            {/* Overlay de gradiente oscuro para legibilidad */}
-            <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/90 via-zinc-950/75 to-zinc-950/40 z-0 transition-opacity group-hover:opacity-95" />
-            
-            <div className="relative z-10 p-8 md:p-12 space-y-4 max-w-3xl text-white">
-              <div className="flex items-center gap-3">
-                <span className="w-2.5 h-8 rounded-full inline-block" style={{ backgroundColor: secundario }} />
-                <h4 className="text-[1.5em] font-black uppercase tracking-tight text-white">
-                  Bandera del Clan
-                </h4>
-              </div>
-              <div className="space-y-4 text-[0.98em] text-zinc-200 leading-relaxed font-medium">
-                <p>
-                  La Bandera de la Rama reúne el color y el símbolo que nos identifican, el trébol y la flor de lis se transforman en la llama que ilumina los pasos de los caminantes.
-                </p>
-                <p>
-                  Nuestra bandera como Clan Ahu Akivi, muestra la imagen que representa al ahu akivi en Rapa Nui, como los primeros colonos Rapa Nui que se asentaron en Te Pito o Te Henua, detrás del ahu se muestra la flor de lis y trébol del clan, marcada por el color rojo y una inscripción en clave en la parte superior, la clave también está contenida dentro de la misma bandera.
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
       )}
     </div>

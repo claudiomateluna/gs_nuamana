@@ -67,23 +67,56 @@ export default function DashboardPage() {
   const [subTabTeso, setSubTabTeso] = useState<'libro' | 'rendiciones'>('libro')
   const [subTabCiclo, setSubTabCiclo] = useState<'activo' | 'historial' | 'otras_unidades'>('activo')
   
-  // 2. ESTADOS DE MODALES
-  const [isModPerfilOpen, setIsModPerfilOpen] = useState(false)
-  const [isModActaCrearOpen, setIsModActaCrearOpen] = useState(false)
-  const [isModActaVerOpen, setIsModActaVerOpen] = useState(false)
-  const [isModBitacoraCrearOpen, setIsModBitacoraCrearOpen] = useState(false)
-  const [isModBitacoraVerOpen, setIsModBitacoraVerOpen] = useState(false)
-  const [isModVerFichaOpen, setIsModVerFichaOpen] = useState(false)
-  const [isModInventarioOpen, setIsModInventarioOpen] = useState(false)
-  const [isModTesoreriaOpen, setIsModTesoreriaOpen] = useState(false)
-  const [isModValeOpen, setIsModValeOpen] = useState(false)
-  const [isModTesoreriaVerOpen, setIsModTesoreriaVerOpen] = useState(false)
-  const [isModRendicionOpen, setIsModRendicionOpen] = useState(false)
-  const [isModRendicionVerOpen, setIsModRendicionVerOpen] = useState(false)
-  const [isModAutorizacionOpen, setIsModAutorizacionOpen] = useState(false)
-  const [isModAutorizacionVerOpen, setIsModAutorizacionVerOpen] = useState(false)
-  const [isModActividadOpen, setIsModActividadOpen] = useState(false)
-  const [isModVincularPupiloOpen, setIsModVincularPupiloOpen] = useState(false)
+  // 2. ESTADOS DE MODALES (Consolidados para cumplir con KISS)
+  const [activeModal, setActiveModal] = useState<string | null>(null);
+
+  const isModPerfilOpen = activeModal === 'perfil';
+  const setIsModPerfilOpen = (open: boolean) => setActiveModal(open ? 'perfil' : null);
+
+  const isModActaCrearOpen = activeModal === 'acta_crear';
+  const setIsModActaCrearOpen = (open: boolean) => setActiveModal(open ? 'acta_crear' : null);
+
+  const isModActaVerOpen = activeModal === 'acta_ver';
+  const setIsModActaVerOpen = (open: boolean) => setActiveModal(open ? 'acta_ver' : null);
+
+  const isModBitacoraCrearOpen = activeModal === 'bitacora_crear';
+  const setIsModBitacoraCrearOpen = (open: boolean) => setActiveModal(open ? 'bitacora_crear' : null);
+
+  const isModBitacoraVerOpen = activeModal === 'bitacora_ver';
+  const setIsModBitacoraVerOpen = (open: boolean) => setActiveModal(open ? 'bitacora_ver' : null);
+
+  const isModVerFichaOpen = activeModal === 'ver_ficha';
+  const setIsModVerFichaOpen = (open: boolean) => setActiveModal(open ? 'ver_ficha' : null);
+
+  const isModInventarioOpen = activeModal === 'inventario';
+  const setIsModInventarioOpen = (open: boolean) => setActiveModal(open ? 'inventario' : null);
+
+  const isModTesoreriaOpen = activeModal === 'tesoreria';
+  const setIsModTesoreriaOpen = (open: boolean) => setActiveModal(open ? 'tesoreria' : null);
+
+  const isModValeOpen = activeModal === 'vale';
+  const setIsModValeOpen = (open: boolean) => setActiveModal(open ? 'vale' : null);
+
+  const isModTesoreriaVerOpen = activeModal === 'tesoreria_ver';
+  const setIsModTesoreriaVerOpen = (open: boolean) => setActiveModal(open ? 'tesoreria_ver' : null);
+
+  const isModRendicionOpen = activeModal === 'rendicion';
+  const setIsModRendicionOpen = (open: boolean) => setActiveModal(open ? 'rendicion' : null);
+
+  const isModRendicionVerOpen = activeModal === 'rendicion_ver';
+  const setIsModRendicionVerOpen = (open: boolean) => setActiveModal(open ? 'rendicion_ver' : null);
+
+  const isModAutorizacionOpen = activeModal === 'autorizacion';
+  const setIsModAutorizacionOpen = (open: boolean) => setActiveModal(open ? 'autorizacion' : null);
+
+  const isModAutorizacionVerOpen = activeModal === 'autorizacion_ver';
+  const setIsModAutorizacionVerOpen = (open: boolean) => setActiveModal(open ? 'autorizacion_ver' : null);
+
+  const isModActividadOpen = activeModal === 'actividad';
+  const setIsModActividadOpen = (open: boolean) => setActiveModal(open ? 'actividad' : null);
+
+  const isModVincularPupiloOpen = activeModal === 'vincular_pupilo';
+  const setIsModVincularPupiloOpen = (open: boolean) => setActiveModal(open ? 'vincular_pupilo' : null);
   
   // 3. ESTADOS DE EDICIÓN / VISUALIZACIÓN
   const [editingPupilo, setEditingPupilo] = useState<any>(null)
