@@ -179,17 +179,15 @@ function RegistroContent() {
     setIsSubmitting(true)
     setRegistroError(null)
     try {
-      // 1. Crear Usuario en Supabase Auth usando el RUT como identificador (alias)
-      const emailAlias = `${data.rut.toLowerCase()}@nuamana.cl`;
-      
+      // 1. Crear Usuario en Supabase Auth usando el correo electrónico real
       const { data: auth, error: authE } = await supabase.auth.signUp({
-        email: emailAlias,
+        email: data.email.toLowerCase(),
         password: data.password,
         options: {
           data: {
             nombres: data.nombres,
             apellidos: data.apellidos,
-            email_real: data.email // Guardamos el real tmb en metadata de auth por seguridad
+            email_real: data.email // Guardamos el real también en metadata por compatibilidad
           }
         }
       })

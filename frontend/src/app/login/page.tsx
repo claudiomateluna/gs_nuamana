@@ -28,11 +28,20 @@ export default function LoginPage() {
     setLoading(true)
     setError(null)
     try {
-      // Convertimos el RUT a un alias de email interno
-      const emailAlias = `${data.rut.toLowerCase()}@nuamana.cl`;
+      // 1. Buscar el email del perfil asociado al RUT (lectura pública)
+      const { data: perfil, error: perfilError } = await supabase
+        .from('perfiles')
+        .select('email')
+        .eq('rut', data.rut)
+        .single()
 
+      if (perfilError || !perfil?.email) {
+        throw new Error('RUT no registrado.')
+      }
+
+      // 2. Iniciar sesión usando el email real registrado (o alias si es menor)
       const { error: authError } = await supabase.auth.signInWithPassword({
-        email: emailAlias,
+        email: perfil.email.toLowerCase(),
         password: data.password,
       })
 
