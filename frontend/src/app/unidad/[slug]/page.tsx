@@ -147,7 +147,7 @@ export default async function UnidadPage({ params }: PageProps) {
 
         {/* Imagen de la Bandera encima del fondo */}
         <img 
-          src={unit.bandera_url || "/images/unidades/bandera_manada.jpg"} 
+          src={unit.bandera_url || "/images/unidades/bandera_grupo.webp"} 
           alt={`Bandera de ${unit.nombre}`}
           className="absolute inset-0 w-full h-full object-cover scale-140 md:scale-105 object-top md:object-center z-1" 
         />
