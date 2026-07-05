@@ -150,19 +150,19 @@ const SecondaryHeader = () => {
                 className="object-contain group-hover:scale-110 transition-transform duration-500"
               />
               <div className="sm:flex flex-col justify-center">
-                <div className="text-[0.8em] text-clr2 uppercase tracking-widest leading-none mb-[-3px]">Guías y Scouts</div>
-                <div className="text-[1.5em] text-clr7 dark:text-dclr7 font-black uppercase leading-none tracking-tighter font-inika">Nua Mana</div>
-                <div className="text-[0.85em] text-clr4 dark:text-dclr8 italic leading-none mt-[-6px]">una nueva aventura</div>
+                <div className="text-[0.8em] md:text-[0.8em] text-clr2 uppercase tracking-widest leading-none mb-[-3px]">Guías y Scouts</div>
+                <div className="text-[1em] md:text-[1.5em] text-clr7 dark:text-dclr7 font-black uppercase leading-none tracking-tighter font-inika">Nua Mana</div>
+                <div className="text-[0.7em] md:text-[0.85em] text-clr4 dark:text-dclr8 italic leading-none mt-[-6px]">una nueva aventura</div>
               </div>
             </Link>
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-2 md:gap-6">
             <div className="hidden lg:block text-right">
               <h2 className="text-lg font-black font-display text-clr5 dark:text-clr1 uppercase tracking-widest leading-none">{title}</h2>
             </div>
 
-            <div className="flex items-center gap-4 border-l border-clr10 dark:border-clr4 pl-6">
+            <div className="flex items-center gap-1 md:gap-4 border-l border-clr10 dark:border-clr4 pl-6">
               
               {user && (
                 <button
