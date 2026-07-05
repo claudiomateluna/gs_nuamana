@@ -162,7 +162,7 @@ const SecondaryHeader = () => {
               <h2 className="text-lg font-black font-display text-clr5 dark:text-clr1 uppercase tracking-widest leading-none">{title}</h2>
             </div>
 
-            <div className="flex items-center gap-1 md:gap-4 border-l border-clr10 dark:border-clr4 pl-6">
+            <div className="flex items-center gap-1 md:gap-4 border-l border-clr10 dark:border-clr4 pl-2 md:pl-6">
               
               {user && (
                 <button
