@@ -1,0 +1,33 @@
+name: Deploy to Contabo VPS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd /var/www/nuamana
+            # Descargar los últimos cambios desde GitHub
+            git pull origin main
+            
+            # Entrar al frontend e instalar y compilar
+            cd frontend
+            npm install
+            npm run build
+            
+            # Reiniciar la aplicación de Next.js en PM2 sin caída del servicio
+            pm2 reload nuamana-pwa

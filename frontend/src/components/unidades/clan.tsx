@@ -128,12 +128,12 @@ export default function ClanCustomContent({ objectives = [] }: ClanCustomContent
               },
               {
                 title: "Etapa Fuego",
-                desc: "El caminante enciende su compromiso, definiendo sus primeros objetivos y participando en proyectos.",
+                desc: "El Fuego es la Insignia que identifi­ca al Caminante con su primera etapa de vivencia en el Clan. La potencia del fuego y todo su signi­ficado en la rama implica el comienzo de un período de concentración de energía, es una etapa de reflexión, la que espera el momento de expandirse, donde la juventud moviliza sus convicciones en crear y configu­rar una sociedad mejor.",
                 img: "/images/progresion/clan/etapa_fuego.png"
               },
               {
                 title: "Etapa Antorcha",
-                desc: "Liderazgo y madurez. El caminante guía a otros y se convierte en referente de servicio social.",
+                desc: "La Antorcha, a su vez, identifica la segunda etapa del caminante y la última etapa de vivencia como joven en el movimiento. Sin embargo, no se considera como el final del recorrido, sino, por el contrario, implica la llegada del caminante a un punto de su vida en el cual se abren las posibilida­des y, desde este lugar, se visuali­zan o proyectan los caminos posibles a iluminar, volviéndose real el sentido contenido en la idea del Hombre y Mujer a que aspiramos ser.",
                 img: "/images/progresion/clan/etapa_antorcha.png"
               },
               {
@@ -143,7 +143,7 @@ export default function ClanCustomContent({ objectives = [] }: ClanCustomContent
               }
             ].map((etapa, idx) => (
               <div key={idx} className="bg-white dark:bg-white/5 border border-zinc-150 dark:border-white/5 rounded-3xl p-5 space-y-4 flex flex-col items-center text-center shadow-md">
-                <div className="w-24 h-24 flex items-center justify-center bg-zinc-50 dark:bg-white/5 rounded-2xl p-2">
+                <div className="w-30 h-30 flex items-center justify-center">
                   <img src={etapa.img} alt={etapa.title} className="max-w-full max-h-full object-contain" />
                 </div>
                 <div>
