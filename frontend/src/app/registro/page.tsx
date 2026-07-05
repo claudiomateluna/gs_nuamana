@@ -266,6 +266,25 @@ function RegistroContent() {
         }
       }
 
+      // 5. Enviar correo de bienvenida al correo REAL registrado
+      try {
+        await fetch('/api/send-welcome-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            email: data.email,
+            nombres: data.nombres,
+            apellidos: data.apellidos,
+            rut: data.rut,
+            rol: data.rol
+          })
+        });
+      } catch (emailErr) {
+        console.error('Error al intentar enviar el correo de bienvenida:', emailErr);
+      }
+
       alert('¡Datos validados con éxito!')
 
       // Si es dirigente o guiadora, cerramos la sesión automática de Supabase
