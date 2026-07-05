@@ -28,9 +28,10 @@ jobs:
             # Descargar los últimos cambios desde GitHub
             git pull origin main
             
-            # Entrar al frontend e instalar y compilar
+            # Entrar al frontend e instalar y compilar limpiando la caché de Next.js
             cd frontend
             npm install
+            rm -rf .next
             npm run build
             
             # Reiniciar la aplicación de Next.js en PM2 sin caída del servicio
