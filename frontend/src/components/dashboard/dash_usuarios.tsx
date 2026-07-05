@@ -80,7 +80,7 @@ export default function DashUsuarios({ userPerfil, usuarios = [], onEdit, onVer 
                   <h3 className="font-black text-[1.1em] py-[0.5px] px-1 rounded-xl text-clr5 dark:text-clr1 truncate uppercase leading-tight mb-[-4px]" style={{ backgroundColor: unitColor2, color: unitColor }}>
                     {u.nombres}
                   </h3>
-                  <p className="font-bold text-[0.9em] text-clr1 truncate uppercase tracking-tight ml-1" style={{ color: unitColor2 }}>{u.apellidos}</p>
+                  <p className="font-bold text-[0.9em] text-clr4 dark:text-clr1 truncate uppercase tracking-tight ml-1" style={{ color: unitColor2 }}>{u.apellidos}</p>
                 </div>
               </div>
 
