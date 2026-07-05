@@ -112,3 +112,37 @@ Abrí otra pestaña en tu navegador con el panel de Cloudflare de `nuamana.cl` y
 
 *   **Prueba de Recepción (Redirección):** Escribile un correo de prueba desde otra cuenta personal (ej. Hotmail, otra de Gmail, etc.) a `contacto@nuamana.cl`. Verificá que el correo te llegue a tu bandeja de Gmail verificada.
 *   **Prueba de Envío (Supabase):** Entrá a tu PWA `https://nuamana.cl/registro`, crea un usuario de prueba con un correo real y enviá el formulario. Verificá que te llegue a tu bandeja de entrada el correo con el enlace de confirmación firmado por `contacto@nuamana.cl` sin caer en la carpeta de SPAM.
+
+---
+
+## PARTE 5: Configurar Gmail para "Enviar como" contacto@nuamana.cl
+
+Para responder o redactar correos nuevos utilizando la dirección `contacto@nuamana.cl` directamente desde tu cuenta personal de Gmail (como hacías con el hosting antiguo), debés asociar el SMTP de Resend a tu Gmail:
+
+1.  Iniciá sesión en tu cuenta de **Gmail** en la computadora.
+2.  Hacé clic en el ícono del **engranaje** (Configuración) arriba a la derecha y selecciona **"Ver todos los ajustes"**.
+3.  Hacé clic en la pestaña **"Cuentas e importación"** (Accounts and Import) en la barra superior.
+4.  Buscá la sección **"Enviar como:"** (Send mail as) y hacé clic en **"Añadir otra dirección de correo electrónico"** (Add another email address). Se abrirá una ventana emergente de color amarillo.
+5.  **Configuración de Identidad:**
+    *   **Nombre:** Escribí el nombre que querés que vean los destinatarios (ej: `Guías y Scouts Nua Mana`).
+    *   **Dirección de correo electrónico:** Escribí exactamente `contacto@nuamana.cl`.
+    *   Desmarcala casilla **"Tratar como un alias"** (Treat as an alias).
+    *   Hacé clic en **"Siguiente paso"**.
+6.  **Configuración del Servidor SMTP de Resend:**
+    *   **Servidor SMTP:** Escribí `smtp.resend.com`
+    *   **Puerto:** Seleccioná `587`.
+    *   **Nombre de usuario:** Escribí exactamente `resend` (en minúsculas).
+    *   **Contraseña:** Pegá tu clave API de Resend (la que copiaste en el Paso 12 de la Parte 2, que empieza con `re_...`).
+    *   Selecciona la opción **"Conexión segura mediante TLS (recomendada)"**.
+    *   Hacé clic en **"Añadir cuenta"**.
+7.  **Confirmación:**
+    *   Gmail te indicará que envió un correo de confirmación con un código a `contacto@nuamana.cl`.
+    *   Como ya configuraste **Cloudflare Email Routing** en la Parte 1, ese correo de confirmación de Gmail se redireccionará de inmediato y llegará a tu bandeja de entrada de Gmail.
+    *   Abrí el correo, copiá el código numérico de confirmación, pegalo en la ventana amarilla de Gmail y hacé clic en **"Verificar"**.
+
+¡Listo! A partir de ahora, al redactar un correo nuevo en Gmail o responder a alguien, vas a tener un menú desplegable en el campo **"De:"** que te permitirá elegir enviar el mensaje como `contacto@nuamana.cl` de forma totalmente profesional, rápida y con firmas seguras.
+
+> [!NOTE]
+> **¿Qué pasa con "Consultar el correo de otras cuentas"?**
+> No necesitás configurarlo. La redirección de Cloudflare se encarga de "empujar" (forward) los correos entrantes a tu Gmail en tiempo real, lo cual es instantáneo. La opción antigua de Gmail (POP3) hacía consultas cada tanto tiempo y solía demorar hasta 30 minutos en descargar los correos nuevos. Con este nuevo esquema, te llegan al segundo.
+
