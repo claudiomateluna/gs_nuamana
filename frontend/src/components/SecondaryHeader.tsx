@@ -132,8 +132,8 @@ const SecondaryHeader = () => {
         }`}
       >
         <div className="max-w-[1080px] mx-auto px-2 flex justify-between items-center">
-          <div className="flex items-center gap-4">
-            <div className="border-r-2 border-clr7/30 pr-4">
+          <div className="flex items-center gap-2 md:gap-4">
+            <div className="border-r-2 border-clr7/30 pr-2 md:pr-4">
               <button
                 onClick={() => setIsMenuOpen(true)}
                 className="p-2 text-clr7 dark:text-white hover:bg-clr7/10 rounded-xl transition-colors focus:outline-none"
@@ -150,9 +150,9 @@ const SecondaryHeader = () => {
                 className="object-contain group-hover:scale-110 transition-transform duration-500"
               />
               <div className="sm:flex flex-col justify-center">
-                <div className="text-[0.8em] md:text-[0.8em] text-clr2 uppercase tracking-widest leading-none mb-[-3px]">Guías y Scouts</div>
-                <div className="text-[1em] md:text-[1.5em] text-clr7 dark:text-dclr7 font-black uppercase leading-none tracking-tighter font-inika">Nua Mana</div>
-                <div className="text-[0.7em] md:text-[0.85em] text-clr4 dark:text-dclr8 italic leading-none mt-[-6px]">una nueva aventura</div>
+                <div className="text-[0.7em] md:text-[0.8em] text-clr2 uppercase tracking-widest leading-none mb-[-1px] md:mb-[-3px]">Guías y Scouts</div>
+                <div className="text-[1.2em] md:text-[1.5em] text-clr7 dark:text-dclr7 font-black uppercase leading-none tracking-tighter font-inika">Nua Mana</div>
+                <div className="text-[0.7em] md:text-[0.85em] text-clr4 dark:text-dclr8 italic leading-none mt-[-3px] md:mt-[-6px]">una nueva aventura</div>
               </div>
             </Link>
           </div>
