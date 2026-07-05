@@ -20,6 +20,10 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
+            # Cargar NVM y Node.js para que estén disponibles en este shell no interactivo
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            
             cd /var/www/nuamana
             # Descargar los últimos cambios desde GitHub
             git pull origin main
