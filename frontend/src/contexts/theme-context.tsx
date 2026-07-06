@@ -17,6 +17,22 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
+    // Registrar Service Worker para PWA
+    if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
+      const registerSW = () => {
+        navigator.serviceWorker.register('/sw.js').catch(err => {
+          console.error('Error registrando Service Worker:', err);
+        });
+      };
+      
+      if (document.readyState === 'complete') {
+        registerSW();
+      } else {
+        window.addEventListener('load', registerSW);
+        return () => window.removeEventListener('load', registerSW);
+      }
+    }
+
     // Verificar si hay un tema guardado en localStorage
     const savedTheme = localStorage.getItem('theme') as Theme | null;
     if (savedTheme) {

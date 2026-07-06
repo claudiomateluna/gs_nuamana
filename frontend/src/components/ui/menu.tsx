@@ -234,7 +234,7 @@ const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
                 onClick={handleInstallClick} 
                 className="w-full py-3 mb-4 bg-clr6 text-white font-black uppercase rounded-2xl shadow-xl hover:brightness-110 transition-all flex items-center justify-center gap-2 text-[0.9em]"
               >
-                📲 Instalar Aplicación PWA
+                Instalar Aplicación
               </button>
             )}
             {showIOSHelper && (
