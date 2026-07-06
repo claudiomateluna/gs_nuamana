@@ -60,23 +60,34 @@ try {
   const jwtSecret = jwtSecretMatch[1].trim();
   console.log('JWT_SECRET obtenido con éxito.');
 
-  // 3. Generar nuevas llaves firmadas con el JWT_SECRET actual
-  const newAnonKey = generateJWT('anon', jwtSecret);
-  const newServiceKey = generateJWT('service_role', jwtSecret);
+  // 3. Obtener o generar las llaves ANON_KEY y SERVICE_ROLE_KEY
+  const anonKeyMatch = supabaseEnv.match(/^ANON_KEY=(.+)$/m);
+  const serviceKeyMatch = supabaseEnv.match(/^SERVICE_ROLE_KEY=(.+)$/m);
 
-  console.log('Nuevas firmas JWT (ANON_KEY y SERVICE_ROLE_KEY) generadas con éxito.');
+  let finalAnonKey = anonKeyMatch ? anonKeyMatch[1].trim() : '';
+  let finalServiceKey = serviceKeyMatch ? serviceKeyMatch[1].trim() : '';
 
-  // 4. Actualizar el archivo .env de Supabase Docker con las nuevas firmas
-  supabaseEnv = supabaseEnv.replace(/^ANON_KEY=.*$/m, `ANON_KEY=${newAnonKey}`);
-  supabaseEnv = supabaseEnv.replace(/^SERVICE_ROLE_KEY=.*$/m, `SERVICE_ROLE_KEY=${newServiceKey}`);
-  fs.writeFileSync(supabaseEnvPath, supabaseEnv, 'utf8');
-  console.log('Archivo .env de Supabase Docker actualizado.');
+  const isPlaceholder = (key) => !key || key.startsWith('your-') || key.includes('placeholder') || key.length < 50;
+
+  if (isPlaceholder(finalAnonKey) || isPlaceholder(finalServiceKey)) {
+    console.log('Generando nuevas llaves JWT (ANON_KEY y SERVICE_ROLE_KEY)...');
+    finalAnonKey = generateJWT('anon', jwtSecret);
+    finalServiceKey = generateJWT('service_role', jwtSecret);
+
+    // 4. Actualizar el archivo .env de Supabase Docker con las nuevas firmas
+    supabaseEnv = supabaseEnv.replace(/^ANON_KEY=.*$/m, `ANON_KEY=${finalAnonKey}`);
+    supabaseEnv = supabaseEnv.replace(/^SERVICE_ROLE_KEY=.*$/m, `SERVICE_ROLE_KEY=${finalServiceKey}`);
+    fs.writeFileSync(supabaseEnvPath, supabaseEnv, 'utf8');
+    console.log('Archivo .env de Supabase Docker actualizado.');
+  } else {
+    console.log('Utilizando ANON_KEY y SERVICE_ROLE_KEY existentes de Supabase Docker.');
+  }
 
   // 5. Crear/Actualizar el archivo .env.production del Frontend
   const frontendEnvContent = [
     'NEXT_PUBLIC_SUPABASE_URL=https://api-supabase.nuamana.cl',
-    `NEXT_PUBLIC_SUPABASE_ANON_KEY=${newAnonKey}`,
-    `SUPABASE_SERVICE_ROLE_KEY=${newServiceKey}`,
+    `NEXT_PUBLIC_SUPABASE_ANON_KEY=${finalAnonKey}`,
+    `SUPABASE_SERVICE_ROLE_KEY=${finalServiceKey}`,
     ''
   ].join('\n');
 
