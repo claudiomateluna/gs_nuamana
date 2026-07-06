@@ -74,7 +74,7 @@ const Header = () => {
               className="object-contain group-hover:scale-110 transition-transform duration-500"
             />
             <div className="sm:flex flex-col ml-1 md:ml-3 justify-center">
-              <div className="text-[0.7em] md:text-[0.8em] text-dclr10 uppercase tracking-widest leading-none mb-[-1px] md:mb-[-3px]">Guías y Scouts</div>
+              <div className="text-[0.7em] md:text-[0.8em] text-clr10 uppercase tracking-widest leading-none mb-[-1px] md:mb-[-3px]">Guías y Scouts</div>
               <div className="text-[1.2em] md:text-[1.5em] text-clr1 dark:text-clr1 font-black uppercase leading-none tracking-tighter font-inika">Nua Mana</div>
               <div className="text-[0.7em] md:text-[0.85em] text-clr8 dark:text-dclr8 italic leading-none mt-[-3px] md:mt-[-6px]">una nueva aventura</div>
             </div>
