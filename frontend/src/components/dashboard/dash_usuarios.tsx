@@ -86,12 +86,12 @@ export default function DashUsuarios({ userPerfil, usuarios = [], onEdit, onVer,
               </div>
 
               <div className="space-y-2 mb-4 flex-1 relative z-10">
-                <div className="flex justify-between items-center p-2 bg-zinc-50 dark:bg-black/20 rounded-xl" style={{ color: unitColor2 }}>
+                <div className="flex justify-between items-center p-2 rounded-xl" style={{ backgroundColor: unitColor2,color: unitColor2 }}>
                   <span className="text-[0.8em] uppercase">Unidad</span>
                   {u.unidades?.nombre ? (
                     <span 
                       className="text-[0.85em] font-black uppercase px-2.5 py-1 rounded-lg text-white tracking-wider"
-                      style={{ backgroundColor: unitColor || '#a1a1aa' }}
+                      style={{ backgroundColor: unitColor || '#a1a1aa', color: unitColor2 || '#1b1c1d' }}
                     >
                       {u.unidades.nombre}
                     </span>
@@ -99,12 +99,12 @@ export default function DashUsuarios({ userPerfil, usuarios = [], onEdit, onVer,
                     <span className="text-[0.9em] font-bold text-zinc-400 uppercase">Sin Unidad</span>
                   )}
                 </div>
-                <div className="flex justify-between items-center p-2 bg-zinc-50 dark:bg-black/20 rounded-xl">
-                  <span className="text-[0.8em] uppercase" style={{ color: unitColor2 }}>Rol</span>
+                <div className="flex justify-between items-center p-2 rounded-xl" style={{ backgroundColor: unitColor2 }}>
+                  <span className="text-[0.8em] uppercase" style={{ color: unitColor }}>Rol</span>
                   <span className="text-[0.9em] font-bold text-clr5 dark:text-clr2 uppercase" style={{ color: unitColor2 }}>{u.roles?.name}</span>
                 </div>
-                <div className="flex justify-between items-center p-2 bg-zinc-50 dark:bg-black/20 rounded-xl">
-                  <span className="text-[0.8em] uppercase" style={{ color: unitColor2 }}>Edad</span>
+                <div className="flex justify-between items-center p-2 rounded-xl" style={{ backgroundColor: unitColor2 }}>
+                  <span className="text-[0.8em] uppercase" style={{ color: unitColor }}>Edad</span>
                   <span className="text-[0.9em] font-bold text-clr5 dark:text-clr2 uppercase" style={{ color: unitColor2 }}>{calcularEdad(u.fecha_nacimiento)}</span>
                 </div>
               </div>
@@ -112,13 +112,13 @@ export default function DashUsuarios({ userPerfil, usuarios = [], onEdit, onVer,
               <div className={`grid ${userPerfil?.rol_id === 1 ? 'grid-cols-3' : 'grid-cols-2'} gap-3 relative z-10`}>
                 <button 
                   onClick={() => onVer(u)}
-                  className="p-2.5 bg-zinc-100 dark:bg-white/5 text-clr3 dark:text-white rounded-2xl text-[0.8em] font-black uppercase tracking-widest transition-all hover:bg-zinc-200 dark:hover:bg-white/10 text-center"
+                  className="p-2 bg-zinc-100 dark:bg-white/5 text-clr3 dark:text-white rounded-2xl text-[0.8em] font-black uppercase tracking-widest transition-all hover:bg-zinc-200 dark:hover:bg-white/10 text-center"
                 >
                   🔎 Ver
                 </button>
                 <button 
                   onClick={() => onEdit(u)}
-                  className="p-2.5 bg-clr7/10 text-clr7 border-1 border-clr7/20 rounded-2xl text-[0.8em] font-bold uppercase tracking-widest transition-all hover:bg-clr7 hover:text-white shadow-sm text-center"
+                  className="p-2 bg-clr7/10 text-clr7 border-1 border-clr7/20 rounded-2xl text-[0.8em] font-bold uppercase tracking-widest transition-all hover:bg-clr7 hover:text-white shadow-sm text-center"
                   style={{ backgroundColor: unitColor, color: unitColor2, borderColor: unitColor2 }}
                 >
                   ✎ Editar
@@ -126,7 +126,7 @@ export default function DashUsuarios({ userPerfil, usuarios = [], onEdit, onVer,
                 {userPerfil?.rol_id === 1 && onDelete && (
                   <button 
                     onClick={() => onDelete(u)}
-                    className="p-2.5 bg-red-500/15 text-red-600 border border-red-500/20 rounded-2xl text-[0.8em] font-bold uppercase tracking-widest transition-all hover:bg-red-600 hover:text-white shadow-sm text-center"
+                    className="p-2 bg-red-500/15 text-red-600 border border-red-500/20 rounded-2xl text-[0.8em] font-bold uppercase tracking-widest transition-all hover:bg-red-600 hover:text-white shadow-sm text-center"
                   >
                     🗑 Borrar
                   </button>

@@ -76,7 +76,7 @@ export default function DashUnidad({
           const authRecord = authsDeActividad.find(a => a.perfil_id === m.id)
 
           return (
-            <div key={m.id} className="p-6 bg-zinc-50 dark:bg-black/20 rounded-[2.5rem] border border-transparent hover:border-clr7/20 transition-all relative overflow-hidden group shadow-sm hover:shadow-md">
+            <div key={m.id} className="p-2 bg-zinc-50 dark:bg-black/20 rounded-[1rem] border border-transparent hover:border-clr7/20 transition-all relative overflow-hidden group shadow-sm hover:shadow-md">
               {m.alergias && (
                 <div className="absolute top-0 right-0 bg-red-500 text-white text-[0.8em] font-bold px-3 py-1 uppercase rounded-bl-xl tracking-tighter shadow-md">⚠️ Salud</div>
               )}
@@ -113,7 +113,7 @@ export default function DashUnidad({
                 </button>
                 <button 
                   onClick={() => onEdit(m)}
-                  className="flex-1 py-3 bg-clr6 text-white font-bold uppercase text-[0.8em] rounded-xl shadow-sm hover:brightness-110 transition-all tracking-widest"
+                  className="flex-1 py-2 bg-clr6 text-white font-bold uppercase text-[0.8em] rounded-xl shadow-sm hover:brightness-110 transition-all tracking-widest"
                 >
                   ✏️ Editar
                 </button>
