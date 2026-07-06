@@ -19,6 +19,7 @@ import { generateSpecialtyCertificate } from '@/lib/pdf-service'
 import dynamic from 'next/dynamic'
 import { uploadToStorage } from '@/lib/storage-utils'
 import { db } from '@/lib/db'
+import { outboxService } from '@/lib/outbox-service'
 
 const DashmodProgresionEspecialidadWizard = dynamic(
   () => import('./dashmod_progresion_especialidad_wizard'),
@@ -2231,13 +2232,39 @@ export default function DashmodProgresion({ perfil, userPerfil }: ProgresionUnid
   const handleSelfEvalDefault = async (objId: string, currentEstado: string) => {
     if (!isOwner) return
     const nuevoEstado = currentEstado === 'en_proceso' ? 'pendiente' : 'en_proceso'
-    const { error } = await supabase.from('progresion_avance').upsert({
+    const payload = {
       perfil_id: perfil.id,
       objetivo_id: objId,
       estado: nuevoEstado
-    }, { onConflict: 'perfil_id,objetivo_id' })
-    if (error) alert('Error al autoevaluar: ' + error.message)
-    fetchDefaultProgresion()
+    }
+    
+    try {
+      await db.progresion_avance.put({
+        id: `${perfil.id}-${objId}`,
+        ...payload,
+        valor: null,
+        valor_apoderado: null,
+        comentario_apoderado: null,
+        fecha_comentario_apoderado: null,
+        fecha_logro: null,
+        validado_por: null
+      })
+    } catch (e) {}
+
+    if (typeof window !== 'undefined' && !navigator.onLine) {
+      await outboxService.enqueue('progresion_avance', 'UPSERT', payload)
+      fetchDefaultProgresion()
+    } else {
+      try {
+        const { error } = await supabase.from('progresion_avance').upsert(payload, { onConflict: 'perfil_id,objetivo_id' })
+        if (error) {
+          await outboxService.enqueue('progresion_avance', 'UPSERT', payload)
+        }
+      } catch (err) {
+        await outboxService.enqueue('progresion_avance', 'UPSERT', payload)
+      }
+      fetchDefaultProgresion()
+    }
   }
 
   const handleSelfEvalValue = async (objId: string, value: number) => {
@@ -2250,10 +2277,32 @@ export default function DashmodProgresion({ perfil, userPerfil }: ProgresionUnid
     }
     if (!existing) {
       payload.estado = 'en_proceso'
+    } else {
+      payload.estado = existing.estado
     }
-    const { error } = await supabase.from('progresion_avance').upsert(payload, { onConflict: 'perfil_id,objetivo_id' })
-    if (error) alert('Error al autoevaluar: ' + error.message)
-    fetchDefaultProgresion()
+    
+    try {
+      await db.progresion_avance.put({
+        id: `${perfil.id}-${objId}`,
+        ...existing,
+        ...payload
+      })
+    } catch (e) {}
+
+    if (typeof window !== 'undefined' && !navigator.onLine) {
+      await outboxService.enqueue('progresion_avance', 'UPSERT', payload)
+      fetchDefaultProgresion()
+    } else {
+      try {
+        const { error } = await supabase.from('progresion_avance').upsert(payload, { onConflict: 'perfil_id,objetivo_id' })
+        if (error) {
+          await outboxService.enqueue('progresion_avance', 'UPSERT', payload)
+        }
+      } catch (err) {
+        await outboxService.enqueue('progresion_avance', 'UPSERT', payload)
+      }
+      fetchDefaultProgresion()
+    }
   }
 
   const handleParentEvalValue = async (objId: string, value: number) => {
@@ -2266,39 +2315,106 @@ export default function DashmodProgresion({ perfil, userPerfil }: ProgresionUnid
     }
     if (!existing) {
       payload.estado = 'en_proceso'
+    } else {
+      payload.estado = existing.estado
     }
-    const { error } = await supabase.from('progresion_avance').upsert(payload, { onConflict: 'perfil_id,objetivo_id' })
-    if (error) alert('Error al registrar evaluación de apoderado: ' + error.message)
-    fetchDefaultProgresion()
+
+    try {
+      await db.progresion_avance.put({
+        id: `${perfil.id}-${objId}`,
+        ...existing,
+        ...payload
+      })
+    } catch (e) {}
+
+    if (typeof window !== 'undefined' && !navigator.onLine) {
+      await outboxService.enqueue('progresion_avance', 'UPSERT', payload)
+      fetchDefaultProgresion()
+    } else {
+      try {
+        const { error } = await supabase.from('progresion_avance').upsert(payload, { onConflict: 'perfil_id,objetivo_id' })
+        if (error) {
+          await outboxService.enqueue('progresion_avance', 'UPSERT', payload)
+        }
+      } catch (err) {
+        await outboxService.enqueue('progresion_avance', 'UPSERT', payload)
+      }
+      fetchDefaultProgresion()
+    }
   }
 
   const handleParentCommentDefault = async (objId: string) => {
     if (!isParent) return
-    const { error } = await supabase.from('progresion_avance').upsert({
+    const existing = avanceDefault.find(a => a.objetivo_id === objId)
+    const payload = {
       perfil_id: perfil.id,
       objetivo_id: objId,
       comentario_apoderado: tempComentario,
       fecha_comentario_apoderado: new Date().toISOString()
-    }, { onConflict: 'perfil_id,objetivo_id' })
-    if (error) alert('Error al guardar comentario: ' + error.message)
-    setComentando(null)
-    setTempComentario('')
-    fetchDefaultProgresion()
+    }
+
+    try {
+      await db.progresion_avance.put({
+        id: `${perfil.id}-${objId}`,
+        ...existing,
+        ...payload
+      })
+    } catch (e) {}
+
+    if (typeof window !== 'undefined' && !navigator.onLine) {
+      await outboxService.enqueue('progresion_avance', 'UPSERT', payload)
+      setComentando(null)
+      setTempComentario('')
+      fetchDefaultProgresion()
+    } else {
+      try {
+        const { error } = await supabase.from('progresion_avance').upsert(payload, { onConflict: 'perfil_id,objetivo_id' })
+        if (error) {
+          await outboxService.enqueue('progresion_avance', 'UPSERT', payload)
+        }
+      } catch (err) {
+        await outboxService.enqueue('progresion_avance', 'UPSERT', payload)
+      }
+      setComentando(null)
+      setTempComentario('')
+      fetchDefaultProgresion()
+    }
   }
 
   const handleLeaderValidateDefault = async (objId: string, currentEstado: string) => {
     if (!isLeader) return
     const nuevoEstado = currentEstado === 'logrado' ? 'en_proceso' : 'logrado'
-    const { error } = await supabase.from('progresion_avance').upsert({
+    const existing = avanceDefault.find(a => a.objetivo_id === objId)
+    const payload = {
       perfil_id: perfil.id,
       objetivo_id: objId,
       estado: nuevoEstado,
       fecha_logro: nuevoEstado === 'logrado' ? new Date().toISOString() : null,
       validado_por: userPerfil.id
-    }, { onConflict: 'perfil_id,objetivo_id' })
-    
-    if (error) alert('Error al validar: ' + error.message)
-    fetchDefaultProgresion()
+    }
+
+    try {
+      await db.progresion_avance.put({
+        id: `${perfil.id}-${objId}`,
+        ...existing,
+        ...payload
+      })
+    } catch (e) {}
+
+    if (typeof window !== 'undefined' && !navigator.onLine) {
+      await outboxService.enqueue('progresion_avance', 'UPSERT', payload)
+      fetchDefaultProgresion()
+    } else {
+      try {
+        const { error } = await supabase.from('progresion_avance').upsert(payload, { onConflict: 'perfil_id,objetivo_id' })
+        if (error) {
+          await outboxService.enqueue('progresion_avance', 'UPSERT', payload)
+        }
+      } catch (err) {
+        await outboxService.enqueue('progresion_avance', 'UPSERT', payload)
+      }
+      fetchDefaultProgresion()
+    }
   }
 
   const handleLeaderEvalValue = async (objId: string, value: number) => {
@@ -2312,10 +2428,32 @@ export default function DashmodProgresion({ perfil, userPerfil }: ProgresionUnid
     }
     if (!existing) {
       payload.estado = 'en_proceso'
+    } else {
+      payload.estado = existing.estado
     }
-    const { error } = await supabase.from('progresion_avance').upsert(payload, { onConflict: 'perfil_id,objetivo_id' })
-    if (error) alert('Error al registrar evaluación de dirigente: ' + error.message)
-    fetchDefaultProgresion()
+
+    try {
+      await db.progresion_avance.put({
+        id: `${perfil.id}-${objId}`,
+        ...existing,
+        ...payload
+      })
+    } catch (e) {}
+
+    if (typeof window !== 'undefined' && !navigator.onLine) {
+      await outboxService.enqueue('progresion_avance', 'UPSERT', payload)
+      fetchDefaultProgresion()
+    } else {
+      try {
+        const { error } = await supabase.from('progresion_avance').upsert(payload, { onConflict: 'perfil_id,objetivo_id' })
+        if (error) {
+          await outboxService.enqueue('progresion_avance', 'UPSERT', payload)
+        }
+      } catch (err) {
+        await outboxService.enqueue('progresion_avance', 'UPSERT', payload)
+      }
+      fetchDefaultProgresion()
+    }
   }
 
   // ==========================================

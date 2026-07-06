@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { supabase } from '@/lib/supabase'
 import { getBitacoraName } from '@/lib/bitacora-utils'
 import { uploadToStorage } from '@/lib/storage-utils'
+import { outboxService } from '@/lib/outbox-service'
 
 interface DashModBitacoraCrearProps {
   isOpen: boolean
@@ -91,18 +92,46 @@ export default function DashModBitacoraCrear({ isOpen, onClose, perfil, onSucces
         autor_id: perfil.id
       }
 
-      if (editingBitacora) {
-        const { error } = await supabase.from('bitacoras_unidad').update(payload).eq('id', editingBitacora.id)
-        if (error) throw error
+      if (typeof window !== 'undefined' && !navigator.onLine) {
+        if (editingBitacora) {
+          await outboxService.enqueue('bitacoras_unidad', 'UPDATE', { ...payload, id: editingBitacora.id })
+        } else {
+          const tempId = 'temp-' + Math.random().toString(36).substr(2, 9)
+          await outboxService.enqueue('bitacoras_unidad', 'INSERT', { ...payload, id: tempId })
+        }
+        alert('Sin conexión: La historia ha sido guardada en el dispositivo y se subirá automáticamente al recuperar internet.')
+        onSuccess()
+        onClose()
       } else {
-        const { error } = await supabase.from('bitacoras_unidad').insert(payload)
-        if (error) throw error
+        try {
+          if (editingBitacora) {
+            const { error } = await supabase.from('bitacoras_unidad').update(payload).eq('id', editingBitacora.id)
+            if (error) {
+              console.warn("Fallo update online, guardando en outbox...", error)
+              await outboxService.enqueue('bitacoras_unidad', 'UPDATE', { ...payload, id: editingBitacora.id })
+            }
+          } else {
+            const { error } = await supabase.from('bitacoras_unidad').insert(payload)
+            if (error) {
+              console.warn("Fallo insert online, guardando en outbox...", error)
+              const tempId = 'temp-' + Math.random().toString(36).substr(2, 9)
+              await outboxService.enqueue('bitacoras_unidad', 'INSERT', { ...payload, id: tempId })
+            }
+          }
+          onSuccess()
+          onClose()
+        } catch (err: any) {
+          console.warn("Error de red, guardando en outbox...", err)
+          if (editingBitacora) {
+            await outboxService.enqueue('bitacoras_unidad', 'UPDATE', { ...payload, id: editingBitacora.id })
+          } else {
+            const tempId = 'temp-' + Math.random().toString(36).substr(2, 9)
+            await outboxService.enqueue('bitacoras_unidad', 'INSERT', { ...payload, id: tempId })
+          }
+          onSuccess()
+          onClose()
+        }
       }
-
-      onSuccess()
-      onClose()
-    } catch (err: any) {
-      alert('Error: ' + err.message)
     } finally {
       setSaving(false)
     }

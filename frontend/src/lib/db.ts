@@ -106,8 +106,8 @@ export interface ArticuloActividadOffline {
 
 export interface OutboxItem {
   id?: number;
-  tabla: 'progresion_avance' | 'tesoreria_movimientos' | 'actas';
-  accion: 'INSERT' | 'UPDATE' | 'DELETE';
+  tabla: string;
+  accion: string;
   payload: any;
   timestamp: number;
   intentos: number;

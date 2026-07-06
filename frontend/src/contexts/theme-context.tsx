@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import { usePathname } from 'next/navigation';
+import { outboxService } from '@/lib/outbox-service';
 
 type Theme = 'light' | 'dark';
 
@@ -20,18 +21,21 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     // Registrar Service Worker para PWA
-    if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
-      const registerSW = () => {
-        navigator.serviceWorker.register('/sw.js').catch(err => {
-          console.error('Error registrando Service Worker:', err);
-        });
-      };
+    if (typeof window !== 'undefined') {
+      outboxService.registerListeners();
       
-      if (document.readyState === 'complete') {
-        registerSW();
-      } else {
-        window.addEventListener('load', registerSW);
-        return () => window.removeEventListener('load', registerSW);
+      if ('serviceWorker' in navigator) {
+        const registerSW = () => {
+          navigator.serviceWorker.register('/sw.js').catch(err => {
+            console.error('Error registrando Service Worker:', err);
+          });
+        };
+        
+        if (document.readyState === 'complete') {
+          registerSW();
+        } else {
+          window.addEventListener('load', registerSW);
+        }
       }
     }
 
