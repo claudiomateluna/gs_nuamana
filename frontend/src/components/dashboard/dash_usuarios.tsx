@@ -8,9 +8,10 @@ interface DashUsuariosProps {
   usuarios: any[]
   onEdit: (perfil: any) => void
   onVer: (perfil: any) => void
+  onDelete?: (perfil: any) => void
 }
 
-export default function DashUsuarios({ userPerfil, usuarios = [], onEdit, onVer }: DashUsuariosProps) {
+export default function DashUsuarios({ userPerfil, usuarios = [], onEdit, onVer, onDelete }: DashUsuariosProps) {
   const [search, setSearch] = useState('')
 
   const calcularEdad = (fechaNacimiento: string | null) => {
@@ -108,20 +109,28 @@ export default function DashUsuarios({ userPerfil, usuarios = [], onEdit, onVer 
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-3 relative z-10">
+              <div className={`grid ${userPerfil?.rol_id === 1 ? 'grid-cols-3' : 'grid-cols-2'} gap-3 relative z-10`}>
                 <button 
                   onClick={() => onVer(u)}
-                  className="p-2.5 bg-zinc-100 dark:bg-white/5 text-clr3 dark:text-white rounded-2xl text-[0.8em] font-black uppercase tracking-widest transition-all hover:bg-zinc-200 dark:hover:bg-white/10"
+                  className="p-2.5 bg-zinc-100 dark:bg-white/5 text-clr3 dark:text-white rounded-2xl text-[0.8em] font-black uppercase tracking-widest transition-all hover:bg-zinc-200 dark:hover:bg-white/10 text-center"
                 >
-                  🔎 Ver Ficha
+                  🔎 Ver
                 </button>
                 <button 
                   onClick={() => onEdit(u)}
-                  className="p-2.5 bg-clr7/10 text-clr7 border-1 border-clr7/20 rounded-2xl text-[0.8em] font-bold uppercase tracking-widest transition-all hover:bg-clr7 hover:text-white shadow-sm"
+                  className="p-2.5 bg-clr7/10 text-clr7 border-1 border-clr7/20 rounded-2xl text-[0.8em] font-bold uppercase tracking-widest transition-all hover:bg-clr7 hover:text-white shadow-sm text-center"
                   style={{ backgroundColor: unitColor, color: unitColor2, borderColor: unitColor2 }}
                 >
                   ✎ Editar
                 </button>
+                {userPerfil?.rol_id === 1 && onDelete && (
+                  <button 
+                    onClick={() => onDelete(u)}
+                    className="p-2.5 bg-red-500/15 text-red-600 border border-red-500/20 rounded-2xl text-[0.8em] font-bold uppercase tracking-widest transition-all hover:bg-red-600 hover:text-white shadow-sm text-center"
+                  >
+                    🗑 Borrar
+                  </button>
+                )}
               </div>
             </div>
           );

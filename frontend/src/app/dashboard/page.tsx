@@ -340,6 +340,28 @@ export default function DashboardPage() {
   const handleDeleteRendicion = async (id: string) => { if (confirm('¿Eliminar esta rendición?')) { await supabase.from('tesoreria_rendiciones').delete().eq('id', id); fetchProfile(); } }
   const handleDeleteBitacora = async (id: string) => { if (confirm('¿Eliminar esta historia?')) { await supabase.from('bitacoras_unidad').delete().eq('id', id); fetchProfile(); } }
 
+  const handleDeleteUser = async (u: any) => {
+    if (confirm(`¿Estás seguro de que deseas eliminar permanentemente al usuario ${u.nombres} ${u.apellidos}? Esta acción no se puede deshacer.`)) {
+      try {
+        const { data: { session } } = await supabase.auth.getSession()
+        const response = await fetch('/api/admin/delete-user', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${session?.access_token}`
+          },
+          body: JSON.stringify({ targetUserId: u.id })
+        })
+        const resData = await response.json()
+        if (!response.ok) throw new Error(resData.error || 'Error al eliminar usuario')
+        alert('Usuario eliminado con éxito.')
+        fetchProfile()
+      } catch (err: any) {
+        alert(`Error: ${err.message}`)
+      }
+    }
+  }
+
   const loadActaDetails = async (acta: any) => {
     const [p, t, f, a] = await Promise.all([
       supabase.from('acta_participantes').select('*, perfiles(nombres, apellidos)').eq('acta_id', acta.id),
@@ -457,7 +479,7 @@ export default function DashboardPage() {
               onDelete={handleDeleteBitacora} 
             />
           )}
-          {activeTab === 'usuarios' && <DashUsuarios userPerfil={perfil} usuarios={miembrosGrupo} onVer={(u) => { setViewingFicha(u); setIsModVerFichaOpen(true); }} onEdit={(u) => { setEditingPupilo(u); setEditData(u); setEditContactos(u.contactos_emergencia || []); setIsModPerfilOpen(true); }} />}
+          {activeTab === 'usuarios' && <DashUsuarios userPerfil={perfil} usuarios={miembrosGrupo} onVer={(u) => { setViewingFicha(u); setIsModVerFichaOpen(true); }} onEdit={(u) => { setEditingPupilo(u); setEditData(u); setEditContactos(u.contactos_emergencia || []); setIsModPerfilOpen(true); }} onDelete={handleDeleteUser} />}
           
           {activeTab === 'progresion' && (
             <div className="space-y-8">

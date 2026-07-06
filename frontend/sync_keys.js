@@ -76,6 +76,7 @@ try {
   const frontendEnvContent = [
     'NEXT_PUBLIC_SUPABASE_URL=https://api-supabase.nuamana.cl',
     `NEXT_PUBLIC_SUPABASE_ANON_KEY=${newAnonKey}`,
+    `SUPABASE_SERVICE_ROLE_KEY=${newServiceKey}`,
     ''
   ].join('\n');
 
