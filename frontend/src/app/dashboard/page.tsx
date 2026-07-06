@@ -41,6 +41,7 @@ const DashModActividadCrear = dynamic(() => import('@/components/dashboard/dashm
 const DashModVincularPupilo = dynamic(() => import('@/components/dashboard/dashmod_vincular_pupilo'), { ssr: false })
 
 import { getBitacoraName, getBitacoraDescription } from '@/lib/bitacora-utils'
+import { db } from '@/lib/db'
 import { syncService } from '@/lib/sync-service'
 
 export default function DashboardPage() {
@@ -192,10 +193,78 @@ export default function DashboardPage() {
     }
   }
 
-  const fetchProfile = async () => {
+  const fetchOfflineData = async (userId: string) => {
     try {
-      const { data: { user } } = await supabase.auth.getUser()
+      console.warn('Cargando datos locales IndexedDB para el usuario:', userId)
+      // 1. Perfil local
+      const localPerfil = await db.perfiles.get(userId)
+      if (!localPerfil) {
+        console.warn('No hay perfil local para el usuario:', userId)
+        return
+      }
+
+      // 2. Ficha médica y contactos de emergencia locales
+      const localFicha = await db.fichas_medicas.get(userId)
+      const localEmergencia = await db.contactos_emergencia.where('perfil_id').equals(userId).toArray()
+
+      // Combinar para setPerfil
+      const combinedPerfil = {
+        ...localPerfil,
+        grupo_sangre: localFicha?.grupo_sangre || null,
+        alergias: localFicha?.alergias_medicamentos || null,
+        tiene_alergias: !!localFicha?.alergias_medicamentos,
+        enfermedades_cronicas: localFicha?.enfermedades_cronicas || null,
+        prevision: localFicha?.prevision || null,
+        seguro_complementario: localFicha?.seguro_complementario || null,
+        comentarios_salud: localFicha?.comentarios_salud || null,
+        medicamentos_uso_comun: localFicha?.medicamentos_uso_comun || null,
+        restricciones_alimentarias: localFicha?.restricciones_alimentarias || null,
+        contactos_emergencia: localEmergencia
+      }
+
+      setPerfil(combinedPerfil)
+      setEditData(combinedPerfil)
+      setEditContactos(localEmergencia)
+
+      // 3. Miembros de la unidad offline
+      if (localPerfil.unidad_id) {
+        const uMems = await db.perfiles.where('unidad_id').equals(localPerfil.unidad_id).toArray()
+        const fullMems = await Promise.all(uMems.map(async m => {
+          const fm = await db.fichas_medicas.get(m.id)
+          const ce = await db.contactos_emergencia.where('perfil_id').equals(m.id).toArray()
+          return {
+            ...m,
+            grupo_sangre: fm?.grupo_sangre || null,
+            alergias: fm?.alergias_medicamentos || null,
+            tiene_alergias: !!fm?.alergias_medicamentos,
+            enfermedades_cronicas: fm?.enfermedades_cronicas || null,
+            prevision: fm?.prevision || null,
+            seguro_complementario: fm?.seguro_complementario || null,
+            comentarios_salud: fm?.comentarios_salud || null,
+            medicamentos_uso_comun: fm?.medicamentos_uso_comun || null,
+            restricciones_alimentarias: fm?.restricciones_alimentarias || null,
+            contactos_emergencia: ce
+          }
+        }))
+        setMiembrosUnidad(fullMems)
+      }
+
+      // 4. Autorizaciones locales
+      const localAuths = await db.autorizaciones.toArray()
+      setAutorizaciones(localAuths)
+
+    } catch (e) {
+      console.error('Error cargando datos locales IndexedDB:', e)
+    }
+  }
+
+  const fetchProfile = async () => {
+    let userId: string | null = null
+    try {
+      const { data: { session } } = await supabase.auth.getSession()
+      const user = session?.user
       if (!user) return (window.location.href = '/login')
+      userId = user.id
       
       const { data: profile, error } = await supabase.from('perfiles').select('*, roles(name), unidades(nombre, colores, logo_unidad_url, logo_rama_url)').eq('id', user.id).maybeSingle()
       if (error || !profile || profile.estado === 'pendiente') {
@@ -268,8 +337,14 @@ export default function DashboardPage() {
 
       setPerfil({ ...profile, contactos_emergencia: emergency.data || [] })
       setEditData(profile); setEditContactos(emergency.data || [])
-    } catch (err) { console.error(err) }
-    finally { setLoading(false) }
+    } catch (err) {
+      console.warn("Fallo la carga online del perfil. Intentando cargar datos locales (PWA Offline)...", err)
+      if (userId) {
+        await fetchOfflineData(userId)
+      }
+    } finally {
+      setLoading(false)
+    }
   }
 
   useEffect(() => { 

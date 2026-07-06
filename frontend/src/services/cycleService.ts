@@ -16,39 +16,90 @@ export const cycleService = {
    * Carga el ciclo activo para una unidad, o un ciclo específico si se provee overrideId
    */
   async getActiveCycle(unidadId?: any, overrideId?: string, isDirectivoAdmin?: boolean) {
-    let query = supabase
-      .from('ciclos_unidad')
-      .select('*, articulo_juego:articulos!ciclos_unidad_articulo_juego_id_fkey(titulo, extracto, imagen_destacada, slug), unidades!ciclos_unidad_unidad_id_fkey(nombre, colores, logo_unidad_url)')
-    
     const cleanId = cleanUnidadId(unidadId);
 
-    if (overrideId) {
-      query = query.eq('id', overrideId)
-    } else if (cleanId !== null) {
-      query = query.eq('unidad_id', cleanId).eq('estado', 'activo')
-    } else if (isDirectivoAdmin) {
-      query = query.eq('estado', 'activo').order('created_at', { ascending: false }).limit(1)
-    } else {
-      return null
+    // Si estamos en el cliente y sin señal, ir directo a base local
+    if (typeof window !== 'undefined' && !navigator.onLine) {
+      return this.getLocalActiveCycle(cleanId, overrideId);
     }
 
-    const { data, error } = await query.maybeSingle()
-    if (error) throw error
-    return data
+    try {
+      let query = supabase
+        .from('ciclos_unidad')
+        .select('*, articulo_juego:articulos!ciclos_unidad_articulo_juego_id_fkey(titulo, extracto, imagen_destacada, slug), unidades!ciclos_unidad_unidad_id_fkey(nombre, colores, logo_unidad_url)')
+      
+      if (overrideId) {
+        query = query.eq('id', overrideId)
+      } else if (cleanId !== null) {
+        query = query.eq('unidad_id', cleanId).eq('estado', 'activo')
+      } else if (isDirectivoAdmin) {
+        query = query.eq('estado', 'activo').order('created_at', { ascending: false }).limit(1)
+      } else {
+        return null
+      }
+
+      const { data, error } = await query.maybeSingle()
+      if (error) throw error
+      return data
+    } catch (err) {
+      console.warn("Fallo la conexión de red al obtener ciclo activo. Cargando local...", err)
+      return this.getLocalActiveCycle(cleanId, overrideId)
+    }
+  },
+
+  async getLocalActiveCycle(cleanId: number | null, overrideId?: string) {
+    try {
+      const { db } = await import('@/lib/db')
+      if (overrideId) {
+        return await db.ciclo_activo.get(overrideId) || null
+      } else if (cleanId !== null) {
+        return await db.ciclo_activo.where('unidad_id').equals(cleanId).first() || null
+      }
+    } catch (e) {
+      console.error("Error cargando ciclo activo local:", e)
+    }
+    return null
   },
 
   /**
    * Obtiene las propuestas asociadas a un ciclo
    */
   async getProposals(cicloId: string) {
-    const { data, error } = await supabase
-      .from('ciclo_propuestas')
-      .select('*, autor:perfiles!ciclo_propuestas_autor_id_fkey(nombres, apellidos), articulo:articulos(id, titulo, slug, extracto, imagen_destacada, metadata)')
-      .eq('ciclo_id', cicloId)
-      .order('created_at', { ascending: false })
+    if (typeof window !== 'undefined' && !navigator.onLine) {
+      return this.getLocalProposals(cicloId)
+    }
 
-    if (error) throw error
-    return data || []
+    try {
+      const { data, error } = await supabase
+        .from('ciclo_propuestas')
+        .select('*, autor:perfiles!ciclo_propuestas_autor_id_fkey(nombres, apellidos), articulo:articulos(id, titulo, slug, extracto, imagen_destacada, metadata)')
+        .eq('ciclo_id', cicloId)
+        .order('created_at', { ascending: false })
+
+      if (error) throw error
+      return data || []
+    } catch (err) {
+      console.warn("Fallo la conexión de red al obtener propuestas. Cargando local...", err)
+      return this.getLocalProposals(cicloId)
+    }
+  },
+
+  async getLocalProposals(cicloId: string) {
+    try {
+      const { db } = await import('@/lib/db')
+      const props = await db.propuestas.where('ciclo_id').equals(cicloId).toArray()
+      return props.map(p => ({
+        ...p,
+        autor: {
+          nombres: p.autor_nombres,
+          apellidos: p.autor_apellidos
+        },
+        articulo: p.articulo || null
+      }))
+    } catch (e) {
+      console.error("Error cargando propuestas locales:", e)
+      return []
+    }
   },
 
   /**

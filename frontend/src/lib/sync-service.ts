@@ -42,6 +42,9 @@ export const syncService = {
       await db.contactos_emergencia.clear();
       await db.autorizaciones.clear();
       await db.progresion_avance.clear();
+      await db.progresion_objetivos.clear();
+      await db.progresion_etapas.clear();
+      await db.progresion_areas.clear();
       await db.ciclo_activo.clear();
       await db.propuestas.clear();
       await db.articulos_actividades.clear();
@@ -146,6 +149,54 @@ export const syncService = {
         }
       }
 
+      // 3.5 Obtener catálogo de objetivos, etapas y áreas de progresión
+      reportProgress(68, 'Descargando catálogo de objetivos y etapas...');
+      const [areasRes, etapasRes, objsRes] = await Promise.all([
+        supabase.from('progresion_areas').select('*'),
+        supabase.from('progresion_etapas').select('*').eq('unidad_id', unidadId),
+        supabase.from('progresion_objetivos').select('*').eq('unidad_id', unidadId)
+      ]);
+
+      if (areasRes.error) throw areasRes.error;
+      if (etapasRes.error) throw etapasRes.error;
+      if (objsRes.error) throw objsRes.error;
+
+      if (areasRes.data) {
+        for (const ar of areasRes.data) {
+          await db.progresion_areas.put({
+            id: ar.id,
+            nombre: ar.nombre,
+            color: ar.color || null,
+            icono: ar.icono || null
+          });
+        }
+      }
+
+      if (etapasRes.data) {
+        for (const et of etapasRes.data) {
+          await db.progresion_etapas.put({
+            id: et.id,
+            unidad_id: et.unidad_id,
+            nombre: et.nombre,
+            rango_edad: et.rango_edad || null,
+            orden: et.orden || null
+          });
+        }
+      }
+
+      if (objsRes.data) {
+        for (const obj of objsRes.data) {
+          await db.progresion_objetivos.put({
+            id: obj.id,
+            unidad_id: obj.unidad_id,
+            nombre: obj.nombre,
+            rango_edad: obj.rango_edad,
+            area_id: obj.area_id || null,
+            orden: obj.orden || null
+          });
+        }
+      }
+
       // 4. Obtener ciclo de programa activo y propuestas
       reportProgress(75, 'Descargando ciclo de programa y propuestas...');
       const cicloActivoData = await cycleService.getActiveCycle(unidadId);
@@ -180,7 +231,9 @@ export const syncService = {
             fecha_programada: p.fecha_programada || null,
             es_especialidad: p.es_especialidad || false,
             articulo_id: p.articulo_id,
-            articulo: p.articulo
+            articulo: p.articulo,
+            autor_nombres: p.autor?.nombres || null,
+            autor_apellidos: p.autor?.apellidos || null
           });
 
           if (p.seleccionada && p.articulo_id) {

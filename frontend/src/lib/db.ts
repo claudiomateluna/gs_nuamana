@@ -90,6 +90,8 @@ export interface PropuestaOffline {
     titulo: string;
     extracto: string;
   } | null;
+  autor_nombres?: string | null;
+  autor_apellidos?: string | null;
 }
 
 export interface ArticuloActividadOffline {
@@ -112,12 +114,39 @@ export interface OutboxItem {
   error_ultimo?: string;
 }
 
+export interface ProgresionObjetivoOffline {
+  id: string;
+  unidad_id: number;
+  nombre: string;
+  rango_edad: string;
+  area_id: number | null;
+  orden?: number;
+}
+
+export interface ProgresionEtapaOffline {
+  id: number;
+  unidad_id: number;
+  nombre: string;
+  rango_edad?: string;
+  orden?: number;
+}
+
+export interface ProgresionAreaOffline {
+  id: number;
+  nombre: string;
+  color?: string;
+  icono?: string;
+}
+
 class NuaManaOfflineDB extends Dexie {
   perfiles!: Table<PerfilOffline, string>;
   fichas_medicas!: Table<FichaMedicaOffline, string>;
   contactos_emergencia!: Table<ContactoEmergenciaOffline, string>;
   autorizaciones!: Table<AutorizacionOffline, string>;
   progresion_avance!: Table<ProgresionAvanceOffline, string>;
+  progresion_objetivos!: Table<ProgresionObjetivoOffline, string>;
+  progresion_etapas!: Table<ProgresionEtapaOffline, number>;
+  progresion_areas!: Table<ProgresionAreaOffline, number>;
   ciclo_activo!: Table<CicloActivoOffline, string>;
   propuestas!: Table<PropuestaOffline, string>;
   articulos_actividades!: Table<ArticuloActividadOffline, string>;
@@ -125,12 +154,15 @@ class NuaManaOfflineDB extends Dexie {
 
   constructor() {
     super('NuaManaOfflineDB');
-    this.version(1).stores({
+    this.version(2).stores({
       perfiles: 'id, rut, unidad_id',
       fichas_medicas: 'perfil_id',
       contactos_emergencia: 'id, perfil_id',
       autorizaciones: 'id, perfil_id, actividad_id',
       progresion_avance: 'id, perfil_id, objetivo_id',
+      progresion_objetivos: 'id, unidad_id',
+      progresion_etapas: 'id, unidad_id',
+      progresion_areas: 'id',
       ciclo_activo: 'id, unidad_id',
       propuestas: 'id, ciclo_id, seleccionada',
       articulos_actividades: 'id, slug',

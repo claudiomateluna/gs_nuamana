@@ -70,7 +70,7 @@ export default function DashUnidad({
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
         {miembros.map(m => {
           const yaFirmo = idsFirmados.has(m.id)
           const authRecord = authsDeActividad.find(a => a.perfil_id === m.id)
@@ -98,7 +98,7 @@ export default function DashUnidad({
                 )}
               </div>
               
-              <div className="space-y-2 mb-6 text-[0.9em]">
+              <div className="space-y-2 mb-2 text-[0.9em]">
                 <div className="flex justify-between uppercase"><span className="opacity-40">RUT:</span><span className="font-bold">{m.rut}</span></div>
                 <div className="flex justify-between uppercase"><span className="opacity-40">Tel:</span><span className="font-bold">{m.telefono || 'S/I'}</span></div>
                 <div className="flex justify-between uppercase"><span className="opacity-40">Edad:</span><span className="font-bold">{calcularEdad(m.fecha_nacimiento)}</span></div>

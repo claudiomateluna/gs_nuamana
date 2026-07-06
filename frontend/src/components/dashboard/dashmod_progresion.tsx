@@ -18,6 +18,7 @@ import { getObjetivoTerm, EVAL_SCALE, getEvalLabel } from '@/lib/progression-uti
 import { generateSpecialtyCertificate } from '@/lib/pdf-service'
 import dynamic from 'next/dynamic'
 import { uploadToStorage } from '@/lib/storage-utils'
+import { db } from '@/lib/db'
 
 const DashmodProgresionEspecialidadWizard = dynamic(
   () => import('./dashmod_progresion_especialidad_wizard'),
@@ -2164,17 +2165,57 @@ export default function DashmodProgresion({ perfil, userPerfil }: ProgresionUnid
       else if (isCompania) rangoParaCargar = perfil.edad >= 13 ? '13 a 15 años' : '11 a 13 años'
     }
     
-    const { data: objsData } = await supabase.from('progresion_objetivos')
-      .select('*')
-      .eq('unidad_id', perfil.unidad_id)
-      .eq('rango_edad', rangoParaCargar)
-    
-    const { data: avanceData } = await supabase.from('progresion_avance')
-      .select('*')
-      .eq('perfil_id', perfil.id)
+    let objsData: any[] = []
+    let avanceData: any[] = []
 
-    setObjetivosDefault(objsData || [])
-    setAvanceDefault(avanceData || [])
+    if (typeof window !== 'undefined' && !navigator.onLine) {
+      try {
+        const uId = perfil.unidad_id ? parseInt(perfil.unidad_id) : 0
+        objsData = await db.progresion_objetivos
+          .where('unidad_id').equals(uId)
+          .filter(obj => obj.rango_edad === rangoParaCargar)
+          .toArray()
+        
+        avanceData = await db.progresion_avance
+          .where('perfil_id').equals(perfil.id)
+          .toArray()
+      } catch (e) {
+        console.error("Error cargando progresión offline:", e)
+      }
+    } else {
+      try {
+        const { data: oData, error: oErr } = await supabase.from('progresion_objetivos')
+          .select('*')
+          .eq('unidad_id', perfil.unidad_id)
+          .eq('rango_edad', rangoParaCargar)
+        if (oErr) throw oErr
+        objsData = oData || []
+
+        const { data: aData, error: aErr } = await supabase.from('progresion_avance')
+          .select('*')
+          .eq('perfil_id', perfil.id)
+        if (aErr) throw aErr
+        avanceData = aData || []
+      } catch (err) {
+        console.warn("Fallo carga online de progresión. Intentando local...", err)
+        try {
+          const uId = perfil.unidad_id ? parseInt(perfil.unidad_id) : 0
+          objsData = await db.progresion_objetivos
+            .where('unidad_id').equals(uId)
+            .filter(obj => obj.rango_edad === rangoParaCargar)
+            .toArray()
+          
+          avanceData = await db.progresion_avance
+            .where('perfil_id').equals(perfil.id)
+            .toArray()
+        } catch (e) {
+          console.error("Error en fallback offline de progresión:", e)
+        }
+      }
+    }
+
+    setObjetivosDefault(objsData)
+    setAvanceDefault(avanceData)
   }
 
   const handleSetEtapaDefault = async (etapaId: string) => {
