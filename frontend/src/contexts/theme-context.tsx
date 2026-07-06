@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
+import { usePathname } from 'next/navigation';
 
 type Theme = 'light' | 'dark';
 
@@ -15,6 +16,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<Theme>('light');
   const [isInitialized, setIsInitialized] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     // Registrar Service Worker para PWA
@@ -56,7 +58,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
     // Guardar el tema en localStorage
     localStorage.setItem('theme', theme);
-  }, [theme, isInitialized]);
+  }, [theme, isInitialized, pathname]);
 
   const toggleTheme = () => {
     setThemeState(prev => prev === 'light' ? 'dark' : 'light');
