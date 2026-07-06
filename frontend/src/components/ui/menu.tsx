@@ -41,8 +41,22 @@ const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
   const router = useRouter();
   const [currentView, setCurrentView] = useState<'main' | 'acerca-de' | 'lo-que-hacemos' | 'unidades'>('main');
   const [user, setUser] = useState<any>(null);
+  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+  const [isInstallable, setIsInstallable] = useState(false);
 
   useEffect(() => {
+    const handleBeforeInstallPrompt = (e: Event) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+      setIsInstallable(true);
+    };
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+      setIsInstallable(false);
+    }
+
     const handleEsc = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
     if (isOpen) {
       document.addEventListener('keydown', handleEsc);
@@ -56,9 +70,19 @@ const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
 
     return () => {
       document.removeEventListener('keydown', handleEsc);
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
       document.body.style.overflow = 'auto';
     };
   }, [isOpen, onClose]);
+
+  const handleInstallClick = async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log(`User response to install prompt: ${outcome}`);
+    setDeferredPrompt(null);
+    setIsInstallable(false);
+  };
 
   const acercaDeItems = [
     { title: "Quiénes Somos", action: () => router.push('/acerca-de/quienes-somos'), icon: IconoAcercaDeQuienesSomos },
@@ -195,6 +219,14 @@ const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
           </div>
 
           <div className="p-6 border-t border-clr10 dark:border-clr4 bg-white/50 dark:bg-black/20">
+            {isInstallable && (
+              <button 
+                onClick={handleInstallClick} 
+                className="w-full py-3 mb-4 bg-clr6 text-white font-black uppercase rounded-2xl shadow-xl hover:brightness-110 transition-all flex items-center justify-center gap-2 text-[0.9em]"
+              >
+                📲 Instalar Aplicación PWA
+              </button>
+            )}
             {user ? (
               <button onClick={() => { router.push('/dashboard'); onClose(); }} className="w-full p-2 bg-clr7 text-white font-black uppercase rounded-2xl shadow-xl hover:brightness-110 transition-all mb-6 flex items-center justify-between gap-2">
                 <div className="w-12 h-12 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_mi_panel.svg)', maskImage: 'url(/images/iconos/icono_mi_panel.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
