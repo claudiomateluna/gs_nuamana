@@ -43,6 +43,7 @@ const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
   const [user, setUser] = useState<any>(null);
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const [isInstallable, setIsInstallable] = useState(false);
+  const [showIOSHelper, setShowIOSHelper] = useState(false);
 
   useEffect(() => {
     const handleBeforeInstallPrompt = (e: Event) => {
@@ -53,7 +54,16 @@ const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
 
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
 
-    if (window.matchMedia('(display-mode: standalone)').matches) {
+    // Detectar si es iOS y no está instalado
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || (window.navigator as any).standalone;
+    
+    if (isIOS && !isStandalone) {
+      setShowIOSHelper(true);
+    }
+
+    if (isStandalone) {
       setIsInstallable(false);
     }
 
@@ -226,6 +236,14 @@ const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
               >
                 📲 Instalar Aplicación PWA
               </button>
+            )}
+            {showIOSHelper && (
+              <div className="w-full p-4 mb-4 bg-white/40 dark:bg-black/20 border border-clr10 dark:border-clr4 rounded-2xl text-[0.85em] text-clr5 dark:text-clr1 flex flex-col gap-2 shadow-inner">
+                <div className="font-black text-clr7 flex items-center gap-1.5 uppercase tracking-wide">📲 Instalar en tu iPhone</div>
+                <p className="text-clr2 dark:text-dclr8 leading-snug">
+                  Presioná el botón de <strong>Compartir</strong> <span className="inline-block px-1.5 py-0.5 bg-zinc-200 dark:bg-zinc-800 rounded">📤</span> en Safari y seleccioná <strong>"Agregar al inicio"</strong> ➕.
+                </p>
+              </div>
             )}
             {user ? (
               <button onClick={() => { router.push('/dashboard'); onClose(); }} className="w-full p-2 bg-clr7 text-white font-black uppercase rounded-2xl shadow-xl hover:brightness-110 transition-all mb-6 flex items-center justify-between gap-2">
