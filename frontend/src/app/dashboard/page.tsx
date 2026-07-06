@@ -41,6 +41,7 @@ const DashModActividadCrear = dynamic(() => import('@/components/dashboard/dashm
 const DashModVincularPupilo = dynamic(() => import('@/components/dashboard/dashmod_vincular_pupilo'), { ssr: false })
 
 import { getBitacoraName, getBitacoraDescription } from '@/lib/bitacora-utils'
+import { syncService } from '@/lib/sync-service'
 
 export default function DashboardPage() {
   // 1. ESTADOS DE DATOS
@@ -142,6 +143,54 @@ export default function DashboardPage() {
   
   const [showPassModal, setShowPassModal] = useState(false)
   const [newPass, setNewPass] = useState('')
+
+  // Estados para Sincronización Offline PWA
+  const [isSyncing, setIsSyncing] = useState(false)
+  const [syncProgress, setSyncProgress] = useState(0)
+  const [syncMessage, setSyncMessage] = useState('')
+  const [lastSyncTime, setLastSyncTime] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (perfil?.unidad_id) {
+      try {
+        const time = localStorage.getItem(`last_sync_unidad_${perfil.unidad_id}`)
+        if (time) setLastSyncTime(time)
+      } catch (e) {
+        console.warn(e)
+      }
+    }
+  }, [perfil])
+
+  const handleSyncOffline = async () => {
+    if (!perfil?.unidad_id) {
+      alert('Error: No tienes una unidad asignada para sincronizar.')
+      return
+    }
+    
+    setIsSyncing(true)
+    setSyncProgress(5)
+    setSyncMessage('Iniciando sincronización...')
+    
+    try {
+      await syncService.syncUnitData(perfil.unidad_id, (progress, message) => {
+        if (progress === -1) {
+          alert(message)
+        } else {
+          setSyncProgress(progress)
+          setSyncMessage(message)
+        }
+      })
+      
+      const now = new Date().toISOString()
+      setLastSyncTime(now)
+    } catch (err: any) {
+      console.error(err)
+    } finally {
+      setTimeout(() => {
+        setIsSyncing(false)
+      }, 1200)
+    }
+  }
 
   const fetchProfile = async () => {
     try {
@@ -398,12 +447,29 @@ export default function DashboardPage() {
           </header>
 
           {/* ACCIONES RÁPIDAS */}
-          <div className="flex flex-col md:flex-row gap-2 border-b border-zinc-100 dark:border-clr4 pb-4">
+          <div className="flex flex-col md:flex-row gap-2 border-b border-zinc-100 dark:border-clr4 pb-4 flex-wrap">
             {isDirectivo && (
-              <button onClick={() => setIsModActividadOpen(true)} className="flex items-center justify-between gap-2 p-2 bg-zinc-900 text-white font-bold uppercase rounded-2xl shadow-xl hover:brightness-125 transition-all tracking-widest text-[1em] font-inika text-right leading-none">
-                <div className="w-10 h-10 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_programar_actividad.svg)', maskImage: 'url(/images/iconos/icono_programar_actividad.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
-                Programar Actividad
-              </button>
+              <>
+                <button onClick={() => setIsModActividadOpen(true)} className="flex items-center justify-between gap-2 p-2 bg-zinc-900 text-white font-bold uppercase rounded-2xl shadow-xl hover:brightness-125 transition-all tracking-widest text-[1em] font-inika text-right leading-none">
+                  <div className="w-10 h-10 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_programar_actividad.svg)', maskImage: 'url(/images/iconos/icono_programar_actividad.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
+                  Programar Actividad
+                </button>
+                <button onClick={handleSyncOffline} className="flex items-center justify-between gap-2 p-2 bg-amber-600 hover:bg-amber-700 text-white font-bold uppercase rounded-2xl shadow-xl active:scale-95 transition-all tracking-widest text-[1em] font-inika text-right leading-none relative group">
+                  <div className="w-10 h-10 flex items-center justify-center bg-transparent text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                  </div>
+                  <div className="flex flex-col text-right">
+                    <span>Preparar Campamento</span>
+                    {lastSyncTime && (
+                      <span className="text-[10px] opacity-75 lowercase italic font-body font-normal leading-none mt-1">
+                        Sinc: {new Date(lastSyncTime).toLocaleDateString('es-CL')} {new Date(lastSyncTime).toLocaleTimeString('es-CL', { hour: '2-digit', minute: '2-digit' })}
+                      </span>
+                    )}
+                  </div>
+                </button>
+              </>
             )}
             <button onClick={() => { setEditingPupilo(null); setEditData(perfil); setIsModPerfilOpen(true); }} className="flex items-center justify-between gap-2 p-2 bg-clr6 dark:bg-dclr6 text-white font-bold uppercase rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest text-[1em] font-inika text-right leading-none">
               <div className="w-10 h-10 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_actualizar_ficha.svg)', maskImage: 'url(/images/iconos/icono_actualizar_ficha.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
@@ -653,6 +719,35 @@ export default function DashboardPage() {
                 🚀 Enviar Mensaje
               </button>
             </div>
+          </div>
+        </div>
+      )}
+      {isSyncing && (
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[110] flex items-center justify-center p-6 animate-in fade-in duration-300">
+          <div className="bg-white dark:bg-clr5 w-full max-w-md rounded-[3rem] p-10 shadow-2xl flex flex-col items-center text-center space-y-6">
+            <div className="relative w-20 h-20 flex items-center justify-center bg-amber-100 dark:bg-amber-950 text-amber-600 dark:text-amber-300 rounded-full animate-bounce">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+            </div>
+            
+            <div className="space-y-2">
+              <h3 className="text-2xl font-black font-display uppercase tracking-tight text-clr5 dark:text-clr1">Preparando Campamento</h3>
+              <p className="text-sm font-medium opacity-65 font-body leading-tight">
+                Estamos descargando los datos de tu unidad a la base de datos local para que puedas acceder sin señal.
+              </p>
+            </div>
+
+            <div className="w-full bg-zinc-100 dark:bg-black/35 h-3 rounded-full overflow-hidden animate-pulse">
+              <div 
+                className="bg-amber-600 h-full transition-all duration-300 rounded-full" 
+                style={{ width: `${syncProgress}%` }}
+              ></div>
+            </div>
+            
+            <p className="text-xs font-black uppercase text-amber-700 dark:text-amber-400 tracking-wider">
+              {syncProgress}% - {syncMessage}
+            </p>
           </div>
         </div>
       )}

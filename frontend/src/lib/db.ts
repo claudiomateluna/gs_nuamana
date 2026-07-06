@@ -49,9 +49,13 @@ export interface ProgresionAvanceOffline {
   id: string;
   perfil_id: string;
   objetivo_id: string;
-  etapa_id: string | null;
-  fecha_aprobacion: string | null;
-  aprobado_por: string | null;
+  estado: string | null;
+  valor: number | null;
+  valor_apoderado: number | null;
+  comentario_apoderado: string | null;
+  fecha_comentario_apoderado: string | null;
+  fecha_logro: string | null;
+  validado_por: string | null;
 }
 
 export interface CicloActivoOffline {
