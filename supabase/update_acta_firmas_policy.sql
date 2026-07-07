@@ -1,11 +1,9 @@
 -- Parche para la tabla acta_firmas
--- Permitir que un usuario inserte firmas si:
--- 1. Es su propia firma (perfil_id = auth.uid())
--- 2. Es un Dirigente/Guiadora/Admin (rol_id IN (1, 2, 3)) que está gestionando el acta.
--- 3. Es el autor/creador del acta (ingresado_por = auth.uid())
-
+-- Limpiamos ambas posibles políticas para evitar colisiones en producción
 DROP POLICY IF EXISTS "Firmas insert own policy" ON "public"."acta_firmas";
+DROP POLICY IF EXISTS "Firmas insert policy" ON "public"."acta_firmas";
 
+-- Crear la política corregida con el nombre estándar
 CREATE POLICY "Firmas insert policy" ON "public"."acta_firmas" 
     FOR INSERT 
     TO "authenticated" 
