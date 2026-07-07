@@ -194,11 +194,15 @@ BEGIN
   SELECT * INTO v_acta FROM actas WHERE id = acta_id_param;
   IF NOT FOUND THEN RETURN FALSE; END IF;
 
-  -- Obtener asistencia del usuario en esta acta
-  SELECT asistencia INTO v_asistencia FROM acta_participantes WHERE acta_id = acta_id_param AND perfil_id = v_user_id;
+  -- REGLA DE SEGURIDAD ESENCIAL: El autor/creador de la acta siempre puede verla.
+  -- Esto evita el error de violación de RLS en el "INSERT ... RETURNING" antes de insertar los participantes.
+  IF v_acta.ingresado_por = v_user_id THEN RETURN TRUE; END IF;
 
   -- REGLA DE ORO: Admin ve todo. Confidencialidad "Pública" es para todos.
   IF v_rol_id = 1 OR v_acta.confidencialidad = 'Pública' THEN RETURN TRUE; END IF;
+
+  -- Obtener asistencia del usuario en esta acta
+  SELECT asistencia INTO v_asistencia FROM acta_participantes WHERE acta_id = acta_id_param AND perfil_id = v_user_id;
 
   -- REGLAS POR CONFIDENCIALIDAD
   -- Confidencial: Solo Presente o Remoto
