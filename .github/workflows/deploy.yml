@@ -34,5 +34,5 @@ jobs:
             rm -rf .next
             npm run build
             
-            # Reiniciar la aplicación de Next.js en PM2 sin caída del servicio
-            pm2 reload nuamana-pwa
+            # Reiniciar la aplicación de Next.js en PM2
+            pm2 restart nuamana-pwa
