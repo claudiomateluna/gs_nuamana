@@ -2460,7 +2460,7 @@ CREATE POLICY "Eliminar solicitud de competencia propia o staff" ON "public"."so
 
 
 
-CREATE POLICY "Firmas insert own policy" ON "public"."acta_firmas" FOR INSERT TO "authenticated" WITH CHECK ((("perfil_id" = "auth"."uid"()) AND "public"."puede_ver_acta_v2"("acta_id")));
+CREATE POLICY "Firmas insert policy" ON "public"."acta_firmas" FOR INSERT TO "authenticated" WITH CHECK ((("perfil_id" = "auth"."uid"()) OR ((SELECT "rol_id" FROM "public"."perfiles" WHERE "id" = "auth"."uid"()) IN (1, 2, 3)) OR (EXISTS (SELECT 1 FROM "public"."actas" WHERE "id" = "acta_id" AND "ingresado_por" = "auth"."uid"()))));
 
 
 
