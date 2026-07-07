@@ -87,7 +87,7 @@ export default function DashUsuarios({ userPerfil, usuarios = [], onEdit, onVer,
 
               <div className="space-y-2 mb-4 flex-1 relative z-10">
                 <div className="flex justify-between items-center p-2 rounded-xl" style={{ backgroundColor: unitColor2,color: unitColor2 }}>
-                  <span className="text-[0.8em] uppercase">Unidad</span>
+                  <span className="text-[0.8em] uppercase" style={{ color: unitColor }} >Unidad</span>
                   {u.unidades?.nombre ? (
                     <span 
                       className="text-[0.85em] font-black uppercase px-2.5 py-1 rounded-lg text-white tracking-wider"
@@ -101,11 +101,11 @@ export default function DashUsuarios({ userPerfil, usuarios = [], onEdit, onVer,
                 </div>
                 <div className="flex justify-between items-center p-2 rounded-xl" style={{ backgroundColor: unitColor2 }}>
                   <span className="text-[0.8em] uppercase" style={{ color: unitColor }}>Rol</span>
-                  <span className="text-[0.9em] font-bold text-clr5 dark:text-clr2 uppercase" style={{ color: unitColor2 }}>{u.roles?.name}</span>
+                  <span className="text-[0.9em] font-bold text-clr5 dark:text-clr2 uppercase" style={{ color: unitColor }}>{u.roles?.name}</span>
                 </div>
                 <div className="flex justify-between items-center p-2 rounded-xl" style={{ backgroundColor: unitColor2 }}>
                   <span className="text-[0.8em] uppercase" style={{ color: unitColor }}>Edad</span>
-                  <span className="text-[0.9em] font-bold text-clr5 dark:text-clr2 uppercase" style={{ color: unitColor2 }}>{calcularEdad(u.fecha_nacimiento)}</span>
+                  <span className="text-[0.9em] font-bold text-clr5 dark:text-clr2 uppercase" style={{ color: unitColor }}>{calcularEdad(u.fecha_nacimiento)}</span>
                 </div>
               </div>
 

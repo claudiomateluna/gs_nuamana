@@ -525,12 +525,12 @@ export default function DashboardPage() {
           <div className="flex flex-col md:flex-row gap-2 border-b border-zinc-100 dark:border-clr4 pb-4 flex-wrap">
             {isDirectivo && (
               <>
-                <button onClick={() => setIsModActividadOpen(true)} className="flex items-center justify-between gap-2 p-2 bg-zinc-900 text-white font-bold uppercase rounded-2xl shadow-xl hover:brightness-125 transition-all tracking-widest text-[1em] font-inika text-right leading-none">
-                  <div className="w-10 h-10 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_programar_actividad.svg)', maskImage: 'url(/images/iconos/icono_programar_actividad.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
+                <button onClick={() => setIsModActividadOpen(true)} className="flex items-center justify-between gap-2 p-2 bg-zinc-900 text-white font-bold uppercase rounded-[1rem] shadow-xl hover:brightness-125 transition-all tracking-widest text-[0.9em] font-inika text-right leading-none">
+                  <div className="w-6 h-6 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_programar_actividad.svg)', maskImage: 'url(/images/iconos/icono_programar_actividad.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
                   Programar Actividad
                 </button>
-                <button onClick={handleSyncOffline} className="flex items-center justify-between gap-2 p-2 bg-amber-600 hover:bg-amber-700 text-white font-bold uppercase rounded-2xl shadow-xl active:scale-95 transition-all tracking-widest text-[1em] font-inika text-right leading-none relative group">
-                  <div className="w-10 h-10 flex items-center justify-center bg-transparent text-white">
+                <button onClick={handleSyncOffline} className="flex items-center justify-between gap-2 p-2 bg-amber-600 hover:bg-amber-700 text-white font-bold uppercase rounded-[1rem] shadow-xl active:scale-95 transition-all tracking-widest text-[0.9em] font-inika text-right leading-none relative group">
+                  <div className="w-6 h-6 flex items-center justify-center bg-transparent text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                     </svg>
@@ -538,7 +538,7 @@ export default function DashboardPage() {
                   <div className="flex flex-col text-right">
                     <span>Preparar Campamento</span>
                     {lastSyncTime && (
-                      <span className="text-[10px] opacity-75 lowercase italic font-body font-normal leading-none mt-1">
+                      <span className="text-[0.9em] opacity-75 lowercase italic font-body font-normal leading-none mt-1">
                         Sinc: {new Date(lastSyncTime).toLocaleDateString('es-CL')} {new Date(lastSyncTime).toLocaleTimeString('es-CL', { hour: '2-digit', minute: '2-digit' })}
                       </span>
                     )}
@@ -546,20 +546,20 @@ export default function DashboardPage() {
                 </button>
               </>
             )}
-            <button onClick={() => { setEditingPupilo(null); setEditData(perfil); setIsModPerfilOpen(true); }} className="flex items-center justify-between gap-2 p-2 bg-clr6 dark:bg-dclr6 text-white font-bold uppercase rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest text-[1em] font-inika text-right leading-none">
-              <div className="w-10 h-10 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_actualizar_ficha.svg)', maskImage: 'url(/images/iconos/icono_actualizar_ficha.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
-              Actualizar Mi Ficha
+            <button onClick={() => { setEditingPupilo(null); setEditData(perfil); setIsModPerfilOpen(true); }} className="flex items-center justify-between gap-2 p-2 bg-clr6 dark:bg-dclr6 text-white font-bold uppercase rounded-[1rem] shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest text-[0.9em] font-inika text-right leading-none">
+              <div className="w-6 h-6 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_actualizar_ficha.svg)', maskImage: 'url(/images/iconos/icono_actualizar_ficha.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
+              Actualizar Datos
             </button>
-            <button onClick={() => handleOpenWizard(perfil)} className="flex items-center justify-between gap-2 p-2 bg-blue-600 text-white font-bold uppercase rounded-2xl shadow-xl hover:bg-blue-700 active:scale-95 transition-all tracking-widest text-[1em] font-inika text-right leading-none">
-              <div className="w-10 h-10 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_autorizacion.svg)', maskImage: 'url(/images/iconos/icono_autorizacion.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
-              Autorización de Actividad
+            <button onClick={() => handleOpenWizard(perfil)} className="flex items-center justify-between gap-2 p-2 bg-blue-600 text-white font-bold uppercase rounded-[1rem] shadow-xl hover:bg-blue-700 active:scale-95 transition-all tracking-widest text-[0.9em] font-inika text-right leading-none">
+              <div className="w-6 h-6 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_autorizacion.svg)', maskImage: 'url(/images/iconos/icono_autorizacion.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
+              Autorización
             </button>
-            <button onClick={() => setShowPassModal(true)} className="flex items-center justify-between gap-2 p-2 bg-zinc-200 dark:bg-clr4 text-clr2 font-bold uppercase rounded-2xl hover:bg-zinc-300 transition-all tracking-widest text-[1em] font-inika text-right leading-none">
-              <div className="w-10 h-10 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_cambiar_contrasena.svg)', maskImage: 'url(/images/iconos/icono_cambiar_contrasena.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
+            <button onClick={() => setShowPassModal(true)} className="flex items-center justify-between gap-2 p-2 bg-clr10 dark:bg-clr4 text-clr4 dark:text-clr1 font-bold uppercase rounded-[1rem] hover:bg-clr6 transition-all tracking-widest text-[0.9em] font-inika text-right leading-none">
+              <div className="w-6 h-6 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_cambiar_contrasena.svg)', maskImage: 'url(/images/iconos/icono_cambiar_contrasena.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
               Cambiar Contraseña
             </button>
-            <button onClick={async () => { await supabase.auth.signOut(); window.location.href = '/'; }} className="flex items-center justify-between gap-2 p-2 bg-clr7 dark:bg-dclr7 text-white font-bold uppercase rounded-2xl hover:brightness-110 active:scale-95 transition-all tracking-widest text-[1em] font-inika text-right leading-none">
-              <div className="w-10 h-10 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_salir.svg)', maskImage: 'url(/images/iconos/icono_salir.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
+            <button onClick={async () => { await supabase.auth.signOut(); window.location.href = '/'; }} className="flex items-center justify-between gap-2 p-2 bg-clr7 dark:bg-dclr7 text-white font-bold uppercase rounded-[1rem] hover:brightness-110 active:scale-95 transition-all tracking-widest text-[0.9em] font-inika text-right leading-none">
+              <div className="w-6 h-6 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_salir.svg)', maskImage: 'url(/images/iconos/icono_salir.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
               Cerrar Sesión
             </button>
           </div>
@@ -744,7 +744,7 @@ export default function DashboardPage() {
             <h2 className="text-2xl font-black font-display uppercase text-[#cb3327] mb-8 border-b pb-4 tracking-tighter font-bold">Seguridad</h2>
             <form onSubmit={async (e) => { e.preventDefault(); const { error } = await supabase.auth.updateUser({ password: newPass }); if (!error) { alert('¡OK!'); setShowPassModal(false); } else alert(error.message); }} className="space-y-6">
               <input type="password" value={newPass} onChange={(e) => setNewPass(e.target.value)} className="w-full p-4 rounded-2xl border bg-zinc-50 font-bold text-center" autoFocus placeholder="Nueva Contraseña" />
-              <div className="flex gap-4 pt-4"><button type="submit" className="flex-1 py-4 bg-clr7 text-white font-black uppercase rounded-2xl shadow-xl font-inika text-[0.8em] tracking-widest">Actualizar</button><button type="button" onClick={() => setShowPassModal(false)} className="flex-1 py-4 bg-zinc-100 rounded-2xl font-inika text-[0.8em] tracking-widest">Cancelar</button></div>
+              <div className="flex gap-2 pt-4"><button type="submit" className="flex-1 py-4 bg-clr7 text-white font-black uppercase rounded-2xl shadow-xl font-inika text-[0.8em] tracking-widest">Actualizar</button><button type="button" onClick={() => setShowPassModal(false)} className="flex-1 py-4 bg-zinc-100 rounded-2xl font-inika text-[0.8em] tracking-widest">Cancelar</button></div>
             </form>
           </div>
         </div>
