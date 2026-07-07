@@ -1,10 +1,11 @@
 -- 1. Crear la nueva función que no consulta la tabla actas para evitar problemas de visibilidad de transacción/RLS
+-- Usamos tipos de datos estándar sin comillas (integer, text, uuid) para máxima compatibilidad
 CREATE OR REPLACE FUNCTION "public"."puede_ver_acta_v3"(
-  "v_ingresado_por" "uuid",
-  "v_confidencialidad" "text",
-  "v_tipo" "text",
-  "v_unidad_id" "int",
-  "v_acta_id" "uuid"
+  "v_ingresado_por" uuid,
+  "v_confidencialidad" text,
+  "v_tipo" text,
+  "v_unidad_id" integer,
+  "v_acta_id" uuid
 ) RETURNS boolean
     LANGUAGE "plpgsql" SECURITY DEFINER
     SET "search_path" TO 'public'
