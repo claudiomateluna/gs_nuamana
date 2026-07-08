@@ -11,6 +11,7 @@
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
     "@supabase/supabase-js": "^2.97.0",
+    "@types/web-push": "^3.6.4",
     "browser-image-compression": "^2.0.2",
     "date-fns": "^4.1.0",
     "dexie": "^4.4.4",
@@ -25,6 +26,7 @@
     "react-signature-canvas": "^1.1.0-alpha.2",
     "recharts": "^3.8.1",
     "suneditor-react": "^3.6.1",
+    "web-push": "^3.6.7",
     "zod": "^4.3.6"
   },
   "devDependencies": {

@@ -85,6 +85,15 @@ const SecondaryHeader = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (user) {
+      import('@/utils/push-notifications').then(({ subscribeUserToPush }) => {
+        subscribeUserToPush();
+      });
+    }
+  }, [user]);
+
+
   const markAsRead = async (id: string) => {
     await supabase.from('notificaciones').update({ leido: true }).eq('id', id);
     if (user) fetchNotifications(user.id);
