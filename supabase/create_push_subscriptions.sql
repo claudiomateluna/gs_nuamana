@@ -30,16 +30,14 @@ LANGUAGE plpgsql
 SECURITY DEFINER
 AS $$
 BEGIN
-  -- Hacemos un HTTP POST asíncrono usando pg_net
-  -- Enviamos la notificación a la ruta de Next.js que la procesará y enviará mediante Web Push
   PERFORM net.http_post(
     url := 'https://nuamana.cl/api/push/send-webhook',
     headers := '{"Content-Type": "application/json", "x-webhook-secret": "nua-mana-secret-push-token-2026"}'::jsonb,
     body := json_build_object(
       'perfil_id', NEW.perfil_id,
-      'titulo', NEW.titulo,
-      'contenido', NEW.contenido,
-      'accion_url', COALESCE(NEW.accion_url, '')
+      'titulo', 'Nua Mana',
+      'contenido', NEW.mensaje,
+      'accion_url', COALESCE(NEW.link_url, '')
     )::jsonb
   );
   
