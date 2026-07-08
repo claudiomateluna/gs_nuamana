@@ -2283,6 +2283,10 @@ CREATE POLICY "Acuerdos visibility" ON "public"."acta_acuerdos" FOR SELECT USING
 
 
 
+CREATE POLICY "Acuerdos delete policy" ON "public"."acta_acuerdos" FOR DELETE TO "authenticated" USING (((EXISTS (SELECT 1 FROM "public"."actas" WHERE ("id" = "acta_id") AND ("ingresado_por" = "auth"."uid"()))) OR ((SELECT "rol_id" FROM "public"."perfiles" WHERE ("id" = "auth"."uid"())) IN (1, 2, 3))));
+
+
+
 CREATE POLICY "Adjuntos manage" ON "public"."acta_adjuntos" USING (("acta_id" IN ( SELECT "actas"."id"
    FROM "public"."actas"
   WHERE (("actas"."ingresado_por" = "auth"."uid"()) OR (( SELECT "perfiles"."rol_id"
@@ -2479,6 +2483,10 @@ CREATE POLICY "Firmas visibility" ON "public"."acta_firmas" FOR SELECT USING (("
 
 
 
+CREATE POLICY "Firmas delete policy" ON "public"."acta_firmas" FOR DELETE TO "authenticated" USING (((EXISTS (SELECT 1 FROM "public"."actas" WHERE ("id" = "acta_id") AND ("ingresado_por" = "auth"."uid"()))) OR ((SELECT "rol_id" FROM "public"."perfiles" WHERE ("id" = "auth"."uid"())) IN (1, 2, 3))));
+
+
+
 CREATE POLICY "Gestionar objetivos de proyecto logueado" ON "public"."proyecto_objetivos" FOR INSERT WITH CHECK (("auth"."uid"() IS NOT NULL));
 
 
@@ -2647,6 +2655,10 @@ CREATE POLICY "Participantes select policy" ON "public"."acta_participantes" FOR
 
 CREATE POLICY "Participantes visibility" ON "public"."acta_participantes" FOR SELECT USING (("acta_id" IN ( SELECT "actas"."id"
    FROM "public"."actas")));
+
+
+
+CREATE POLICY "Participantes delete policy" ON "public"."acta_participantes" FOR DELETE TO "authenticated" USING (((EXISTS (SELECT 1 FROM "public"."actas" WHERE ("id" = "acta_id") AND ("ingresado_por" = "auth"."uid"()))) OR ((SELECT "rol_id" FROM "public"."perfiles" WHERE ("id" = "auth"."uid"())) IN (1, 2, 3))));
 
 
 
