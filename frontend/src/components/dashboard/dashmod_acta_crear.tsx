@@ -171,6 +171,72 @@ export default function DashModActaCrear({ isOpen, onClose, perfil, miembrosUnid
     const estadoActa = algunPresente ? 'Aprobada' : 'Borrador'
 
     setSaving(true)
+
+    if (typeof window !== 'undefined' && !navigator.onLine) {
+      if (editingActa) {
+        alert('La edición offline de actas no está soportada todavía. Por favor, edita cuando tengas conexión.')
+        setSaving(false)
+        return
+      }
+
+      const actaPayload = {
+        tipo: actaData.tipo,
+        fecha: actaData.fecha,
+        resumen: actaData.resumen,
+        confidencialidad: actaData.confidencialidad,
+        unidad_id: actaData.tipo === 'Consejo de Unidad' ? perfil.unidad_id : null,
+        proxima_reunion: actaData.proxima_reunion || null,
+        observaciones_finales: actaData.observaciones_finales,
+        estado: estadoActa,
+        ingresado_por: perfil.id
+      }
+
+      const temasPayload = actaData.temas
+        .filter((t: any) => (t.titulo && t.titulo.trim() !== '') || (t.descripcion && t.descripcion.trim() !== '') || (t.conclusiones && t.conclusiones.trim() !== ''))
+        .map((t: any) => ({
+          titulo: t.titulo?.trim() || 'Sin título',
+          descripcion: t.descripcion || '',
+          conclusiones: t.conclusiones || '',
+          duracion_estimada: parseInt(t.duracion_estimada) || 0,
+          duracion_real: parseInt(t.duracion_real) || 0
+        }))
+
+      const partPayload = participantes.map(m => ({
+        perfil_id: m.id,
+        rol_en_reunion: actaData.roles_participantes[m.id] || 'Asistente',
+        asistencia: actaData.asistencia[m.id] || 'Ausente'
+      }))
+
+      const acPayload = actaData.acuerdos
+        .filter((a: any) => a.titulo && a.titulo.trim() !== '')
+        .map((a: any) => ({
+          titulo: a.titulo.trim(),
+          descripcion: a.descripcion || '',
+          responsable_id: (a.responsable_id && a.responsable_id !== '') ? a.responsable_id : null,
+          fecha_compromiso: (a.fecha_compromiso && a.fecha_compromiso !== '') ? a.fecha_compromiso : null,
+          prioridad: a.prioridad || 'Media',
+          estado: a.estado || 'Abierta',
+          es_actividad_grupal: !!a.es_actividad_grupal
+        }))
+
+      try {
+        const { outboxService } = await import('@/lib/outbox-service')
+        await outboxService.enqueue('actas_completo', 'INSERT', {
+          payload: actaPayload,
+          temas: temasPayload,
+          participantes: partPayload,
+          acuerdos: acPayload
+        })
+        alert('Sin conexión: El acta se guardó en la cola local de pendientes y se sincronizará automáticamente al recuperar internet.')
+        onSuccess()
+        onClose()
+      } catch (err: any) {
+        alert('Error al encolar acta offline: ' + err.message)
+      } finally {
+        setSaving(false)
+      }
+      return
+    }
     
     try {
       let currentActaId = editingActa?.id
@@ -300,7 +366,66 @@ export default function DashModActaCrear({ isOpen, onClose, perfil, miembrosUnid
       alert('¡Todo listo! El acta y sus componentes se guardaron correctamente.')
       onSuccess(); onClose();
     } catch (err: any) {
-      alert('FALLO CRÍTICO: ' + err.message)
+      const isNetworkError = err.message?.includes('fetch') || err.message?.includes('Network') || err.status === 0;
+      if (isNetworkError && !editingActa) {
+        console.warn("Fallo el guardado online del acta por error de red. Encolando en outbox...", err)
+        try {
+          const actaPayload = {
+            tipo: actaData.tipo,
+            fecha: actaData.fecha,
+            resumen: actaData.resumen,
+            confidencialidad: actaData.confidencialidad,
+            unidad_id: actaData.tipo === 'Consejo de Unidad' ? perfil.unidad_id : null,
+            proxima_reunion: actaData.proxima_reunion || null,
+            observaciones_finales: actaData.observaciones_finales,
+            estado: estadoActa,
+            ingresado_por: perfil.id
+          }
+
+          const temasPayload = actaData.temas
+            .filter((t: any) => (t.titulo && t.titulo.trim() !== '') || (t.descripcion && t.descripcion.trim() !== '') || (t.conclusiones && t.conclusiones.trim() !== ''))
+            .map((t: any) => ({
+              titulo: t.titulo?.trim() || 'Sin título',
+              descripcion: t.descripcion || '',
+              conclusiones: t.conclusiones || '',
+              duracion_estimada: parseInt(t.duracion_estimada) || 0,
+              duracion_real: parseInt(t.duracion_real) || 0
+            }))
+
+          const partPayload = participantes.map(m => ({
+            perfil_id: m.id,
+            rol_en_reunion: actaData.roles_participantes[m.id] || 'Asistente',
+            asistencia: actaData.asistencia[m.id] || 'Ausente'
+          }))
+
+          const acPayload = actaData.acuerdos
+            .filter((a: any) => a.titulo && a.titulo.trim() !== '')
+            .map((a: any) => ({
+              titulo: a.titulo.trim(),
+              descripcion: a.descripcion || '',
+              responsable_id: (a.responsable_id && a.responsable_id !== '') ? a.responsable_id : null,
+              fecha_compromiso: (a.fecha_compromiso && a.fecha_compromiso !== '') ? a.fecha_compromiso : null,
+              prioridad: a.prioridad || 'Media',
+              estado: a.estado || 'Abierta',
+              es_actividad_grupal: !!a.es_actividad_grupal
+            }))
+
+          const { outboxService } = await import('@/lib/outbox-service')
+          await outboxService.enqueue('actas_completo', 'INSERT', {
+            payload: actaPayload,
+            temas: temasPayload,
+            participantes: partPayload,
+            acuerdos: acPayload
+          })
+          alert('Error de conexión: El acta se guardó localmente en la cola de pendientes y se sincronizará automáticamente al recuperar internet.')
+          onSuccess(); onClose();
+          return
+        } catch (e: any) {
+          alert('FALLO CRÍTICO: ' + e.message)
+        }
+      } else {
+        alert('FALLO CRÍTICO: ' + err.message)
+      }
     } finally {
       setSaving(false)
     }

@@ -69,6 +69,94 @@ export const outboxService = {
               .eq('id', item.payload.id)
             error = err
           }
+        } else if (item.tabla === 'actas_completo') {
+          if (item.accion === 'INSERT') {
+            const { payload: actPayload, temas, participantes, acuerdos } = item.payload;
+            const codigo = `ACT-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
+            
+            // 1. Insertar acta
+            const { data: newActa, error: actErr } = await supabase
+              .from('actas')
+              .insert({ ...actPayload, codigo })
+              .select()
+              .single();
+            
+            if (actErr) {
+              error = actErr;
+            } else {
+              const newActaId = newActa.id;
+              
+              // 2. Insertar temas
+              const temasParaGuardar = temas.map((t: any, i: number) => ({
+                acta_id: newActaId,
+                titulo: t.titulo?.trim() || 'Sin título',
+                descripcion: t.descripcion || '',
+                conclusiones: t.conclusiones || '',
+                duracion_estimada: parseInt(t.duracion_estimada) || 0,
+                duracion_real: parseInt(t.duracion_real) || 0,
+                orden: i
+              }));
+              if (temasParaGuardar.length > 0) {
+                const { error: teErr } = await supabase.from('acta_temas').insert(temasParaGuardar);
+                if (teErr) error = teErr;
+              }
+              
+              // 3. Insertar participantes
+              const partParaGuardar = participantes.map((p: any) => ({
+                acta_id: newActaId,
+                perfil_id: p.perfil_id,
+                rol_en_reunion: p.rol_en_reunion || 'Asistente',
+                asistencia: p.asistencia || 'Ausente'
+              }));
+              if (!error && partParaGuardar.length > 0) {
+                const { error: pErr } = await supabase.from('acta_participantes').insert(partParaGuardar);
+                if (pErr) error = pErr;
+              }
+              
+              // 4. Crear los casilleros de firma
+              const invitadosObligatorios = participantes.filter((p: any) => p.asistencia !== 'No Invitado');
+              if (!error && invitadosObligatorios.length > 0) {
+                const firmasParaGuardar = invitadosObligatorios.map((p: any) => ({
+                  acta_id: newActaId,
+                  perfil_id: p.perfil_id,
+                  firmado: false
+                }));
+                const { error: fErr } = await supabase.from('acta_firmas').insert(firmasParaGuardar);
+                if (fErr) error = fErr;
+              }
+              
+              // 5. Insertar acuerdos
+              const acToIns = acuerdos.map((a: any) => ({
+                acta_id: newActaId,
+                titulo: a.titulo.trim(),
+                descripcion: a.descripcion || '',
+                responsable_id: a.responsable_id || null,
+                fecha_compromiso: a.fecha_compromiso || null,
+                prioridad: a.prioridad || 'Media',
+                estado: a.estado || 'Abierta',
+                es_actividad_grupal: !!a.es_actividad_grupal
+              }));
+              if (!error && acToIns.length > 0) {
+                const { error: acErr } = await supabase.from('acta_acuerdos').insert(acToIns);
+                if (acErr) error = acErr;
+              }
+              
+              // 6. Insertar notificaciones
+              if (!error && invitadosObligatorios.length > 0) {
+                const msg = `Se ha creado el acta (${actPayload.tipo}) del ${actPayload.fecha}. Revisa y firma en el panel.`;
+                const notifs = invitadosObligatorios.map((p: any) => ({
+                  perfil_id: p.perfil_id,
+                  mensaje: msg,
+                  tipo: 'sistema',
+                  link_url: '/dashboard'
+                }));
+                const { error: notifErr } = await supabase.from('notificaciones').insert(notifs);
+                if (notifErr) {
+                  console.warn("Fallo al insertar notificaciones de acta sincronizada offline:", notifErr);
+                }
+              }
+            }
+          }
         }
 
         if (error) {

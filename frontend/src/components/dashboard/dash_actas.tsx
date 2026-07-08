@@ -56,8 +56,12 @@ export default function DashActas({ actas, perfil, onNuevaActa, onEditActa, onSi
                 <span className="text-2xl font-black font-display leading-none">{new Date(a.fecha).getUTCDate()}</span>
               </div>
               <div>
-                <p className="text-[0.8em] text-clr6 uppercase tracking-widest font-bold">
-                  {a.codigo} • <span className="opacity-60">{a.estado}</span>
+                <p className="text-[0.8em] text-clr6 uppercase tracking-widest font-bold flex items-center gap-2">
+                  {a.isPending ? (
+                    <span className="bg-amber-500 text-white px-2 py-0.5 rounded-lg text-[0.8em] font-extrabold animate-pulse">PENDIENTE DE SINCRONIZACIÓN</span>
+                  ) : (
+                    <>{a.codigo} • <span className="opacity-60">{a.estado}</span></>
+                  )}
                 </p>
                 <h3 className="uppercase font-bold text-[1.1em]">{a.tipo}</h3>
                 <p className="text-[0.8em] opacity-60 font-bold mb-2">
@@ -77,42 +81,50 @@ export default function DashActas({ actas, perfil, onNuevaActa, onEditActa, onSi
             </div>
             
             <div className="flex gap-2 shrink-0 mt-4 md:mt-0">
-              {a.mi_firma && !a.mi_firma.firmado && (
-                <button 
-                  onClick={() => onSign(a.id)} 
-                  className="px-4 py-2 bg-clr7 text-white rounded-xl text-[0.8em] uppercase font-bold shadow-sm hover:brightness-110 animate-pulse"
-                >
-                  ✍️ Firmar
-                </button>
-              )}
-              {a.mi_firma?.firmado && (
-                <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-[0.8em] font-bold uppercase flex items-center border border-green-200">
-                  ✓ Firmada
+              {a.isPending ? (
+                <span className="text-[0.8em] font-bold uppercase opacity-55 px-3 py-2 bg-amber-500/10 text-amber-600 dark:text-amber-400 rounded-xl border border-amber-500/20">
+                  💾 Guardado Offline
                 </span>
-              )}
-              <button 
-                onClick={() => onVerActa(a)} 
-                className="px-4 py-2 bg-white dark:bg-clr4 rounded-xl shadow-sm border text-[0.8em] uppercase font-bold tracking-widest hover:bg-zinc-100 hover:text-clr4 transition-all"
-              >
-                📂 Abrir
-              </button>
-              {canEdit(a) && (
-                <button 
-                  onClick={() => onEditActa(a)} 
-                  className="p-2 bg-white dark:bg-clr4 rounded-xl shadow-sm border border-clr6 text-clr6 hover:bg-clr6 hover:text-white transition-all"
-                  title="Editar Planificación/Desarrollo"
-                >
-                  ✏️
-                </button>
-              )}
-              {canDelete(a) && (
-                <button 
-                  onClick={() => onDelete(a.id)} 
-                  className="p-2 bg-white dark:bg-clr4 rounded-xl shadow-sm border border-red-100 text-red-500 hover:bg-red-500 hover:text-white transition-all"
-                  title="Eliminar Acta"
-                >
-                  🗑️
-                </button>
+              ) : (
+                <>
+                  {a.mi_firma && !a.mi_firma.firmado && (
+                    <button 
+                      onClick={() => onSign(a.id)} 
+                      className="px-4 py-2 bg-clr7 text-white rounded-xl text-[0.8em] uppercase font-bold shadow-sm hover:brightness-110 animate-pulse"
+                    >
+                      ✍️ Firmar
+                    </button>
+                  )}
+                  {a.mi_firma?.firmado && (
+                    <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-[0.8em] font-bold uppercase flex items-center border border-green-200">
+                      ✓ Firmada
+                    </span>
+                  )}
+                  <button 
+                    onClick={() => onVerActa(a)} 
+                    className="px-4 py-2 bg-white dark:bg-clr4 rounded-xl shadow-sm border text-[0.8em] uppercase font-bold tracking-widest hover:bg-zinc-100 hover:text-clr4 transition-all"
+                  >
+                    📂 Abrir
+                  </button>
+                  {canEdit(a) && (
+                    <button 
+                      onClick={() => onEditActa(a)} 
+                      className="p-2 bg-white dark:bg-clr4 rounded-xl shadow-sm border border-clr6 text-clr6 hover:bg-clr6 hover:text-white transition-all"
+                      title="Editar Planificación/Desarrollo"
+                    >
+                      ✏️
+                    </button>
+                  )}
+                  {canDelete(a) && (
+                    <button 
+                      onClick={() => onDelete(a.id)} 
+                      className="p-2 bg-white dark:bg-clr4 rounded-xl shadow-sm border border-red-100 text-red-500 hover:bg-red-500 hover:text-white transition-all"
+                      title="Eliminar Acta"
+                    >
+                      🗑️
+                    </button>
+                  )}
+                </>
               )}
             </div>
           </div>

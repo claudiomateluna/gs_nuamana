@@ -253,6 +253,22 @@ export default function DashboardPage() {
       const localAuths = await db.autorizaciones.toArray()
       setAutorizaciones(localAuths)
 
+      // 5. Actas offline pendientes de sincronización
+      const pendingActas = await db.outbox_queue.where('tabla').equals('actas_completo').toArray()
+      const formattedPendingActas = pendingActas.map(item => {
+        const { payload } = item.payload
+        return {
+          id: `pending-${item.id}`,
+          codigo: 'PENDIENTE',
+          tipo: payload.tipo,
+          fecha: payload.fecha,
+          resumen: payload.resumen,
+          estado: 'Borrador',
+          isPending: true
+        }
+      })
+      setActas(formattedPendingActas)
+
     } catch (e) {
       console.error('Error cargando datos locales IndexedDB:', e)
     }
