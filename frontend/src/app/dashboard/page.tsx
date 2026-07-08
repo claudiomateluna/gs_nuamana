@@ -266,9 +266,29 @@ export default function DashboardPage() {
       if (!user) return (window.location.href = '/login')
       userId = user.id
       
-      const { data: profile, error } = await supabase.from('perfiles').select('*, roles(name), unidades(nombre, colores, logo_unidad_url, logo_rama_url)').eq('id', user.id).maybeSingle()
-      if (error || !profile || profile.estado === 'pendiente') {
-        if (profile?.estado === 'pendiente') alert('Tu cuenta aún no ha sido activada.');
+      let profile: any = null;
+      let errorOccurred = false;
+      
+      try {
+        const { data, error } = await supabase.from('perfiles').select('*, roles(name), unidades(nombre, colores, logo_unidad_url, logo_rama_url)').eq('id', user.id).maybeSingle()
+        if (error || !data) {
+          errorOccurred = true;
+        } else {
+          profile = data;
+        }
+      } catch (err) {
+        errorOccurred = true;
+      }
+
+      if (errorOccurred || !profile) {
+        console.warn("Fallo la consulta online del perfil, intentando cargar local...");
+        profile = await db.perfiles.get(user.id);
+        if (!profile) {
+          // Si no hay perfil local ni conexión, redirigimos al login
+          await supabase.auth.signOut(); window.location.href = '/login'; return;
+        }
+      } else if (profile.estado === 'pendiente') {
+        alert('Tu cuenta aún no ha sido activada.');
         await supabase.auth.signOut(); window.location.href = '/login'; return;
       }
 
