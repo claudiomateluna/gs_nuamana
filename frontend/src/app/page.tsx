@@ -125,7 +125,7 @@ export default function Home() {
                 onClick={handleInstallClick}
                 className="mt-12 text-[0.8em] font-black uppercase tracking-[0.3em] text-clr2 hover:text-clr7 transition-colors underline decoration-dotted underline-offset-8"
               >
-                Instalar Aplicación (PWA)
+                Instalar Aplicación
               </button>
             )}
           </div>

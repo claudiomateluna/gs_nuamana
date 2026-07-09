@@ -26,7 +26,7 @@ const FAQ_DATA = [
   },
   {
     question: "¿QUÉ INCLUYE LA INSCRIPCIÓN?",
-    answer: "La inscripción para nuevos participantes incluye:<br><br><b>• Seguro scout</b> (es un seguro complementario de salud, que se cobra como reembolso posterior a los gastos médicos y descuentos propios de cada niño, niña o joven)<br><b>• Pañolín de grupo</b><br><b>• Credencial scout</b><br><b>• Insignia del año</b>",
+    answer: "La inscripción incluye:<br><br><b>• Seguro scout</b> (es un seguro complementario de salud, que se cobra como reembolso posterior a los gastos médicos y descuentos propios de cada niño, niña o joven)<br><b>• Credencial scout</b><br><b>• Insignia del año</b>",
     image: "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/FAQ-queIncluyeLaInscripcion.png"
   }
 ];
