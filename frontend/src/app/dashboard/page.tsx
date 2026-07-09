@@ -373,6 +373,49 @@ export default function DashboardPage() {
 
       setPerfil({ ...profile, contactos_emergencia: emergency.data || [] })
       setEditData(profile); setEditContactos(emergency.data || [])
+
+      // Guardar perfil y contactos de emergencia automáticamente en IndexedDB para soporte offline básico
+      try {
+        await db.perfiles.put({
+          id: profile.id,
+          nombres: profile.nombres,
+          apellidos: profile.apellidos,
+          rut: profile.rut,
+          unidad_id: profile.unidad_id,
+          rol_id: profile.rol_id,
+          created_at: profile.created_at,
+          roles: profile.roles,
+          unidades: profile.unidades
+        })
+        
+        await db.fichas_medicas.put({
+          perfil_id: profile.id,
+          grupo_sangre: profile.grupo_sangre || null,
+          alergias_medicamentos: profile.alergias || null,
+          alergias_alimentarias: null,
+          enfermedades_cronicas: profile.enfermedades_cronicas || null,
+          prevision: profile.prevision || null,
+          seguro_complementario: profile.seguro_complementario || null,
+          comentarios_salud: profile.comentarios_salud || null,
+          medicamentos_uso_comun: profile.medicamentos_uso_comun || null,
+          restricciones_alimentarias: profile.restricciones_alimentarias || null
+        })
+
+        if (emergency.data) {
+          await db.contactos_emergencia.where('perfil_id').equals(profile.id).delete()
+          for (const c of emergency.data) {
+            await db.contactos_emergencia.put(c)
+          }
+        }
+        console.log("Perfil y datos médicos auto-guardados localmente para soporte offline.");
+      } catch (dbErr) {
+        console.warn("Fallo el auto-guardado del perfil en IndexedDB:", dbErr)
+      }
+
+      // Intentar vaciar la cola de pendientes al cargar el dashboard online
+      import('@/lib/outbox-service').then(({ outboxService }) => {
+        outboxService.processQueue();
+      });
     } catch (err) {
       console.warn("Fallo la carga online del perfil. Intentando cargar datos locales (PWA Offline)...", err)
       if (userId) {

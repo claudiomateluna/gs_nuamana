@@ -1,13 +1,15 @@
-const CACHE_NAME = 'nuamana-cache-v2';
+const CACHE_NAME = 'nuamana-cache-v3';
 const OFFLINE_URL = '/dashboard';
+const LOGIN_URL = '/login';
 
 self.addEventListener('install', (event) => {
   self.skipWaiting();
-  // Pre-cachear el cascarón de la página y recursos básicos del branding
+  // Pre-cachear el cascarón del dashboard, login y recursos básicos del branding
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll([
         OFFLINE_URL,
+        LOGIN_URL,
         '/manifest.webmanifest',
         '/icon-192x192.png',
         '/icon-512x512.png',
@@ -75,6 +77,10 @@ self.addEventListener('fetch', (event) => {
           return caches.match(request).then((cachedResponse) => {
             if (cachedResponse) {
               return cachedResponse;
+            }
+            // Si el usuario iba hacia el login, servir la página de login pre-cacheada
+            if (url.pathname === '/login') {
+              return caches.match(LOGIN_URL);
             }
             // Si la página específica no está, servir el dashboard como shell offline
             return caches.match(OFFLINE_URL);
