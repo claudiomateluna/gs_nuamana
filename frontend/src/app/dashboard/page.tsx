@@ -19,6 +19,7 @@ const DashCiclosOtros = dynamic(() => import('@/components/dashboard/dash_ciclos
 const DashInventario = dynamic(() => import('@/components/dashboard/dash_inventario'), { ssr: false })
 const DashTesoreria = dynamic(() => import('@/components/dashboard/dash_tesoreria'), { ssr: false })
 const DashRendiciones = dynamic(() => import('@/components/dashboard/dash_rendiciones'), { ssr: false })
+const DashRecaudaciones = dynamic(() => import('@/components/dashboard/dash_recaudaciones'), { ssr: false })
 const DashUsuarios = dynamic(() => import('@/components/dashboard/dash_usuarios'), { ssr: false })
 const DashmodProgresion = dynamic(() => import('@/components/dashboard/dashmod_progresion'), { ssr: false })
 
@@ -66,7 +67,7 @@ export default function DashboardPage() {
   const [notificaciones, setNotificaciones] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const [filter, setFilter] = useState('todos')
-  const [subTabTeso, setSubTabTeso] = useState<'libro' | 'rendiciones'>('libro')
+  const [subTabTeso, setSubTabTeso] = useState<'libro' | 'rendiciones' | 'recaudaciones'>('libro')
   const [subTabCiclo, setSubTabCiclo] = useState<'activo' | 'historial' | 'otras_unidades'>('activo')
   
   // 2. ESTADOS DE MODALES (Consolidados para cumplir con KISS)
@@ -747,8 +748,11 @@ export default function DashboardPage() {
               <div className="flex bg-zinc-100 dark:bg-black/20 p-1 rounded-2xl w-fit">
                 <button onClick={() => setSubTabTeso('libro')} className={`px-6 py-2 rounded-xl text-[0.8em] font-black uppercase ${subTabTeso === 'libro' ? 'bg-white dark:bg-clr5 shadow-md text-clr6' : 'opacity-40'}`}>Libro</button>
                 <button onClick={() => setSubTabTeso('rendiciones')} className={`px-6 py-2 rounded-xl text-[0.8em] font-black uppercase ${subTabTeso === 'rendiciones' ? 'bg-white dark:bg-clr5 shadow-md text-clr6' : 'opacity-40'}`}>Rendiciones</button>
+                <button onClick={() => setSubTabTeso('recaudaciones')} className={`px-6 py-2 rounded-xl text-[0.8em] font-black uppercase ${subTabTeso === 'recaudaciones' ? 'bg-white dark:bg-clr5 shadow-md text-clr6' : 'opacity-40'}`}>Recaudaciones</button>
               </div>
-              {subTabTeso === 'libro' ? <DashTesoreria movimientos={tesoreria} unidades={unidades} isAdmin={true} canAction={canActionTeso} onNuevoMovimiento={() => { setEditingMov(null); setIsModTesoreriaOpen(true); }} onEditMovimiento={(m) => { setEditingMov(m); setIsModTesoreriaOpen(true); }} onDeleteMovimiento={handleDeleteMov} onEmitirVale={() => setIsModValeOpen(true)} onVerMovimiento={(m) => { setViewingMov(m); setIsModTesoreriaVerOpen(true); }} /> : <DashRendiciones rendiciones={rendiciones} isAdmin={canActionTeso} onNueva={() => setIsModRendicionOpen(true)} onVer={(r) => { setViewingRendicion(r); setIsModRendicionVerOpen(true); }} onDelete={handleDeleteRendicion} />}
+              {subTabTeso === 'libro' && <DashTesoreria movimientos={tesoreria} unidades={unidades} isAdmin={true} canAction={canActionTeso} onNuevoMovimiento={() => { setEditingMov(null); setIsModTesoreriaOpen(true); }} onEditMovimiento={(m) => { setEditingMov(m); setIsModTesoreriaOpen(true); }} onDeleteMovimiento={handleDeleteMov} onEmitirVale={() => setIsModValeOpen(true)} onVerMovimiento={(m) => { setViewingMov(m); setIsModTesoreriaVerOpen(true); }} />}
+              {subTabTeso === 'rendiciones' && <DashRendiciones rendiciones={rendiciones} isAdmin={canActionTeso} onNueva={() => setIsModRendicionOpen(true)} onVer={(r) => { setViewingRendicion(r); setIsModRendicionVerOpen(true); }} onDelete={handleDeleteRendicion} />}
+              {subTabTeso === 'recaudaciones' && <DashRecaudaciones perfil={perfil} unidades={unidades} canAction={canActionTeso} onSuccess={fetchProfile} />}
             </div>
           )}
           {activeTab === 'ciclo' && (
