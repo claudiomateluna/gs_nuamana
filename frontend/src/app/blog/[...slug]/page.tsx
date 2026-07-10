@@ -97,7 +97,26 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
         const allPossiblePaths = linkedCats.map((c: any) => [...buildCatPathSlugs(c.id), art.slug].join('/'))   
 
         if (allPossiblePaths.includes(currentPath)) {
-          if (art.metadata?.objetivos_educativos?.length > 0) {
+          // Intentar cargar objetivos educativos desde la tabla relacional
+          const { data: relObjs } = await supabase
+            .from('articulo_objetivos_educativos')
+            .select('objetivo_id, como_se_cumple, objetivo:progresion_objetivos(id, texto_infantil, texto_terminal, rango_edad, area_id, unidad_id, area:progresion_areas(nombre), unidad:unidades(nombre, colores))')
+            .eq('articulo_id', art.id)
+
+          art.metadata = art.metadata || {}
+          if (relObjs && relObjs.length > 0) {
+            art.metadata.objetivos_educativos = relObjs.map((r: any) => ({
+              id: r.objetivo_id,
+              texto: r.objetivo?.texto_infantil,
+              texto_terminal: r.objetivo?.texto_terminal,
+              rango_edad: r.objetivo?.rango_edad,
+              unidad: r.objetivo?.unidad?.nombre,
+              area: r.objetivo?.area?.nombre,
+              color: r.objetivo?.unidad?.colores?.primario,
+              como_se_cumple: r.como_se_cumple
+            }))
+          } else if (art.metadata?.objetivos_educativos?.length > 0) {
+            // Fallback para artículos viejos que solo tienen la info histórica en JSONB
             const ids = art.metadata.objetivos_educativos.map((o: any) => o.id)
             const { data: fullObjs } = await supabase
               .from('progresion_objetivos')
@@ -294,7 +313,7 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
         <SecondaryHeader />
         <main className="max-w-[1080px] mx-auto px-6 py-32">
           <Breadcrumbs />
-          <header className="flex flex-col lg:flex-row gap-12 lg:items-center mb-16">
+          <header className="flex flex-col lg:flex-row gap-12 lg:items-center mb-6">
             <div className="w-full lg:w-[30%] shrink-0">
               {articulo.imagen_destacada ? <img src={articulo.imagen_destacada} alt={articulo.titulo} className="w-full h-auto aspect-square object-cover rounded-[2rem] shadow-2xl border-2 border-clr10 dark:border-zinc-800" /> : <div className="w-full aspect-square bg-clr9 dark:bg-zinc-900 rounded-[2rem] border-2 border-dashed border-clr10" />}
             </div>
@@ -320,6 +339,21 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
               </div>
             </div>
           </header>
+            {metadata.justificacion_areas && (
+              <div className="p-2 bg-zinc-50 dark:bg-black/20 rounded-[1rem] border-l-[6px] border-clr6 shadow-sm mb-8">
+                <div className="flex flex-col gap-1 mb-3">
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-lg font-display font-bold text-clr5 dark:text-white uppercase my-0">¿Por qué estas áreas de desarrollo?</h3>
+                  </div>
+                  <p className="text-[0.8em] tracking-widest text-clr6 mt-[-8px] pl-2">
+                    {Array.isArray(metadata.areas || metadata.areas_desarrollo)
+                      ? (metadata.areas || metadata.areas_desarrollo).map((a: string) => a.charAt(0).toUpperCase() + a.slice(1)).join(', ')
+                      : (metadata.areas || metadata.areas_desarrollo)}
+                  </p>
+                </div>
+                <p className="italic opacity-90 leading-relaxed text-clr4 dark:text-dclr2 pl-2 mt-2">{metadata.justificacion_areas}</p>
+              </div>
+            )}
           <article className="blog-content dark:text-dclr2 w-full mb-10 text-[1.125rem]"><div dangerouslySetInnerHTML={{ __html: contenidoLimpio }} /></article>
           <section className="space-y-12">
 
@@ -349,16 +383,22 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {objs.map((o: any, i: number) => (
-                          <Link href={`/blog?obj_ed=${encodeURIComponent(o.texto)}`} key={i} className="group flex flex-col gap-1 p-3 bg-white dark:bg-black/40 rounded-xl shadow-sm border border-zinc-100 dark:border-clr4 hover:shadow-md transition-all cursor-pointer relative overflow-hidden pl-5">
+                          <div key={i} className="group flex flex-col gap-1 p-3 bg-white dark:bg-black/40 rounded-xl shadow-sm border border-zinc-100 dark:border-clr4 relative overflow-hidden pl-5">
                             <div className="absolute left-0 top-0 bottom-0 w-2" style={{ backgroundColor: o.color || '#ccc' }} />
                             <div className="flex items-center gap-2 flex-wrap">
                               <span className="text-[0.8em] font-black uppercase tracking-widest" style={{ color: o.color || '#ccc' }}>{o.unidad}</span><span>•</span>
                               <span className="text-[0.8em] font-black uppercase text-zinc-400">{o.area}</span><span>•</span>
                               {o.rango_edad && <span className="text-[0.8em] font-black uppercase px-2 py-0.5 rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-500">{o.rango_edad}</span>}
-                              <span className="text-[0.8em] font-black uppercase text-zinc-300 opacity-0 group-hover:opacity-100 transition-opacity ml-auto">Filtrar →</span>
+                              <Link href={`/blog?obj_ed=${encodeURIComponent(o.texto)}`} className="text-[0.8em] font-black uppercase text-zinc-300 opacity-0 group-hover:opacity-100 hover:text-clr7 transition-all ml-auto">Filtrar →</Link>
                             </div>
-                            <p className="font-bold text-[1em] text-clr4 dark:text-white italic group-hover:opacity-70 transition-opacity">"{o.texto}"</p>
-                          </Link>
+                            <p className="font-bold text-[1em] text-clr4 dark:text-white italic">"{o.texto}"</p>
+                            {o.como_se_cumple && (
+                              <div className="mt-2 p-3 bg-zinc-50 dark:bg-zinc-900/60 rounded-xl border-l-2 border-clr6 text-[0.9em] font-normal leading-relaxed text-zinc-600 dark:text-zinc-300">
+                                <span className="font-black text-[0.8em] text-clr6 block uppercase tracking-wider mb-1">¿Cómo se cumple?</span>
+                                {o.como_se_cumple}
+                              </div>
+                            )}
+                          </div>
                         ))}
                       </div>
                     </div>

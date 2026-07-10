@@ -51,6 +51,7 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
       titulo: '', contenido: '', extracto: '', imagen_destacada: '',
       categorias_ids: [] as string[], etiquetas_input: '',
       unidades: [] as string[], areas: [] as string[], lugares: [] as string[],
+      justificacion_areas: '',
       materiales: '', objetivos_input: '', participantes: '', duracion: '',
       cantidad: '', variaciones: '', recomendaciones: '',
       lugar_nacimiento: '', pais_nacimiento: '', fecha_nacimiento: '', fecha_defuncion: '',
@@ -172,12 +173,33 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
           materiales: Array.isArray(meta.materiales) ? meta.materiales.join(', ') : (meta.materiales || ''),
         })
 
-        if (meta.objetivos_educativos) {
+        // Cargar objetivos y el campo como_se_cumple desde la tabla relacional
+        const { data: relObjs } = await supabase
+          .from('articulo_objetivos_educativos')
+          .select('objetivo_id, como_se_cumple, objetivo:progresion_objetivos(*, area:progresion_areas(nombre), unidad:unidades(nombre, colores))')
+          .eq('articulo_id', art.id)
+
+        if (relObjs && relObjs.length > 0) {
+          setSelectedObjsEd(relObjs.map((r: any) => ({
+            ...r.objective || r.objetivo,
+            como_se_cumple: r.como_se_cumple || ''
+          })))
+        } else if (meta.objetivos_educativos) {
+          // Fallback para artículos que solo tienen datos en el JSONB
           const { data: fullObjs } = await supabase
             .from('progresion_objetivos')
             .select('*, area:progresion_areas(nombre), unidad:unidades(nombre, colores)')
             .in('id', meta.objetivos_educativos.map((o: any) => o.id))
-          setSelectedObjsEd(fullObjs || [])
+          
+          if (fullObjs) {
+            setSelectedObjsEd(fullObjs.map((f: any) => {
+              const metaObj = meta.objetivos_educativos.find((o: any) => o.id === f.id)
+              return {
+                ...f,
+                como_se_cumple: metaObj?.como_se_cumple || ''
+              }
+            }))
+          }
         }
       }
       setLoading(false)
@@ -206,8 +228,12 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
     if (selectedObjsEd.find(o => o.id === obj.id)) {
       setSelectedObjsEd(selectedObjsEd.filter(o => o.id !== obj.id))
     } else {
-      setSelectedObjsEd([...selectedObjsEd, obj])
+      setSelectedObjsEd([...selectedObjsEd, { ...obj, como_se_cumple: '' }])
     }
+  }
+
+  const handleComoSeCumpleChange = (id: string, text: string) => {
+    setSelectedObjsEd(prev => prev.map(o => o.id === id ? { ...o, como_se_cumple: text } : o))
   }
 
   const onSubmit = async (data: any) => {
@@ -232,7 +258,13 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
         ...metas, 
         objetivos: finalObjetivos, 
         materiales: finalMateriales,
-        objetivos_educativos: selectedObjsEd.map(o => ({ id: o.id, texto: o.texto_infantil, unidad: o.unidad.nombre, area: o.area.nombre }))
+        objetivos_educativos: selectedObjsEd.map(o => ({ 
+          id: o.id, 
+          texto: o.texto_infantil, 
+          unidad: o.unidad.nombre, 
+          area: o.area.nombre,
+          como_se_cumple: o.como_se_cumple || null
+        }))
       }
 
       const { error: updateError } = await supabase.from('articulos').update({
@@ -248,6 +280,20 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
       if (categorias_ids.length > 0) {
         const relations = categorias_ids.map((cId: string) => ({ articulo_id: id, categoria_id: parseInt(cId) }))
         await supabase.from('articulo_categorias').insert(relations)
+      }
+
+      // Actualizar objetivos educativos en la tabla relacional
+      await supabase.from('articulo_objetivos_educativos').delete().eq('articulo_id', id)
+      if (selectedObjsEd.length > 0) {
+        const objRelations = selectedObjsEd.map(o => ({
+          articulo_id: id,
+          objetivo_id: o.id,
+          como_se_cumple: o.como_se_cumple || null
+        }))
+        const { error: relErr } = await supabase.from('articulo_objetivos_educativos').insert(objRelations)
+        if (relErr) {
+          console.error("Error al actualizar objetivos educativos en tabla relacional:", relErr)
+        }
       }
 
       if (puedePublicarDirecto) alert('¡Artículo actualizado!');
@@ -325,6 +371,10 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
                           </div>
                         ))}
                       </div>
+                    </div>
+                    <div className="col-span-1 md:col-span-3 space-y-1 pt-2">
+                      <label className="text-[0.9em] uppercase opacity-60 block font-bold tracking-wider">Justificación de Selección de Áreas (Opcional)</label>
+                      <textarea {...register('justificacion_areas')} placeholder="Explica por qué esta actividad aporta a las áreas de desarrollo seleccionadas..." className="w-full p-4 rounded-2xl border h-20 text-sm bg-white dark:bg-black/20 font-bold focus:border-clr7 outline-none" />
                     </div>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-6 border-t border-blue-100 dark:border-blue-900/30">
@@ -414,10 +464,44 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
                       ) : <div className="col-span-2 py-10 text-center border-2 border-dashed rounded-3xl opacity-30 text-[0.8em] font-black uppercase">Selecciona Unidad y Área.</div>}
                     </div>
                     {selectedObjsEd.length > 0 && (
-                      <div className="flex flex-wrap gap-2 pt-4">
-                        {selectedObjsEd.map(o => (
-                          <div key={o.id} className="flex items-center gap-2 px-3 py-1.5 bg-zinc-100 dark:bg-clr4 rounded-xl border border-zinc-200"><div className="w-2 h-2 rounded-full" style={{ backgroundColor: o.unidad?.colores?.primario || '#ccc' }} /><span className="text-[0.9em] font-bold truncate max-w-[150px]">{o.texto_infantil}</span><button type="button" onClick={(e) => { e.stopPropagation(); toggleObjEd(o); }} className="text-red-500">✕</button></div>
-                        ))}
+                      <div className="flex flex-col gap-4 pt-4 border-t border-blue-100 dark:border-blue-900/30">
+                        <h4 className="font-bold text-[0.9em] text-blue-700 dark:text-blue-300 uppercase tracking-widest">
+                          ✍️ Detalles de Objetivos Seleccionados
+                        </h4>
+                        <div className="grid grid-cols-1 gap-4">
+                          {selectedObjsEd.map(o => (
+                            <div key={o.id} className="p-4 bg-zinc-50 dark:bg-black/20 rounded-2xl border border-zinc-200 dark:border-clr4 flex flex-col gap-3 relative">
+                              <button 
+                                type="button" 
+                                onClick={() => toggleObjEd(o)} 
+                                className="absolute right-4 top-4 text-red-500 hover:text-red-700 text-lg font-bold"
+                                title="Quitar Objetivo"
+                              >
+                                ✕
+                              </button>
+                              <div className="flex items-center gap-2">
+                                <span className="text-[0.8em] font-black uppercase px-2 py-0.5 rounded text-white" style={{ backgroundColor: o.unidad?.colores?.primario || '#ccc' }}>
+                                  {o.unidad?.nombre || o.unidad}
+                                </span>
+                                <span className="text-[0.8em] font-black text-zinc-400 uppercase">
+                                  {o.area?.nombre || o.area}
+                                </span>
+                              </div>
+                              <p className="font-bold text-[1em] italic leading-relaxed text-zinc-800 dark:text-clr1">
+                                "{o.texto_infantil || o.texto}"
+                              </p>
+                              <div className="space-y-1">
+                                <label className="text-[0.8em] font-black uppercase opacity-60 block">¿Cómo se cumple en esta actividad? (Opcional)</label>
+                                <textarea 
+                                  value={o.como_se_cumple || ''}
+                                  onChange={e => handleComoSeCumpleChange(o.id, e.target.value)}
+                                  placeholder="Describe de qué forma esta dinámica ayuda a cumplir este objetivo educativo..." 
+                                  className="w-full p-3 rounded-xl border text-sm bg-white dark:bg-black/30 outline-none focus:border-clr7 font-bold h-16"
+                                />
+                              </div>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     )}
                   </div>
