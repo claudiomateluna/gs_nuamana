@@ -1,113 +1,116 @@
--- Migración para registrar los objetivos educativos de Cuerpo a Tierra (ID: c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a)
+-- Migración corregida para registrar los objetivos educativos de Cuerpo a Tierra (ID: c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a)
+-- Asegura coherencia pedagógica: todos los objetivos pertenecen a las mismas dimensiones/objetivos terminales.
 
--- 1. Insertar relaciones en la tabla intermedia articulo_objetivos_educativos
+-- 1. Limpiar relaciones anteriores de este artículo
+DELETE FROM public.articulo_objetivos_educativos 
+WHERE articulo_id = 'c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a';
+
+-- 2. Insertar las relaciones corregidas y coherentes
 INSERT INTO articulo_objetivos_educativos (articulo_id, objetivo_id, como_se_cumple)
 VALUES 
-  ('c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a', 'd9ebcd96-c9cf-444f-94fb-5569110a1b99', 'Corriendo a toda velocidad hacia el dirigente, rodeándolo y volviendo a su puesto para dar continuidad al relevo con agilidad.'),
-  ('c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a', '626a313e-0407-4cfd-b714-c6aa6e51738c', 'Coordinando sus extremidades al lanzarse rápidamente al suelo en posición firme y al saltar de manera precisa y segura sobre los cuerpos de sus compañeros.'),
-  ('c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a', '1427451e-b8b3-493b-8525-e53298381e07', 'Ejecutando la dinámica de relevos con agilidad física y motora, cumpliendo la regla de lanzarse al piso y correr la distancia establecida.'),
-  ('c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a', '0765469b-caef-4457-9d6b-cb739c855402', 'Ejecutando la dinámica de relevos con agilidad física y motora, cumpliendo la regla de lanzarse al piso y correr la distancia establecida.'),
-  ('c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a', '91473f71-9345-4bcf-bfc7-dea709d12361', 'Realizando los saltos por encima de sus compañeras de patrulla con máximo cuidado y control corporal para evitar pisarlas o golpearlas.'),
-  ('c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a', 'fb56310a-a9cf-46e3-9c34-c4643f6b9035', 'Realizando los saltos por encima de sus compañeros de patrulla con máximo cuidado y control corporal para evitar pisarlos o golpearlos.'),
-  ('c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a', 'b69188bf-2391-43c1-a885-abd1b13912be', 'Aceptando las reglas del juego de relevos, pasando el pañolín exclusivamente por entremedio de las piernas y esperando el turno correspondiente.'),
-  ('c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a', '5d2d48ed-c461-4a8e-9048-cceecd3de2e2', 'Disfrutando del juego cooperativo con su seisena, respetando el orden de la fila y la regla de no levantarse del suelo hasta que finalice el salto de su compañero.'),
-  ('c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a', 'd737dfda-2d8d-4ca8-b650-8612d90b434e', 'Cooperando activamente en la cadena de paso del pañolín y sincronizándose con su patrulla para optimizar el tiempo del equipo.'),
-  ('c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a', 'c6ec1a8c-37fb-441c-860c-755143523afe', 'Cooperando activamente en la cadena de paso del pañolín y sincronizándose con su patrulla para optimizar el tiempo del equipo.'),
-  ('c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a', 'de2f5693-de4b-48f1-b870-3c62be99aea8', 'Aceptando las normas de seguridad del juego (mantener los brazos pegados al cuerpo y estirarse completamente) para resguardar la seguridad de todas.'),
-  ('c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a', 'bbc48d53-f4aa-4de7-84d4-95614df76034', 'Aceptando las normas de seguridad del juego (mantener los brazos pegados al cuerpo y estirarse completamente) para resguardar la seguridad de todos.')
-ON CONFLICT (articulo_id, objetivo_id) 
-DO UPDATE SET como_se_cumple = EXCLUDED.como_se_cumple;
+  ('c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a', '4bf1e3dd-7f21-4c24-962d-9d6d64e32f25', 'Participando activamente en la carrera de relevos en espacios abiertos, disfrutando del ejercicio físico al aire libre.'),
+  ('c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a', '309c6121-94fc-43a2-b0fb-f6a975f78962', 'Respetando la secuencia del relevo del pañolín y aceptando deportivamente el resultado de la competencia grupal.'),
+  ('c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a', '1427451e-b8b3-493b-8525-e53298381e07', 'Desarrollando el juego de velocidad según el reglamento y las indicaciones de seguridad dadas por la jefatura.'),
+  ('c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a', '0765469b-caef-4457-9d6b-cb739c855402', 'Desarrollando el juego de velocidad según el reglamento y las indicaciones de seguridad dadas por la jefatura.'),
+  ('c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a', 'b12da732-d736-480c-82b8-95b312316390', 'Mejorando los tiempos de paso del pañolín y del recorrido de ida y vuelta para optimizar el rendimiento de la patrulla.'),
+  ('c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a', '08369c53-2c02-4e9c-8bb5-f949cd092c98', 'Mejorando los tiempos de paso del pañolín y del recorrido de ida y vuelta para optimizar el rendimiento de la patrulla.'),
+  ('c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a', 'b69188bf-2391-43c1-a885-abd1b13912be', 'Aceptando las reglas establecidas de la dinámica, pasando el pañolín exclusivamente por entremedio de las piernas sin levantarse antes de tiempo.'),
+  ('c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a', '2394dd5b-87b9-4f3d-9cdd-a42649139782', 'Respetando la regla de mantenerse en el suelo estirado y con los brazos pegados al cuerpo para permitir el salto seguro del compañero.'),
+  ('c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a', '78f8cd16-ebf9-4a01-9efe-6cdfd7d307fd', 'Evaluando colectivamente en la patrulla el cumplimiento de las normas de distanciamiento seguro antes de iniciar la carrera.'),
+  ('c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a', '06ed2700-c963-4f13-a86a-2815b3a1530a', 'Evaluando colectivamente en la patrulla el cumplimiento de las normas de distanciamiento seguro antes de iniciar la carrera.'),
+  ('c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a', 'e2770a37-9927-47ed-a4d6-bae9feaf691c', 'Expresando apreciaciones sobre las normas de seguridad del juego y sugiriendo variaciones al dirigente para mejorar la fluidez de la carrera.'),
+  ('c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a', 'a594a460-1ab9-4c09-b01a-c2555163e86e', 'Expresando apreciaciones sobre las normas de seguridad del juego y sugiriendo variaciones al dirigente para mejorar la fluidez de la carrera.');
 
--- 2. Actualizar el campo metadata (JSONB) del artículo
-UPDATE articulos 
+-- 3. Actualizar el campo metadata (JSONB) del artículo con la estructura correcta
+UPDATE public.articulos 
 SET metadata = metadata || '{
   "unidades": ["manada", "compania", "tropa"],
   "areas": ["corporalidad", "sociabilidad"],
-  "justificacion_areas": "Esta dinámica física de alta energía y velocidad exige un gran despliegue de coordinación psicomotora fina y gruesa, reflejos y equilibrio (Corporalidad) tanto para agacharse rápidamente como para saltar sobre los compañeros acostados. Asimismo, fomenta la sincronización, el trabajo en equipo, la confianza y el respeto por las normas de seguridad fundamentales para evitar que los participantes se pisen o se lastimen durante la carrera (Sociabilidad).",
+  "justificacion_areas": "Esta dinámica física de alta energía y velocidad exige un gran despliegue de coordinación psicomotora fina y gruesa, reflejos y equilibrio (Corporalidad) al participar de actividades deportivas y recreativas al aire libre. Asimismo, fomenta la sincronización, el trabajo en equipo, la confianza y el respeto por las normas de juego y convivencia fundamentales para evitar que los participantes se pisen o se lastimen durante la carrera (Sociabilidad).",
   "objetivos_educativos": [
     {
-      "id": "d9ebcd96-c9cf-444f-94fb-5569110a1b99",
+      "id": "4bf1e3dd-7f21-4c24-962d-9d6d64e32f25",
       "area": "Corporalidad",
-      "texto": "Participo en actividades que me ayudan a tener un cuerpo cada vez más fuerte, ágil, veloz y flexible.",
+      "texto": "Me gusta hacer actividades al aire libre.",
       "unidad": "Manada",
-      "como_se_cumple": "Corriendo a toda velocidad hacia el dirigente, rodeándolo y volviendo a su puesto para dar continuidad al relevo con agilidad."
+      "como_se_cumple": "Participando activamente en la carrera de relevos en espacios abiertos, disfrutando del ejercicio físico al aire libre."
     },
     {
-      "id": "626a313e-0407-4cfd-b714-c6aa6e51738c",
+      "id": "309c6121-94fc-43a2-b0fb-f6a975f78962",
       "area": "Corporalidad",
-      "texto": "Manejo cada vez mejor mis brazos, piernas, manos y pies.",
+      "texto": "Practico deportes, conozco sus reglas y sé perder.",
       "unidad": "Manada",
-      "como_se_cumple": "Coordinando sus extremidades al lanzarse rápidamente al suelo en posición firme y al saltar de manera precisa y segura sobre los cuerpos de sus compañeros."
+      "como_se_cumple": "Respetando la secuencia del relevo del pañolín y aceptando deportivamente el resultado de la competencia grupal."
     },
     {
       "id": "1427451e-b8b3-493b-8525-e53298381e07",
       "area": "Corporalidad",
       "texto": "Conozco y practico diferentes juegos y respeto sus reglas.",
       "unidad": "Compañía",
-      "como_se_cumple": "Ejecutando la dinámica de relevos con agilidad física y motora, cumpliendo la regla de lanzarse al piso y correr la distancia establecida."
+      "como_se_cumple": "Desarrollando el juego de velocidad según el reglamento y las indicaciones de seguridad dadas por la jefatura."
     },
     {
       "id": "0765469b-caef-4457-9d6b-cb739c855402",
       "area": "Corporalidad",
       "texto": "Conozco y practico diferentes juegos y respeto sus reglas.",
       "unidad": "Tropa",
-      "como_se_cumple": "Ejecutando la dinámica de relevos con agilidad física y motora, cumpliendo la regla de lanzarse al piso y correr la distancia establecida."
+      "como_se_cumple": "Desarrollando el juego de velocidad según el reglamento y las indicaciones de seguridad dadas por la jefatura."
     },
     {
-      "id": "91473f71-9345-4bcf-bfc7-dea709d12361",
+      "id": "b12da732-d736-480c-82b8-95b312316390",
       "area": "Corporalidad",
-      "texto": "Respeto mi cuerpo y el de los demás.",
+      "texto": "Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sé ganar y perder.",
       "unidad": "Compañía",
-      "como_se_cumple": "Realizando los saltos por encima de sus compañeras de patrulla con máximo cuidado y control corporal para evitar pisarlas o golpearlas."
+      "como_se_cumple": "Mejorando los tiempos de paso del pañolín y del recorrido de ida y vuelta para optimizar el rendimiento de la patrulla."
     },
     {
-      "id": "fb56310a-a9cf-46e3-9c34-c4643f6b9035",
+      "id": "08369c53-2c02-4e9c-8bb5-f949cd092c98",
       "area": "Corporalidad",
-      "texto": "Respeto mi cuerpo y el de los demás.",
+      "texto": "Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sé ganar y perder.",
       "unidad": "Tropa",
-      "como_se_cumple": "Realizando los saltos por encima de sus compañeros de patrulla con máximo cuidado y control corporal para evitar pisarlos o golpearlos."
+      "como_se_cumple": "Mejorando los tiempos de paso del pañolín y del recorrido de ida y vuelta para optimizar el rendimiento de la patrulla."
     },
     {
       "id": "b69188bf-2391-43c1-a885-abd1b13912be",
       "area": "Sociabilidad",
       "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.",
       "unidad": "Manada",
-      "como_se_cumple": "Aceptando las reglas del juego de relevos, pasando el pañolín exclusivamente por entremedio de las piernas y esperando el turno correspondiente."
+      "como_se_cumple": "Aceptando las reglas establecidas de la dinámica, pasando el pañolín exclusivamente por entremedio de las piernas sin levantarse antes de tiempo."
     },
     {
-      "id": "5d2d48ed-c461-4a8e-9048-cceecd3de2e2",
+      "id": "2394dd5b-87b9-4f3d-9cdd-a42649139782",
       "area": "Sociabilidad",
-      "texto": "Me gusta jugar con otros niños y niñas y respeto las reglas de los juegos.",
+      "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre esté de acuerdo con ellas",
       "unidad": "Manada",
-      "como_se_cumple": "Disfrutando del juego cooperativo con su seisena, respetando el orden de la fila y la regla de no levantarse del suelo hasta que finalice el salto de su compañero."
+      "como_se_cumple": "Respetando la regla de mantenerse en el suelo estirado y con los brazos pegados al cuerpo para permitir el salto seguro del compañero."
     },
     {
-      "id": "d737dfda-2d8d-4ca8-b650-8612d90b434e",
+      "id": "78f8cd16-ebf9-4a01-9efe-6cdfd7d307fd",
       "area": "Sociabilidad",
-      "texto": "Trabajo con las demás personas para lograr las metas que nos hemos propuesto.",
+      "texto": "Digo mi opinión cuando establecemos normas en mi patrulla, amigas o en mi escuela.",
       "unidad": "Compañía",
-      "como_se_cumple": "Cooperando activamente en la cadena de paso del pañolín y sincronizándose con su patrulla para optimizar el tiempo del equipo."
+      "como_se_cumple": "Evaluando colectivamente en la patrulla el cumplimiento de las normas de distanciamiento seguro antes de iniciar la carrera."
     },
     {
-      "id": "c6ec1a8c-37fb-441c-860c-755143523afe",
+      "id": "06ed2700-c963-4f13-a86a-2815b3a1530a",
       "area": "Sociabilidad",
-      "texto": "Trabajo con los demás personas para lograr las metas que nos hemos propuesto.",
+      "texto": "Digo mi opinión cuando establecemos normas en mi patrulla, amigos o en mi escuela.",
       "unidad": "Tropa",
-      "como_se_cumple": "Cooperando activamente en la cadena de paso del pañolín y sincronizándose con su patrulla para optimizar el tiempo del equipo."
+      "como_se_cumple": "Evaluando colectivamente en la patrulla el cumplimiento de las normas de distanciamiento seguro antes de iniciar la carrera."
     },
     {
-      "id": "de2f5693-de4b-48f1-b870-3c62be99aea8",
+      "id": "e2770a37-9927-47ed-a4d6-bae9feaf691c",
       "area": "Sociabilidad",
-      "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre esté de acuerdo con ellas.",
+      "texto": "Opino sobre lo que me gusta o no de las normas de los distintos ambientes en que actúo.",
       "unidad": "Compañía",
-      "como_se_cumple": "Aceptando las normas de seguridad del juego (mantener los brazos pegados al cuerpo y estirarse completamente) para resguardar la seguridad de todas."
+      "como_se_cumple": "Expresando apreciaciones sobre las normas de seguridad del juego y sugiriendo variaciones al dirigente para mejorar la fluidez de la carrera."
     },
     {
-      "id": "bbc48d53-f4aa-4de7-84d4-95614df76034",
+      "id": "a594a460-1ab9-4c09-b01a-c2555163e86e",
       "area": "Sociabilidad",
-      "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre esté de acuerdo con ellas.",
+      "texto": "Opino sobre lo que me gusta o no de las normas de los distintos ambientes en que actúo.",
       "unidad": "Tropa",
-      "como_se_cumple": "Aceptando las normas de seguridad del juego (mantener los brazos pegados al cuerpo y estirarse completamente) para resguardar la seguridad de todos."
+      "como_se_cumple": "Expresando apreciaciones sobre las normas de seguridad del juego y sugiriendo variaciones al dirigente para mejorar la fluidez de la carrera."
     }
   ]
 }'::jsonb
