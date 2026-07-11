@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import { supabase } from '@/lib/supabase'
 import dynamic from 'next/dynamic'
 import 'suneditor/dist/css/suneditor.min.css'
+import SecondaryHeader from '@/components/SecondaryHeader'
 import { uploadToStorage } from '@/lib/storage-utils'
 import { processArticleImage } from '@/lib/image-utils'
 
