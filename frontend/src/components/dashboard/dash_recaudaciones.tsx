@@ -322,7 +322,7 @@ export default function DashRecaudaciones({ perfil, unidades = [], canAction, on
   return (
     <div className="space-y-6 text-[1em]">
       {/* Cabecera */}
-      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
+      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-2">
         <div>
           <h2 className="text-2xl font-black font-display uppercase text-clr5 dark:text-clr1 font-bold">Gestión de Recaudaciones</h2>
           <p className="text-[0.8em] font-bold opacity-40 uppercase tracking-widest mt-1">
@@ -332,7 +332,7 @@ export default function DashRecaudaciones({ perfil, unidades = [], canAction, on
         {canAction && (
           <button
             onClick={() => setIsCrearOpen(true)}
-            className="px-5 py-2.5 bg-clr6 text-white uppercase rounded-xl text-[0.85em] font-bold tracking-widest shadow-lg hover:brightness-110 transition-all"
+            className="px-2 py-1 bg-clr6 text-white uppercase rounded-xl text-[1em] font-bold tracking-widest shadow-lg hover:brightness-110 transition-all"
           >
             ➕ Crear Recaudación
           </button>
@@ -366,11 +366,11 @@ export default function DashRecaudaciones({ perfil, unidades = [], canAction, on
       {loading && recaudaciones.length === 0 ? (
         <p className="text-center p-12 opacity-50 font-bold uppercase text-[0.85em]">Cargando recaudaciones...</p>
       ) : filteredRecaudaciones.length === 0 ? (
-        <div className="p-12 text-center border-2 border-dashed rounded-[2.5rem] opacity-40">
+        <div className="p-2 text-center border-2 border-dashed rounded-[1rem] opacity-40">
           <p className="italic uppercase tracking-widest text-[0.8em]">No hay recaudaciones registradas en esta unidad.</p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
           {filteredRecaudaciones.map(r => {
             const isAbierta = r.estado === 'abierta'
             const isCreator = r.creado_por === perfil.id
@@ -379,18 +379,18 @@ export default function DashRecaudaciones({ perfil, unidades = [], canAction, on
             return (
               <div
                 key={r.id}
-                className={`bg-white dark:bg-black/10 rounded-[2rem] border p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all ${
+                className={`bg-white dark:bg-black/10 rounded-[1rem] border p-2 flex flex-col justify-between shadow-sm hover:shadow-md transition-all ${
                   viewingDetailId === r.id ? 'border-clr6 ring-2 ring-clr6/20' : 'dark:border-clr4'
                 }`}
               >
                 <div className="space-y-3">
                   <div className="flex justify-between items-start">
-                    <span className={`text-[0.75em] px-2.5 py-0.5 rounded-full font-black uppercase ${
+                    <span className={`text-[0.85em] px-2.5 py-0.5 rounded-full font-black uppercase ${
                       isAbierta ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400' : 'bg-zinc-100 text-zinc-600 dark:bg-white/10 dark:text-white/60'
                     }`}>
                       {isAbierta ? 'Abierta' : 'Completada'}
                     </span>
-                    <span className="text-[0.75em] bg-clr5 text-white px-2.5 py-0.5 rounded-full font-black uppercase">
+                    <span className="text-[0.85em] bg-clr5 text-white px-2.5 py-0.5 rounded-full font-black uppercase">
                       {r.unidad}
                     </span>
                   </div>
@@ -441,11 +441,11 @@ export default function DashRecaudaciones({ perfil, unidades = [], canAction, on
                   {/* Totales */}
                   <div className="pt-3 border-t border-dashed dark:border-clr4 grid grid-cols-2 gap-2 text-center">
                     <div className="bg-zinc-50 dark:bg-black/25 p-2 rounded-xl">
-                      <p className="text-[0.7em] font-bold uppercase opacity-50">Recaudado</p>
+                      <p className="text-[0.8em] font-bold uppercase opacity-50">Recaudado</p>
                       <p className="font-black text-green-600 text-[1.1em]">${r.totalRecaudado.toLocaleString('es-CL')}</p>
                     </div>
                     <div className="bg-zinc-50 dark:bg-black/25 p-2 rounded-xl">
-                      <p className="text-[0.7em] font-bold uppercase opacity-50">Descuentos</p>
+                      <p className="text-[0.8em] font-bold uppercase opacity-50">Descuentos</p>
                       <p className="font-black text-amber-600 text-[1.1em]">${r.totalDescuentos.toLocaleString('es-CL')}</p>
                     </div>
                   </div>
@@ -518,7 +518,7 @@ export default function DashRecaudaciones({ perfil, unidades = [], canAction, on
                           // Si ya lo estamos viendo, deseleccionamos
                           setViewingDetailId(viewingDetailId === r.id ? null : r.id)
                         }}
-                        className={`flex-1 py-2 rounded-xl text-[0.75em] font-bold uppercase border transition-all ${
+                        className={`flex-1 py-2 rounded-xl text-[0.85em] font-bold uppercase border transition-all ${
                           viewingDetailId === r.id
                             ? 'bg-clr2 text-white border-clr2'
                             : 'bg-transparent text-clr2 hover:bg-zinc-50 dark:text-white/80 dark:hover:bg-white/5 border-clr2 dark:border-white/20'
@@ -533,7 +533,7 @@ export default function DashRecaudaciones({ perfil, unidades = [], canAction, on
                             setSelectedRecaudacion(r)
                             setIsCerrarOpen(true)
                           }}
-                          className="py-2 px-3 bg-clr7 text-white rounded-xl text-[0.75em] font-bold uppercase hover:brightness-110 transition-all flex items-center gap-1"
+                          className="py-1 px-2 bg-clr7 text-white rounded-xl text-[0.85em] font-bold uppercase hover:brightness-110 transition-all flex items-center gap-1"
                         >
                           🔒 Cerrar
                         </button>
@@ -562,9 +562,9 @@ export default function DashRecaudaciones({ perfil, unidades = [], canAction, on
 
                     if (userComps.length === 0) return null
                     return (
-                      <div className="mt-4 pt-3 border-t border-dashed dark:border-clr4 space-y-2 text-left">
-                        <p className="text-[0.75em] font-black uppercase text-clr6">📄 Mis Comprobantes:</p>
-                        <div className="space-y-1.5 max-h-[120px] overflow-y-auto pr-1">
+                      <div className="mt-4 pt-2 border-t border-dashed dark:border-clr4 space-y-2 text-left">
+                        <p className="text-[0.9em] uppercase text-clr6">📄 Mis Comprobantes:</p>
+                        <div className="space-y-1.5 max-h-[300px] overflow-y-auto pr-1">
                           {userComps.map(c => {
                             let statusColor = 'text-amber-600 bg-amber-50 dark:bg-amber-950/20'
                             let statusText = 'Pendiente'
@@ -583,19 +583,19 @@ export default function DashRecaudaciones({ perfil, unidades = [], canAction, on
                                   <span className="font-black text-green-600">${c.monto.toLocaleString('es-CL')}</span>
                                 </div>
                                 <div className="flex justify-between items-center">
-                                  <span className={`text-[0.75em] px-2 py-0.5 rounded-md font-bold ${statusColor}`}>
+                                  <span className={`text-[0.85em] px-2 py-0.5 rounded-md font-bold ${statusColor}`}>
                                     {statusText}
                                   </span>
                                   <button
                                     type="button"
                                     onClick={() => handleVerAdjunto(c.imagen_url)}
-                                    className="text-[0.75em] text-clr5 hover:underline font-bold"
+                                    className="text-[0.85em] text-clr5 hover:underline font-bold"
                                   >
                                     Ver Comprobante
                                   </button>
                                 </div>
                                 {c.estado === 'rechazado' && c.motivo_rechazo && (
-                                  <p className="text-[0.75em] text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/25 p-1.5 rounded-md font-semibold border border-red-100 dark:border-red-950/50">
+                                  <p className="text-[0.85em] text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/25 p-1.5 rounded-md font-semibold border border-red-100 dark:border-red-950/50">
                                     ❌ Motivo: {c.motivo_rechazo}
                                   </p>
                                 )}
@@ -615,7 +615,7 @@ export default function DashRecaudaciones({ perfil, unidades = [], canAction, on
 
       {/* Panel Detallado de Recaudación Seleccionada */}
       {canAction && activeRecaudacionDetail && (
-        <div className="bg-white dark:bg-black/10 rounded-[2.5rem] border dark:border-clr4 p-6 md:p-8 space-y-6 shadow-sm animate-in slide-in-from-bottom duration-500">
+        <div className="bg-white dark:bg-black/10 rounded-[1rem] border dark:border-clr4 p-2 space-y-6 shadow-sm animate-in slide-in-from-bottom duration-500">
           <div className="flex justify-between items-center border-b dark:border-clr4 pb-4">
             <div>
               <h3 className="text-xl font-black font-display uppercase text-clr6">
@@ -633,7 +633,7 @@ export default function DashRecaudaciones({ perfil, unidades = [], canAction, on
             </button>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
             
             {/* Sección A: Validación de comprobantes pendientes de este evento */}
             <div className="space-y-4">
@@ -671,7 +671,7 @@ export default function DashRecaudaciones({ perfil, unidades = [], canAction, on
                               })()}
                               <p className="text-[0.8em] opacity-50">Fecha: {new Date(c.fecha).toLocaleDateString('es-CL')}</p>
                             </div>
-                            <span className={`text-[0.7em] px-2 py-0.5 rounded-full font-black uppercase ${
+                            <span className={`text-[0.8em] px-2 py-0.5 rounded-full font-black uppercase ${
                               isPend ? 'bg-amber-100 text-amber-700 dark:bg-amber-900/20 dark:text-amber-400' :
                               c.estado === 'validado' ? 'bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-400' :
                               'bg-red-100 text-red-700 dark:bg-red-900/20 dark:text-red-400'
@@ -815,7 +815,7 @@ export default function DashRecaudaciones({ perfil, unidades = [], canAction, on
                                   setEditingDiscountVal(descuentoVal || '')
                                   setEditingDiscountMotivo(desc ? desc.motivo : '')
                                 }}
-                                className="w-full md:w-auto px-3 py-1.5 border border-amber-500 text-amber-500 rounded-xl font-bold uppercase hover:bg-amber-500/5 transition-all text-center text-[0.8em]"
+                                className="w-full md:w-auto px-2 py-1 border border-amber-500 text-amber-500 rounded-xl font-bold uppercase hover:bg-amber-500/5 transition-all text-center text-[0.8em]"
                               >
                                 💸 Descuento
                               </button>
