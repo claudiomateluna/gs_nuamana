@@ -57,7 +57,7 @@ export default function DashRecaudaciones({ perfil, unidades = [], canAction, on
       // 2.2 Cargar comprobantes
       const { data: comps, error: compsErr } = await supabase
         .from('tesoreria_recaudaciones_comprobantes')
-        .select('*, perfil_uploader:perfiles!tesoreria_recaudaciones_comprobantes_hecho_por_fkey(nombres, apellidos)')
+        .select('*')
       if (compsErr) throw compsErr
       setComprobantes(comps || [])
 
@@ -543,7 +543,23 @@ export default function DashRecaudaciones({ perfil, unidades = [], canAction, on
 
                   {/* Mis Comprobantes Enviados */}
                   {(() => {
-                    const userComps = comprobantes.filter(c => c.recaudacion_id === r.id && c.hecho_por === perfil.id)
+                    if (!perfil) return null
+                    
+                    // Encontrar los IDs de los pupilos y del propio usuario
+                    const myPupilIds = miembros.filter(m => m.apoderado_id === perfil.id).map(m => m.id)
+                    const targetUserIds = [perfil.id, ...myPupilIds]
+
+                    // IDs de comprobante vinculados a cualquiera de estos usuarios
+                    const myCompIds = compUsuarios
+                      .filter(cu => targetUserIds.includes(cu.usuario_id))
+                      .map(cu => cu.comprobante_id)
+
+                    // Comprobantes de esta recaudación subidos por mí o que me cubren a mí/mis pupilos
+                    const userComps = comprobantes.filter(c => 
+                      c.recaudacion_id === r.id && 
+                      (c.hecho_por === perfil.id || myCompIds.includes(c.id))
+                    )
+
                     if (userComps.length === 0) return null
                     return (
                       <div className="mt-4 pt-3 border-t border-dashed dark:border-clr4 space-y-2 text-left">
@@ -645,7 +661,14 @@ export default function DashRecaudaciones({ perfil, unidades = [], canAction, on
                         <div key={c.id} className="border dark:border-clr4 bg-zinc-50 dark:bg-black/20 p-4 rounded-2xl flex flex-col justify-between gap-3 text-[0.85em]">
                           <div className="flex justify-between items-start">
                             <div>
-                              <p className="font-bold">📤 Subido por: {c.perfil_uploader?.nombres} {c.perfil_uploader?.apellidos}</p>
+                              {(() => {
+                                const uploader = miembros.find(m => m.id === c.hecho_por)
+                                return (
+                                  <p className="font-bold">
+                                    📤 Subido por: {uploader ? `${uploader.nombres} ${uploader.apellidos}` : 'Usuario desconocido'}
+                                  </p>
+                                )
+                              })()}
                               <p className="text-[0.8em] opacity-50">Fecha: {new Date(c.fecha).toLocaleDateString('es-CL')}</p>
                             </div>
                             <span className={`text-[0.7em] px-2 py-0.5 rounded-full font-black uppercase ${
