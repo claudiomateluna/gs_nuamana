@@ -86,7 +86,7 @@ export async function processArticleImage(file: File, title: string, category: s
     ctx.textBaseline = 'middle';
 
     const targetX = 79;
-    const targetY = 490;
+    const targetY = 495;
     const maxWidth = 460;
 
     let textToDraw = title.toUpperCase();
