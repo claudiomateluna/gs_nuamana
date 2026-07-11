@@ -242,7 +242,7 @@ export default function DashRecaudaciones({ perfil, unidades = [], canAction, on
   }
 
   // Validación de comprobante
-  const handleValidateComprobante = async (compId: string, accept: boolean, correctedMonto?: number) => {
+  const handleValidateComprobante = async (compId: string, accept: boolean, correctedMonto?: number, motivoRechazo?: string) => {
     try {
       const payload: any = {
         estado: accept ? 'validado' : 'rechazado',
@@ -250,6 +250,9 @@ export default function DashRecaudaciones({ perfil, unidades = [], canAction, on
       }
       if (correctedMonto !== undefined && correctedMonto > 0) {
         payload.monto = correctedMonto
+      }
+      if (!accept && motivoRechazo) {
+        payload.motivo_rechazo = motivoRechazo
       }
 
       const { error } = await supabase
@@ -537,6 +540,56 @@ export default function DashRecaudaciones({ perfil, unidades = [], canAction, on
                       )}
                     </div>
                   )}
+
+                  {/* Mis Comprobantes Enviados */}
+                  {(() => {
+                    const userComps = comprobantes.filter(c => c.recaudacion_id === r.id && c.hecho_por === perfil.id)
+                    if (userComps.length === 0) return null
+                    return (
+                      <div className="mt-4 pt-3 border-t border-dashed dark:border-clr4 space-y-2 text-left">
+                        <p className="text-[0.75em] font-black uppercase text-clr6">📄 Mis Comprobantes:</p>
+                        <div className="space-y-1.5 max-h-[120px] overflow-y-auto pr-1">
+                          {userComps.map(c => {
+                            let statusColor = 'text-amber-600 bg-amber-50 dark:bg-amber-950/20'
+                            let statusText = 'Pendiente'
+                            if (c.estado === 'validado') {
+                              statusColor = 'text-green-600 bg-green-50 dark:bg-green-950/20'
+                              statusText = 'Aprobado'
+                            } else if (c.estado === 'rechazado') {
+                              statusColor = 'text-red-600 bg-red-50 dark:bg-red-950/20'
+                              statusText = 'Rechazado'
+                            }
+
+                            return (
+                              <div key={c.id} className="p-2 rounded-xl bg-zinc-50 dark:bg-black/25 text-[0.8em] space-y-1">
+                                <div className="flex justify-between items-center">
+                                  <span className="font-bold opacity-60">{new Date(c.fecha).toLocaleDateString('es-CL')}</span>
+                                  <span className="font-black text-green-600">${c.monto.toLocaleString('es-CL')}</span>
+                                </div>
+                                <div className="flex justify-between items-center">
+                                  <span className={`text-[0.75em] px-2 py-0.5 rounded-md font-bold ${statusColor}`}>
+                                    {statusText}
+                                  </span>
+                                  <button
+                                    type="button"
+                                    onClick={() => handleVerAdjunto(c.imagen_url)}
+                                    className="text-[0.75em] text-clr5 hover:underline font-bold"
+                                  >
+                                    Ver Comprobante
+                                  </button>
+                                </div>
+                                {c.estado === 'rechazado' && c.motivo_rechazo && (
+                                  <p className="text-[0.75em] text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/25 p-1.5 rounded-md font-semibold border border-red-100 dark:border-red-950/50">
+                                    ❌ Motivo: {c.motivo_rechazo}
+                                  </p>
+                                )}
+                              </div>
+                            )
+                          })}
+                        </div>
+                      </div>
+                    )
+                  })()}
                 </div>
               </div>
             )
@@ -637,9 +690,13 @@ export default function DashRecaudaciones({ perfil, unidades = [], canAction, on
                                 </button>
                                 <button
                                   onClick={() => {
-                                    if (confirm('¿Está seguro de rechazar este comprobante?')) {
-                                      handleValidateComprobante(c.id, false)
+                                    const motivo = prompt('Por favor ingrese el motivo del rechazo del comprobante:')
+                                    if (motivo === null) return // Cancelado
+                                    if (motivo.trim() === '') {
+                                      alert('Debe ingresar un motivo para poder rechazar el comprobante.')
+                                      return
                                     }
+                                    handleValidateComprobante(c.id, false, undefined, motivo.trim())
                                   }}
                                   className="px-3 py-1.5 bg-red-600 text-white rounded-xl text-[0.8em] font-bold uppercase hover:brightness-105 transition-all"
                                 >
