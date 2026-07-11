@@ -28,9 +28,12 @@ jobs:
             # Descargar los últimos cambios desde GitHub
             git pull origin main
             
-            # Aplicar migración de base de datos
-            echo "Ejecutando migración de objetivos educativos en la base de datos..."
-            docker exec -i supabase-db psql -U postgres -d postgres < supabase/migrations/20260709000000_articulo_objetivos_educativos.sql
+            # Aplicar todas las migraciones de base de datos pendientes en orden cronológico
+            echo "Ejecutando migraciones de base de datos..."
+            for f in supabase/migrations/*.sql; do
+              echo "Aplicando migración: $f"
+              docker exec -i supabase-db psql -U postgres -d postgres < "$f"
+            done
 
             # Entrar al frontend e instalar y compilar limpiando la caché de Next.js
             cd frontend
