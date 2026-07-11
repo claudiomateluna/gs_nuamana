@@ -1,28 +1,75 @@
--- Migración para registrar los objetivos educativos de la Dinámica de Criterios (ID: 12f2e3dc-c56d-47b8-9fb0-3779dadae69a)
+-- Migración corregida para registrar los objetivos educativos de Dinámica de Criterios (ID: 12f2e3dc-c56d-47b8-9fb0-3779dadae69a)
+-- Asegura coherencia pedagógica completa: todos los objetivos pertenecen a las mismas dimensiones/objetivos terminales.
 
--- 1. Insertar relaciones en la tabla intermedia articulo_objetivos_educativos
+-- 1. Limpiar relaciones anteriores de este artículo
+DELETE FROM public.articulo_objetivos_educativos 
+WHERE articulo_id = '12f2e3dc-c56d-47b8-9fb0-3779dadae69a';
+
+-- 2. Insertar las relaciones corregidas y coherentes
 INSERT INTO articulo_objetivos_educativos (articulo_id, objetivo_id, como_se_cumple)
 VALUES 
+  ('12f2e3dc-c56d-47b8-9fb0-3779dadae69a', '2845964c-1778-4ed7-8284-c5d830ea0a0d', 'Argumentando con franqueza y honestidad sus propios puntos de vista sin ceder ante la presión de la mayoría si contraviene sus convicciones.'),
+  ('12f2e3dc-c56d-47b8-9fb0-3779dadae69a', 'f77525b1-07a3-4188-9051-4d3ba86aadfc', 'Argumentando con franqueza y honestidad sus propios puntos de vista sin ceder ante la presión de la mayoría si contraviene sus convicciones.'),
+  ('12f2e3dc-c56d-47b8-9fb0-3779dadae69a', 'c4fe900a-9641-4cad-a265-3f31073d83cb', 'Fundamentando sólidamente sus posturas críticas individuales frente a las afirmaciones polémicas planteadas durante el debate.'),
+  ('12f2e3dc-c56d-47b8-9fb0-3779dadae69a', '0eaaf466-0634-48b9-aca9-cf49813b8596', 'Fundamentando sólidamente sus posturas críticas individuales frente a las afirmaciones polémicas planteadas durante el debate.'),
+  ('12f2e3dc-c56d-47b8-9fb0-3779dadae69a', 'ebb5f0fb-8f13-4b7b-8cde-fd47bfe349ba', 'Evaluando el sentido ético de cada criterio debatido y posicionándose honestamente a través del uso de las tarjetas de opinión.'),
+  ('12f2e3dc-c56d-47b8-9fb0-3779dadae69a', '770a8ff3-7bb8-45dd-b114-5ae1069eff62', 'Debatiendo de manera responsable sobre las bases éticas que sustentan las opiniones comunitarias, demostrando consistencia entre sus convicciones y su argumentación.'),
   ('12f2e3dc-c56d-47b8-9fb0-3779dadae69a', '78f8cd16-ebf9-4a01-9efe-6cdfd7d307fd', 'Exponiendo sus opiniones personales y argumentando sus posturas con respecto a las temáticas propuestas de forma constructiva y asertiva.'),
   ('12f2e3dc-c56d-47b8-9fb0-3779dadae69a', '06ed2700-c963-4f13-a86a-2815b3a1530a', 'Exponiendo sus opiniones personales y argumentando sus posturas con respecto a las temáticas propuestas de forma constructiva y asertiva.'),
-  ('12f2e3dc-c56d-47b8-9fb0-3779dadae69a', '85f8abea-eb57-4f78-9e11-5c2ab5d71044', 'Escuchando atentamente los argumentos minoritarios de sus compañeras y respetando sus puntos de vista divergentes durante los debates.'),
-  ('12f2e3dc-c56d-47b8-9fb0-3779dadae69a', 'f0bd8ba8-8b11-4988-8fb6-ad8e883c2a5b', 'Escuchando atentamente los argumentos minoritarios de sus compañeros y respetando sus puntos de vista divergentes durante los debates.'),
   ('12f2e3dc-c56d-47b8-9fb0-3779dadae69a', 'e2770a37-9927-47ed-a4d6-bae9feaf691c', 'Debatiendo con respecto a diferentes afirmaciones polémicas mediante el uso de tarjetas verdes y rojas para manifestar su postura crítica.'),
   ('12f2e3dc-c56d-47b8-9fb0-3779dadae69a', 'a594a460-1ab9-4c09-b01a-c2555163e86e', 'Debatiendo con respecto a diferentes afirmaciones polémicas mediante el uso de tarjetas verdes y rojas para manifestar su postura crítica.'),
-  ('12f2e3dc-c56d-47b8-9fb0-3779dadae69a', 'c4fe900a-9641-4cad-a265-3f31073d83cb', 'Fundamentando sólidamente sus convicciones individuales frente a opiniones mayoritarias contrarias.'),
-  ('12f2e3dc-c56d-47b8-9fb0-3779dadae69a', '0eaaf466-0634-48b9-aca9-cf49813b8596', 'Fundamentando sólidamente sus convicciones individuales frente a opiniones mayoritarias contrarias.'),
   ('12f2e3dc-c56d-47b8-9fb0-3779dadae69a', 'f1496221-0da5-4775-b3ba-29e65603cfee', 'Expresando de manera tolerante y fundamentada sus posturas críticas frente a diferentes enunciados y propuestas éticas planteadas durante el debate.'),
-  ('12f2e3dc-c56d-47b8-9fb0-3779dadae69a', 'b5954f1c-4d0d-4bdb-97d8-821583beb77e', 'Analizando y discutiendo de forma responsable las bases éticas de los enunciados que regulan la vida comunitaria y formulando propuestas de cambio.')
-ON CONFLICT (articulo_id, objetivo_id) 
-DO UPDATE SET como_se_cumple = EXCLUDED.como_se_cumple;
+  ('12f2e3dc-c56d-47b8-9fb0-3779dadae69a', 'b5954f1c-4d0d-4bdb-97d8-821583beb77e', 'Analizando y discutiendo de forma responsable las bases éticas de los enunciados que regulan la vida comunitaria y formulando propuestas de cambio.');
 
--- 2. Actualizar el campo metadata (JSONB) del artículo
-UPDATE articulos 
+-- 3. Actualizar el campo metadata (JSONB) del artículo con la estructura correcta
+UPDATE public.articulos 
 SET metadata = metadata || '{
   "unidades": ["compania", "tropa", "avanzada", "clan"],
   "areas": ["caracter", "sociabilidad"],
-  "justificacion_areas": "La actividad promueve la formación del juicio crítico y la asertividad (Carácter) al requerir que cada participante argumente sus opiniones personales. Al mismo tiempo, fomenta el debate democrático y el respeto por los puntos de vista minoritarios dentro de la patrulla y la unidad (Sociabilidad).",
+  "justificacion_areas": "La actividad promueve la formación del juicio crítico, la asertividad y la coherencia ética (Carácter) al requerir que cada participante argumente y actúe de manera consecuente con sus propios valores éticos. Al mismo tiempo, fomenta el debate democrático, el respeto por las normas de convivencia y la asimilación responsable de las reglas que regulan la comunidad (Sociabilidad).",
   "objetivos_educativos": [
+    {
+      "id": "2845964c-1778-4ed7-8284-c5d830ea0a0d",
+      "area": "Carácter",
+      "texto": "Trato de ser leal con lo que creo, conmigo misma y con las demás personas.",
+      "unidad": "Compañía",
+      "como_se_cumple": "Argumentando con franqueza y honestidad sus propios puntos de vista sin ceder ante la presión de la mayoría si contraviene sus convicciones."
+    },
+    {
+      "id": "f77525b1-07a3-4188-9051-4d3ba86aadfc",
+      "area": "Carácter",
+      "texto": "Trato de ser leal con lo que creo, conmigo mismo y con los demás personas.",
+      "unidad": "Tropa",
+      "como_se_cumple": "Argumentando con franqueza y honestidad sus propios puntos de vista sin ceder ante la presión de la mayoría si contraviene sus convicciones."
+    },
+    {
+      "id": "c4fe900a-9641-4cad-a265-3f31073d83cb",
+      "area": "Carácter",
+      "texto": "Me esfuerzo por hacer las cosas según lo que pienso.",
+      "unidad": "Compañía",
+      "como_se_cumple": "Fundamentando sólidamente sus posturas críticas individuales frente a las afirmaciones polémicas planteadas durante el debate."
+    },
+    {
+      "id": "0eaaf466-0634-48b9-aca9-cf49813b8596",
+      "area": "Carácter",
+      "texto": "Me esfuerzo por hacer las cosas según lo que pienso.",
+      "unidad": "Tropa",
+      "como_se_cumple": "Fundamentando sólidamente sus posturas críticas individuales frente a las afirmaciones polémicas planteadas durante el debate."
+    },
+    {
+      "id": "ebb5f0fb-8f13-4b7b-8cde-fd47bfe349ba",
+      "area": "Carácter",
+      "texto": "Trato de actuar de acuerdo a mis valores en todas las cosas que hago.",
+      "unidad": "Avanzada",
+      "como_se_cumple": "Evaluando el sentido ético de cada criterio debatido y posicionándose honestamente a través del uso de las tarjetas de opinión."
+    },
+    {
+      "id": "770a8ff3-7bb8-45dd-b114-5ae1069eff62",
+      "area": "Carácter",
+      "texto": "Actúo consecuentemente con los valores que me inspiran.",
+      "unidad": "Clan",
+      "como_se_cumple": "Debatiendo de manera responsable sobre las bases éticas que sustentan las opiniones comunitarias, demostrando consistencia entre sus convicciones y su argumentación."
+    },
     {
       "id": "78f8cd16-ebf9-4a01-9efe-6cdfd7d307fd",
       "area": "Sociabilidad",
@@ -38,20 +85,6 @@ SET metadata = metadata || '{
       "como_se_cumple": "Exponiendo sus opiniones personales y argumentando sus posturas con respecto a las temáticas propuestas de forma constructiva y asertiva."
     },
     {
-      "id": "85f8abea-eb57-4f78-9e11-5c2ab5d71044",
-      "area": "Carácter",
-      "texto": "Respeto las decisiones tomadas en mi patrulla, aun cuando piense distinto.",
-      "unidad": "Compañía",
-      "como_se_cumple": "Escuchando atentamente los argumentos minoritarios de sus compañeras y respetando sus puntos de vista divergentes durante los debates."
-    },
-    {
-      "id": "f0bd8ba8-8b11-4988-8fb6-ad8e883c2a5b",
-      "area": "Carácter",
-      "texto": "Respeto las decisiones tomadas en mi patrulla, aun cuando piense distinto.",
-      "unidad": "Tropa",
-      "como_se_cumple": "Escuchando atentamente los argumentos minoritarios de sus compañeros y respetando sus puntos de vista divergentes durante los debates."
-    },
-    {
       "id": "e2770a37-9927-47ed-a4d6-bae9feaf691c",
       "area": "Sociabilidad",
       "texto": "Opino sobre lo que me gusta o no de las normas de los distintos ambientes en que actúo.",
@@ -64,20 +97,6 @@ SET metadata = metadata || '{
       "texto": "Opino sobre lo que me gusta o no de las normas de los distintos ambientes en que actúo.",
       "unidad": "Tropa",
       "como_se_cumple": "Debatiendo con respecto a diferentes afirmaciones polémicas mediante el uso de tarjetas verdes y rojas para manifestar su postura crítica."
-    },
-    {
-      "id": "c4fe900a-9641-4cad-a265-3f31073d83cb",
-      "area": "Carácter",
-      "texto": "Me esfuerzo por hacer las cosas según lo que pienso.",
-      "unidad": "Compañía",
-      "como_se_cumple": "Fundamentando sólidamente sus convicciones individuales frente a opiniones mayoritarias contrarias."
-    },
-    {
-      "id": "0eaaf466-0634-48b9-aca9-cf49813b8596",
-      "area": "Carácter",
-      "texto": "Me esfuerzo por hacer las cosas según lo que pienso.",
-      "unidad": "Tropa",
-      "como_se_cumple": "Fundamentando sólidamente sus convicciones individuales frente a opiniones mayoritarias contrarias."
     },
     {
       "id": "f1496221-0da5-4775-b3ba-29e65603cfee",

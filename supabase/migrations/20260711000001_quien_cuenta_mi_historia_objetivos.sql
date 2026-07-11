@@ -1,43 +1,46 @@
--- Migración para registrar los objetivos educativos de ¿Quién Cuenta Mi Historia? (ID: 53cbdb8e-ffce-413b-bb9a-601fd070dc07)
+-- Migración corregida para registrar los objetivos educativos de ¿Quién Cuenta Mi Historia? (ID: 53cbdb8e-ffce-413b-bb9a-601fd070dc07)
+-- Asegura coherencia pedagógica completa: todos los objetivos pertenecen a las mismas dimensiones/objetivos terminales.
 
--- 1. Insertar relaciones en la tabla intermedia articulo_objetivos_educativos
+-- 1. Limpiar relaciones anteriores de este artículo
+DELETE FROM public.articulo_objetivos_educativos 
+WHERE articulo_id = '53cbdb8e-ffce-413b-bb9a-601fd070dc07';
+
+-- 2. Insertar las relaciones corregidas y coherentes
 INSERT INTO articulo_objetivos_educativos (articulo_id, objetivo_id, como_se_cumple)
 VALUES 
-  ('53cbdb8e-ffce-413b-bb9a-601fd070dc07', 'd531dd19-4d49-4342-8114-184de017ac49', 'Ideando descripciones, analogías y pistas de forma verbal para comunicar quién es el personaje oculto sin mencionar su nombre directamente.'),
-  ('53cbdb8e-ffce-413b-bb9a-601fd070dc07', '0b23d4c8-6e40-4e8e-a476-97ed92efa152', 'Ideando descripciones, analogías y pistas de forma verbal para comunicar quién es el personaje oculto sin mencionar su nombre directamente.'),
+  ('53cbdb8e-ffce-413b-bb9a-601fd070dc07', '0d742d23-ebe1-40e6-97df-37bc03edb010', 'Expresando ideas y pistas creativas sobre el personaje misterioso a través del cuaderno de notas o registro de la patrulla para guiar al equipo.'),
+  ('53cbdb8e-ffce-413b-bb9a-601fd070dc07', '981fa19b-7f60-4e0e-b2fa-16123df5e37e', 'Expresando ideas y pistas creative sobre el personaje misterioso a través del cuaderno de notas o registro de la patrulla para guiar al equipo.'),
   ('53cbdb8e-ffce-413b-bb9a-601fd070dc07', '9758e4f9-728b-4435-a8a3-11fd36c5e3be', 'Relatando de forma narrativa la letra o videoclip de una canción, o empleando mímicas y dramatizaciones sencillas para dar pistas sobre el personaje.'),
   ('53cbdb8e-ffce-413b-bb9a-601fd070dc07', '6e910d1c-7021-49a5-9ece-637f480a1ec7', 'Relatando de forma narrativa la letra o videoclip de una canción, o empleando mímicas y dramatizaciones sencillas para dar pistas sobre el personaje.'),
   ('53cbdb8e-ffce-413b-bb9a-601fd070dc07', 'ed17d59c-1c64-4080-a206-bbe72eeae5a4', 'Analizando los rasgos distintivos e impacto cultural de personajes públicos y figuras históricas para narrar sus biografías con originalidad y estilo propio.'),
   ('53cbdb8e-ffce-413b-bb9a-601fd070dc07', '91e60eba-e267-4d1a-b27b-ef61a7b03b31', 'Generando dinámicas de comunicación asertiva, relatos creativos y un clima de humor y esparcimiento que fortalezcan el encuentro fraterno en la comunidad.'),
-  ('53cbdb8e-ffce-413b-bb9a-601fd070dc07', 'd737dfda-2d8d-4ca8-b650-8612d90b434e', 'Colaborando activamente dentro de su equipo para adivinar todos los personajes antes que los rivales, aportando ideas y escuchando pistas.'),
-  ('53cbdb8e-ffce-413b-bb9a-601fd070dc07', 'c6ec1a8c-37fb-441c-860c-755143523afe', 'Colaborando activamente dentro de su equipo para adivinar todos los personajes antes que los rivales, aportando ideas y escuchando pistas.'),
-  ('53cbdb8e-ffce-413b-bb9a-601fd070dc07', 'de2f5693-de4b-48f1-b870-3c62be99aea8', 'Respetando las reglas del juego (como no decir nombres propios) y aceptando de buen grado las decisiones arbitrales de los dirigentes cuando hay apelaciones.'),
-  ('53cbdb8e-ffce-413b-bb9a-601fd070dc07', 'bbc48d53-f4aa-4de7-84d4-95614df76034', 'Respetando las reglas del juego (como no decir nombres propios) y aceptando de buen grado las decisiones arbitrales de los dirigentes cuando hay apelaciones.'),
-  ('53cbdb8e-ffce-413b-bb9a-601fd070dc07', '810efaf9-df8b-434e-9f6f-838a6e9e2a83', 'Aceptando responsablemente las resoluciones de los dirigentes encargados de dirimir las apelaciones entre equipos sobre la obviedad de las pistas.'),
-  ('53cbdb8e-ffce-413b-bb9a-601fd070dc07', '90b668d6-3e32-4544-ac2a-7f1348b4f37f', 'Promoviendo la resolución pacífica de discrepancias de juego mediante el respeto al arbitraje de los dirigentes, y cooperando para que la dinámica se desarrolle en un marco de orden y juego limpio.')
-ON CONFLICT (articulo_id, objetivo_id) 
-DO UPDATE SET como_se_cumple = EXCLUDED.como_se_cumple;
+  ('53cbdb8e-ffce-413b-bb9a-601fd070dc07', '78f8cd16-ebf9-4a01-9efe-6cdfd7d307fd', 'Opinando constructivamente al consensuar las reglas básicas y el formato de las pistas de la patrulla antes de iniciar el juego.'),
+  ('53cbdb8e-ffce-413b-bb9a-601fd070dc07', '06ed2700-c963-4f13-a86a-2815b3a1530a', 'Opinando constructivamente al consensuar las reglas básicas y el formato de las pistas de la patrulla antes de iniciar el juego.'),
+  ('53cbdb8e-ffce-413b-bb9a-601fd070dc07', 'e2770a37-9927-47ed-a4d6-bae9feaf691c', 'Respetando las reglas del juego (como no decir nombres propios) y expresando de buen grado su opinión técnica durante las apelaciones sobre la obviedad de las pistas.'),
+  ('53cbdb8e-ffce-413b-bb9a-601fd070dc07', 'a594a460-1ab9-4c09-b01a-c2555163e86e', 'Respetando las reglas del juego (como no decir nombres propios) y expresando de buen grado su opinión técnica durante las apelaciones sobre la obviedad de las pistas.'),
+  ('53cbdb8e-ffce-413b-bb9a-601fd070dc07', 'f1496221-0da5-4775-b3ba-29e65603cfee', 'Aceptando de manera madura las resoluciones arbitrales de la jefatura al dirimir los puntos disputados, sugiriendo mejoras reglamentarias al final de la actividad.'),
+  ('53cbdb8e-ffce-413b-bb9a-601fd070dc07', 'b5954f1c-4d0d-4bdb-97d8-821583beb77e', 'Promoviendo el juego limpio, el cumplimiento estricto del reglamento y la resolución pacífica y madura de cualquier controversia dentro de la comunidad.');
 
--- 2. Actualizar el campo metadata (JSONB) del artículo
-UPDATE articulos 
+-- 3. Actualizar el campo metadata (JSONB) del artículo
+UPDATE public.articulos 
 SET metadata = metadata || '{
   "unidades": ["compania", "tropa", "avanzada", "clan"],
   "areas": ["creatividad", "sociabilidad"],
-  "justificacion_areas": "Esta dinámica grupal desafía a los participantes a idear formas creativas y alternativas de comunicación (mímicas, narrativas paralelas, canciones y biografías descriptivas) para descifrar la identidad de personajes sin revelar sus nombres (Creatividad). Asimismo, el formato cooperativo y el sistema de apelaciones fomenta el trabajo en equipo, la honestidad, el juego limpio y el respeto por los reglamentos acordados y la toma de decisiones arbitrales por parte de la dirigencia (Sociabilidad).",
+  "justificacion_areas": "Esta dinámica grupal desafía a los participantes a idear formas creativas y alternativas de comunicación (mímicas, narrativas paralelas, canciones y biografías descriptivas) para expresar ideas, pensamientos y sentimientos en su comunidad (Creatividad). Asimismo, el formato cooperativo y el sistema de apelaciones fomenta el respeto por los reglamentos y las normas de convivencia acordados, facilitando el debate respetuoso y la resolución pacífica de discrepancias (Sociabilidad).",
   "objetivos_educativos": [
     {
-      "id": "d531dd19-4d49-4342-8114-184de017ac49",
+      "id": "0d742d23-ebe1-40e6-97df-37bc03edb010",
       "area": "Creatividad",
-      "texto": "Conozco diferentes técnicas de comunicación y sé utilizar algunas de ellas.",
+      "texto": "Expreso mis pensamientos y experiencias en el Tally.",
       "unidad": "Compañía",
-      "como_se_cumple": "Ideando descripciones, analogías y pistas de forma verbal para comunicar quién es el personaje oculto sin mencionar su nombre directamente."
+      "como_se_cumple": "Expresando ideas y pistas creativas sobre el personaje misterioso a través del cuaderno de notas o registro de la patrulla para guiar al equipo."
     },
     {
-      "id": "0b23d4c8-6e40-4e8e-a476-97ed92efa152",
+      "id": "981fa19b-7f60-4e0e-b2fa-16123df5e37e",
       "area": "Creatividad",
-      "texto": "Conozco diferentes técnicas de comunicación y sé utilizar algunos de ellos.",
+      "texto": "Expreso mis pensamientos y experiencias en el Tally.",
       "unidad": "Tropa",
-      "como_se_cumple": "Ideando descripciones, analogías y pistas de forma verbal para comunicar quién es el personaje oculto sin mencionar su nombre directamente."
+      "como_se_cumple": "Expresando ideas y pistas creative sobre el personaje misterioso a través del cuaderno de notas o registro de la patrulla para guiar al equipo."
     },
     {
       "id": "9758e4f9-728b-4435-a8a3-11fd36c5e3be",
@@ -68,46 +71,46 @@ SET metadata = metadata || '{
       "como_se_cumple": "Generando dinámicas de comunicación asertiva, relatos creativos y un clima de humor y esparcimiento que fortalezcan el encuentro fraterno en la comunidad."
     },
     {
-      "id": "d737dfda-2d8d-4ca8-b650-8612d90b434e",
+      "id": "78f8cd16-ebf9-4a01-9efe-6cdfd7d307fd",
       "area": "Sociabilidad",
-      "texto": "Trabajo con las demás personas para lograr las metas que nos hemos propuesto.",
+      "texto": "Digo mi opinión cuando establecemos normas en mi patrulla, amigas o en mi escuela.",
       "unidad": "Compañía",
-      "como_se_cumple": "Colaborando activamente dentro de su equipo para adivinar todos los personajes antes que los rivales, aportando ideas y escuchando pistas."
+      "como_se_cumple": "Opinando constructivamente al consensuar las reglas básicas y el formato de las pistas de la patrulla antes de iniciar el juego."
     },
     {
-      "id": "c6ec1a8c-37fb-441c-860c-755143523afe",
+      "id": "06ed2700-c963-4f13-a86a-2815b3a1530a",
       "area": "Sociabilidad",
-      "texto": "Trabajo con los demás personas para lograr las metas que nos hemos propuesto.",
+      "texto": "Digo mi opinión cuando establecemos normas en mi patrulla, amigos o en mi escuela.",
       "unidad": "Tropa",
-      "como_se_cumple": "Colaborando activamente dentro de su equipo para adivinar todos los personajes antes que los rivales, aportando ideas y escuchando pistas."
+      "como_se_cumple": "Opinando constructivamente al consensuar las reglas básicas y el formato de las pistas de la patrulla antes de iniciar el juego."
     },
     {
-      "id": "de2f5693-de4b-48f1-b870-3c62be99aea8",
+      "id": "e2770a37-9927-47ed-a4d6-bae9feaf691c",
       "area": "Sociabilidad",
-      "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre esté de acuerdo con ellas.",
+      "texto": "Opino sobre lo que me gusta o no de las normas de los distintos ambientes en que actúo.",
       "unidad": "Compañía",
-      "como_se_cumple": "Respetando las reglas del juego (como no decir nombres propios) y aceptando de buen grado las decisiones arbitrales de los dirigentes cuando hay apelaciones."
+      "como_se_cumple": "Respetando las reglas del juego (como no decir nombres propios) y expresando de buen grado su opinión técnica durante las apelaciones sobre la obviedad de las pistas."
     },
     {
-      "id": "bbc48d53-f4aa-4de7-84d4-95614df76034",
+      "id": "a594a460-1ab9-4c09-b01a-c2555163e86e",
       "area": "Sociabilidad",
-      "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre esté de acuerdo con ellas.",
+      "texto": "Opino sobre lo que me gusta o no de las normas de los distintos ambientes en que actúo.",
       "unidad": "Tropa",
-      "como_se_cumple": "Respetando las reglas del juego (como no decir nombres propios) y aceptando de buen grado las decisiones arbitrales de los dirigentes cuando hay apelaciones."
+      "como_se_cumple": "Respetando las reglas del juego (como no decir nombres propios) y expresando de buen grado su opinión técnica durante las apelaciones sobre la obviedad de las pistas."
     },
     {
-      "id": "810efaf9-df8b-434e-9f6f-838a6e9e2a83",
+      "id": "f1496221-0da5-4775-b3ba-29e65603cfee",
       "area": "Sociabilidad",
-      "texto": "Respeto la autoridad válidamente elegida, aunque no comparta sus ideas.",
+      "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.",
       "unidad": "Avanzada",
-      "como_se_cumple": "Aceptando responsablemente las resoluciones de los dirigentes encargados de dirimir las apelaciones entre equipos sobre la obviedad de las pistas."
+      "como_se_cumple": "Aceptando de manera madura las resoluciones arbitrales de la jefatura al dirimir los puntos disputados, sugiriendo mejoras reglamentarias al final de la actividad."
     },
     {
-      "id": "90b668d6-3e32-4544-ac2a-7f1348b4f37f",
+      "id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e",
       "area": "Sociabilidad",
-      "texto": "Reconoce y respeta la autoridad válidamente establecida y la ejerce al servicio de los demás.",
+      "texto": "Cumplo las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.",
       "unidad": "Clan",
-      "como_se_cumple": "Promoviendo la resolución pacífica de discrepancias de juego mediante el respeto al arbitraje de los dirigentes, y cooperando para que la dinámica se desarrolle en un marco de orden y juego limpio."
+      "como_se_cumple": "Promoviendo el juego limpio, el cumplimiento estricto del reglamento y la resolución pacífica y madura de cualquier controversia dentro de la comunidad."
     }
   ]
 }'::jsonb
