@@ -217,6 +217,30 @@ export default function DashRecaudaciones({ perfil, unidades = [], canAction, on
     }
   }
 
+  // Generar URL firmada para ver el comprobante privado de forma segura
+  const handleVerAdjunto = async (imagenUrl: string) => {
+    try {
+      const parts = imagenUrl.split('comprobantes_recaudacion/')
+      if (parts.length < 2) {
+        window.open(imagenUrl, '_blank')
+        return
+      }
+      const filePath = parts[1]
+
+      const { data, error } = await supabase.storage
+        .from('comprobantes_recaudacion')
+        .createSignedUrl(filePath, 60)
+
+      if (error) throw error
+
+      if (data?.signedUrl) {
+        window.open(data.signedUrl, '_blank')
+      }
+    } catch (err: any) {
+      alert('Error al generar enlace seguro: ' + err.message)
+    }
+  }
+
   // Validación de comprobante
   const handleValidateComprobante = async (compId: string, accept: boolean, correctedMonto?: number) => {
     try {
@@ -591,14 +615,13 @@ export default function DashRecaudaciones({ perfil, unidades = [], canAction, on
                           </div>
 
                           <div className="flex gap-2 justify-end">
-                            <a
-                              href={c.imagen_url}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="px-3 py-1.5 bg-zinc-200 dark:bg-clr3 dark:border-white/10 dark:border rounded-xl text-[0.8em] font-bold uppercase hover:brightness-105 transition-all text-center"
+                            <button
+                              type="button"
+                              onClick={() => handleVerAdjunto(c.imagen_url)}
+                              className="px-3 py-1.5 bg-zinc-200 dark:bg-clr3 dark:border-white/10 dark:border rounded-xl text-[0.8em] font-bold uppercase hover:brightness-105 transition-all text-center text-zinc-800 dark:text-zinc-200"
                             >
                               📄 Ver Adjunto
-                            </a>
+                            </button>
                             {isPend && activeRecaudacionDetail.estado === 'abierta' && (
                               <>
                                 <button
