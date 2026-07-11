@@ -1,5 +1,3 @@
-import imageCompression from 'browser-image-compression';
-
 /**
  * Comprime una imagen en el lado del cliente.
  * Reduce el tamaño del archivo y las dimensiones para optimizar la subida a Supabase.
@@ -17,6 +15,7 @@ export async function compressImage(file: File, maxWidth: number = 1200): Promis
   };
 
   try {
+    const imageCompression = (await import('browser-image-compression')).default;
     const compressedFile = await imageCompression(file, options);
     console.log(`Compresión finalizada: ${file.size / 1024 / 1024}MB -> ${compressedFile.size / 1024 / 1024}MB`);
     return compressedFile;
