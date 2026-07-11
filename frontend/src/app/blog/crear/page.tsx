@@ -5,8 +5,8 @@ import { useForm } from 'react-hook-form'
 import { supabase } from '@/lib/supabase'
 import dynamic from 'next/dynamic'
 import 'suneditor/dist/css/suneditor.min.css'
-import SecondaryHeader from '@/components/SecondaryHeader'
 import { uploadToStorage } from '@/lib/storage-utils'
+import { processArticleImage } from '@/lib/image-utils'
 
 const SunEditor = dynamic(() => import('suneditor-react'), { ssr: false })
 
@@ -155,7 +155,35 @@ export default function CrearArticuloPage() {
 
     setUploading(true)
     try {
-      const publicUrl = await uploadToStorage(file, 'articulos', 'blog')
+      const title = getValues('titulo') || 'Artículo'
+      const selectedCatIds = getValues('categorias_ids') || []
+
+      const getPrimaryCategoryName = (selectedIds: string[], allCats: any[]): string => {
+        const ids = selectedIds.map(id => parseInt(id))
+        const filteredCats = allCats.filter(c => {
+          if (!ids.includes(c.id)) return false
+          
+          let current = c
+          while (current?.parent_id) {
+            const parent = allCats.find(p => p.id === current.parent_id)
+            if (!parent) break
+            current = parent
+          }
+          const rootName = current?.nombre?.toLowerCase() || ''
+          return !['áreas de desarrollo', 'unidades', 'lugar de la actividad', 'duración de la actividad', 'cantidad de participantes'].includes(rootName)
+        })
+
+        const subCats = filteredCats.filter(c => c.parent_id !== null)
+        if (subCats.length > 0) return subCats[0].nombre
+        if (filteredCats.length > 0) return filteredCats[0].nombre
+        return 'Scout'
+      }
+
+      const categoryName = getPrimaryCategoryName(selectedCatIds, categorias)
+
+      const processedFile = await processArticleImage(file, title, categoryName)
+
+      const publicUrl = await uploadToStorage(processedFile, 'articulos', 'blog')
       setValue('imagen_destacada', publicUrl)
     } catch (err: any) {
       alert('Error al subir imagen: ' + err.message)
