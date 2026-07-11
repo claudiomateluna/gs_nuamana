@@ -57,7 +57,7 @@ export default function DashRecaudaciones({ perfil, unidades = [], canAction, on
       // 2.2 Cargar comprobantes
       const { data: comps, error: compsErr } = await supabase
         .from('tesoreria_recaudaciones_comprobantes')
-        .select('*, hecho_por:perfiles!tesoreria_recaudaciones_comprobantes_hecho_por_fkey(nombres, apellidos)')
+        .select('*, perfil_uploader:perfiles!tesoreria_recaudaciones_comprobantes_hecho_por_fkey(nombres, apellidos)')
       if (compsErr) throw compsErr
       setComprobantes(comps || [])
 
@@ -645,7 +645,7 @@ export default function DashRecaudaciones({ perfil, unidades = [], canAction, on
                         <div key={c.id} className="border dark:border-clr4 bg-zinc-50 dark:bg-black/20 p-4 rounded-2xl flex flex-col justify-between gap-3 text-[0.85em]">
                           <div className="flex justify-between items-start">
                             <div>
-                              <p className="font-bold">📤 Subido por: {c.hecho_por?.nombres} {c.hecho_por?.apellidos}</p>
+                              <p className="font-bold">📤 Subido por: {c.perfil_uploader?.nombres} {c.perfil_uploader?.apellidos}</p>
                               <p className="text-[0.8em] opacity-50">Fecha: {new Date(c.fecha).toLocaleDateString('es-CL')}</p>
                             </div>
                             <span className={`text-[0.7em] px-2 py-0.5 rounded-full font-black uppercase ${
