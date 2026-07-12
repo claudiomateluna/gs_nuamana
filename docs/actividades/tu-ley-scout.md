@@ -5,28 +5,28 @@
 - **Justificación:** Promueve el ingenio práctico, la agilidad mental y la resolución de problemas técnicos o enigmas. Ayuda a consolidar los valores scouts de honestidad, lealtad y fair play en la competencia. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.
 
 #### 🎯 Objetivos Educativos/Terminales Seleccionados de la Base de Datos:
-1. **Carácter - Unidad: Avanzada (15 a 17 años)** (ID: `dea08f50-52d5-4d87-ad7f-b7dbbb2702fc`)
-   - **Objetivo:** *«Me acepto tal como soy, sin dejar de mirarme críticamente.»*
+1. **Carácter - Unidad: Avanzada (15 a 17 años)** (ID: `51210a26-62f2-4e33-8ca4-09b4b364a143`)
+   - **Objetivo:** *«Comprendo el significado de la Ley y la Promesa en esta etapa de mi vida.»*
    - *¿Cómo se cumple en la actividad?* **Reflexionando de manera madura sobre cómo los valores fundamentales de la Ley Scout modelan su vida en Tú Ley Scout.**
 
-2. **Carácter - Unidad: Clan (17 a 20 años)** (ID: `8f0eb7d9-c291-44f3-9551-4330c19e0cc2`)
-   - **Objetivo:** *«Conoce sus posibilidades y limitaciones, aceptándose con capacidad de autocrítica y manteniendo a la vez una buena imagen de sí mismo.»*
+2. **Carácter - Unidad: Clan (17 a 20 años)** (ID: `0bdf2252-6db5-41f9-8bc7-87e4da3ee602`)
+   - **Objetivo:** *«Construye su proyecto de vida en base a los valores de la Ley y la Promesa Guía y Scout.»*
    - *¿Cómo se cumple en la actividad?* **Reflexionando de manera madura sobre cómo los valores fundamentales de la Ley Scout modelan su vida en Tú Ley Scout.**
 
-3. **Carácter - Unidad: Compañía (11 a 13 años)** (ID: `075c93b1-81d2-4370-8e47-f0a4d086b20e`)
-   - **Objetivo:** *«Sé lo que significa ser leal.»*
+3. **Carácter - Unidad: Compañía (11 a 13 años)** (ID: `a8667e56-d5f7-4f7b-b666-06c0b0d0d430`)
+   - **Objetivo:** *«Conozco y comprendo la Ley y la Promesa Guía.»*
    - *¿Cómo se cumple en la actividad?* **Asumiendo los valores de la Ley Scout como guía ética de comportamiento durante las pruebas de Tú Ley Scout.**
 
-4. **Carácter - Unidad: Compañía (13 a 15 años)** (ID: `006c5b09-47cf-4ed8-bf25-212203261a03`)
-   - **Objetivo:** *«Sé que soy capaz de hacer cosas y de hacerlas bien.»*
+4. **Carácter - Unidad: Compañía (13 a 15 años)** (ID: `2b89163c-b44c-4a1e-b71d-f5e9e2e87abd`)
+   - **Objetivo:** *«Comprendo que lo que me piden la Ley y la Promesa Guía es importante para mi vida.»*
    - *¿Cómo se cumple en la actividad?* **Asumiendo los valores de la Ley Scout como guía ética de comportamiento durante las pruebas de Tú Ley Scout.**
 
-5. **Carácter - Unidad: Tropa (11 a 13 años)** (ID: `62876ebe-214f-4caf-b164-664e12fd30ae`)
-   - **Objetivo:** *«Me gusta participar en actividades que me ayudan a conocerme.»*
+5. **Carácter - Unidad: Tropa (11 a 13 años)** (ID: `9bff5b7a-0d53-456f-9b26-e819f0f26771`)
+   - **Objetivo:** *«He prometido esforzarme por vivir la Ley y la Promesa Scout.»*
    - *¿Cómo se cumple en la actividad?* **Asumiendo los valores de la Ley Scout como guía ética de comportamiento durante las pruebas de Tú Ley Scout.**
 
-6. **Carácter - Unidad: Tropa (13 a 15 años)** (ID: `c380e11a-571d-4617-924c-aa933ae30138`)
-   - **Objetivo:** *«Soy capaz de criticarme.»*
+6. **Carácter - Unidad: Tropa (13 a 15 años)** (ID: `a8a02119-585a-4d04-852c-fddc9a10e465`)
+   - **Objetivo:** *«Me esfuerzo por vivir la Ley y la Promesa.»*
    - *¿Cómo se cumple en la actividad?* **Asumiendo los valores de la Ley Scout como guía ética de comportamiento durante las pruebas de Tú Ley Scout.**
 
 7. **Creatividad - Unidad: Avanzada (15 a 17 años)** (ID: `3cdf4b56-b55f-4878-b3fa-da32a7200ca4`)

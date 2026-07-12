@@ -2,66 +2,65 @@
 
 - **Unidad(es) Recomendada(s):** Compañía, Tropa, Avanzada
 - **Área(s) de Desarrollo:** Corporalidad, Creatividad, Sociabilidad
-- **Justificación:** Esta dinámica de destreza y pionerismo requiere de agilidad motora fina y coordinación física (Corporalidad) para realizar nudos de forma veloz y precisa bajo un formato competitivo. Promueve la asimilación técnica del campismo básico mediante la ejecución práctica de nudos de unión, anclaje y seguridad (Creatividad), y fomenta el respeto de las normas y el juego cooperativo al requerir el apoyo mutuo dentro de la patrulla para lograr el objetivo común (Sociabilidad).
+- **Justificación:** Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Promueve el ingenio práctico, la agilidad mental y la resolución de problemas técnicos o enigmas. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.
 
 #### 🎯 Objetivos Educativos/Terminales Seleccionados de la Base de Datos:
+1. **Corporalidad - Unidad: Compañía (11 a 13 años)** (ID: `705b686a-8374-467a-b871-f6470f0d58ae`)
+   - **Objetivo:** *«Me doy cuenta de los cambios que se están produciendo en mi cuerpo.»*
+   - *¿Cómo se cumple en la actividad?* **Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Competencia de Nudos.**
 
-1. **Corporalidad - Unidad: Compañía (11 a 13 años)** (ID: `1427451e-b8b3-493b-8525-e53298381e07`)
-   - **Objetivo:** *«Conozco y practico diferentes juegos y respeto sus reglas.»*
-   - *¿Cómo se cumple en la actividad?* **Ejecutando** las amarras de forma individual respetando los tiempos y limitaciones de la competencia.
+2. **Corporalidad - Unidad: Compañía (13 a 15 años)** (ID: `57887da4-c70e-45bc-bdfb-f79db513a89c`)
+   - **Objetivo:** *«Sé qué hacer frente a una enfermedad o accidente.»*
+   - *¿Cómo se cumple en la actividad?* **Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Competencia de Nudos.**
 
-2. **Corporalidad - Unidad: Tropa (11 a 13 años)** (ID: `0765469b-caef-4457-9d6b-cb739c855402`)
-   - **Objetivo:** *«Conozco y practico diferentes juegos y respeto sus reglas.»*
-   - *¿Cómo se cumple en la actividad?* **Ejecutando** las amarras de forma individual respetando los tiempos y limitaciones de la competencia.
+3. **Corporalidad - Unidad: Tropa (11 a 13 años)** (ID: `8cae916f-5e67-4697-b3cd-c59b5c7d1439`)
+   - **Objetivo:** *«Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.»*
+   - *¿Cómo se cumple en la actividad?* **Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Competencia de Nudos.**
 
-3. **Corporalidad - Unidad: Compañía (13 a 15 años)** (ID: `b12da732-d736-480c-82b8-95b312316390`)
-   - **Objetivo:** *«Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sé ganar y perder.»*
-   - *¿Cómo se cumple en la actividad?* **Ejercitando** la rapidez manual y coordinación fina en los dedos para atar con mayor destreza en cada ronda.
+4. **Corporalidad - Unidad: Tropa (13 a 15 años)** (ID: `68add558-4b03-4105-b00d-e7f2ead6ac23`)
+   - **Objetivo:** *«Sé qué hacer frente a una enfermedad o accidente.»*
+   - *¿Cómo se cumple en la actividad?* **Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Competencia de Nudos.**
 
-4. **Corporalidad - Unidad: Tropa (13 a 15 años)** (ID: `08369c53-2c02-4e9c-8bb5-f949cd092c98`)
-   - **Objetivo:** *«Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sé ganar y perder.»*
-   - *¿Cómo se cumple en la actividad?* **Ejercitando** la rapidez manual y coordinación fina en los dedos para atar con mayor destreza en cada ronda.
+5. **Corporalidad - Unidad: Avanzada (15 a 17 años)** (ID: `05f42879-f5f5-40c4-bed6-c577bf61340a`)
+   - **Objetivo:** *«Cuido mi salud y mantengo hábitos que la protegen.»*
+   - *¿Cómo se cumple en la actividad?* **Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de Competencia de Nudos.**
 
-5. **Corporalidad - Unidad: Avanzada (15 a 17 años)** (ID: `f4c586e3-6a99-41f5-8fcb-a15886e93337`)
-   - **Objetivo:** *«Practico regularmente un deporte.»*
-   - *¿Cómo se cumple en la actividad?* **Sosteniendo** la velocidad y la concentración física durante las pruebas de resistencia técnica grupal.
+6. **Creatividad - Unidad: Compañía (11 a 13 años)** (ID: `e1b7276f-4fd2-4c39-a32a-bd7fadbee702`)
+   - **Objetivo:** *«Doy mi opinión sobre las cosas que me pasan.»*
+   - *¿Cómo se cumple en la actividad?* **Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Competencia de Nudos.**
 
-6. **Creatividad - Unidad: Compañía (11 a 13 años)** (ID: `d8c45409-4dcd-4629-a764-cdf52e8b9340`)
-   - **Objetivo:** *«Conozco y uso algunas técnicas de campismo y pionerismo.»*
-   - *¿Cómo se cumple en la actividad?* **Identificando** y atando nudos comunes (rizo, ballestrinque, as de guía) indicando su utilidad práctica en campamento.
+7. **Creatividad - Unidad: Compañía (13 a 15 años)** (ID: `9f30f035-9179-4ac4-acfb-bea0e169e97a`)
+   - **Objetivo:** *«Propongo temas para discutir en mi patrulla.»*
+   - *¿Cómo se cumple en la actividad?* **Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Competencia de Nudos.**
 
-7. **Creatividad - Unidad: Tropa (11 a 13 años)** (ID: `2a1587b7-9b40-40e1-9113-8ccd928e1464`)
-   - **Objetivo:** *«Conozco y uso algunas técnicas de campismo y pionerismo.»*
-   - *¿Cómo se cumple en la actividad?* **Identificando** y atando nudos comunes (rizo, ballestrinque, as de guía) indicando su utilidad práctica en campamento.
+8. **Creatividad - Unidad: Tropa (11 a 13 años)** (ID: `49ae6ac6-be8f-4f2c-8b3e-6711d041181f`)
+   - **Objetivo:** *«Doy mi opinión sobre las cosas que me pasan.»*
+   - *¿Cómo se cumple en la actividad?* **Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Competencia de Nudos.**
 
-8. **Creatividad - Unidad: Compañía (13 a 15 años)** (ID: `b49b1e68-9cc5-4c76-9cd7-4d6f4c3c1ec6`)
-   - **Objetivo:** *«Participo en el diseño e instalación de las construcciones de campamento.»*
-   - *¿Cómo se cumple en la actividad?* **Evaluando** qué tipo de nudo o amarra (cuadrada, diagonal) es la más adecuada para unir los materiales presentados.
+9. **Creatividad - Unidad: Tropa (13 a 15 años)** (ID: `cf530cf9-73a6-4423-a075-79be433fe96c`)
+   - **Objetivo:** *«Propongo temas para discutir en mi patrulla.»*
+   - *¿Cómo se cumple en la actividad?* **Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Competencia de Nudos.**
 
-9. **Creatividad - Unidad: Tropa (13 a 15 años)** (ID: `78e8ab9b-5313-4642-8f12-8ca4e94ffa5c`)
-   - **Objetivo:** *«Participo en el diseño e instalación de las construcciones de campamento.»*
-   - *¿Cómo se cumple en la actividad?* **Evaluando** qué tipo de nudo o amarra (cuadrada, diagonal) es la más adecuada para unir los materiales presentados.
+10. **Creatividad - Unidad: Avanzada (15 a 17 años)** (ID: `3cdf4b56-b55f-4878-b3fa-da32a7200ca4`)
+   - **Objetivo:** *«Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.»*
+   - *¿Cómo se cumple en la actividad?* **Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Competencia de Nudos.**
 
-10. **Creatividad - Unidad: Avanzada (15 a 17 años)** (ID: `843fda9c-6c4a-4516-b30c-23c92ef755a8`)
-    - **Objetivo:** *«Puedo resolver la mayoría de los problemas técnicos domésticos simples.»*
-    - *¿Cómo se cumple en la actividad?* **Aplicando** nudos de tensión o de rescate complejos para solucionar desafíos de ingeniería básica presentados por la jefatura.
+11. **Sociabilidad - Unidad: Compañía (11 a 13 años)** (ID: `007e85ea-2b06-48c2-8ac1-873d59643aae`)
+   - **Objetivo:** *«Conozco y respeto las principales normas de convivencia.»*
+   - *¿Cómo se cumple en la actividad?* **Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Competencia de Nudos.**
 
-11. **Sociabilidad - Unidad: Compañía (11 a 13 años)** (ID: `78f8cd16-ebf9-4a01-9efe-6cdfd7d307fd`)
-    - **Objetivo:** *«Digo mi opinión cuando establecemos normas en mi patrulla, amigas o en mi escuela.»*
-    - *¿Cómo se cumple en la actividad?* **Opinando** asertivamente para organizar a su patrulla y distribuir los nudos según quién domine mejor cada técnica.
+12. **Sociabilidad - Unidad: Compañía (13 a 15 años)** (ID: `de2f5693-de4b-48f1-b870-3c62be99aea8`)
+   - **Objetivo:** *«Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre esté de acuerdo con ellas.»*
+   - *¿Cómo se cumple en la actividad?* **Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Competencia de Nudos.**
 
-12. **Sociabilidad - Unidad: Tropa (11 a 13 años)** (ID: `06ed2700-c963-4f13-a86a-2815b3a1530a`)
-    - **Objetivo:** *«Digo mi opinión cuando establecemos normas en mi patrulla, amigos o en mi escuela.»*
-    - *¿Cómo se cumple en la actividad?* **Opinando** asertivamente para organizar a su patrulla y distribuir los nudos según quién domine mejor cada técnica.
+13. **Sociabilidad - Unidad: Tropa (11 a 13 años)** (ID: `857f21bc-db3c-4e5e-bcd5-d3d331276fad`)
+   - **Objetivo:** *«Conozco y respeto las principales normas de convivencia.»*
+   - *¿Cómo se cumple en la actividad?* **Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Competencia de Nudos.**
 
-13. **Sociabilidad - Unidad: Compañía (13 a 15 años)** (ID: `e2770a37-9927-47ed-a4d6-bae9feaf691c`)
-    - **Objetivo:** *«Opino sobre lo que me gusta o no de las normas de los distintos ambientes en que actúo.»*
-    - *¿Cómo se cumple en la actividad?* **Respetando** el juicio técnico del jurado al comprobar si los nudos están bien confeccionados o si se deshacen bajo tensión.
-
-14. **Sociabilidad - Unidad: Tropa (13 a 15 años)** (ID: `a594a460-1ab9-4c09-b01a-c2555163e86e`)
-    - **Objetivo:** *«Opino sobre lo que me gusta o no de las normas de los distintos ambientes en que actúo.»*
-    - *¿Cómo se cumple en la actividad?* **Respetando** el juicio técnico del jurado al comprobar si los nudos están bien confeccionados o si se deshacen bajo tensión.
+14. **Sociabilidad - Unidad: Tropa (13 a 15 años)** (ID: `bbc48d53-f4aa-4de7-84d4-95614df76034`)
+   - **Objetivo:** *«Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre esté de acuerdo con ellas.»*
+   - *¿Cómo se cumple en la actividad?* **Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Competencia de Nudos.**
 
 15. **Sociabilidad - Unidad: Avanzada (15 a 17 años)** (ID: `f1496221-0da5-4775-b3ba-29e65603cfee`)
-    - **Objetivo:** *«Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.»*
-    - *¿Cómo se cumple en la actividad?* **Aceptando** los reglamentos específicos de la competencia, ayudando a fiscalizar el cumplimiento honesto de las pruebas.
+   - **Objetivo:** *«Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.»*
+   - *¿Cómo se cumple en la actividad?* **Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Competencia de Nudos.**

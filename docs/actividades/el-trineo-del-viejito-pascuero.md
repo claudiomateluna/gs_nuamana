@@ -1,57 +1,62 @@
 ### 📋 Evaluación de Actividad: El Trineo del Viejito Pascuero
 
-- **Unidad(es) Recomendada(s):** Manada, Compañía, Tropa y Avanzada (6 a 17 años)
-- **Área(s) de Desarrollo:** Corporalidad (1) y Sociabilidad (5)
-- **Justificación:** La actividad promueve la recreación y el desarrollo físico a través de una divertida carrera de arrastre, fomentando el trabajo colaborativo en equipo, la distribución de roles técnicos (jinetes y renos) y la confianza mutua bajo condiciones de autocuidado.
+- **Unidad(es) Recomendada(s):** Manada, Compañía, Tropa, Avanzada
+- **Área(s) de Desarrollo:** Corporalidad, Sociabilidad
+- **Justificación:** Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.
 
 #### 🎯 Objetivos Educativos/Terminales Seleccionados de la Base de Datos:
+1. **Corporalidad - Unidad: Manada (Infancia Media)** (ID: `36d989b6-30dd-434a-874a-70a993ed0bec`)
+   - **Objetivo:** *«Conozco las principales enfermedades que me pueden dar y por qué.»*
+   - *¿Cómo se cumple en la actividad?* **Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de El Trineo del Viejito Pascuero.**
 
-##### 🌲 Eje: Relación con la Naturaleza y Recreación Física
-*   **Objetivo Terminal Común:** *"Convive constantemente en la naturaleza y participa en actividades deportivas y recreativas."*
+2. **Corporalidad - Unidad: Manada (Infancia Tardía)** (ID: `6467298d-fe2b-4920-9b9a-e3524e4b2aef`)
+   - **Objetivo:** *«Sé en qué lugar de mi cuerpo están ubicados los órganos más importantes.»*
+   - *¿Cómo se cumple en la actividad?* **Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de El Trineo del Viejito Pascuero.**
 
-1.  **Corporalidad - Unidad: Manada (Infancia Media - 6 a 9 años)** (ID: `fe35ae87-749a-4d0a-8672-671b635c9b5b`)
-    - **Objetivo:** *«Me gusta jugar con compañeros de mi edad.»*
-    - *¿Cómo se cumple en la actividad?* **Disfrutando de jugar activamente y compartir una entretenida carrera junto a tus amigos de la seisena.**
-2.  **Corporalidad - Unidad: Manada (Infancia Tardía - 9 a 11 años)** (ID: `5d2d48ed-c461-4a8e-9048-cceecd3de2e2`)
-    - **Objetivo:** *«Me gusta jugar con otros niños y niñas y respeto las reglas de los juegos.»*
-    - *¿Cómo se cumple en la actividad?* **Participando con alegría del juego de trineos y respetando el reglamento de no levantar al jinete de la tela durante la carrera.**
-3.  **Corporalidad - Unidad: Compañía (11 a 13 años)** (ID: `d5b111f1-5f6f-4716-8a02-e1826d653c59`)
-    - **Objetivo:** *«Participo en los juegos, excursiones y campamentos que organiza mi patrulla.»*
-    - *¿Cómo se cumple en la actividad?* **Integrándote con energía en el equipo de carrera de tu Compañía, cooperando activamente en el tiro del trineo.**
-4.  **Corporalidad - Unidad: Compañía (13 a 15 años)** (ID: `b12da732-d736-480c-82b8-95b312316390`)
-    - **Objetivo:** *«Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sé ganar y perder.»*
-    - *¿Cómo se cumple en la actividad?* **Esforzándote al máximo para correr a gran velocidad y traccionar el trineo de tu patrulla de manera eficiente y segura.**
-5.  **Corporalidad - Unidad: Tropa (11 a 13 años)** (ID: `58b4936a-816e-4d17-8d0a-c92d0606009d`)
-    - **Objetivo:** *«Participo en los juegos, excursiones y campamentos que organiza mi patrulla.»*
-    - *¿Cómo se cumple en la actividad?* **Integrándote con energía en el equipo de carrera de tu Tropa, cooperando activamente en el tiro del trineo.**
-6.  **Corporalidad - Unidad: Tropa (13 a 15 años)** (ID: `08369c53-2c02-4e9c-8bb5-f949cd092c98`)
-    - **Objetivo:** *«Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sé ganar y perder.»*
-    - *¿Cómo se cumple en la actividad?* **Esforzándote al máximo para correr a gran velocidad y traccionar el trineo de tu patrulla de manera eficiente y segura.**
-7.  **Corporalidad - Unidad: Avanzada (15 a 17 años)** (ID: `7200435f-b020-46fc-b323-8249048b1d18`)
-    - **Objetivo:** *«Participo en la organización de juegos y actividades recreativas para los demás.»*
-    - *¿Cómo se cumple en la actividad?* **Colaborando activamente en la preparación técnica de la pista y en la distribución equitativa de los pesos de los jinetes para equilibrar la carrera.**
+3. **Corporalidad - Unidad: Compañía (11 a 13 años)** (ID: `705b686a-8374-467a-b871-f6470f0d58ae`)
+   - **Objetivo:** *«Me doy cuenta de los cambios que se están produciendo en mi cuerpo.»*
+   - *¿Cómo se cumple en la actividad?* **Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de El Trineo del Viejito Pascuero.**
 
-##### 🤝 Eje: Libertad Solidaria y Compromiso Grupal
-*   **Objetivo Terminal Común:** *"Vive su libertad de un modo solidario, ejerciendo sus derechos, cumpliendo sus obligaciones y defendiendo igual derecho para los demás."*
+4. **Corporalidad - Unidad: Compañía (13 a 15 años)** (ID: `57887da4-c70e-45bc-bdfb-f79db513a89c`)
+   - **Objetivo:** *«Sé qué hacer frente a una enfermedad o accidente.»*
+   - *¿Cómo se cumple en la actividad?* **Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de El Trineo del Viejito Pascuero.**
 
-8.  **Sociabilidad - Unidad: Manada (Infancia Media - 6 a 9 años)** (ID: `7449ad52-5047-4116-b71b-1937cca85587`)
-    - **Objetivo:** *«Cumplo las tareas de servicio que me encargan en la Manada.»*
-    - *¿Cómo se cumple en la actividad?* **Cumpliendo con alegría la labor de reno o jinete que tu seisenero te asigne en la carrera.**
-9.  **Sociabilidad - Unidad: Manada (Infancia Tardía - 9 a 11 años)** (ID: `27a71b44-9900-46e9-be75-38900c629663`)
-    - **Objetivo:** *«Ayudo siempre en las tareas de servicio que se deben hacer en la Manada.»*
-    - *¿Cómo se cumple en la actividad?* **Apoyando voluntariamente a tu seisena en el arrastre y cuidado del jinete para cruzar juntos la meta de forma segura.**
-10. **Sociabilidad - Unidad: Compañía (11 a 13 años)** (ID: `9478b46f-6f74-4a7e-bf9c-d66caaba1381`)
-    - **Objetivo:** *«Cumplo los compromisos que asumo.»*
-    - *¿Cómo se cumple en la actividad?* **Cumpliendo honestamente con la estrategia táctica acordada por tu patrulla y sosteniendo el ritmo de carrera pactado.**
-11. **Sociabilidad - Unidad: Compañía (13 a 15 años)** (ID: `8bb5d75e-3033-4f5a-a1a5-d2f09b50ce25`)
-    - **Objetivo:** *«Ayudo a mi patrulla en los compromisos que tomamos.»*
-    - *¿Cómo se cumple en la actividad?* **Colaborando con tu patrulla en el esfuerzo coordinado de tirar del trineo usando las pañoletas amarradas.**
-12. **Sociabilidad - Unidad: Tropa (11 a 13 años)** (ID: `0d3af46a-d64c-4e59-a765-1f72dc41ba76`)
-    - **Objetivo:** *«Ayudo a mi patrulla en los compromisos que tomamos.»*
-    - *¿Cómo se cumple en la actividad?* **Colaborando con tu patrulla en el esfuerzo coordinado de tirar del trineo usando las pañoletas amarradas.**
-13. **Sociabilidad - Unidad: Tropa (13 a 15 años)** (ID: `5ff08326-49d9-4f83-8ffd-9b4b83425a95`)
-    - **Objetivo:** *«Cumplo los compromisos que asumo.»*
-    - *¿Cómo se cumple en la actividad?* **Cumpliendo honestamente con la estrategia táctica acordada por tu patrulla y sosteniendo el ritmo de carrera pactado.**
-14. **Sociabilidad - Unidad: Avanzada (15 a 17 años)** (ID: `5abfbe81-75e4-4444-b52d-38e59e8b6ec7`)
-    - **Objetivo:** *«Estoy siempre disponible para ayudar a los demás, incluso cuando se trata de tareas pesadas o poco agradables.»*
-    - *¿Cómo se cumple en la actividad?* **Mostrando disposición inmediata para asumir el rol físicamente más desgastante (como reno de tiro) en beneficio del triunfo de tu Avanzada.**
+5. **Corporalidad - Unidad: Tropa (11 a 13 años)** (ID: `8cae916f-5e67-4697-b3cd-c59b5c7d1439`)
+   - **Objetivo:** *«Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.»*
+   - *¿Cómo se cumple en la actividad?* **Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de El Trineo del Viejito Pascuero.**
+
+6. **Corporalidad - Unidad: Tropa (13 a 15 años)** (ID: `68add558-4b03-4105-b00d-e7f2ead6ac23`)
+   - **Objetivo:** *«Sé qué hacer frente a una enfermedad o accidente.»*
+   - *¿Cómo se cumple en la actividad?* **Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de El Trineo del Viejito Pascuero.**
+
+7. **Corporalidad - Unidad: Avanzada (15 a 17 años)** (ID: `05f42879-f5f5-40c4-bed6-c577bf61340a`)
+   - **Objetivo:** *«Cuido mi salud y mantengo hábitos que la protegen.»*
+   - *¿Cómo se cumple en la actividad?* **Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de El Trineo del Viejito Pascuero.**
+
+8. **Sociabilidad - Unidad: Manada (Infancia Media)** (ID: `b69188bf-2391-43c1-a885-abd1b13912be`)
+   - **Objetivo:** *«Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.»*
+   - *¿Cómo se cumple en la actividad?* **Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en El Trineo del Viejito Pascuero.**
+
+9. **Sociabilidad - Unidad: Manada (Infancia Tardía)** (ID: `2394dd5b-87b9-4f3d-9cdd-a42649139782`)
+   - **Objetivo:** *«Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre esté de acuerdo con ellas»*
+   - *¿Cómo se cumple en la actividad?* **Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en El Trineo del Viejito Pascuero.**
+
+10. **Sociabilidad - Unidad: Compañía (11 a 13 años)** (ID: `007e85ea-2b06-48c2-8ac1-873d59643aae`)
+   - **Objetivo:** *«Conozco y respeto las principales normas de convivencia.»*
+   - *¿Cómo se cumple en la actividad?* **Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante El Trineo del Viejito Pascuero.**
+
+11. **Sociabilidad - Unidad: Compañía (13 a 15 años)** (ID: `de2f5693-de4b-48f1-b870-3c62be99aea8`)
+   - **Objetivo:** *«Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre esté de acuerdo con ellas.»*
+   - *¿Cómo se cumple en la actividad?* **Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante El Trineo del Viejito Pascuero.**
+
+12. **Sociabilidad - Unidad: Tropa (11 a 13 años)** (ID: `857f21bc-db3c-4e5e-bcd5-d3d331276fad`)
+   - **Objetivo:** *«Conozco y respeto las principales normas de convivencia.»*
+   - *¿Cómo se cumple en la actividad?* **Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante El Trineo del Viejito Pascuero.**
+
+13. **Sociabilidad - Unidad: Tropa (13 a 15 años)** (ID: `bbc48d53-f4aa-4de7-84d4-95614df76034`)
+   - **Objetivo:** *«Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre esté de acuerdo con ellas.»*
+   - *¿Cómo se cumple en la actividad?* **Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante El Trineo del Viejito Pascuero.**
+
+14. **Sociabilidad - Unidad: Avanzada (15 a 17 años)** (ID: `f1496221-0da5-4775-b3ba-29e65603cfee`)
+   - **Objetivo:** *«Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.»*
+   - *¿Cómo se cumple en la actividad?* **Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en El Trineo del Viejito Pascuero.**

@@ -1,47 +1,46 @@
-### 📋 Evaluación de Actividad: Carrera de Camillas
+### 📋 Evaluación de Actividad: Carrera de camillas
 
 - **Unidad(es) Recomendada(s):** Compañía, Tropa, Avanzada
 - **Área(s) de Desarrollo:** Corporalidad, Creatividad
-- **Justificación:** Esta dinámica de primeros auxilios y destreza técnica requiere que los participantes demuestren fuerza, equilibrio y coordinación motriz gruesa (Corporalidad) al armar y correr cargando de manera segura la camilla con el paciente. Asimismo, estimula el ingenio técnico y el uso de técnicas de pionerismo y nudos básicos para construir una estructura estable que proteja la integridad física del trasladado (Creatividad).
+- **Justificación:** Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Promueve el ingenio práctico, la agilidad mental y la resolución de problemas técnicos o enigmas.
 
 #### 🎯 Objetivos Educativos/Terminales Seleccionados de la Base de Datos:
+1. **Corporalidad - Unidad: Compañía (11 a 13 años)** (ID: `705b686a-8374-467a-b871-f6470f0d58ae`)
+   - **Objetivo:** *«Me doy cuenta de los cambios que se están produciendo en mi cuerpo.»*
+   - *¿Cómo se cumple en la actividad?* **Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de camillas.**
 
-1. **Corporalidad - Unidad: Compañía (11 a 13 años)** (ID: `1427451e-b8b3-493b-8525-e53298381e07`)
-   - **Objetivo:** *«Conozco y practico diferentes juegos y respeto sus reglas.»*
-   - *¿Cómo se cumple en la actividad?* **Participando** de la carrera respetando las zonas marcadas para evitar colisiones peligrosas con otros equipos.
+2. **Corporalidad - Unidad: Compañía (13 a 15 años)** (ID: `57887da4-c70e-45bc-bdfb-f79db513a89c`)
+   - **Objetivo:** *«Sé qué hacer frente a una enfermedad o accidente.»*
+   - *¿Cómo se cumple en la actividad?* **Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de camillas.**
 
-2. **Corporalidad - Unidad: Tropa (11 a 13 años)** (ID: `0765469b-caef-4457-9d6b-cb739c855402`)
-   - **Objetivo:** *«Conozco y practico diferentes juegos y respeto sus reglas.»*
-   - *¿Cómo se cumple en la actividad?* **Participando** de la carrera respetando las zonas marcadas para evitar colisiones peligrosas con otros equipos.
+3. **Corporalidad - Unidad: Tropa (11 a 13 años)** (ID: `8cae916f-5e67-4697-b3cd-c59b5c7d1439`)
+   - **Objetivo:** *«Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.»*
+   - *¿Cómo se cumple en la actividad?* **Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de camillas.**
 
-3. **Corporalidad - Unidad: Compañía (13 a 15 años)** (ID: `b12da732-d736-480c-82b8-95b312316390`)
-   - **Objetivo:** *«Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sé ganar y perder.»*
-   - *¿Cómo se cumple en la actividad?* **Esforzándose** por correr de forma sincronizada con sus compañeras de patrulla para estabilizar la carga de la camilla.
+4. **Corporalidad - Unidad: Tropa (13 a 15 años)** (ID: `68add558-4b03-4105-b00d-e7f2ead6ac23`)
+   - **Objetivo:** *«Sé qué hacer frente a una enfermedad o accidente.»*
+   - *¿Cómo se cumple en la actividad?* **Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de camillas.**
 
-4. **Corporalidad - Unidad: Tropa (13 a 15 años)** (ID: `08369c53-2c02-4e9c-8bb5-f949cd092c98`)
-   - **Objetivo:** *«Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sé ganar y perder.»*
-   - *¿Cómo se cumple en la actividad?* **Esforzándose** por correr de forma sincronizada con sus compañeros de patrulla para estabilizar la carga de la camilla.
+5. **Corporalidad - Unidad: Avanzada (15 a 17 años)** (ID: `05f42879-f5f5-40c4-bed6-c577bf61340a`)
+   - **Objetivo:** *«Cuido mi salud y mantengo hábitos que la protegen.»*
+   - *¿Cómo se cumple en la actividad?* **Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de Carrera de camillas.**
 
-5. **Corporalidad - Unidad: Avanzada (15 a 17 años)** (ID: `f4c586e3-6a99-41f5-8fcb-a15886e93337`)
-   - **Objetivo:** *«Practico regularmente un deporte.»*
-   - *¿Cómo se cumple en la actividad?* **Desplegando** resistencia física y fuerza muscular en los brazos y piernas durante el transporte del paciente a través del recorrido.
+6. **Creatividad - Unidad: Compañía (11 a 13 años)** (ID: `e1b7276f-4fd2-4c39-a32a-bd7fadbee702`)
+   - **Objetivo:** *«Doy mi opinión sobre las cosas que me pasan.»*
+   - *¿Cómo se cumple en la actividad?* **Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Carrera de camillas.**
 
-6. **Creatividad - Unidad: Compañía (11 a 13 años)** (ID: `d8c45409-4dcd-4629-a764-cdf52e8b9340`)
-   - **Objetivo:** *«Conozco y uso algunas técnicas de campismo y pionerismo.»*
-   - *¿Cómo se cumple en la actividad?* **Aplicando** nudos básicos (como el rizo o ballestrinque) para amarrar los pañolines y palos que formarán la camilla.
+7. **Creatividad - Unidad: Compañía (13 a 15 años)** (ID: `9f30f035-9179-4ac4-acfb-bea0e169e97a`)
+   - **Objetivo:** *«Propongo temas para discutir en mi patrulla.»*
+   - *¿Cómo se cumple en la actividad?* **Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Carrera de camillas.**
 
-7. **Creatividad - Unidad: Tropa (11 a 13 años)** (ID: `2a1587b7-9b40-40e1-9113-8ccd928e1464`)
-   - **Objetivo:** *«Conozco y uso algunas técnicas de campismo y pionerismo.»*
-   - *¿Cómo se cumple en la actividad?* **Aplicando** nudos básicos (como el rizo o ballestrinque) para amarrar los pañolines y palos que formarán la camilla.
+8. **Creatividad - Unidad: Tropa (11 a 13 años)** (ID: `49ae6ac6-be8f-4f2c-8b3e-6711d041181f`)
+   - **Objetivo:** *«Doy mi opinión sobre las cosas que me pasan.»*
+   - *¿Cómo se cumple en la actividad?* **Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Carrera de camillas.**
 
-8. **Creatividad - Unidad: Compañía (13 a 15 años)** (ID: `b49b1e68-9cc5-4c76-9cd7-4d6f4c3c1ec6`)
-   - **Objetivo:** *«Participo en el diseño e instalación de las construcciones de campamento.»*
-   - *¿Cómo se cumple en la actividad?* **Diseñando** una estructura de camilla improvisada resistente y equilibrada utilizando el material disponible de manera eficiente.
+9. **Creatividad - Unidad: Tropa (13 a 15 años)** (ID: `cf530cf9-73a6-4423-a075-79be433fe96c`)
+   - **Objetivo:** *«Propongo temas para discutir en mi patrulla.»*
+   - *¿Cómo se cumple en la actividad?* **Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Carrera de camillas.**
 
-9. **Creatividad - Unidad: Tropa (13 a 15 años)** (ID: `78e8ab9b-5313-4642-8f12-8ca4e94ffa5c`)
-   - **Objetivo:** *«Participo en el diseño e instalación de las construcciones de campamento.»*
-   - *¿Cómo se cumple en la actividad?* **Diseñando** una estructura de camilla improvisada resistente y equilibrada utilizando el material disponible de manera eficiente.
-
-10. **Creatividad - Unidad: Avanzada (15 a 17 años)** (ID: `843fda9c-6c4a-4516-b30c-23c92ef755a8`)
-    - **Objetivo:** *«Puedo resolver la mayoría de los problemas técnicos domésticos simples.»*
-    - *¿Cómo se cumple en la actividad?* **Improvisando** soluciones estructurales de emergencia rápidas para garantizar un traslado seguro ante incidentes simulados en el campo.
+10. **Creatividad - Unidad: Avanzada (15 a 17 años)** (ID: `3cdf4b56-b55f-4878-b3fa-da32a7200ca4`)
+   - **Objetivo:** *«Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.»*
+   - *¿Cómo se cumple en la actividad?* **Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Carrera de camillas.**

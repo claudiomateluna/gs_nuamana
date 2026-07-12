@@ -2,22 +2,21 @@
 
 - **Unidad(es) Recomendada(s):** Avanzada, Clan
 - **Área(s) de Desarrollo:** Creatividad, Espiritualidad
-- **Justificación:** Esta dinámica de introspección profunda desafía a los participantes a sintetizar y plasmar de forma creativa y simbólica mediante la palabra escrita sus pensamientos y emociones con respecto al legado de sus vidas (Creatividad). Asimismo, fomenta la reflexión sobre el sentido de su propia existencia, orientando sus decisiones y conductas diarias hacia metas y principios trascendentes de vida (Espiritualidad).
+- **Justificación:** Promueve el ingenio práctico, la agilidad mental y la resolución de problemas técnicos o enigmas. Conecta a los participantes con la Creación y el sentido de trascendencia espiritual de la hermandad scout.
 
 #### 🎯 Objetivos Educativos/Terminales Seleccionados de la Base de Datos:
+1. **Creatividad - Unidad: Avanzada (15 a 17 años)** (ID: `3cdf4b56-b55f-4878-b3fa-da32a7200ca4`)
+   - **Objetivo:** *«Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.»*
+   - *¿Cómo se cumple en la actividad?* **Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de El Epitafio.**
 
-1. **Creatividad - Unidad: Avanzada (15 a 17 años)** (ID: `ed17d59c-1c64-4080-a206-bbe72eeae5a4`)
-   - **Objetivo:** *«Trato de expresarme de un modo propio, y soy capaz de mirar críticamente tendencias e ídolos sociales.»*
-   - *¿Cómo se cumple en la actividad?* **Escribiendo** un epitafio auténtico y original que refleje sus verdaderos anhelos personales al margen de modas o presiones de la sociedad.
+2. **Creatividad - Unidad: Clan (17 a 20 años)** (ID: `ef75fbed-4a6d-49ea-bfab-f2952415e1a0`)
+   - **Objetivo:** *«Actúa con agilidad mental ante las situaciones más diversas, desarrollando su capacidad de pensar, innovar y aventurar.»*
+   - *¿Cómo se cumple en la actividad?* **Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de El Epitafio.**
 
-2. **Creatividad - Unidad: Clan (17 a 20 años)** (ID: `91e60eba-e267-4d1a-b27b-ef61a7b03b31`)
-   - **Objetivo:** *«Expresa lo que piensa y siente a través de distintos medios, creando en los ambientes en que actúa espacios gratos que faciliten el encuentro y el perfeccionamiento entre las personas.»*
-   - *¿Cómo se cumple en la actividad?* **Compartiendo** voluntariamente la lectura de su epitafio con su equipo en un clima de respeto y profunda empatía.
+3. **Espiritualidad - Unidad: Avanzada (15 a 17 años)** (ID: `c165a639-f87a-4f6c-a637-69894848b507`)
+   - **Objetivo:** *«Respeto y cuido la naturaleza porque me siento responsable de la obra creadora de Dios.»*
+   - *¿Cómo se cumple en la actividad?* **Coherentemente integrando principios espirituales scout en sus reflexiones cotidianas tras El Epitafio.**
 
-3. **Espiritualidad - Unidad: Avanzada (15 a 17 años)** (ID: `57a9f554-a5ba-48bc-913b-47e187d1513c`)
-   - **Objetivo:** *«Trato que mi vida refleje aquello en que creo.»*
-   - *¿Cómo se cumple en la actividad?* **Reflexionando** sobre si sus acciones y comportamiento diario son coherentes con las convicciones que desea legar.
-
-4. **Espiritualidad - Unidad: Clan (17 a 20 años)** (ID: `ed57439e-1d13-4cb2-ae32-ddd3978d33bd`)
-   - **Objetivo:** *«Integro mis principios religiosos a mi conducta cotidiana, estableciendo coherencia entre mi fe, mi vida personal y mi participación social.»*
-   - *¿Cómo se cumple en la actividad?* **Proyectando** su proyecto de vida hacia trascendencia y servicio, identificando qué huella desea marcar en su comunidad.
+4. **Espiritualidad - Unidad: Clan (17 a 20 años)** (ID: `0a9a9dac-0b1c-4f11-8600-291de10b1b95`)
+   - **Objetivo:** *«Busca siempre a Dios en forma personal y comunitaria, aprendiendo a reconocerlo en las personas y en la Creación.»*
+   - *¿Cómo se cumple en la actividad?* **Coherentemente integrando principios espirituales scout en sus reflexiones cotidianas tras El Epitafio.**

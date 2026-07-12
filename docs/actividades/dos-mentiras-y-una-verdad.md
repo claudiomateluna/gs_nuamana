@@ -1,39 +1,38 @@
-### 📋 Evaluación de Actividad: Dos Mentiras y una Verdad
+### 📋 Evaluación de Actividad: Dos mentiras y una verdad
 
 - **Unidad(es) Recomendada(s):** Compañía, Avanzada, Clan
 - **Área(s) de Desarrollo:** Creatividad, Sociabilidad
-- **Justificación:** Esta dinámica de conocimiento interpersonal y expresión oral fomenta el ingenio y el uso estratégico del lenguaje para narrar anécdotas personales de forma atractiva e intrigante (Creatividad). Además, al revelar hechos reales y mentiras sobre su vida cotidiana, promueve el respeto a la singularidad de cada compañero, fortaleciendo la empatía grupal y valorando la diversidad personal (Sociabilidad).
+- **Justificación:** Promueve el ingenio práctico, la agilidad mental y la resolución de problemas técnicos o enigmas. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.
 
 #### 🎯 Objetivos Educativos/Terminales Seleccionados de la Base de Datos:
+1. **Creatividad - Unidad: Compañía (11 a 13 años)** (ID: `e1b7276f-4fd2-4c39-a32a-bd7fadbee702`)
+   - **Objetivo:** *«Doy mi opinión sobre las cosas que me pasan.»*
+   - *¿Cómo se cumple en la actividad?* **Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Dos mentiras y una verdad.**
 
-1. **Creatividad - Unidad: Compañía (11 a 13 años)** (ID: `0d742d23-ebe1-40e6-97df-37bc03edb010`)
-   - **Objetivo:** *«Expreso mis pensamientos y experiencias en el Tally.»*
-   - *¿Cómo se cumple en la actividad?* **Escribiendo** y compartiendo de forma estructurada tres afirmaciones personales para que su patrulla intente descubrir la verdad.
+2. **Creatividad - Unidad: Compañía (13 a 15 años)** (ID: `9f30f035-9179-4ac4-acfb-bea0e169e97a`)
+   - **Objetivo:** *«Propongo temas para discutir en mi patrulla.»*
+   - *¿Cómo se cumple en la actividad?* **Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Dos mentiras y una verdad.**
 
-2. **Creatividad - Unidad: Compañía (13 a 15 años)** (ID: `9758e4f9-728b-4435-a8a3-11fd36c5e3be`)
-   - **Objetivo:** *«Expreso por distintos medios mis intereses y aptitudes artísticas.»*
-   - *¿Cómo se cumple en la actividad?* **Narrando** con dramatismo y creatividad sus afirmaciones para sembrar la duda entre sus compañeras de patrulla.
+3. **Creatividad - Unidad: Avanzada (15 a 17 años)** (ID: `3cdf4b56-b55f-4878-b3fa-da32a7200ca4`)
+   - **Objetivo:** *«Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.»*
+   - *¿Cómo se cumple en la actividad?* **Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Dos mentiras y una verdad.**
 
-3. **Creatividad - Unidad: Avanzada (15 a 17 años)** (ID: `ed17d59c-1c64-4080-a206-bbe72eeae5a4`)
-   - **Objetivo:** *«Trato de expresarme de un modo propio, y soy capaz de mirar críticamente tendencias e ídolos sociales.»*
-   - *¿Cómo se cumple en la actividad?* **Diseñando** anécdotas auténticas e ingeniosas basadas en sus propias vivencias, marcando un estilo propio al hablar en público.
+4. **Creatividad - Unidad: Clan (17 a 20 años)** (ID: `ef75fbed-4a6d-49ea-bfab-f2952415e1a0`)
+   - **Objetivo:** *«Actúa con agilidad mental ante las situaciones más diversas, desarrollando su capacidad de pensar, innovar y aventurar.»*
+   - *¿Cómo se cumple en la actividad?* **Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Dos mentiras y una verdad.**
 
-4. **Creatividad - Unidad: Clan (17 a 20 años)** (ID: `91e60eba-e267-4d1a-b27b-ef61a7b03b31`)
-   - **Objetivo:** *«Expresa lo que piensa y siente a través de distintos medios, creando en los ambientes en que actúa espacios gratos que faciliten el encuentro y el perfeccionamiento entre las personas.»*
-   - *¿Cómo se cumple en la actividad?* **Generando** un clima de confianza y diversión compartida a través de la narración de historias personales sorprendentes.
+5. **Sociabilidad - Unidad: Compañía (11 a 13 años)** (ID: `007e85ea-2b06-48c2-8ac1-873d59643aae`)
+   - **Objetivo:** *«Conozco y respeto las principales normas de convivencia.»*
+   - *¿Cómo se cumple en la actividad?* **Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Dos mentiras y una verdad.**
 
-5. **Sociabilidad - Unidad: Compañía (11 a 13 años)** (ID: `fce82191-77ea-444b-89d9-e33b62a323a5`)
-   - **Objetivo:** *«Procuro que respetemos a nuestras compañeras, cualquiera sea su manera de ser.»*
-   - *¿Cómo se cumple en la actividad?* **Escuchando** respetuosamente las afirmaciones de sus compañeras sin hacer comentarios de desprecio o burla sobre sus vidas.
+6. **Sociabilidad - Unidad: Compañía (13 a 15 años)** (ID: `de2f5693-de4b-48f1-b870-3c62be99aea8`)
+   - **Objetivo:** *«Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre esté de acuerdo con ellas.»*
+   - *¿Cómo se cumple en la actividad?* **Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Dos mentiras y una verdad.**
 
-6. **Sociabilidad - Unidad: Compañía (13 a 15 años)** (ID: `ea86ecee-b201-4a49-be9d-4e55de7ffe8c`)
-   - **Objetivo:** *«Respeto a todas las personas, independientemente de sus ideas, su clase social y su forma de vida.»*
-   - *¿Cómo se cumple en la actividad?* **Aceptando** con empatía las distintas realidades y experiencias de vida expresadas por los miembros de su patrulla.
+7. **Sociabilidad - Unidad: Avanzada (15 a 17 años)** (ID: `f1496221-0da5-4775-b3ba-29e65603cfee`)
+   - **Objetivo:** *«Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.»*
+   - *¿Cómo se cumple en la actividad?* **Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Dos mentiras y una verdad.**
 
-7. **Sociabilidad - Unidad: Avanzada (15 a 17 años)** (ID: `007591fb-a2b6-4fb5-9286-acde65455f53`)
-   - **Objetivo:** *«Creo que todas las personas somos iguales en dignidad y eso marca mis relaciones con los demás.»*
-   - *¿Cómo se cumple en la actividad?* **Valorando** las características singulares que definen a cada miembro de su comunidad en un ambiente de igualdad y respeto.
-
-8. **Sociabilidad - Unidad: Clan (17 a 20 años)** (ID: `b5a81328-5c07-41bd-a1ea-1ed401762841`)
-   - **Objetivo:** *«Vivo mi libertad de un modo solidario, ejerciendo mis derechos, cumpliendo mis obligaciones y defendiendo igual derecho para los demás.»*
-   - *¿Cómo se cumple en la actividad?* **Promoviendo** que todos los integrantes del Clan participen equitativamente y tengan la misma libertad para relatar sus experiencias.
+8. **Sociabilidad - Unidad: Clan (17 a 20 años)** (ID: `b5954f1c-4d0d-4bdb-97d8-821583beb77e`)
+   - **Objetivo:** *«Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.»*
+   - *¿Cómo se cumple en la actividad?* **Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Dos mentiras y una verdad.**

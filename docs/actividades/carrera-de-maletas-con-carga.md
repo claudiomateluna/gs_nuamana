@@ -1,55 +1,54 @@
-### 📋 Evaluación de Actividad: Carrera de Maletas con Carga
+### 📋 Evaluación de Actividad: Carrera de Maletas Con Carga
 
 - **Unidad(es) Recomendada(s):** Manada, Compañía, Tropa
 - **Área(s) de Desarrollo:** Corporalidad, Sociabilidad
-- **Justificación:** Esta carrera de relevos y destreza física exige que los participantes corran con carga, coordinen movimientos rápidos para abrir la maleta y se vistan con prendas holgadas antes de correr (Corporalidad). Asimismo, promueve la diversión grupal cooperativa, la sana competencia y el apego honesto al reglamento del relevo y orden de llegada (Sociabilidad).
+- **Justificación:** Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.
 
 #### 🎯 Objetivos Educativos/Terminales Seleccionados de la Base de Datos:
+1. **Corporalidad - Unidad: Manada (Infancia Media)** (ID: `36d989b6-30dd-434a-874a-70a993ed0bec`)
+   - **Objetivo:** *«Conozco las principales enfermedades que me pueden dar y por qué.»*
+   - *¿Cómo se cumple en la actividad?* **Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Carrera de Maletas Con Carga.**
 
-1. **Corporalidad - Unidad: Manada (Infancia Media)** (ID: `a0c0e5c9-aba9-43be-8ce2-53bc4ede06b5`)
-   - **Objetivo:** *«Me gusta practicar deportes.»*
-   - *¿Cómo se cumple en la actividad?* **Corriendo** con entusiasmo en su turno de carrera llevando el bolso/maleta de la seisena.
+2. **Corporalidad - Unidad: Manada (Infancia Tardía)** (ID: `6467298d-fe2b-4920-9b9a-e3524e4b2aef`)
+   - **Objetivo:** *«Sé en qué lugar de mi cuerpo están ubicados los órganos más importantes.»*
+   - *¿Cómo se cumple en la actividad?* **Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Carrera de Maletas Con Carga.**
 
-2. **Corporalidad - Unidad: Manada (Infancia Tardía)** (ID: `309c6121-94fc-43a2-b0fb-f6a975f78962`)
-   - **Objetivo:** *«Practico deportes, conozco sus reglas y sé perder.»*
-   - *¿Cómo se cumple en la actividad?* **Corriendo** con la maleta a paso rápido y abriéndola de forma veloz para no perder tiempo de carrera.
+3. **Corporalidad - Unidad: Compañía (11 a 13 años)** (ID: `705b686a-8374-467a-b871-f6470f0d58ae`)
+   - **Objetivo:** *«Me doy cuenta de los cambios que se están produciendo en mi cuerpo.»*
+   - *¿Cómo se cumple en la actividad?* **Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Maletas Con Carga.**
 
-3. **Corporalidad - Unidad: Compañía (11 a 13 años)** (ID: `1427451e-b8b3-493b-8525-e53298381e07`)
-   - **Objetivo:** *«Conozco y practico diferentes juegos y respeto sus reglas.»*
-   - *¿Cómo se cumple en la actividad?* **Trasladando** la maleta de forma coordinada, pasándola ordenadamente a su compañera en la línea de relevo.
+4. **Corporalidad - Unidad: Compañía (13 a 15 años)** (ID: `57887da4-c70e-45bc-bdfb-f79db513a89c`)
+   - **Objetivo:** *«Sé qué hacer frente a una enfermedad o accidente.»*
+   - *¿Cómo se cumple en la actividad?* **Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Maletas Con Carga.**
 
-4. **Corporalidad - Unidad: Tropa (11 a 13 años)** (ID: `0765469b-caef-4457-9d6b-cb739c855402`)
-   - **Objetivo:** *«Conozco y practico diferentes juegos y respeto sus reglas.»*
-   - *¿Cómo se cumple en la actividad?* **Trasladando** la maleta de forma coordinada, pasándola ordenadamente a su compañero en la línea de relevo.
+5. **Corporalidad - Unidad: Tropa (11 a 13 años)** (ID: `8cae916f-5e67-4697-b3cd-c59b5c7d1439`)
+   - **Objetivo:** *«Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.»*
+   - *¿Cómo se cumple en la actividad?* **Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Maletas Con Carga.**
 
-5. **Corporalidad - Unidad: Compañía (13 a 15 años)** (ID: `b12da732-d736-480c-82b8-95b312316390`)
-   - **Objetivo:** *«Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sé ganar y perder.»*
-   - *¿Cómo se cumple en la actividad?* **Esforzándose** por optimizar el tiempo de carrera de patrulla, asumiendo con deportividad la victoria o derrota.
-
-6. **Corporalidad - Unidad: Tropa (13 a 15 años)** (ID: `08369c53-2c02-4e9c-8bb5-f949cd092c98`)
-   - **Objetivo:** *«Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sé ganar y perder.»*
-   - *¿Cómo se cumple en la actividad?* **Esforzándose** por optimizar el tiempo de carrera de patrulla, asumiendo con deportividad la victoria o derrota.
+6. **Corporalidad - Unidad: Tropa (13 a 15 años)** (ID: `68add558-4b03-4105-b00d-e7f2ead6ac23`)
+   - **Objetivo:** *«Sé qué hacer frente a una enfermedad o accidente.»*
+   - *¿Cómo se cumple en la actividad?* **Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Maletas Con Carga.**
 
 7. **Sociabilidad - Unidad: Manada (Infancia Media)** (ID: `b69188bf-2391-43c1-a885-abd1b13912be`)
    - **Objetivo:** *«Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.»*
-   - *¿Cómo se cumple en la actividad?* **Respetando** la regla de vestir todas las prendas asignadas antes de retomar la carrera hacia la meta.
+   - *¿Cómo se cumple en la actividad?* **Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Carrera de Maletas Con Carga.**
 
 8. **Sociabilidad - Unidad: Manada (Infancia Tardía)** (ID: `2394dd5b-87b9-4f3d-9cdd-a42649139782`)
    - **Objetivo:** *«Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre esté de acuerdo con ellas»*
-   - *¿Cómo se cumple en la actividad?* **Respetando** el turno de largada y cooperando con el orden de las ropas en la maleta al finalizar.
+   - *¿Cómo se cumple en la actividad?* **Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Carrera de Maletas Con Carga.**
 
-9. **Sociabilidad - Unidad: Compañía (11 a 13 años)** (ID: `78f8cd16-ebf9-4a01-9efe-6cdfd7d307fd`)
-   - **Objetivo:** *«Digo mi opinión cuando establecemos normas en mi patrulla, amigas o en mi escuela.»*
-   - *¿Cómo se cumple en la actividad?* **Opinando** para acordar con su equipo cómo empacar eficientemente las ropas en la maleta.
+9. **Sociabilidad - Unidad: Compañía (11 a 13 años)** (ID: `007e85ea-2b06-48c2-8ac1-873d59643aae`)
+   - **Objetivo:** *«Conozco y respeto las principales normas de convivencia.»*
+   - *¿Cómo se cumple en la actividad?* **Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Maletas Con Carga.**
 
-10. **Sociabilidad - Unidad: Tropa (11 a 13 años)** (ID: `06ed2700-c963-4f13-a86a-2815b3a1530a`)
-    - **Objetivo:** *«Digo mi opinión cuando establecemos normas en mi patrulla, amigos o en mi escuela.»*
-    - *¿Cómo se cumple en la actividad?* **Opinando** para acordar con su equipo cómo empacar eficientemente las ropas en la maleta.
+10. **Sociabilidad - Unidad: Compañía (13 a 15 años)** (ID: `de2f5693-de4b-48f1-b870-3c62be99aea8`)
+   - **Objetivo:** *«Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre esté de acuerdo con ellas.»*
+   - *¿Cómo se cumple en la actividad?* **Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Maletas Con Carga.**
 
-11. **Sociabilidad - Unidad: Compañía (13 a 15 años)** (ID: `e2770a37-9927-47ed-a4d6-bae9feaf691c`)
-    - **Objetivo:** *«Opino sobre lo que me gusta o no de las normas de los distintos ambientes en que actúo.»*
-    - *¿Cómo se cumple en la actividad?* **Velando** por el cuidado y la integridad física de los competidores al cruzarse en la zona de vestir.
+11. **Sociabilidad - Unidad: Tropa (11 a 13 años)** (ID: `857f21bc-db3c-4e5e-bcd5-d3d331276fad`)
+   - **Objetivo:** *«Conozco y respeto las principales normas de convivencia.»*
+   - *¿Cómo se cumple en la actividad?* **Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Maletas Con Carga.**
 
-12. **Sociabilidad - Unidad: Tropa (13 a 15 años)** (ID: `a594a460-1ab9-4c09-b01a-c2555163e86e`)
-    - **Objetivo:** *«Opino sobre lo que me gusta o no de las normas de los distintos ambientes en que actúo.»*
-    - *¿Cómo se cumple en la actividad?* **Velando** por el cuidado y la integridad física de los competidores al cruzarse en la zona de vestir.
+12. **Sociabilidad - Unidad: Tropa (13 a 15 años)** (ID: `bbc48d53-f4aa-4de7-84d4-95614df76034`)
+   - **Objetivo:** *«Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre esté de acuerdo con ellas.»*
+   - *¿Cómo se cumple en la actividad?* **Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Maletas Con Carga.**

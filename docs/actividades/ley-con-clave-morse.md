@@ -1,55 +1,54 @@
-### 📋 Evaluación de Actividad: Ley con Clave Morse
+### 📋 Evaluación de Actividad: Ley con clave morse
 
 - **Unidad(es) Recomendada(s):** Compañía, Tropa
 - **Área(s) de Desarrollo:** Afectividad, Creatividad, Sociabilidad
-- **Justificación:** Esta dinámica de descifrado técnico estimula el razonamiento lógico y el aprendizaje de la criptografía y los códigos scouts de transmisión de mensajes (Creatividad). Asimismo, el guiado a ciegas de los miembros del equipo hacia los mensajes promueve la confianza mutua, la seguridad emocional y el autocontrol frente al temor de avanzar sin ver (Afectividad), todo enmarcado en el cumplimiento estricto del reglamento de juego y la convivencia grupal (Sociabilidad).
+- **Justificación:** Promueve el ingenio práctico, la agilidad mental y la resolución de problemas técnicos o enigmas. Desarrolla el autoconocimiento, la confianza grupal y la empatía en las interacciones del juego. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.
 
 #### 🎯 Objetivos Educativos/Terminales Seleccionados de la Base de Datos:
+1. **Afectividad - Unidad: Compañía (11 a 13 años)** (ID: `2f8359db-221e-4a64-b2df-2b3e7b74a2db`)
+   - **Objetivo:** *«Escucho las opiniones de las demás personas y si no estoy de acuerdo lo digo con respeto.»*
+   - *¿Cómo se cumple en la actividad?* **Practicando la empatía y la asertividad en las relaciones interpersonales de patrulla en Ley con clave morse.**
 
-1. **Creatividad - Unidad: Compañía (11 a 13 años)** (ID: `d531dd19-4d49-4342-8114-184de017ac49`)
-   - **Objetivo:** *«Conozco diferentes técnicas de comunicación y sé utilizar algunas de ellas.»*
-   - *¿Cómo se cumple en la actividad?* **Decodificando** y traduciendo de manera práctica mensajes escritos en código morse con su patrulla.
+2. **Afectividad - Unidad: Compañía (13 a 15 años)** (ID: `3621f4ae-1316-4b3e-8682-3e3c9ad381a7`)
+   - **Objetivo:** *«Mantengo mi opinión cuando estoy convencida que es correcta.»*
+   - *¿Cómo se cumple en la actividad?* **Practicando la empatía y la asertividad en las relaciones interpersonales de patrulla en Ley con clave morse.**
 
-2. **Creatividad - Unidad: Tropa (11 a 13 años)** (ID: `0b23d4c8-6e40-4e8e-a476-97ed92efa152`)
-   - **Objetivo:** *«Conozco diferentes técnicas de comunicación y sé utilizar algunos de ellos.»*
-   - *¿Cómo se cumple en la actividad?* **Decodificando** y traduciendo de manera práctica mensajes escritos en código morse con su patrulla.
+3. **Afectividad - Unidad: Tropa (11 a 13 años)** (ID: `a4060c60-7ce9-425b-bf2a-76941a689937`)
+   - **Objetivo:** *«Escucho las opiniones de los demás personas y si no estoy de acuerdo lo digo con respeto.»*
+   - *¿Cómo se cumple en la actividad?* **Practicando la empatía y la asertividad en las relaciones interpersonales de patrulla en Ley con clave morse.**
 
-3. **Creatividad - Unidad: Compañía (13 a 15 años)** (ID: `d20cab83-3c15-4bb0-8435-a790e72b6d50`)
-   - **Objetivo:** *«Conozco cómo funcionan los servicios que uso habitualmente, como el teléfono, la electricidad, la radio, la televisión y otros.»*
-   - *¿Cómo se cumple en la actividad?* **Asociando** la clave morse con el desarrollo histórico de las telecomunicaciones y la telegrafía.
+4. **Afectividad - Unidad: Tropa (13 a 15 años)** (ID: `4ade9c82-6b0d-4a44-8bc6-2eb47a011ffb`)
+   - **Objetivo:** *«Digo lo que pienso con respeto hacia los demás personas.»*
+   - *¿Cómo se cumple en la actividad?* **Practicando la empatía y la asertividad en las relaciones interpersonales de patrulla en Ley con clave morse.**
 
-4. **Creatividad - Unidad: Tropa (13 a 15 años)** (ID: `27bc66a0-bfba-4e22-9b3e-d1d4fa6112b4`)
-   - **Objetivo:** *«Conozco cómo funcionan los servicios que uso habitualmente, como el teléfono, la electricidad, la radio, la televisión y otros.»*
-   - *¿Cómo se cumple en la actividad?* **Asociando** la clave morse con el desarrollo histórico de las telecomunicaciones y la telegrafía.
+5. **Creatividad - Unidad: Compañía (11 a 13 años)** (ID: `e1b7276f-4fd2-4c39-a32a-bd7fadbee702`)
+   - **Objetivo:** *«Doy mi opinión sobre las cosas que me pasan.»*
+   - *¿Cómo se cumple en la actividad?* **Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Ley con clave morse.**
 
-5. **Afectividad - Unidad: Compañía (11 a 13 años)** (ID: `818d8a25-549b-4e01-a830-e50d73e39025`)
-   - **Objetivo:** *«Me doy cuenta y puedo hablar de las cosas que me atemorizan.»*
-   - *¿Cómo se cumple en la actividad?* **Superando** la inseguridad y el temor de caminar con los ojos vendados confiando en las instrucciones de sus compañeras.
+6. **Creatividad - Unidad: Compañía (13 a 15 años)** (ID: `9f30f035-9179-4ac4-acfb-bea0e169e97a`)
+   - **Objetivo:** *«Propongo temas para discutir en mi patrulla.»*
+   - *¿Cómo se cumple en la actividad?* **Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Ley con clave morse.**
 
-6. **Afectividad - Unidad: Tropa (11 a 13 años)** (ID: `03ccaf4c-03c4-42a8-b311-47fef60f204c`)
-   - **Objetivo:** *«Me doy cuenta y puedo hablar de las cosas que me atemorizan.»*
-   - *¿Cómo se cumple en la actividad?* **Superando** la inseguridad y el temor de caminar con los ojos vendados confiando en las instrucciones de sus compañeros.
+7. **Creatividad - Unidad: Tropa (11 a 13 años)** (ID: `49ae6ac6-be8f-4f2c-8b3e-6711d041181f`)
+   - **Objetivo:** *«Doy mi opinión sobre las cosas que me pasan.»*
+   - *¿Cómo se cumple en la actividad?* **Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Ley con clave morse.**
 
-7. **Afectividad - Unidad: Compañía (13 a 15 años)** (ID: `67a2f0fa-9b1e-4b7b-bda2-e25696c87898`)
-   - **Objetivo:** *«Trato de dominar mis reacciones, aún en situaciones difíciles o inesperadas.»*
-   - *¿Cómo se cumple en la actividad?* **Manteniendo** la calma y el autocontrol mientras es guiado a viva voz a través de los obstáculos del terreno.
+8. **Creatividad - Unidad: Tropa (13 a 15 años)** (ID: `cf530cf9-73a6-4423-a075-79be433fe96c`)
+   - **Objetivo:** *«Propongo temas para discutir en mi patrulla.»*
+   - *¿Cómo se cumple en la actividad?* **Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Ley con clave morse.**
 
-8. **Afectividad - Unidad: Tropa (13 a 15 años)** (ID: `74e6c7e0-f9f6-47d3-acdb-d6df315ef123`)
-   - **Objetivo:** *«Trato de dominar mis reacciones, aún en situaciones difíciles o inesperadas.»*
-   - *¿Cómo se cumple en la actividad?* **Manteniendo** la calma y el autocontrol mientras es guiado a viva voz a través de los obstáculos del terreno.
+9. **Sociabilidad - Unidad: Compañía (11 a 13 años)** (ID: `007e85ea-2b06-48c2-8ac1-873d59643aae`)
+   - **Objetivo:** *«Conozco y respeto las principales normas de convivencia.»*
+   - *¿Cómo se cumple en la actividad?* **Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Ley con clave morse.**
 
-9. **Sociabilidad - Unidad: Compañía (11 a 13 años)** (ID: `78f8cd16-ebf9-4a01-9efe-6cdfd7d307fd`)
-   - **Objetivo:** *«Digo mi opinión cuando establecemos normas en mi patrulla, amigas o en mi escuela.»*
-   - *¿Cómo se cumple en la actividad?* **Estableciendo** códigos y acuerdos de guiado sonoro eficaces dentro de la patrulla antes de iniciar el juego.
+10. **Sociabilidad - Unidad: Compañía (13 a 15 años)** (ID: `de2f5693-de4b-48f1-b870-3c62be99aea8`)
+   - **Objetivo:** *«Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre esté de acuerdo con ellas.»*
+   - *¿Cómo se cumple en la actividad?* **Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Ley con clave morse.**
 
-10. **Sociabilidad - Unidad: Tropa (11 a 13 años)** (ID: `06ed2700-c963-4f13-a86a-2815b3a1530a`)
-    - **Objetivo:** *«Digo mi opinión cuando establecemos normas en mi patrulla, amigos o en mi escuela.»*
-    - *¿Cómo se cumple en la actividad?* **Estableciendo** códigos y acuerdos de guiado sonoro eficaces dentro de la patrulla antes de iniciar el juego.
+11. **Sociabilidad - Unidad: Tropa (11 a 13 años)** (ID: `857f21bc-db3c-4e5e-bcd5-d3d331276fad`)
+   - **Objetivo:** *«Conozco y respeto las principales normas de convivencia.»*
+   - *¿Cómo se cumple en la actividad?* **Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Ley con clave morse.**
 
-11. **Sociabilidad - Unidad: Compañía (13 a 15 años)** (ID: `e2770a37-9927-47ed-a4d6-bae9feaf691c`)
-    - **Objetivo:** *«Opino sobre lo que me gusta o no de las normas de los distintos ambientes en que actúo.»*
-    - *¿Cómo se cumple en la actividad?* **Cumpliendo** honestamente las restricciones de juego (no quitarse la venda y usar sólo señales permitidas) para resguardar la equidad.
-
-12. **Sociabilidad - Unidad: Tropa (13 a 15 años)** (ID: `a594a460-1ab9-4c09-b01a-c2555163e86e`)
-    - **Objetivo:** *«Opino sobre lo que me gusta o no de las normas de los distintos ambientes en que actúo.»*
-    - *¿Cómo se cumple en la actividad?* **Cumpliendo** honestamente las restricciones de juego (no quitarse la venda y usar sólo señales permitidas) para resguardar la equidad.
+12. **Sociabilidad - Unidad: Tropa (13 a 15 años)** (ID: `bbc48d53-f4aa-4de7-84d4-95614df76034`)
+   - **Objetivo:** *«Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre esté de acuerdo con ellas.»*
+   - *¿Cómo se cumple en la actividad?* **Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Ley con clave morse.**

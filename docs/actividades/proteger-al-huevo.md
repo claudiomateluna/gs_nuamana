@@ -1,55 +1,54 @@
-### 📋 Evaluación de Actividad: Proteger al Huevo
+### 📋 Evaluación de Actividad: Proteger al huevo
 
 - **Unidad(es) Recomendada(s):** Compañía, Tropa, Avanzada, Clan
 - **Área(s) de Desarrollo:** Creatividad, Sociabilidad
-- **Justificación:** Esta dinámica de diseño e ingeniería básica reta a los participantes a aplicar sus destrezas manuales para construir una estructura amortiguadora estable utilizando materiales cotidianos simples (Creatividad). Del mismo modo, promueve la distribución equitativa de roles y el cumplimiento responsable de las tareas y compromisos grupales acordados en el equipo para lograr el éxito común del proyecto (Sociabilidad).
+- **Justificación:** Promueve el ingenio práctico, la agilidad mental y la resolución de problemas técnicos o enigmas. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.
 
 #### 🎯 Objetivos Educativos/Terminales Seleccionados de la Base de Datos:
+1. **Creatividad - Unidad: Compañía (11 a 13 años)** (ID: `e1b7276f-4fd2-4c39-a32a-bd7fadbee702`)
+   - **Objetivo:** *«Doy mi opinión sobre las cosas que me pasan.»*
+   - *¿Cómo se cumple en la actividad?* **Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Proteger al huevo.**
 
-1. **Creatividad - Unidad: Compañía (11 a 13 años)** (ID: `103661fc-3396-4eac-9182-58b7e54d5115`)
-   - **Objetivo:** *«Perfecciono mis habilidades manuales.»*
-   - *¿Cómo se cumple en la actividad?* **Ensamblando** con cuidado las bombillas, papeles y cintas para armar el escudo protector del huevo.
+2. **Creatividad - Unidad: Compañía (13 a 15 años)** (ID: `9f30f035-9179-4ac4-acfb-bea0e169e97a`)
+   - **Objetivo:** *«Propongo temas para discutir en mi patrulla.»*
+   - *¿Cómo se cumple en la actividad?* **Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Proteger al huevo.**
 
-2. **Creatividad - Unidad: Tropa (11 a 13 años)** (ID: `11320fb6-98de-4725-825d-db858e3bffa2`)
-   - **Objetivo:** *«Perfecciono mis habilidades manuales.»*
-   - *¿Cómo se cumple en la actividad?* **Ensamblando** con cuidado las bombillas, papeles y cintas para armar el escudo protector del huevo.
+3. **Creatividad - Unidad: Tropa (11 a 13 años)** (ID: `49ae6ac6-be8f-4f2c-8b3e-6711d041181f`)
+   - **Objetivo:** *«Doy mi opinión sobre las cosas que me pasan.»*
+   - *¿Cómo se cumple en la actividad?* **Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Proteger al huevo.**
 
-3. **Creatividad - Unidad: Compañía (13 a 15 años)** (ID: `0f60be94-6de3-4c34-a6ff-5b5018f0b156`)
-   - **Objetivo:** *«Coopero en la mantención y renovación del local y materiales de mi patrulla.»*
-   - *¿Cómo se cumple en la actividad?* **Cuidando** y optimizando el uso de los materiales asignados para evitar el desperdicio durante la construcción.
+4. **Creatividad - Unidad: Tropa (13 a 15 años)** (ID: `cf530cf9-73a6-4423-a075-79be433fe96c`)
+   - **Objetivo:** *«Propongo temas para discutir en mi patrulla.»*
+   - *¿Cómo se cumple en la actividad?* **Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Proteger al huevo.**
 
-4. **Creatividad - Unidad: Tropa (13 a 15 años)** (ID: `fd3d3e14-e92b-4ab5-8298-9018c6e70b20`)
-   - **Objetivo:** *«Coopero en la mantención y renovación del local y materiales de mi patrulla.»*
-   - *¿Cómo se cumple en la actividad?* **Cuidando** y optimizando el uso de los materiales asignados para evitar el desperdicio durante la construcción.
+5. **Creatividad - Unidad: Avanzada (15 a 17 años)** (ID: `3cdf4b56-b55f-4878-b3fa-da32a7200ca4`)
+   - **Objetivo:** *«Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.»*
+   - *¿Cómo se cumple en la actividad?* **Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Proteger al huevo.**
 
-5. **Creatividad - Unidad: Avanzada (15 a 17 años)** (ID: `843fda9c-6c4a-4516-b30c-23c92ef755a8`)
-   - **Objetivo:** *«Puedo resolver la mayoría de los problemas técnicos domésticos simples.»*
-   - *¿Cómo se cumple en la actividad?* **Ideando** soluciones físicas de amortiguación frente al impacto de la gravedad usando la creatividad práctica.
+6. **Creatividad - Unidad: Clan (17 a 20 años)** (ID: `ef75fbed-4a6d-49ea-bfab-f2952415e1a0`)
+   - **Objetivo:** *«Actúa con agilidad mental ante las situaciones más diversas, desarrollando su capacidad de pensar, innovar y aventurar.»*
+   - *¿Cómo se cumple en la actividad?* **Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Proteger al huevo.**
 
-6. **Creatividad - Unidad: Clan (17 a 20 años)** (ID: `29eee8b1-a414-4df9-90e1-520a384fb9aa`)
-   - **Objetivo:** *«Uno los conocimientos teórico y práctico mediante la aplicación constante de mis habilidades técnicas y manuales.»*
-   - *¿Cómo se cumple en la actividad?* **Integrando** conocimientos físicos sobre impacto y resistencia de materiales en el diseño estructural final.
+7. **Sociabilidad - Unidad: Compañía (11 a 13 años)** (ID: `007e85ea-2b06-48c2-8ac1-873d59643aae`)
+   - **Objetivo:** *«Conozco y respeto las principales normas de convivencia.»*
+   - *¿Cómo se cumple en la actividad?* **Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Proteger al huevo.**
 
-7. **Sociabilidad - Unidad: Compañía (11 a 13 años)** (ID: `9478b46f-6f74-4a7e-bf9c-d66caaba1381`)
-   - **Objetivo:** *«Cumplo los compromisos que asumo.»*
-   - *¿Cómo se cumple en la actividad?* **Asumiendo** con responsabilidad la tarea específica asignada por la patrulla (medición, corte o ensamblado).
+8. **Sociabilidad - Unidad: Compañía (13 a 15 años)** (ID: `de2f5693-de4b-48f1-b870-3c62be99aea8`)
+   - **Objetivo:** *«Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre esté de acuerdo con ellas.»*
+   - *¿Cómo se cumple en la actividad?* **Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Proteger al huevo.**
 
-8. **Sociabilidad - Unidad: Tropa (11 a 13 años)** (ID: `5ff08326-49d9-4f83-8ffd-9b4b83425a95`)
-   - **Objetivo:** *«Cumplo los compromisos que asumo.»*
-   - *¿Cómo se cumple en la actividad?* **Asumiendo** con responsabilidad la tarea específica asignada por la patrulla (medición, corte o ensamblado).
+9. **Sociabilidad - Unidad: Tropa (11 a 13 años)** (ID: `857f21bc-db3c-4e5e-bcd5-d3d331276fad`)
+   - **Objetivo:** *«Conozco y respeto las principales normas de convivencia.»*
+   - *¿Cómo se cumple en la actividad?* **Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Proteger al huevo.**
 
-9. **Sociabilidad - Unidad: Compañía (13 a 15 años)** (ID: `8bb5d75e-3033-4f5a-a1a5-d2f09b50ce25`)
-   - **Objetivo:** *«Ayudo a mi patrulla en los compromisos que tomamos.»*
-   - *¿Cómo se cumple en la actividad?* **Apoyando** activamente la ejecución del diseño acordado colectivamente, respetando el consenso general.
+10. **Sociabilidad - Unidad: Tropa (13 a 15 años)** (ID: `bbc48d53-f4aa-4de7-84d4-95614df76034`)
+   - **Objetivo:** *«Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre esté de acuerdo con ellas.»*
+   - *¿Cómo se cumple en la actividad?* **Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Proteger al huevo.**
 
-10. **Sociabilidad - Unidad: Tropa (13 a 15 años)** (ID: `0d3af46a-d64c-4e59-a765-1f72dc41ba76`)
-    - **Objetivo:** *«Ayudo a mi patrulla en los compromisos que tomamos.»*
-    - *¿Cómo se cumple en la actividad?* **Apoyando** activamente la ejecución del diseño acordado colectivamente, respetando el consenso general.
+11. **Sociabilidad - Unidad: Avanzada (15 a 17 años)** (ID: `f1496221-0da5-4775-b3ba-29e65603cfee`)
+   - **Objetivo:** *«Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.»*
+   - *¿Cómo se cumple en la actividad?* **Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Proteger al huevo.**
 
-11. **Sociabilidad - Unidad: Avanzada (15 a 17 años)** (ID: `5abfbe81-75e4-4444-b52d-38e59e8b6ec7`)
-    - **Objetivo:** *«Estoy siempre disponible para ayudar a los demás, incluso cuando se trata de tareas pesadas o poco agradables.»*
-    - *¿Cómo se cumple en la actividad?* **Colaborando** con la posterior limpieza y recolección de los residuos de huevos rotos sin quejas ni protestas.
-
-12. **Sociabilidad - Unidad: Clan (17 a 20 años)** (ID: `b5a81328-5c07-41bd-a1ea-1ed401762841`)
-    - **Objetivo:** *«Vivo mi libertad de un modo solidario, ejerciendo mis derechos, cumpliendo mis obligaciones y defendiendo igual derecho para los demás.»*
-    - *¿Cómo se cumple en la actividad?* **Asegurando** que todos los miembros del Clan expongan libremente sus ideas de diseño antes de iniciar la construcción.
+12. **Sociabilidad - Unidad: Clan (17 a 20 años)** (ID: `b5954f1c-4d0d-4bdb-97d8-821583beb77e`)
+   - **Objetivo:** *«Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.»*
+   - *¿Cómo se cumple en la actividad?* **Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Proteger al huevo.**
