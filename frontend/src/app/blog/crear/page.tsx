@@ -44,6 +44,13 @@ export default function CrearArticuloPage() {
   const [selectedObjsEd, setSelectedObjsEd] = useState<any[]>([])
   const [searchObj, setSearchObj] = useState('')
   const [fetchingObjs, setFetchingObjs] = useState(false)
+  const [descargas, setDescargas] = useState<{ nombre: string; url: string }[]>([])
+
+  const addDescarga = () => setDescargas([...descargas, { nombre: '', url: '' }])
+  const removeDescarga = (index: number) => setDescargas(descargas.filter((_, i) => i !== index))
+  const handleDescargaChange = (index: number, field: 'nombre' | 'url', value: string) => {
+    setDescargas(descargas.map((d, i) => i === index ? { ...d, [field]: value } : d))
+  }
   
   const { register, handleSubmit, watch, setValue, getValues } = useForm({
     defaultValues: {
@@ -244,6 +251,7 @@ export default function CrearArticuloPage() {
         ...metas, 
         objetivos: finalObjetivos, 
         materiales: finalMateriales,
+        descargas: descargas.filter(d => d.nombre.trim() && d.url.trim()),
         objetivos_educativos: selectedObjsEd.map(o => ({ 
           id: o.id, 
           texto: o.texto_infantil, 
@@ -533,6 +541,59 @@ export default function CrearArticuloPage() {
               )}
 
               <SunEditor setContents={contenido} onChange={(val) => setValue('contenido', val, { shouldDirty: true })} setOptions={{ height: '600', buttonList: [['undo', 'redo'], ['formatBlock', 'font', 'fontSize'], ['bold', 'underline', 'italic', 'strike'], ['fontColor', 'hiliteColor'], ['outdent', 'indent'], ['align', 'list', 'lineHeight'], ['table', 'link', 'image'], ['fullScreen', 'codeView'], ['preview']], defaultStyle: "font-family: var(--font-body); font-size: 1.1rem; line-height: 2;" }} />
+
+              <div className="p-6 bg-zinc-50 dark:bg-black/20 rounded-[1.5rem] border border-zinc-200 dark:border-clr4 space-y-4">
+                <div className="flex justify-between items-center">
+                  <h3 className="text-lg font-display font-bold text-clr5 dark:text-white uppercase my-0 flex items-center gap-2">📥 Documentos Adjuntos / Descargas</h3>
+                  <button
+                    type="button"
+                    onClick={addDescarga}
+                    className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[0.8em] rounded-xl shadow-md transition-all uppercase"
+                  >
+                    + Agregar Descarga
+                  </button>
+                </div>
+                {descargas.length === 0 ? (
+                  <p className="text-[0.9em] text-zinc-400 font-bold italic uppercase">No hay archivos adjuntos para descargar en este artículo.</p>
+                ) : (
+                  <div className="space-y-3">
+                    {descargas.map((d, idx) => (
+                      <div key={idx} className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-4 bg-white dark:bg-black/40 rounded-2xl border border-zinc-100 dark:border-zinc-800 relative">
+                        <button
+                          type="button"
+                          onClick={() => removeDescarga(idx)}
+                          className="absolute right-3 top-3 text-red-500 hover:text-red-700 font-bold text-sm"
+                          title="Quitar descarga"
+                        >
+                          ✕
+                        </button>
+                        <div className="space-y-1">
+                          <label className="text-[0.8em] font-black uppercase opacity-60 block font-bold">Nombre del Documento</label>
+                          <input
+                            type="text"
+                            value={d.nombre}
+                            onChange={(e) => handleDescargaChange(idx, 'nombre', e.target.value)}
+                            placeholder="Ej: Reglamento del juego, Póliza de seguro..."
+                            className="w-full p-3 rounded-xl border text-sm bg-zinc-50 dark:bg-zinc-900/60 font-bold"
+                            required
+                          />
+                        </div>
+                        <div className="space-y-1">
+                          <label className="text-[0.8em] font-black uppercase opacity-60 block font-bold">URL del Archivo / Documento</label>
+                          <input
+                            type="text"
+                            value={d.url}
+                            onChange={(e) => handleDescargaChange(idx, 'url', e.target.value)}
+                            placeholder="Ej: https://raw.githubusercontent.com/...pdf"
+                            className="w-full p-3 rounded-xl border text-sm bg-zinc-50 dark:bg-zinc-900/60 font-bold"
+                            required
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
 
             <div className="space-y-4">

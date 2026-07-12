@@ -409,6 +409,36 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
             {metadata.variaciones && <div className="p-10 bg-clr9 dark:bg-zinc-900 rounded-[2.5rem] border-l-[12px] border-clr7 shadow-sm"><div className="flex items-center gap-3 mb-4"><Icon url={ICON_URLS.variacion} className="w-8 h-8" /><h3 className="text-2xl font-display font-bold text-clr7 uppercase my-0">Variaciones</h3></div><div className="italic opacity-90 blog-content">{metadata.variaciones}</div></div>}
             {metadata.recomendaciones && <div className="p-10 bg-blue-50 dark:bg-blue-900/20 rounded-[2.5rem] border-l-[12px] border-blue-600 shadow-sm"><div className="flex items-center gap-3 mb-4"><Icon url={ICON_URLS.recomendacion} className="w-8 h-8" /><h3 className="text-2xl font-display font-bold text-blue-600 uppercase my-0">Recomendaciones</h3></div><div className="blog-content">{metadata.recomendaciones}</div></div>}
             
+            {metadata.descargas && metadata.descargas.length > 0 && (
+              <div className="p-10 bg-zinc-50 dark:bg-zinc-900/40 rounded-[2.5rem] border-l-[12px] border-emerald-600 shadow-sm">
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="text-3xl">📥</span>
+                  <h3 className="text-2xl font-display font-bold text-emerald-600 uppercase my-0">Material Descargable</h3>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {metadata.descargas.map((d: any, idx: number) => (
+                    <a
+                      key={idx}
+                      href={d.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-4 p-4 bg-white dark:bg-black/45 hover:bg-emerald-50/50 dark:hover:bg-emerald-950/25 border border-zinc-200 dark:border-zinc-800 hover:border-emerald-500 rounded-2xl transition-all shadow-sm group"
+                    >
+                      <div className="p-3 bg-emerald-100 dark:bg-emerald-950 rounded-xl text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform">
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                      </div>
+                      <div className="flex flex-col min-w-0">
+                        <span className="font-bold text-[1em] text-zinc-800 dark:text-dclr2 truncate group-hover:text-emerald-600 transition-colors">{d.nombre}</span>
+                        <span className="text-[0.8em] text-zinc-400 dark:text-zinc-500 uppercase tracking-wider font-display font-bold">Descargar Archivo</span>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+            
             {/* SECCIÓN DE RESEÑAS SCOUTS */}
             {articulo.articulo_resenas && articulo.articulo_resenas.length > 0 && (
               <div className="p-2 bg-zinc-50 dark:bg-black/20 rounded-[2rem] border-2 border-zinc-100 dark:border-clr4 shadow-sm">
