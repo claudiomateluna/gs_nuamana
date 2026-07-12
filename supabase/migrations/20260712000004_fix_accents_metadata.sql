@@ -1,0 +1,4523 @@
+-- Migration to fix character encoding corruption in metadata JSON fields and text
+
+UPDATE public.articulos SET titulo = 'Carrera de Jarras', contenido = '<p>La carrera de jarras es una actividad con un alto componente físico, enfocada en el desgaste de energías y la cooperación al interior del equipo, que busca el <a href="https://nuamana.com/nuanew/objetivos-actividad/aumentar-el-conocimiento-de-las-limitantes-fisicas/" target="_blank" rel="noreferrer noopener">conocimiento de las limitaciones físicas</a> y el desarrollo del criterio.</p>
+
+
+
+
+
+
+
+<p>La carrera de jarras se desarrolla en equipos de tres participantes, los cuales pueden rotar en caso de existir más participantes en una suerte de relevos al interior de los grupos.</p>
+
+
+
+
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace la Carrera de Jarras?</h3>
+
+
+
+
+
+
+
+<p>Se separan los participantes en grupos de tres, y se determina el área de juego con un punto de salida y una meta.</p>
+
+
+
+
+
+
+
+<p>Al interior de cada grupo uno de los participantes (el más liviano de los tres) será la "<a href="https://es.wikipedia.org/wiki/Botijo" target="_blank" rel="noreferrer noopener">jarra</a>" se sienta en el suelo con las piernas firmemente cruzadas entre sí y cruza los brazos, los brazos serán las "orejas de la jarra".</p>
+
+
+
+
+
+
+
+<p>Las o los otros dos participantes deberán tomar a la "<a href="https://es.wikipedia.org/wiki/Botijo" target="_blank" rel="noreferrer noopener">jarra</a>" uno de cada brazo y levantarlo para trasladarlo desde el punto de inicio a la meta.</p>
+
+
+
+
+
+
+
+<p>A la señal, los participantes de los lados toman la "jarra", la levantan y corren a la meta, en caso de que bajen el participante pueden volver a levantarlo y continuar hacia la meta.</p>
+
+
+
+
+
+
+
+', extracto = 'La carrera de jarras es una actividad con un alto componente físico, enfocada en el desgaste de energías y la cooperación al interior del equipo, que busca el...', metadata = '{"areas": ["carácter", "corporalidad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "06 participantes", "duracion": "15 minutos", "unidades": ["avanzada", "compañía", "tropa"], "objetivos": ["Aumentar el conocimiento de las limitantes físicas", "Conocer las capacidades corporales", "Crear un ambiente de distensión", "Fomentar el desarrollo del criterio"], "materiales": ["Sin Materiales"], "variaciones": "Si no el traslado de un participante como \"jarra\" se hace complejo y hay buen clima, se puede utilizar un recipiente con agua y sin tapa para reemplazar a la \"jarra\".", "recomendaciones": "Procure evitar que los equipos hagan un exceso de fuerza, y genere equipos equilibrados en fuerzas y peso.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Ayuda a consolidar los valores scouts de honestidad, lealtad y fair play en la competencia. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_carreraDeJarras.png", "objetivos_educativos": [{"id": "1d9d6751-4ab1-45db-9999-3f18606b4909", "area": "Carácter", "texto": "Soy fiel a la palabra dada.", "unidad": "Avanzada", "como_se_cumple": "Actuando consecuentemente con sus principios y valores individuales en cada decisión y rol de Carrera de Jarras."}, {"id": "075c93b1-81d2-4370-8e47-f0a4d086b20e", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Carrera de Jarras."}, {"id": "7a9e143e-c837-473b-a014-e41ef5fc2ec2", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Carrera de Jarras."}, {"id": "38f4863e-12a6-4a4b-9767-8cdf55020734", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Carrera de Jarras."}, {"id": "5311be36-87be-40c4-ab4a-e6ce6e662183", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Carrera de Jarras."}, {"id": "7200435f-b020-46fc-b323-8249048b1d18", "area": "Corporalidad", "texto": "Participo en la organización de juegos y actividades recreativas para los demás.", "unidad": "Avanzada", "como_se_cumple": "Desplegando su máximo rendimiento aeróbico, agilidad y coordinación táctica en la carrera de Carrera de Jarras."}, {"id": "d5b111f1-5f6f-4716-8a02-e1826d653c59", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Carrera de Jarras."}, {"id": "b12da732-d736-480c-82b8-95b312316390", "area": "Corporalidad", "texto": "Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sí ganar y perder.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Carrera de Jarras."}, {"id": "58b4936a-816e-4d17-8d0a-c92d0606009d", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Carrera de Jarras."}, {"id": "6768d60a-187e-4bbf-97b9-cdc25a316030", "area": "Corporalidad", "texto": "Ayudo a preparar los juegos, excursiones y campamentos de mi patrulla y mi Tropa.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Carrera de Jarras."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Carrera de Jarras."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Jarras."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Jarras."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Jarras."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Jarras."}]}'::jsonb WHERE id = 'b9b8b49f-bca3-4e3f-bcc1-0cd35f65dbef';
+
+UPDATE public.articulos SET titulo = 'El Jardinero', contenido = '<p>La dinámica de el Jardinero sirve para fomentar un entorno de confianza a la vez que se anima a ser asertivo y no tenerle miedo a chocar o hacerse daño si hay alguien que nos guía.</p>
+
+
+
+
+
+
+
+<p>Es una actividad que durará dependiendo de la <a href="https://nuamana.com/nuanew/cantidad-participantes/4-participantes/" target="_blank" rel="noreferrer noopener">cantidad de participantes</a>. Para grupos de 15 personas puede tardarse unos 30 minutos.</p>
+
+
+
+
+
+
+
+<h3 class="wp-block-heading">El Jardinero</h3>
+
+
+
+
+
+
+
+<figure class="wp-block-image alignright is-resized"><img src="https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_ElJardinero2.png" alt="El Jardinero diagrama" class="wp-image-4366" style="width:360px"/></figure>
+
+
+
+
+
+
+
+<p>Para esta dinámica los jugadores se deberán colocar formando dos filas, una frente a otra y separadas a dos metros, representando a los árboles de una avenida.</p>
+
+
+
+
+
+
+
+<p>Uno de los participantes empezará la actividad haciendo de <a href="https://psicologiaymente.com/social/dinamicas-confianza" target="_blank" rel="noreferrer noopener">el jardinero</a>. Se situará al extremo de la avenida con los ojos vendados, tendrá que buscar un objeto que se encuentre al otro lado (Silbato).</p>
+
+
+
+
+
+
+
+<p>Este trayecto debe hacerse sin tocar las dos filas de árboles, los cuales pueden decirle al jardinero, antes de que choque contra ellos, que se está acercando o que se está equivocando de dirección.</p>
+
+
+
+
+
+
+
+<p>De forma sucesiva, los árboles se irán convirtiendo en jardineros y se irá repitiendo la tarea una y otra vez hasta que todos la hayan hecho.</p>
+
+
+
+
+
+
+
+', extracto = 'La dinámica de el Jardinero sirve para fomentar un entorno de confianza a la vez que se anima a ser asertivo y no tenerle miedo a chocar o hacerse daño si hay...', metadata = '{"areas": ["afectividad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior", "Interior"], "cantidad": "04 participantes", "duracion": "20 minutos", "unidades": ["compañía", "tropa", "avanzada", "clan"], "objetivos": ["Fomentar un entorno de confianza"], "materiales": ["Pañolin", "Silbato"], "variaciones": "Puede variar las indicaciones que dan los \"árboles\" para que sean determinados sonidos cuando se están acercando.", "recomendaciones": "Procure que el terreno está nivelado y libre de obstáculos que impidan un caminar seguro de los \"jardineros\".", "justificacion_areas": "Desarrolla el autoconocimiento, la confianza grupal y la empatía en las interacciones del juego. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_ElJardinero.png", "objetivos_educativos": [{"id": "2f8359db-221e-4a64-b2df-2b3e7b74a2db", "area": "Afectividad", "texto": "Escucho las opiniones de las demás personas y si no estoy de acuerdo lo digo con respeto.", "unidad": "Compañía", "como_se_cumple": "Practicando la empatía y la asertividad en las relaciones interpersonales de patrulla en El Jardinero."}, {"id": "3621f4ae-1316-4b3e-8682-3e3c9ad381a7", "area": "Afectividad", "texto": "Mantengo mi opinión cuando estoy convencida que es correcta.", "unidad": "Compañía", "como_se_cumple": "Practicando la empatía y la asertividad en las relaciones interpersonales de patrulla en El Jardinero."}, {"id": "a4060c60-7ce9-425b-bf2a-76941a689937", "area": "Afectividad", "texto": "Escucho las opiniones de los demás personas y si no estoy de acuerdo lo digo con respeto.", "unidad": "Tropa", "como_se_cumple": "Practicando la empatía y la asertividad en las relaciones interpersonales de patrulla en El Jardinero."}, {"id": "4ade9c82-6b0d-4a44-8bc6-2eb47a011ffb", "area": "Afectividad", "texto": "Digo lo que pienso con respeto hacia los demás personas.", "unidad": "Tropa", "como_se_cumple": "Practicando la empatía y la asertividad en las relaciones interpersonales de patrulla en El Jardinero."}, {"id": "6c2b5054-70e8-4529-957f-a8abea073918", "area": "Afectividad", "texto": "Expreso mis opiniones libremente, sin descalificar a los demás.", "unidad": "Avanzada", "como_se_cumple": "Estableciendo relaciones afectivas basadas en el respeto mutuo, el autocontrol y el cuidado del otro en El Jardinero."}, {"id": "d0ba748f-313b-4ffe-b2a3-fb21c1f8943f", "area": "Afectividad", "texto": "Practica una conducta asertiva y una actitud afectuosa hacia las demás personas, sin inhibiciones ni agresividad.", "unidad": "Clan", "como_se_cumple": "Estableciendo relaciones afectivas basadas en el respeto mutuo, el autocontrol y el cuidado del otro en El Jardinero."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante El Jardinero."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante El Jardinero."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante El Jardinero."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante El Jardinero."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en El Jardinero."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en El Jardinero."}]}'::jsonb WHERE id = '5c308bc8-970e-4321-ac02-762b44db8a19';
+
+UPDATE public.articulos SET titulo = 'Dinámica Cuadro Plástico', contenido = '<p>La Dinámica Cuadro Plástico busca estimular la creatividad de los participantes mediante la <a href="https://cuentosparacrecer.org/blog/juegos-de-expresion-corporal-y-emociones/" target="_blank" rel="noreferrer noopener">expresión corporal</a> y la imaginación, para poder efectuar la dinámica es necesario con anterioridad preparar una lista de temas o de los cuadros que serán representados. Son necesarios además al menos dos equipos de 4 participantes cada uno.</p>
+
+
+
+<h3 class="wp-block-heading">Dinámica Cuadro Plástico</h3>
+
+
+
+<p>Para hacer la Dinámica Cuadro Plástico, se dividen en 2 o más equipos, se hará un <a href="https://nuamana.cl/actividades/juegos/cuerpo-a-tierra/" target="_blank" data-type="post" data-id="1301" rel="noreferrer noopener">cuerpo a tierra</a> (pequeña carrera donde sale el último participante de la fila, para iniciar se hace correr el pañolin del primero de la fila por entremedio de sus piernas hacia el que está atrás de él y así sucesivamente hasta que llega al último de la fila, un vez que el último tiene el pañolin grita cuerpo tierra, al grito todos los que están delante se acuestan en el piso y el último debe pasar saltando los cuerpos de sus compañeros por encima, hecho esto corre hacia el dirigente o guiadora que le dará la instrucción) corre hacia el dirigente adelante quien le dirá un cuadro plástico que deberán representar con los cuerpos de su equipo.</p>
+
+
+
+<p>Por ejemplo, en la Dinámica cuadro plástico, la guiadora o dirigente dice, Un avión, el participante regresa al grupo y todo el grupo junto debe representar un avión de la forma que mejor estime conveniente, cuando termina de representar hace el grito de su unidad, en el lugar habrá una guiadora o dirigente que dirá que es lo que ve, si lo que dice este coincide con la indicación que se les dio, se les otorga un punto.</p>
+
+
+
+<p>Ejemplos, Lista de cuadros:</p>
+
+
+
+<p>- Auto<br>- Celular<br>- Camisa<br>- Algodón<br>- Playa<br>- Accidente de tránsito<br>- Parto<br>- Partido de fútbol donde se cobra penal<br>- Concierto de Bad Bunny<br>- Un capítulo de caso cerrado.</p>
+
+
+
+<p></p>', extracto = 'La Dinámica Cuadro Plástico busca estimular la creatividad de los participantes mediante la  expresión corporal  y la imaginación, para poder efectuar la dinám...', metadata = '{"areas": ["corporalidad", "creatividad"], "lugares": ["Campo Abierto", "Exterior"], "cantidad": "06 participantes", "duracion": "20 minutos", "unidades": ["manada", "compañía", "tropa", "avanzada"], "objetivos": ["Estimular la creatividad", "Reforzar el conocimiento del cuerpo", "Trabajo en equipo"], "materiales": ["Listado de temas"], "variaciones": "Puede agregar una variable tiempo a cada cuadro, indicando un tiempo determinado para que puedan hacer la representación, de igual manera puede efectuar la actividad simplemente gritando lo que tienen que representar y gana el punto el equipo que primero completa el cuadro.", "recomendaciones": "Procure hacer énfasis en el respeto del cuerpo y los espacios personales", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_DinamicaCuadrosPlasticos.png", "objetivos_educativos": [{"id": "36d989b6-30dd-434a-874a-70a993ed0bec", "area": "Corporalidad", "texto": "Conozco las principales enfermedades que me pueden dar y por qué.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Dinámica Cuadro Plástico."}, {"id": "6467298d-fe2b-4920-9b9a-e3524e4b2aef", "area": "Corporalidad", "texto": "sí en qué lugar de mi cuerpo estén ubicados los órganos más importantes.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Dinámica Cuadro Plástico."}, {"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se estén produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Dinámica Cuadro Plástico."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Dinámica Cuadro Plástico."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Dinámica Cuadro Plástico."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Dinámica Cuadro Plástico."}, {"id": "05f42879-f5f5-40c4-bed6-c577bf61340a", "area": "Corporalidad", "texto": "Cuido mi salud y mantengo hábitos que la protegen.", "unidad": "Avanzada", "como_se_cumple": "Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de Dinámica Cuadro Plástico."}, {"id": "ec280dd0-2d80-4b84-86ad-2d362da14886", "area": "Creatividad", "texto": "Me gusta participar en juegos de observación.", "unidad": "Manada", "como_se_cumple": "Proponiendo ideas originales y rápidas para resolver los acertijos o enigmas mentales de Dinámica Cuadro Plástico."}, {"id": "418f2b77-f15b-405a-95bd-8033c0b6a4c2", "area": "Creatividad", "texto": "Puedo contar con detalles las anécdotas y aventuras que hemos tenido en la Manada.", "unidad": "Manada", "como_se_cumple": "Proponiendo ideas originales y rápidas para resolver los acertijos o enigmas mentales de Dinámica Cuadro Plástico."}, {"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Dinámica Cuadro Plástico."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Dinámica Cuadro Plástico."}, {"id": "49ae6ac6-be8f-4f2c-8b3e-6711d041181f", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Dinámica Cuadro Plástico."}, {"id": "cf530cf9-73a6-4423-a075-79be433fe96c", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Dinámica Cuadro Plástico."}, {"id": "3cdf4b56-b55f-4878-b3fa-da32a7200ca4", "area": "Creatividad", "texto": "Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.", "unidad": "Avanzada", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Dinámica Cuadro Plástico."}]}'::jsonb WHERE id = 'ff2ef89a-6073-4174-88de-cdd3435df3af';
+
+UPDATE public.articulos SET titulo = '¿Quién Cuenta Mi Historia?', contenido = '<p>Para realizar la <a href="https://nuamana.com/nuanew/actividades/dinamicas/" target="_blank" rel="noreferrer noopener">Dinámica</a> Quien Cuenta Mi Historia, se arman equipos de 3 o 4 integrantes, a cada integrante se le dará un papel con el nombre de un personaje "<a href="https://psicologiaymente.com/cultura/personajes-historicos-mas-importantes" target="_blank" rel="noreferrer noopener">famoso</a>" el que colocaran en su frente, con la ayuda de su equipo el integrante debe descifrar quién es el personaje famoso en su frente.</p>
+
+
+
+<h3 class="wp-block-heading">Dinámica Quien Cuenta Mi Historia</h3>
+
+
+
+<p>Primera Parte de la dinámica quién cuenta mi historia, aquí el integrante simplemente puede hacer preguntas a su equipo que lo orienten a saber quien es, como por ejemplo cuál es su género, que hace, porque es "famoso", etc, el equipo debe responder sin decir el nombre del personaje directamente.</p>
+
+
+
+<p>En una segunda etapa, de la dinámica quién cuenta mi historia, es el equipo el que le debe contar una historia que lo haga descifrar quién es el personaje, por ejemplo si fuese un cantante, puede contar la historia de un video o de un recital que dio, o relatar lo que dice una de sus canciones como una historia sin cantarla directamente.</p>
+
+
+
+<p>Gana el equipo que primero descifra a sus personajes, los demás equipos pueden en todo momento apelar al relato o a la respuesta que le dan al participante indicando que es muy evidente la respuesta, y son las guiadoras y dirigentes de la unidad los que dirimen si tienen o no razón, al mismo tiempo las guiadoras y dirigentes no pueden reclamar por ellos mismos el relato o la respuesta sin que uno de los equipos haga el reclamo.</p>', extracto = 'Para realizar la  Dinámica  Quien Cuenta Mi Historia, se arman equipos de 3 o 4 integrantes, a cada integrante se le dará un papel con el nombre de un personaj...', metadata = '{"areas": ["creatividad", "sociabilidad"], "lugares": ["Exterior", "Interior", "Sala"], "cantidad": "02 participantes", "duracion": "20 minutos", "unidades": ["compañía", "tropa", "avanzada", "clan"], "objetivos": ["Estimular la creatividad", "Trabajo en equipo"], "materiales": ["Cinta Adhesiva", "Lápiz", "Papel"], "variaciones": "Las y los personajes pueden variar por diversas temáticas, por ejemplo, se pueden usar sólo personajes de la historia del movimiento para reforzar conocimiento sobre historia, o puede colocar nombres de canciones y para descifrar la canción le deben cantar una estrofa de la canción. O entregar la información con mímicas, etc.", "recomendaciones": "Utilice personajes conocidos para los participantes, no dificulte los personajes es una dinámica para pasar un buen rato y reforzar las relaciones entre niños, niñas y jóvenes.", "justificacion_areas": "Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_DinamicaQuienCuentaMiHistoria.png", "objetivos_educativos": [{"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en ¿Qui¿n Cuenta Mi Historia?."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en ¿Qui¿n Cuenta Mi Historia?."}, {"id": "49ae6ac6-be8f-4f2c-8b3e-6711d041181f", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en ¿Qui¿n Cuenta Mi Historia?."}, {"id": "cf530cf9-73a6-4423-a075-79be433fe96c", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en ¿Qui¿n Cuenta Mi Historia?."}, {"id": "3cdf4b56-b55f-4878-b3fa-da32a7200ca4", "area": "Creatividad", "texto": "Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.", "unidad": "Avanzada", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de ¿Qui¿n Cuenta Mi Historia?."}, {"id": "ef75fbed-4a6d-49ea-bfab-f2952415e1a0", "area": "Creatividad", "texto": "actúa con agilidad mental ante las situaciones más diversas, desarrollando su capacidad de pensar, innovar y aventurar.", "unidad": "Clan", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de ¿Qui¿n Cuenta Mi Historia?."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante ¿Qui¿n Cuenta Mi Historia?."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante ¿Qui¿n Cuenta Mi Historia?."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante ¿Qui¿n Cuenta Mi Historia?."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante ¿Qui¿n Cuenta Mi Historia?."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en ¿Qui¿n Cuenta Mi Historia?."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en ¿Qui¿n Cuenta Mi Historia?."}]}'::jsonb WHERE id = '53cbdb8e-ffce-413b-bb9a-601fd070dc07';
+
+UPDATE public.articulos SET titulo = 'Casa Inquilino o Terremoto', contenido = '<p>La actividad casa inquilino o terremoto, es una actividad para romper el hielo, y estimular la capacidad de reacción, al mismo tiempo que permite a niños, niñas y jóvenes sacar la voz y hablar en público sin frases muy complejas, es ideal para desarrollar en unidades menores e intermedias y en grupo más grandes.</p>
+
+
+
+<h3 class="wp-block-heading">Casa Inquilino o Terremoto</h3>
+
+
+
+<p>Para hacer la <a href="https://nuamana.com/nuanew/actividades/" target="_blank" rel="noreferrer noopener">actividad</a> casa inquilino o terremoto se armarán equipos de a 3, una de ellas será el inquilino y se ubicará al medio, mientras los otros 2 se toman de las manos para formar una casa con su manos en alto, idealmente, por sobre la cabeza del inquilino.</p>
+
+
+
+<figure class="wp-block-image aligncenter is-resized"><img src="https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CasaInquilinoYTerremoto1.png" alt="Casa Inquilino y Terremoto" class="wp-image-4526" style="object-fit:cover;width:360px;height:360px"/></figure>
+
+
+
+<p>Además de los equipos de a 3 personas regados por todo el campo de juego entre las casa inquilino o terremoto existe un animador, que debe relatar una historia inventada y dentro de la misma debe decir las palabras claves, <a href="https://dinamicasojuegos.blogspot.com/2010/03/casa-inquilino-y-terremoto.html" target="_blank" rel="noreferrer noopener">Casa Inquilino o Terremoto</a>, cada una de esas palabras genera una acción de los participantes en el juego, el relator también es un participante.</p>
+
+
+
+<p>Sin embargo, el relator es un inquilino que no tiene casa, por lo que su objetivo es entrar en una de las casa. su historia es importante para darle dramatismo al juego, la historia puede ser un cuento complejo o una frase sencilla, por ejemplo, "Iba el otro día caminando por mi plaza cuando me encontré con un amigo que es <em><strong>Inquilino</strong></em>" o "Mi mamá el otro día se compro una casona que se había caído en un <em><strong>Terremoto</strong></em>", etc.</p>
+
+
+
+<h4 class="wp-block-heading">Acciones para cada palabra clave</h4>
+
+
+
+<p><strong><em>Inquilino:</em></strong> Cuando el animador dice la palabra inquilino, las casas alzan sus manos para permitir a los inquilinos que salgan y las casas deben permanecer en el mismo lugar, todos lo inquilinos deben salir y buscar otra casa, ningún inquilino puede quedar en la misma casa que tenía antes.</p>
+
+
+
+<p><strong><em>Casa:</em></strong> Cuando el animador dice la palabra casa, los inquilinos se deben quedan en su lugar y son las casas las que se mueven a buscar otro inquilino, ninguna casa debe quedar con el mismo inquilino que tenían antes.</p>
+
+
+
+<p><strong><em>Terremoto:</em></strong> al mencionar la palabra terremoto dentro de la historia que relata el animador, todo se desarma y se vuelve a armar, es decir, cada participante puede quedar como casa si antes era inquilino, o como inquilino si antes era parte de una casa, es importante que no quede nadie en el mismo orden anterior para causar un verdadero terremoto.</p>', extracto = 'La actividad casa inquilino o terremoto, es una actividad para romper el hielo, y estimular la capacidad de reacción, al mismo tiempo que permite a niños, niña...', metadata = '{"areas": ["corporalidad", "sociabilidad"], "lugares": ["Campo Abierto", "Exterior"], "cantidad": "06 participantes", "duracion": "20 minutos", "unidades": ["manada", "compañía", "tropa"], "objetivos": ["Estimular la agilidad", "Estimular la agilidad mental", "Estimular la capacidad de reacción", "Estimular la coordinación", "Facilitar el contacto inicial"], "materiales": ["Sin Materiales"], "variaciones": "Una versión más sencilla de la actividad es que simplemente haya un animador fijo que siempre va relatando la historia.", "recomendaciones": "Procure y estimule que se los participantes no se queden siempre con el mismo equipo, esta actividad busca que niñas, niños y jóvenes se conozcan o se crucen con personas fuera de su área de confort.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CasaInquilinoYTerremoto.png", "objetivos_educativos": [{"id": "36d989b6-30dd-434a-874a-70a993ed0bec", "area": "Corporalidad", "texto": "Conozco las principales enfermedades que me pueden dar y por qué.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Casa Inquilino o Terremoto."}, {"id": "6467298d-fe2b-4920-9b9a-e3524e4b2aef", "area": "Corporalidad", "texto": "sí en qué lugar de mi cuerpo estén ubicados los órganos más importantes.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Casa Inquilino o Terremoto."}, {"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se estén produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Casa Inquilino o Terremoto."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Casa Inquilino o Terremoto."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Casa Inquilino o Terremoto."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Casa Inquilino o Terremoto."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Casa Inquilino o Terremoto."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Casa Inquilino o Terremoto."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Casa Inquilino o Terremoto."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Casa Inquilino o Terremoto."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Casa Inquilino o Terremoto."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Casa Inquilino o Terremoto."}]}'::jsonb WHERE id = 'c37832d6-9192-43e2-9886-4a7917e8e710';
+
+UPDATE public.articulos SET titulo = 'Esquiva el tiro', contenido = '<p>Esquiva el tiro es una actividad enfocada en el desfogue de energías, y el refuerzo de la motricidad, permite al mismo tiempo generar un ambiente de sana competencia y distensión.</p>
+
+
+
+<p>Para realizar esquiva el tiro se requiere como mínimo <a href="https://nuamana.com/nuanew/cantidad-participantes/4-participantes/" target="_blank" rel="noreferrer noopener">4 participantes</a> considerando que al menos uno debe estar sosteniendo la cuerda.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace Esquiva el tiro?</h3>
+
+
+
+<p>Se utilizará una cuerda con un par de metros con un pequeño peso en el extremo, idealmente que no supere los 500 gramos de peso. Las y los jugadores forman un círculo alrededor del <a href="https://es.wikipedia.org/wiki/Director_de_juego" target="_blank" rel="noreferrer noopener">director del juego</a>.</p>
+
+
+
+<p>El director del juego sostiene la cuerda con el peso ya puesto en el centro del círculo. Deberá mover la cuerda a fin de describir con ella un círculo que vaya a una altura por debajo del nivel de las rodillas de las y los jugadores que integran el círculo.</p>
+
+
+
+<p>Los y las jugadoras deben saltar a medida que la cuerda va tratando de pasar al otro lado. Las y los participantes que tengan menos fallos o puntos en contra al final del juego, serán los ganadores.</p>', extracto = 'Esquiva el tiro es una actividad enfocada en el desfogue de energías, y el refuerzo de la motricidad, permite al mismo tiempo generar un ambiente de sana compe...', metadata = '{"areas": ["corporalidad"], "lugares": ["Campo Abierto", "Exterior", "Interior"], "cantidad": "04 participantes", "duracion": "15 minutos", "unidades": ["avanzada", "compañía", "manada", "tropa"], "objetivos": ["Desarrollar la motricidad", "Desfogue de Energías"], "materiales": ["Bolsa", "Cuerda"], "variaciones": "Una variación más sencilla puede ser sin un peso y simplemente formar el círculo con la cuerda a la misma altura del piso.", "recomendaciones": "Ponga especial atención a posibles caídas que se pueden producir por golpes con el peso en la cuerda, o con la misma cuerda que se amarre en los pies de las y los jugadores al momento de saltar.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_esquivaElTiro.png", "objetivos_educativos": [{"id": "7200435f-b020-46fc-b323-8249048b1d18", "area": "Corporalidad", "texto": "Participo en la organización de juegos y actividades recreativas para los demás.", "unidad": "Avanzada", "como_se_cumple": "Desplegando su máximo rendimiento aeróbico, agilidad y coordinación táctica en la carrera de Esquiva el tiro."}, {"id": "d5b111f1-5f6f-4716-8a02-e1826d653c59", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Esquiva el tiro."}, {"id": "b12da732-d736-480c-82b8-95b312316390", "area": "Corporalidad", "texto": "Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sí ganar y perder.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Esquiva el tiro."}, {"id": "4bf1e3dd-7f21-4c24-962d-9d6d64e32f25", "area": "Corporalidad", "texto": "Me gusta hacer actividades al aire libre.", "unidad": "Manada", "como_se_cumple": "Corriendo a paso rápido y coordinando sus movimientos con sus compañeros durante la dinámica de Esquiva el tiro."}, {"id": "5d2d48ed-c461-4a8e-9048-cceecd3de2e2", "area": "Corporalidad", "texto": "Me gusta jugar con otros niños y niñas y respeto las reglas de los juegos.", "unidad": "Manada", "como_se_cumple": "Corriendo a paso rápido y coordinando sus movimientos con sus compañeros durante la dinámica de Esquiva el tiro."}, {"id": "58b4936a-816e-4d17-8d0a-c92d0606009d", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Esquiva el tiro."}, {"id": "6768d60a-187e-4bbf-97b9-cdc25a316030", "area": "Corporalidad", "texto": "Ayudo a preparar los juegos, excursiones y campamentos de mi patrulla y mi Tropa.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Esquiva el tiro."}]}'::jsonb WHERE id = 'f4373764-4b71-4f03-b768-1e16316c9b13';
+
+UPDATE public.articulos SET titulo = 'Carrera de submarinos', contenido = '<p>La carrera de submarinos, es un <a href="https://nuamana.com/nuanew/actividades/juegos" target="_blank" rel="noreferrer noopener">juego</a> que busca que los participantes aprendan a seguir instrucciones, estimular la confianza y reforzar el <a href="https://nuamana.com/nuanew/objetivos-actividad/trabajo-en-equipo/" target="_blank" rel="noreferrer noopener">trabajo en equipo</a>, para poder realizarla se necesitan al menos 8 participantes.</p>
+
+
+
+
+
+
+
+<h2 class="wp-block-heading">¿Cómo se juega la Carrera de Submarinos?</h2>
+
+
+
+
+
+
+
+<p>Para jugar a la <a href="http://juegoscout.blogspot.cl/" target="_blank" rel="noreferrer noopener">carrera de submarinos</a> se debe tener más de un equipo de mínimo 4 participantes cada uno.</p>
+
+
+
+
+
+
+
+<p>Se ubica cada equipo en fila y con los ojos vendados menos el último que será el encargado de guiar al resto mediante pequeños toques en los hombros, espalda y cabeza, pero sin hablar.</p>
+
+
+
+
+
+
+
+<p>Cada participante se afirmará de los hombros del jugador de adelante, el objetivo del juego es ir desde el punto A al punto B antes que el otro equipo.</p>
+
+
+
+
+
+
+
+<h3 class="wp-block-heading">Reglas de la Carrera de Submarinos</h3>
+
+
+
+
+
+
+
+<ul class="wp-block-list">
+
+<li>No hablar.</li>
+
+
+
+
+
+
+
+<li>Tocar el hombro izquierdo significa doblar a la izquierda.</li>
+
+
+
+
+
+
+
+<li>Tocar el hombro derecho significa doblar a la derecha.</li>
+
+
+
+
+
+
+
+<li>Tocar la espalda significa frenar.</li>
+
+
+
+
+
+
+
+<li>Tocar la cabeza significa avanzar derecho.</li>
+
+
+
+
+
+
+
+<li>Deben pasar hacia adelante la misma señal que recibieron de atrás.</li>
+
+</ul>
+
+
+
+
+
+
+
+<p>A la señal salen todos los submarinos de su punto inicial y gana el primer equipo que llega a la meta.</p>
+
+
+
+
+
+
+
+', extracto = 'La carrera de submarinos, es un  juego  que busca que los participantes aprendan a seguir instrucciones, estimular la confianza y reforzar el  trabajo en equip...', metadata = '{"areas": ["corporalidad", "creatividad", "sociabilidad"], "lugares": ["Campo Abierto", "Exterior"], "cantidad": "08 participantes", "duracion": "20 minutos", "unidades": ["manada", "compañía", "tropa"], "objetivos": ["Aprender a seguir instrucciones", "Estimular la confianza", "Trabajo en equipo"], "materiales": ["Pañolin"], "variaciones": "Puede permitir que los submarinos se hundan entre sí para evitar que lleguen a sus metas, para destruir a otro submarino puede chocarlo por un costado o hacer que se separen, también puede hacer que el primer jugador de la fila se convierta en un torpedo que se lanza con una señal determinada y si choca al otro submarino lo hunde.\r\n\r\nPuede hacer que la meta no sea un punto fijo para dificultar la llegada y que se mueva cada cierto tiempo, también puede hacer que los puntos de origen y destino de cada submarino sean diferentes y obligue a que se crucen entre equipos en el camino.", "recomendaciones": "Procure usar un terreno homogéneo y parejo para evitar accidentes por caídas.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CarreraDeSubmarinos.png", "objetivos_educativos": [{"id": "36d989b6-30dd-434a-874a-70a993ed0bec", "area": "Corporalidad", "texto": "Conozco las principales enfermedades que me pueden dar y por qué.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Carrera de submarinos."}, {"id": "6467298d-fe2b-4920-9b9a-e3524e4b2aef", "area": "Corporalidad", "texto": "sí en qué lugar de mi cuerpo estén ubicados los órganos más importantes.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Carrera de submarinos."}, {"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se estén produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de submarinos."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de submarinos."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de submarinos."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de submarinos."}, {"id": "ec280dd0-2d80-4b84-86ad-2d362da14886", "area": "Creatividad", "texto": "Me gusta participar en juegos de observación.", "unidad": "Manada", "como_se_cumple": "Proponiendo ideas originales y rápidas para resolver los acertijos o enigmas mentales de Carrera de submarinos."}, {"id": "418f2b77-f15b-405a-95bd-8033c0b6a4c2", "area": "Creatividad", "texto": "Puedo contar con detalles las anécdotas y aventuras que hemos tenido en la Manada.", "unidad": "Manada", "como_se_cumple": "Proponiendo ideas originales y rápidas para resolver los acertijos o enigmas mentales de Carrera de submarinos."}, {"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Carrera de submarinos."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Carrera de submarinos."}, {"id": "49ae6ac6-be8f-4f2c-8b3e-6711d041181f", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Carrera de submarinos."}, {"id": "cf530cf9-73a6-4423-a075-79be433fe96c", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Carrera de submarinos."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Carrera de submarinos."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Carrera de submarinos."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de submarinos."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de submarinos."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de submarinos."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de submarinos."}]}'::jsonb WHERE id = '77f087e8-4dab-4a7b-a25d-9ca93292014d';
+
+UPDATE public.articulos SET titulo = 'Dos mentiras y una verdad', contenido = '<p>Dos mentiras y una verdad es una <a href="https://nuamana.com/nuanew/actividades/dinamicas/" target="_blank" rel="noreferrer noopener">dinámica</a> que permite a las y los participantes conocerse más en profundidad, No se necesita ningún equipo ni preparación especial, aunque es posible que quieras usar lápiz y papel para llevar la cuenta de las puntuaciones (si juegas como desafío).</p>
+
+
+
+<h3 class="wp-block-heading">Cómo jugar a Dos mentiras y una verdad</h3>
+
+
+
+<p>Dos mentiras y una verdad se suele jugar con un grupo pequeño de personas, pero también se puede jugar con sólo dos personas o con un grupo gigante de personas.</p>
+
+
+
+<p>Para empezar, una persona debe hacer tres declaraciones sobre sí misma al resto del grupo. El truco está en que no todas las afirmaciones serán verdaderas: dos de las afirmaciones dadas deben ser una mentira; y una debe ser una verdad.</p>
+
+
+
+<p>Una vez que hayas terminado, todos deben adivinar qué declaración creen que te has inventado. Luego de que todos hayan adivinado, revela qué afirmación era tu verdad.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo funciona?</h3>
+
+
+
+<p>Esta sencilla y clásica <a href="https://klaxoon.com/es/contenido-comunitario/diez-actividades-de-team-building-digital-para-activar-la-eficiencia-de-su-equipo-a-distancia" target="_blank" rel="noreferrer noopener">actividad de creación de equipos</a> funciona bien con equipos pequeños o medianos. Puedes repetirla varias veces con el mismo grupo para que la gente se conozca.</p>
+
+
+
+<p>2 pasos:</p>
+
+
+
+<ol class="wp-block-list">
+<li>Cada persona dispone de un máximo de 3 minutos para pensar en 2 verdades y 1 mentira sobre ella, ya sea profesional o personalmente. Hay que destacar que el objetivo es engañar al grupo, para que el ejercicio sea más divertido. Por ejemplo: Hablo 5 idiomas / Toco la trompeta / Una vez compartí un café con Samuel Etoo.</li>
+
+
+
+<li>Por turnos, cada persona declara sus 3 hechos, en el orden que quiera. A continuación, el resto del grupo debe adivinar cuales son dos mentiras y una verdad.</li>
+</ol>
+
+
+
+<h3 class="wp-block-heading"><strong>Algunas estrategias más generales...</strong></h3>
+
+
+
+<ol class="wp-block-list">
+<li>Empieza con una simple mentira, luego una afirmación escandalosa, y después una simple mentira para que la segunda afirmación suene a mentira (Ejemplo nº 1).</li>
+
+
+
+<li>Elige una mentira que pueda ser cierta.</li>
+
+
+
+<li>Por supuesto, mezcla tus estrategias a medida que juegas más rondas, ¡o tus amigos se darán cuenta y empezarán a derrotarte!</li>
+
+
+
+<li>No elijas una frase demasiado obvia. Esto hará que el juego sea demasiado fácil de adivinar para tus amigos.</li>
+
+
+
+<li>Además, intenta que tus declaraciones no incluyan demasiado vocabulario técnico.</li>
+</ol>
+
+
+
+<p>Una vez establecida la estrategia, se puede proceder con las ideas de las mentiras</p>
+
+
+
+<p>Ref.: <a href="https://klaxoon.com/es/insight/dos-verdades-y-mas-mentiras-ideas-para-jugar-en-equipo" target="_blank" data-type="link" data-id="https://klaxoon.com/es/insight/dos-verdades-y-mas-mentiras-ideas-para-jugar-en-equipo" rel="noreferrer noopener">Klaxoon.com</a></p>', extracto = 'Dos mentiras y una verdad es una  dinámica  que permite a las y los participantes conocerse más en profundidad, No se necesita ningún equipo ni preparación esp...', metadata = '{"areas": ["creatividad", "sociabilidad"], "lugares": ["Exterior", "Interior", "Sala"], "cantidad": "02 participantes", "duracion": "20 minutos", "unidades": ["compañía", "avanzada", "clan"], "objetivos": ["Estimular la participación", "Facilitar el conocimiento entre los pares"], "materiales": ["Lápiz", "Papel"], "variaciones": "", "recomendaciones": "", "justificacion_areas": "Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_DosMentirasYUnaVerdad.png", "objetivos_educativos": [{"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Dos mentiras y una verdad."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Dos mentiras y una verdad."}, {"id": "3cdf4b56-b55f-4878-b3fa-da32a7200ca4", "area": "Creatividad", "texto": "Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.", "unidad": "Avanzada", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Dos mentiras y una verdad."}, {"id": "ef75fbed-4a6d-49ea-bfab-f2952415e1a0", "area": "Creatividad", "texto": "actúa con agilidad mental ante las situaciones más diversas, desarrollando su capacidad de pensar, innovar y aventurar.", "unidad": "Clan", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Dos mentiras y una verdad."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Dos mentiras y una verdad."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Dos mentiras y una verdad."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Dos mentiras y una verdad."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Dos mentiras y una verdad."}]}'::jsonb WHERE id = 'b8daf1ee-84cd-46e5-a871-f6371673db05';
+
+UPDATE public.articulos SET titulo = 'Juego del Gato Scout', contenido = '<p>El Juego del Gato Scout, es una representación física del clásico <a href="https://www.google.com/search?q=juego+del+gato&amp;source=lmns&amp;bih=793&amp;biw=1600&amp;rlz=1C1ONGR_esCL1018CL1018&amp;hl=es&amp;sa=X&amp;ved=2ahUKEwiEqrOsu8-BAxUzNbkGHSg1Bh0Q0pQJKAB6BAgBEAI" target="_blank" rel="noreferrer noopener">juego gato o tres en línea</a>, que en este caso se hará con objetos y sobre el suelo en un tablero de tamaño gigante en comparación a cuando se juega con papel y lápiz. Es una actividad para desarrollar el trabajo en equipo, la estrategia y la planificación en un equipo.</p>
+
+
+
+<h3 class="wp-block-heading">Juego del Gato Scout</h3>
+
+
+
+<p>Para el Juego del Gato Scout se dividirán en 2 equipos de al menos 2 jugadores cada equipo, en un extremo del campo se ubicaran los jugadores y en el otro extremo del campo se ubicará el tablero.</p>
+
+
+
+<p>El tablero puede ser dibujado en el suelo, considerando que cada casilla debe tener el tamaño suficiente para que caiga una persona, para dibujar el tablero se puede usar cualquier material, por ejemplo, tela, pañolines, ropa, tiza, ramas, hojas, tierra, etc, lo importante es el tamaño y adecuarnos a las condiciones del lugar.</p>
+
+
+
+<p>El tablero del Juego del Gato Scout consta de un cuadro con 3 filas y 3 columnas, teniendo un total de 9 cuadros donde se pueden ubicar personas u objetos, gráficamente el tablero se verá más o menos así...</p>
+
+
+
+<figure class="wp-block-image aligncenter is-resized"><img src="https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_JuegoDelGatoScoutTablero.png" alt="" class="wp-image-4526" style="object-fit:cover;width:360px;height:360px"/></figure>
+
+
+
+<p>El objetivo del juego del gato Scout es hacer una línea o una diagonal, al igual que en el juego tradicional ganará la partida el equipo que logre hacer primero la diagonal o línea.</p>
+
+
+
+<p>Debido a que las casillas son limitadas, los posicionamientos de las piezas también lo son y es probable que se generen empates cuando ninguno de los equipos logra hacer una línea o diagonal, por lo mismo la <a href="https://nuamana.cl/actividades/" target="_blank" data-type="link" data-id="https://nuamana.cl/actividades/" rel="noreferrer noopener">actividad</a> se determina como ganador al equipo que logre hacer primero X cantidad de líneas o diagonales.</p>
+
+
+
+<p>Con respecto a las fichas, estas pueden ser algún objeto que sea igual o diferente o incluso pueden ser los mismos jugadores los que queden en el lugar como una ficha del juego.</p>
+
+
+
+<p>Una vez ubicados los equipos en el extremo contrario al del tablero, se dará una señal para comenzar, a la señal las primeras o primeros jugadores de cada equipo corren al tablero para ubicar la ficha dentro de él, cuando la ubica puede salir el siguiente y así sucesivamente hasta que hagan una línea, una diagonal o se produzca el empate.</p>', extracto = 'El Juego del Gato Scout, es una representación física del clásico  juego gato o tres en línea , que en este caso se hará con objetos y sobre el suelo en un tab...', metadata = '{"areas": ["corporalidad", "creatividad", "sociabilidad"], "cantidad": "04 participantes", "duracion": "15 minutos", "unidades": ["manada", "compañía", "tropa", "avanzada", "clan"], "objetivos": ["Estrategia y planificación", "Trabajo en equipo"], "materiales": ["Lápiz", "Papel", "Pañolin", "Silbato"], "variaciones": "Las variaciones pueden ser debido al tipo de fichas que se utilicen, otra variación puede ser que cada partida que ganen tengan que hacer el sonido de un gato.", "recomendaciones": "Procure poner atención al momento de las llegadas al tablero para evitar roces por discusiones sobre quien se ubicó primero en que lugar.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_JuegoDelGatoScout.png", "objetivos_educativos": [{"id": "36d989b6-30dd-434a-874a-70a993ed0bec", "area": "Corporalidad", "texto": "Conozco las principales enfermedades que me pueden dar y por qué.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Juego del Gato Scout."}, {"id": "6467298d-fe2b-4920-9b9a-e3524e4b2aef", "area": "Corporalidad", "texto": "sí en qué lugar de mi cuerpo estén ubicados los órganos más importantes.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Juego del Gato Scout."}, {"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se estén produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Juego del Gato Scout."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Juego del Gato Scout."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Juego del Gato Scout."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Juego del Gato Scout."}, {"id": "05f42879-f5f5-40c4-bed6-c577bf61340a", "area": "Corporalidad", "texto": "Cuido mi salud y mantengo hábitos que la protegen.", "unidad": "Avanzada", "como_se_cumple": "Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de Juego del Gato Scout."}, {"id": "69fff91f-a493-483d-92d6-8319700236c2", "area": "Corporalidad", "texto": "Conoce los procesos biológicos que regulan su organismo, protege su salud, acepta sus posibilidades físicas y orienta sus impulsos y fuerzas.", "unidad": "Clan", "como_se_cumple": "Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de Juego del Gato Scout."}, {"id": "ec280dd0-2d80-4b84-86ad-2d362da14886", "area": "Creatividad", "texto": "Me gusta participar en juegos de observación.", "unidad": "Manada", "como_se_cumple": "Proponiendo ideas originales y rápidas para resolver los acertijos o enigmas mentales de Juego del Gato Scout."}, {"id": "418f2b77-f15b-405a-95bd-8033c0b6a4c2", "area": "Creatividad", "texto": "Puedo contar con detalles las anécdotas y aventuras que hemos tenido en la Manada.", "unidad": "Manada", "como_se_cumple": "Proponiendo ideas originales y rápidas para resolver los acertijos o enigmas mentales de Juego del Gato Scout."}, {"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Juego del Gato Scout."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Juego del Gato Scout."}, {"id": "49ae6ac6-be8f-4f2c-8b3e-6711d041181f", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Juego del Gato Scout."}, {"id": "cf530cf9-73a6-4423-a075-79be433fe96c", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Juego del Gato Scout."}, {"id": "3cdf4b56-b55f-4878-b3fa-da32a7200ca4", "area": "Creatividad", "texto": "Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.", "unidad": "Avanzada", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Juego del Gato Scout."}, {"id": "ef75fbed-4a6d-49ea-bfab-f2952415e1a0", "area": "Creatividad", "texto": "actúa con agilidad mental ante las situaciones más diversas, desarrollando su capacidad de pensar, innovar y aventurar.", "unidad": "Clan", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Juego del Gato Scout."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Juego del Gato Scout."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Juego del Gato Scout."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Juego del Gato Scout."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Juego del Gato Scout."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Juego del Gato Scout."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Juego del Gato Scout."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Juego del Gato Scout."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Juego del Gato Scout."}]}'::jsonb WHERE id = 'cf0fce88-68dd-40ab-9a65-d684c9c28edd';
+
+UPDATE public.articulos SET titulo = 'Relevos de Botones', contenido = '<p>Los <a href="http://juegoscout.blogspot.com/" target="_blank" rel="noreferrer noopener">relevos de botones</a> es una actividad que pone énfasis en la motricidad fina y la atención al detalle en una competencia, para poder hacerla se necesitan al menos <a href="https://nuamana.com/nuanew/cantidad-participantes/4-participantes/" target="_blank" rel="noreferrer noopener">4 participantes</a>.</p>
+
+
+
+
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace el Relevos de Botones?</h3>
+
+
+
+
+
+
+
+<p>Para hacer la actividad Relevos de botones se debe colocar en un extremo del campo un plato con tantos botones como participantes hay en el equipo, en el otro extremo se ubican a los equipos y a cada equipo se le entrega un tramo de hilo o lana.</p>
+
+
+
+
+
+
+
+<p>A la señal sale un concursante de cada equipo con el hilo en la mano, al llegar al plato pasa el hilo por el o los orificios de cualquiera de los botones.</p>
+
+
+
+
+
+
+
+<p>Luego, con el hilo y el botón en su mano, vuelve al punto de partida, en donde entregará el hilo con el botón al siguiente de su equipo, que sale para agregar otro botón al hilo, y así sucesivamente.</p>
+
+
+
+
+
+
+
+<p>Si a alguno de los participantes se le cae el botón, deberá buscarlo e introducirlo de nuevo en el hilo. Gana el equipo que primero introduce los botones en el hilo y regresa.</p>
+
+
+
+
+
+
+
+', extracto = 'Los  relevos de botones  es una actividad que pone énfasis en la motricidad fina y la atención al detalle en una competencia, para poder hacerla se necesitan a...', metadata = '{"areas": ["corporalidad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "04 participantes", "duracion": "15 minutos", "unidades": ["manada", "compañía", "tropa"], "objetivos": ["Desarrollar la motricidad", "Estimular la atención a los detalles", "Trabajo en equipo"], "materiales": ["Botones", "Hilos", "Plato"], "variaciones": "Puede modificar la cantidad de botones que debe pasar por el hilo cada participante o la situación en la que se deben pasar el hilo con los botones enhebrados puede ser en movimiento para aumentar la dificultad.", "recomendaciones": "Procure destacar la necesidad de poner atención en el proceso de pasar el hilo por el botón y en el traspaso del hilo al siguiente jugador del equipo.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_RelevosDeBotones.png", "objetivos_educativos": [{"id": "36d989b6-30dd-434a-874a-70a993ed0bec", "area": "Corporalidad", "texto": "Conozco las principales enfermedades que me pueden dar y por qué.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Relevos de Botones."}, {"id": "6467298d-fe2b-4920-9b9a-e3524e4b2aef", "area": "Corporalidad", "texto": "sí en qué lugar de mi cuerpo estén ubicados los órganos más importantes.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Relevos de Botones."}, {"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se estén produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Relevos de Botones."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Relevos de Botones."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Relevos de Botones."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Relevos de Botones."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Relevos de Botones."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Relevos de Botones."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevos de Botones."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevos de Botones."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevos de Botones."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevos de Botones."}]}'::jsonb WHERE id = '0ebe55c0-b9f1-487c-8b1b-ab3d131b91a6';
+
+UPDATE public.articulos SET titulo = 'Juego democrático: Los Inversionistas', contenido = '<p>El juego democrático: Los inversionistas , es una actividad participativa que tiene por fin la elección de otras actividades, las que serán realizadas durante el ciclo de programa.</p>
+
+
+
+<p>Los <a href="https://nuamana.com/nuanew/actividades/juegos-democraticos/" target="_blank" rel="noopener">juegos democráticos</a>, como Los inversionistas, son simulaciones en que los jóvenes representan un determinado papel y, actuando de acuerdo a las reglas del ambiente simulado, tratan de obtener el apoyo de la Unidad para su propuesta.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se juega a Los Inversionistas?</h3>
+
+
+
+<p>En el caso del juego democrático: Los Inversionistas los jóvenes toman el rol de “los inversionistas” y tienen la oportunidad de utilizar su "dinero" como votos para apoyar las actividades, juegos y proyectos que más les gusten.</p>
+
+
+
+<p>El objetivo de este juego es fomentar la participación activa de los jóvenes en la toma de decisiones y promover el sentido de responsabilidad y compromiso con las actividades de la unidad.</p>
+
+
+
+<p>Se despliega una lista de propuestas de actividades y juegos (previamente sugeridas por los propios jóvenes) en un lugar visible para ser revisadas.</p>
+
+
+
+<p>A cada participante se le asigna una cantidad X de "dinero" ficticio que representará sus votos, todos tendrán la misma cantidad de "dinero" y se les explica que este "dinero" puede ser utilizado para invertir en las actividades que prefieren realizar durante el ciclo que viene.</p>
+
+
+
+<figure class="wp-block-image aligncenter is-resized"><img src="https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_JuegoDemocraticoLosInversionistas_billete1.png" alt="Los Inversionistas Billete Ejemplo 1" class="wp-image-4754" style="width:540px"/></figure>
+
+
+
+<figure class="wp-block-image aligncenter is-resized"><img src="https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_JuegoDemocraticoLosInversionistas_billete2.png" alt="Los Inversionistas Billete Ejemplo 2" class="wp-image-4755" style="width:540px"/></figure>
+
+
+
+<figure class="wp-block-image aligncenter is-resized"><img src="https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_JuegoDemocraticoLosInversionistas_billete3.png" alt="Los Inversionistas Billete Ejemplo 3" class="wp-image-4756" style="width:540px"/></figure>
+
+
+
+<figure class="wp-block-image aligncenter is-resized"><img src="https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_JuegoDemocraticoLosInversionistas_billete4.png" alt="Los Inversionistas Billete Ejemplo 4" class="wp-image-4757" style="width:540px"/></figure>
+
+
+
+<p>Aquí algunos <a href="https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_JuegoDemocraticoLosInversionistas_DineroFalso.pdf" target="_blank" rel="noopener">ejemplos de Dineros</a>... Se fundamentan las reglas sobre cómo se realizará la inversión. Por ejemplo, se puede permitir a los participantes invertir su dinero en una sola actividad o distribuirlo entre varias propuestas. También se puede establecer un límite de inversión para evitar que un solo miembro domine el proceso de votación.</p>
+
+
+
+<p>Una vez que todos los miembros de la unidad han invertido su dinero, se procede a contar los votos, la actividad con más dinero tendrá prioridad. Y por último se determina cuáles son las actividades y juegos más populares en función de la cantidad de dinero invertido en cada propuesta.</p>
+
+
+
+<p>Este juego promueve la toma de decisiones colaborativa y la planificación de actividades. Además, les brinda la oportunidad de aprender sobre el valor del voto, el poder de la elección y el respeto por las preferencias individuales y colectivas.</p>
+
+
+
+<p>En las <a href="#descargas">descargas</a> tenemos un archivo de sugerencia con un formato para imprimir el dinero falso.</p>', extracto = 'El juego democrático: Los inversionistas , es una actividad participativa que tiene por fin la elección de otras actividades, las que serán realizadas durante...', metadata = '{"areas": ["carácter", "sociabilidad"], "lugares": ["Exterior", "Interior"], "cantidad": "02 participantes", "duracion": "30 minutos", "unidades": ["manada", "compañía", "tropa", "avanzada", "clan"], "objetivos": ["Aprendizaje por la acción", "Estimular la participación", "Reforzar el valor de la democracia", "Toma de Decisiones"], "materiales": ["Dinero Falso", "Listado de Actividades", "Papel", "Plumón"], "variaciones": "<ul>\r\n \t<li>Se puede permitir a los participantes invertir su dinero en una sola actividad o distribuirlo entre varias propuestas.</li>\r\n \t<li>También se puede establecer un límite de inversión para evitar que un solo miembro domine el proceso de votación.</li>\r\n \t<li>Otra variación es realizar una actividad previa donde puedan ganar y perder dinero mediante un juego simple para añadir una dificultad económica, aunque esto no es recomendable al hacerlo como un juego democrático.</li>\r\n</ul>", "recomendaciones": "Se claro al momento de establecer las reglas de la dinámica de esta manera se evitan conflictos en los equipos.", "justificacion_areas": "Ayuda a consolidar los valores scouts de honestidad, lealtad y fair play en la competencia. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_JuegoDemocraticoLosInversionistas.png", "objetivos_educativos": [{"id": "baa365a9-087c-4c25-b0ad-57893df5ff74", "area": "Carácter", "texto": "sí lo que significa decir la verdad.", "unidad": "Manada", "como_se_cumple": "Jugando de manera transparente y honesta en Juego democrático: Los Inversionistas, aceptando con alegría la victoria o la derrota."}, {"id": "506b7596-cac4-48e0-88c7-942d575172db", "area": "Carácter", "texto": "Digo la verdad, aunque a veces no me gusten las consecuencias.", "unidad": "Manada", "como_se_cumple": "Jugando de manera transparente y honesta en Juego democrático: Los Inversionistas, aceptando con alegría la victoria o la derrota."}, {"id": "075c93b1-81d2-4370-8e47-f0a4d086b20e", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Juego democrático: Los Inversionistas."}, {"id": "7a9e143e-c837-473b-a014-e41ef5fc2ec2", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Juego democrático: Los Inversionistas."}, {"id": "38f4863e-12a6-4a4b-9767-8cdf55020734", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Juego democrático: Los Inversionistas."}, {"id": "5311be36-87be-40c4-ab4a-e6ce6e662183", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Juego democrático: Los Inversionistas."}, {"id": "1d9d6751-4ab1-45db-9999-3f18606b4909", "area": "Carácter", "texto": "Soy fiel a la palabra dada.", "unidad": "Avanzada", "como_se_cumple": "Actuando consecuentemente con sus principios y valores individuales en cada decisión y rol de Juego democrático: Los Inversionistas."}, {"id": "770a8ff3-7bb8-45dd-b114-5ae1069eff62", "area": "Carácter", "texto": "actúa consecuentemente con los valores que lo inspiran.", "unidad": "Clan", "como_se_cumple": "Actuando consecuentemente con sus principios y valores individuales en cada decisión y rol de Juego democrático: Los Inversionistas."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Juego democrático: Los Inversionistas."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Juego democrático: Los Inversionistas."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Juego democrático: Los Inversionistas."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Juego democrático: Los Inversionistas."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Juego democrático: Los Inversionistas."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Juego democrático: Los Inversionistas."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Juego democrático: Los Inversionistas."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Juego democrático: Los Inversionistas."}]}'::jsonb WHERE id = 'bddb6314-6411-404b-9107-40c9da299291';
+
+UPDATE public.articulos SET titulo = 'Conejos y Guaridas', contenido = '<p>El juego Conejos y Guaridas es una actividad enfocada en el <a href="https://nuamana.com/nuanew/objetivos-actividad/desfogue-de-energias/" target="_blank" rel="noreferrer noopener">desfogue de energías</a> y la colaboración entre pares, para llevar a cabo se designarán dos tipos de participantes en una pareja, unos serán conejos y guaridas los otros, mientras que los <a href="https://www.mestizos.cl/actualidad-animal/2023/10/03/conejos-7-cosas-que-debes-saber-sobre-ellos.html" target="_blank" rel="noreferrer noopener">conejos</a> corren, los guaridas se quedaran en el lugar para marcar la posición de ingreso.</p>
+
+
+
+<h3 class="wp-block-heading">¿Como jugar Conejos y Guaridas?</h3>
+
+
+
+<p>Para jugar Conejos y Guaridas se reúne a los participantes en un área abierta o sala lo suficientemente espaciosa para correr y jugar sin obstáculos. Luego se forma un círculo (deben estar de pie) de modo que los jugadores estén uno al lado del otro. Cada jugador estará emparejado con el jugador adyacente para formar una dupla y se le asigna aleatoriamente a cada pareja un rol de "conejo" y "guarida". Seguidamente se indica a los "conejos" que deben posicionarse detrás de sus "guaridas". Y por último se coloca un pañolín o un objeto que simule ser una “zanahoria” en el centro del círculo.</p>
+
+
+
+<p>Previamente se les explica a los participantes que cuando el encargado/coordinador de la actividad menciona la palabra –<strong>CONEJOS– </strong> los jugadores designados como "conejo" deberán correr alrededor del círculo, mientras que los jugadores designados como "guarida" permanecerán en su lugar con las piernas abiertas para que su pareja pueda pasar por debajo y logre capturar la "zanahoria" del centro antes que el resto de los otros conejos.</p>
+
+
+
+<p>Después de cada ronda, las parejas pueden intercambiar los roles y llevar un registro de las cantidades de veces que logran capturar el pañolín/objeto. Al final del juego, la dupla que haya capturado más “zanahorias” será declarada ganadora.</p>', extracto = 'El juego Conejos y Guaridas es una actividad enfocada en el  desfogue de energías  y la colaboración entre pares, para llevar a cabo se designarán dos tipos de...', metadata = '{"areas": ["corporalidad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "04 participantes", "duracion": "15 minutos", "unidades": ["compañía", "tropa", "avanzada"], "objetivos": ["Desarrollar la motricidad", "Desfogue de Energías", "Refuerzo de habilidades físicas", "Trabajo en equipo"], "materiales": ["Pañolin"], "variaciones": "Esta actividad también se puede realizar reemplazando las \"Guaridas\" por algún objeto que quede como marcador de posición.", "recomendaciones": "Procure hacer énfasis en el cuidado de los demás al momento de correr y pasar por debajo para tomar la \"Zanahoria\", evite las situaciones de riesgo poniendo cuidado en el terreno que se realiza la actividad.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_ConejosYGuaridas.png", "objetivos_educativos": [{"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se estén produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Conejos y Guaridas."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Conejos y Guaridas."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Conejos y Guaridas."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Conejos y Guaridas."}, {"id": "05f42879-f5f5-40c4-bed6-c577bf61340a", "area": "Corporalidad", "texto": "Cuido mi salud y mantengo hábitos que la protegen.", "unidad": "Avanzada", "como_se_cumple": "Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de Conejos y Guaridas."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Conejos y Guaridas."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Conejos y Guaridas."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Conejos y Guaridas."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Conejos y Guaridas."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Conejos y Guaridas."}]}'::jsonb WHERE id = '7bc4e56d-8f9d-4dc7-8e2e-3eeeabb80124';
+
+UPDATE public.articulos SET titulo = '¿Eres Drácula?', contenido = '<p>La dinámica <a href="https://ficherodejuegos.es/dinamicas-de-confianza/dracula-o-eres-el-amor-de-mi-vida/" target="_blank" rel="noreferrer noopener">¿eres Drácula?</a> Busca <a href="https://nuamana.com/nuanew/objetivos-actividad/fomentar-un-entorno-de-confianza/">fomentar un entorno de confianza</a> en los equipos y crear un ambiente de distención. Es una actividad que se desarrolla de forma individual.</p>
+
+
+
+
+
+
+
+<h3 class="wp-block-heading">¿Eres Drácula?</h3>
+
+
+
+
+
+
+
+<p>Todo el grupo se venda los ojos. El animador o animadora nombra a una o dos personas que seran Dráculas. Con los ojos vendados el grupo se pasea por la zona de juego.</p>
+
+
+
+
+
+
+
+<p>Cuando cualquier persona choca con otra le pregunta: ¿Eres Drácula?; si no lo es, contestará negativamente diciéndole su nombre, y ambas continúan paseando.</p>
+
+
+
+
+
+
+
+<p>Si es un/a Drácula no contesta con su nombre, sino dándole un mordisco en el cuello a la vez que da un gran grito. A partir de ese momento, al ser contagiosa la mordedura, se convierte en un/a nuevo Drácula.</p>
+
+
+
+
+
+
+
+<p>El juego continúa hasta ser todos/as Dráculas.</p>
+
+
+
+
+
+
+
+', extracto = 'La dinámica  ¿eres Drácula?  Busca  fomentar un entorno de confianza  en los equipos y crear un ambiente de distención. Es una actividad que se desarrolla de f...', metadata = '{"areas": ["carácter", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior", "Interior", "Sala"], "cantidad": "04 participantes", "duracion": "20 minutos", "unidades": ["manada", "compañía", "tropa"], "objetivos": ["Crear un ambiente de distensión", "Fomentar un entorno de confianza"], "materiales": ["Pañolin"], "variaciones": "Se puede hacer igual pero cambiando la pregunta, por ¿Eres tu el amor de mi vida¿¿, pasando los/as Dráculas a ser los/as amantes secretos.", "recomendaciones": "Puede evaluar la actividad con preguntas al final, como por ejemplo, ¿Cómo se han sentido? ¿Hubo miedo a confianza? ¿Cómo respondiste?", "justificacion_areas": "Ayuda a consolidar los valores scouts de honestidad, lealtad y fair play en la competencia. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_EresDracula.png", "objetivos_educativos": [{"id": "baa365a9-087c-4c25-b0ad-57893df5ff74", "area": "Carácter", "texto": "sí lo que significa decir la verdad.", "unidad": "Manada", "como_se_cumple": "Jugando de manera transparente y honesta en ¿Eres Drácula?, aceptando con alegría la victoria o la derrota."}, {"id": "506b7596-cac4-48e0-88c7-942d575172db", "area": "Carácter", "texto": "Digo la verdad, aunque a veces no me gusten las consecuencias.", "unidad": "Manada", "como_se_cumple": "Jugando de manera transparente y honesta en ¿Eres Drácula?, aceptando con alegría la victoria o la derrota."}, {"id": "075c93b1-81d2-4370-8e47-f0a4d086b20e", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de ¿Eres Drácula?."}, {"id": "7a9e143e-c837-473b-a014-e41ef5fc2ec2", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de ¿Eres Drácula?."}, {"id": "38f4863e-12a6-4a4b-9767-8cdf55020734", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de ¿Eres Drácula?."}, {"id": "5311be36-87be-40c4-ab4a-e6ce6e662183", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de ¿Eres Drácula?."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en ¿Eres Drácula?."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en ¿Eres Drácula?."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante ¿Eres Drácula?."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante ¿Eres Drácula?."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante ¿Eres Drácula?."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante ¿Eres Drácula?."}]}'::jsonb WHERE id = '400ec7fa-74c3-4fb4-b053-c238fc8cd8db';
+
+UPDATE public.articulos SET titulo = 'Completa la oración', contenido = '<p>La dinámica Completa la oración busca apoyar el trabajo más teórico de la unidad, con esta actividad se puede reforzar cosas como la oración o el himno de una unidad, buscando que las frases y palabras dichas cobren un poco más de sentido mediante la toma de conciencia de la misma.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo realizar Completa la oración?</h3>
+
+
+
+<figure class="wp-block-image alignright is-resized"><img src="https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CompletaLaOracion_1.jpg" alt="Completa la oración" class="wp-image-4375" style="width:360px"/></figure>
+
+
+
+<p>Primero se divide al grupo en equipos, estos equipos competirán contra su propio reloj para hacer la actividad en el menor tiempo posible, se utilizara la clave o <a href="https://es.wikipedia.org/wiki/C%C3%B3digo_morse" target="_blank" rel="noreferrer noopener">código Morse</a> para encriptar varias palabras o frases, siendo estas las pistas, de esta manera no les haran sentido en una primera instancia.</p>
+
+
+
+<p>Las pistas se repartirán ocultas previamente por el terreno, se debe indicar los límites en caso de ser un espacio muy amplio, a la señal los equipos saldrán a buscar las pistas por el terreno, cuando encuentren las <a href="https://nuamana.com/nuanew/etiqueta/claves-y-pistas/" target="_blank" rel="noreferrer noopener">pistas</a> deberán traducirlas, pueden hacerlo al tiempo que las van encontrando o una vez que hayan localizado todas las pistas.</p>
+
+
+
+<p>Cuando todos los equipos hayan descifrado todas las pistas se les proporciona un papelógrafo que muestra la oración incompleta y donde deberán completar la oración.</p>
+
+
+
+<figure class="wp-block-image alignleft is-resized"><img src="https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CompletaLaOracion_4.jpg" alt="Completa la oracion" class="wp-image-4375" style="width:360px"/></figure>
+
+
+
+<p>Se harán dos filas y cada participante tendrá en su mano al menos una frase o palabra traducida, a la señal corre hacia el papelógrafo y ubica su palabra o frase en alguno de los espacios en blanco, para luego regresar con su equipo y que salgo otra persona a colocar su palabra y así sucesivamente hasta completar el texto.</p>
+
+
+
+<p>Una vez completa la oración en el texto, se le dará 1 o 2 minutos a los equipos para que lean el texto completo y vean si quieren cambiar alguna palabra de ubicación, finalmente se reúnen todos los equipos para confirmar cuál era el texto correcto y de esta manera reforzar lo que indicaba el texto.</p>', extracto = 'La dinámica Completa la oración busca apoyar el trabajo más teórico de la unidad, con esta actividad se puede reforzar cosas como la oración o el himno de una...', metadata = '{"areas": ["creatividad", "sociabilidad"], "lugares": ["Campo Abierto", "Exterior"], "cantidad": "04 participantes", "duracion": "30 minutos", "unidades": ["manada", "compañía", "tropa", "avanzada", "clan"], "objetivos": ["Aprendizaje por la acción", "Trabajo en equipo"], "materiales": ["Cartulina", "Cinta Adhesiva", "Lápiz", "Papel", "Papel craft", "Plumón"], "variaciones": "La actividad puede variar cambiando la clave en la que se entregan las frases o agregando una dificultad en la salida de los jugadores cuando estén en la fila para poner la palabra en el texto, por ejemplo con un <a href=\"https://nuamana.com/nuanew/actividades/juegos/cuerpo-a-tierra/\" target=\"_blank\" rel=\"noopener\">cuerpo a tierra</a> o borrachitos, etc.", "recomendaciones": "Procure reforzar adecuadamente el contenido del texto, que es lo más importante del desarrollo de la actividad, haciendo los énfasis adecuados cuando se hace el repaso final.", "justificacion_areas": "Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CompletaLaOracion.png", "objetivos_educativos": [{"id": "ec280dd0-2d80-4b84-86ad-2d362da14886", "area": "Creatividad", "texto": "Me gusta participar en juegos de observación.", "unidad": "Manada", "como_se_cumple": "Proponiendo ideas originales y rápidas para resolver los acertijos o enigmas mentales de Completa la oración."}, {"id": "418f2b77-f15b-405a-95bd-8033c0b6a4c2", "area": "Creatividad", "texto": "Puedo contar con detalles las anécdotas y aventuras que hemos tenido en la Manada.", "unidad": "Manada", "como_se_cumple": "Proponiendo ideas originales y rápidas para resolver los acertijos o enigmas mentales de Completa la oración."}, {"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Completa la oración."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Completa la oración."}, {"id": "49ae6ac6-be8f-4f2c-8b3e-6711d041181f", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Completa la oración."}, {"id": "cf530cf9-73a6-4423-a075-79be433fe96c", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Completa la oración."}, {"id": "3cdf4b56-b55f-4878-b3fa-da32a7200ca4", "area": "Creatividad", "texto": "Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.", "unidad": "Avanzada", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Completa la oración."}, {"id": "ef75fbed-4a6d-49ea-bfab-f2952415e1a0", "area": "Creatividad", "texto": "actúa con agilidad mental ante las situaciones más diversas, desarrollando su capacidad de pensar, innovar y aventurar.", "unidad": "Clan", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Completa la oración."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Completa la oración."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Completa la oración."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Completa la oración."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Completa la oración."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Completa la oración."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Completa la oración."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Completa la oración."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Completa la oración."}]}'::jsonb WHERE id = '6bfd977f-b0d8-4f57-b2c2-e4a5a335ac81';
+
+UPDATE public.articulos SET titulo = 'Carrera de Tres Pies', contenido = '<p>La <a href="http://juegoscout.blogspot.cl/" target="_blank" rel="noreferrer noopener">Carrera de Tres Pies</a> busca incentivar el <a href="https://nuamana.com/nuanew/objetivos-actividad/trabajo-en-equipo/" target="_blank" rel="noreferrer noopener">trabajo en equipo</a> y demostrar la interdependencia entre los pares promueve el escultismo. Es necesario disponer de una cuerda o pañolin para amarrar a los participantes por sus pies.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se juega a la Carrera de Tres Pies?</h3>
+
+
+
+<p>En la carrera de tres pies se harán 2 equipos de al menos dos jugadores cada equipo, en cada equipo los jugadores se colocan de dos en dos, en fila india, detrás de la línea de salida.</p>
+
+
+
+<p>A la señal del monitor del juego, los primeros de cada fila se atan los tobillos: el derecho del uno con el izquierdo del otro. Corren de este modo hasta la línea de meta (que se encuentra a 10 o 15 metros de la línea de salida).</p>
+
+
+
+<p>Cuando alcanzan la meta, se desatan los tobillos y rápidamente, vuelven para dar el pañuelo a los equipos de su fila, y así sucesivamente hasta terminar. Gana el primero que acaba.</p>', extracto = 'La  Carrera de Tres Pies  busca incentivar el  trabajo en equipo  y demostrar la interdependencia entre los pares promueve el escultismo. Es necesario disponer...', metadata = '{"areas": ["corporalidad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "04 participantes", "duracion": "15 minutos", "unidades": ["manada", "compañía", "tropa"], "objetivos": ["Aumentar el conocimiento de las limitantes físicas", "Trabajo en equipo"], "materiales": ["Pañolin"], "variaciones": "Los participantes también pueden ir a la línea de meta y volver con las piernas amarradas, para entregar el pañolin a la siguiente pareja.\r\n\r\nOtra variación es que uno de los participantes que llegó a la meta deba volver a buscar al siguiente jugador (a) y luego a quien fue a buscar deba ir a buscar al siguiente y así sucesivamente.", "recomendaciones": "Ponga énfasis en la coordinación con los pies para evitar caídas y accidentes, de la misma manera indique que no se pueden cruzar en el camino de los contrincantes.\r\n\r\nRecomiende que las parejas bajan abrazadas para evitar caídas innecesarias.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CarreraDeTresPies.png", "objetivos_educativos": [{"id": "36d989b6-30dd-434a-874a-70a993ed0bec", "area": "Corporalidad", "texto": "Conozco las principales enfermedades que me pueden dar y por qué.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Carrera de Tres Pies."}, {"id": "6467298d-fe2b-4920-9b9a-e3524e4b2aef", "area": "Corporalidad", "texto": "sí en qué lugar de mi cuerpo estén ubicados los órganos más importantes.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Carrera de Tres Pies."}, {"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se estén produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Tres Pies."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Tres Pies."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Tres Pies."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Tres Pies."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Carrera de Tres Pies."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Carrera de Tres Pies."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Tres Pies."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Tres Pies."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Tres Pies."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Tres Pies."}]}'::jsonb WHERE id = '7787150d-690f-49f3-8ec0-5bd876690f09';
+
+UPDATE public.articulos SET titulo = 'Mano con mano', contenido = '<p>La dinámica <a href="https://ficherodejuegos.es/dinamicas-de-confianza/nariz-con-nariz/" target="_blank" rel="noreferrer noopener">mano con mano</a> busca favorecer la comunicación en el grupo, <a href="https://nuamana.com/nuanew/objetivos-actividad/fomentar-un-entorno-de-confianza/" target="_blank" rel="noreferrer noopener">desarrollar la confianza</a> y permitir el contacto físico.</p>
+
+
+
+
+
+
+
+<p>Se trata de encontrar la mano del compañero o compañera estando los ojos vendados.</p>
+
+
+
+
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hacer la dinámica Mano con mano?</h3>
+
+
+
+
+
+
+
+<p>Se divide a los participantes en parejas, las parejas se deben distanciar el uno del otro a una distancia aproximada de 3 a 4 metros.</p>
+
+
+
+
+
+
+
+<p>Una persona de cada pareja se tapa los ojos y se va adelantando poco a poco, intentando tomar las manos de su compañero/a, que permanecerá inmóvil con los ojos abiertos y sin poder hablar.</p>
+
+
+
+
+
+
+
+<p>Tan sólo puede guiar al otro/a aplaudiendo con sus manos estiradas o soplando suavemente para indicar su posición cuando esta más cerca.</p>
+
+
+
+
+
+
+
+<p>Luego pueden cambiar los papeles o hacerlo los o las dos al mismo tiempo con los ojos tapados.</p>
+
+
+
+
+
+
+
+', extracto = 'La dinámica  mano con mano  busca favorecer la comunicación en el grupo,  desarrollar la confianza  y permitir el contacto físico. 
+
+
+
+ Se trata de encontrar l...', metadata = '{"areas": ["afectividad", "carácter", "sociabilidad"], "lugares": ["Campo Abierto", "Exterior", "Interior"], "cantidad": "04 participantes", "duracion": "15 minutos", "unidades": ["manada", "compañía", "tropa", "avanzada"], "objetivos": ["Fomentar la comunicación e interpretación", "Fomentar la comunicación en el grupo", "Fomentar un entorno de confianza", "Permitir el contacto físico"], "materiales": ["Pañolin"], "variaciones": "Puede hacer lo mismo con otras partes del cuerpo, como la nariz, los pies, las mejillas, etc.", "recomendaciones": "Haga las siguientes preguntas al finalizar ¿Qué sensaciones experimentaron? ¿Hubo resistencias a hacer este juego? ¿Qué tipo de reflexiones surgieron?", "justificacion_areas": "Ayuda a consolidar los valores scouts de honestidad, lealtad y fair play en la competencia. Desarrolla el autoconocimiento, la confianza grupal y la empatía en las interacciones del juego. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_ManoConMano.png", "objetivos_educativos": [{"id": "6e25f6ed-277c-41b4-9d0f-322b0a2d4c94", "area": "Afectividad", "texto": "Acepto las opiniones de mis compañeros, aunque yo piense distinto.", "unidad": "Manada", "como_se_cumple": "Tratando con cariño, empatía y delicadeza a sus compañeros en las dinámicas de contacto de Mano con mano."}, {"id": "c8993915-0234-464c-934e-2a09f8c4338e", "area": "Afectividad", "texto": "Digo lo que pienso sin ofender o insultar a mis compañeros ni burlarme de ellos.", "unidad": "Manada", "como_se_cumple": "Tratando con cariño, empatía y delicadeza a sus compañeros en las dinámicas de contacto de Mano con mano."}, {"id": "2f8359db-221e-4a64-b2df-2b3e7b74a2db", "area": "Afectividad", "texto": "Escucho las opiniones de las demás personas y si no estoy de acuerdo lo digo con respeto.", "unidad": "Compañía", "como_se_cumple": "Practicando la empatía y la asertividad en las relaciones interpersonales de patrulla en Mano con mano."}, {"id": "3621f4ae-1316-4b3e-8682-3e3c9ad381a7", "area": "Afectividad", "texto": "Mantengo mi opinión cuando estoy convencida que es correcta.", "unidad": "Compañía", "como_se_cumple": "Practicando la empatía y la asertividad en las relaciones interpersonales de patrulla en Mano con mano."}, {"id": "a4060c60-7ce9-425b-bf2a-76941a689937", "area": "Afectividad", "texto": "Escucho las opiniones de los demás personas y si no estoy de acuerdo lo digo con respeto.", "unidad": "Tropa", "como_se_cumple": "Practicando la empatía y la asertividad en las relaciones interpersonales de patrulla en Mano con mano."}, {"id": "4ade9c82-6b0d-4a44-8bc6-2eb47a011ffb", "area": "Afectividad", "texto": "Digo lo que pienso con respeto hacia los demás personas.", "unidad": "Tropa", "como_se_cumple": "Practicando la empatía y la asertividad en las relaciones interpersonales de patrulla en Mano con mano."}, {"id": "6c2b5054-70e8-4529-957f-a8abea073918", "area": "Afectividad", "texto": "Expreso mis opiniones libremente, sin descalificar a los demás.", "unidad": "Avanzada", "como_se_cumple": "Estableciendo relaciones afectivas basadas en el respeto mutuo, el autocontrol y el cuidado del otro en Mano con mano."}, {"id": "baa365a9-087c-4c25-b0ad-57893df5ff74", "area": "Carácter", "texto": "sí lo que significa decir la verdad.", "unidad": "Manada", "como_se_cumple": "Jugando de manera transparente y honesta en Mano con mano, aceptando con alegría la victoria o la derrota."}, {"id": "506b7596-cac4-48e0-88c7-942d575172db", "area": "Carácter", "texto": "Digo la verdad, aunque a veces no me gusten las consecuencias.", "unidad": "Manada", "como_se_cumple": "Jugando de manera transparente y honesta en Mano con mano, aceptando con alegría la victoria o la derrota."}, {"id": "075c93b1-81d2-4370-8e47-f0a4d086b20e", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Mano con mano."}, {"id": "7a9e143e-c837-473b-a014-e41ef5fc2ec2", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Mano con mano."}, {"id": "38f4863e-12a6-4a4b-9767-8cdf55020734", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Mano con mano."}, {"id": "5311be36-87be-40c4-ab4a-e6ce6e662183", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Mano con mano."}, {"id": "1d9d6751-4ab1-45db-9999-3f18606b4909", "area": "Carácter", "texto": "Soy fiel a la palabra dada.", "unidad": "Avanzada", "como_se_cumple": "Actuando consecuentemente con sus principios y valores individuales en cada decisión y rol de Mano con mano."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Mano con mano."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Mano con mano."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Mano con mano."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Mano con mano."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Mano con mano."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Mano con mano."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Mano con mano."}]}'::jsonb WHERE id = 'cfb5d456-9514-45e1-a62d-e47ca7d9d8e8';
+
+UPDATE public.articulos SET titulo = 'Nuestras Cualidades', contenido = '<p>El objetivo de la dinámica nuestras cualidades es <a href="https://nuamana.com/nuanew/objetivos-actividad/fomentar-un-entorno-de-confianza/" target="_blank" rel="noreferrer noopener">crear un clima positivo y de confianza</a>, a la vez que se refuerza el conocimiento de los demás y el de uno mismo.</p>
+
+
+
+
+
+
+
+<p>El lugar debe ser lo suficientemente amplio como para que los <a href="https://nuamana.com/nuanew/cantidad-participantes/4-participantes/" target="_blank" rel="noreferrer noopener">participantes</a> puedan hacer dos círculos.</p>
+
+
+
+
+
+
+
+<h3 class="wp-block-heading">¿Cómo hacer la dinámica Nuestras Cualidades?</h3>
+
+
+
+
+
+
+
+<p>Para hacer la dinámica Nuestras Cualidades se divide a los participantes en equipos, patrullas o comunidades, los equipos se colocan en un círculo por equipo y se dibuja otro círculo al medio entre los equipos.</p>
+
+
+
+
+
+
+
+<figure class="wp-block-image alignright is-resized"><img src="https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_NuestrasCualidades2.png" alt="Nuestras Cualidades representación gráfica" class="wp-image-4366" style="width:360px"/></figure>
+
+
+
+
+
+
+
+<p>Ahora necesitamos un conductor de la <a href="https://psicologiaymente.com/social/dinamicas-confianza" target="_blank" rel="noreferrer noopener">dinámica nuestras cualidades</a> que ira indicando diferentes valores y/o características de una persona.</p>
+
+
+
+
+
+
+
+<p>Cada vez que el conductor diga una característica quienes crean que la tienen deben ir al centro del círculo, también su equipo le puede decir a alguien que tiene la característica y enviarla al centro del círculo.</p>
+
+
+
+
+
+
+
+<p>Por ejemplo, el animador o conductor de la dinámica dirá Alegre, y todas y todos los que se consideren alegres correrán al centro del círculo.</p>
+
+
+
+
+
+
+
+<p>La idea de la dinámica es que en la medida que el equipo y el conjunto vaya encontrando temas en común, se pueda ir conociendo y generando lazos.</p>
+
+
+
+
+
+
+
+<p>Algunas Cualidades de Ejemplo:</p>
+
+
+
+
+
+
+
+<ul class="wp-block-list">
+
+<li>Alegre</li>
+
+
+
+
+
+
+
+<li>Digno de Confianza</li>
+
+
+
+
+
+
+
+<li>Leal</li>
+
+
+
+
+
+
+
+<li>Servicial</li>
+
+
+
+
+
+
+
+<li>Cordial</li>
+
+
+
+
+
+
+
+<li>Optimista</li>
+
+
+
+
+
+
+
+<li>Ama la Naturaleza</li>
+
+
+
+
+
+
+
+<li>Creyente</li>
+
+
+
+
+
+
+
+<li>Espiritual</li>
+
+
+
+
+
+
+
+<li>Consecuente</li>
+
+
+
+
+
+
+
+<li>Coherente en su pensamiento, palabra y acción.</li>
+
+
+
+
+
+
+
+<li>Valora el Trabajo</li>
+
+
+
+
+
+
+
+<li>Responsable</li>
+
+
+
+
+
+
+
+<li>No hace cosas a medias</li>
+
+
+
+
+
+
+
+<li>No discrimina</li>
+
+
+
+
+
+
+
+<li>Le gustan los animales</li>
+
+
+
+
+
+
+
+<li>Le gustan las personas</li>
+
+
+
+
+
+
+
+<li>Amigable</li>
+
+
+
+
+
+
+
+<li>Le cuesta hacer amigos</li>
+
+</ul>
+
+
+
+
+
+
+
+', extracto = 'El objetivo de la dinámica nuestras cualidades es  crear un clima positivo y de confianza , a la vez que se refuerza el conocimiento de los demás y el de uno m...', metadata = '{"areas": ["afectividad", "carácter", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior", "Interior", "Sala"], "cantidad": "04 participantes", "duracion": "20 minutos", "unidades": ["compañía", "avanzada", "clan"], "objetivos": ["Conocer a los demás", "Fomentar un entorno de confianza"], "materiales": ["Listado de temas"], "variaciones": "Puede agregar una dificultad haciendo que quienes corrieron al centro del círculo justifiquen su relación con el valor o característica con algún ejemplo de su vida.\r\n\r\nOtra variación es que cuando vayan hacia el centro lo hagan con la actitud que para ellos represente el valor o característica.", "recomendaciones": "Celebre cada acercamiento al centro del círculo, no cuestione en exceso la definición propia de las y los jóvenes.", "justificacion_areas": "Ayuda a consolidar los valores scouts de honestidad, lealtad y fair play en la competencia. Desarrolla el autoconocimiento, la confianza grupal y la empatía en las interacciones del juego. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_NuestrasCualidades.png", "objetivos_educativos": [{"id": "2f8359db-221e-4a64-b2df-2b3e7b74a2db", "area": "Afectividad", "texto": "Escucho las opiniones de las demás personas y si no estoy de acuerdo lo digo con respeto.", "unidad": "Compañía", "como_se_cumple": "Practicando la empatía y la asertividad en las relaciones interpersonales de patrulla en Nuestras Cualidades."}, {"id": "3621f4ae-1316-4b3e-8682-3e3c9ad381a7", "area": "Afectividad", "texto": "Mantengo mi opinión cuando estoy convencida que es correcta.", "unidad": "Compañía", "como_se_cumple": "Practicando la empatía y la asertividad en las relaciones interpersonales de patrulla en Nuestras Cualidades."}, {"id": "6c2b5054-70e8-4529-957f-a8abea073918", "area": "Afectividad", "texto": "Expreso mis opiniones libremente, sin descalificar a los demás.", "unidad": "Avanzada", "como_se_cumple": "Estableciendo relaciones afectivas basadas en el respeto mutuo, el autocontrol y el cuidado del otro en Nuestras Cualidades."}, {"id": "d0ba748f-313b-4ffe-b2a3-fb21c1f8943f", "area": "Afectividad", "texto": "Practica una conducta asertiva y una actitud afectuosa hacia las demás personas, sin inhibiciones ni agresividad.", "unidad": "Clan", "como_se_cumple": "Estableciendo relaciones afectivas basadas en el respeto mutuo, el autocontrol y el cuidado del otro en Nuestras Cualidades."}, {"id": "075c93b1-81d2-4370-8e47-f0a4d086b20e", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Nuestras Cualidades."}, {"id": "7a9e143e-c837-473b-a014-e41ef5fc2ec2", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Nuestras Cualidades."}, {"id": "1d9d6751-4ab1-45db-9999-3f18606b4909", "area": "Carácter", "texto": "Soy fiel a la palabra dada.", "unidad": "Avanzada", "como_se_cumple": "Actuando consecuentemente con sus principios y valores individuales en cada decisión y rol de Nuestras Cualidades."}, {"id": "770a8ff3-7bb8-45dd-b114-5ae1069eff62", "area": "Carácter", "texto": "actúa consecuentemente con los valores que lo inspiran.", "unidad": "Clan", "como_se_cumple": "Actuando consecuentemente con sus principios y valores individuales en cada decisión y rol de Nuestras Cualidades."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Nuestras Cualidades."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Nuestras Cualidades."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Nuestras Cualidades."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Nuestras Cualidades."}]}'::jsonb WHERE id = '3ba7a8ca-6f46-475c-9b6e-d9f09836b21c';
+
+UPDATE public.articulos SET titulo = 'Una torre alta firme y hermosa', contenido = '<p>La actividad <a href="https://odresnuevos.files.wordpress.com/2008/05/juegos-para-scouts.pdf" target="_blank" rel="noreferrer noopener">una torre alta firme y hermosa</a> es una dinámica que sirve de <a href="https://nuamana.com/nuanew/objetivos-actividad/trabajo-en-equipo/" target="_blank" rel="noreferrer noopener">integración para equipos</a> recién formados.</p>
+
+
+
+
+
+
+
+<p>Se entregarán materiales por equipo, un pegamento, diarios o periódicos, palos de maqueta u otro similar, y papel para adornar por cada equipo.</p>
+
+
+
+
+
+
+
+<h3 class="wp-block-heading">¿Cómo hacer una torre alta firme y hermosa?</h3>
+
+
+
+
+
+
+
+<p>El responsable de la actividad pide a cada equipo que construya "una torre alta, firme y hermosa". No especifica nada más y se le entregan los materiales a cada equipo.</p>
+
+
+
+
+
+
+
+<p>Después de ¿30 minutos se juntan los equipos y por votación se elige la que mejor cumple con las características solicitadas. Después el responsable de la actividad pide a los participantes que piensen que su equipo se construye igual que la torre que han presentado.</p>
+
+
+
+
+
+
+
+', extracto = 'La actividad  una torre alta firme y hermosa  es una dinámica que sirve de  integración para equipos  recién formados. 
+
+
+
+ Se entregarán materiales por equipo...', metadata = '{"areas": ["creatividad", "sociabilidad"], "lugares": ["Exterior", "Interior"], "cantidad": "04 participantes", "duracion": "35 minutos", "unidades": ["compañía", "tropa", "avanzada", "clan"], "objetivos": ["Aprendizaje por la acción", "Desarrollar la motricidad", "Estimular la creatividad", "Favorecer la comunicación en el grupo", "Trabajo en equipo"], "materiales": ["Diarios o Periódicos", "Objetos Varios", "Palos de Maqueta", "Papel", "Pegamento"], "variaciones": "Puede variar los materiales entregados para la construcción de la torre, por ejemplo, se pueden utilizar también espaguettis, cartón, etc.", "recomendaciones": "Procure hacer énfasis en la evaluación posterior a la construcción de la torre, de forma de realzar que las características individuales ayudan a mejorar el todo del equipo.", "justificacion_areas": "Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_UnaTorreAltaFirmeYHermosa.png", "objetivos_educativos": [{"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Una torre alta firme y hermosa."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Una torre alta firme y hermosa."}, {"id": "49ae6ac6-be8f-4f2c-8b3e-6711d041181f", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Una torre alta firme y hermosa."}, {"id": "cf530cf9-73a6-4423-a075-79be433fe96c", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Una torre alta firme y hermosa."}, {"id": "3cdf4b56-b55f-4878-b3fa-da32a7200ca4", "area": "Creatividad", "texto": "Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.", "unidad": "Avanzada", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Una torre alta firme y hermosa."}, {"id": "ef75fbed-4a6d-49ea-bfab-f2952415e1a0", "area": "Creatividad", "texto": "actúa con agilidad mental ante las situaciones más diversas, desarrollando su capacidad de pensar, innovar y aventurar.", "unidad": "Clan", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Una torre alta firme y hermosa."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Una torre alta firme y hermosa."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Una torre alta firme y hermosa."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Una torre alta firme y hermosa."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Una torre alta firme y hermosa."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Una torre alta firme y hermosa."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Una torre alta firme y hermosa."}]}'::jsonb WHERE id = '334dd057-0cda-4817-b473-e45367277f73';
+
+UPDATE public.articulos SET titulo = 'Capturar la bandera', contenido = '<p>El juego Capturar la bandera es una actividad enfocada en el <a href="https://nuamana.cl/objetivos-actividad/refuerzo-de-habilidades-fisicas/" data-type="objetivos-actividad" data-id="52">refuerzo de habilidades físicas</a> y promover la elaboración de <a href="https://nuamana.cl/etiqueta/juegos-de-estrategia/" data-type="post_tag" data-id="190">estrategias</a> mediante el <a href="https://nuamana.cl/objetivos-actividad/trabajo-en-equipo/" data-type="objetivos-actividad" data-id="10">trabajo en equipo</a>.</p>
+
+
+
+<h2 class="wp-block-heading">¿Cómo se juega Capturar la bandera?</h2>
+
+
+
+<p>Se forman dos equipos, que idealmente deben estar nivelados en sus capacidades físicas, luego de ello se les indica a los participantes los límites del campo de juego.</p>
+
+
+
+<p>Los equipos deben ubicar su "Bandera" (pañolin) en cualquier lugar del campo de juego, esta será su base, idealmente ubicadas en los extremos del campo de juego.</p>
+
+
+
+<p>La "bandera" debe encontrarse a simple vista y a la altura de la persona más baja en ambos equipos, la "bandera" tampoco debe estar amarrada, sólo debe estar sobrepuesta.</p>
+
+
+
+<p>El juego consiste en <a href="https://es.wikipedia.org/wiki/Capturar_la_bandera" target="_blank" data-type="link" data-id="https://es.wikipedia.org/wiki/Capturar_la_bandera" rel="noreferrer noopener">capturar la bandera</a> del otro equipo, por lo mismo para lograr la victoria se deben juntar ambas banderas en una misma base.</p>
+
+
+
+<p>Se le entrega entonces un tiempo a ambos equipos para que puedan posicionar sus bases en el campo de juego y establezcan una estrategia para ganar.</p>
+
+
+
+<p>Para la actividad cada equipo debe dividirse en 2:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Los que defienden</strong> se quedan en su campo para evitar el capturar la bandera de su equipo, eliminando a los que atacan tocándolos.</li>
+</ul>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Los que atacan</strong> van al campo enemigo para capturar la bandera y evitar que los eliminen agachándose.</li>
+</ul>
+
+
+
+<p>Ser atacante o defensor no es permanente pueden cambiar de posición en cualquier momento del juego.</p>
+
+
+
+<p>Se puede identificar al atacante o al defensor de acuerdo a qué lado del campo se encuentre, si está en campo propio será un defensor, mientras que si está en campo rival será un atacante.</p>
+
+
+
+<p>Cuando los que atacan están agachados no se pueden mover, para poder moverse sí o sí deben estar de pie y los que defienden deben estar mínimo a 3 pasos de distancia de ellos.</p>
+
+
+
+<p>Los atacantes sólo pueden capturar la bandera y evitar que los toquen, pero no pueden tocar a los rivales para eliminarlos.</p>
+
+
+
+<p>Si eliminan a los que atacan este debe volver a su campo y esperar 30 segundos para volver a salir a atacar.</p>
+
+
+
+<p>Si un atacante toma la bandera rival este puede ser tocado durante cualquier punto del camino hacia su base, y si lo tocan debe entregar la bandera al equipo rival.</p>
+
+
+
+<p>El juego termina cuando uno de los que ataca lleva la bandera del otro equipo a su campo sin que nadie lo toque.</p>
+
+
+
+<div class="wp-block-boldblocks-carousel-item-repeater wp-block-boldblocks-custom-parent is-carousel js-carousel-layout" data-carousel-settings="{&quot;speed&quot;:300,&quot;loop&quot;:true,&quot;rewind&quot;:false,&quot;autoplay&quot;:{&quot;delay&quot;:3000},&quot;direction&quot;:&quot;horizontal&quot;,&quot;effect&quot;:&quot;slide&quot;,&quot;slidesPerView&quot;:{&quot;auto&quot;:false,&quot;value&quot;:&quot;2&quot;},&quot;breakpoints&quot;:{&quot;576&quot;:{&quot;slidesPerView&quot;:1,&quot;spaceBetween&quot;:0},&quot;768&quot;:{&quot;slidesPerView&quot;:{&quot;auto&quot;:false,&quot;value&quot;:&quot;2&quot;},&quot;spaceBetween&quot;:0}},&quot;pagination&quot;:false,&quot;paginationSettings&quot;:{&quot;enable&quot;:false,&quot;size&quot;:&quot;12px&quot;,&quot;spacing&quot;:&quot;10px&quot;,&quot;color&quot;:&quot;&quot;,&quot;inactiveColor&quot;:&quot;&quot;,&quot;opacity&quot;:0.3,&quot;dynamicBullets&quot;:true,&quot;horizontalGap&quot;:&quot;5px&quot;},&quot;navigation&quot;:false,&quot;navigationSettings&quot;:{&quot;enable&quot;:false,&quot;size&quot;:&quot;44px&quot;,&quot;spacing&quot;:&quot;10px&quot;,&quot;color&quot;:&quot;&quot;},&quot;scrollbar&quot;:false,&quot;scrollbarSettings&quot;:{&quot;enable&quot;:false,&quot;trackSize&quot;:&quot;5px&quot;,&quot;draggable&quot;:true,&quot;hide&quot;:false,&quot;snapOnRelease&quot;:true,&quot;trackColor&quot;:&quot;&quot;,&quot;sliderColor&quot;:&quot;&quot;}}"><div class="carousel__inner">
+<div class="wp-block-boldblocks-carousel-item wp-block-boldblocks-custom is-carousel-item has-parent carousel-item">
+<figure class="wp-block-image size-large"><img src="https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CapturaLaBandera1.jpg" alt=""/></figure>
+</div>
+
+
+
+<div class="wp-block-boldblocks-carousel-item wp-block-boldblocks-custom is-carousel-item has-parent carousel-item">
+<figure class="wp-block-image size-large"><img src="https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CapturaLaBandera2.jpg" alt=""/></figure>
+</div>
+</div></div>', extracto = 'El juego Capturar la bandera es una actividad enfocada en el  refuerzo de habilidades físicas  y promover la elaboración de  estrategias  mediante el  trabajo...', metadata = '{"areas": ["corporalidad", "sociabilidad"], "lugares": ["Campo Abierto", "Exterior"], "cantidad": "08 participantes", "duracion": "30 minutos", "unidades": ["compañía", "tropa", "avanzada"], "objetivos": ["Desfogue de Energías", "Promover la elaboración de estrategias", "Refuerzo de habilidades físicas", "Trabajo en equipo"], "materiales": ["Pañolin"], "variaciones": "", "recomendaciones": "", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CapturaLaBandera.png", "objetivos_educativos": [{"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se estén produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Capturar la bandera."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Capturar la bandera."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Capturar la bandera."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Capturar la bandera."}, {"id": "05f42879-f5f5-40c4-bed6-c577bf61340a", "area": "Corporalidad", "texto": "Cuido mi salud y mantengo hábitos que la protegen.", "unidad": "Avanzada", "como_se_cumple": "Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de Capturar la bandera."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Capturar la bandera."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Capturar la bandera."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Capturar la bandera."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Capturar la bandera."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Capturar la bandera."}]}'::jsonb WHERE id = '953f10a6-f9d4-4760-8414-2192d4ba8d48';
+
+UPDATE public.articulos SET titulo = 'El teléfono (Con dibujos)', contenido = '<p>La actividad El teléfono (Con dibujos) es una <a href="https://nuamana.cl/blog/actividades/dinamicas/" data-type="category" data-id="106">dinámica </a>que busca fomentar la comunicación y el <a href="https://www.questionpro.com/blog/es/trabajar-en-equipo/" target="_blank" data-type="link" data-id="https://www.questionpro.com/blog/es/trabajar-en-equipo/" rel="noreferrer noopener">trabajo en equipo</a> a través de ejemplos concretos y visibles para los participantes.</p>
+
+
+
+<p>Para realizar la actividad se requieren como materiales un papel y lápiz por participante.</p>
+
+
+
+<h2 class="wp-block-heading">¿Cómo se realiza El teléfono (Con dibujos)?</h2>
+
+
+
+<p>para hacer el juego de El Teléfono (con dibujos) se reúne al grupo de participantes y se organiza en una hilera o fila donde se colocarán uno detrás del otro, se recomienda que sea sentados para que se pueda hacer de forma tranquila.</p>
+
+
+
+<p>Deben estar en un orden lineal de manera que no puedan ver el dibujo del que está detrás. al igual como en una cadena, el teléfono será tan efectivo como el que emita y el que reciba el dibujo.</p>
+
+
+
+<p>El primer participante, que será el "dibujante inicial", recibirá un dibujo o figura que debe intentar reproducir en la espalda del participante que está justo delante de él.</p>
+
+
+
+<p>Es importante que el dibujo sea claro y reconocible a través del tacto.</p>
+
+
+
+<p>El segundo participante en la fila debe interpretar los movimientos que siente en su espalda y tratar de reproducirlos en la espalda del siguiente participante, y así sucesivamente. </p>
+
+
+
+<p>A medida que el dibujo se transmite a lo largo de la hilera, cada participante interpreta y reproduce lo que siente en su espalda.</p>
+
+
+
+<p>Es casi 100% seguro que el dibujo original se transforme y evolucione con cada participante que transmite el dibujo hacia adelante, esto es parte de la misma dinámica.</p>
+
+
+
+<p>Una vez que el dibujo ha pasado por todos los participantes de la hilera, el último participante debe intentar dibujar en un papel lo que siente en su espalda.</p>
+
+
+
+<p>Luego, el dibujo inicial se compara con el resultado final para observar cómo ha cambiado y se ha transformado a medida que se transmite a lo largo de la cadena.</p>
+
+
+
+<p>Para la actividad El Teléfono (Con Dibujos) es necesario reforzar en la reflexión final de la actividad, que la comunicación entre una persona y otra también se transmite con interpretaciones propias.</p>
+
+
+
+<p>De esta manera el transmisor y el receptor, al igual que con el teléfono, deben aprender tanto a entregar como a recibir un mensaje de la mejor manera posible.</p>', extracto = 'La actividad El teléfono (Con dibujos) es una  dinámica  que busca fomentar la comunicación y el  trabajo en equipo  a través de ejemplos concretos y visibles...', metadata = '{"areas": ["creatividad", "sociabilidad"], "lugares": ["Campo Abierto", "Exterior", "Interior", "Sala"], "cantidad": "06 participantes", "duracion": "20 minutos", "unidades": ["avanzada", "clan", "compañía", "tropa"], "objetivos": ["Aprender a seguir instrucciones", "Aprendizaje por la acción", "Fomentar la comunicación e interpretación", "Trabajo en equipo"], "materiales": ["Lápiz", "Papel"], "variaciones": "La variación puede ser el juego original de El teléfono, donde se transmite un mensaje verbal de oído en oído sin que escuche nadie más, y sin repetir el mensaje se transmite al siguiente participante.", "recomendaciones": "Debe reforzar adecuadamente en las conclusiones finales de la actividad, para que se entienda la idea de la actividad, donde el énfasis se encuentra en reforzar ala comunicación, tanto desde el punto de vista del emisor como del receptor.", "justificacion_areas": "Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_ElTel%C3%A9fono(ConDibujos).png", "objetivos_educativos": [{"id": "843fda9c-6c4a-4516-b30c-23c92ef755a8", "area": "Creatividad", "texto": "Puedo resolver la mayoría de los problemas Técnicos domásticos simples.", "unidad": "Avanzada", "como_se_cumple": "Combinando conocimientos prácticos e inventiva técnica para resolver los retos de pionerismo y diseño en El teléfono (Con dibujos)."}, {"id": "29eee8b1-a414-4df9-90e1-520a384fb9aa", "area": "Creatividad", "texto": "Une los conocimientos teórico y práctico mediante la aplicación constante de sus habilidades técnicas y manuales.", "unidad": "Clan", "como_se_cumple": "Combinando conocimientos prácticos e inventiva técnica para resolver los retos de pionerismo y diseño en El teléfono (Con dibujos)."}, {"id": "103661fc-3396-4eac-9182-58b7e54d5115", "area": "Creatividad", "texto": "Perfecciono mis habilidades manuales.", "unidad": "Compañía", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en El teléfono (Con dibujos)."}, {"id": "0f60be94-6de3-4c34-a6ff-5b5018f0b156", "area": "Creatividad", "texto": "Coopero en la mantención y renovación del local y materiales de mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en El teléfono (Con dibujos)."}, {"id": "11320fb6-98de-4725-825d-db858e3bffa2", "area": "Creatividad", "texto": "Perfecciono mis habilidades manuales.", "unidad": "Tropa", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en El teléfono (Con dibujos)."}, {"id": "fd3d3e14-e92b-4ab5-8298-9018c6e70b20", "area": "Creatividad", "texto": "Coopero en la mantención y renovación del local y materiales de mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en El teléfono (Con dibujos)."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en El teléfono (Con dibujos)."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en El teléfono (Con dibujos)."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante El teléfono (Con dibujos)."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante El teléfono (Con dibujos)."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante El teléfono (Con dibujos)."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante El teléfono (Con dibujos)."}]}'::jsonb WHERE id = '46bba5a4-aa33-48b7-8eac-3dad9bcc00a8';
+
+UPDATE public.articulos SET titulo = 'Carrera de la caja sorpresa', contenido = '<p>La Carrera de la caja sorpresa es una actividad enfocada en <a href="https://nuamana.com/nuanew/objetivos-actividad/estimular-la-atencion-a-los-detalles/" target="_blank" rel="noreferrer noopener">estimular la atención a los detalles</a>, requiere una caja y varios objetos para poder hacerse.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace la Carrera de la caja sorpresa?</h3>
+
+
+
+<p>En un extremo del campo se coloca una lista o imágenes de los <a href="https://juegoscout.blogspot.com/" target="_blank" rel="noreferrer noopener">objetos dentro de la caja</a>, en otra punta del campo de juego se colocará la Carrera de la caja sorpresa y en la otra los equipos.</p>
+
+
+
+<figure class="wp-block-image alignright is-resized"><img src="https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CarreraDeLaCajaSorpresa_2.png" alt="Carrera de la caja sorpresa graficada" style="width:360px"/></figure>
+
+
+
+<p>En la caja, que debe ser grande, se colocan tantos objetos como participantes hay, estos objetos deben ser todos diferentes.</p>
+
+
+
+<p>En la lista, se debe detallar el nombre del objeto o la imagen (en caso de que hayan niños o niñas que no sepan leer) y debe haber una lista por equipo.</p>
+
+
+
+<p>Se dividen los equipos y se ubicarán detrás de la línea de partida.</p>
+
+
+
+<p>A la señal sale la o el primer corredor hacia la lista, lee el primer objeto que corresponde a su equipo, luego va corriendo a la caja y lo recoge.</p>
+
+
+
+<p>Antes de volver con su equipo, debe ir con el o la animadora de la actividad que controlara que sacó un objeto en la lista de su equipo.</p>
+
+
+
+<p>Luego vuelve hacia el punto de partida en donde toca al segundo compañero que hace lo mismo con el segundo objeto... y así sucesivamente.</p>', extracto = 'La Carrera de la caja sorpresa es una actividad enfocada en  estimular la atención a los detalles , requiere una caja y varios objetos para poder hacerse....', metadata = '{"areas": ["carácter", "creatividad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "04 participantes", "duracion": "20 minutos", "unidades": ["compañía", "manada", "tropa"], "objetivos": ["Estimular la atención a los detalles", "Trabajo en equipo"], "materiales": ["Caja", "Listado de temas", "Objetos Varios"], "variaciones": "Puede variar la actividad cambiando el tamaño de la caja o colocando varias cajas una por objeto, sin embargo, debe cerrarlas después de que cada participante las abra, o aumentar la dificultad cuando no encuentren el objeto en la caja deben volver sin nada a su equipo, hasta que encuentren el objeto que buscan.", "recomendaciones": "Procure dar dinamismo y velocidad motivando a los participantes en cada salida del punto de partida para agregar \"presión\" y forzar el error.", "justificacion_areas": "Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Ayuda a consolidar los valores scouts de honestidad, lealtad y fair play en la competencia.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CarreraDeLaCajaSorpresa.png", "objetivos_educativos": [{"id": "075c93b1-81d2-4370-8e47-f0a4d086b20e", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Carrera de la caja sorpresa."}, {"id": "7a9e143e-c837-473b-a014-e41ef5fc2ec2", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Carrera de la caja sorpresa."}, {"id": "baa365a9-087c-4c25-b0ad-57893df5ff74", "area": "Carácter", "texto": "sí lo que significa decir la verdad.", "unidad": "Manada", "como_se_cumple": "Jugando de manera transparente y honesta en Carrera de la caja sorpresa, aceptando con alegría la victoria o la derrota."}, {"id": "506b7596-cac4-48e0-88c7-942d575172db", "area": "Carácter", "texto": "Digo la verdad, aunque a veces no me gusten las consecuencias.", "unidad": "Manada", "como_se_cumple": "Jugando de manera transparente y honesta en Carrera de la caja sorpresa, aceptando con alegría la victoria o la derrota."}, {"id": "38f4863e-12a6-4a4b-9767-8cdf55020734", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Carrera de la caja sorpresa."}, {"id": "5311be36-87be-40c4-ab4a-e6ce6e662183", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Carrera de la caja sorpresa."}, {"id": "103661fc-3396-4eac-9182-58b7e54d5115", "area": "Creatividad", "texto": "Perfecciono mis habilidades manuales.", "unidad": "Compañía", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Carrera de la caja sorpresa."}, {"id": "0f60be94-6de3-4c34-a6ff-5b5018f0b156", "area": "Creatividad", "texto": "Coopero en la mantención y renovación del local y materiales de mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Carrera de la caja sorpresa."}, {"id": "8985ff05-ee84-4fba-af46-146c5374df89", "area": "Creatividad", "texto": "Participo en los talleres de manualidades que se hacen en la Manada.", "unidad": "Manada", "como_se_cumple": "Manipulando de forma segura y creativa los materiales de la actividad para modelar o construir en Carrera de la caja sorpresa."}, {"id": "d4232b99-5655-49c6-9d24-099cfe9c8180", "area": "Creatividad", "texto": "Practico continuamente mis habilidades manuales.", "unidad": "Manada", "como_se_cumple": "Manipulando de forma segura y creativa los materiales de la actividad para modelar o construir en Carrera de la caja sorpresa."}, {"id": "11320fb6-98de-4725-825d-db858e3bffa2", "area": "Creatividad", "texto": "Perfecciono mis habilidades manuales.", "unidad": "Tropa", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Carrera de la caja sorpresa."}, {"id": "fd3d3e14-e92b-4ab5-8298-9018c6e70b20", "area": "Creatividad", "texto": "Coopero en la mantención y renovación del local y materiales de mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Carrera de la caja sorpresa."}]}'::jsonb WHERE id = '639da980-bb77-4e57-abf1-56bfdc64e39d';
+
+UPDATE public.articulos SET titulo = 'Carrera de la fotografía', contenido = '<p>La carrera de la fotografía es una actividad enfocada en promover <a href="https://nuamana.com/nuanew/objetivos-actividad/trabajo-en-equipo/" target="_blank" rel="noreferrer noopener">trabajo en equipo</a>, estimular la creatividad y desarrollar el carácter mediante la cooperación.</p>
+
+
+
+<p>Como materiales iniciales son necesarias una fotografía por equipo y un par de tijeras para recortar las fotografías.</p>
+
+
+
+<p>La carrera de la fotografía es una actividad <a href="https://nuamana.com/nuanew/etiqueta/en-equipo/" target="_blank" rel="noreferrer noopener">en equipo</a> por lo que debe haber al menos 2 participantes por cada equipo.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace la Carrera de la fotografía?</h3>
+
+
+
+<h4 class="wp-block-heading">Preparación</h4>
+
+
+
+<p>Para hacer la carrera de la fotografía se prepara una fotografía grande por cada equipo, ésta fotografía se recortará en tantos trozos como participantes haya en cada equipo.</p>
+
+
+
+<p>En caso de que los equipos sean de muy pocos participantes se podrán reiterar en su participación la idea es que la fotografía tenga al menos 8 trozos.</p>
+
+
+
+<p>En la mitad del campo de juego se colocarán los trozos de fotografía, cada fotografía debe estar separada de otra, pero los trozos de una fotografía tienen que estar juntos.</p>
+
+
+
+<h4 class="wp-block-heading">Desarrollo</h4>
+
+
+
+<p>A la señal sale un corredor de cada equipo hasta el centro del campo donde toma un trozo de la fotografía que le corresponde a su grupo.</p>
+
+
+
+<p>El trozo lo lleva corriendo al extremo del campo y lo pone en la posición que crea correcta. Por eso el nombre <a href="http://juegoscout.blogspot.cl/" target="_blank" rel="noreferrer noopener">Carrera de la fotografía</a>, una vez colocado, vuelve al punto de partida.</p>
+
+
+
+<p>Al llegar al punto de partida toca con la mano al siguiente corredor y éste hace lo mismo con el siguiente trozo. Así sucesivamente hasta componer toda la foto.</p>
+
+
+
+<p>Gana el equipo que se demora menos tiempo en restaurar la fotografía de forma correcta.</p>
+
+
+
+<p>En caso de que la posición de la fotografía del equipo que terminó primero no sea correcta se verifica el estado de la fotografía de los demás equipos.</p>', extracto = 'La carrera de la fotografía es una actividad enfocada en promover  trabajo en equipo , estimular la creatividad y desarrollar el carácter mediante la cooperaci...', metadata = '{"areas": ["carácter", "creatividad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "04 participantes", "duracion": "20 minutos", "unidades": ["avanzada", "compañía", "manada", "tropa"], "objetivos": ["Desarrollar el carácter mediante la cooperación", "Estimular la creatividad", "Trabajo en equipo"], "materiales": "", "variaciones": "Una variación posible es cambiar sólo un trozo entre cada equipo, es decir, de la fotografía A se toma un trozo y se coloca en B, de la B se toma un trozo y se coloca en C, y así según cuantas fotografías haya.\r\n\r\nCon esta variación se busca mostrar a los participantes la interdepencia que tienen los equipos unos con otros y no es sino hasta que hablan con otro equipo que podrán resolver la situación.", "recomendaciones": "Procure dejar los trozos vueltos para abajo de forma que el trozo sacado por le participante sea más sorpresivo al ubicarlo en la restauración.\r\n\r\nDeje las reglas muy claras desde un principio, al ser un juego que promueve la creatividad, es necesario establecer el marco de trabajo general.", "justificacion_areas": "Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Ayuda a consolidar los valores scouts de honestidad, lealtad y fair play en la competencia. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CarreraDeLaFotografia.png", "objetivos_educativos": [{"id": "1d9d6751-4ab1-45db-9999-3f18606b4909", "area": "Carácter", "texto": "Soy fiel a la palabra dada.", "unidad": "Avanzada", "como_se_cumple": "Actuando consecuentemente con sus principios y valores individuales en cada decisión y rol de Carrera de la fotografía."}, {"id": "075c93b1-81d2-4370-8e47-f0a4d086b20e", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Carrera de la fotografía."}, {"id": "7a9e143e-c837-473b-a014-e41ef5fc2ec2", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Carrera de la fotografía."}, {"id": "baa365a9-087c-4c25-b0ad-57893df5ff74", "area": "Carácter", "texto": "sí lo que significa decir la verdad.", "unidad": "Manada", "como_se_cumple": "Jugando de manera transparente y honesta en Carrera de la fotografía, aceptando con alegría la victoria o la derrota."}, {"id": "506b7596-cac4-48e0-88c7-942d575172db", "area": "Carácter", "texto": "Digo la verdad, aunque a veces no me gusten las consecuencias.", "unidad": "Manada", "como_se_cumple": "Jugando de manera transparente y honesta en Carrera de la fotografía, aceptando con alegría la victoria o la derrota."}, {"id": "38f4863e-12a6-4a4b-9767-8cdf55020734", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Carrera de la fotografía."}, {"id": "5311be36-87be-40c4-ab4a-e6ce6e662183", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Carrera de la fotografía."}, {"id": "3cdf4b56-b55f-4878-b3fa-da32a7200ca4", "area": "Creatividad", "texto": "Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.", "unidad": "Avanzada", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Carrera de la fotografía."}, {"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Carrera de la fotografía."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Carrera de la fotografía."}, {"id": "ec280dd0-2d80-4b84-86ad-2d362da14886", "area": "Creatividad", "texto": "Me gusta participar en juegos de observación.", "unidad": "Manada", "como_se_cumple": "Proponiendo ideas originales y rápidas para resolver los acertijos o enigmas mentales de Carrera de la fotografía."}, {"id": "418f2b77-f15b-405a-95bd-8033c0b6a4c2", "area": "Creatividad", "texto": "Puedo contar con detalles las anécdotas y aventuras que hemos tenido en la Manada.", "unidad": "Manada", "como_se_cumple": "Proponiendo ideas originales y rápidas para resolver los acertijos o enigmas mentales de Carrera de la fotografía."}, {"id": "49ae6ac6-be8f-4f2c-8b3e-6711d041181f", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Carrera de la fotografía."}, {"id": "cf530cf9-73a6-4423-a075-79be433fe96c", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Carrera de la fotografía."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Carrera de la fotografía."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de la fotografía."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de la fotografía."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Carrera de la fotografía."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Carrera de la fotografía."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de la fotografía."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de la fotografía."}]}'::jsonb WHERE id = 'c7e011fe-7480-43ce-83e9-26fa080d662b';
+
+UPDATE public.articulos SET titulo = 'Relevos del Jinete', contenido = '<p>Relevos del jinete es un juego enfocado al desfogue de energías, el <a href="https://nuamana.com/nuanew/objetivos-actividad/refuerzo-de-habilidades-fisicas/" target="_blank" rel="noreferrer noopener">refuerzo de habilidades físicas</a> y el conocimiento de las limitantes físicas personales.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se juegan los Relevos del jinete?</h3>
+
+
+
+<p>Se divide cada equipo en dos grupos, los grupos de cada equipo se ubicaran en lugares opuestos del campo de juego.</p>
+
+
+
+<p>A la señal el primer participante del equipo se convierte en el "caballo" mientras que el o la participante que está detrás sera el "jinete".</p>
+
+
+
+<p>El "jinete" se sube sobre la espalda del "caballo" y salen en dirección a donde se ubica el otro grupo de su equipo.</p>
+
+
+
+<p>Al llegar el "caballo" se ubica al final de fila del segundo grupo, y el que era "jinete" se convierte ahora en "caballo" del primer participante del segundo grupo en su equipo.</p>
+
+
+
+<p>Los nuevos "caballo" y "jinete" salen en dirección ahora del primer grupo y repiten el cambio cuando llegan al otro lado, así sucesivamente hasta que todos pasan como jinete y caballos.</p>
+
+
+
+<p>En otras palabras....</p>
+
+
+
+<ol class="wp-block-list">
+<li>Se dividen los equipos en dos grupos.</li>
+
+
+
+<li>De un lado sale una pareja, uno haciendo de caballo y el otro de jinete.</li>
+
+
+
+<li>Al llegar al otro lado el jinete hace el <a href="http://juegoscout.blogspot.cl/" target="_blank" rel="noreferrer noopener">Relevos del jinete</a> y se convierte en caballo y trae a uno de los que están esperando.</li>
+
+
+
+<li>Al llegar al lado contrario de nuevo el jinete se convierte en caballo y así sucesivamente...</li>
+</ol>', extracto = 'Relevos del jinete es un juego enfocado al desfogue de energías, el  refuerzo de habilidades físicas  y el conocimiento de las limitantes físicas personales....', metadata = '{"areas": ["corporalidad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "06 participantes", "duracion": "15 minutos", "unidades": ["avanzada", "clan", "compañía", "tropa"], "objetivos": ["Aumentar el conocimiento de las limitantes físicas", "Desfogue de Energías", "Refuerzo de habilidades físicas"], "materiales": ["Sin Materiales"], "variaciones": "Puede variar el juego manteniendo al equipo en unido, en este caso \"jinete\" y \"caballo\" llegarían hasta el extremo del campo y volverían, para hacer el relevo con la o el compañero que sigue.", "recomendaciones": "Procure que haya un equilibrio de fuerzas físicas entre los equipos y tenga criterio en los Relevos basándose en el peso de cada participante, evite accidentes por sobreesfuerzo físico.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_RelevosDelJinete.png", "objetivos_educativos": [{"id": "7200435f-b020-46fc-b323-8249048b1d18", "area": "Corporalidad", "texto": "Participo en la organización de juegos y actividades recreativas para los demás.", "unidad": "Avanzada", "como_se_cumple": "Desplegando su máximo rendimiento aeróbico, agilidad y coordinación táctica en la carrera de Relevos del Jinete."}, {"id": "106e27af-ec7a-45fa-9295-fcef88fbef3d", "area": "Corporalidad", "texto": "Convive constantemente en la naturaleza y participa en actividades deportivas y recreativas.", "unidad": "Clan", "como_se_cumple": "Desplegando su máximo rendimiento aeróbico, agilidad y coordinación táctica en la carrera de Relevos del Jinete."}, {"id": "d5b111f1-5f6f-4716-8a02-e1826d653c59", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Relevos del Jinete."}, {"id": "b12da732-d736-480c-82b8-95b312316390", "area": "Corporalidad", "texto": "Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sí ganar y perder.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Relevos del Jinete."}, {"id": "58b4936a-816e-4d17-8d0a-c92d0606009d", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Relevos del Jinete."}, {"id": "6768d60a-187e-4bbf-97b9-cdc25a316030", "area": "Corporalidad", "texto": "Ayudo a preparar los juegos, excursiones y campamentos de mi patrulla y mi Tropa.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Relevos del Jinete."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Relevos del Jinete."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Relevos del Jinete."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevos del Jinete."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevos del Jinete."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevos del Jinete."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevos del Jinete."}]}'::jsonb WHERE id = '4c9ca7dc-ec5f-43bc-a0ff-54d9d498883b';
+
+UPDATE public.articulos SET titulo = 'Carrera del túnel', contenido = '<p>La Carrera del túnel es una actividad enfocada en el trabajo en equipo, para poder realizarla es necesario tener varios participantes por equipo, mientras más largo sea el túnel será mejor.</p>
+
+
+
+
+
+
+
+<p>La Carrera del túnel funciona mejor con una buena coordinación, esto facilitará al <a href="https://nuamana.com/nuanew/objetivos-actividad/trabajo-en-equipo/" target="_blank" rel="noreferrer noopener">equipo</a> ganar el juego, por lo que es necesario dar al equipo un par de minutos antes de iniciar la carrera para que puedan elaborar una estrategia de equipo.</p>
+
+
+
+
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace la Carrera del túnel?</h3>
+
+
+
+
+
+
+
+<p>Es una carrera de relevos se ponen todos en <a href="https://es.wikipedia.org/wiki/Fila_india" target="_blank" rel="noreferrer noopener">fila o hilera</a> con las piernas abiertas. Cuando se da la salida, el jugador que está detrás avanza arrastrándose por debajo de las piernas de sus compañeros.</p>
+
+
+
+
+
+
+
+<p>Cuando al fin llega hasta donde está el primero de la fila, se pone en pie, abre las piernas y da una señal para que el compañero que ha quedado el último comience a avanzar del mismo modo.</p>
+
+
+
+
+
+
+
+<p>Se puede poner una meta o se puede hacer que todos los amigos del mismo túnel lo atraviesen varias veces. Es importante abrir bien las piernas y que el que se desliza lo haga con cuidado y bien pegado al suelo.</p>
+
+
+
+
+
+
+
+<p>Una mala coordinación ha derribado túneles enteros provocando el pavor de sus compañeros. Bueno, también provocó la risa. Es muy importante que pongáis jueces para que nadie haga trampas.</p>
+
+
+
+
+
+
+
+<p>Las normas deben quedar bien claras desde el principio. A los jueces podéis ponerles un gran bigote para que produzcan sensación de mayor severidad y asemejen hombres duros que no conocen la indulgencia.</p>
+
+
+
+
+
+
+
+', extracto = 'La Carrera del túnel es una actividad enfocada en el trabajo en equipo, para poder realizarla es necesario tener varios participantes por equipo, mientras más...', metadata = '{"areas": ["corporalidad", "sociabilidad"], "lugares": ["Exterior"], "cantidad": "12 participantes", "duracion": "20 minutos", "unidades": ["avanzada", "clan", "compañía", "tropa"], "objetivos": ["Refuerzo de habilidades físicas", "Trabajo en equipo"], "materiales": ["Sin Materiales"], "variaciones": "", "recomendaciones": "", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_carreraDelTunel.png", "objetivos_educativos": [{"id": "7200435f-b020-46fc-b323-8249048b1d18", "area": "Corporalidad", "texto": "Participo en la organización de juegos y actividades recreativas para los demás.", "unidad": "Avanzada", "como_se_cumple": "Desplegando su máximo rendimiento aeróbico, agilidad y coordinación táctica en la carrera de Carrera del túnel."}, {"id": "106e27af-ec7a-45fa-9295-fcef88fbef3d", "area": "Corporalidad", "texto": "Convive constantemente en la naturaleza y participa en actividades deportivas y recreativas.", "unidad": "Clan", "como_se_cumple": "Desplegando su máximo rendimiento aeróbico, agilidad y coordinación táctica en la carrera de Carrera del túnel."}, {"id": "d5b111f1-5f6f-4716-8a02-e1826d653c59", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Carrera del túnel."}, {"id": "b12da732-d736-480c-82b8-95b312316390", "area": "Corporalidad", "texto": "Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sí ganar y perder.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Carrera del túnel."}, {"id": "58b4936a-816e-4d17-8d0a-c92d0606009d", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Carrera del túnel."}, {"id": "6768d60a-187e-4bbf-97b9-cdc25a316030", "area": "Corporalidad", "texto": "Ayudo a preparar los juegos, excursiones y campamentos de mi patrulla y mi Tropa.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Carrera del túnel."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Carrera del túnel."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Carrera del túnel."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera del túnel."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera del túnel."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera del túnel."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera del túnel."}]}'::jsonb WHERE id = '07d7ac45-f00c-4516-901d-61fc7a9d3f12';
+
+UPDATE public.articulos SET titulo = 'Carrera de Objetos', contenido = '<p>La carrera de objetos es una <a href="https://nuamana.com/nuanew/actividades/" target="_blank" rel="noreferrer noopener">actividad</a> que busca estimular la capacidad de observación y la atención a los detalles, se divide a los participantes en equipos.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se juega la Carrera de Objetos?</h3>
+
+
+
+<p>Para hacer la Carrera de Objetos, en una esquina de la pista se colocan diversos objetos encima de una <a href="https://es.wikipedia.org/wiki/Mesa" target="_blank" rel="noreferrer noopener">mesa</a>. En el otro extremo, en el punto de partida, se coloca otra mesa con papel y lápiz para cada equipo.</p>
+
+
+
+<p>Cada participante, correrá hacia el final de la pista para observar los objetos colocados en la mesa al llegar se le dará un tiempo razonable y deberá volver al punto de inicio donde anotará a su llegada los objetos que recuerde.</p>
+
+
+
+<p>El siguiente hace lo mismo y así hasta que pase todo el equipo. Gana el equipo que más objetos tenga anotados cuando termine el tiempo, o el primero que tenga todos los objetos anotados.</p>', extracto = 'La carrera de objetos es una  actividad  que busca estimular la capacidad de observación y la atención a los detalles, se divide a los participantes en equipos...', metadata = '{"areas": ["corporalidad", "creatividad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "04 participantes", "duracion": "15 minutos", "unidades": ["avanzada", "compañía", "tropa"], "objetivos": ["Estimular la atención a los detalles", "Estimular la creatividad", "Estimular la observación"], "materiales": ["Lápiz", "Objetos Varios", "Papel"], "variaciones": "Una variación puede ser limitar la cantidad de observaciones de los objetos, por ejemplo, cada participante sólo podrá correr a la meta de objetos 2 veces o 1 vez, etc.", "recomendaciones": "Procure que los objetos colocados en la mesa no se visualicen a la distancia del inicio.\r\n\r\nTenga precaución con el nivel del terreno para evitar caídas durante la carrera.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CarreraDeObjetos.png", "objetivos_educativos": [{"id": "05f42879-f5f5-40c4-bed6-c577bf61340a", "area": "Corporalidad", "texto": "Cuido mi salud y mantengo hábitos que la protegen.", "unidad": "Avanzada", "como_se_cumple": "Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de Carrera de Objetos."}, {"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se estén produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Objetos."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Objetos."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Objetos."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Objetos."}, {"id": "3cdf4b56-b55f-4878-b3fa-da32a7200ca4", "area": "Creatividad", "texto": "Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.", "unidad": "Avanzada", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Carrera de Objetos."}, {"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Carrera de Objetos."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Carrera de Objetos."}, {"id": "49ae6ac6-be8f-4f2c-8b3e-6711d041181f", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Carrera de Objetos."}, {"id": "cf530cf9-73a6-4423-a075-79be433fe96c", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Carrera de Objetos."}]}'::jsonb WHERE id = '70755489-cdb1-4228-adaf-0e800ac81f0c';
+
+UPDATE public.articulos SET titulo = 'Carrera con Vaso de Agua', contenido = '<p>La carrera con vaso de agua es una actividad ideal para los días de más calor, es una actividad que busca estimular la motricidad fina y el cuidado en los detalles, al mismo tiempo que ayuda a con una sana competencia que demuestra que la velocidad no siempre es lo más importante en un juego.</p>
+
+
+
+<p>La carrera con vaso de agua se puede realizar en equipos con relevos o de forma <a href="https://nuamana.com/nuanew/cantidad-participantes/individual/" target="_blank" rel="noreferrer noopener">individual</a> todos al mismo tiempo.</p>
+
+
+
+<p>Se necesita un área de juego delimitada con un punto de partida y una meta, la distancia entre ambos debe ser relativamente corta, además de <a href="https://es.wikipedia.org/wiki/Vaso_desechable" target="_blank" rel="noreferrer noopener">vasos plásticos</a> y agua.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se realiza la carrera con vaso de agua?</h3>
+
+
+
+<p>Se divide a los participantes en equipos en caso de ser necesario, a la señal salen los participantes desde el punto de partida con el vaso de agua sobre sus cabezas.</p>
+
+
+
+<p>Cada participante o cada equipo tendrá un vaso con agua, el nivel del agua en el vaso también significará una variación en la dificultad, mientras más agua más difícil será tener el equilibrio del vaso.</p>
+
+
+
+<p>Hay que ir avanzando manteniendo la cabeza en perfecto equilibrio para que el vaso de agua no se caiga encima. No se pueden utilizar las manos y si el vaso se cae el participante debe volver al punto de inicio y llenar el vaso de agua nuevamente.</p>', extracto = 'La carrera con vaso de agua es una actividad ideal para los días de más calor, es una actividad que busca estimular la motricidad fina y el cuidado en los deta...', metadata = '{"areas": ["corporalidad", "creatividad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "individual", "duracion": "15 minutos", "unidades": ["avanzada", "compañía", "manada", "tropa"], "objetivos": ["Aumentar el conocimiento de las limitantes físicas", "Conocer las capacidades corporales", "Crear un ambiente de distensión", "Desarrollar la motricidad", "Estimular la creatividad"], "materiales": ["Agua", "Vasos plásticos o de papel"], "variaciones": "Una variación puede ser obligar a mantener las manos en una parte determinada.", "recomendaciones": "Procure un área de juego que sea despejada y plana para evitar accidentes. Al mismo tiempo considere que haya buen clima para hacer la actividad.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_carreraConVasoDeAgua.png", "objetivos_educativos": [{"id": "7200435f-b020-46fc-b323-8249048b1d18", "area": "Corporalidad", "texto": "Participo en la organización de juegos y actividades recreativas para los demás.", "unidad": "Avanzada", "como_se_cumple": "Desplegando su máximo rendimiento aeróbico, agilidad y coordinación táctica en la carrera de Carrera con Vaso de Agua."}, {"id": "d5b111f1-5f6f-4716-8a02-e1826d653c59", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Carrera con Vaso de Agua."}, {"id": "b12da732-d736-480c-82b8-95b312316390", "area": "Corporalidad", "texto": "Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sí ganar y perder.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Carrera con Vaso de Agua."}, {"id": "4bf1e3dd-7f21-4c24-962d-9d6d64e32f25", "area": "Corporalidad", "texto": "Me gusta hacer actividades al aire libre.", "unidad": "Manada", "como_se_cumple": "Corriendo a paso rápido y coordinando sus movimientos con sus compañeros durante la dinámica de Carrera con Vaso de Agua."}, {"id": "5d2d48ed-c461-4a8e-9048-cceecd3de2e2", "area": "Corporalidad", "texto": "Me gusta jugar con otros niños y niñas y respeto las reglas de los juegos.", "unidad": "Manada", "como_se_cumple": "Corriendo a paso rápido y coordinando sus movimientos con sus compañeros durante la dinámica de Carrera con Vaso de Agua."}, {"id": "58b4936a-816e-4d17-8d0a-c92d0606009d", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Carrera con Vaso de Agua."}, {"id": "6768d60a-187e-4bbf-97b9-cdc25a316030", "area": "Corporalidad", "texto": "Ayudo a preparar los juegos, excursiones y campamentos de mi patrulla y mi Tropa.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Carrera con Vaso de Agua."}, {"id": "843fda9c-6c4a-4516-b30c-23c92ef755a8", "area": "Creatividad", "texto": "Puedo resolver la mayoría de los problemas Técnicos domásticos simples.", "unidad": "Avanzada", "como_se_cumple": "Combinando conocimientos prácticos e inventiva técnica para resolver los retos de pionerismo y diseño en Carrera con Vaso de Agua."}, {"id": "103661fc-3396-4eac-9182-58b7e54d5115", "area": "Creatividad", "texto": "Perfecciono mis habilidades manuales.", "unidad": "Compañía", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Carrera con Vaso de Agua."}, {"id": "0f60be94-6de3-4c34-a6ff-5b5018f0b156", "area": "Creatividad", "texto": "Coopero en la mantención y renovación del local y materiales de mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Carrera con Vaso de Agua."}, {"id": "8985ff05-ee84-4fba-af46-146c5374df89", "area": "Creatividad", "texto": "Participo en los talleres de manualidades que se hacen en la Manada.", "unidad": "Manada", "como_se_cumple": "Manipulando de forma segura y creativa los materiales de la actividad para modelar o construir en Carrera con Vaso de Agua."}, {"id": "d4232b99-5655-49c6-9d24-099cfe9c8180", "area": "Creatividad", "texto": "Practico continuamente mis habilidades manuales.", "unidad": "Manada", "como_se_cumple": "Manipulando de forma segura y creativa los materiales de la actividad para modelar o construir en Carrera con Vaso de Agua."}, {"id": "11320fb6-98de-4725-825d-db858e3bffa2", "area": "Creatividad", "texto": "Perfecciono mis habilidades manuales.", "unidad": "Tropa", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Carrera con Vaso de Agua."}, {"id": "fd3d3e14-e92b-4ab5-8298-9018c6e70b20", "area": "Creatividad", "texto": "Coopero en la mantención y renovación del local y materiales de mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Carrera con Vaso de Agua."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Carrera con Vaso de Agua."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera con Vaso de Agua."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera con Vaso de Agua."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Carrera con Vaso de Agua."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Carrera con Vaso de Agua."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera con Vaso de Agua."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera con Vaso de Agua."}]}'::jsonb WHERE id = 'd48a794f-c9c5-4799-a032-3654fda48aa1';
+
+UPDATE public.articulos SET titulo = 'Carrera de Globos', contenido = '<p>La carrera de globos es una actividad que busca que los participantes reconozcan sus limitaciones físicas, estimulen su coordinación corporal y la <a href="https://nuamana.com/nuanew/objetivos-actividad/desarrollar-la-motricidad/" target="_blank" rel="noreferrer noopener">motricidad</a>, además de fomentar la sana competencia entre pares.</p>
+
+
+
+
+
+
+
+<p>Se puede realizar en equipos o <a href="https://nuamana.com/nuanew/cantidad-participantes/individual/" target="_blank" rel="noreferrer noopener">individualmente</a>, si se realiza como una competencia entre equipos el primer paso es dividir a los participantes en equipos.</p>
+
+
+
+
+
+
+
+<h3 class="wp-block-heading">¿Cómo se realiza la Carrera de Globos?</h3>
+
+
+
+
+
+
+
+<p>Se determina el área de competencia estableciendo un punto de partida y una meta, la distancia de la meta dependerá de la edad de los participantes, para niñas y niños más pequeños la distancia será poca y aumentará en la medida que aumente la edad de los participantes.</p>
+
+
+
+
+
+
+
+<p>La Carrera de Globos es una actividad que pondrá a prueba la capacidad pulmonar de los participantes, por lo que si hay participantes que tengan algún problema con sus pulmones debe ser puesto en consideración.</p>
+
+
+
+
+
+
+
+<p>Una vez divididos los equipos, se ubica a los participantes en el punto de inicio, a la señal, los participantes colocarán los <a href="https://es.wikipedia.org/wiki/Globo_(juguete)" target="_blank" rel="noreferrer noopener">globos</a> en el aire y lo soplaran haciéndolo llegar a la meta sin tocarlos con ninguna parte del cuerpo o que los globos caigan al suelo.</p>
+
+
+
+
+
+
+
+<p>Si alguien toca al globo con cualquier parte del cuerpo o lo deja caer al suelo debe volver al punto de partida y comenzar de nuevo.</p>
+
+
+
+
+
+
+
+', extracto = 'La carrera de globos es una actividad que busca que los participantes reconozcan sus limitaciones físicas, estimulen su coordinación corporal y la  motricidad...', metadata = '{"areas": ["corporalidad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior", "Interior"], "cantidad": "individual", "duracion": "15 minutos", "unidades": ["manada"], "objetivos": ["Aumentar el conocimiento de las limitantes físicas", "Conocer las capacidades corporales", "Desarrollar la motricidad", "Fomentar la sana competencia"], "materiales": ["Globos"], "variaciones": "También se puede realizar usando papeles y sostenerlos en el aire con el soplido.", "recomendaciones": "Procure que el trayecto que deben recorrer los participantes no tenga obstáculos de ningún tipo para evitar accidentes.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_CarreraDeGlobos.png", "objetivos_educativos": [{"id": "4bf1e3dd-7f21-4c24-962d-9d6d64e32f25", "area": "Corporalidad", "texto": "Me gusta hacer actividades al aire libre.", "unidad": "Manada", "como_se_cumple": "Corriendo a paso rápido y coordinando sus movimientos con sus compañeros durante la dinámica de Carrera de Globos."}, {"id": "5d2d48ed-c461-4a8e-9048-cceecd3de2e2", "area": "Corporalidad", "texto": "Me gusta jugar con otros niños y niñas y respeto las reglas de los juegos.", "unidad": "Manada", "como_se_cumple": "Corriendo a paso rápido y coordinando sus movimientos con sus compañeros durante la dinámica de Carrera de Globos."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Carrera de Globos."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Carrera de Globos."}]}'::jsonb WHERE id = '67f165b7-09dc-4d94-b862-5afcbc31f742';
+
+UPDATE public.articulos SET titulo = 'El viejo tarugo', contenido = '<p>El viejo tarugo es una actividad que busca promover el trabajo en equipo y la elaboración colaborativa de estrategias para el equipo, también es una actividad con un alto componente físico por lo que puede ser utilizada para desfogue de energías.</p>
+
+
+
+<p>Para poder realizar el viejo tarugo es necesario al menos <a href="https://nuamana.com/nuanew/cantidad-participantes/6-participantes/" target="_blank" rel="noreferrer noopener">2 equipos de 3 participantes cada uno</a>, un área de juego pequeña que pueda contener dos círculos y una pelota, la pelota se puede hacer amarrando pañolines unos con otros hasta tener algo parecido a una pelota.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace el viejo tarugo?</h3>
+
+
+
+<p>Para hacer el viejo tarugo, se divide a las y los participantes en dos equipos, estos equipos se encontrarán en <a href="https://es.wikipedia.org/wiki/Conc%C3%A9ntrico" target="_blank" rel="noreferrer noopener">círculos concéntricos</a> y en el centro de ambos círculos se colocara un participante del equipo que se encuentra en el círculo exterior.</p>
+
+
+
+<p>Los y las jugadoras que se encuentran en el círculo exterior deben hacer circular la pelota entre ellos con el objetivo de buscar una apertura en el círculo interior y entregarle la pelota al compañero o compañera que está en el centro del círculo interior.</p>
+
+
+
+<p>Las y los participantes que se encuentran en el círculo interior deben bloquear cualquier intento de que la pelota llegue al jugador (a) que está en el centro de los círculos.</p>
+
+
+
+<p>Cuando los y las participantes del círculo exterior le logran pasar la pelota a la jugadora (o) en el centro se hace el intercambio de equipos, los que estaban en el círculo interior pasan al exterior y viceversa.</p>
+
+
+
+<p>Gana el equipo que demora menos tiempo en pasar la pelota, la o el participante en el interior del círculo debe cambiar en cada traspaso de pelota, siendo la idea que todos los y las jugadores pasen por el centro de los círculos.</p>', extracto = 'El viejo tarugo es una actividad que busca promover el trabajo en equipo y la elaboración colaborativa de estrategias para el equipo, también es una actividad...', metadata = '{"areas": ["corporalidad", "creatividad", "sociabilidad"], "lugares": ["Campo Abierto", "Exterior"], "cantidad": "06 participantes", "duracion": "20 minutos", "unidades": ["avanzada", "compañía", "tropa"], "objetivos": ["Promover la elaboración de estrategias", "Trabajo en equipo"], "materiales": ["Pelota"], "variaciones": "Puede variar el juego indicando que la pelota sólo se puede pasar en mano o que sólo puede ser lanzada, o dando ambas opciones.", "recomendaciones": "Procure tener las precauciones con el terreno, pero también haciendo énfasis en la seguridad y en el cuidado con aquellos que sean más pequeños o tengan menos fuerza.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_elViejoTarugo.png", "objetivos_educativos": [{"id": "05f42879-f5f5-40c4-bed6-c577bf61340a", "area": "Corporalidad", "texto": "Cuido mi salud y mantengo hábitos que la protegen.", "unidad": "Avanzada", "como_se_cumple": "Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de El viejo tarugo."}, {"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se estén produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de El viejo tarugo."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de El viejo tarugo."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de El viejo tarugo."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de El viejo tarugo."}, {"id": "843fda9c-6c4a-4516-b30c-23c92ef755a8", "area": "Creatividad", "texto": "Puedo resolver la mayoría de los problemas Técnicos domásticos simples.", "unidad": "Avanzada", "como_se_cumple": "Combinando conocimientos prácticos e inventiva técnica para resolver los retos de pionerismo y diseño en El viejo tarugo."}, {"id": "103661fc-3396-4eac-9182-58b7e54d5115", "area": "Creatividad", "texto": "Perfecciono mis habilidades manuales.", "unidad": "Compañía", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en El viejo tarugo."}, {"id": "0f60be94-6de3-4c34-a6ff-5b5018f0b156", "area": "Creatividad", "texto": "Coopero en la mantención y renovación del local y materiales de mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en El viejo tarugo."}, {"id": "11320fb6-98de-4725-825d-db858e3bffa2", "area": "Creatividad", "texto": "Perfecciono mis habilidades manuales.", "unidad": "Tropa", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en El viejo tarugo."}, {"id": "fd3d3e14-e92b-4ab5-8298-9018c6e70b20", "area": "Creatividad", "texto": "Coopero en la mantención y renovación del local y materiales de mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en El viejo tarugo."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en El viejo tarugo."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante El viejo tarugo."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante El viejo tarugo."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante El viejo tarugo."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante El viejo tarugo."}]}'::jsonb WHERE id = 'c126a443-2ad1-4805-ac4b-ce7b2ba02aa2';
+
+UPDATE public.articulos SET titulo = 'Renos con hambre', contenido = '<p>Renos con hambre es una actividad navideña en la que se aprovechará el contexto navideño, una actividad que busca generar un ambiente agradable, divertido y de competición, mientras que ayuda a reforzar el trabajo en equipo y el conocimiento de las limitaciones físicas.</p>
+
+
+
+<p>Renos con hambre requiere de los siguientes materiales, 1 plato por equipo, 4 vasos plasticos por equipo y pelotas pequeñas (pin pon, papel u otros).</p>
+
+
+
+<p>Contexto de Renos con Hambre:</p>
+
+
+
+<p>Es bien sabido que los renos siempre acompañan al viejito pascuero en la entrega de los regalos, esta noche los renos no se alimentaron para tal travesía.</p>
+
+
+
+<p>Durante una parada cuando el viejito pascuero pasa a dejar regalos, se encuentran con leche y galletas, esta instancia la ocupan los renos para correr e ir a comer todo lo que puedan antes de seguir su ruta.</p>
+
+
+
+<h3 class="wp-block-heading">¿CÓMO REALIZA RENOS CON HAMBRE?</h3>
+
+
+
+<p>Para realiza Renos con hambre se considerará como alimento cualquier pelota pequeña de la que se pueda disponer, ya sean <a href="https://es.wikipedia.org/wiki/Tenis_de_mesa" target="_blank" rel="noreferrer noopener">pelotas de ping pong</a>, de papel u otro material.</p>
+
+
+
+<p>Se dividen a los equipos y se ubicara a las o los participantes en una fila en un extremo del área de juego.</p>
+
+
+
+<p>Al iniciar el juego el último de cada equipo gritará "<a href="https://nuamana.cl/actividades/juegos/cuerpo-a-tierra/" target="_blank" data-type="post" data-id="1301" rel="noreferrer noopener">¡CUERPO A TIERRA!</a>" y el resto del equipo se acostará en el suelo para que la persona que gritó pase saltando entre medio de cada uno y luego correr hasta la meta y volver. Cuando vuelve debe ponerse de los primeros y el que ahora está último repetirá el proceso gritando "¡<a href="https://nuamana.com/nuanew/actividades/juegos/cuerpo-a-tierra/" target="_blank" rel="noreferrer noopener">CUERPO A TIERRA!</a>".</p>
+
+
+
+<p>Al momento de llegar a la meta la o el participante tendrá 30 segundos para ponerse un vaso plástico en cada mano (esto para simular las pezuñas de un reno).</p>
+
+
+
+<p>Luego él o la participante debe tomar los "alimentos" (pelotas pequeñas), que estarán en una mesa o en algún lugar del suelo cercano a los platos, y moverlos usando sólo sus "pezuñas", no puede utilizar otras partes del cuerpo.</p>
+
+
+
+<p>Una vez finalice el tiempo tendrá que detener todo, sacarse los vasos y se repetirá el proceso con la o él siguiente participante.</p>
+
+
+
+<p>Gana el equipo que logre juntar más alimento en el plato.</p>', extracto = 'Renos con hambre es una actividad navideña en la que se aprovechará el contexto navideño, una actividad que busca generar un ambiente agradable, divertido y de...', metadata = '{"areas": ["corporalidad", "creatividad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "04 participantes", "duracion": "20 minutos", "unidades": ["avanzada", "clan", "compañía", "manada", "tropa"], "objetivos": ["Aumentar el conocimiento de las limitantes físicas", "Crear un ambiente de distensión", "Trabajo en equipo"], "materiales": ["Pelotas de ping pong", "Plato", "Vasos plásticos o de papel"], "variaciones": "Al momento del cuerpo a tierra este se puede reemplazar por uno de misma estructura pero el participante puede pasar por entremedio de las piernas de los demás.", "recomendaciones": "Se debe tener atención al lugar donde se realizará la actividad (tipo de suelo) y condiciones de este para evitar lesiones o caídas.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_RenosConHambre.png", "objetivos_educativos": [{"id": "7200435f-b020-46fc-b323-8249048b1d18", "area": "Corporalidad", "texto": "Participo en la organización de juegos y actividades recreativas para los demás.", "unidad": "Avanzada", "como_se_cumple": "Desplegando su máximo rendimiento aeróbico, agilidad y coordinación táctica en la carrera de Renos con hambre."}, {"id": "106e27af-ec7a-45fa-9295-fcef88fbef3d", "area": "Corporalidad", "texto": "Convive constantemente en la naturaleza y participa en actividades deportivas y recreativas.", "unidad": "Clan", "como_se_cumple": "Desplegando su máximo rendimiento aeróbico, agilidad y coordinación táctica en la carrera de Renos con hambre."}, {"id": "d5b111f1-5f6f-4716-8a02-e1826d653c59", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Renos con hambre."}, {"id": "b12da732-d736-480c-82b8-95b312316390", "area": "Corporalidad", "texto": "Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sí ganar y perder.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Renos con hambre."}, {"id": "4bf1e3dd-7f21-4c24-962d-9d6d64e32f25", "area": "Corporalidad", "texto": "Me gusta hacer actividades al aire libre.", "unidad": "Manada", "como_se_cumple": "Corriendo a paso rápido y coordinando sus movimientos con sus compañeros durante la dinámica de Renos con hambre."}, {"id": "5d2d48ed-c461-4a8e-9048-cceecd3de2e2", "area": "Corporalidad", "texto": "Me gusta jugar con otros niños y niñas y respeto las reglas de los juegos.", "unidad": "Manada", "como_se_cumple": "Corriendo a paso rápido y coordinando sus movimientos con sus compañeros durante la dinámica de Renos con hambre."}, {"id": "58b4936a-816e-4d17-8d0a-c92d0606009d", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Renos con hambre."}, {"id": "6768d60a-187e-4bbf-97b9-cdc25a316030", "area": "Corporalidad", "texto": "Ayudo a preparar los juegos, excursiones y campamentos de mi patrulla y mi Tropa.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Renos con hambre."}, {"id": "3cdf4b56-b55f-4878-b3fa-da32a7200ca4", "area": "Creatividad", "texto": "Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.", "unidad": "Avanzada", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Renos con hambre."}, {"id": "ef75fbed-4a6d-49ea-bfab-f2952415e1a0", "area": "Creatividad", "texto": "actúa con agilidad mental ante las situaciones más diversas, desarrollando su capacidad de pensar, innovar y aventurar.", "unidad": "Clan", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Renos con hambre."}, {"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Renos con hambre."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Renos con hambre."}, {"id": "ec280dd0-2d80-4b84-86ad-2d362da14886", "area": "Creatividad", "texto": "Me gusta participar en juegos de observación.", "unidad": "Manada", "como_se_cumple": "Proponiendo ideas originales y rápidas para resolver los acertijos o enigmas mentales de Renos con hambre."}, {"id": "418f2b77-f15b-405a-95bd-8033c0b6a4c2", "area": "Creatividad", "texto": "Puedo contar con detalles las anécdotas y aventuras que hemos tenido en la Manada.", "unidad": "Manada", "como_se_cumple": "Proponiendo ideas originales y rápidas para resolver los acertijos o enigmas mentales de Renos con hambre."}, {"id": "49ae6ac6-be8f-4f2c-8b3e-6711d041181f", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Renos con hambre."}, {"id": "cf530cf9-73a6-4423-a075-79be433fe96c", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Renos con hambre."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Renos con hambre."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Renos con hambre."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Renos con hambre."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Renos con hambre."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Renos con hambre."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Renos con hambre."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Renos con hambre."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Renos con hambre."}]}'::jsonb WHERE id = '4d1189f1-fdb8-420a-aa46-59525ec38313';
+
+UPDATE public.articulos SET titulo = 'Encesta en el árbol navideño', contenido = '<p>Encesta en el árbol navideño es una actividad enfocada en la navidad que busca mediante un juego tratar de generar un buen rato, puede también ser jugado en familia durante las festividades.</p>
+
+
+
+<p>Encesta en el árbol navideño busca estimular el trabajo en equipo, promover el desarrollo motriz y <a href="https://nuamana.com/nuanew/objetivos-actividad/crear-un-ambiente-de-distencion/" target="_blank" rel="noreferrer noopener">crear un ambiente de distensión</a> y sana competencia entre pares.</p>
+
+
+
+<p><strong>Contexto de Encesta en el árbol navideño:</strong></p>
+
+
+
+<p>Todos sabemos que los <a href="https://es.wikipedia.org/wiki/%C3%81rbol_de_Navidad" target="_blank" rel="noreferrer noopener">árboles de navidad</a> son decorados en familia antes de las festividades para dar un ambiente en nuestros hogares o lugares de actividad diaria, Encesta en el árbol navideño representa justamente esa decoración en forma de un juego.</p>
+
+
+
+<p>Cada orificio en el árbol es un lugar donde debemos decorar con las pelotas de juego que tenemos, y cada pelota debe ir en su respectivo lugar o color.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace Encesta en el árbol navideño?</h3>
+
+
+
+<p>Lo primero es diseñar un árbol navideño con un poco de cartón, cartulina de color verde. El cartón lo recortamos con la clásica figura que representa un pino y lo forramos con la cartulina verde.</p>
+
+
+
+<p>También necesitamos pelotas de colores, dentro del árbol recortamos círculos capaces de dejar pasar las pelotas por el círculo con relativa comodidad nada muy ajustado, finalmente cada círculo recortado lo coloreamos por el borde, o cortamos pequeños pedazos de cartulina, del mismo color que las pelotas que tenemos.</p>
+
+
+
+<p>De esta forma cada círculo recortado en el árbol tendrá un color que lo defina y por ahí solo se encestarán pelotas de ese color.</p>
+
+
+
+<p>Los jugadores tendrán que encestar las pelotas de navidad desde cierta distancia hasta el color correspondiente. Si la pelota pasa por un agujero que no es de su color, perderá su turno. El equipo que consiga encestar más pelotas de su equipo por los agujeros correspondientes, gana.</p>', extracto = 'Encesta en el árbol navideño es una actividad enfocada en la navidad que busca mediante un juego tratar de generar un buen rato, puede también ser jugado en fa...', metadata = '{"areas": ["corporalidad", "creatividad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior", "Interior", "Sala"], "cantidad": "02 participantes", "duracion": "20 minutos", "unidades": ["avanzada", "clan", "compañía", "manada", "tropa"], "objetivos": ["Crear un ambiente de distensión", "Desarrollar la motricidad", "Trabajo en equipo"], "materiales": ["Cartulina", "Cartón corrugado", "Papeles de colores", "Pelota"], "variaciones": "Se puede hacer de manera individual o por equipos, también son bienvenidas distintas variaciones a la imaginación como por ejemplo, obstáculos aparte, o diversas condiciones que hagan del juego más dinámico.", "recomendaciones": "Si es para niños pequeños, hay que prestar atención a hacer agujeros lo bastante amplios para no generar frustración o desconcentración hacia la actividad.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_encestarEnElArbolNavideno.png", "objetivos_educativos": [{"id": "05f42879-f5f5-40c4-bed6-c577bf61340a", "area": "Corporalidad", "texto": "Cuido mi salud y mantengo hábitos que la protegen.", "unidad": "Avanzada", "como_se_cumple": "Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de Encesta en el árbol navideño."}, {"id": "69fff91f-a493-483d-92d6-8319700236c2", "area": "Corporalidad", "texto": "Conoce los procesos biológicos que regulan su organismo, protege su salud, acepta sus posibilidades físicas y orienta sus impulsos y fuerzas.", "unidad": "Clan", "como_se_cumple": "Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de Encesta en el árbol navideño."}, {"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se estén produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Encesta en el árbol navideño."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Encesta en el árbol navideño."}, {"id": "36d989b6-30dd-434a-874a-70a993ed0bec", "area": "Corporalidad", "texto": "Conozco las principales enfermedades que me pueden dar y por qué.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Encesta en el árbol navideño."}, {"id": "6467298d-fe2b-4920-9b9a-e3524e4b2aef", "area": "Corporalidad", "texto": "sí en qué lugar de mi cuerpo estén ubicados los órganos más importantes.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Encesta en el árbol navideño."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Encesta en el árbol navideño."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Encesta en el árbol navideño."}, {"id": "3cdf4b56-b55f-4878-b3fa-da32a7200ca4", "area": "Creatividad", "texto": "Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.", "unidad": "Avanzada", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Encesta en el árbol navideño."}, {"id": "ef75fbed-4a6d-49ea-bfab-f2952415e1a0", "area": "Creatividad", "texto": "actúa con agilidad mental ante las situaciones más diversas, desarrollando su capacidad de pensar, innovar y aventurar.", "unidad": "Clan", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Encesta en el árbol navideño."}, {"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Encesta en el árbol navideño."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Encesta en el árbol navideño."}, {"id": "ec280dd0-2d80-4b84-86ad-2d362da14886", "area": "Creatividad", "texto": "Me gusta participar en juegos de observación.", "unidad": "Manada", "como_se_cumple": "Proponiendo ideas originales y rápidas para resolver los acertijos o enigmas mentales de Encesta en el árbol navideño."}, {"id": "418f2b77-f15b-405a-95bd-8033c0b6a4c2", "area": "Creatividad", "texto": "Puedo contar con detalles las anécdotas y aventuras que hemos tenido en la Manada.", "unidad": "Manada", "como_se_cumple": "Proponiendo ideas originales y rápidas para resolver los acertijos o enigmas mentales de Encesta en el árbol navideño."}, {"id": "49ae6ac6-be8f-4f2c-8b3e-6711d041181f", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Encesta en el árbol navideño."}, {"id": "cf530cf9-73a6-4423-a075-79be433fe96c", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Encesta en el árbol navideño."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Encesta en el árbol navideño."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Encesta en el árbol navideño."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Encesta en el árbol navideño."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Encesta en el árbol navideño."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Encesta en el árbol navideño."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Encesta en el árbol navideño."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Encesta en el árbol navideño."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Encesta en el árbol navideño."}]}'::jsonb WHERE id = 'ed33063b-61ec-4831-91c4-76227644b88b';
+
+UPDATE public.articulos SET titulo = 'Relevos de Zapatillas', contenido = '<p>Los Relevos de Zapatillas es una actividad enfocada en el trabajo en equipo y en la aceptación de las limitantes físicas, al mismo tiempo que busca permitir a los equipos que compartan un buen rato de sana competencia.</p>
+
+
+
+
+
+
+
+<p>Para realizar los <a href="https://nuamana.com/nuanew/etiqueta/relevos/" target="_blank" rel="noreferrer noopener">Relevos</a> de <a href="https://es.wikipedia.org/wiki/Zapatilla" target="_blank" rel="noreferrer noopener">Zapatillas</a> es necesario un mínimo de <a href="https://nuamana.com/nuanew/cantidad-participantes/4-participantes/" target="_blank" rel="noreferrer noopener">2 equipos de 2 participantes</a> cada uno, se debe definir un <a href="https://nuamana.com/nuanew/lugares-para-la-actividad/campo-delimitado/" target="_blank" rel="noreferrer noopener">área de juego delimitada</a> con un inicio y un área para marcar los circulas donde irán las zapatillas, en el extremo opuesto del área de juego.</p>
+
+
+
+
+
+
+
+<h3 class="wp-block-heading">¿Cómo se realizan los Relevos de Zapatillas?</h3>
+
+
+
+
+
+
+
+<p>Para hacer los relevos de zapatillas, primero hay que asegurarse antes de que el suelo está limpio y no reviste ningún peligro para los pies de los participantes. Se dibuja un círculo por cada equipo en el extremo opuesto del punto de inicio.</p>
+
+
+
+
+
+
+
+<p>Se divide a las y los participantes en equipos nivelados físicamente, y se ubica a cada equipo en filas en el punto de inicio del área de juego.</p>
+
+
+
+
+
+
+
+<p>A la señal sale corriendo la o el primer jugador hacia el círculo asignado para su equipo.</p>
+
+
+
+
+
+
+
+<p>Al llegar al círculo, el o la jugadora se saca las 2 zapatillas y vuelve corriendo sin ellas. Así lo hacen todos, de manera que al final de esta ronda quedan un montón de zapatillas en el interior del círculo.</p>
+
+
+
+
+
+
+
+<p>Sin perder tiempo se empieza la segunda ronda. Ahora se trata de llegar al círculo y calzarse, pero no se puede salir del círculo para regresar si no está perfectamente calzado.</p>
+
+
+
+
+
+
+
+<p>Todos harán lo mismo y ganará el primer equipo que haga el recorrido, descalzandose y volviéndose a calzar.</p>
+
+
+
+
+
+
+
+', extracto = 'Los Relevos de Zapatillas es una actividad enfocada en el trabajo en equipo y en la aceptación de las limitantes físicas, al mismo tiempo que busca permitir a...', metadata = '{"areas": ["corporalidad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "04 participantes", "duracion": "15 minutos", "unidades": ["compañía", "manada", "tropa"], "objetivos": ["Aumentar el conocimiento de las limitantes físicas", "Desarrollar la motricidad", "Reforzar la coordinación al interior del equipo", "Trabajo en equipo"], "materiales": ["Sin Materiales"], "variaciones": "Puede hacer una ronda para cada zapatilla tanto para dejarla y descalzarse como para volver a ponerse cada zapatilla.", "recomendaciones": "Asegúrese que el suelo está limpio y no reviste ningún peligro para los pies de los participantes en ningún punto del recorrido.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_relevosDeZapatillas.png", "objetivos_educativos": [{"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se están produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Relevos de Zapatillas."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Relevos de Zapatillas."}, {"id": "36d989b6-30dd-434a-874a-70a993ed0bec", "area": "Corporalidad", "texto": "Conozco las principales enfermedades que me pueden dar y por qué.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Relevos de Zapatillas."}, {"id": "6467298d-fe2b-4920-9b9a-e3524e4b2aef", "area": "Corporalidad", "texto": "sí en qué lugar de mi cuerpo están ubicados los órganos más importantes.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Relevos de Zapatillas."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Relevos de Zapatillas."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Relevos de Zapatillas."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevos de Zapatillas."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevos de Zapatillas."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Relevos de Zapatillas."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Relevos de Zapatillas."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevos de Zapatillas."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevos de Zapatillas."}]}'::jsonb WHERE id = 'e7583cc7-8a28-438b-bef9-afba765ea15b';
+
+UPDATE public.articulos SET titulo = 'Corazón completo', contenido = '<p>Corazón completo es una dinámica enfocada en que los participantes de una unidad <a href="https://nuamana.com/nuanew/objetivos-actividad/facilitar-el-conocimiento-entre-los-pares/" target="_blank" rel="noreferrer noopener">se conozcan un poco mejor</a>, y desarrollen un pequeño vínculo entre ellos, se realiza en parejas donde se hacen preguntan entre ambos, para ello se entrega una serie de preguntas de sugerencia pensadas en que entre ellos no se conocen en nada, pero que se pueden cambiar en caso que la unidad tenga ya un tiempo juntos.</p>
+
+
+
+<p>Para hacer la actividad Corazón completo es necesario un ambiente tranquilo donde se puedan sentar a conversar con tranquilidad, se sugiere un tiempo de 25 minutos para la actividad completa pero es una actividad que no se puede apurar.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace Corazón completo?</h3>
+
+
+
+<p>Para hacer la dinámica Corazón Completo, se divide a los participantes en parejas intentando que en la medida de lo posible las parejas se conozcan lo menos posible, una vez formadas las parejas se pasa a explicar la actividad a los participantes.</p>
+
+
+
+<p>En sus manos ambos participantes deben dibujar la mitad de un corazón, estas mitades de corazones se deben completar al juntar las manos de la pareja formada, haciendo un corazón completo, en una mano irán anotadas las preguntas y en la otra mitad de la mano dentro del corazón irán las respuestas.</p>
+
+
+
+<p>En esta fase se entiende que las respuestas pueden ser mucho más largas que lo que cabe en el pequeño espacio del corazón, sin embargo, al anotar la respuesta el o la participante debe anotar un indicio que lo ayude para después dar la respuesta en un <a href="https://es.wikipedia.org/wiki/Pleno_(legislativo)" target="_blank" rel="noreferrer noopener">pleno</a> que se hará al finalizar la actividad.</p>
+
+
+
+<figure class="wp-block-image alignleft is-resized"><img src="https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_dinamicaCorazonCompleto_3.png" alt="Ejemplo de cómo dibujar el corazón y las preguntas en la mano" style="width:360px"/></figure>
+
+
+
+<figure class="wp-block-image alignright is-resized"><img src="https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_dinamicaCorazonCompleto_2.png" alt="Ejemplo de cómo dibujar el corazón y las respuestas en la mano" style="width:360px"/></figure>
+
+
+
+<p>Una vez aclarada la forma en que se desarrolla la dinámica se les entrega un papel con varias preguntas a las y los participantes, a continuación hacemos sugerencias sobre las preguntas, el orden debe ser similar en cuanto a la profundidad de las preguntas, de manera de comenzar con preguntas sencillas y terminar con las más complejas.</p>
+
+
+
+<p>Preguntas sugeridas:</p>
+
+
+
+<ul class="wp-block-list">
+<li>¿Cuál es tu nombre completo?</li>
+
+
+
+<li>¿Qué edad tienes?</li>
+
+
+
+<li>¿Qué música escuchas?</li>
+
+
+
+<li>¿Qué te gusta de Scouts?</li>
+
+
+
+<li>¿Qué detestas?</li>
+
+
+
+<li>¿Cuáles son tus hobbies?</li>
+
+
+
+<li>¿Comida favorita?</li>
+
+
+
+<li>¿Algún sueño o meta?</li>
+
+
+
+<li>¿Qué te gusta hacer?</li>
+
+
+
+<li>¿Panorama favorito?</li>
+</ul>
+
+
+
+<p>Al finalizar todas las parejas se hará un pleno donde todos deben presentar en parejas las preguntas y respuestas que obtuvieron. Pudiendo el animador hacer o solicitar una indagación más profunda sobre las respuestas, ¿Cómo?¿Por Qué?¿Qué ha hecho para eso?, etc.</p>', extracto = 'Corazón completo es una dinámica enfocada en que los participantes de una unidad  se conozcan un poco mejor , y desarrollen un pequeño vínculo entre ellos, se...', metadata = '{"areas": ["afectividad", "carácter", "sociabilidad"], "lugares": ["Exterior", "Interior"], "cantidad": "02 participantes", "duracion": "25 minutos", "unidades": ["avanzada", "clan", "compañía"], "objetivos": ["Conocer a los demás", "Estimular la confianza", "Facilitar el conocimiento entre los pares", "Fomentar un entorno de confianza"], "materiales": ["Plumón", "Preguntas"], "variaciones": "Una variación puede ser hacer que el otro compañero o compañera presente las respuestas de su par y viceversa.", "recomendaciones": "Hacerlo en un lugar tranquilo, de preferencia donde se puedan sentar para poder conversar.", "justificacion_areas": "Ayuda a consolidar los valores scouts de honestidad, lealtad y fair play en la competencia. Desarrolla el autoconocimiento, la confianza grupal y la empatía en las interacciones del juego. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_dinamicaCorazonCompleto.png", "objetivos_educativos": [{"id": "81298790-d245-48c6-8b1b-266b218c69da", "area": "Afectividad", "texto": "Me esfuerzo por encontrar mi identidad personal.", "unidad": "Avanzada", "como_se_cumple": "Demostrando madurez emocional y templanza al desenvolverse en los escenarios oscuros o tensos de Corazón completo."}, {"id": "07d61bf7-36fc-40f6-8f8e-21fe97b169f0", "area": "Afectividad", "texto": "Logra y mantiene un estado interior de libertad, equilibrio y madurez emocional.", "unidad": "Clan", "como_se_cumple": "Demostrando madurez emocional y templanza al desenvolverse en los escenarios oscuros o tensos de Corazón completo."}, {"id": "818d8a25-549b-4e01-a830-e50d73e39025", "area": "Afectividad", "texto": "Me doy cuenta y puedo hablar de las cosas que me atemorizan.", "unidad": "Compañía", "como_se_cumple": "Canalizando emociones difíciles de incertidumbre o temor al andar a ciegas en Corazón completo."}, {"id": "67a2f0fa-9b1e-4b7b-bda2-e25696c87898", "area": "Afectividad", "texto": "Trato de dominar mis reacciones, aún en situaciones difíciles o inesperadas.", "unidad": "Compañía", "como_se_cumple": "Canalizando emociones difíciles de incertidumbre o temor al andar a ciegas en Corazón completo."}, {"id": "1d9d6751-4ab1-45db-9999-3f18606b4909", "area": "Carácter", "texto": "Soy fiel a la palabra dada.", "unidad": "Avanzada", "como_se_cumple": "Actuando consecuentemente con sus principios y valores individuales en cada decisión y rol de Corazón completo."}, {"id": "770a8ff3-7bb8-45dd-b114-5ae1069eff62", "area": "Carácter", "texto": "actúa consecuentemente con los valores que lo inspiran.", "unidad": "Clan", "como_se_cumple": "Actuando consecuentemente con sus principios y valores individuales en cada decisión y rol de Corazón completo."}, {"id": "075c93b1-81d2-4370-8e47-f0a4d086b20e", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Corazón completo."}, {"id": "7a9e143e-c837-473b-a014-e41ef5fc2ec2", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Corazón completo."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Corazón completo."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Corazón completo."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Corazón completo."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Corazón completo."}]}'::jsonb WHERE id = '56dbd5db-2eb1-4833-9beb-e1e74c535f88';
+
+UPDATE public.articulos SET titulo = 'El Pitador Loco', contenido = '<p>El Pitador Loco es una actividad enfocada en el <a href="https://nuamana.com/nuanew/objetivos-actividad/desfogue-de-energias/" target="_blank" rel="noreferrer noopener">desfogue de energías</a> donde se debe tener mucho cuidado en el terreno elegido para jugar, el terreno debe ser lo más plano posible e idealmente sin piedras que puedan causar accidentes.</p>
+
+
+
+<p>Como cualquier juego nocturno uno de sus objetivos es ayudar a que niñas, niños y jóvenes pierdan el miedo a estar en la oscuridad de la noche, y que desarrollen los sentidos, en este caso con énfasis en el sentido auditivo.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace el pitador loco?</h3>
+
+
+
+<p>Para hacer el pitador loco, un dirigente o guiadora con varios pañolines en su mano debe esconderse y tocar brevemente un <a href="https://es.wikipedia.org/wiki/Silbato" target="_blank" rel="noreferrer noopener">pito</a>. Los y las jugadoras deben tratar de encontrarlo guiados por el sonido del pito.</p>
+
+
+
+<p>Si lo encuentran recibirán uno de los pañolines de manos del dirigente, el que se cambiará de lugar y tocará nuevamente el pito. El dirigente puede estar siempre en movimiento tocando de vez en cuando el pito o puede esperar a ser descubierto en un lugar fijo.</p>
+
+
+
+<p>Gana el equipo que consiga la mayor cantidad de pañolines.</p>', extracto = 'El Pitador Loco es una actividad enfocada en el  desfogue de energías  donde se debe tener mucho cuidado en el terreno elegido para jugar, el terreno debe ser...', metadata = '{"areas": ["carácter", "corporalidad", "sociabilidad"], "lugares": ["Bosque", "Campo Abierto", "Exterior"], "cantidad": "04 participantes", "duracion": "20 minutos", "unidades": ["compañía"], "objetivos": ["Desfogue de Energías", "Estimular la observación", "Perder el miedo a la oscuridad", "Reforzar el desarrollo de los sentidos"], "materiales": ["Pañolin", "Silbato"], "variaciones": "Una variación puede ser que en lugar de un sólo pitador loco, hayan varios, entonces se deben repartir cada cuanto uno u otro tocará el silbato.", "recomendaciones": "Procure elegir adecuadamente el terreno que debe ser parejo y sin piedras que puedan provocar accidentes", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Ayuda a consolidar los valores scouts de honestidad, lealtad y fair play en la competencia. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_elPitadorLoco.png", "objetivos_educativos": [{"id": "075c93b1-81d2-4370-8e47-f0a4d086b20e", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de El Pitador Loco."}, {"id": "7a9e143e-c837-473b-a014-e41ef5fc2ec2", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de El Pitador Loco."}, {"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se estén produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de El Pitador Loco."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de El Pitador Loco."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante El Pitador Loco."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante El Pitador Loco."}]}'::jsonb WHERE id = '5d156512-c2d5-429a-984b-b9a23324b68f';
+
+UPDATE public.articulos SET titulo = 'Cuerpo a Tierra', contenido = '<p>El cuerpo a tierra es un <a href="https://nuamana.com/nuanew/actividades/juegos/" target="_blank" rel="noreferrer noopener">juego</a> que consta de una carrera en equipo, donde existe un punto en el que participa todo el equipo, es un juego que se utiliza principalmente de desfogue de energías o como complemento para darle dinamismo a otra actividad.</p>
+
+
+
+<p>Al menos dos equipos formados en filas o hileras hacia atrás, estos equipos deben tener al menos 4 participantes cada uno.</p>
+
+
+
+<h3 class="wp-block-heading">¡Cuerpo a Tierra!</h3>
+
+
+
+<p>Se hace una pequeña carrera donde sale el último participante de la fila, para iniciar se hace correr el pañolin del primero de la fila por entremedio de sus piernas hacia quien se encuentre detrás.</p>
+
+
+
+<p>Pasa el pañolin por entremedio de sus piernas hacia atrás, al segundo de la fila, el segundo se lo pasa al tercero y así sucesivamente hasta que llega al último de la fila.</p>
+
+
+
+<p>Un vez que el último tiene el pañolin grita ¡<a href="http://www.feanor.cl/recursos/actividades-scouts/cuerpo-tierra" target="_blank" rel="noreferrer noopener">cuerpo a tierra</a>!</p>
+
+
+
+<p>Al grito de ¡Cuerpo a tierra! todos los que están delante se lanzan al piso con sus brazos juntos a su cuerpo, utilizando el menor espacio posible, pero con el cuerpo estirado en el suelo y el último debe pasar saltando por sobre los cuerpos de sus compañeros.</p>
+
+
+
+<p>Hecho esto corre hacia el dirigente o guiadora que se encontrara a una distancia X de las filas, pasa por detrás de la guiadora o dirigente, y regresa a la fila poniéndose delante de la fila, para repetir el proceso y pasar el pañolin por entremedio de sus piernas hacia atrás.</p>
+
+
+
+<p>Gana el equipo que primero pasan todos sus participantes o el número de veces que se determine.</p>', extracto = 'El cuerpo a tierra es un  juego  que consta de una carrera en equipo, donde existe un punto en el que participa todo el equipo, es un juego que se utiliza prin...', metadata = '{"areas": ["corporalidad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "06 participantes", "duracion": "15 minutos", "unidades": ["manada", "compañía", "tropa"], "objetivos": ["Desfogue de Energías", "Trabajo en equipo"], "materiales": ["Pañolin"], "variaciones": "Las variaciones se pueden hacer en el momento que la o el participante llega al punto de referencia (guiadora o dirigente) en ese lugar puede responder una pregunta, o hacer borrachitos, sapitos, ranitas, etc. pueden correr en una forma determinada y regresar de otra, etc.", "recomendaciones": "Procure hacer la actividad en un terreno plano, e idealmente suave, haga énfasis en la necesidad de una distancia segura entre una y otro participante que se encuentra en la fila para evitar que se pisen cuando pasen por encima.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CuerpoATierra.png", "objetivos_educativos": [{"id": "36d989b6-30dd-434a-874a-70a993ed0bec", "area": "Corporalidad", "texto": "Conozco las principales enfermedades que me pueden dar y por qué.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Cuerpo a Tierra."}, {"id": "6467298d-fe2b-4920-9b9a-e3524e4b2aef", "area": "Corporalidad", "texto": "sí en qué lugar de mi cuerpo estén ubicados los órganos más importantes.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Cuerpo a Tierra."}, {"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se estén produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Cuerpo a Tierra."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Cuerpo a Tierra."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Cuerpo a Tierra."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Cuerpo a Tierra."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Cuerpo a Tierra."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Cuerpo a Tierra."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Cuerpo a Tierra."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Cuerpo a Tierra."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Cuerpo a Tierra."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Cuerpo a Tierra."}]}'::jsonb WHERE id = 'c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a';
+
+UPDATE public.articulos SET titulo = 'Taller de Fogatas', contenido = '<p>El taller de fogatas se hará mediante el aprender haciendo, para ello a las y los participantes reunidos en sus equipos, se les dará la indicación de reunir todos lo materiales que ellos crean necesarios para hacer <a href="https://nuamana.com/nuanew/tecnicas/campismo/fogatas/la-fogata/" target="_blank" rel="noreferrer noopener">la fogata</a>.</p>
+
+
+
+<p>Una vez reunidos los materiales, se confirmara que hayan traído los necesarios para hacer una fogata, a saber:</p>
+
+
+
+<ul class="wp-block-list">
+<li>yesca</li>
+
+
+
+<li>ramas medianas</li>
+
+
+
+<li>ramas gruesas</li>
+
+
+
+<li>agua</li>
+
+
+
+<li>fuego o algo para hacer fuego</li>
+
+
+
+<li>piedras</li>
+
+
+
+<li>pala</li>
+</ul>
+
+
+
+<p>Si faltara algún material se les indicará el por qué se usa ese material al hacer una fogata o por qué es absolutamente necesario tenerlo a la mano.</p>
+
+
+
+<h3 class="wp-block-heading">Taller de fogatas</h3>
+
+
+
+<p>Luego se explicarán los siguientes detalles de seguridad (ver enlace para detalles):</p>
+
+
+
+<ul class="wp-block-list">
+<li><a href="https://nuamana.cl/tecnicas/campismo/fogatas/ubicacion-para-hacer-una-fogata/" target="_blank" data-type="post" data-id="1623" rel="noreferrer noopener">Cómo seleccionar la ubicación para hacer una fogata</a></li>
+
+
+
+<li><a href="https://nuamana.cl/tecnicas/campismo/fogatas/lugar-para-una-fogata/" target="_blank" data-type="post" data-id="1628" rel="noreferrer noopener">Cómo preparar el lugar para una fogata</a></li>
+
+
+
+<li><a href="https://nuamana.cl/tecnicas/campismo/fogatas/como-hacer-una-fogata/" target="_blank" data-type="post" data-id="1634" rel="noreferrer noopener">Cómo hacer una fogata</a></li>
+
+
+
+<li><a href="https://nuamana.cl/tecnicas/campismo/fogatas/como-cuidar-la-fogata/" target="_blank" data-type="post" data-id="1639" rel="noreferrer noopener">Cómo cuidar la fogata</a></li>
+
+
+
+<li><a href="https://nuamana.cl/tecnicas/campismo/fogatas/como-apagar-la-fogata/" target="_blank" data-type="post" data-id="1643" rel="noreferrer noopener">Cómo apagar la fogata</a></li>
+</ul>
+
+
+
+<p>Finalmente se hará énfasis en que sólo se debe encender una fogata en lugares habilitados y en donde no haya uno se debe evitar en la medida de lo posible hacerla, sin embargo, también se explicará el método de No deje Rastro para las fogatas.</p>
+
+
+
+<p>Se llama taller de fogatas porque también se explicarán los <a href="https://nuamana.com/nuanew/tecnicas/campismo/fogatas/tipos-de-fogatas/" target="_blank" rel="noreferrer noopener">tipos de fogata</a> que existen y luego se les enseñara 3 métodos para iniciar una fogata, desde el más fácil al más difícil.</p>
+
+
+
+<p>El primero: con <a href="https://es.wikipedia.org/wiki/F%C3%B3sforo_(utensilio)" target="_blank" rel="noreferrer noopener">fósforos</a> o <a href="https://es.wiktionary.org/wiki/encendedor" target="_blank" rel="noreferrer noopener">encendedor</a>, se les explicará cómo colocar las ramas y como mantenerlo sin que se apague.</p>
+
+
+
+<p>El segundo: <a href="https://dle.rae.es/pedernal#:~:text=m.,produce%20chispas%20al%20ser%20golpeado." target="_blank" rel="noreferrer noopener">pedernal</a>, utilizando un material más especializado en en el campismo se les enseñará a prender yesca o pasto seco para iniciar una brasa.</p>
+
+
+
+<p>El tercero: por último se les dará nociones básicas de como prender un brasa utilizando solo 2 palos y si ellos quieren un arco (el arco es una rama curva con una cuerda o pita que ayuda a girar más rápido los palos.) o mediante arado, que al igual que con arco usa la fricción entre dos palos para generar calor. (ver imagen abajo).</p>
+
+
+
+<figure class="wp-block-video"><video controls src="https://www.wikihow.com/video/1/1c/Build%20a%20Fire%20Step%2012%20Version%202.360p.mp4"></video></figure>
+
+
+
+<p>Durante el taller de fogatas al finalizar cada paso y/o explicación, antes detallada, se les debe dar un tiempo para que puedan realizar la acción explicada, y acompañar a los y las participantes mientras lo hacen para apoyarlos en su proceso de aprendizaje.</p>', extracto = 'El taller de fogatas se hará mediante el aprender haciendo, para ello a las y los participantes reunidos en sus equipos, se les dará la indicación de reunir to...', metadata = '{"areas": ["carácter", "creatividad", "sociabilidad"], "lugares": ["Exterior"], "cantidad": "04 participantes", "duracion": "01 hora", "unidades": ["avanzada", "clan", "compañía", "tropa"], "objetivos": ["Aprendizaje por la acción"], "materiales": ["Agua", "Fuego", "Fósforos", "Pala", "Palo"], "variaciones": "", "recomendaciones": "", "justificacion_areas": "Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Ayuda a consolidar los valores scouts de honestidad, lealtad y fair play en la competencia. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_tallerDeFogatas.png", "objetivos_educativos": [{"id": "1d9d6751-4ab1-45db-9999-3f18606b4909", "area": "Carácter", "texto": "Soy fiel a la palabra dada.", "unidad": "Avanzada", "como_se_cumple": "Actuando consecuentemente con sus principios y valores individuales en cada decisión y rol de Taller de Fogatas."}, {"id": "770a8ff3-7bb8-45dd-b114-5ae1069eff62", "area": "Carácter", "texto": "actúa consecuentemente con los valores que lo inspiran.", "unidad": "Clan", "como_se_cumple": "Actuando consecuentemente con sus principios y valores individuales en cada decisión y rol de Taller de Fogatas."}, {"id": "075c93b1-81d2-4370-8e47-f0a4d086b20e", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Taller de Fogatas."}, {"id": "7a9e143e-c837-473b-a014-e41ef5fc2ec2", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Taller de Fogatas."}, {"id": "38f4863e-12a6-4a4b-9767-8cdf55020734", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Taller de Fogatas."}, {"id": "5311be36-87be-40c4-ab4a-e6ce6e662183", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Taller de Fogatas."}, {"id": "843fda9c-6c4a-4516-b30c-23c92ef755a8", "area": "Creatividad", "texto": "Puedo resolver la mayoría de los problemas Técnicos domásticos simples.", "unidad": "Avanzada", "como_se_cumple": "Combinando conocimientos prácticos e inventiva técnica para resolver los retos de pionerismo y diseño en Taller de Fogatas."}, {"id": "29eee8b1-a414-4df9-90e1-520a384fb9aa", "area": "Creatividad", "texto": "Une los conocimientos teórico y práctico mediante la aplicación constante de sus habilidades técnicas y manuales.", "unidad": "Clan", "como_se_cumple": "Combinando conocimientos prácticos e inventiva técnica para resolver los retos de pionerismo y diseño en Taller de Fogatas."}, {"id": "103661fc-3396-4eac-9182-58b7e54d5115", "area": "Creatividad", "texto": "Perfecciono mis habilidades manuales.", "unidad": "Compañía", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Taller de Fogatas."}, {"id": "0f60be94-6de3-4c34-a6ff-5b5018f0b156", "area": "Creatividad", "texto": "Coopero en la mantención y renovación del local y materiales de mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Taller de Fogatas."}, {"id": "11320fb6-98de-4725-825d-db858e3bffa2", "area": "Creatividad", "texto": "Perfecciono mis habilidades manuales.", "unidad": "Tropa", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Taller de Fogatas."}, {"id": "fd3d3e14-e92b-4ab5-8298-9018c6e70b20", "area": "Creatividad", "texto": "Coopero en la mantención y renovación del local y materiales de mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Taller de Fogatas."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Taller de Fogatas."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Taller de Fogatas."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Taller de Fogatas."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Taller de Fogatas."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Taller de Fogatas."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Taller de Fogatas."}]}'::jsonb WHERE id = 'efc4e885-84e0-4c93-a206-6b3c5f5635ff';
+
+UPDATE public.articulos SET titulo = 'Las Sardinas', contenido = '<p>Las Sardinas es una actividad que funciona mejor como juego nocturno, aunque no por ello no se puede hacer durante el día, su principal característica es la promoción del <a href="https://nuamana.com/nuanew/objetivos-actividad/trabajo-en-equipo/" target="_blank" rel="noreferrer noopener">trabajo en equipo</a> y la cooperación entre pares, además de ser una buena iniciación para que niñas y niños comiencen a perder el miedo a la oscuridad.</p>
+
+
+
+
+
+
+
+<p>Las Sardinas es una actividad sencilla que puede producir mucho entretenimiento sobre todo en unidades menores, aunque no se recomienda cuando no existe un buen clima en la unidad.</p>
+
+
+
+
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace el juego Las Sardinas?</h3>
+
+
+
+
+
+
+
+<p>Participa la unidad completa. Se escoge uno de los participantes quien debe esconderse mientras el resto del grupo cuenta hasta diez o cien. Terminada la cuenta el grupo sale en busca del que estaba escondido.</p>
+
+
+
+
+
+
+
+<p>El primero que lo encuentra se esconde con el y se quedan callados y quietos esperando que lleguen más. Así llega el segundo, los encuentra y se esconde con ellos, así sucesivamente hasta que solo uno queda sin esconderse y los demás estarán como <a href="https://es.wikipedia.org/wiki/Sardina" target="_blank" rel="noreferrer noopener">sardinas</a> apretados en el escondite.</p>
+
+
+
+
+
+
+
+<p>El último en llegar es quien deberá esconderse en el siguiente juego.</p>
+
+
+
+
+
+
+
+', extracto = 'Las Sardinas es una actividad que funciona mejor como juego nocturno, aunque no por ello no se puede hacer durante el día, su principal característica es la pr...', metadata = '{"areas": ["carácter", "sociabilidad"], "lugares": ["Campo Abierto", "Exterior"], "cantidad": "04 participantes", "duracion": "15 minutos", "unidades": ["compañía", "manada", "tropa"], "objetivos": ["Perder el miedo a la oscuridad", "Reforzar lazos sociales", "Trabajo en equipo"], "materiales": ["Sin Materiales"], "variaciones": "", "recomendaciones": "", "justificacion_areas": "Ayuda a consolidar los valores scouts de honestidad, lealtad y fair play en la competencia. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_lasSardinas.png", "objetivos_educativos": [{"id": "075c93b1-81d2-4370-8e47-f0a4d086b20e", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Las Sardinas."}, {"id": "7a9e143e-c837-473b-a014-e41ef5fc2ec2", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Las Sardinas."}, {"id": "baa365a9-087c-4c25-b0ad-57893df5ff74", "area": "Carácter", "texto": "sí lo que significa decir la verdad.", "unidad": "Manada", "como_se_cumple": "Jugando de manera transparente y honesta en Las Sardinas, aceptando con alegría la victoria o la derrota."}, {"id": "506b7596-cac4-48e0-88c7-942d575172db", "area": "Carácter", "texto": "Digo la verdad, aunque a veces no me gusten las consecuencias.", "unidad": "Manada", "como_se_cumple": "Jugando de manera transparente y honesta en Las Sardinas, aceptando con alegría la victoria o la derrota."}, {"id": "38f4863e-12a6-4a4b-9767-8cdf55020734", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Las Sardinas."}, {"id": "5311be36-87be-40c4-ab4a-e6ce6e662183", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Las Sardinas."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Las Sardinas."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Las Sardinas."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Las Sardinas."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Las Sardinas."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Las Sardinas."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Las Sardinas."}]}'::jsonb WHERE id = '21b42748-cac7-4ffc-969d-86bd56cbbc73';
+
+UPDATE public.articulos SET titulo = 'La Isla Desierta', contenido = '<p>La dinámica la Isla Desierta está diseñada para la <a href="https://nuamana.cl/objetivos-actividad/construccion-de-equipos/" data-type="objetivos-actividad" data-id="252">construcción de equipos</a> y reforzamiento de los lazos al interior de los mismos, poniendo en términos objetivos las cualidades subjetivas que cada integrante ve en sus pares.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace la dinámica La Isla Desierta?</h3>
+
+
+
+<p>En la isla desierta, dinámica que toma su nombre de sólo una parte de la misma; es necesario aplicar un pequeño cuestionario a los participantes, pidiéndoles que respondan 3 preguntas simples:</p>
+
+
+
+<ul style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)" class="wp-block-list is-style-default">
+<li>Suponiendo que estás perdido en una isla desierta, ¿con qué compañero te gustaría estará</li>
+
+
+
+<li>Suponiendo que ganaste un viaje con derecho a 3 compañeros, ¿a quién del grupo elegirías?</li>
+
+
+
+<li>Suponiendo que necesitas organizar un evento, ¿con qué colega elegirías compartir esta tarea?</li>
+</ul>
+
+
+
+<p>Es importante guiar a las y los participantes para que las respuestas no contengan sólo los nombres de los colegas, sino también una justificación. Cada persona llenará su tarjeta sin identificarse.</p>
+
+
+
+<p>Una vez completado, es necesario colocar los cuestionarios en un sobre. El coordinador de la dinámica pedirá que todos se sienten en un círculo y presenten sus justificaciones para las elecciones, sin mencionar los nombres de los colegas elegidos.</p>
+
+
+
+<p>Las palabras clave presentadas en estas justificaciones se anotarán en una tabla y se convertirán en valores importantes de compañerismo, siendo las características necesarias para desarrollar y mejorar con el trabajo en equipo.</p>
+
+
+
+', extracto = 'La dinámica la Isla Desierta está diseñada para la  construcción de equipos  y reforzamiento de los lazos al interior de los mismos, poniendo en términos objet...', metadata = '{"areas": ["afectividad", "creatividad", "sociabilidad"], "lugares": ["Exterior", "Interior"], "cantidad": "04 participantes", "duracion": "20 minutos", "unidades": ["avanzada", "clan"], "objetivos": ["Construcción de Equipos", "Estimular la confianza", "Fomentar un entorno de confianza", "Trabajo en equipo"], "materiales": ["Lápiz", "Papel"], "variaciones": "", "recomendaciones": "", "justificacion_areas": "Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Desarrolla el autoconocimiento, la confianza grupal y la empatía en las interacciones del juego. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_LaIslaDesierta.png", "objetivos_educativos": [{"id": "81298790-d245-48c6-8b1b-266b218c69da", "area": "Afectividad", "texto": "Me esfuerzo por encontrar mi identidad personal.", "unidad": "Avanzada", "como_se_cumple": "Demostrando madurez emocional y templanza al desenvolverse en los escenarios oscuros o tensos de La Isla Desierta."}, {"id": "07d61bf7-36fc-40f6-8f8e-21fe97b169f0", "area": "Afectividad", "texto": "Logra y mantiene un estado interior de libertad, equilibrio y madurez emocional.", "unidad": "Clan", "como_se_cumple": "Demostrando madurez emocional y templanza al desenvolverse en los escenarios oscuros o tensos de La Isla Desierta."}, {"id": "3cdf4b56-b55f-4878-b3fa-da32a7200ca4", "area": "Creatividad", "texto": "Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.", "unidad": "Avanzada", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de La Isla Desierta."}, {"id": "ef75fbed-4a6d-49ea-bfab-f2952415e1a0", "area": "Creatividad", "texto": "actúa con agilidad mental ante las situaciones más diversas, desarrollando su capacidad de pensar, innovar y aventurar.", "unidad": "Clan", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de La Isla Desierta."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en La Isla Desierta."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en La Isla Desierta."}]}'::jsonb WHERE id = '4ac6da05-a5c8-43a7-921b-e2af3a956aa9';
+
+UPDATE public.articulos SET titulo = 'Dinámica de Criterios', contenido = '<p>Esta es una <a href="https://nuamana.com/nuanew/actividades/dinamicas/" target="_blank" rel="noreferrer noopener">dinámica</a> de criterios que permite a las y los participantes conocer su criterios respecto a diversos temas, para realizar esta dinámica de criterios es necesario primero crear un ambiente adecuado, por lo que se recomienda alguna actividad previa que sirva para enfocar al grupo.</p>
+
+
+
+<h3 class="wp-block-heading">Antes de la dinámica</h3>
+
+
+
+<p>Se debe elegir una temática hacia donde se enfocarán las preguntas o frases, esta misma dependerá del objetivo que se busque cumplir al planificar la dinámica, luego de elegir el tema debe elaborar con anticipación una <a href="https://www.uoc.edu/portal/es/servei-linguistic/redaccio/10-recomanacions/index.html" target="_blank" rel="noreferrer noopener">lista de frases y/o preguntas</a>, que aumenten en complejidad. Así por ejemplo, las primeras en la lista serán de respuesta simple, es decir, que se deberían poder responder de forma positiva o negativa sin mayor elaboración o argumentación, mientras que las últimas serán más complejas y deberían conjugar una serie de factores para poder responder.</p>
+
+
+
+<h3 class="wp-block-heading">La Dinámica de Criterios</h3>
+
+
+
+<p>Se plantean una lista de frases y/o preguntas en las cuales los participantes deberán responder con si (tarjeta verde) o no (tarjeta roja) y exponer sus argumentos cuando se les requiera. Se considerará las respuestas minoritarias para entregar su opinión generando una instancia de debate. En caso de que todos respondan lo mismo se dará la oportunidad de dar su opinión por iniciativa propia.</p>', extracto = 'Esta es una  dinámica  de criterios que permite a las y los participantes conocer su criterios respecto a diversos temas, para realizar esta dinámica de criter...', metadata = '{"areas": ["carácter", "sociabilidad"], "lugares": ["Exterior", "Interior", "Sala", "Salón"], "cantidad": "04 participantes", "duracion": "30 minutos", "unidades": ["compañía", "tropa", "avanzada", "clan"], "objetivos": ["Fomentar el desarrollo del criterio", "Fomentar las opiniones personales"], "materiales": ["Listado de temas", "Lápiz", "Papel", "Papeles de colores"], "variaciones": "Para agrandar la lista de preguntas se puede evitar el detallar las opiniones o limitarlas a un tiempo determinado.", "recomendaciones": "Mencionar antes que comience la actividad, que las opiniones vertidas en el juego tienen que ser respetadas. De ser necesario se debe mediar en momentos tensos.", "justificacion_areas": "Ayuda a consolidar los valores scouts de honestidad, lealtad y fair play en la competencia. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_DinamicaDeCriterios.png", "objetivos_educativos": [{"id": "a8667e56-d5f7-4f7b-b666-06c0b0d0d430", "area": "Carácter", "texto": "Conozco y comprendo la Ley y la Promesa Guía.", "unidad": "Compañía", "como_se_cumple": "Asumiendo los valores de la Ley Scout como guía ética de comportamiento durante las pruebas de Dinámica de Criterios."}, {"id": "2b89163c-b44c-4a1e-b71d-f5e9e2e87abd", "area": "Carácter", "texto": "Comprendo que lo que me piden la Ley y la Promesa Guía es importante para mi vida.", "unidad": "Compañía", "como_se_cumple": "Asumiendo los valores de la Ley Scout como guía ética de comportamiento durante las pruebas de Dinámica de Criterios."}, {"id": "9bff5b7a-0d53-456f-9b26-e819f0f26771", "area": "Carácter", "texto": "He prometido esforzarme por vivir la Ley y la Promesa Scout.", "unidad": "Tropa", "como_se_cumple": "Asumiendo los valores de la Ley Scout como guía ética de comportamiento durante las pruebas de Dinámica de Criterios."}, {"id": "a8a02119-585a-4d04-852c-fddc9a10e465", "area": "Carácter", "texto": "Me esfuerzo por vivir la Ley y la Promesa.", "unidad": "Tropa", "como_se_cumple": "Asumiendo los valores de la Ley Scout como guía ética de comportamiento durante las pruebas de Dinámica de Criterios."}, {"id": "51210a26-62f2-4e33-8ca4-09b4b364a143", "area": "Carácter", "texto": "Comprendo el significado de la Ley y la Promesa en esta etapa de mi vida.", "unidad": "Avanzada", "como_se_cumple": "Reflexionando de manera madura sobre cómo los valores fundamentales de la Ley Scout modelan su vida en Dinámica de Criterios."}, {"id": "0bdf2252-6db5-41f9-8bc7-87e4da3ee602", "area": "Carácter", "texto": "Construye su proyecto de vida en base a los valores de la Ley y la Promesa Guía y Scout.", "unidad": "Clan", "como_se_cumple": "Reflexionando de manera madura sobre cómo los valores fundamentales de la Ley Scout modelan su vida en Dinámica de Criterios."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Dinámica de Criterios."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Dinámica de Criterios."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Dinámica de Criterios."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Dinámica de Criterios."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Dinámica de Criterios."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Dinámica de Criterios."}]}'::jsonb WHERE id = '12f2e3dc-c56d-47b8-9fb0-3779dadae69a';
+
+UPDATE public.articulos SET titulo = 'Carrera de Trenes', contenido = '<p>La <a href="http://juegoscout.blogspot.com/" target="_blank" rel="noreferrer noopener">carrera de trenes</a> es una competencia que requiere fuerza y <a href="https://nuamana.com/nuanew/objetivos-actividad/trabajo-en-equipo/" target="_blank" rel="noreferrer noopener">trabajo en equipo</a>, es un poco dura, pero solo el hecho de intentarlo merece la pena.</p>
+
+
+
+
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace la Carrera de Trenes?</h3>
+
+
+
+
+
+
+
+<p>Se hacen grupos de alrededor de 6 personas formando una fila a cuatro patas. El primero de la fila tiene que apoyar sus pies en la espalda del compañero que tenga detrás suyo. De este modo sólo tendrá en el suelo los brazos. El segundo hace lo mismo y así hasta el último que es el único que tiene los pies en la tierra.</p>
+
+
+
+
+
+
+
+<p>Una vez formado este tren se dará la salida y tendrán que avanzar un pequeño recorrido (dada su dificultad) como 5 metros. El primer grupo que su primer componente llegue sin que esté el tren descarrilado gana.</p>
+
+
+
+
+
+
+
+', extracto = 'La  carrera de trenes  es una competencia que requiere fuerza y  trabajo en equipo , es un poco dura, pero solo el hecho de intentarlo merece la pena. 
+
+
+
+ ¿Có...', metadata = '{"areas": ["corporalidad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "06 participantes", "duracion": "15 minutos", "unidades": ["compañía", "tropa", "avanzada"], "objetivos": ["Desfogue de Energías", "Trabajo en equipo"], "materiales": ["Sin Materiales"], "variaciones": "Puede permitir detenciones para descansar", "recomendaciones": "Procure hacer énfasis en el trabajo en equipo antes que en la carrera, en mantenerse unidos a pesar de los problemas.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CarreraDeTrenes.png", "objetivos_educativos": [{"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se estén produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Trenes."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Trenes."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Trenes."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Trenes."}, {"id": "05f42879-f5f5-40c4-bed6-c577bf61340a", "area": "Corporalidad", "texto": "Cuido mi salud y mantengo hábitos que la protegen.", "unidad": "Avanzada", "como_se_cumple": "Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de Carrera de Trenes."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Trenes."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre esté de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Trenes."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Trenes."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre esté de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Trenes."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Carrera de Trenes."}]}'::jsonb WHERE id = '349af827-90bc-47e4-9fe0-7cca4ba7302f';
+
+UPDATE public.articulos SET titulo = 'Cómo Seguir Instrucciones', contenido = '<p>Cómo Seguir Instrucciones es una dinámica que pondrá en evidencia a las personas sobre la dificultad que cada uno tiene para seguir simples y sencillas instrucciones.</p>
+
+
+
+
+
+
+
+<h3 class="wp-block-heading">¿Cómo realizar la Dinámica Cómo Seguir Instrucciones?</h3>
+
+
+
+
+
+
+
+<p>Para hacer la dinámica Cómo Seguir Instrucciones debe repartir a cada uno de los participantes una hoja con el contenido que se pone a continuación, dándoles como única instrucción <em><strong>que sigan lo que está escrito en total silencio</strong>.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>COMO SEGUIR INSTRUCCIONES</p>
+
+
+
+
+
+
+
+<p><em>Nombre</em>.........................</p>
+
+
+
+
+
+
+
+<ol class="wp-block-list">
+
+<li>Lea cuidadosamente todas las instrucciones que a continuación se presentan, antes de hacer cualquier cosa.</li>
+
+
+
+
+
+
+
+<li>Escriba su nombre, el apellido primero, en la línea colocada en la parte superior de esta hoja, después de la palabra <em>nombre.</em></li>
+
+
+
+
+
+
+
+<li>Dibuje un círculo alrededor de la palabra <em>todas</em> de la instrucción N 1</li>
+
+
+
+
+
+
+
+<li>Subraye la palabra <em>Nombre</em> en la instrucción N 2.</li>
+
+
+
+
+
+
+
+<li>En la instrucción N 4 dibuje un círculo alrededor de la palabra <em>subraye;</em> en la instrucción N 1 tache las palabras<em> cualquier cosa.</em></li>
+
+
+
+
+
+
+
+<li>Ahora, dibuje un círculo alrededor del título de esta hoja</li>
+
+
+
+
+
+
+
+<li>Ponga en un círculo los N 1, 2, 3, 4, 5 y uno sobre el N 6.</li>
+
+
+
+
+
+
+
+<li>En la instrucción N 7 ponga en un círculo los números pares y subraye los impares.</li>
+
+
+
+
+
+
+
+<li>Escriba <em>puedo seguir instrucciones</em> encima del título de esta hoja.</li>
+
+
+
+
+
+
+
+<li>Subraye la frase que usted acaba de escribir.</li>
+
+
+
+
+
+
+
+<li>Ya que usted ha leído las instrucciones anteriores, siga únicamente la instrucción N 2. Omita completamente las instrucciones 3, 4, 5, 6, 7, 8, 9, 10.</li>
+
+
+
+
+
+
+
+<li>Por favor, al terminar esta prueba no haga ningún comentario o exclamación. Simule que aún continua escribiendo.</li>
+
+</ol>
+
+
+
+
+
+
+
+<p><em> Anotaciones personales</em></p>
+
+
+
+
+
+
+
+<p>Se señala como tiempo para realizar la <a href="https://nuamana.cl/blog/actividades/dinamicas/" data-type="category" data-id="106">dinámica</a> cómo seguir instrucciones en sólo <strong>4 minutos</strong>. No se debe aceptar preguntas ni dar explicaciones durante el ejercicio. Al término del tiempo concedido, el animador solicita que entreguen las hojas del ejercicio, y pasa a realizar el debate en torno al ejercicio.</p>
+
+
+
+
+
+
+
+<p><strong>Preguntas para el debate:</strong></p>
+
+
+
+
+
+
+
+<ol class="wp-block-list">
+
+<li>¿cuántos hicieron bien el ejercicio? (solo debían responder a la instrucción N 2)</li>
+
+
+
+
+
+
+
+<li>¿Qué parecido tiene la forma como la mayoría realizó el ejercicio y la forma de vida de muchos de nosotros en la sociedad? ¿Por qué solemos actuar así? (automáticamente) Señale ocasiones típicas en que solemos actuar así.</li>
+
+
+
+
+
+
+
+<li>¿Qué desventajas e inconvenientes se derivan de este comportamiento?</li>
+
+
+
+
+
+
+
+<li>¿Qué sugiere usted para reaccionar contra el automatismo de cada uno de nosotros?</li>
+
+</ol>', extracto = 'Cómo Seguir Instrucciones es una dinámica que pondrá en evidencia a las personas sobre la dificultad que cada uno tiene para seguir simples y sencillas instruc...', metadata = '{"areas": ["carácter", "sociabilidad"], "lugares": ["Exterior", "Interior"], "cantidad": "individual", "duracion": "20 minutos", "unidades": ["avanzada", "clan", "compañía", "tropa"], "descargas": [{"url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_DinamicaComoSeguirInstrucciones.pdf", "nombre": "Documento Adjunto - Hoja de Actividad"}], "objetivos": ["Aprender a seguir instrucciones", "Estimular la atención a los detalles", "Reforzar el poner atención"], "materiales": ["Lápiz", "Papel", "Hoja con instrucciones"], "variaciones": "Puede cambiar las pruebas en la hoja para hacerlas más divertidas y distender un poco más el ambiente, cosas como por ejemplo salte en un pie, cante una canción mientras se toca el estomago en círculos, etc.", "recomendaciones": "Para facilitar la dinámica es recomendable antes de entregar la hoja dada vuelta para el anverso y pedir que no la den vuelta hasta que se dé la indicación, al mismo tiempo que hace énfasis en que es una prueba con tiempo y pone en marcha su reloj con un cronómetro o algo que ejerza presión de tiempo sobre los participantes.", "justificacion_areas": "Ayuda a consolidar los valores scouts de honestidad, lealtad y fair play en la competencia. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_DinamicaComoSeguirInstrucciones.png", "objetivos_educativos": [{"id": "1d9d6751-4ab1-45db-9999-3f18606b4909", "area": "Carácter", "texto": "Soy fiel a la palabra dada.", "unidad": "Avanzada", "como_se_cumple": "Actuando consecuentemente con sus principios y valores individuales en cada decisión y rol de Cómo Seguir Instrucciones."}, {"id": "770a8ff3-7bb8-45dd-b114-5ae1069eff62", "area": "Carácter", "texto": "actúa consecuentemente con los valores que lo inspiran.", "unidad": "Clan", "como_se_cumple": "Actuando consecuentemente con sus principios y valores individuales en cada decisión y rol de Cómo Seguir Instrucciones."}, {"id": "075c93b1-81d2-4370-8e47-f0a4d086b20e", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Cómo Seguir Instrucciones."}, {"id": "7a9e143e-c837-473b-a014-e41ef5fc2ec2", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Cómo Seguir Instrucciones."}, {"id": "38f4863e-12a6-4a4b-9767-8cdf55020734", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Cómo Seguir Instrucciones."}, {"id": "5311be36-87be-40c4-ab4a-e6ce6e662183", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Cómo Seguir Instrucciones."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Cómo Seguir Instrucciones."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Cómo Seguir Instrucciones."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Cómo Seguir Instrucciones."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Cómo Seguir Instrucciones."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Cómo Seguir Instrucciones."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Cómo Seguir Instrucciones."}]}'::jsonb WHERE id = '0c1cf1c8-03d1-4dee-879f-159c0963afdc';
+
+UPDATE public.articulos SET titulo = 'Misión Nocturna: Acecho y Sigilo', contenido = '<p>Misión Nocturna: Acecho y Sigilo es una <a href="https://nuamana.cl/blog/actividades/" data-type="category" data-id="105">actividad</a> que como su nombre lo indica debe ser realizada durante la noche, es una actividad que como tal busca ayudar a los y las participantes a <a href="https://nuamana.com/nuanew/objetivos-actividad/perder-el-miedo-a-la-oscuridad/" target="_blank" rel="noreferrer noopener">superar miedos a la oscuridad</a>, pero que al mismo tiempo refuerza el desarrollo de estrategias y la atención a los detalles, así como la capacidad de observación.</p>
+
+
+
+<p>La misión debe ser llevada a cabo con acecho y sigilo sobre los otros equipos, es decir, sin que se den cuenta de la presencia, la esencia del juego en simple, se debe prender una vela sin que el o los otros equipos se den cuenta cómo pasó.</p>
+
+
+
+<h3 class="wp-block-heading">Preparación de acecho y sigilo</h3>
+
+
+
+<ol class="wp-block-list">
+<li>División en Equipos:
+<ul class="wp-block-list">
+<li>Formar equipos de dos personas. Cada equipo recibirá una linterna, dos velas y una caja de fósforos.</li>
+</ul>
+</li>
+
+
+
+<li>Fijar Guardianes en Puntos Específicos:
+<ul class="wp-block-list">
+<li>Fijar a un integrante de cada equipo en la base del equipo, que será el punto de inicio y regreso para el equipo. Este integrante se quedará con la linterna.</li>
+</ul>
+</li>
+
+
+
+<li>Fijar Velas Apagadas:
+<ul class="wp-block-list">
+<li>A 4 o 5 metros de cada punto fijo, en direcciones distintas, fijar dos <a href="https://es.wikipedia.org/wiki/Vela_(iluminaci%C3%B3n)" target="_blank" rel="noreferrer noopener">velas</a> apagadas.</li>
+</ul>
+</li>
+</ol>
+
+
+
+<h3 class="wp-block-heading">Desarrollo de acecho y sigilo</h3>
+
+
+
+<ol class="wp-block-list">
+<li>Explicación de la Misión:
+<ul class="wp-block-list">
+<li>Informar a los equipos que tienen la misión de, de manera sigilosa, acercarse a cada punto de encuentro para encender una vela del otro equipo sin ser detectados. Es crucial que solo deben encender una de las dos velas disponibles en cada punto. La misión finaliza cuando un equipo logra encender una vela del otro equipo.</li>
+</ul>
+</li>
+
+
+
+<li>Inicio de la Misión:
+<ul class="wp-block-list">
+<li>Dar la señal de inicio. Los equipos deben, de manera sigilosa y utilizando las sombras de la noche, acercarse al punto fijo del otro equipo para encender una vela sin ser detectados.</li>
+</ul>
+</li>
+
+
+
+<li>Alerta en la Base:
+<ul class="wp-block-list">
+<li>El integrante que está en la base con la linterna deberá estar atento. Si escucha o ve que alguien se acerca, deberá apuntar con la linterna hacia la dirección del intruso y decir su nombre. Si acierta con el nombre, la persona que se esté acercando deberá volver a la base de su equipo y comenzar nuevamente la misión.</li>
+</ul>
+</li>
+
+
+
+<li>Cambio de Roles:
+<ul class="wp-block-list">
+<li>A mitad de la actividad, los miembros de cada equipo deben intercambiar roles. El que llevaba la linterna ahora debe acercarse a prender la vela del otro equipo, y viceversa.</li>
+</ul>
+</li>
+
+
+
+<li>Finalización de la Misión:
+<ul class="wp-block-list">
+<li>La misión finaliza cuando un equipo logra encender una vela del otro equipo. En ese momento, ambos equipos deben regresar al punto de inicio.</li>
+</ul>
+</li>
+
+
+
+<li>Reflexión:
+<ul class="wp-block-list">
+<li>Conducir una breve reflexión sobre la importancia del acecho y sigilo, la coordinación y la cooperación en situaciones desafiantes.</li>
+</ul>
+</li>
+</ol>
+
+
+
+<h3 class="wp-block-heading">Consejos:</h3>
+
+
+
+<ul class="wp-block-list">
+<li>Enfatizar la necesidad de ser sigilosos y estratégicos.</li>
+
+
+
+<li>Ajustar la dificultad según la edad y habilidades de los participantes.</li>
+</ul>
+
+
+
+<p>¡Espero que disfruten de esta emocionante y estratégica misión nocturna!</p>', extracto = 'Misión Nocturna: Acecho y Sigilo es una  actividad  que como su nombre lo indica debe ser realizada durante la noche, es una actividad que como tal busca ayuda...', metadata = '{"areas": ["carácter", "corporalidad", "creatividad", "sociabilidad"], "lugares": ["Bosque", "Exterior"], "cantidad": "04 participantes", "duracion": "40 minutos", "unidades": ["avanzada", "clan", "compañía", "tropa"], "objetivos": ["Estimular la observación", "Perder el miedo a la oscuridad", "Promover la elaboración de estrategias", "Trabajo en equipo"], "materiales": ["Fósforos", "Linterna", "Velas"], "variaciones": "", "recomendaciones": "Enfatizar la necesidad de ser sigilosos y estratégicos.¿Ajustar la dificultad según la edad y habilidades de los participantes. Procure enfatizar caminar con cuidado en la oscuridad para evitar accidentes.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Ayuda a consolidar los valores scouts de honestidad, lealtad y fair play en la competencia. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_misionNocturnaAcechoYSigilo.png", "objetivos_educativos": [{"id": "1d9d6751-4ab1-45db-9999-3f18606b4909", "area": "Carácter", "texto": "Soy fiel a la palabra dada.", "unidad": "Avanzada", "como_se_cumple": "Actuando consecuentemente con sus principios y valores individuales en cada decisión y rol de Misión Nocturna: Acecho y Sigilo."}, {"id": "770a8ff3-7bb8-45dd-b114-5ae1069eff62", "area": "Carácter", "texto": "actúa consecuentemente con los valores que lo inspiran.", "unidad": "Clan", "como_se_cumple": "Actuando consecuentemente con sus principios y valores individuales en cada decisión y rol de Misión Nocturna: Acecho y Sigilo."}, {"id": "075c93b1-81d2-4370-8e47-f0a4d086b20e", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Misión Nocturna: Acecho y Sigilo."}, {"id": "7a9e143e-c837-473b-a014-e41ef5fc2ec2", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Misión Nocturna: Acecho y Sigilo."}, {"id": "38f4863e-12a6-4a4b-9767-8cdf55020734", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Misión Nocturna: Acecho y Sigilo."}, {"id": "5311be36-87be-40c4-ab4a-e6ce6e662183", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Misión Nocturna: Acecho y Sigilo."}, {"id": "7200435f-b020-46fc-b323-8249048b1d18", "area": "Corporalidad", "texto": "Participo en la organización de juegos y actividades recreativas para los demás.", "unidad": "Avanzada", "como_se_cumple": "Desplegando su máximo rendimiento aeróbico, agilidad y coordinación táctica en la carrera de Misión Nocturna: Acecho y Sigilo."}, {"id": "106e27af-ec7a-45fa-9295-fcef88fbef3d", "area": "Corporalidad", "texto": "Convive constantemente en la naturaleza y participa en actividades deportivas y recreativas.", "unidad": "Clan", "como_se_cumple": "Desplegando su máximo rendimiento aeróbico, agilidad y coordinación táctica en la carrera de Misión Nocturna: Acecho y Sigilo."}, {"id": "d5b111f1-5f6f-4716-8a02-e1826d653c59", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Misión Nocturna: Acecho y Sigilo."}, {"id": "b12da732-d736-480c-82b8-95b312316390", "area": "Corporalidad", "texto": "Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sí ganar y perder.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Misión Nocturna: Acecho y Sigilo."}, {"id": "58b4936a-816e-4d17-8d0a-c92d0606009d", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Misión Nocturna: Acecho y Sigilo."}, {"id": "6768d60a-187e-4bbf-97b9-cdc25a316030", "area": "Corporalidad", "texto": "Ayudo a preparar los juegos, excursiones y campamentos de mi patrulla y mi Tropa.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Misión Nocturna: Acecho y Sigilo."}, {"id": "3cdf4b56-b55f-4878-b3fa-da32a7200ca4", "area": "Creatividad", "texto": "Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.", "unidad": "Avanzada", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Misión Nocturna: Acecho y Sigilo."}, {"id": "ef75fbed-4a6d-49ea-bfab-f2952415e1a0", "area": "Creatividad", "texto": "actúa con agilidad mental ante las situaciones más diversas, desarrollando su capacidad de pensar, innovar y aventurar.", "unidad": "Clan", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Misión Nocturna: Acecho y Sigilo."}, {"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Misión Nocturna: Acecho y Sigilo."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Misión Nocturna: Acecho y Sigilo."}, {"id": "49ae6ac6-be8f-4f2c-8b3e-6711d041181f", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Misión Nocturna: Acecho y Sigilo."}, {"id": "cf530cf9-73a6-4423-a075-79be433fe96c", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Misión Nocturna: Acecho y Sigilo."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Misión Nocturna: Acecho y Sigilo."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Misión Nocturna: Acecho y Sigilo."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Misión Nocturna: Acecho y Sigilo."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Misión Nocturna: Acecho y Sigilo."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Misión Nocturna: Acecho y Sigilo."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Misión Nocturna: Acecho y Sigilo."}]}'::jsonb WHERE id = '2636849e-d6cf-4f07-98d6-6439d5e0b541';
+
+UPDATE public.articulos SET titulo = 'Carrera de Elefantes', contenido = '<p>La carrera de elefantes es una actividad que busca estimular el <a href="https://nuamana.cl/objetivos-actividad/trabajo-en-equipo/" target="_blank" rel="noreferrer noopener" id="https://nuamana.cl/objetivos-actividad/trabajo-en-equipo/">trabajo en equipo</a>, necesita al menos 2 equipos de 3 integrantes cada uno para poder llevarse a cabo. Se llama carrera de elefantes porque simula el cómo se toman los elefantes de sus colas con las trompas al caminar en manada.</p><h2>¿Cómo se juega a la Carrera de elefantes?</h2><p>Para jugar a la <a href="http://juegoscout.blogspot.com/" target="_blank" rel="noreferrer noopener">carrera de elefantes</a> se debe tener más de un equipo de mínimo 3 participantes cada uno, se coloca cada equipo en fila uno detrás de otro.</p><p>El primero pasa una mano entre sus piernas para tomar una mano de su compañero o compañera de atrás. El segundo, de igual modo, pasa su mano por entre sus piernas, para tomar la mano de la compañera o compañero de atrás, y así sucesivamente hasta el último o última de la fila.</p><p>Cuando están todas y todos colocados en esta posición, se colocan detrás de la línea de partida y a la señal comienza la carrera. Gana el primer equipo que cruza completo la línea de meta.</p><h3>Reglas de la Carrera de Elefantes</h3><ul><li>No se deben soltar.</li><li>Si el equipo se suelta se debe rearmar antes de continuar.</li><li>Gana el primer equipo que cruza la meta.</li></ul><div></div>', extracto = 'La carrera de elefantes es una actividad que busca estimular el  trabajo en equipo , necesita al menos 2 equipos de 3 integrantes cada uno para poder llevarse...', metadata = '{"areas": ["corporalidad", "sociabilidad"], "lugares": ["Campo Abierto", "Exterior"], "cantidad": "06 participantes", "duracion": "15 minutos", "unidades": ["manada", "compañía", "tropa"], "objetivos": ["Aumentar el conocimiento de las limitantes físicas", "Trabajo en equipo"], "materiales": ["Sin Materiales"], "variaciones": "Una variación puede ser que si un equipo se llega a desarmar debe volver al punto de partida.", "recomendaciones": "Puede indicar que los elefantes emiten sonido y por lo mismo cada equipo debe hacer sonidos de elefantes mientras avanza.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CarreraDeElefantes.png", "objetivos_educativos": [{"id": "36d989b6-30dd-434a-874a-70a993ed0bec", "area": "Corporalidad", "texto": "Conozco las principales enfermedades que me pueden dar y por qué.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Carrera de Elefantes."}, {"id": "6467298d-fe2b-4920-9b9a-e3524e4b2aef", "area": "Corporalidad", "texto": "sí en qué lugar de mi cuerpo están ubicados los órganos más importantes.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Carrera de Elefantes."}, {"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se están produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Elefantes."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Elefantes."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Elefantes."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Elefantes."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Carrera de Elefantes."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Carrera de Elefantes."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Elefantes."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Elefantes."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Elefantes."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Elefantes."}]}'::jsonb WHERE id = '844d5d4b-743e-4ebc-a734-5e7210a3be75';
+
+UPDATE public.articulos SET titulo = 'Carrera de Saltos', contenido = '<p>La carrera de saltos es un juego enfocado en el <a href="https://nuamana.com/nuanew/objetivos-actividad/desfogue-de-energias/" target="_blank" rel="noreferrer noopener">desgaste de energías</a> y la <a href="https://nuamana.com/nuanew/objetivos-actividad/desarrollar-la-motricidad/" target="_blank" rel="noreferrer noopener">motricidad</a>, permite ayudar a las niñas, niños y jóvenes <a href="https://nuamana.com/nuanew/objetivos-actividad/estimular-la-capacidad-de-reaccion/" target="_blank" rel="noreferrer noopener">estimular su tiempo de reacción</a> para sacar el cuerpo del letargo.</p>
+
+
+
+<p>Es una actividad que puede ser realizada en competencia por equipos o simplemente para despertar el cuerpo.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se realiza la Carrera de saltos?</h3>
+
+
+
+<p>Se divide al grupo en equipo, cada equipo debe formar un círculo y luego acostarse en el piso con los pies apuntando hacia el centro del mismo.</p>
+
+
+
+<p>A la señal el animador de la actividad apunta al primer participante, este se levanta y comienza a correr dando saltos sobre los "obstáculos" que están acostados, dará la vuelta y vuelve a colocar donde estaba.</p>
+
+
+
+<p>Una vez que se vuelve a acostar el o la jugadora de su derecha se levanta y comienza a dar la vuelta al mismo circuito haciendo su <a href="https://juegoscout.blogspot.com/" target="_blank" rel="noreferrer noopener">carrera de saltos</a> por encima de sus compañeras y/o compañeros de equipo.</p>
+
+
+
+<p>Así sucesivamente hasta que pase todo el equipo, gana el equipo que termine primero de dar las vueltas con todos sus jugadores.</p>', extracto = 'La carrera de saltos es un juego enfocado en el  desgaste de energías  y la  motricidad , permite ayudar a las niñas, niños y jóvenes  estimular su tiempo de r...', metadata = '{"areas": ["corporalidad", "sociabilidad"], "lugares": ["Exterior"], "cantidad": "08 participantes", "duracion": "15 minutos", "unidades": ["avanzada", "compañía", "tropa"], "objetivos": ["Desarrollar la motricidad", "Desfogue de Energías", "Estimular la capacidad de reacción"], "materiales": ["Sin Materiales"], "variaciones": "Puede variar la actividad haciendo que en lugar de que los participantes se levanten en secuencia uno tras otro, el animador sea quien siempre apunta al jugador o jugadora que hará el circuito.", "recomendaciones": "Procure hacer énfasis en el cuidado del cuerpo de sus compañeros y compañeras, haciendo que tengan una separación segura para evitar accidentes como que pisen alguna parte del cuerpo al caer de cada salto.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CarreraDeSaltos.png", "objetivos_educativos": [{"id": "7200435f-b020-46fc-b323-8249048b1d18", "area": "Corporalidad", "texto": "Participo en la organización de juegos y actividades recreativas para los demás.", "unidad": "Avanzada", "como_se_cumple": "Desplegando su máximo rendimiento aeróbico, agilidad y coordinación táctica en la carrera de Carrera de Saltos."}, {"id": "d5b111f1-5f6f-4716-8a02-e1826d653c59", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Carrera de Saltos."}, {"id": "b12da732-d736-480c-82b8-95b312316390", "area": "Corporalidad", "texto": "Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sí ganar y perder.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Carrera de Saltos."}, {"id": "58b4936a-816e-4d17-8d0a-c92d0606009d", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Carrera de Saltos."}, {"id": "6768d60a-187e-4bbf-97b9-cdc25a316030", "area": "Corporalidad", "texto": "Ayudo a preparar los juegos, excursiones y campamentos de mi patrulla y mi Tropa.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Carrera de Saltos."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Carrera de Saltos."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Saltos."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Saltos."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Saltos."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Saltos."}]}'::jsonb WHERE id = 'adcf3efa-26d2-489f-85d9-574039818d23';
+
+UPDATE public.articulos SET titulo = 'Arrebatar', contenido = '<p>El juego Arrebatar es una actividad enfocada en el conocimiento de las limitantes físicas personales, la motricidad, aprender a seguir instrucciones y el desfogue de energías.</p>
+
+
+
+<p>Es una actividad que se desarrolla en un grupo completo, y no dividido en equipos, que requiere pocos materiales al ocupar lo que se tenga a mano.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se juega al Arrebatar?</h3>
+
+
+
+<p>Se traza un <a href="https://es.wikipedia.org/wiki/C%C3%ADrculo" target="_blank" rel="noreferrer noopener">círculo</a> con tiza en el piso, este círculo servirá para que los participantes no ingresen al mismo hasta el momento correcto.</p>
+
+
+
+<p>En el centro del círculo se colocan diversos objetos que se encuentren a la mano, pueden ser palos, pedazos de cuerda, papeles, envases, etc. lo que se disponga de acuerdo al lugar donde se esté.</p>
+
+
+
+<p>La cantidad de objetos siempre debe ser igual a la cantidad de jugadores -1, es decir, que debe faltar el objeto para un participante.</p>
+
+
+
+<p>Los jugadores se ubican por fuera del círculo antes trazado en el piso y deben ir dando vueltas alrededor del círculo, mientras van dando vueltas deben ir obedeciendo las instrucciones que da el animador del juego.</p>
+
+
+
+<p>Las instrucciones que se indicarán serán del tipo "media vuelta", "paso veloz", "corriendo", "de la cintura", etc... A la voz de "arrebatar", cada uno trata de tomar uno de los objetos en el centro del círculo, el que no logra tomar un objeto va saliendo del <a href="https://nuamana.com/nuanew/etiqueta/juego-de-competencia/" target="_blank" rel="noreferrer noopener">juego</a>.</p>', extracto = 'El juego Arrebatar es una actividad enfocada en el conocimiento de las limitantes físicas personales, la motricidad, aprender a seguir instrucciones y el desfo...', metadata = '{"areas": ["carácter", "corporalidad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "04 participantes", "duracion": "15 minutos", "unidades": ["avanzada", "compañía", "tropa"], "objetivos": ["Aprender a seguir instrucciones", "Aumentar el conocimiento de las limitantes físicas", "Desarrollar la motricidad", "Desfogue de Energías", "Refuerzo de habilidades físicas"], "materiales": ["Objetos Varios", "Tiza"], "variaciones": "Puede utilizar sillas u otro elemento para marcar la posición inicial de los jugadores y solo permitir que ingresen a tomar un objeto cuando lleguen a esa posición.", "recomendaciones": "Ponga especial atención en los más pequeños e incentívelos.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Ayuda a consolidar los valores scouts de honestidad, lealtad y fair play en la competencia. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_Arrebatar.png", "objetivos_educativos": [{"id": "1d9d6751-4ab1-45db-9999-3f18606b4909", "area": "Carácter", "texto": "Soy fiel a la palabra dada.", "unidad": "Avanzada", "como_se_cumple": "Actuando consecuentemente con sus principios y valores individuales en cada decisión y rol de Arrebatar."}, {"id": "075c93b1-81d2-4370-8e47-f0a4d086b20e", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Arrebatar."}, {"id": "7a9e143e-c837-473b-a014-e41ef5fc2ec2", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Arrebatar."}, {"id": "38f4863e-12a6-4a4b-9767-8cdf55020734", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Arrebatar."}, {"id": "5311be36-87be-40c4-ab4a-e6ce6e662183", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Arrebatar."}, {"id": "7200435f-b020-46fc-b323-8249048b1d18", "area": "Corporalidad", "texto": "Participo en la organización de juegos y actividades recreativas para los demás.", "unidad": "Avanzada", "como_se_cumple": "Desplegando su máximo rendimiento aeróbico, agilidad y coordinación táctica en la carrera de Arrebatar."}, {"id": "d5b111f1-5f6f-4716-8a02-e1826d653c59", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Arrebatar."}, {"id": "b12da732-d736-480c-82b8-95b312316390", "area": "Corporalidad", "texto": "Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sí ganar y perder.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Arrebatar."}, {"id": "58b4936a-816e-4d17-8d0a-c92d0606009d", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Arrebatar."}, {"id": "6768d60a-187e-4bbf-97b9-cdc25a316030", "area": "Corporalidad", "texto": "Ayudo a preparar los juegos, excursiones y campamentos de mi patrulla y mi Tropa.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Arrebatar."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Arrebatar."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Arrebatar."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Arrebatar."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Arrebatar."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Arrebatar."}]}'::jsonb WHERE id = '45c0515c-be80-4f91-a996-25e3d8f23a5d';
+
+UPDATE public.articulos SET titulo = 'Regalos y Guantes', contenido = '<p>Los Regalos y guantes es una actividad de <a href="https://nuamana.cl/etiqueta/navidad-scout/" data-type="post_tag" data-id="155">Navidad</a> que busca estimular a el o la participante desde la rapidez mental, y la agilidad de reacción, al mismo tiempo que busca desarrollar la capacidad cognitiva de las y los jugadores.</p>
+
+
+
+
+
+
+
+<p>Para poder efectuar los regalos y guantes se necesita tener previamente envueltos como regalos diferentes paquetes, de diversos tamaños y no es necesario un área de juego específica.</p>
+
+
+
+
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hacen los regalos y guantes?</h3>
+
+
+
+
+
+
+
+<p>La actividad consiste en abrir regalos envueltos usando <a href="https://es.wikipedia.org/wiki/Manopla" target="_blank" rel="noreferrer noopener">guantes de cocina</a>. Se divide a los y las participantes en equipos, cada equipo tendrá un par de guantes y 2 dados.</p>
+
+
+
+
+
+
+
+<p>El equipo se coloca en un círculo y tanto los dados como, el regalo y los guantes irán pasando de mano en mano en el sentido del reloj.</p>
+
+
+
+
+
+
+
+<p>El o la primera participante del equipo lanza los dados hasta que le salga par en el resultado de los dados, cuando le sale un número par en los dados rápidamente se coloca los guantes de cocina y comienza a tratar de abrir el regalo.</p>
+
+
+
+
+
+
+
+<p>Mientras lo anterior sucede, en el mismo momento que la o el primer participante soltó los dados, la o el siguiente jugador puede comenzar a tirar los dados en cuanto le salga número par en los dados, le puede quitar los guantes y el regalo al jugador anterior para comenzar a abrirlo en cuanto tenga los guantes puestos.</p>
+
+
+
+
+
+
+
+<p>En cuanto el o la jugadora suelta los dados comienza el turno del siguiente hasta que saca número par para quitarle los guantes y el regalo al anterior, así sucesivamente hasta que se abra el regalo.</p>
+
+
+
+
+
+
+
+<p>Mira un pequeño ejemplo en este video.</p>
+
+
+
+
+
+
+
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/4WDERVmDoF8?si=VvwgYFatu2IGsLK1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+
+
+
+
+
+', extracto = 'Los Regalos y guantes es una actividad de  Navidad  que busca estimular a el o la participante desde la rapidez mental, y la agilidad de reacción, al mismo tie...', metadata = '{"areas": ["carácter", "creatividad", "sociabilidad"], "lugares": ["Exterior", "Interior", "Sala"], "cantidad": "04 participantes", "duracion": "30 minutos", "unidades": ["avanzada", "clan", "compañía", "manada", "tropa"], "objetivos": ["Desarrollar la capacidad cognitiva", "Estimular la agilidad", "Estimular la agilidad mental"], "materiales": ["Dados", "Guantes de cocina", "Regalos envueltos"], "variaciones": "Una variación puede ser hacer lo mismo con los ojos vendados, mientras que la o el jugador que le seguiría en turno le indica el resultado de los dados.", "recomendaciones": "El o la moderadora debe estar atento a que los jugadores no lancen los dados más de una vez o indique un resultado que no corresponde para tener el regalo antes de tiempo.\r\n\r\nDe la misma manera se debe poner especial atención en la forma en que se entregan los regalos y guantes de un jugador a otro, debe ser rápido pero con precaución de que no haya un golpe.", "justificacion_areas": "Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Ayuda a consolidar los valores scouts de honestidad, lealtad y fair play en la competencia. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_regalosYGuantes.png", "objetivos_educativos": [{"id": "1d9d6751-4ab1-45db-9999-3f18606b4909", "area": "Carácter", "texto": "Soy fiel a la palabra dada.", "unidad": "Avanzada", "como_se_cumple": "Actuando consecuentemente con sus principios y valores individuales en cada decisión y rol de Regalos y Guantes."}, {"id": "770a8ff3-7bb8-45dd-b114-5ae1069eff62", "area": "Carácter", "texto": "actúa consecuentemente con los valores que lo inspiran.", "unidad": "Clan", "como_se_cumple": "Actuando consecuentemente con sus principios y valores individuales en cada decisión y rol de Regalos y Guantes."}, {"id": "075c93b1-81d2-4370-8e47-f0a4d086b20e", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Regalos y Guantes."}, {"id": "7a9e143e-c837-473b-a014-e41ef5fc2ec2", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Regalos y Guantes."}, {"id": "baa365a9-087c-4c25-b0ad-57893df5ff74", "area": "Carácter", "texto": "sí lo que significa decir la verdad.", "unidad": "Manada", "como_se_cumple": "Jugando de manera transparente y honesta en Regalos y Guantes, aceptando con alegría la victoria o la derrota."}, {"id": "506b7596-cac4-48e0-88c7-942d575172db", "area": "Carácter", "texto": "Digo la verdad, aunque a veces no me gusten las consecuencias.", "unidad": "Manada", "como_se_cumple": "Jugando de manera transparente y honesta en Regalos y Guantes, aceptando con alegría la victoria o la derrota."}, {"id": "38f4863e-12a6-4a4b-9767-8cdf55020734", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Regalos y Guantes."}, {"id": "5311be36-87be-40c4-ab4a-e6ce6e662183", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Regalos y Guantes."}, {"id": "3cdf4b56-b55f-4878-b3fa-da32a7200ca4", "area": "Creatividad", "texto": "Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.", "unidad": "Avanzada", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Regalos y Guantes."}, {"id": "ef75fbed-4a6d-49ea-bfab-f2952415e1a0", "area": "Creatividad", "texto": "actúa con agilidad mental ante las situaciones más diversas, desarrollando su capacidad de pensar, innovar y aventurar.", "unidad": "Clan", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Regalos y Guantes."}, {"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Regalos y Guantes."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Regalos y Guantes."}, {"id": "ec280dd0-2d80-4b84-86ad-2d362da14886", "area": "Creatividad", "texto": "Me gusta participar en juegos de observación.", "unidad": "Manada", "como_se_cumple": "Proponiendo ideas originales y rápidas para resolver los acertijos o enigmas mentales de Regalos y Guantes."}, {"id": "418f2b77-f15b-405a-95bd-8033c0b6a4c2", "area": "Creatividad", "texto": "Puedo contar con detalles las anécdotas y aventuras que hemos tenido en la Manada.", "unidad": "Manada", "como_se_cumple": "Proponiendo ideas originales y rápidas para resolver los acertijos o enigmas mentales de Regalos y Guantes."}, {"id": "49ae6ac6-be8f-4f2c-8b3e-6711d041181f", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Regalos y Guantes."}, {"id": "cf530cf9-73a6-4423-a075-79be433fe96c", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Regalos y Guantes."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Regalos y Guantes."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Regalos y Guantes."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Regalos y Guantes."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Regalos y Guantes."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Regalos y Guantes."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Regalos y Guantes."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Regalos y Guantes."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Regalos y Guantes."}]}'::jsonb WHERE id = '595e2d35-4636-4f20-9815-fffe4f641928';
+
+UPDATE public.articulos SET titulo = 'Relevos de la botella', contenido = '<p>Los Relevos de la botella es una actividad enfocada en reforzar el trabajo en equipo y la sana competencia entre equipos.</p>
+
+
+
+<p>Para los Relevos de la botella son necesarios <a href="https://nuamana.com/nuanew/cantidad-participantes/4-participantes/" target="_blank" rel="noreferrer noopener">al menos dos participantes por equipo,</a> una botella o recipiente por equipo, agua y un área de juego amplia.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hacen los relevos de la botella?</h3>
+
+
+
+<p>Se ubican las botellas de cada equipo en el extremo contrario al punto de inicio de los equipos, al menos unos 10 metros de distancia, las botella o recipientes se encontrarán vacías y deben tener el mismo tamaño o capacidad.</p>
+
+
+
+<p>Los equipos deben tener donde abastecerse de agua en el punto de inicio, puede ser otro par de botella de agua, una <a href="https://es.wikipedia.org/wiki/Olla" target="_blank" rel="noreferrer noopener">olla</a> u otro elemento donde puedan tener agua a su alcance de forma fácil y rápida.</p>
+
+
+
+<p>A la señal la o el participante se llena la boca con agua y sale corriendo hacia la botella de su equipo, al llegar donde se encuentra la botella del equipo y vierte en ella el agua que tiene en la boca y regresa al punto de inicio. Así sucesivamente hasta que el equipo llene su botella.</p>', extracto = 'Los Relevos de la botella es una actividad enfocada en reforzar el trabajo en equipo y la sana competencia entre equipos. 
+
+
+
+ Para los Relevos de la botella s...', metadata = '{"areas": ["corporalidad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "04 participantes", "duracion": "20 minutos", "unidades": ["compañía", "manada", "tropa"], "objetivos": ["Crear un ambiente de distensión", "Trabajo en equipo"], "materiales": ["Agua", "Botella"], "variaciones": "Puede cambiar el medio de traslado del agua por transportarla en las manos u otro elemento en el que se pueda perder agua por el camino.", "recomendaciones": "Escoja un terreno de juego donde se pueda caer agua sin generar accidentes posteriores.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_relevosDeLaBotella.png", "objetivos_educativos": [{"id": "d5b111f1-5f6f-4716-8a02-e1826d653c59", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Relevos de la botella."}, {"id": "b12da732-d736-480c-82b8-95b312316390", "area": "Corporalidad", "texto": "Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sí ganar y perder.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Relevos de la botella."}, {"id": "4bf1e3dd-7f21-4c24-962d-9d6d64e32f25", "area": "Corporalidad", "texto": "Me gusta hacer actividades al aire libre.", "unidad": "Manada", "como_se_cumple": "Corriendo a paso rápido y coordinando sus movimientos con sus compañeros durante la dinámica de Relevos de la botella."}, {"id": "5d2d48ed-c461-4a8e-9048-cceecd3de2e2", "area": "Corporalidad", "texto": "Me gusta jugar con otros niños y niñas y respeto las reglas de los juegos.", "unidad": "Manada", "como_se_cumple": "Corriendo a paso rápido y coordinando sus movimientos con sus compañeros durante la dinámica de Relevos de la botella."}, {"id": "58b4936a-816e-4d17-8d0a-c92d0606009d", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Relevos de la botella."}, {"id": "6768d60a-187e-4bbf-97b9-cdc25a316030", "area": "Corporalidad", "texto": "Ayudo a preparar los juegos, excursiones y campamentos de mi patrulla y mi Tropa.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Relevos de la botella."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevos de la botella."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevos de la botella."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Relevos de la botella."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Relevos de la botella."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevos de la botella."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevos de la botella."}]}'::jsonb WHERE id = 'b4c00c19-1082-4974-be52-a55c4598f5bf';
+
+UPDATE public.articulos SET titulo = 'Lucha con una pierna y una mano', contenido = '<p>La lucha con una pierna y una mano es una actividad de desfogue de energías que busca permitir a los y las participantes conocer sus limitaciones físicas y desarrollar un poco de equilibrio.</p>
+
+
+
+<p>Es una actividad con un alto componente físico, pero que no necesariamente requiere de fuerza para poder ganar, la agilidad y el equilibrio son factores mucho más importantes.</p>
+
+
+
+<p>La lucha con una pierna y una mano es una actividad que se puede desarrollar perfectamente como una competencia <a href="https://nuamana.com/nuanew/cantidad-participantes/individual/" target="_blank" rel="noreferrer noopener">individual</a> o entre equipos.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace la Lucha con una pierna y una mano?</h3>
+
+
+
+<p>Cada competidor sostiene su pierna izquierda o derecha tras de sí tomada con la misma mano de la pierna que sostiene, es decir, si sostiene su pierna izquierda la tendrá con su mano izquierda y/o viceversa, mientras que con la mano que le queda libre toma la mano del compañero o compañera.</p>
+
+
+
+<p>A la señal <a href="https://es.wiktionary.org/wiki/tiran" target="_blank" rel="noreferrer noopener">tiran</a> o empujan a su pareja de forma tal de forzar que baje su pierna y toque el suelo con ella.</p>
+
+
+
+<p>Gana quien no baje su pierna y toque el suelo con su pie o el que caiga al suelo.</p>', extracto = 'La lucha con una pierna y una mano es una actividad de desfogue de energías que busca permitir a los y las participantes conocer sus limitaciones físicas y des...', metadata = '{"areas": ["corporalidad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "individual", "duracion": "15 minutos", "unidades": ["compañía", "tropa"], "objetivos": ["Conocer las capacidades corporales", "Desfogue de Energías"], "materiales": ["Sin Materiales"], "variaciones": "Puede hacer lo mismo sin que se tomen con su mano libre, esto promoverá mucho más la agilidad y equilibrio por sobre la fuerza.", "recomendaciones": "Procure hacer énfasis en el cuidado del oponente para que no se generen accidentes innecesarios. Trate de hacerlo sobre un terreno que no sea cemento para evitar golpes demasiado fuertes.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_LuchaUnaPiernaUnaMano.png", "objetivos_educativos": [{"id": "d5b111f1-5f6f-4716-8a02-e1826d653c59", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Lucha con una pierna y una mano."}, {"id": "b12da732-d736-480c-82b8-95b312316390", "area": "Corporalidad", "texto": "Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sí ganar y perder.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Lucha con una pierna y una mano."}, {"id": "58b4936a-816e-4d17-8d0a-c92d0606009d", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Lucha con una pierna y una mano."}, {"id": "6768d60a-187e-4bbf-97b9-cdc25a316030", "area": "Corporalidad", "texto": "Ayudo a preparar los juegos, excursiones y campamentos de mi patrulla y mi Tropa.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Lucha con una pierna y una mano."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Lucha con una pierna y una mano."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Lucha con una pierna y una mano."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Lucha con una pierna y una mano."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Lucha con una pierna y una mano."}]}'::jsonb WHERE id = 'f36e1535-6aef-4cb5-bc4c-7da6dee08eaf';
+
+UPDATE public.articulos SET titulo = 'Carrera de camillas', contenido = '<p>La carrera de camillas consiste en una competencia de traslado de pacientes, para ello se organizarán dos o más <a href="https://nuamana.com/nuanew/etiqueta/en-equipo/" target="_blank" rel="noreferrer noopener">equipos</a>, antes de inciar la misma carrera se les debe explicar algunos de los elementos más importantes a considerar para trasladar un paciente, por ejemplo:</p>
+
+
+
+<h3 class="wp-block-heading">Consideraciones</h3>
+
+
+
+<ul class="wp-block-list">
+<li>Se debe considerar la inmovilización que debe tener la persona que será trasladada.</li>
+
+
+
+<li>Se debe considerar que la persona trasladada debe saltar o moverse lo menos posible en el traslado.</li>
+
+
+
+<li>Se debe considerar el terreno por el que será trasladado, la pendiente y lo accidentado que sea.</li>
+</ul>
+
+
+
+<p>Adicionalmente, se debe explicar de forma breve algunos ejemplos de <a href="https://www.tafadycursos.com/load/socorrismo/temario/traslado_accidentados_camilla/145-1-0-857" target="_blank" rel="noreferrer noopener">camillas improvisadas</a>, deben tener en consideración en primera instancia los materiales que tienen disponibles para poder construir la camilla. En caso de no tener materiales los scouts siempre pueden contar con su pañolin y sus manos.</p>
+
+
+
+<h3 class="wp-block-heading">Tipos de Camillas</h3>
+
+
+
+<p>Un tipo de camilla para esta carrera de camillas puede ser entre dos personas entrelazando los brazos.</p>
+
+
+
+<p>Para hacer esta camilla, la mano derecha debe tomar la muñeca izquierda de su compañero enfrente de el o ella, y la mano izquierda tomar la muñeca derecha propia. Este puede ser un buen soporte cuando se cuenta con pocas personas, el paciente entonces se sentara sobre las manos, como el ejemplo a continuación...</p>
+
+
+
+<figure class="wp-block-image aligncenter is-resized"><img src="https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CarreraDeCamillas1.png" alt="Carrera de Camillas ejemplo gráfico de camilla improvisada con las manos" class="wp-image-4375" style="object-fit:cover;width:360px;height:360px"/></figure>
+
+
+
+<p>Otro tipo de camilla cuando se cuenta con más personas, al menos 6, es pasar los pañolines, estando enrollados por debajo del paciente, tomando cada persona dos puntas de un pañolin, en este tipo de camilla se debe considerar que el mayor peso se encontrara a la altura de la cintura del paciente, y que se debe dar adecuado soporte a la cabeza y hombros del paciente.</p>
+
+
+
+<h3 class="wp-block-heading">Carrera de Camillas</h3>
+
+
+
+<p>Teniendo estos factores en consideración, se iniciara la carrera de camillas y se colocarán las camillas en una línea, donde a la señal deben cruzar desde el punto A al punto B, en este caso, la carrera de camillas no la ganara necesariamente la camilla que primero cruce la línea de meta, sino la que consiga llevar de la mejor manera al paciente.</p>', extracto = 'La carrera de camillas consiste en una competencia de traslado de pacientes, para ello se organizarán dos o más  equipos , antes de inciar la misma carrera se...', metadata = '{"areas": ["corporalidad", "creatividad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "12 participantes", "duracion": "20 minutos", "unidades": ["compañía", "tropa", "avanzada"], "objetivos": ["Aprender elementos Básicos de Primeros Auxilios", "Aprendizaje por la acción", "Trabajo en equipo"], "materiales": ["Pañolin"], "variaciones": "En lugar de utilizar una persona como \"paciente\" en el traslado puede utilizar otro elemento que requiera mantener cierto equilibrio para que no se caiga.", "recomendaciones": "Procure hacer énfasis en que la actividad no es sobre llegar primero a la meta, sino sobre que \"paciente\" llega en mejor condición a la meta.\r\n\r\nMuestre el estado y condición del terreno para hacer énfasis de la misma manera en la importancia de la seguridad en la actividad.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CarreraDeCamillas.png", "objetivos_educativos": [{"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se estén produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de camillas."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de camillas."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de camillas."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de camillas."}, {"id": "05f42879-f5f5-40c4-bed6-c577bf61340a", "area": "Corporalidad", "texto": "Cuido mi salud y mantengo hábitos que la protegen.", "unidad": "Avanzada", "como_se_cumple": "Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de Carrera de camillas."}, {"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Carrera de camillas."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Carrera de camillas."}, {"id": "49ae6ac6-be8f-4f2c-8b3e-6711d041181f", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Carrera de camillas."}, {"id": "cf530cf9-73a6-4423-a075-79be433fe96c", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Carrera de camillas."}, {"id": "3cdf4b56-b55f-4878-b3fa-da32a7200ca4", "area": "Creatividad", "texto": "Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.", "unidad": "Avanzada", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Carrera de camillas."}]}'::jsonb WHERE id = 'fa3fe65c-fb44-46a6-9a27-6ea8bf72e246';
+
+UPDATE public.articulos SET titulo = 'Relevos del pañuelo', contenido = '<p>Relevos del pañuelo es una actividad enfocada en el desarrollo de la motricidad, el trabajo en equipo y el desfogue de energías, requiere un par de sillas y un par de pañuelos o pañolines para poder efectuarla.</p>
+
+
+
+
+
+
+
+<p>Es una actividad por equipos, por lo que al menos se requieren dos personas <a href="https://nuamana.com/nuanew/etiqueta/en-equipo/" target="_blank" rel="noreferrer noopener">por equipo</a>.</p>
+
+
+
+
+
+
+
+<p>El enfoque en la motricidad fina de los Relevos del pañuelo la hace una actividad ideal para unidades menores e intermedias que permitirá a las y los participantes enfocarse inicialmente en la carrera pero será el pañuelo lo que va a generar un cambio rápido de enfoque.</p>
+
+
+
+
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hacen los Relevos del pañuelo?</h3>
+
+
+
+
+
+
+
+<p>Se divide a los equipos y se les ubica en el punto de inicio del <a href="https://es.wikipedia.org/wiki/Pista_de_juego" target="_blank" rel="noreferrer noopener">área de juego</a>, en el extremo opuesto del área de juego se ubicara una silla, u otro objeto similar para los efectos de la actividad, y un pañuelo.</p>
+
+
+
+
+
+
+
+<p>A la señal, sale el o la primera participante de cada equipo corriendo hacia donde se encuentra la silla, en la ubicación de la silla también se encontrará el pañuelo.</p>
+
+
+
+
+
+
+
+<p>Al llegar a la silla la o el corredor anuda fuertemente el pañuelo en una pata de la silla y regresa al punto de partida, acto seguido a la llegada del primer participante sale corriendo el o la siguiente jugadora que llega a la silla y desata el pañuelo, así sucesivamente hasta que pasan todas y todos los participantes.</p>
+
+
+
+
+
+
+
+', extracto = 'Relevos del pañuelo es una actividad enfocada en el desarrollo de la motricidad, el trabajo en equipo y el desfogue de energías, requiere un par de sillas y un...', metadata = '{"areas": ["corporalidad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "04 participantes", "duracion": "20 minutos", "unidades": ["compañía", "manada", "tropa"], "objetivos": ["Desarrollar la motricidad", "Desfogue de Energías", "Trabajo en equipo"], "materiales": ["Pañolin", "Silla"], "variaciones": "Puede hacer la prueba con un poco más de técnica Scout e indicar qué nudo deben hacer en la silla por ejemplo, un ballestrinque o un llano, etc.", "recomendaciones": "Procure verificar que el nudo está bien hecho para evitar reclamos de uno u otro equipo.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_relevosDelPanuelo.png", "objetivos_educativos": [{"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se estén produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Relevos del pañuelo."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Relevos del pañuelo."}, {"id": "36d989b6-30dd-434a-874a-70a993ed0bec", "area": "Corporalidad", "texto": "Conozco las principales enfermedades que me pueden dar y por qué.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Relevos del pañuelo."}, {"id": "6467298d-fe2b-4920-9b9a-e3524e4b2aef", "area": "Corporalidad", "texto": "sí en qué lugar de mi cuerpo estén ubicados los órganos más importantes.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Relevos del pañuelo."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Relevos del pañuelo."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Relevos del pañuelo."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevos del pañuelo."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevos del pañuelo."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Relevos del pañuelo."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Relevos del pañuelo."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevos del pañuelo."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevos del pañuelo."}]}'::jsonb WHERE id = '74625221-d880-4770-987c-25895469a2bc';
+
+UPDATE public.articulos SET titulo = 'Carrera del Saber', contenido = '<p>La Carrera del Saber consiste en ir respondiendo preguntas sobre un tema específico. Se necesitan dos equipos o más, el objetivo es que logren reforzar conocimientos y aprender de forma divertida respondiendo preguntas en una carrera de equipo, para esto es necesario primero hacer una <a href="https://es.wikipedia.org/wiki/Narraci%C3%B3n" target="_blank" rel="noreferrer noopener">narración</a> del tema que quiera reforzar.</p>
+
+
+
+<h3 class="wp-block-heading">Carrera del Saber</h3>
+
+
+
+<p>Completada la narración del tema comienza la Carrera del Saber, se ubicaran los equipos en una línea de inicio, el objetivo de cada equipo es cruzar la línea de meta antes que los equipos rivales, la carrera del saber incia en un <a href="https://nuamana.cl/actividades/juegos/cuerpo-a-tierra/" data-type="post" data-id="1301" target="_blank" rel="noreferrer noopener">Cuerpo a tierra</a><a href="#cuerpotierra" data-type="internal" data-id="#cuerpotierra">*</a> (ver más abajo) con el último de la fila en cada equipo, el participante que sale desde el final de la línea debe correr hasta donde está el dirigente o guiadora y responder la pregunta que le harán, si responde correctamente volverá con su equipo, se colocará al principio de la fila de su equipo y saltaran todos juntos.</p>
+
+
+
+<p>Al <em>momento de saltar</em>, todo el equipo se toma de la cintura y a la cuenta de 3 saltan todos juntos, se realiza sólo un salto por respuesta correcta y no pueden avanzar más allá de donde los dejó el salto todos juntos.</p>
+
+
+
+<p>Completado el salto en la carrera del saber, nuevamente el último de cada fila grita cuerpo tierra y sale para contestar otra pregunta, en caso de responder incorrectamente la pregunta, el participante sólo debe volver a su equipo, colocarse al principio de la fila y dejar que salga nuevamente el último de su fila, mientras espera su siguiente turno puede también consultar con su equipo la respuesta correcta a la pregunta que falló en responder antes.</p>
+
+
+
+<h4 class="wp-block-heading" id="cuerpotierra">Cuerpo a tierra</h4>
+
+
+
+<p>Para el desarrollo de esta actividad se formarán dos o más equipos y se alinearán, al silbato el último de la fila gritará cuerpo a tierra y los demás participantes deberán acostarse en el suelo para que el último de la fila pueda pasar dando saltos por los espacios que dejan los otros participantes, deberán correr hasta él lugar en que estarán las animadoras y/o animadores, al llegar deberá responder una pregunta y volver, cuando vuelva se debe ganar al principio de la fila para que se repita el proceso.</p>', extracto = 'La Carrera del Saber consiste en ir respondiendo preguntas sobre un tema específico. Se necesitan dos equipos o más, el objetivo es que logren reforzar conocim...', metadata = '{"areas": ["corporalidad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "06 participantes", "duracion": "20 minutos", "unidades": ["compañía", "tropa", "avanzada", "clan"], "objetivos": ["Aprendizaje por la acción", "Reforzar el conocimiento"], "materiales": ["Preguntas", "Silbato"], "variaciones": "Puede hacer el juego sin saltos, sólo con el cuerpo a tierra correr y responder la pregunta, cambiando de esta manera el formato de quien es el que gana, siendo la medición en este caso por quien respondió más preguntas correctas.", "recomendaciones": "<ul>\r\n \t<li>Al momento de realizar el cuerpo a tierra, tener énfasis en el cuidado del cuerpo de los demás para no pisarlos.</li>\r\n \t<li>Si la o el participante no puede tirarse al suelo, considerar opciones o variaciones para que puede agacharse o moverse de otra manera si a así se requiere.</li>\r\n \t<li>Preguntas e historia estarán en archivos de descargas y se llevarán impresos para la actividad.</li>\r\n</ul>", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CarreraDelSaber.png", "objetivos_educativos": [{"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se estén produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera del Saber."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera del Saber."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera del Saber."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera del Saber."}, {"id": "05f42879-f5f5-40c4-bed6-c577bf61340a", "area": "Corporalidad", "texto": "Cuido mi salud y mantengo hábitos que la protegen.", "unidad": "Avanzada", "como_se_cumple": "Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de Carrera del Saber."}, {"id": "69fff91f-a493-483d-92d6-8319700236c2", "area": "Corporalidad", "texto": "Conoce los procesos biológicos que regulan su organismo, protege su salud, acepta sus posibilidades físicas y orienta sus impulsos y fuerzas.", "unidad": "Clan", "como_se_cumple": "Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de Carrera del Saber."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera del Saber."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera del Saber."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera del Saber."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera del Saber."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Carrera del Saber."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Carrera del Saber."}]}'::jsonb WHERE id = 'ee69fbc0-4bbe-4cbf-8aab-bea1e11b7e15';
+
+UPDATE public.articulos SET titulo = 'Carrera de Velas', contenido = '<p>La <a href="http://juegoscout.blogspot.com/" target="_blank" rel="noreferrer noopener">carrera de velas</a> es una actividad enfocada en estimular la creatividad y la atención a los detalles, puede ser realizada en grupos pequeños de personas.</p>
+
+
+
+
+
+
+
+<p>Para realizar la carrera de velas deben ser considerados los riesgos asociados al uso de fuego en su planificación de actividad, y requiere el uso de velas y fuego y la atención de todos con respecto a lo que caiga de la vela.</p>
+
+
+
+
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace la Carrera de Velas?</h3>
+
+
+
+
+
+
+
+<p>Se dividen en dos o más <a href="https://nuamana.com/nuanew/Üs=equipo" target="_blank" rel="noreferrer noopener">equipos</a> a los participantes, cada componente del equipo deberá ir con la vela encendida a un punto designado y volver para darle la vela al siguiente sin que se apague.</p>
+
+
+
+
+
+
+
+<h4 class="wp-block-heading">Reglas de la actividad</h4>
+
+
+
+
+
+
+
+<ul class="wp-block-list">
+
+<li>Si se apaga se deberá volver al punto de inicio para encenderla.</li>
+
+
+
+
+
+
+
+<li>Gana el equipo que primero hace pasar a todos sus integrantes por la carrera.</li>
+
+</ul>
+
+
+
+
+
+
+
+', extracto = 'La  carrera de velas  es una actividad enfocada en estimular la creatividad y la atención a los detalles, puede ser realizada en grupos pequeños de personas....', metadata = '{"areas": ["creatividad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "02 participantes", "duracion": "20 minutos", "unidades": ["compañía", "tropa", "avanzada", "clan"], "objetivos": ["Estimular la atención a los detalles", "Estimular la creatividad", "Estimular la observación"], "materiales": ["Fuego", "Velas"], "variaciones": "Puede hacer una sola carrera de ida y vuelta con todos los participantes al mismo tiempo, donde gana el primer equipo que hace cruzar a todos sus miembros por la línea de meta o permitir que se intenten apagar la vela a los otros en el camino.", "recomendaciones": "Haga énfasis en la creatividad para cuidar el fuego de la vela pero sin dejar de lado la seguridad que se debe tener cuando se manipulan cosas con fuego.", "justificacion_areas": "Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CarreraDeVelas.png", "objetivos_educativos": [{"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Carrera de Velas."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Carrera de Velas."}, {"id": "49ae6ac6-be8f-4f2c-8b3e-6711d041181f", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Carrera de Velas."}, {"id": "cf530cf9-73a6-4423-a075-79be433fe96c", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Carrera de Velas."}, {"id": "3cdf4b56-b55f-4878-b3fa-da32a7200ca4", "area": "Creatividad", "texto": "Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.", "unidad": "Avanzada", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Carrera de Velas."}, {"id": "ef75fbed-4a6d-49ea-bfab-f2952415e1a0", "area": "Creatividad", "texto": "actúa con agilidad mental ante las situaciones más diversas, desarrollando su capacidad de pensar, innovar y aventurar.", "unidad": "Clan", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Carrera de Velas."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Velas."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Velas."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Velas."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Velas."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Carrera de Velas."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Carrera de Velas."}]}'::jsonb WHERE id = '15f46795-7117-4553-beaa-dff74860a6b1';
+
+UPDATE public.articulos SET titulo = 'Protegiendo la fogata', contenido = '<p>Protegiendo la fogata es una actividad netamente nocturna que sólo puede ser realizada en campamento y bajo las condiciones de seguridad adecuadas para que se puedan hacer al menos dos fogatas.</p><p>La actividad Protegiendo la fogata tiene un enfoque directo en el <a href="https://nuamana.com/nuanew/objetivos-actividad/trabajo-en-equipo/" target="_blank" rel="noreferrer noopener">trabajo en equipo</a> y en ayudar a las y los participantes para que puedan perder el miedo a la oscuridad.</p><h3>¿Cómo se hace Protegiendo la fogata?</h3><p>Lo primero es dividir al grupo en dos equipos, y antes de hacer cualquier cosa se deben dar las indicaciones para el cuidado con el fuego, al lado de cada fogata siempre debe haber una cantidad importante de agua para apagar las fogatas de ser necesario.</p><p>Adicionalmente se recomienda altamente seguir las indicaciones de <a href="https://eduambiental.wordpress.com/manual-no-deje-rastro/" target="_blank" rel="noreferrer noopener">No Deje Rastro</a> para hacer fogatas de manera de no dañar el lugar donde se hagan las fogatas.</p><p>Divididos los equipos, se colocara una fogata en cada extremo del campo, en cada fogata debe haber un dirigente o guiadora cuidando de la fogata para mantenerla en un nivel bajo de llama y que pueda ser relativamente fácil apagarla, donde se encuentran las fogatas serán las bases de cada equipo.</p><p>El equipo se dividirá en atacantes y defensores, los atacantes llenaran su boca de agua y saldrán hacia la fogata del otro equipo para tratar de apagarla con el agua que tienen en la boca, mientras que los defensores protegiendo la fogata deben capturar a los atacantes, basta con un toque en cualquier parte del cuerpo para que el atacante se considere capturado.</p><p>Una vez capturado el atacante debe botar el agua que tiene en su boca y/o mostrarle al defensor que no tiene agua en su boca, cuando esto suceda el atacante deberá contar hasta 20 y luego puede volver a su base para llenarse la boca nuevamente de agua y salir nuevamente a intentar apagar la fogata contraria.</p><p>Gana el equipo que primero apaga la fogata del contrario.</p>', extracto = 'Protegiendo la fogata es una actividad netamente nocturna que sólo puede ser realizada en campamento y bajo las condiciones de seguridad adecuadas para que se...', metadata = '{"areas": ["corporalidad", "sociabilidad"], "lugares": ["Bosque", "Campo delimitado", "Exterior"], "cantidad": "04 participantes", "duracion": "30 minutos", "unidades": ["compañía", "tropa", "avanzada", "clan"], "objetivos": ["Desfogue de Energías", "Perder el miedo a la oscuridad", "Trabajo en equipo"], "materiales": ["Agua", "Fuego", "Fósforos", "Palo"], "variaciones": "Una variación puede ser cambiar las fogatas por linternas, lámparas o velas y que deban votar el agua en un punto concreto de la base para apagar el objeto.", "recomendaciones": "Mantenga siempre una buena cantidad de agua en ambas bases, y siempre la fogata vigilada con una llama muy baja.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_protegiendoLaFogata.png", "objetivos_educativos": [{"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se estén produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Protegiendo la fogata."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Protegiendo la fogata."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Protegiendo la fogata."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Protegiendo la fogata."}, {"id": "05f42879-f5f5-40c4-bed6-c577bf61340a", "area": "Corporalidad", "texto": "Cuido mi salud y mantengo hábitos que la protegen.", "unidad": "Avanzada", "como_se_cumple": "Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de Protegiendo la fogata."}, {"id": "69fff91f-a493-483d-92d6-8319700236c2", "area": "Corporalidad", "texto": "Conoce los procesos biológicos que regulan su organismo, protege su salud, acepta sus posibilidades físicas y orienta sus impulsos y fuerzas.", "unidad": "Clan", "como_se_cumple": "Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de Protegiendo la fogata."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Protegiendo la fogata."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Protegiendo la fogata."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Protegiendo la fogata."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Protegiendo la fogata."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Protegiendo la fogata."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Protegiendo la fogata."}]}'::jsonb WHERE id = 'e464a04f-bef4-40c3-92db-ab32ca0d772a';
+
+UPDATE public.articulos SET titulo = 'Enredados', contenido = '<p>El juego <a href="http://feanor.cl/recursos/actividades-scouts/enredados" target="_blank" rel="noreferrer noopener">Enredados</a> sirve para fomentar y encontrar el liderazgo, además de reforzar el <a href="https://nuamana.com/nuanew/objetivos-actividad/trabajo-en-equipo/" target="_blank" rel="noreferrer noopener">trabajo en equipo</a>. Es una actividad que se hace con un grupo completo sin equipos.</p>
+
+
+
+
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace la actividad Enredados?</h3>
+
+
+
+
+
+
+
+<p>Para realizar la actividad es necesario que quien guíe la actividad, tome los pañolines desde la parte superior dejándolos colgados con las 2 puntas hacia abajo.</p>
+
+
+
+
+
+
+
+<p>Luego, los jugadores formarán un círculo y deberán tomar 2 puntas de cualquier pañolin.</p>
+
+
+
+
+
+
+
+<p>Cuando ya todos hayan tomado las 2 puntas, quien guíe el juego, deberá soltar los pañolines y los jugadores tendrán que desenredarlos sin soltar las puntas.</p>
+
+
+
+
+
+
+
+<p>El objetivo del juego es que logren formar el círculo y desenredar todos los pañolines.</p>
+
+
+
+
+
+
+
+', extracto = 'El juego  Enredados  sirve para fomentar y encontrar el liderazgo, además de reforzar el  trabajo en equipo . Es una actividad que se hace con un grupo complet...', metadata = '{"areas": ["corporalidad", "creatividad", "carácter"], "lugares": ["Campo Abierto", "Exterior", "Interior", "Sala"], "cantidad": "05 participantes", "duracion": "15 minutos", "unidades": ["manada"], "objetivos": ["Desarrollar la motricidad", "Estimular la creatividad", "Refuerzo de habilidades físicas", "Trabajo en equipo"], "materiales": ["Pañolin"], "variaciones": "Esta actividad también se puede realizar simplemente tomándose de las manos con los ojos vendados o cerrados y realizando también el mismo proceso de desenredar el círculo.", "recomendaciones": "<ul>\r\n \t<li>Revisar el Lugar a realizar la actividad.</li>\r\n \t<li>Mantener la atención durante el desarrollo del juego con el fin de evitar accidentes.</li>\r\n</ul>", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Ayuda a consolidar los valores scouts de honestidad, lealtad y fair play en la competencia.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_Enredados.png", "objetivos_educativos": [{"id": "36d989b6-30dd-434a-874a-70a993ed0bec", "area": "Corporalidad", "texto": "Conozco las principales enfermedades que me pueden dar y por qué.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Enredados."}, {"id": "6467298d-fe2b-4920-9b9a-e3524e4b2aef", "area": "Corporalidad", "texto": "sí en qué lugar de mi cuerpo estén ubicados los órganos más importantes.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Enredados."}, {"id": "ec280dd0-2d80-4b84-86ad-2d362da14886", "area": "Creatividad", "texto": "Me gusta participar en juegos de observación.", "unidad": "Manada", "como_se_cumple": "Proponiendo ideas originales y rápidas para resolver los acertijos o enigmas mentales de Enredados."}, {"id": "418f2b77-f15b-405a-95bd-8033c0b6a4c2", "area": "Creatividad", "texto": "Puedo contar con detalles las anécdotas y aventuras que hemos tenido en la Manada.", "unidad": "Manada", "como_se_cumple": "Proponiendo ideas originales y rápidas para resolver los acertijos o enigmas mentales de Enredados."}, {"id": "baa365a9-087c-4c25-b0ad-57893df5ff74", "area": "Carácter", "texto": "sí lo que significa decir la verdad.", "unidad": "Manada", "como_se_cumple": "Jugando de manera transparente y honesta en Enredados, aceptando con alegría la victoria o la derrota."}, {"id": "506b7596-cac4-48e0-88c7-942d575172db", "area": "Carácter", "texto": "Digo la verdad, aunque a veces no me gusten las consecuencias.", "unidad": "Manada", "como_se_cumple": "Jugando de manera transparente y honesta en Enredados, aceptando con alegría la victoria o la derrota."}]}'::jsonb WHERE id = 'fd254b06-1ce1-46e1-bbcd-631170b07f1b';
+
+UPDATE public.articulos SET titulo = 'Un vaso de leche para Santa', contenido = '<p>Un vaso de leche para Santa es una actividad navideña en la que tenemos que aprovechar el contexto navideño y el buen clima que existe en el hemisferio sur durante esta época del año, una actividad que busca generar un ambiente de distensión agradable y reforzar el trabajo en equipo.</p>
+
+
+
+
+
+
+
+<p>Contexto de Un vaso de leche para Santa:</p>
+
+
+
+
+
+
+
+<p>Conocido el hecho es, que para agradecer los regalos de navidad al viejito pascual, una galleta y un vaso de leche para Santa debemos dejar. Esto es algo que no debemos nunca olvidar, sin embargo, se nos olvidó; y cuando las galletas y la leche fuimos a dejar, de espaldas al viejito nos fuimos a encontrar.</p>
+
+
+
+
+
+
+
+<p>Pero grande fue nuestra sorpresa que nos vinimos a dar, el ver que estando de espaldas, el viejito no nos puede hallar, así que para que no se enoje, de espalda la leche en el vaso le vamos a dejar.</p>
+
+
+
+
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace Un vaso de leche para Santa?</h3>
+
+
+
+
+
+
+
+<p>Para todo efecto reemplazamos Un vaso de leche para Santa con agua en lugar de leche.</p>
+
+
+
+
+
+
+
+<p>Se dividen a los equipos y se ubicara a las o los participantes de manera que estarán en una fila uno detrás de otro, delante de la fila se coloca un recipiente con agua, y al final de la fila se colocará otro recipiente para el agua, el recipiente de enfrente debe tener al menos el doble de agua que el recipiente del final.</p>
+
+
+
+
+
+
+
+<p>Todos y todas las <a href="https://nuamana.com/nuanew/cantidad-participantes/6-participantes/" target="_blank" rel="noreferrer noopener">jugadoras</a> deben quedar en orden de altura del más alto al más bajo, siendo el más alto el que se encuentra al principio de la fila, y el más bajo al final, cada participante tendrá un vaso plástico sobre su cabeza.</p>
+
+
+
+
+
+
+
+<p>Cuando empieza el juego, la o el primero llena el vaso de agua con la botella de adelante y le traspasa el agua al participante que tiene atrás, estando de espalda al participante detrás de Él o ella, y haciendo un arco hacia atrás con su espalda.</p>
+
+
+
+
+
+
+
+<p>Él o la jugadora que está atrás debe recibir el agua en su vaso tratando de evitar que se caiga el agua, las manos de las y los participantes siempre deben estar sosteniendo <a href="https://es.wikipedia.org/wiki/Vaso_desechable" target="_blank" rel="noreferrer noopener">su propio vaso</a> para hacer los Relevos del vaso.</p>
+
+
+
+
+
+
+
+<p>Después de recibir el agua la o el jugador le traspasa su agua al participante atrás suyo de la misma manera y así sucesivamente hasta la o el último de la fila que traspasara el agua a la botella o recipiente que está al final de la fila, este último traspaso puede hacerse de frente o sosteniendo la botella y vaso con sus manos.</p>
+
+
+
+
+
+
+
+<p>Gana el equipo que traspasa más agua entre los recipientes.</p>
+
+
+
+
+
+
+
+', extracto = 'Un vaso de leche para Santa es una actividad navideña en la que tenemos que aprovechar el contexto navideño y el buen clima que existe en el hemisferio sur dur...', metadata = '{"areas": ["corporalidad", "creatividad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "06 participantes", "duracion": "20 minutos", "unidades": ["avanzada", "clan", "compañía", "manada", "tropa"], "objetivos": ["Crear un ambiente de distensión", "Estimular la creatividad", "Trabajo en equipo"], "materiales": ["Agua", "Vasos plásticos o de papel"], "variaciones": "Puede variar la actividad traspasando el vaso por entre la piernas de las o los participantes. O si tiene pocos vasos sÉlo traspasando el vaso completo de un participante a otro.", "recomendaciones": "Procure utilizar una superficie que no se vuelva resbalosa con la caída de agua.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_UnVasoDeLecheParaSanta.png", "objetivos_educativos": [{"id": "7200435f-b020-46fc-b323-8249048b1d18", "area": "Corporalidad", "texto": "Participo en la organización de juegos y actividades recreativas para los demás.", "unidad": "Avanzada", "como_se_cumple": "Desplegando su máximo rendimiento aeróbico, agilidad y coordinación táctica en la carrera de Un vaso de leche para Santa."}, {"id": "106e27af-ec7a-45fa-9295-fcef88fbef3d", "area": "Corporalidad", "texto": "Convive constantemente en la naturaleza y participa en actividades deportivas y recreativas.", "unidad": "Clan", "como_se_cumple": "Desplegando su máximo rendimiento aeróbico, agilidad y coordinación táctica en la carrera de Un vaso de leche para Santa."}, {"id": "d5b111f1-5f6f-4716-8a02-e1826d653c59", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Un vaso de leche para Santa."}, {"id": "b12da732-d736-480c-82b8-95b312316390", "area": "Corporalidad", "texto": "Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sí ganar y perder.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Un vaso de leche para Santa."}, {"id": "4bf1e3dd-7f21-4c24-962d-9d6d64e32f25", "area": "Corporalidad", "texto": "Me gusta hacer actividades al aire libre.", "unidad": "Manada", "como_se_cumple": "Corriendo a paso rápido y coordinando sus movimientos con sus compañeros durante la dinámica de Un vaso de leche para Santa."}, {"id": "5d2d48ed-c461-4a8e-9048-cceecd3de2e2", "area": "Corporalidad", "texto": "Me gusta jugar con otros niños y niñas y respeto las reglas de los juegos.", "unidad": "Manada", "como_se_cumple": "Corriendo a paso rápido y coordinando sus movimientos con sus compañeros durante la dinámica de Un vaso de leche para Santa."}, {"id": "58b4936a-816e-4d17-8d0a-c92d0606009d", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Un vaso de leche para Santa."}, {"id": "6768d60a-187e-4bbf-97b9-cdc25a316030", "area": "Corporalidad", "texto": "Ayudo a preparar los juegos, excursiones y campamentos de mi patrulla y mi Tropa.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Un vaso de leche para Santa."}, {"id": "843fda9c-6c4a-4516-b30c-23c92ef755a8", "area": "Creatividad", "texto": "Puedo resolver la mayoría de los problemas Técnicos domásticos simples.", "unidad": "Avanzada", "como_se_cumple": "Combinando conocimientos prácticos e inventiva técnica para resolver los retos de pionerismo y diseño en Un vaso de leche para Santa."}, {"id": "29eee8b1-a414-4df9-90e1-520a384fb9aa", "area": "Creatividad", "texto": "Une los conocimientos teórico y práctico mediante la aplicación constante de sus habilidades técnicas y manuales.", "unidad": "Clan", "como_se_cumple": "Combinando conocimientos prácticos e inventiva técnica para resolver los retos de pionerismo y diseño en Un vaso de leche para Santa."}, {"id": "103661fc-3396-4eac-9182-58b7e54d5115", "area": "Creatividad", "texto": "Perfecciono mis habilidades manuales.", "unidad": "Compañía", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Un vaso de leche para Santa."}, {"id": "0f60be94-6de3-4c34-a6ff-5b5018f0b156", "area": "Creatividad", "texto": "Coopero en la mantención y renovación del local y materiales de mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Un vaso de leche para Santa."}, {"id": "8985ff05-ee84-4fba-af46-146c5374df89", "area": "Creatividad", "texto": "Participo en los talleres de manualidades que se hacen en la Manada.", "unidad": "Manada", "como_se_cumple": "Manipulando de forma segura y creativa los materiales de la actividad para modelar o construir en Un vaso de leche para Santa."}, {"id": "d4232b99-5655-49c6-9d24-099cfe9c8180", "area": "Creatividad", "texto": "Practico continuamente mis habilidades manuales.", "unidad": "Manada", "como_se_cumple": "Manipulando de forma segura y creativa los materiales de la actividad para modelar o construir en Un vaso de leche para Santa."}, {"id": "11320fb6-98de-4725-825d-db858e3bffa2", "area": "Creatividad", "texto": "Perfecciono mis habilidades manuales.", "unidad": "Tropa", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Un vaso de leche para Santa."}, {"id": "fd3d3e14-e92b-4ab5-8298-9018c6e70b20", "area": "Creatividad", "texto": "Coopero en la mantención y renovación del local y materiales de mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Un vaso de leche para Santa."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Un vaso de leche para Santa."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Un vaso de leche para Santa."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Un vaso de leche para Santa."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Un vaso de leche para Santa."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Un vaso de leche para Santa."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Un vaso de leche para Santa."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Un vaso de leche para Santa."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Un vaso de leche para Santa."}]}'::jsonb WHERE id = '025298f3-9d09-45d9-9867-6de31f8d4bf9';
+
+UPDATE public.articulos SET titulo = 'Me pica', contenido = '<p>Me pica es una dinámica enfocada en el <a href="https://nuamana.com/nuanew/objetivos-actividad/estimulo-y-desarrollo-de-la-memoria/" target="_blank" rel="noreferrer noopener">estímulo y el desarrollo de la memoria</a>, al mismo tiempo que puede reforzar el conocimiento de las partes del cuerpo en las unidades menores, en algunos casos también puede servir como una dinámica de presentación para que las y los participantes conozcan sus nombre.</p>
+
+
+
+<p>Se puede ver como una dinámica bastante sencilla, sin embargo, Me <a href="https://dle.rae.es/picor" target="_blank" rel="noreferrer noopener">pica</a> puede tener usos muy diversos, aunque se debe estar atento a los y las participantes para que no se frustren y pierdan concentración. Es una actividad que necesita varios participantes pero que sin embargo tiene un desarrollo individual.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace Me pica?</h3>
+
+
+
+<p>Se ubica al grupo en círculo, idealmente sentados lo más cómodamente posible.</p>
+
+
+
+<p>La actividad consiste en que, una persona, se presenta y dice una parte del cuerpo que le pica, haciendo la mímica de rascarse, ejemplo de esto sería: "Hola, mi nombre es Pedro y me pica la cabeza", a continuación, su compañero de al lado continúa presentando al compañero anterior y diciendo dónde le pica, para luego presentarse y elegir una parte del cuerpo que le pica a él, ejemplo de esto sería: "Su nombre es Pedro y le pica la cabeza, mi nombre es Pepito y me pica el brazo", Así se debe ir realizando consecutivamente, acumulando cada vez más presentaciones.</p>', extracto = 'Me pica es una dinámica enfocada en el  estímulo y el desarrollo de la memoria , al mismo tiempo que puede reforzar el conocimiento de las partes del cuerpo en...', metadata = '{"areas": ["carácter", "creatividad", "sociabilidad"], "lugares": ["Exterior", "Interior"], "cantidad": "individual", "duracion": "15 minutos", "unidades": ["compañía", "manada", "tropa"], "objetivos": ["Estimular la atención a los detalles", "Estímulo y desarrollo de la memoria", "Reforzar el poner atención"], "materiales": ["Sin Materiales"], "variaciones": "Podría ser también diciendo \"Me duele\", \"Me alegra\", \"Veo\", \"Pienso\", etc.", "recomendaciones": "", "justificacion_areas": "Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Ayuda a consolidar los valores scouts de honestidad, lealtad y fair play en la competencia. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_mePica.png", "objetivos_educativos": [{"id": "075c93b1-81d2-4370-8e47-f0a4d086b20e", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Me pica."}, {"id": "7a9e143e-c837-473b-a014-e41ef5fc2ec2", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Me pica."}, {"id": "baa365a9-087c-4c25-b0ad-57893df5ff74", "area": "Carácter", "texto": "sí lo que significa decir la verdad.", "unidad": "Manada", "como_se_cumple": "Jugando de manera transparente y honesta en Me pica, aceptando con alegría la victoria o la derrota."}, {"id": "506b7596-cac4-48e0-88c7-942d575172db", "area": "Carácter", "texto": "Digo la verdad, aunque a veces no me gusten las consecuencias.", "unidad": "Manada", "como_se_cumple": "Jugando de manera transparente y honesta en Me pica, aceptando con alegría la victoria o la derrota."}, {"id": "38f4863e-12a6-4a4b-9767-8cdf55020734", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Me pica."}, {"id": "5311be36-87be-40c4-ab4a-e6ce6e662183", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Me pica."}, {"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Me pica."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Me pica."}, {"id": "ec280dd0-2d80-4b84-86ad-2d362da14886", "area": "Creatividad", "texto": "Me gusta participar en juegos de observación.", "unidad": "Manada", "como_se_cumple": "Proponiendo ideas originales y rápidas para resolver los acertijos o enigmas mentales de Me pica."}, {"id": "418f2b77-f15b-405a-95bd-8033c0b6a4c2", "area": "Creatividad", "texto": "Puedo contar con detalles las anécdotas y aventuras que hemos tenido en la Manada.", "unidad": "Manada", "como_se_cumple": "Proponiendo ideas originales y rápidas para resolver los acertijos o enigmas mentales de Me pica."}, {"id": "49ae6ac6-be8f-4f2c-8b3e-6711d041181f", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Me pica."}, {"id": "cf530cf9-73a6-4423-a075-79be433fe96c", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Me pica."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Me pica."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Me pica."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Me pica."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Me pica."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Me pica."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Me pica."}]}'::jsonb WHERE id = '8aa34193-7fbd-43a6-a21c-ff46f85bcc1b';
+
+UPDATE public.articulos SET titulo = 'Carrera de Fósforos', contenido = '<p>La Carrera de fósforos es una actividad que busca estimular la motricidad, estimular el pensamiento creativo para encontrar soluciones, y demostrar que no siempre hacerlo más rápido asegura la victoria.</p>
+
+
+
+<p>La Carrera de fósforos se puede realizar en equipos o <a href="https://nuamana.com/nuanew/cantidad-participantes/individual/" target="_blank" rel="noreferrer noopener">individualmente</a>, si se realiza con equipos primero debe dividir a los participantes en equipos.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se realiza la Carrera de fósforos?</h3>
+
+
+
+<p>Se determina el área de juego donde debe haber un punto de partida y un punto de meta, a cada participante o por equipos se le entregará una caja de <a href="https://es.wikipedia.org/wiki/F%C3%B3sforo_(utensilio)" target="_blank" rel="noreferrer noopener">fósforos</a> (cerillas).</p>
+
+
+
+<p>Se ubica a los participantes en el punto de inicio y a la señal encienden un fósforo y echan a correr o caminar, evitando siempre que el fósforo se apague. Cuando se apaga el fósforo, la o el participante se detiene y vuelve a encender otro. Hecho, esto, sigue su recorrido.</p>
+
+
+
+<p>No se puede avanzar con el fósforo apagado.</p>', extracto = 'La Carrera de fósforos es una actividad que busca estimular la motricidad, estimular el pensamiento creativo para encontrar soluciones, y demostrar que no siem...', metadata = '{"areas": ["corporalidad", "creatividad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "04 participantes", "duracion": "20 minutos", "unidades": ["avanzada", "clan", "compañía", "tropa"], "objetivos": ["Aprendizaje por la acción", "Desarrollar la motricidad"], "materiales": ["Fósforos"], "variaciones": "Puede variar la actividad utilizando una vela que tendrá un efecto similar.", "recomendaciones": "Procure tomar todas la precauciones de seguridad posibles, primero no realice la actividad en un área boscosa, idealmente sólo realícela en un área cubierta por cemento y siempre tenga agua a la mano para evitar un incendio.\r\n\r\nHaga las indicaciones necesarias a los participantes sobre le el cuidado y los peligros del fuego.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_carreraDeFosforos.png", "objetivos_educativos": [{"id": "05f42879-f5f5-40c4-bed6-c577bf61340a", "area": "Corporalidad", "texto": "Cuido mi salud y mantengo hábitos que la protegen.", "unidad": "Avanzada", "como_se_cumple": "Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de Carrera de Fósforos."}, {"id": "69fff91f-a493-483d-92d6-8319700236c2", "area": "Corporalidad", "texto": "Conoce los procesos biológicos que regulan su organismo, protege su salud, acepta sus posibilidades físicas y orienta sus impulsos y fuerzas.", "unidad": "Clan", "como_se_cumple": "Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de Carrera de Fósforos."}, {"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se estén produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Fósforos."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Fósforos."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Fósforos."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Fósforos."}, {"id": "843fda9c-6c4a-4516-b30c-23c92ef755a8", "area": "Creatividad", "texto": "Puedo resolver la mayoría de los problemas Técnicos domásticos simples.", "unidad": "Avanzada", "como_se_cumple": "Combinando conocimientos prácticos e inventiva técnica para resolver los retos de pionerismo y diseño en Carrera de Fósforos."}, {"id": "29eee8b1-a414-4df9-90e1-520a384fb9aa", "area": "Creatividad", "texto": "Une los conocimientos teórico y práctico mediante la aplicación constante de sus habilidades técnicas y manuales.", "unidad": "Clan", "como_se_cumple": "Combinando conocimientos prácticos e inventiva técnica para resolver los retos de pionerismo y diseño en Carrera de Fósforos."}, {"id": "103661fc-3396-4eac-9182-58b7e54d5115", "area": "Creatividad", "texto": "Perfecciono mis habilidades manuales.", "unidad": "Compañía", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Carrera de Fósforos."}, {"id": "0f60be94-6de3-4c34-a6ff-5b5018f0b156", "area": "Creatividad", "texto": "Coopero en la mantención y renovación del local y materiales de mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Carrera de Fósforos."}, {"id": "11320fb6-98de-4725-825d-db858e3bffa2", "area": "Creatividad", "texto": "Perfecciono mis habilidades manuales.", "unidad": "Tropa", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Carrera de Fósforos."}, {"id": "fd3d3e14-e92b-4ab5-8298-9018c6e70b20", "area": "Creatividad", "texto": "Coopero en la mantención y renovación del local y materiales de mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Carrera de Fósforos."}]}'::jsonb WHERE id = '25e55b5d-8f37-40af-9d43-ba0c4f3b74fd';
+
+UPDATE public.articulos SET titulo = 'Toma una Esquina', contenido = '<p>Toma una esquina es un juego enfocado en el <a href="https://nuamana.cl/objetivos-actividad/desfogue-de-energias/" target="_blank" data-type="objetivos-actividad" data-id="24" rel="noreferrer noopener">desfogue de energías</a> y en <a href="https://nuamana.cl/objetivos-actividad/crear-un-ambiente-de-distension/" target="_blank" data-type="objetivos-actividad" data-id="19" rel="noreferrer noopener">crear un ambiente de distensión</a>, donde es importante resaltar la sana competencia y la tolerancia a la frustración, también nos puede servir para diagnosticar la situación de la unidad en torno a estas mismas temáticas.</p>
+
+
+
+<p>Para realizar el juego toma una esquina se puede considerar hacer con o sin materiales, sin materiales se puede usar cualquier esquina natural que exista en el lugar, ahora bien se puede hacer con materiales como tiza para marcar cada esquina o pañolines para lo mismo, además de un silbato para dar la señal.</p>
+
+
+
+<h3 class="wp-block-heading has-medium-font-size">¿Cómo se hace el juego Toma Una Esquina?</h3>
+
+
+
+<figure class="wp-block-image alignright size-large"><img src="https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_tomaUnaEsquina.gif" alt="Diagrama de juego Toma una Esquina"/></figure>
+
+
+
+<p>Para jugar toma una esquina se necesita al menos un jugador en cada esquina, además de uno que se encuentre en el centro, se ubica cada persona en una esquina y la o el, los o las jugadores libres en el centro, a la señal las participantes que se encuentran en cada esquina se deben cambiar de esquina (previamente se pueden haber dado una señal con el participante en otra esquina para saber el cambio).</p>
+
+
+
+<p>Mientras que las o los jugadores que están en cada esquina se cambian, los o las que están en el centro deben intentar alguna de las esquinas que quedan libres, y así quien quede sin esquina se ubicará en el centro.</p>
+
+
+
+<p>Finalmente para evaluar la actividad puede consultar por las estrategias que se siguieron o que tan dificil o entretenido fue.</p>
+
+
+
+', extracto = 'Toma una esquina es un juego enfocado en el  desfogue de energías  y en  crear un ambiente de distensión , donde es importante resaltar la sana competencia y l...', metadata = '{"areas": ["corporalidad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "05 participantes", "duracion": "15 minutos", "unidades": ["compañía", "manada", "tropa"], "objetivos": ["Aumentar el conocimiento de las limitantes físicas", "Crear un ambiente de distensión", "Desfogue de Energías", "Refuerzo de habilidades físicas"], "materiales": ["Sin Materiales"], "variaciones": "Se puede hacer por equipos, donde gana el equipo que conserva más esquinas cuando termina el juego, sin embargo, para ello es necesario que haya más participantes en el centro.", "recomendaciones": "Tenga cuidado de elegir un terreno nivelado y de hacer énfasis en el respeto por los demás para que no se empujen a la hora de ver quién llega primero a tomar una esquina.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_TomaUnaEsquina.png", "objetivos_educativos": [{"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se están produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Toma una Esquina."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Toma una Esquina."}, {"id": "36d989b6-30dd-434a-874a-70a993ed0bec", "area": "Corporalidad", "texto": "Conozco las principales enfermedades que me pueden dar y por qué.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Toma una Esquina."}, {"id": "6467298d-fe2b-4920-9b9a-e3524e4b2aef", "area": "Corporalidad", "texto": "sí en qué lugar de mi cuerpo están ubicados los órganos más importantes.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Toma una Esquina."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Toma una Esquina."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Toma una Esquina."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Toma una Esquina."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Toma una Esquina."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Toma una Esquina."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Toma una Esquina."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Toma una Esquina."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Toma una Esquina."}]}'::jsonb WHERE id = '0e4290d8-a6c8-4bbb-94b6-7bee0aac8dc3';
+
+UPDATE public.articulos SET titulo = 'El Epitafio', contenido = '<p>El Epitafio es una <a href="https://nuamana.com/nuanew/actividades/dinamicas/" target="_blank" rel="noreferrer noopener">dinámica</a> que permitirá entregarle a los participantes una visión de futuro para su vida, se realizará de la siguiente manera.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3 class="wp-block-heading">¿Cómo se realiza El Epitafio?</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>1. El animador explica que es un <a href="https://es.wikipedia.org/wiki/Epitafio" target="_blank" rel="noreferrer noopener">epitafio</a> y cómo se realizará la <a href="https://nuamana.com/nuanew/actividades/dinamicas/" target="_blank" rel="noreferrer noopener">dinámica</a>. El grupo es invitado a observar el dibujo (Ver Hoja en la descarga al final de esta página).</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>El animador motiva la dinámica con palabras que pongan en perspectiva la muerte como por ejemplo:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Todos hemos visitado alguna vez un cementerio y seguramente nos han llamado la atención algunos epitafios.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>En los epitafios se trata de resumir lo que fue la vida de esas personas. Hoy vamos a imaginarnos que podemos contemplar nuestra propia tumba.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>¿ Qué les gustaría que dijese su lápida ? Lo que van a hacer a continuación se trata precisamente de esto, de escribir el epitafio propio.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Cada uno escribe en una hoja de papel lo que le gustaría que se escribiera en su tumba (su epitafio). Luego se lo pegan en el pecho y circulan por la sala para que todos puedan leerlo.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Después los participantes eligen a otra persona, en cuyo epitafio encuentran coincidencias, y platican durante cuatro minutos.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>En la reunión plenario, cada uno presenta a la persona con quien conversó.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>2. El grupo desarrolla la dinámica.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h4 class="wp-block-heading">Evaluación</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Al finalizar la dinámica El Epitafio, se les pregunta a las y los participantes:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ul class="wp-block-list">
+
+
+
+<li>¿ Cómo se sintieron durante la experiencia ?</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>¿ Qué fue lo que más les gustó ?</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>¿ Para qué les sirvió lo que hicieron ?</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>¿ Qué epitafio les impactó más ? ¿ Por qué ?</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>¿Cómo definirían al grupo después de la dinámica ?</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>¿ Le tiene miedo a la muerte ?</li>
+
+
+
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="wp-block-boldblocks-grid-item-repeater wp-block-boldblocks-custom-parent is-grid">
+
+
+
+<div class="wp-block-boldblocks-grid-item wp-block-boldblocks-custom is-grid-item has-parent">
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="wp-block-boldblocks-grid-item wp-block-boldblocks-custom is-grid-item has-parent">
+
+
+
+
+
+
+
+</div>
+
+
+
+</div>', extracto = 'El Epitafio es una  dinámica  que permitirá entregarle a los participantes una visión de futuro para su vida, se realizará de la siguiente manera. 
+
+
+
+ ¿Cómo s...', metadata = '{"areas": ["creatividad", "espiritualidad"], "lugares": ["Exterior", "Interior"], "cantidad": "individual", "duracion": "20 minutos", "unidades": ["avanzada", "clan"], "descargas": [{"url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_ElEpitafio.pdf", "nombre": "Documento Adjunto - Hoja de Epitafio"}], "objetivos": ["Estimular el pensamiento crítico", "Estimular la reflexión"], "materiales": ["Lápiz", "Papel"], "variaciones": "Puede agregar una temática particular a los epitafios, por ejemplo, haciendo la pregunta ¿Qué diría su epitafio si usted fuera Bombero? o agregando cualquier otra circunstancia específica para ayudar a reflexionar sobre un trabajo en particular.", "recomendaciones": "Trate de generar o esperar a que se de el ambiente reflexivo adecuado para la actividad, esta es una actividad de introspección para jóvenes que en algunos casos puede generar sensibilidades.", "justificacion_areas": "Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Conecta a los participantes con la creación y el sentido de trascendencia espiritual de la hermandad scout.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_ElEpitafio.png", "objetivos_educativos": [{"id": "3cdf4b56-b55f-4878-b3fa-da32a7200ca4", "area": "Creatividad", "texto": "Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.", "unidad": "Avanzada", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de El Epitafio."}, {"id": "ef75fbed-4a6d-49ea-bfab-f2952415e1a0", "area": "Creatividad", "texto": "actúa con agilidad mental ante las situaciones más diversas, desarrollando su capacidad de pensar, innovar y aventurar.", "unidad": "Clan", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de El Epitafio."}, {"id": "c165a639-f87a-4f6c-a637-69894848b507", "area": "Espiritualidad", "texto": "Respeto y cuido la naturaleza porque me siento responsable de la obra creadora de Dios.", "unidad": "Avanzada", "como_se_cumple": "Coherentemente integrando principios espirituales scout en sus reflexiones cotidianas tras El Epitafio."}, {"id": "0a9a9dac-0b1c-4f11-8600-291de10b1b95", "area": "Espiritualidad", "texto": "Busca siempre a Dios en forma personal y comunitaria, aprendiendo a reconocerlo en las personas y en la creación.", "unidad": "Clan", "como_se_cumple": "Coherentemente integrando principios espirituales scout en sus reflexiones cotidianas tras El Epitafio."}]}'::jsonb WHERE id = '18ae9052-19bf-48ca-89a3-c34f0081e7ca';
+
+UPDATE public.articulos SET titulo = 'Asesino de Esquinas', contenido = '<p>El juego asesino de esquinas es una actividad que puede ser realizada tanto es espacios abiertos como en salas cerradas, es una actividad enfocada es la <a href="https://nuamana.cl/objetivos-actividad/crear-un-ambiente-de-distension/" data-type="objetivos-actividad" data-id="19">distensión del ambiente</a> y el <a href="https://nuamana.cl/tecnicas/pionerismo/acecho/" data-type="post" data-id="1473">sigilo</a>.</p>
+
+
+
+<figure class="wp-block-image alignright size-large is-resized"><img src="https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_asesinoDeEsquinas_1.jpg" alt="Diagrama del juego Asesino de esquinas." style="width:360px"/></figure>
+
+
+
+<p>Para poder realizar el asesino de esquinas primero debemos enumerar cada una de las esquinas o rincones, También puedes ponerle colores o palabras en lugar de números. debe haber un espacio entre cada una de las esquinas donde se ubicaran las y los participantes.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se juega al Asesino de Esquinas?</h3>
+
+
+
+<p>Luego de asignar un identificador a cada una de las esquinas del asesino de esquinas se debe elegir a un voluntario o voluntaria para que se quede en el centro del espacio y deberá contar desde 10 en cuenta regresiva hasta 0 en voz alta y lentamente.</p>
+
+
+
+<p>La persona en el centro debe tener los ojos vendados y mientras realiza la cuenta regresiva todos y todas las y los jugadores deben elegir una esquina y moverse hacia ella, cuando la cuenta regresiva termine quien esté en el centro debe apuntar o decir el número de la esquina donde sintió más ruido.</p>
+
+
+
+<p>Los y las participantes que estén en la esquina señalada fueron "asesinados" por el o la asesino de esquinas y se tiene que sentar en el lugar donde fue asesinado.</p>
+
+
+
+<figure class="wp-block-image alignleft size-large is-resized"><img src="https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_asesinoDeEsquinas.jpg" alt="" style="width:360px"/></figure>
+
+
+
+<p>Después de cada ronda, la persona en el centro abrirá los ojos para ver quién esté sentado. Después cerrará los ojos nuevamente y contará del 10 al 0. Cada ronda funciona de igual manera. Quien quiera esté en la esquina que escoja se sentará por lo que dura el resto del juego.</p>
+
+
+
+<p>Cuando solo una persona quede de pie, ella pasa a estar al centro y a contar. Todos los demás se pueden parar y pueden jugar otra ronda.</p>
+
+
+
+', extracto = 'El juego asesino de esquinas es una actividad que puede ser realizada tanto es espacios abiertos como en salas cerradas, es una actividad enfocada es la  diste...', metadata = '{"areas": ["sociabilidad"], "lugares": ["Campo delimitado", "Interior", "Sala"], "cantidad": "06 participantes", "duracion": "15 minutos", "unidades": ["manada", "compañía", "tropa"], "objetivos": ["Aumentar el conocimiento de las limitantes físicas", "Crear un ambiente de distensión", "Refuerzo de habilidades técnicas"], "materiales": ["Sin Materiales"], "variaciones": "Una variación para los más pequeños puede ser simplemente decir el número del lugar al azar, o cambiar el nombre de cada una de las esquinas por alguna actividad o historia que se haya contado antes.", "recomendaciones": "Utilice idealmente una sala de clases debido a que es más fácil para los más pequeños caminar sigilosamente, o adapte el lugar de acuerdo a las necesidades que tenga para desarrollar.", "justificacion_areas": "Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_AsesinoDeEsquinas.png", "objetivos_educativos": [{"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Asesino de Esquinas."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre esté de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Asesino de Esquinas."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Asesino de Esquinas."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre esté de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Asesino de Esquinas."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Asesino de Esquinas."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre esté de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Asesino de Esquinas."}]}'::jsonb WHERE id = 'e23ded89-7293-4b7f-941b-7509b43a745f';
+
+UPDATE public.articulos SET titulo = 'El Trineo del Viejito Pascuero', contenido = '<p>El Trineo del Viejito Pascuero es una carrera de Trineos ficticia como actividades de navidad y <a href="https://nuamana.com/nuanew/actividades/juegos/">juegos</a> para niñas, niños y/o jóvenes.</p>
+
+
+
+<p>Esta actividad solamente se puede hacer en un lugar que tenga el suelo deslizante.</p>
+
+
+
+<p>Además también se necesita un trozo de tela o felpudo (trocito de alfombra) por equipo para ayudar al deslizamiento.</p>
+
+
+
+<h3 class="wp-block-heading">¿Como se Juega el Trineo del Viejito Pascuero?</h3>
+
+
+
+<figure class="wp-block-image aligncenter"><img src="https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_ElTrineodelViejitoPascuero_1.jpg" alt="El Trineo del Viejito Pascuero graficado" class="wp-image-1392"/></figure>
+
+
+
+<p></p>
+
+
+
+<p>Es una <a href="https://juegosdetiempolibre.org/juegos/00744-carros/" target="_blank" rel="noopener">carrera de trineos</a>, en este caso cada trineo es el pedazo de tela donde se sentara el Jinete o Viejito Pascuero (Santa, Papa Noel, etc).</p>
+
+
+
+<p>El grupo se distribuye por equipos de un peso o constitución similar. O en su defecto el Jinete debe ser el más liviano del equipo. Se establece un punto de partida y una meta para la carrera.</p>
+
+
+
+<p>Los equipos deben tener un "viejo pascuero" (Jinete) y varios "renos" que tiran del trineo.</p>
+
+
+
+<p>Para que los renos puedan tirar del trineo necesitan tener riendas las que se construirán amarrando sus pañolines como un gran lazo y cada extremo de este lazo será sostenido por el "viejo pascuero".</p>
+
+
+
+<p>A la señal comienza la carrera y gana el equipo que primero cruce la meta.</p>', extracto = 'El Trineo del Viejito Pascuero es una carrera de Trineos ficticia como actividades de navidad y  juegos  para niñas, niños y/o jóvenes. 
+
+
+
+ Esta actividad sol...', metadata = '{"areas": ["corporalidad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "06 participantes", "duracion": "20 minutos", "unidades": ["manada", "compañía", "tropa", "avanzada"], "objetivos": ["Refuerzo de habilidades físicas", "Trabajo en equipo"], "materiales": ["Pañolin", "Tela"], "variaciones": "La carrera puede ser efectuada en parejas y haciendo relevos, de manera que cuando una pareja llega a un tramo, hay otra pareja esperando en ese punto para iniciar otro tramo y así sucesivamente hasta llegar a la meta.", "recomendaciones": "Ponga especial énfasis en que los jinetes deben ser llevados sobre la tela y en caso de que la fuerza de los \"Renos\" de su equipo haga que se levante sobre sus pies deben detenerse y esperar a que tome asiento el jinete y luego continuar desde el punto donde el jinete fue levantado.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_ElTrineodelViejitoPascuero.png", "objetivos_educativos": [{"id": "36d989b6-30dd-434a-874a-70a993ed0bec", "area": "Corporalidad", "texto": "Conozco las principales enfermedades que me pueden dar y por qué.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de El Trineo del Viejito Pascuero."}, {"id": "6467298d-fe2b-4920-9b9a-e3524e4b2aef", "area": "Corporalidad", "texto": "sí en qué lugar de mi cuerpo estén ubicados los órganos más importantes.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de El Trineo del Viejito Pascuero."}, {"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se estén produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de El Trineo del Viejito Pascuero."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de El Trineo del Viejito Pascuero."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de El Trineo del Viejito Pascuero."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de El Trineo del Viejito Pascuero."}, {"id": "05f42879-f5f5-40c4-bed6-c577bf61340a", "area": "Corporalidad", "texto": "Cuido mi salud y mantengo hábitos que la protegen.", "unidad": "Avanzada", "como_se_cumple": "Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de El Trineo del Viejito Pascuero."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en El Trineo del Viejito Pascuero."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en El Trineo del Viejito Pascuero."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante El Trineo del Viejito Pascuero."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante El Trineo del Viejito Pascuero."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante El Trineo del Viejito Pascuero."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante El Trineo del Viejito Pascuero."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en El Trineo del Viejito Pascuero."}]}'::jsonb WHERE id = 'e779b517-778a-40e7-a4cf-4531c257de03';
+
+UPDATE public.articulos SET titulo = 'Carrera de porotos', contenido = '<p>La carrera de porotos es una actividad destinada a promover el uso de la creatividad, por lo que es importante hacer el enfasís y permitir el uso de la imaginación de los participantes.</p>
+
+
+
+<h3 class="wp-block-heading">Carrera de Porotos</h3>
+
+
+
+<p>El <a href="https://nuamana.com/nuanew/actividades/juegos/">juego</a> consiste, como su nombre lo dice en una <a href="http://juegoscout.blogspot.com/" target="_blank" rel="noreferrer noopener">carrera</a>, donde se hace que corran porotos u otro elemento pequeño empujados por los participantes con un pequeño palito. A falta de porotos se pueden usar piedras chicas. Se puede variar según el terreno, hacerlo individual o por equipos...</p>', extracto = 'La carrera de porotos es una actividad destinada a promover el uso de la creatividad, por lo que es importante hacer el enfasís y permitir el uso de la imagina...', metadata = '{"areas": ["corporalidad", "creatividad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "individual", "duracion": "15 minutos", "unidades": ["manada"], "objetivos": ["Aumentar el conocimiento de las limitantes físicas", "Estimular la creatividad"], "materiales": ["Palo", "Porotos"], "variaciones": "Se puede variar según el terreno, hacerlo individual o por equipos.", "recomendaciones": "Permita a los participantes utilizar la imaginación en el desplazamiento del poroto.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CarreraDePorotos.png", "objetivos_educativos": [{"id": "36d989b6-30dd-434a-874a-70a993ed0bec", "area": "Corporalidad", "texto": "Conozco las principales enfermedades que me pueden dar y por qué.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Carrera de porotos."}, {"id": "6467298d-fe2b-4920-9b9a-e3524e4b2aef", "area": "Corporalidad", "texto": "sí en qué lugar de mi cuerpo estén ubicados los órganos más importantes.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Carrera de porotos."}, {"id": "ec280dd0-2d80-4b84-86ad-2d362da14886", "area": "Creatividad", "texto": "Me gusta participar en juegos de observación.", "unidad": "Manada", "como_se_cumple": "Proponiendo ideas originales y rápidas para resolver los acertijos o enigmas mentales de Carrera de porotos."}, {"id": "418f2b77-f15b-405a-95bd-8033c0b6a4c2", "area": "Creatividad", "texto": "Puedo contar con detalles las anécdotas y aventuras que hemos tenido en la Manada.", "unidad": "Manada", "como_se_cumple": "Proponiendo ideas originales y rápidas para resolver los acertijos o enigmas mentales de Carrera de porotos."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Carrera de porotos."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Carrera de porotos."}]}'::jsonb WHERE id = '73044568-1f54-4fa8-a79d-fe47fcd839a1';
+
+UPDATE public.articulos SET titulo = 'Pelea de pañolines', contenido = '<p>La pelea de pañolines es un juego clásico de los Scouts, es además muy poco probable que las y los niños, niñas y jóvenes hayan experimentado esta actividad en otro espacio de participación, ya que el pañolin o pañoleta es algo propio del movimiento guía y scout.</p>
+
+
+
+<p>De hecho si eres guía o scout desde hace algún tiempo es muy poco probable que estés leyendo esta actividad, ya que el juego lo conoces, pero si eres nuevo en el movimiento te explicaremos la pelea de pañolines en esta publicación.</p>
+
+
+
+<p>La pelea de pañolines tiene un <a href="https://nuamana.com/nuanew/objetivos-actividad/conocer-las-capacidades-corporales/" target="_blank" rel="noreferrer noopener">alto componente físico</a>, pero es incluso mucho más importante la agilidad y la astucia para armar una estrategia adecuada, eso nivela el campo entre participantes que tienen un gran físico y otros que no lo tienen.</p>
+
+
+
+<p>La pelea de pañolines es una actividad muy sencilla, pero de mucho culto en los scouts, el objetivo es simple debes quitarle el pañolin que tu contrincante tiene en su espalda.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace la pelea de pañolines?</h3>
+
+
+
+<p>Para jugar la Pelea de Pañolines, lo más básico es que hay dos participantes, cada uno se debe colocar un pañolin en la parte trasera de su pantalón (en la cintura) y de forma que sea fácil de sacar. NO se se debe colocar en la <a href="https://www.qsignifica.com/pretina" target="_blank" rel="noreferrer noopener">pretina del pantalón</a> porque lo más probable es que se rompa el pantalón.</p>
+
+
+
+<p>La pelea de pañolines consiste en tratar de quitar el pañolín al contrario sin que te lo quiten a ti. Para ello puedes usar la fuerza o la agilidad, establecer una estrategia rápida para tratar de engañar al contrario, etc.</p>
+
+
+
+<p>Reglas con respecto al uso del pañolin:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Primero: al colocar el pañolin en la parte de atrás del pantalón, no se pueden hacer nudos o nada que sostenga el pañolin más que su simple ingreso en la parte de atrás.</li>
+
+
+
+<li>Segundo: el pañolin una vez ubicado en la parte de atrás debe poder rodear la cintura y se le debe mostrar al contrincante que ambas puntas del pañolin tocan una con otra alrededor de la cintura.</li>
+
+
+
+<li>Tercero: NO coloque el pañolin en la pretina de la ropa.</li>
+</ul>
+
+
+
+<p>Variaciones existen muchísimas, por lo mismo le dedicaremos una actividad a cada una más adelante y más abajo sólo las enumeramos de forma simple.</p>', extracto = 'La pelea de pañolines es un juego clásico de los Scouts, es además muy poco probable que las y los niños, niñas y jóvenes hayan experimentado esta actividad en...', metadata = '{"areas": ["corporalidad", "creatividad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "individual", "duracion": "15 minutos", "unidades": ["avanzada", "clan", "compañía", "manada", "tropa"], "objetivos": ["Conocer las capacidades corporales", "Crear un ambiente de distensión", "Estrategia y planificación", "Promover la elaboración de estrategias"], "materiales": ["Pañolin"], "variaciones": "<strong>Formal</strong>: Esta variación es uno contra uno, en un círculo formado en el suelo, además de perder el pañolin en este caso también se puede perder por salir del círculo. No se puede quitar el pañolin si el oponente está caído en el suelo o de espalda.\r\n\r\n<strong>En equipo</strong>: Los equipos se enfrentan en una especie de cacería y cada vez que dos participantes se encuentran harán una pelea de pañolines, quien pierda entregara su pañolin que será una vida adicional para quién ganó.\r\n\r\n<strong>Flechazo</strong>: También se hace en equipo, sin embargo, habrá un equipo en cada extremo del campo y a la señal cada equipo cruzara el campo para ubicarse donde se encuentra el equipo contrario, en el cruce entre ambos equipos se pueden quitar los pañolines al pasar y sin ser necesariamente uno contra uno, en este caso se puede aprovechar cualquier distracción del oponente para quitarle su pañolin.\r\n\r\n<strong>Ojos Vendados</strong>: Se hace con los ojos vendados y siguiendo las instrucciones del resto de su equipo.\r\n\r\n<strong>Al hombro</strong>: se amarra el pañolin en el hombro con un nudo simple de sacar al tirar de una de las puntas.\r\n\r\n<strong>Al tobillo</strong>: mismo anterior pero el pañolin va amarrado en el tobillo o la pierna\r\n\r\n<strong>A caballo</strong>: Se hace en parejas donde uno se sube arriba del otro, el o la \"caballo\" es quien está debajo y sólo se preocupa de desplazarse y evitar dejar el pañolin del \"jinete\" a merced de la otra pareja, la o el \"jinete\" que está arriba lleva el pañolin y tiene que cuidar su pañolin y tratar de quitar el pañolin contrario.\r\n\r\n<strong>De dragones</strong>: se hace en equipo, en filas tomados de la cintura, la o el primero de la fila debe tratar de quitar el pañolin, y el último de cada fila de protegerlo, no se pueden soltar las filas, si se sueltan pierden.\r\n\r\nEn el barro, en la nieve, saltando en un pie, sosteniendo algo, con una mano, etc, etc, etc.", "recomendaciones": "Procure indicar la importancia sobre el cuidado del cuerpo, y elegir un terreno adecuado para que no ocurran accidentes por golpes, caídas o tropiezos.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_peleaPanolines.png", "objetivos_educativos": [{"id": "7200435f-b020-46fc-b323-8249048b1d18", "area": "Corporalidad", "texto": "Participo en la organización de juegos y actividades recreativas para los demás.", "unidad": "Avanzada", "como_se_cumple": "Desplegando su máximo rendimiento aeróbico, agilidad y coordinación táctica en la carrera de Pelea de pañolines."}, {"id": "106e27af-ec7a-45fa-9295-fcef88fbef3d", "area": "Corporalidad", "texto": "Convive constantemente en la naturaleza y participa en actividades deportivas y recreativas.", "unidad": "Clan", "como_se_cumple": "Desplegando su máximo rendimiento aeróbico, agilidad y coordinación táctica en la carrera de Pelea de pañolines."}, {"id": "d5b111f1-5f6f-4716-8a02-e1826d653c59", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Pelea de pañolines."}, {"id": "b12da732-d736-480c-82b8-95b312316390", "area": "Corporalidad", "texto": "Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sí ganar y perder.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Pelea de pañolines."}, {"id": "4bf1e3dd-7f21-4c24-962d-9d6d64e32f25", "area": "Corporalidad", "texto": "Me gusta hacer actividades al aire libre.", "unidad": "Manada", "como_se_cumple": "Corriendo a paso rápido y coordinando sus movimientos con sus compañeros durante la dinámica de Pelea de pañolines."}, {"id": "5d2d48ed-c461-4a8e-9048-cceecd3de2e2", "area": "Corporalidad", "texto": "Me gusta jugar con otros niños y niñas y respeto las reglas de los juegos.", "unidad": "Manada", "como_se_cumple": "Corriendo a paso rápido y coordinando sus movimientos con sus compañeros durante la dinámica de Pelea de pañolines."}, {"id": "58b4936a-816e-4d17-8d0a-c92d0606009d", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Pelea de pañolines."}, {"id": "6768d60a-187e-4bbf-97b9-cdc25a316030", "area": "Corporalidad", "texto": "Ayudo a preparar los juegos, excursiones y campamentos de mi patrulla y mi Tropa.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Pelea de pañolines."}, {"id": "3cdf4b56-b55f-4878-b3fa-da32a7200ca4", "area": "Creatividad", "texto": "Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.", "unidad": "Avanzada", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Pelea de pañolines."}, {"id": "ef75fbed-4a6d-49ea-bfab-f2952415e1a0", "area": "Creatividad", "texto": "actúa con agilidad mental ante las situaciones más diversas, desarrollando su capacidad de pensar, innovar y aventurar.", "unidad": "Clan", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Pelea de pañolines."}, {"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Pelea de pañolines."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Pelea de pañolines."}, {"id": "ec280dd0-2d80-4b84-86ad-2d362da14886", "area": "Creatividad", "texto": "Me gusta participar en juegos de observación.", "unidad": "Manada", "como_se_cumple": "Proponiendo ideas originales y rápidas para resolver los acertijos o enigmas mentales de Pelea de pañolines."}, {"id": "418f2b77-f15b-405a-95bd-8033c0b6a4c2", "area": "Creatividad", "texto": "Puedo contar con detalles las anécdotas y aventuras que hemos tenido en la Manada.", "unidad": "Manada", "como_se_cumple": "Proponiendo ideas originales y rápidas para resolver los acertijos o enigmas mentales de Pelea de pañolines."}, {"id": "49ae6ac6-be8f-4f2c-8b3e-6711d041181f", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Pelea de pañolines."}, {"id": "cf530cf9-73a6-4423-a075-79be433fe96c", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Pelea de pañolines."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Pelea de pañolines."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Pelea de pañolines."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Pelea de pañolines."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Pelea de pañolines."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Pelea de pañolines."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Pelea de pañolines."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Pelea de pañolines."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Pelea de pañolines."}]}'::jsonb WHERE id = '9b62d315-8681-4991-95de-04d87a93f15f';
+
+UPDATE public.articulos SET titulo = 'El Lazarillo en Patrulla', contenido = '<p>El lazarillo en patrulla es una actividad que busca estimular la confianza en el liderazgo dentro del equipo, además de facilitar la comunicación en el equipo, es una variación de la actividad el lazarillo que se hace entre dos personas.</p>
+
+
+
+<p>La actividad se trata de que el equipo se desplace desde un punto A a un punto B todos con los ojos cerrados salvo una persona, la o él líder del equipo deberá ser quien asuma el rol de <a href="https://www.rae.es/dhle/lazarillo#:~:text=fig.,otra%20necesitada%20de%20alguna%20ayuda." data-type="link" data-id="https://www.rae.es/dhle/lazarillo#:~:text=fig.,otra%20necesitada%20de%20alguna%20ayuda.">lazarillo </a>para ver cuanto confía su equipo en su liderazgo. Es una excelente actividad de diagnostico para <a href="https://es.wikipedia.org/wiki/Liderazgo" data-type="link" data-id="https://es.wikipedia.org/wiki/Liderazgo">liderazgos</a> de equipos.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace El Lazarillo en Patrulla?</h3>
+
+
+
+<p>El primer paso es indicarles a todos que es una actividad de confianza, todas y/o todos las y los integrantes de la <a href="https://nuamana.cl/lo-que-hacemos/sistema-de-equipos/" data-type="page" data-id="855">patrulla </a>se vendaran los ojos, con excepción del Guía que será el lazarillo en Patrulla, una vez que estén con los ojos cubiertos el dirigente le indicara la meta a la que debe llegar el guía de patrulla con su patrulla completa.</p>
+
+
+
+<p>Hecho esto, el o la guía debe establecer una estrategia, este paso es clave para evaluar el liderazgo, ya que puede establecer o no una estrategia entre toda la patrulla, o simplemente decidirla sola o sólo, esto dirá mucho de su tipo de liderazgo en el equipo. Otro factor clave es como guía a la patrulla, ya que puede ir relatando todo el espacio o tomándoles de la mano, indicando los peligros o simplemente obviándolos.</p>
+
+
+
+<p>A la señal la patrullas intentaran llegar al punto señalado como meta, gana la patrulla que llega con su patrulla completa al lugar y guiada por el lazarillo en patrulla, es importante destacar la calidad del traslado.</p>', extracto = 'El lazarillo en patrulla es una actividad que busca estimular la confianza en el liderazgo dentro del equipo, además de facilitar la comunicación en el equipo,...', metadata = '{"areas": ["afectividad", "carácter", "sociabilidad"], "lugares": ["Campo Abierto", "Exterior"], "cantidad": "04 participantes", "duracion": "15 minutos", "unidades": ["compañía", "tropa"], "objetivos": ["Crear un ambiente de distensión", "Estimular el liderazgo", "Fomentar un entorno de confianza", "Trabajo en equipo"], "materiales": ["Pañolin"], "variaciones": "Existe una versión en parejas, donde se turnan en el trayecto de ida y de vuelta, esta versión esta más enfocada en generar lazos o relaciones entre las y los participantes más que en reforzar un liderazgo.", "recomendaciones": "Procure que el terreno no este muy accidentado para evitar caídas y observe meticulosamente el proceso para evaluar el liderazgo del guía de patrulla.", "justificacion_areas": "Ayuda a consolidar los valores scouts de honestidad, lealtad y fair play en la competencia. Desarrolla el autoconocimiento, la confianza grupal y la empatía en las interacciones del juego. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_ElLazarilloEnPatrulla.png", "objetivos_educativos": [{"id": "818d8a25-549b-4e01-a830-e50d73e39025", "area": "Afectividad", "texto": "Me doy cuenta y puedo hablar de las cosas que me atemorizan.", "unidad": "Compañía", "como_se_cumple": "Canalizando emociones difíciles de incertidumbre o temor al andar a ciegas en El Lazarillo en Patrulla."}, {"id": "67a2f0fa-9b1e-4b7b-bda2-e25696c87898", "area": "Afectividad", "texto": "Trato de dominar mis reacciones, aún en situaciones difíciles o inesperadas.", "unidad": "Compañía", "como_se_cumple": "Canalizando emociones difíciles de incertidumbre o temor al andar a ciegas en El Lazarillo en Patrulla."}, {"id": "03ccaf4c-03c4-42a8-b311-47fef60f204c", "area": "Afectividad", "texto": "Me doy cuenta y puedo hablar de las cosas que me atemorizan.", "unidad": "Tropa", "como_se_cumple": "Canalizando emociones difíciles de incertidumbre o temor al andar a ciegas en El Lazarillo en Patrulla."}, {"id": "74e6c7e0-f9f6-47d3-acdb-d6df315ef123", "area": "Afectividad", "texto": "Trato de dominar mis reacciones, aún en situaciones difíciles o inesperadas.", "unidad": "Tropa", "como_se_cumple": "Canalizando emociones difíciles de incertidumbre o temor al andar a ciegas en El Lazarillo en Patrulla."}, {"id": "075c93b1-81d2-4370-8e47-f0a4d086b20e", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de El Lazarillo en Patrulla."}, {"id": "7a9e143e-c837-473b-a014-e41ef5fc2ec2", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de El Lazarillo en Patrulla."}, {"id": "38f4863e-12a6-4a4b-9767-8cdf55020734", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de El Lazarillo en Patrulla."}, {"id": "5311be36-87be-40c4-ab4a-e6ce6e662183", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de El Lazarillo en Patrulla."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante El Lazarillo en Patrulla."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante El Lazarillo en Patrulla."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante El Lazarillo en Patrulla."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante El Lazarillo en Patrulla."}]}'::jsonb WHERE id = '785b5274-af71-4f1d-aa4b-385c0be761b2';
+
+UPDATE public.articulos SET titulo = 'Bomba de tiempo', contenido = '<p>Bomba de tiempo es un juego nocturno enfocado en el trabajo en equipo, el <a href="https://nuamana.com/nuanew/objetivos-actividad/promover-la-elaboracion-de-estrategias/" target="_blank" rel="noreferrer noopener">desarrollo de estrategias</a> que en principio es un juego de búsqueda y percepción por los sentidos, sin lucha, pero podrían creársele variantes o escenarios para incorporar ataque y defensa.</p>
+
+
+
+<p>Para poder hacer la Bomba de tiempo es necesario tener al menos 2 equipos de 2 personas cada uno, y como todo juego nocturno contribuye a que las niñas, niños y jóvenes puedan ir perdiendo cualquier <a href="https://www.lavanguardia.com/vida/salud/enfermedades-mentales/20190514/462240648733/nictofobia-fobia-a-la-oscuridad-fobia-ansiedad-angustia.html#:~:text=La%20nictofobia%20es%20un%20miedo,bosque%2C%20calle%2C%20campo%E2%80%A6)" target="_blank" rel="noreferrer noopener">miedo a la oscuridad</a>, además de aprender a caminar sin ayuda de luz en la noche.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace la bomba de tiempo?</h3>
+
+
+
+<p>Se forman 2 equipos relativamente nivelados entre los participantes, un equipo serán lo <strong>Saboteadores</strong> y el otro serán los <strong>Guardianes</strong> los primeros deben buscar que la bomba explote y los segundos evitar que lo haga.</p>
+
+
+
+<p>Los <strong>SABOTEADORES</strong> tendrán que trabajar rápido para colocar la bomba de tiempo en un lugar a su elección dentro de una zona predeterminada, advirtiendoles que la bomba estallará a los <strong>XX</strong> minutos (Sonará el despertador).</p>
+
+
+
+<p>La función del otro bando, los <strong>GUARDIANES</strong>, es la de mantener bajo vigilancia a sus enemigos sin dejarse ver por ellos, observar dónde colocan la bomba y, cuando lo sepan, correr a inutilizarla antes de su estallido.</p>
+
+
+
+<p>Al dar la señal de inicio, los Saboteadores se lanzan a realizar su tarea, al tiempo que los guardianes los comienzan a vigilar. Gana el equipo que logra su cometido.</p>', extracto = 'Bomba de tiempo es un juego nocturno enfocado en el trabajo en equipo, el  desarrollo de estrategias  que en principio es un juego de búsqueda y percepción por...', metadata = '{"areas": ["carácter", "corporalidad", "creatividad", "sociabilidad"], "lugares": ["Bosque", "Cerro", "Exterior", "Montaña"], "cantidad": "04 participantes", "duracion": "45 minutos", "unidades": ["avanzada", "clan", "compañía", "tropa"], "objetivos": ["Desarrollar la motricidad", "Estrategia y planificación", "Perder el miedo a la oscuridad", "Promover la elaboración de estrategias", "Trabajo en equipo"], "materiales": ["Reloj despertador"], "variaciones": "Los guardianes pueden eliminar algún saboteador quitándole el pañolín en modo acecho.\r\n\r\nSi el saboteador se da cuenta de la presencia del guardián, este debe volver a esconderse e volver a intentar sacarle el pañolín en otra ocasión u a otro saboteador.", "recomendaciones": "Deje claro que esta es una actividad donde lo que importa es la observación y el acecho por sobre los movimientos bruscos y rápidos, esto para evitar que se coloquen a correr y se generen accidentes, ya que el mejor lugar para hacer la actividad es un bosque sinuoso y con muchos lugares para ocultarse.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Ayuda a consolidar los valores scouts de honestidad, lealtad y fair play en la competencia. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_BombaDeTiempo.png", "objetivos_educativos": [{"id": "1d9d6751-4ab1-45db-9999-3f18606b4909", "area": "Carácter", "texto": "Soy fiel a la palabra dada.", "unidad": "Avanzada", "como_se_cumple": "Actuando consecuentemente con sus principios y valores individuales en cada decisión y rol de Bomba de tiempo."}, {"id": "770a8ff3-7bb8-45dd-b114-5ae1069eff62", "area": "Carácter", "texto": "actúa consecuentemente con los valores que lo inspiran.", "unidad": "Clan", "como_se_cumple": "Actuando consecuentemente con sus principios y valores individuales en cada decisión y rol de Bomba de tiempo."}, {"id": "075c93b1-81d2-4370-8e47-f0a4d086b20e", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Bomba de tiempo."}, {"id": "7a9e143e-c837-473b-a014-e41ef5fc2ec2", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Bomba de tiempo."}, {"id": "38f4863e-12a6-4a4b-9767-8cdf55020734", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Bomba de tiempo."}, {"id": "5311be36-87be-40c4-ab4a-e6ce6e662183", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Bomba de tiempo."}, {"id": "05f42879-f5f5-40c4-bed6-c577bf61340a", "area": "Corporalidad", "texto": "Cuido mi salud y mantengo hábitos que la protegen.", "unidad": "Avanzada", "como_se_cumple": "Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de Bomba de tiempo."}, {"id": "69fff91f-a493-483d-92d6-8319700236c2", "area": "Corporalidad", "texto": "Conoce los procesos biológicos que regulan su organismo, protege su salud, acepta sus posibilidades físicas y orienta sus impulsos y fuerzas.", "unidad": "Clan", "como_se_cumple": "Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de Bomba de tiempo."}, {"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se estén produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Bomba de tiempo."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Bomba de tiempo."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Bomba de tiempo."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Bomba de tiempo."}, {"id": "3cdf4b56-b55f-4878-b3fa-da32a7200ca4", "area": "Creatividad", "texto": "Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.", "unidad": "Avanzada", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Bomba de tiempo."}, {"id": "ef75fbed-4a6d-49ea-bfab-f2952415e1a0", "area": "Creatividad", "texto": "actúa con agilidad mental ante las situaciones más diversas, desarrollando su capacidad de pensar, innovar y aventurar.", "unidad": "Clan", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Bomba de tiempo."}, {"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Bomba de tiempo."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Bomba de tiempo."}, {"id": "49ae6ac6-be8f-4f2c-8b3e-6711d041181f", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Bomba de tiempo."}, {"id": "cf530cf9-73a6-4423-a075-79be433fe96c", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Bomba de tiempo."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Bomba de tiempo."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Bomba de tiempo."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Bomba de tiempo."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Bomba de tiempo."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Bomba de tiempo."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Bomba de tiempo."}]}'::jsonb WHERE id = '6fb66f20-f92c-451d-9070-61f0251076fe';
+
+UPDATE public.articulos SET titulo = 'Ley con clave morse', contenido = '<p>La ley con clave morse es una actividad enfocada en reforzar el <a href="https://www.questionpro.com/blog/es/trabajar-en-equipo/" target="_blank" rel="noreferrer noopener">trabajo en equipo</a> y el aprendizaje de la criptografía, al mismo tiempo que refuerza la confianza en los pares, para poder hacer la actividad son necesarios al menos 2 equipos con un mínimo de 2 personas cada uno.</p>
+
+
+
+
+
+
+
+<h3 class="wp-block-heading">Ley con clave morse</h3>
+
+
+
+
+
+
+
+<p>La primera parte es crear los equipos, estos equipos se colocaran en un extremo del campo de juego, mientras que en el otro extremo del campo se colocarán papeles con escritos en <a href="https://nuamana.cl/tecnicas/claves-y-pistas/codigo-morse/" data-type="post" data-id="1316">clave morse</a>, estos papeles tendrán articulos de la <a href="https://nuamana.com/nuanew/lo-que-hacemos/ley-y-promesa/">ley guía y scout</a> escritos en <a href="https://nuamana.cl/tecnicas/claves-y-pistas/codigo-morse/" data-type="post" data-id="1316">clave morse</a>.</p>
+
+
+
+
+
+
+
+<p>El o la participante, antes de salir a buscar un papel escrito en código morse, deberá vendar sus ojos mientras que sus compañeros y/o compañeras de equipo le gritarán las instrucciones para llegar al papel u objeto que debe tomar.</p>
+
+
+
+
+
+
+
+<p>Una vez que toma el objeto se puede quitar la venda de los ojos y regresar al lugar con el resto de su equipo, a su llegada saldrá la o el siguiente participante del equipo, y así sucesivamente hasta recuperar todos los papeles.</p>
+
+
+
+
+
+
+
+<p>Cuando tengan todos los mensajes en poder del equipo tienen que empezar a traducir lo más rápidamente posible los mensajes donde descubrirán los artículos de la <a href="https://nuamana.com/nuanew/lo-que-hacemos/ley-y-promesa/">ley guía-scout</a> que estará escrita la ley con clave morse.</p>
+
+
+
+
+
+
+
+<p>Si necesitas ayuda para escribir las pistas más abajo en las descargas de este artículo puedes descargar una fuente (font, letras) que convierte lo que escribas en un computador a código morse, y aquí te dejamos una actividad para que puedas hacer con tu unidad.</p>
+
+
+
+
+
+
+
+<figure class="wp-block-image aligncenter"><img src="https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Articulo_CodigoMorse1.jpg" alt="Regla mnemotécnica morse"/></figure>
+
+
+
+
+
+
+
+</div>', extracto = 'La ley con clave morse es una actividad enfocada en reforzar el  trabajo en equipo  y el aprendizaje de la criptografía, al mismo tiempo que refuerza la confia...', metadata = '{"areas": ["afectividad", "creatividad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "04 participantes", "duracion": "25 minutos", "unidades": ["compañía", "tropa"], "descargas": [{"url": "https://dl.dafont.com/dl/?f=morse", "nombre": "Fuente Morse (Dafont)"}], "objetivos": ["Aprender criptografía", "Aprendizaje por la acción", "Estimular el pensamiento lógico", "Trabajo en equipo"], "materiales": ["Lápiz", "Papel", "Pañolin"], "variaciones": "En lugar de vendarse los ojos los participantes y ser guiados a viva voz hasta los mensajes, también se puede reemplazar esto por un <a href=\"https://nuamana.cl/actividades/juegos/cuerpo-a-tierra/\" target=\"_blank\" rel=\"noopener\">cuerpo a tierra</a>, u otra carrera que los lleve desde un extremo al otro del campo.\r\n\r\nDe la misma manera se puede reemplazar el código morse por otra clave, para aumentar o disminuir la dificultad.", "recomendaciones": "Procure hacer la actividad en un lugar plano y despejados, sin riesgos de caídas por tropiezos o golpes en la cabeza por algo en altura.", "justificacion_areas": "Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Desarrolla el autoconocimiento, la confianza grupal y la empatía en las interacciones del juego. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_LeyConClaveMorse.png", "objetivos_educativos": [{"id": "2f8359db-221e-4a64-b2df-2b3e7b74a2db", "area": "Afectividad", "texto": "Escucho las opiniones de las demás personas y si no estoy de acuerdo lo digo con respeto.", "unidad": "Compañía", "como_se_cumple": "Practicando la empatía y la asertividad en las relaciones interpersonales de patrulla en Ley con clave morse."}, {"id": "3621f4ae-1316-4b3e-8682-3e3c9ad381a7", "area": "Afectividad", "texto": "Mantengo mi opinión cuando estoy convencida que es correcta.", "unidad": "Compañía", "como_se_cumple": "Practicando la empatía y la asertividad en las relaciones interpersonales de patrulla en Ley con clave morse."}, {"id": "a4060c60-7ce9-425b-bf2a-76941a689937", "area": "Afectividad", "texto": "Escucho las opiniones de los demás personas y si no estoy de acuerdo lo digo con respeto.", "unidad": "Tropa", "como_se_cumple": "Practicando la empatía y la asertividad en las relaciones interpersonales de patrulla en Ley con clave morse."}, {"id": "4ade9c82-6b0d-4a44-8bc6-2eb47a011ffb", "area": "Afectividad", "texto": "Digo lo que pienso con respeto hacia los demás personas.", "unidad": "Tropa", "como_se_cumple": "Practicando la empatía y la asertividad en las relaciones interpersonales de patrulla en Ley con clave morse."}, {"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Ley con clave morse."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Ley con clave morse."}, {"id": "49ae6ac6-be8f-4f2c-8b3e-6711d041181f", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Ley con clave morse."}, {"id": "cf530cf9-73a6-4423-a075-79be433fe96c", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Ley con clave morse."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Ley con clave morse."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Ley con clave morse."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Ley con clave morse."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Ley con clave morse."}]}'::jsonb WHERE id = 'd87c3dc3-20b6-4400-9a8f-4dc1c9ee42cc';
+
+UPDATE public.articulos SET titulo = 'Carrera de botellas con agua', contenido = '<p>La Carrera de botellas con agua es una actividad por equipos, enfocada a reforzar la capacidad de seguir instrucciones, y el trabajo en equipo.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace la carrera de botellas con agua?</h3>
+
+
+
+<p>Para hacer la carrera de botellas con agua se divide a los participantes <a href="https://nuamana.com/nuanew/etiqueta/en-equipo/" target="_blank" rel="noreferrer noopener">en equipos</a>, y se colocan en fila detrás la línea de inicio.</p>
+
+
+
+<p>En un extremo del campo se colocaran dos <a href="https://es.wikipedia.org/wiki/Botella" target="_blank" rel="noreferrer noopener">botellas</a> ambas estarán llenas hasta la mitad con agua.</p>
+
+
+
+<p>A la señal sale 1 participante de cada equipo llega al otro extremo del campo de juego y traspasa el contenido de una botella en la otra botella.</p>
+
+
+
+<p>Una vez que haya traspasado el contenido, toma la botella con agua y corre de regreso con su equipo donde entregará la botella al siguiente.</p>
+
+
+
+<p>El siguiente participante toma la botella, corre al otro extremo del campo y <a href="https://dle.rae.es/traspasar" target="_blank" rel="noreferrer noopener">traspasa</a> el contenido de una botella a la otra, y así sucesivamente.</p>
+
+
+
+<p>Gana el equipo que tenga más agua en su botella.</p>', extracto = 'La Carrera de botellas con agua es una actividad por equipos, enfocada a reforzar la capacidad de seguir instrucciones, y el trabajo en equipo. 
+
+
+
+ ¿Cómo se h...', metadata = '{"areas": ["carácter", "corporalidad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "04 participantes", "duracion": "20 minutos", "unidades": ["compañía", "manada", "tropa"], "objetivos": ["Aprender a seguir instrucciones", "Trabajo en equipo"], "materiales": ["Agua", "Botella"], "variaciones": "Una variación de esta actividad se puede hacer cambiando las botella por otro recipiente, por ejemplo una cubeta, de esta forma al tener la boquilla más abierta que una botella es más probable que caiga agua en el traslado del contenedor en lugar de la transferencia del líquido.", "recomendaciones": "Procure evitar esta actividad durante el invierno para que no se mojen los participantes en un mal clima.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Ayuda a consolidar los valores scouts de honestidad, lealtad y fair play en la competencia. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CarreraDeBotellasConAgua.png", "objetivos_educativos": [{"id": "075c93b1-81d2-4370-8e47-f0a4d086b20e", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Carrera de botellas con agua."}, {"id": "7a9e143e-c837-473b-a014-e41ef5fc2ec2", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Carrera de botellas con agua."}, {"id": "baa365a9-087c-4c25-b0ad-57893df5ff74", "area": "Carácter", "texto": "sí lo que significa decir la verdad.", "unidad": "Manada", "como_se_cumple": "Jugando de manera transparente y honesta en Carrera de botellas con agua, aceptando con alegría la victoria o la derrota."}, {"id": "506b7596-cac4-48e0-88c7-942d575172db", "area": "Carácter", "texto": "Digo la verdad, aunque a veces no me gusten las consecuencias.", "unidad": "Manada", "como_se_cumple": "Jugando de manera transparente y honesta en Carrera de botellas con agua, aceptando con alegría la victoria o la derrota."}, {"id": "38f4863e-12a6-4a4b-9767-8cdf55020734", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Carrera de botellas con agua."}, {"id": "5311be36-87be-40c4-ab4a-e6ce6e662183", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Carrera de botellas con agua."}, {"id": "d5b111f1-5f6f-4716-8a02-e1826d653c59", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Carrera de botellas con agua."}, {"id": "b12da732-d736-480c-82b8-95b312316390", "area": "Corporalidad", "texto": "Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sí ganar y perder.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Carrera de botellas con agua."}, {"id": "4bf1e3dd-7f21-4c24-962d-9d6d64e32f25", "area": "Corporalidad", "texto": "Me gusta hacer actividades al aire libre.", "unidad": "Manada", "como_se_cumple": "Corriendo a paso rápido y coordinando sus movimientos con sus compañeros durante la dinámica de Carrera de botellas con agua."}, {"id": "5d2d48ed-c461-4a8e-9048-cceecd3de2e2", "area": "Corporalidad", "texto": "Me gusta jugar con otros niños y niñas y respeto las reglas de los juegos.", "unidad": "Manada", "como_se_cumple": "Corriendo a paso rápido y coordinando sus movimientos con sus compañeros durante la dinámica de Carrera de botellas con agua."}, {"id": "58b4936a-816e-4d17-8d0a-c92d0606009d", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Carrera de botellas con agua."}, {"id": "6768d60a-187e-4bbf-97b9-cdc25a316030", "area": "Corporalidad", "texto": "Ayudo a preparar los juegos, excursiones y campamentos de mi patrulla y mi Tropa.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Carrera de botellas con agua."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de botellas con agua."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de botellas con agua."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Carrera de botellas con agua."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Carrera de botellas con agua."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de botellas con agua."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de botellas con agua."}]}'::jsonb WHERE id = '4100fb9c-f7ef-4593-a381-3bedc7e6c48f';
+
+UPDATE public.articulos SET titulo = 'Relevo de la cuerda', contenido = '<p>El relevo de la cuerda es un juego que busca estimular y desarrollar la motricidad fina mediante la <a href="https://nuamana.com/nuanew/objetivos-actividad/estimular-la-observacion/" target="_blank" rel="noreferrer noopener">observación de los detalles</a> y la competencia.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace el Relevo de la cuerda?</h3>
+
+
+
+<figure class="wp-block-image alignright is-resized"><img src="https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_RelevoDeLaCuerda_2.png" alt="Relevo de la Cuerda" style="width:360px"/></figure>
+
+
+
+<p>En un extremo del campo se coloca en el suelo unos aros de cuerda un poco gruesa, y lo suficientemente anchos para que pase por ellos una persona.</p>
+
+
+
+<p>Se divide en equipos a los participantes, y los equipos se ubican en el punto de salida.</p>
+
+
+
+<p>A la señal sale un concursante de cada equipo, llega a donde se encuentre su círculo de cuerda, y debe pasar su cuerpo a través del aro de cuerda.</p>
+
+
+
+<p>Se lo mete el aro por la cabeza y se lo saca por los pies, luego lo deja en el mismo sitio y se dirige al punto de salida.</p>
+
+
+
+<p>Al llegar el participante al punto de partida sale la o el siguiente participante de su equipo, haciendo el <a href="https://juegoscout.blogspot.com/" target="_blank" rel="noreferrer noopener">relevo de la cuerda</a>... Y así hasta que lo hagan todos.</p>
+
+
+
+<p>Gana el primer equipo que pasa completo por la prueba.</p>', extracto = 'El relevo de la cuerda es un juego que busca estimular y desarrollar la motricidad fina mediante la  observación de los detalles  y la competencia. 
+
+
+
+ ¿Cómo...', metadata = '{"areas": ["corporalidad", "creatividad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "04 participantes", "duracion": "15 minutos", "unidades": ["avanzada", "compañía", "manada", "tropa"], "objetivos": ["Desarrollar la motricidad", "Estimular la observación", "Fomentar la sana competencia"], "materiales": ["Cuerda"], "variaciones": "", "recomendaciones": "", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_RelevoDeLaCuerda.png", "objetivos_educativos": [{"id": "7200435f-b020-46fc-b323-8249048b1d18", "area": "Corporalidad", "texto": "Participo en la organización de juegos y actividades recreativas para los demás.", "unidad": "Avanzada", "como_se_cumple": "Desplegando su máximo rendimiento aeróbico, agilidad y coordinación táctica en la carrera de Relevo de la cuerda."}, {"id": "d5b111f1-5f6f-4716-8a02-e1826d653c59", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Relevo de la cuerda."}, {"id": "b12da732-d736-480c-82b8-95b312316390", "area": "Corporalidad", "texto": "Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sí ganar y perder.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Relevo de la cuerda."}, {"id": "4bf1e3dd-7f21-4c24-962d-9d6d64e32f25", "area": "Corporalidad", "texto": "Me gusta hacer actividades al aire libre.", "unidad": "Manada", "como_se_cumple": "Corriendo a paso rápido y coordinando sus movimientos con sus compañeros durante la dinámica de Relevo de la cuerda."}, {"id": "5d2d48ed-c461-4a8e-9048-cceecd3de2e2", "area": "Corporalidad", "texto": "Me gusta jugar con otros niños y niñas y respeto las reglas de los juegos.", "unidad": "Manada", "como_se_cumple": "Corriendo a paso rápido y coordinando sus movimientos con sus compañeros durante la dinámica de Relevo de la cuerda."}, {"id": "58b4936a-816e-4d17-8d0a-c92d0606009d", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Relevo de la cuerda."}, {"id": "6768d60a-187e-4bbf-97b9-cdc25a316030", "area": "Corporalidad", "texto": "Ayudo a preparar los juegos, excursiones y campamentos de mi patrulla y mi Tropa.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Relevo de la cuerda."}, {"id": "843fda9c-6c4a-4516-b30c-23c92ef755a8", "area": "Creatividad", "texto": "Puedo resolver la mayoría de los problemas Técnicos domásticos simples.", "unidad": "Avanzada", "como_se_cumple": "Combinando conocimientos prácticos e inventiva técnica para resolver los retos de pionerismo y diseño en Relevo de la cuerda."}, {"id": "103661fc-3396-4eac-9182-58b7e54d5115", "area": "Creatividad", "texto": "Perfecciono mis habilidades manuales.", "unidad": "Compañía", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Relevo de la cuerda."}, {"id": "0f60be94-6de3-4c34-a6ff-5b5018f0b156", "area": "Creatividad", "texto": "Coopero en la mantención y renovación del local y materiales de mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Relevo de la cuerda."}, {"id": "8985ff05-ee84-4fba-af46-146c5374df89", "area": "Creatividad", "texto": "Participo en los talleres de manualidades que se hacen en la Manada.", "unidad": "Manada", "como_se_cumple": "Manipulando de forma segura y creativa los materiales de la actividad para modelar o construir en Relevo de la cuerda."}, {"id": "d4232b99-5655-49c6-9d24-099cfe9c8180", "area": "Creatividad", "texto": "Practico continuamente mis habilidades manuales.", "unidad": "Manada", "como_se_cumple": "Manipulando de forma segura y creativa los materiales de la actividad para modelar o construir en Relevo de la cuerda."}, {"id": "11320fb6-98de-4725-825d-db858e3bffa2", "area": "Creatividad", "texto": "Perfecciono mis habilidades manuales.", "unidad": "Tropa", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Relevo de la cuerda."}, {"id": "fd3d3e14-e92b-4ab5-8298-9018c6e70b20", "area": "Creatividad", "texto": "Coopero en la mantención y renovación del local y materiales de mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Relevo de la cuerda."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Relevo de la cuerda."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevo de la cuerda."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevo de la cuerda."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Relevo de la cuerda."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Relevo de la cuerda."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevo de la cuerda."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevo de la cuerda."}]}'::jsonb WHERE id = 'b6439d30-b78e-424e-828f-7691b0c00331';
+
+UPDATE public.articulos SET titulo = 'Relevos Ciegos', contenido = '<p>Los <a href="http://juegoscout.blogspot.cl/" target="_blank" rel="noreferrer noopener">Relevos Ciegos</a> es un <a href="https://nuamana.com/nuanew/actividades/juegos/" target="_blank" rel="noreferrer noopener">juego</a> que busca reforzar el <a href="https://nuamana.com/nuanew/objetivos-actividad/trabajo-en-equipo/" target="_blank" rel="noreferrer noopener">trabajo en equipo</a> y reconocer las limitaciones físicas propias, se realizará en grupos de al menos 6 participantes, donde mediante la voz deberán encontrar el lugar de intercambio.</p>
+
+
+
+
+
+
+
+<h3 class="wp-block-heading">¿Cómo realizar los Relevos Ciegos?</h3>
+
+
+
+
+
+
+
+<p>Se necesitan al menos dos equipos, en un campo delimitado a una distancia razonable para que se puedan escuchar las instrucciones de sus compañeras y/o compañeros de equipo.</p>
+
+
+
+
+
+
+
+<p>Los equipos estarán divididos en dos grupos cada uno, y se pondrán enfrente uno de otro en los dos extremos de un campo.</p>
+
+
+
+
+
+
+
+<p>A la señal salen los o las corredores de un lado, que llevarán los ojos vendados e irán al otro extremo del campo dirigidos por los gritos de sus compañeras y/o compañeros.</p>
+
+
+
+
+
+
+
+<figure class="wp-block-image aligncenter is-resized"><img src="https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_RelevosCiegos_2.png" alt="Gráfico sobre los relevos ciegos" class="wp-image-4700" style="width:360px"/></figure>
+
+
+
+
+
+
+
+<p>Al llegar, entregarán el testigo a otro compañero o compañera que también estará con los ojos vendados y que ha de recorrer el camino de vuelta al punto de origen, y así sucesivamente hasta que hayan corrido todos los del grupo.</p>
+
+
+
+
+
+
+
+<p>Ganará el primer equipo en completar con todos sus participantes el campo de juego vendados completando los <a href="http://juegoscout.blogspot.cl/" target="_blank" rel="noreferrer noopener">relevos ciegos</a>, en caso de ser números impares los equipos con menos jugadores pueden hacer que alguno se repita.</p>
+
+
+
+
+
+
+
+', extracto = 'Los  Relevos Ciegos  es un  juego  que busca reforzar el  trabajo en equipo  y reconocer las limitaciones físicas propias, se realizará en grupos de al menos 6...', metadata = '{"areas": ["corporalidad", "creatividad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "06 participantes", "duracion": "15 minutos", "unidades": ["manada", "compañía", "tropa", "avanzada"], "objetivos": ["Aprender a seguir instrucciones", "Aumentar el conocimiento de las limitantes físicas", "Trabajo en equipo"], "materiales": ["Pañolin"], "variaciones": "Una variación es que en lugar de gritar desde el otro lado del campo las instrucciones puede ir una compañera o compañero de equipo al lado del participante que está vendada o vendado para darle las indicaciones.", "recomendaciones": "<ul>\r\n \t<li>Ponga énfasis en el cuidado de la jugadora o jugador cuando le den instrucciones para evitar accidentes.</li>\r\n \t<li>Procure que el terreno sea un terreno parejo para evitar que las y los participantes tropiecen y se caigan.</li>\r\n \t<li>Indique que no es necesario correr y que se debe primero saber que se esta dando un paso seguro.</li>\r\n</ul>", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_RelevosCiegos.png", "objetivos_educativos": [{"id": "36d989b6-30dd-434a-874a-70a993ed0bec", "area": "Corporalidad", "texto": "Conozco las principales enfermedades que me pueden dar y por qué.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Relevos Ciegos."}, {"id": "6467298d-fe2b-4920-9b9a-e3524e4b2aef", "area": "Corporalidad", "texto": "sí en qué lugar de mi cuerpo estén ubicados los órganos más importantes.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Relevos Ciegos."}, {"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se estén produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Relevos Ciegos."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Relevos Ciegos."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Relevos Ciegos."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Relevos Ciegos."}, {"id": "05f42879-f5f5-40c4-bed6-c577bf61340a", "area": "Corporalidad", "texto": "Cuido mi salud y mantengo hábitos que la protegen.", "unidad": "Avanzada", "como_se_cumple": "Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de Relevos Ciegos."}, {"id": "ec280dd0-2d80-4b84-86ad-2d362da14886", "area": "Creatividad", "texto": "Me gusta participar en juegos de observación.", "unidad": "Manada", "como_se_cumple": "Proponiendo ideas originales y rápidas para resolver los acertijos o enigmas mentales de Relevos Ciegos."}, {"id": "418f2b77-f15b-405a-95bd-8033c0b6a4c2", "area": "Creatividad", "texto": "Puedo contar con detalles las anécdotas y aventuras que hemos tenido en la Manada.", "unidad": "Manada", "como_se_cumple": "Proponiendo ideas originales y rápidas para resolver los acertijos o enigmas mentales de Relevos Ciegos."}, {"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Relevos Ciegos."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Relevos Ciegos."}, {"id": "49ae6ac6-be8f-4f2c-8b3e-6711d041181f", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Relevos Ciegos."}, {"id": "cf530cf9-73a6-4423-a075-79be433fe96c", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Relevos Ciegos."}, {"id": "3cdf4b56-b55f-4878-b3fa-da32a7200ca4", "area": "Creatividad", "texto": "Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.", "unidad": "Avanzada", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Relevos Ciegos."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Relevos Ciegos."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Relevos Ciegos."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevos Ciegos."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevos Ciegos."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevos Ciegos."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevos Ciegos."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Relevos Ciegos."}]}'::jsonb WHERE id = '6a2b2b30-c8f4-44d1-a766-b02bdd725658';
+
+UPDATE public.articulos SET titulo = 'Protegiendo las bases', contenido = '<p>Protegiendo las bases es una actividad enfocada en el <a href="https://nuamana.com/nuanew/objetivos-actividad/trabajo-en-equipo/" target="_blank" rel="noreferrer noopener">trabajo de equipo</a> y el desarrollo de estrategias en equipo, se busca con esta actividad estimular a las y los participantes a lograr una mayor y mejor relación mediante la coordinación.</p>
+
+
+
+<p>Para hacer Protegiendo las bases se requiere un alto número de participantes por lo que no es recomendada para grupos pequeños, cada grupo debe contar con al menos 5 participantes.</p>
+
+
+
+<p>Protegiendo las bases es una actividad que funciona mejor como juego nocturno, aunque no por ello no se puede hacer durante el día.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace Protegiendo las bases?</h3>
+
+
+
+<p>Se divide a los y las jugadoras en equipos, cada equipo tendrá un tesoro característico compuesto de varios elementos, pueden ser <a href="https://es.wikipedia.org/wiki/Frijol" target="_blank" rel="noreferrer noopener">porotos</a>, <a href="https://es.wikipedia.org/wiki/Canica" target="_blank" rel="noreferrer noopener">bolitas</a>, piedras características, etc.</p>
+
+
+
+<p>Uno o dos miembros de cada equipo será el que tenga la misión de proteger la base atizando a los miembros de los otros grupos mediante una pelea de pañolines.</p>
+
+
+
+<p>Las bases estarán separadas 50 metros o más unas de otras y en ellas estará el tesoro característico de cada equipo. Los demás miembros tendrán que ir corriendo a buscar y robar los tesoros de cada base.</p>
+
+
+
+<p>Reglas:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Cada miembro sólo podrá llevar una pieza del tesoro a la vez.</li>
+
+
+
+<li>Las bases tendrán que estar colocadas pegadas a la pared o algún árbol de manera que sólo puedan ser asaltadas por el frente.</li>
+
+
+
+<li>No se puede esconder el tesoro (tiene que estar a la vista)</li>
+</ul>', extracto = 'Protegiendo las bases es una actividad enfocada en el  trabajo de equipo  y el desarrollo de estrategias en equipo, se busca con esta actividad estimular a las...', metadata = '{"areas": ["carácter", "creatividad", "sociabilidad"], "lugares": ["Bosque", "Campo delimitado", "Exterior"], "cantidad": "10 participantes", "duracion": "30 minutos", "unidades": ["avanzada", "clan", "compañía", "tropa"], "objetivos": ["Fomentar las relaciones interpersonales", "Promover la elaboración de estrategias", "Trabajo en equipo"], "materiales": ["Pañolin"], "variaciones": "Se puede instalar una ¿?Zona de los Dioses¿? por la que todos tendrán que pasar cada vez cuando vayan a robar y cuando vuelvan con lo robado. Para controlar el flujo de pérdida del tesoro, en esta zona se pueden jugar la pieza de tesoro con una pelea de pañolines contra el jugador.", "recomendaciones": "Procure hacer énfasis en la seguridad sobre el terreno de juego y que pisen con cuidado a la hora de desplazarse por el área de juego.", "justificacion_areas": "Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Ayuda a consolidar los valores scouts de honestidad, lealtad y fair play en la competencia. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_protegiendoLasBases.png", "objetivos_educativos": [{"id": "1d9d6751-4ab1-45db-9999-3f18606b4909", "area": "Carácter", "texto": "Soy fiel a la palabra dada.", "unidad": "Avanzada", "como_se_cumple": "Actuando consecuentemente con sus principios y valores individuales en cada decisión y rol de Protegiendo las bases."}, {"id": "770a8ff3-7bb8-45dd-b114-5ae1069eff62", "area": "Carácter", "texto": "actúa consecuentemente con los valores que lo inspiran.", "unidad": "Clan", "como_se_cumple": "Actuando consecuentemente con sus principios y valores individuales en cada decisión y rol de Protegiendo las bases."}, {"id": "075c93b1-81d2-4370-8e47-f0a4d086b20e", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Protegiendo las bases."}, {"id": "7a9e143e-c837-473b-a014-e41ef5fc2ec2", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Protegiendo las bases."}, {"id": "38f4863e-12a6-4a4b-9767-8cdf55020734", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Protegiendo las bases."}, {"id": "5311be36-87be-40c4-ab4a-e6ce6e662183", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Protegiendo las bases."}, {"id": "3cdf4b56-b55f-4878-b3fa-da32a7200ca4", "area": "Creatividad", "texto": "Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.", "unidad": "Avanzada", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Protegiendo las bases."}, {"id": "ef75fbed-4a6d-49ea-bfab-f2952415e1a0", "area": "Creatividad", "texto": "actúa con agilidad mental ante las situaciones más diversas, desarrollando su capacidad de pensar, innovar y aventurar.", "unidad": "Clan", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Protegiendo las bases."}, {"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Protegiendo las bases."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Protegiendo las bases."}, {"id": "49ae6ac6-be8f-4f2c-8b3e-6711d041181f", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Protegiendo las bases."}, {"id": "cf530cf9-73a6-4423-a075-79be433fe96c", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Protegiendo las bases."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Protegiendo las bases."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Protegiendo las bases."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Protegiendo las bases."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Protegiendo las bases."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Protegiendo las bases."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Protegiendo las bases."}]}'::jsonb WHERE id = 'c2b9f939-026c-4cb8-8d7d-7d16d718490b';
+
+UPDATE public.articulos SET titulo = 'El guardia y los prisioneros', contenido = '<p>El guardia y los prisioneros es un <a href="https://nuamana.com/nuanew/etiqueta/juegos-nocturnos/" target="_blank" rel="noreferrer noopener">juego nocturno</a> que busca estimular el desarrollo de estrategias, promover la motricidad y el desarrollo de la observación en los participantes.</p>
+
+
+
+<p>Para poder llevar a cabo la actividad de el guardia y los prisioneros son necesarios al menos 4 participantes, que deben <a href="https://blogs.20minutos.es/yaestaellistoquetodolosabe/tag/sigilo/" target="_blank" rel="noreferrer noopener">moverse con sigilo y cautela</a> durante la noche.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace el guardia y los prisioneros?</h3>
+
+
+
+<p>Para jugar El guardia y los prisioneros, primero se marcaran las líneas de inicio (cárcel) y de meta (seguridad) en los extremos del área de juego.</p>
+
+
+
+<p>Después se elegirá a un <strong>GUARDIA</strong> dentro de los y las participantes, al guardia se le proveerá de una linterna para que pueda vigilar a los prisioneros durante la noche.</p>
+
+
+
+<p>Los y las demás jugadoras serán <strong>PRISIONEROS</strong> que tratan de ir ocultos desde la línea de partida hasta una línea de seguridad simulando escaparse de una cárcel.</p>
+
+
+
+<p>A la señal del <strong>GUARDIA</strong> los <strong>PRISIONEROS</strong> comienzan su intento de fuga, Si el <strong>GUARDIA</strong> escucha un ruido, enfocará su linterna apagada hacia el lugar donde él piensa que se halla un prisionero y gritará Alto! Todos los <strong>PRISIONEROS</strong> deberán permanecer inmóviles (Congelados).</p>
+
+
+
+<p>Tras lo anterior el <strong>GUARDIA</strong> encenderá su linterna solamente hacia el lugar donde estaba apuntando y si atrapó a un Prisionero, éste deberá retroceder X cantidad de metros.</p>
+
+
+
+<p>Luego de ello el <strong>GUARDIA</strong> apagará la linterna para señalar que el juego continúa. Si el <strong>GUARDIA</strong> realiza más de 3 desafíos en falso, pierde el juego y será ganador aquel Prisionero que se encuentre más cerca de la línea de seguridad.</p>
+
+
+
+<p>El primer Prisionero en llegar a la línea de seguridad será quien gane convirtiéndose en <strong>GUARDIA</strong> para el próximo juego.</p>', extracto = 'El guardia y los prisioneros es un  juego nocturno  que busca estimular el desarrollo de estrategias, promover la motricidad y el desarrollo de la observación...', metadata = '{"areas": ["corporalidad", "creatividad"], "lugares": ["Bosque", "Campo delimitado", "Exterior"], "cantidad": "04 participantes", "duracion": "45 minutos", "unidades": ["avanzada", "clan", "compañía", "tropa"], "objetivos": ["Desarrollar la motricidad", "Estimular la observación", "Promover la elaboración de estrategias"], "materiales": ["Linterna"], "variaciones": "Una variación puede ser eliminar a las y los participantes cuando son descubiertos al avanzar.", "recomendaciones": "Tenga en consideración la iluminación en el lugar a la hora de jugar, prefiera un área boscosa para facilitar la huida de los prisioneros o un claro para dificultarla.\r\n\r\nHaga las recomendaciones de seguridad necesarias para que caminen con cuidado en un terreno sin iluminación.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_ElGuardiaYLosPrisioneros.png", "objetivos_educativos": [{"id": "05f42879-f5f5-40c4-bed6-c577bf61340a", "area": "Corporalidad", "texto": "Cuido mi salud y mantengo hábitos que la protegen.", "unidad": "Avanzada", "como_se_cumple": "Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de El guardia y los prisioneros."}, {"id": "69fff91f-a493-483d-92d6-8319700236c2", "area": "Corporalidad", "texto": "Conoce los procesos biológicos que regulan su organismo, protege su salud, acepta sus posibilidades físicas y orienta sus impulsos y fuerzas.", "unidad": "Clan", "como_se_cumple": "Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de El guardia y los prisioneros."}, {"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se estén produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de El guardia y los prisioneros."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de El guardia y los prisioneros."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de El guardia y los prisioneros."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de El guardia y los prisioneros."}, {"id": "3cdf4b56-b55f-4878-b3fa-da32a7200ca4", "area": "Creatividad", "texto": "Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.", "unidad": "Avanzada", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de El guardia y los prisioneros."}, {"id": "ef75fbed-4a6d-49ea-bfab-f2952415e1a0", "area": "Creatividad", "texto": "actúa con agilidad mental ante las situaciones más diversas, desarrollando su capacidad de pensar, innovar y aventurar.", "unidad": "Clan", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de El guardia y los prisioneros."}, {"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en El guardia y los prisioneros."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en El guardia y los prisioneros."}, {"id": "49ae6ac6-be8f-4f2c-8b3e-6711d041181f", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en El guardia y los prisioneros."}, {"id": "cf530cf9-73a6-4423-a075-79be433fe96c", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en El guardia y los prisioneros."}]}'::jsonb WHERE id = '8a6d8a79-f3dd-402c-9d2e-10d91c8f86d9';
+
+UPDATE public.articulos SET titulo = 'Carrera de ciempiés', contenido = '<p>La carrera de ciempiés es una actividad para el <a href="https://nuamana.com/nuanew/objetivos-actividad/desarrollar-la-motricidad/" target="_blank" rel="noreferrer noopener">desarrollo de la motricidad</a>, el <a href="https://nuamana.com/nuanew/objetivos-actividad/desfogue-de-energias/" target="_blank" rel="noreferrer noopener">desfogue de energías</a> y el <a href="https://nuamana.com/nuanew/objetivos-actividad/trabajo-en-equipo/" target="_blank" rel="noreferrer noopener">trabajo en equipo</a>, se desarrolla en filas o hileras, estas simularán ser cienpies unidos con las manos y los tobillos.</p>
+
+
+
+
+
+
+
+<h3 class="wp-block-heading">¿Cómo se juega la Carrera de ciempiés?</h3>
+
+
+
+
+
+
+
+<p>Se divide el grupo en equipos y se ubican en filas detrás de la línea de partida.</p>
+
+
+
+
+
+
+
+<p>Cada equipo debe ubicarse de la siguiente manera: en hileras el primero de coloca sus manos sobre sus rodillas, y los que se ubican detrás tomarán con las manos los tobillos de la persona que tienen delante, mientras que la cabeza irá entre las piernas.</p>
+
+
+
+
+
+
+
+<p>Ubicados en esta posición a la señal comienza la <a href="http://juegoscout.blogspot.cl/" target="_blank" rel="noreferrer noopener">carrera de ciempiés</a> y ganará el primer equipo que cruce la línea de meta por completo.</p>
+
+
+
+
+
+
+
+', extracto = 'La carrera de ciempiés es una actividad para el  desarrollo de la motricidad , el  desfogue de energías  y el  trabajo en equipo , se desarrolla en filas o hil...', metadata = '{"areas": ["corporalidad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "06 participantes", "duracion": "15 minutos", "unidades": ["compañía", "manada", "tropa"], "objetivos": ["Desarrollar la motricidad", "Desfogue de Energías", "Trabajo en equipo"], "materiales": ["Sin Materiales"], "variaciones": "Una variación de la actividad puede ser tomando las rodillas del que se encuentra delante, en lugar de los tobillos.", "recomendaciones": "Procure poner énfasis en la seguridad del equipo, que tengan cuidado con sus manos a la hora de avanzar, si visualiza que uno o todos los equipos tienen inconvenientes para avanzar haga recomendaciones para que avancen coordinadamente.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CarreraDeCiempies.png", "objetivos_educativos": [{"id": "d5b111f1-5f6f-4716-8a02-e1826d653c59", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Carrera de ciempiés."}, {"id": "b12da732-d736-480c-82b8-95b312316390", "area": "Corporalidad", "texto": "Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sí ganar y perder.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Carrera de ciempiés."}, {"id": "4bf1e3dd-7f21-4c24-962d-9d6d64e32f25", "area": "Corporalidad", "texto": "Me gusta hacer actividades al aire libre.", "unidad": "Manada", "como_se_cumple": "Corriendo a paso rápido y coordinando sus movimientos con sus compañeros durante la dinámica de Carrera de ciempiés."}, {"id": "5d2d48ed-c461-4a8e-9048-cceecd3de2e2", "area": "Corporalidad", "texto": "Me gusta jugar con otros niños y niñas y respeto las reglas de los juegos.", "unidad": "Manada", "como_se_cumple": "Corriendo a paso rápido y coordinando sus movimientos con sus compañeros durante la dinámica de Carrera de ciempiés."}, {"id": "58b4936a-816e-4d17-8d0a-c92d0606009d", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Carrera de ciempiés."}, {"id": "6768d60a-187e-4bbf-97b9-cdc25a316030", "area": "Corporalidad", "texto": "Ayudo a preparar los juegos, excursiones y campamentos de mi patrulla y mi Tropa.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Carrera de ciempiés."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de ciempiés."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de ciempiés."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Carrera de ciempiés."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Carrera de ciempiés."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de ciempiés."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de ciempiés."}]}'::jsonb WHERE id = '371cbd0d-11e0-47ec-8420-ae021d5bd73e';
+
+UPDATE public.articulos SET titulo = 'MacGyver Preparado para la Aventura', contenido = '<p>MacGyver Preparado para la aventura es una actividad enfocada principalmente en la <a href="https://nuamana.com/nuanew/objetivos-actividad/estimular-la-creatividad/" target="_blank" rel="noreferrer noopener">creatividad</a> y en la resolución de problemas mediante la misma, es una actividad que además presenta la oportunidad de conocer el espacio de trabajo a modo general.</p>
+
+
+
+<p>Mediante el uso de la creatividad los y las participantes deberán resolver problemas o tareas que se les asignarán durante la actividad, MacGyver Preparado para la aventura, las y los participantes deberán construir algo con los materiales que tengan a su disposición en el lugar donde se encuentren.</p>
+
+
+
+<p>Inspirado en la famosa <a href="https://es.wikipedia.org/wiki/MacGyver" target="_blank" rel="noreferrer noopener">serie de televisión en MacGyver</a> Preparado para la aventura, buscaremos sacar a flote la creatividad de los niños, niñas y adolescentes para zafar de cualquier situación en la que se encuentren con los recursos que mantienen a su alcance.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace MacGyver Preparado para la aventura?</h3>
+
+
+
+<p>Primero se divide el grupo en equipos de ojala no más de tres participantes cada uno y a cada equipo se le deberá asignar un objetivo.</p>
+
+
+
+<p>Los equipos deberán ser capaces de resolver lo planteado por el encargado de la actividad con un máximo de 5 recursos que se encuentren al alcance dentro de un área delimitada.</p>
+
+
+
+<p>El objetivo es crear un objeto o realizar una acción funcional, no sólo decorativa, por ejemplo, crear un martillo con materiales que se encuentren en un río; izar una bandera con materiales que hay en una cocina, hacer un hacha o un cuchillo con lo que encuentren en el suelo de un terreno, etc.</p>
+
+
+
+<p>Se les dará un tiempo de 15 minutos para establecer una estrategia y otros 15 minutos para lograr el objetivo. Será ganador el equipo que sea más eficiente a la hora de cumplir la meta con las reglas establecidas.</p>', extracto = 'MacGyver Preparado para la aventura es una actividad enfocada principalmente en la  creatividad  y en la resolución de problemas mediante la misma, es una acti...', metadata = '{"areas": ["creatividad", "sociabilidad"], "lugares": ["Bosque", "Cerro", "Exterior", "Interior", "Montaña", "Río"], "cantidad": "04 participantes", "duracion": "30 minutos", "unidades": ["avanzada", "clan"], "objetivos": ["Estimular la creatividad", "Fomentar el desarrollo del criterio", "Trabajo en equipo"], "materiales": ["Objetos Varios"], "variaciones": "Se puede variar en la cantidad de tiempo establecido, cantidad de participantes por equipo, cantidad de objetos a ser utilizados para lograr la meta, tipos de objetos que NO pueden ser utilizados, el tamaño del lugar en donde se realizará la actividad.", "recomendaciones": "Se requiere precaución a la hora de ocupar los objetos encontrados por los participantes, asegurarse de que estos no sean peligrosos en su uso, o quienes lo ocupen tengan manejo adecuado de estos. También precaución con el terreno en donde se realiza, evitando que existan elementos que puedan dañar físicamente a algún participante", "justificacion_areas": "Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_macgyverPreparadoParaLaAventura.png", "objetivos_educativos": [{"id": "843fda9c-6c4a-4516-b30c-23c92ef755a8", "area": "Creatividad", "texto": "Puedo resolver la mayoría de los problemas Técnicos domásticos simples.", "unidad": "Avanzada", "como_se_cumple": "Combinando conocimientos prácticos e inventiva técnica para resolver los retos de pionerismo y diseño en MacGyver Preparado para la Aventura."}, {"id": "29eee8b1-a414-4df9-90e1-520a384fb9aa", "area": "Creatividad", "texto": "Une los conocimientos teórico y práctico mediante la aplicación constante de sus habilidades técnicas y manuales.", "unidad": "Clan", "como_se_cumple": "Combinando conocimientos prácticos e inventiva técnica para resolver los retos de pionerismo y diseño en MacGyver Preparado para la Aventura."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en MacGyver Preparado para la Aventura."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en MacGyver Preparado para la Aventura."}]}'::jsonb WHERE id = 'afebb91a-f5bc-49b1-8d00-e8bcf555b4ee';
+
+UPDATE public.articulos SET titulo = 'El Fugitivo', contenido = '<p>El fugitivo es una actividad para el desfogue de energías y el <a href="https://nuamana.com/nuanew/objetivos-actividad/aumentar-el-conocimiento-de-las-limitantes-fisicas/" target="_blank" rel="noreferrer noopener">conocimiento de las limitantes físicas</a>, es principalmente una actividad física, aunque también contiene un poco de estrategia desde un enfoque más individual.</p>
+
+
+
+<p>Como actividad el fugitivo es una clásica cacería de varios contra uno, por lo que aquel participante que sea el <a href="https://dle.rae.es/fugitivo" target="_blank" rel="noreferrer noopener">fugitivo</a> (a) deberá tener tanto sagacidad para esconderse, como velocidad para huir.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace El Fugitivo?</h3>
+
+
+
+<p>Se delimita el área de juego, esta debe ser bastante amplia y en ella el o la fugitiva se podrá esconder y correr libremente.</p>
+
+
+
+<p>Se debe separar a una o un participante del resto del grupo, este será quien cumpla el rol de Fugitivo, se le dará un tiempo al participante para alejarse del resto del grupo, para distraer a los o las demás participantes este momento será utilizado para explicarles a las y lo demás como se hace la actividad.</p>
+
+
+
+<p>A la señal el o la fugitiva comienza a huir mientras que el resto del grupo debe salir a su caza, basta con tocar al fugitivo para que sea capturado. Los y las demás harán todo lo posible para encontrarlo, para lograr su objetivo, el que huye puede usar todo lo que tenga a su alcance para distraer al equipo que lo rastrea, si, por ejemplo, se realiza en un lugar de campamento, donde se hallan otras unidades, o otros grupos de personas, se pueden usar para el despiste, o de lo contrario, jugarle en contra al fugitivo.</p>
+
+
+
+<p>Para agregar dificultad, cada 2 minutos el o la fugitiva tendrá que hacer sonar un silbato.</p>', extracto = 'El fugitivo es una actividad para el desfogue de energías y el  conocimiento de las limitantes físicas , es principalmente una actividad física, aunque también...', metadata = '{"areas": ["carácter", "corporalidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "04 participantes", "duracion": "20 minutos", "unidades": ["compañía", "manada", "tropa"], "objetivos": ["Aumentar el conocimiento de las limitantes físicas", "Desfogue de Energías", "Estimular el pensamiento lógico", "Promover la elaboración de estrategias", "Refuerzo de habilidades físicas"], "materiales": ["Silbato"], "variaciones": "Se podría hacer sin silbato, o tocando el silbato cada más o menos tiempo, pero podría resultar frustrante si no es encontrado.", "recomendaciones": "Atención a la zona que se delimita, debe ser segura pero llena de escondites. También es importante que sea amplia.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Ayuda a consolidar los valores scouts de honestidad, lealtad y fair play en la competencia.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_elFugitivo.png", "objetivos_educativos": [{"id": "075c93b1-81d2-4370-8e47-f0a4d086b20e", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de El Fugitivo."}, {"id": "7a9e143e-c837-473b-a014-e41ef5fc2ec2", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de El Fugitivo."}, {"id": "baa365a9-087c-4c25-b0ad-57893df5ff74", "area": "Carácter", "texto": "sí lo que significa decir la verdad.", "unidad": "Manada", "como_se_cumple": "Jugando de manera transparente y honesta en El Fugitivo, aceptando con alegría la victoria o la derrota."}, {"id": "506b7596-cac4-48e0-88c7-942d575172db", "area": "Carácter", "texto": "Digo la verdad, aunque a veces no me gusten las consecuencias.", "unidad": "Manada", "como_se_cumple": "Jugando de manera transparente y honesta en El Fugitivo, aceptando con alegría la victoria o la derrota."}, {"id": "38f4863e-12a6-4a4b-9767-8cdf55020734", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de El Fugitivo."}, {"id": "5311be36-87be-40c4-ab4a-e6ce6e662183", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de El Fugitivo."}, {"id": "d5b111f1-5f6f-4716-8a02-e1826d653c59", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de El Fugitivo."}, {"id": "b12da732-d736-480c-82b8-95b312316390", "area": "Corporalidad", "texto": "Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sí ganar y perder.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de El Fugitivo."}, {"id": "4bf1e3dd-7f21-4c24-962d-9d6d64e32f25", "area": "Corporalidad", "texto": "Me gusta hacer actividades al aire libre.", "unidad": "Manada", "como_se_cumple": "Corriendo a paso rápido y coordinando sus movimientos con sus compañeros durante la dinámica de El Fugitivo."}, {"id": "5d2d48ed-c461-4a8e-9048-cceecd3de2e2", "area": "Corporalidad", "texto": "Me gusta jugar con otros niños y niñas y respeto las reglas de los juegos.", "unidad": "Manada", "como_se_cumple": "Corriendo a paso rápido y coordinando sus movimientos con sus compañeros durante la dinámica de El Fugitivo."}, {"id": "58b4936a-816e-4d17-8d0a-c92d0606009d", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de El Fugitivo."}, {"id": "6768d60a-187e-4bbf-97b9-cdc25a316030", "area": "Corporalidad", "texto": "Ayudo a preparar los juegos, excursiones y campamentos de mi patrulla y mi Tropa.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de El Fugitivo."}]}'::jsonb WHERE id = '158647cd-3a58-4bcd-a2c7-a758c5c12613';
+
+UPDATE public.articulos SET titulo = 'Bulldog Inglés', contenido = '<p>El juego Bulldog inglés es una actividad enfocada en el conocimiento de las limitantes físicas personales y el desfogue de energías.</p>
+
+
+
+<p>Es una actividad para ser hecha <a href="https://nuamana.com/nuanew/etiqueta/en-equipo/" target="_blank" rel="noreferrer noopener">en equipo</a> y que sólo se puede efectuar entre 2 equipos y no más. Es necesario ser claro con los límites del campo de juego ya que salirse de este implica perder.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se juega al Bulldog inglés?</h3>
+
+
+
+<p>Para jugar al Bulldog Inglés se divide al grupo en dos equipos equilibrados en sus características físicas, debe colocarse entonces la misma cantidad de personas altas o bajas, gordas o flacas, viejos o jóvenes en cada equipo.</p>
+
+
+
+<p>Se delimita el campo de juego, el campo tendrá límites claros en ambos lados y costados de la cancha, en cada extremo del campo se ubicaran los equipos.</p>
+
+
+
+<p>Se selecciona a un participante de cada equipo para ser el o los Bulldog inglés, ellos se ubicaran en el medio del campo de juego, con una línea clara ya que quienes estén en medio no podrán dar más de dos pasos hacia adelante o hacia atrás.</p>
+
+
+
+<p>A la señal los equipos cruzaran de un extremo al otro del campo de juego, y no podrán salirse de los límites del mismo, si alguno se sale de los límites queda automáticamente eliminado.</p>
+
+
+
+<p>El o los jugadores que se encuentren en medio del campo serán los Bulldogs, cuando los equipos crucen de un extremo a otro de la cancha deben capturar a uno o más jugadores, levantarlos en el aire (sin que sus pies toquen el piso) y gritar "...1, 2, 3 <a href="https://claudiomateluna.github.io/nuevoBuenaCaza/juegos/bulldog-ingles" target="_blank" rel="noreferrer noopener">Bulldog inglés</a>...".</p>
+
+
+
+<p>Cuando un jugador sea levantado se convertirá en otro Bulldog y ayudará a capturar a los que crucen por el medio de la cancha.</p>
+
+
+
+<p>Así sucesivamente hasta que quede sólo uno, gana el equipo que queda con más jugadores al finalizar el tiempo o el que quede con el último jugador aún corriendo de un extremo a otro.</p>', extracto = 'El juego Bulldog inglés es una actividad enfocada en el conocimiento de las limitantes físicas personales y el desfogue de energías. 
+
+
+
+ Es una actividad para...', metadata = '{"areas": ["corporalidad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "05 participantes", "duracion": "20 minutos", "unidades": ["avanzada", "compañía", "tropa"], "objetivos": ["Aumentar el conocimiento de las limitantes físicas", "Desfogue de Energías", "Promover la elaboración de estrategias"], "materiales": ["Sin Materiales"], "variaciones": "Para iniciar el bulldog puede ser uno de los animadores de la actividad y este se retirara del centro del campo del juego cuando ya considere que hay suficientes \"bulldogs\".", "recomendaciones": "Sea claro y está atento a los que se salgan de los límites del campo.\r\n\r\nMucha gente siendo \"Bulldog\" puede causar accidentes, procure mantener un número razonable en el centro del campo de juego.\r\n\r\nHaga énfasis en el cuidado del cuerpo propio y de los demás, esta es una actividad muy física que puede causar accidentes cuando hay mucho entusiasmo en los participantes.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_BulldogIngles.png", "objetivos_educativos": [{"id": "7200435f-b020-46fc-b323-8249048b1d18", "area": "Corporalidad", "texto": "Participo en la organización de juegos y actividades recreativas para los demás.", "unidad": "Avanzada", "como_se_cumple": "Desplegando su máximo rendimiento aeróbico, agilidad y coordinación táctica en la carrera de Bulldog Inglés."}, {"id": "d5b111f1-5f6f-4716-8a02-e1826d653c59", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Bulldog Inglés."}, {"id": "b12da732-d736-480c-82b8-95b312316390", "area": "Corporalidad", "texto": "Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sí ganar y perder.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Bulldog Inglés."}, {"id": "58b4936a-816e-4d17-8d0a-c92d0606009d", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Bulldog Inglés."}, {"id": "6768d60a-187e-4bbf-97b9-cdc25a316030", "area": "Corporalidad", "texto": "Ayudo a preparar los juegos, excursiones y campamentos de mi patrulla y mi Tropa.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Bulldog Inglés."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Bulldog Inglés."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Bulldog Inglés."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Bulldog Inglés."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Bulldog Inglés."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Bulldog Inglés."}]}'::jsonb WHERE id = '227840aa-8ae7-42ea-84ae-2e9ba40106a1';
+
+UPDATE public.articulos SET titulo = 'Asalto Al Castillo', contenido = '<p>El juego Asalto al castillo es una actividad enfocada en reforzar el trabajo en equipo y la colaboración entre los participantes para lograr un objetivo.</p>
+
+
+
+<p>Sin una buena coordinación de equipo será imposible que el equipo logre el objetivo y pueda ganar el juego.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se juega el Asalto al castillo?</h3>
+
+
+
+<p>Para hacer el Asalto al Castillo, se divide al grupo en dos equipos, uno de los equipos será primero el castillo y luego rotaran para darle espacio al otro <a href="https://nuamana.com/nuanew/etiqueta/en-equipo/" target="_blank" rel="noreferrer noopener">equipo.</a></p>
+
+
+
+<p>Uno de los equipos forma un círculo tomados de las manos, este equipo será el castillo, mientras que el otro equipo serán los <a href="https://dle.rae.es/asaltante" target="_blank" rel="noreferrer noopener">asaltantes</a>.</p>
+
+
+
+<p>El otro equipo se ubica por fuera del círculo, a la señal el equipo que está fuera del círculo debe tratar de ingresar en su totalidad al interior del castillo, es decir, del círculo formado por el otro equipo.</p>
+
+
+
+<p>Gana el equipo que logra introducir en el círculo todos sus componentes en el menor tiempo posible.</p>', extracto = 'El juego Asalto al castillo es una actividad enfocada en reforzar el trabajo en equipo y la colaboración entre los participantes para lograr un objetivo....', metadata = '{"areas": ["corporalidad", "sociabilidad"], "lugares": ["Exterior", "Interior"], "cantidad": "08 participantes", "duracion": "15 minutos", "unidades": ["avanzada", "clan", "compañía", "tropa"], "objetivos": ["Fomentar un entorno de confianza", "Trabajo en equipo"], "materiales": ["Cronómetro"], "variaciones": "Puede variar la actividad haciéndola por tiempos, es decir, danto un tiempo determinado para ingresar al castillo, y en este caso gana el equipo que tenga más participantes dentro del círculo cuando termina tiempo.", "recomendaciones": "Siempre que sea posible es conveniente usar un cronómetro.\r\n\r\nProcure señalar la importancia del cuidado físico de los otros.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_AsaltoAlCastillo.png", "objetivos_educativos": [{"id": "7200435f-b020-46fc-b323-8249048b1d18", "area": "Corporalidad", "texto": "Participo en la organización de juegos y actividades recreativas para los demás.", "unidad": "Avanzada", "como_se_cumple": "Desplegando su máximo rendimiento aeróbico, agilidad y coordinación táctica en la carrera de Asalto Al Castillo."}, {"id": "106e27af-ec7a-45fa-9295-fcef88fbef3d", "area": "Corporalidad", "texto": "Convive constantemente en la naturaleza y participa en actividades deportivas y recreativas.", "unidad": "Clan", "como_se_cumple": "Desplegando su máximo rendimiento aeróbico, agilidad y coordinación táctica en la carrera de Asalto Al Castillo."}, {"id": "d5b111f1-5f6f-4716-8a02-e1826d653c59", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Asalto Al Castillo."}, {"id": "b12da732-d736-480c-82b8-95b312316390", "area": "Corporalidad", "texto": "Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sí ganar y perder.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Asalto Al Castillo."}, {"id": "58b4936a-816e-4d17-8d0a-c92d0606009d", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Asalto Al Castillo."}, {"id": "6768d60a-187e-4bbf-97b9-cdc25a316030", "area": "Corporalidad", "texto": "Ayudo a preparar los juegos, excursiones y campamentos de mi patrulla y mi Tropa.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Asalto Al Castillo."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Asalto Al Castillo."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Asalto Al Castillo."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Asalto Al Castillo."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Asalto Al Castillo."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Asalto Al Castillo."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Asalto Al Castillo."}]}'::jsonb WHERE id = '22ccf0a9-ce0f-4826-88fe-5ee70930ce7f';
+
+UPDATE public.articulos SET titulo = 'Proteger al huevo', contenido = '<p>Proteger al huevo es una actividad que busca <a href="https://nuamana.com/nuanew/objetivos-actividad/estimular-la-creatividad/" target="_blank" rel="noreferrer noopener">estimular la creatividad</a> y promover el trabajo en equipo, como su nombre lo indica se trata de que un equipo encuentre la mejor manera de proteger al huevo de una caída.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se juega Proteger al huevo?</h3>
+
+
+
+<p>Se divide a los participantes en equipos y a cada uno se les proporciona los materiales necesarios:</p>
+
+
+
+<ul class="wp-block-list">
+<li><a href="https://es.wiktionary.org/wiki/pajilla#:~:text=Peque%C3%B1o%20tubo%20pl%C3%A1stico%20que%20sirve%20para%20sorber%20l%C3%ADquidos%2C%20especialmente%20refrescos.&amp;text=Sin%C3%B3nimos%3A%20bombilla%20(Chile)%2C,popote%20(M%C3%A9xico)%2C%20sorbete." target="_blank" rel="noreferrer noopener">Bombillas</a> (25 UN mín.)</li>
+
+
+
+<li><a href="https://es.wikipedia.org/wiki/Cinta_de_enmascarar" target="_blank" rel="noreferrer noopener">Cinta adhesiva</a> (masking tape)</li>
+
+
+
+<li>Objetos Varios</li>
+
+
+
+<li>y <a href="https://es.wikipedia.org/wiki/Huevo_(alimento)" target="_blank" rel="noreferrer noopener">Huevos</a> (1 por equipo).</li>
+</ul>
+
+
+
+<p>Los materiales pueden variar de acuerdo a lo que se tenga a mano, pueden ser hojas, o papel de diversos tipos, ramas, etc.</p>
+
+
+
+<p>Se les dará a los equipos un tiempo determinado y adecuado a los equipos para que puedan plantear una estrategia y de esa manera proteger al huevo.</p>
+
+
+
+<p>Cada grupo debe reunirse y discutir ideas sobre cómo diseñar y construir un armazón protector para el huevo solo utilizando los materiales entregados (bombillas y la cinta adhesiva).</p>
+
+
+
+<p>Una vez que los grupos hayan finalizado la construcción de su estructura, se realizarán pruebas de resistencia. Se organiza una competencia final donde los equipos lanzan sus huevos desde la misma altura y evalúan cuál de los armazones resulta ser más seguro para proteger el huevo.</p>
+
+
+
+<p></p>', extracto = 'Proteger al huevo es una actividad que busca  estimular la creatividad  y promover el trabajo en equipo, como su nombre lo indica se trata de que un equipo enc...', metadata = '{"areas": ["creatividad", "sociabilidad"], "lugares": ["Campo Abierto", "Exterior"], "cantidad": "04 participantes", "duracion": "25 minutos", "unidades": ["compañía", "tropa", "avanzada", "clan"], "objetivos": ["Estimular la creatividad", "Trabajo en equipo"], "materiales": ["Bombillas", "Cinta Adhesiva", "Huevos", "Objetos Varios", "Papel craft", "Pañolin"], "variaciones": "Puede realizar la misma prueba arrojándole cosas pesadas al armazón, o variando la altura y materiales de construcción, lanzando el armazón contra algo, etc.", "recomendaciones": "Procure tener las condiciones adecuadas para la posterior limpieza en caso de ruptura de los huevos, idealmente la misma persona debe realizar la prueba de resistencia para evitar reclamos de intencionalidad.", "justificacion_areas": "Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_ProtegeAlHuevo.png", "objetivos_educativos": [{"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Proteger al huevo."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Proteger al huevo."}, {"id": "49ae6ac6-be8f-4f2c-8b3e-6711d041181f", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Proteger al huevo."}, {"id": "cf530cf9-73a6-4423-a075-79be433fe96c", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Proteger al huevo."}, {"id": "3cdf4b56-b55f-4878-b3fa-da32a7200ca4", "area": "Creatividad", "texto": "Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.", "unidad": "Avanzada", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Proteger al huevo."}, {"id": "ef75fbed-4a6d-49ea-bfab-f2952415e1a0", "area": "Creatividad", "texto": "actúa con agilidad mental ante las situaciones más diversas, desarrollando su capacidad de pensar, innovar y aventurar.", "unidad": "Clan", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Proteger al huevo."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Proteger al huevo."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Proteger al huevo."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Proteger al huevo."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Proteger al huevo."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Proteger al huevo."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Proteger al huevo."}]}'::jsonb WHERE id = '4f0ec9d9-8b81-47d6-9e0d-003572c0fe58';
+
+UPDATE public.articulos SET titulo = 'Carrera de Cuncunas', contenido = '<p>La <a href="http://juegoscout.blogspot.com/" target="_blank" rel="noreferrer noopener">carrera de cuncunas</a> es una competencia que requiere trabajo en equipo y estrategia es un poco dura pero sólo el hecho de intentarlo merece la pena, otra ventaja es que no requiere de materiales.</p>
+
+
+
+
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace la Carrera de Cuncunas?</h3>
+
+
+
+
+
+
+
+<p>Se hacen grupos de alrededor de <a href="https://nuamana.com/nuanew/cantidad-participantes/8-participantes/" target="_blank" rel="noreferrer noopener">4 a 8 personas</a> formando una fila sentados, el segundo de la fila debe abrazar con sus piernas al primero, tercero al segundo y así sucesivamente.</p>
+
+
+
+
+
+
+
+<p>Apoyados sólo con sus glúteos y sus manos o brazos deben hacer avanzar la fila hacia la línea de meta. En caso de que se suelten, se desarmen o caigan de lado deben reposicionarse para continuar avanzando.</p>
+
+
+
+
+
+
+
+<p>Gana el primer equipo que cruza completo la línea de meta.</p>
+
+
+
+
+
+
+
+', extracto = 'La  carrera de cuncunas  es una competencia que requiere trabajo en equipo y estrategia es un poco dura pero sólo el hecho de intentarlo merece la pena, otra v...', metadata = '{"areas": ["corporalidad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "08 participantes", "duracion": "20 minutos", "unidades": ["compañía", "tropa", "avanzada", "clan"], "objetivos": ["Desfogue de Energías", "Trabajo en equipo"], "materiales": ["Sin Materiales"], "variaciones": "Se puede indicar que sólo se puede avanzar con las manos, o aumentar la dificultad física indicando que no pueden tocar el suelo con nada que no sea las manos hasta llegar a la meta.", "recomendaciones": "Haga recomendaciones con ejemplos para las estrategias de avanzar, por ejemplo avanzar a la cuenta de tres del equipos, etc.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CarreraDeCuncunas.png", "objetivos_educativos": [{"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se estén produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Cuncunas."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Cuncunas."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Cuncunas."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Cuncunas."}, {"id": "05f42879-f5f5-40c4-bed6-c577bf61340a", "area": "Corporalidad", "texto": "Cuido mi salud y mantengo hábitos que la protegen.", "unidad": "Avanzada", "como_se_cumple": "Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de Carrera de Cuncunas."}, {"id": "69fff91f-a493-483d-92d6-8319700236c2", "area": "Corporalidad", "texto": "Conoce los procesos biológicos que regulan su organismo, protege su salud, acepta sus posibilidades físicas y orienta sus impulsos y fuerzas.", "unidad": "Clan", "como_se_cumple": "Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de Carrera de Cuncunas."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Cuncunas."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Cuncunas."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Cuncunas."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Cuncunas."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Carrera de Cuncunas."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Carrera de Cuncunas."}]}'::jsonb WHERE id = '44899c38-5ae2-4250-a6d5-955ef4158bb2';
+
+UPDATE public.articulos SET titulo = 'Carrera de Maletas Con Carga', contenido = '<p>La carrera de maletas con carga es una actividad enfocada a estimular la motricidad y la agilidad de los participantes, se requieren al menos <a href="https://nuamana.cl/cantidad-participantes/6-participantes/" target="_blank" data-type="link" data-id="https://nuamana.cl/cantidad-participantes/6-participantes/" rel="noreferrer noopener">2 equipos con un mínimo de 3 participantes</a> en cada uno.</p>
+
+
+
+
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace la Carrera de Maletas Con Carga?</h3>
+
+
+
+
+
+
+
+<p>Los participantes se dividen en dos o más equipos y luego los equipos se colocan en fila detrás de la línea de partida.</p>
+
+
+
+
+
+
+
+<p>Todos los participantes de cada equipo colocan una prenda de ropa en una bolsa de deporte del equipos y revuelven las prendas, la bolsa será la "maleta" y las prendas la "carga" de la <a href="http://juegoscout.blogspot.cl/" target="_blank" data-type="link" data-id="http://juegoscout.blogspot.cl/" rel="noreferrer noopener">Carrera de Maletas Con Carga</a>.</p>
+
+
+
+
+
+
+
+<p>A la señal salen los primeros de cada equipos con la bolsa llena de las prendas de su equipo, llegan al centro del campo donde dejan la bolsa en el piso y siguen corriendo hasta el fondo del campo.</p>
+
+
+
+
+
+
+
+<p>Inmediatamente que llegan al final del campo de juego regresan al centro, abren la bolsa, toman cualquier prenda y se la ponen, cierran la bolsa y corren con la bolsa y la prenda puesta hacia el punto de partida.</p>
+
+
+
+
+
+
+
+<p>Al llegar al punto de partida le pasan la bolsa al siguiente participante que sale corriendo hace lo mismo que el anterior, así sucesivamente hasta que pase todo el equipo.</p>
+
+
+
+
+
+
+
+<p>Ganará el equipo que primero se coloque todas las prendas de ropa en su bolsa.</p>
+
+
+
+
+
+
+
+', extracto = 'La carrera de maletas con carga es una actividad enfocada a estimular la motricidad y la agilidad de los participantes, se requieren al menos  2 equipos con un...', metadata = '{"areas": ["corporalidad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "06 participantes", "duracion": "15 minutos", "unidades": ["manada", "compañía", "tropa"], "objetivos": ["Desarrollar la motricidad", "Desfogue de Energías", "Trabajo en equipo"], "materiales": ["Bolsa", "Prenda de Ropa"], "variaciones": "Puede variar la actividad indicando que cada participante debe ponerse su propia prenda y/o agregando que el equipo corre todo al mismo tiempo.", "recomendaciones": "Ponga el énfasis en la coordinación y en el cuidado de las prendas para evitar que las rompan.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CarreraDeMaletasConCarga.png", "objetivos_educativos": [{"id": "36d989b6-30dd-434a-874a-70a993ed0bec", "area": "Corporalidad", "texto": "Conozco las principales enfermedades que me pueden dar y por qué.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Carrera de Maletas Con Carga."}, {"id": "6467298d-fe2b-4920-9b9a-e3524e4b2aef", "area": "Corporalidad", "texto": "sí en qué lugar de mi cuerpo estén ubicados los órganos más importantes.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Carrera de Maletas Con Carga."}, {"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se estén produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Maletas Con Carga."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Maletas Con Carga."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Maletas Con Carga."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Carrera de Maletas Con Carga."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Carrera de Maletas Con Carga."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Carrera de Maletas Con Carga."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Maletas Con Carga."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Maletas Con Carga."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Maletas Con Carga."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Carrera de Maletas Con Carga."}]}'::jsonb WHERE id = '6b441dc2-22fa-441a-87e4-b0ce49b52c45';
+
+UPDATE public.articulos SET titulo = 'Relevos del vaso', contenido = '<p>Los Relevos del vaso es una actividad enfocada en el trabajo en equipo y la distensión social, enfocada en pasar un buen rato que puede ser útil para un día de calor.</p>
+
+
+
+<p>Los Relevos del vaso se realiza en equipos que deben tener al menos <a href="https://nuamana.com/nuanew/cantidad-participantes/6-participantes/" target="_blank" rel="noreferrer noopener">3 integrantes cada uno</a>, se utilizará además un área de juego donde sea seguro que pueda caer agua sin volver riesgosa la superficie para las y los participantes.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hacen los relevos del vaso?</h3>
+
+
+
+<p>Se dividen a los equipos y se ubicara a las o los participantes de manera que estarán en una fila uno detrás de otro, delante de la fila se coloca un recipiente con agua, y al final de la fila se colocará otro recipiente para el agua, el recipiente de enfrente debe tener al menos el doble de agua que el recipiente del final.</p>
+
+
+
+<p>Todos y todas las jugadoras deben quedar en orden de altura del más alto al más bajo, siendo el más alto el que se encuentra al principio de la fila, y el más bajo al final, cada participante tendrá un vaso plástico sobre su cabeza.</p>
+
+
+
+<p>Cuando empieza el juego, la o el primero llena el vaso de agua con la botella de adelante y le traspasa el agua al participante que tiene atrás, estando de espalda al participante detrás de él o ella, y haciendo un arco hacia atrás con su espalda.</p>
+
+
+
+<p>Él o la jugadora que está atrás debe recibir el agua en su vaso tratando de evitar que se caiga el agua, las manos de las y los participantes siempre deben estar sosteniendo <a href="https://es.wikipedia.org/wiki/Vaso_desechable" target="_blank" rel="noreferrer noopener">su propio vaso</a> para hacer los Relevos del vaso.</p>
+
+
+
+<p>Después de recibir el agua la o el jugador le traspasa su agua al participante atrás suyo de la misma manera y así sucesivamente hasta la o el último de la fila que traspasara el agua a la botella o recipiente que está al final de la fila, este último traspaso puede hacerse de frente o sosteniendo la botella y vaso con sus manos.</p>
+
+
+
+<p>Gana el equipo que traspasa más agua entre los recipientes.</p>', extracto = 'Los Relevos del vaso es una actividad enfocada en el trabajo en equipo y la distensión social, enfocada en pasar un buen rato que puede ser útil para un día de...', metadata = '{"areas": ["corporalidad", "creatividad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "06 participantes", "duracion": "20 minutos", "unidades": ["avanzada", "clan", "compañía", "manada", "tropa"], "objetivos": ["Crear un ambiente de distensión", "Estimular la creatividad", "Trabajo en equipo"], "materiales": ["Agua", "Vasos plásticos o de papel"], "variaciones": "Puede variar la actividad traspasando el vaso por entre la piernas de las o los participantes. O si tiene pocos vasos sólo traspasando el vaso completo de un participante a otro.", "recomendaciones": "Procure utilizar una superficie que no se vuelva resbalosa con la caída de agua.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_relevosDelVaso.png", "objetivos_educativos": [{"id": "7200435f-b020-46fc-b323-8249048b1d18", "area": "Corporalidad", "texto": "Participo en la organización de juegos y actividades recreativas para los demás.", "unidad": "Avanzada", "como_se_cumple": "Desplegando su máximo rendimiento aeróbico, agilidad y coordinación táctica en la carrera de Relevos del vaso."}, {"id": "106e27af-ec7a-45fa-9295-fcef88fbef3d", "area": "Corporalidad", "texto": "Convive constantemente en la naturaleza y participa en actividades deportivas y recreativas.", "unidad": "Clan", "como_se_cumple": "Desplegando su máximo rendimiento aeróbico, agilidad y coordinación táctica en la carrera de Relevos del vaso."}, {"id": "d5b111f1-5f6f-4716-8a02-e1826d653c59", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Relevos del vaso."}, {"id": "b12da732-d736-480c-82b8-95b312316390", "area": "Corporalidad", "texto": "Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sí ganar y perder.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Relevos del vaso."}, {"id": "4bf1e3dd-7f21-4c24-962d-9d6d64e32f25", "area": "Corporalidad", "texto": "Me gusta hacer actividades al aire libre.", "unidad": "Manada", "como_se_cumple": "Corriendo a paso rápido y coordinando sus movimientos con sus compañeros durante la dinámica de Relevos del vaso."}, {"id": "5d2d48ed-c461-4a8e-9048-cceecd3de2e2", "area": "Corporalidad", "texto": "Me gusta jugar con otros niños y niñas y respeto las reglas de los juegos.", "unidad": "Manada", "como_se_cumple": "Corriendo a paso rápido y coordinando sus movimientos con sus compañeros durante la dinámica de Relevos del vaso."}, {"id": "58b4936a-816e-4d17-8d0a-c92d0606009d", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Relevos del vaso."}, {"id": "6768d60a-187e-4bbf-97b9-cdc25a316030", "area": "Corporalidad", "texto": "Ayudo a preparar los juegos, excursiones y campamentos de mi patrulla y mi Tropa.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Relevos del vaso."}, {"id": "843fda9c-6c4a-4516-b30c-23c92ef755a8", "area": "Creatividad", "texto": "Puedo resolver la mayoría de los problemas Técnicos domásticos simples.", "unidad": "Avanzada", "como_se_cumple": "Combinando conocimientos prácticos e inventiva técnica para resolver los retos de pionerismo y diseño en Relevos del vaso."}, {"id": "29eee8b1-a414-4df9-90e1-520a384fb9aa", "area": "Creatividad", "texto": "Une los conocimientos teórico y práctico mediante la aplicación constante de sus habilidades técnicas y manuales.", "unidad": "Clan", "como_se_cumple": "Combinando conocimientos prácticos e inventiva técnica para resolver los retos de pionerismo y diseño en Relevos del vaso."}, {"id": "103661fc-3396-4eac-9182-58b7e54d5115", "area": "Creatividad", "texto": "Perfecciono mis habilidades manuales.", "unidad": "Compañía", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Relevos del vaso."}, {"id": "0f60be94-6de3-4c34-a6ff-5b5018f0b156", "area": "Creatividad", "texto": "Coopero en la mantención y renovación del local y materiales de mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Relevos del vaso."}, {"id": "8985ff05-ee84-4fba-af46-146c5374df89", "area": "Creatividad", "texto": "Participo en los talleres de manualidades que se hacen en la Manada.", "unidad": "Manada", "como_se_cumple": "Manipulando de forma segura y creativa los materiales de la actividad para modelar o construir en Relevos del vaso."}, {"id": "d4232b99-5655-49c6-9d24-099cfe9c8180", "area": "Creatividad", "texto": "Practico continuamente mis habilidades manuales.", "unidad": "Manada", "como_se_cumple": "Manipulando de forma segura y creativa los materiales de la actividad para modelar o construir en Relevos del vaso."}, {"id": "11320fb6-98de-4725-825d-db858e3bffa2", "area": "Creatividad", "texto": "Perfecciono mis habilidades manuales.", "unidad": "Tropa", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Relevos del vaso."}, {"id": "fd3d3e14-e92b-4ab5-8298-9018c6e70b20", "area": "Creatividad", "texto": "Coopero en la mantención y renovación del local y materiales de mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Relevos del vaso."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Relevos del vaso."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Relevos del vaso."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevos del vaso."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevos del vaso."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Relevos del vaso."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Relevos del vaso."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevos del vaso."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Relevos del vaso."}]}'::jsonb WHERE id = '2cde9fb7-221c-43ca-a7f0-a2057f4c57e1';
+
+UPDATE public.articulos SET titulo = 'Señales nocturnas', contenido = '<p>Señales nocturnas es una actividad que permite practicar el <a href="https://nuamana.com/nuanew/tecnicas/claves-y-pistas/codigo-morse/" target="_blank" rel="noreferrer noopener">código morse</a> al mismo tiempo que refuerza el <a href="https://nuamana.com/nuanew/objetivos-actividad/trabajo-en-equipo/" target="_blank" rel="noreferrer noopener">trabajo en equipo</a>, y la cohesión dentro del mismo.</p>
+
+
+
+<p>Para poder realizar las señales nocturnas es necesario disponer de una <a href="https://es.wikipedia.org/wiki/Linterna" target="_blank" rel="noreferrer noopener">linterna</a> o un elemento lumínico que permita prender y apagar y ser visible a una distancia mayor a 50 mts.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hacen las Señales Nocturnas?</h3>
+
+
+
+<p>Primero se divide al grupo en equipos, debe haber al menos 2 participantes por cada equipo para que exista una comunicación, ambos equipos escribirán un mensaje de diez palabras en morse para el equipo contrario.</p>
+
+
+
+<p>Cuando ambos equipos tengan diseñado su mensaje se elegirá un representante de cada equipo para que se ubiquen en un lugar específico con una linterna y el mensaje del otro equipo.</p>
+
+
+
+<p>Las y los demás participantes de cada equipo estarán a unos 50 metros (aprox.) de sus integrantes (no necesariamente en la misma dirección para no confundir las señales de la linterna del otro equipo) y deberán resolver el mensaje con las señales dadas por la linterna.</p>
+
+
+
+<p>El encargado del juego indicará el inicio de la traducción del mensaje para ambos equipos, el primer equipo en resolver el mensaje será el ganador.</p>', extracto = 'Señales nocturnas es una actividad que permite practicar el  código morse  al mismo tiempo que refuerza el  trabajo en equipo , y la cohesión dentro del mismo....', metadata = '{"areas": ["carácter", "creatividad", "sociabilidad"], "lugares": ["Campo Abierto", "Exterior"], "cantidad": "04 participantes", "duracion": "45 minutos", "unidades": ["avanzada", "clan", "compañía", "tropa"], "objetivos": ["Crear un ambiente de distensión", "Favorecer la comunicación en el grupo", "Fomentar la comunicación e interpretación", "Trabajo en equipo"], "materiales": ["Linterna", "Lápiz", "Papel"], "variaciones": "Puede existir un puntaje inicial de ambos equipo, digamos 100 puntos. Si quieren que el mensaje se repita por la linterna, se bajará 5 puntos por realizar tal petición, entonces el equipo ganador será el que conserve la mayor cantidad de puntos.", "recomendaciones": "Procure tener el espacio adecuado para la transmisión de señales", "justificacion_areas": "Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Ayuda a consolidar los valores scouts de honestidad, lealtad y fair play en la competencia. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_senalesNocturnas.png", "objetivos_educativos": [{"id": "1d9d6751-4ab1-45db-9999-3f18606b4909", "area": "Carácter", "texto": "Soy fiel a la palabra dada.", "unidad": "Avanzada", "como_se_cumple": "Actuando consecuentemente con sus principios y valores individuales en cada decisión y rol de Señales nocturnas."}, {"id": "770a8ff3-7bb8-45dd-b114-5ae1069eff62", "area": "Carácter", "texto": "actúa consecuentemente con los valores que lo inspiran.", "unidad": "Clan", "como_se_cumple": "Actuando consecuentemente con sus principios y valores individuales en cada decisión y rol de Señales nocturnas."}, {"id": "075c93b1-81d2-4370-8e47-f0a4d086b20e", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Señales nocturnas."}, {"id": "7a9e143e-c837-473b-a014-e41ef5fc2ec2", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Señales nocturnas."}, {"id": "38f4863e-12a6-4a4b-9767-8cdf55020734", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Señales nocturnas."}, {"id": "5311be36-87be-40c4-ab4a-e6ce6e662183", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Señales nocturnas."}, {"id": "3cdf4b56-b55f-4878-b3fa-da32a7200ca4", "area": "Creatividad", "texto": "Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.", "unidad": "Avanzada", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Señales nocturnas."}, {"id": "ef75fbed-4a6d-49ea-bfab-f2952415e1a0", "area": "Creatividad", "texto": "actúa con agilidad mental ante las situaciones más diversas, desarrollando su capacidad de pensar, innovar y aventurar.", "unidad": "Clan", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Señales nocturnas."}, {"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Señales nocturnas."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Señales nocturnas."}, {"id": "49ae6ac6-be8f-4f2c-8b3e-6711d041181f", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Señales nocturnas."}, {"id": "cf530cf9-73a6-4423-a075-79be433fe96c", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Señales nocturnas."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Señales nocturnas."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Señales nocturnas."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Señales nocturnas."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Señales nocturnas."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Señales nocturnas."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Señales nocturnas."}]}'::jsonb WHERE id = 'e5ca037f-5563-4175-aa5a-ba97acbf01b8';
+
+UPDATE public.articulos SET titulo = 'Juego democrático: Juicio en la corte', contenido = '<p>El juego democrático: Juicio en la corte , es una actividad participativa que tiene por fin la elección de otras actividades, las que serán realizadas durante el ciclo de programa.</p>
+
+
+
+<p>Los <a href="https://nuamana.com/nuanew/actividades/juegos-democraticos/" target="_blank" rel="noreferrer noopener">juegos democráticos</a>, como el Juicio en la corte, son simulaciones en que los jóvenes representan un determinado papel y, actuando de acuerdo a las reglas del ambiente simulado, tratan de obtener el apoyo de la Unidad para su propuesta.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se realiza el Juicio en la corte?</h3>
+
+
+
+<p>El Juicio en la corte se divide en 2 fases, una de presentación y otra de defensa.</p>
+
+
+
+<p>Existirán <a href="https://iurisfacil.com/como-funciona-un-juicio-quien-interviene-en-un-juicio/derecho-penal/" target="_blank" rel="noreferrer noopener">roles</a>, así la guiadora o dirigente encargado de la actividad tendrá el rol de Juez y su misión será dar los tiempos a los abogados defensores y litigantes para sus preguntas y respuestas.</p>
+
+
+
+<p>El Juez debe estimular a las y los participantes para que participen en caso de que no haya ataque a la actividad.</p>
+
+
+
+<p>Por otro lado los abogados serán los que defiendan o ataquen la actividad y existirá el jurado que serán todos los participantes para votar si o no a la actividad.</p>
+
+
+
+<p>Entendidos los roles cada equipo mediante sus participantes presentarán las actividades que eligieron durante una lluvia de ideas previa a esta actividad.</p>
+
+
+
+<p>Cada participante tendrá que presentar una actividad lo mejor que puede e idealmente será una actividad que el o la participante propuso.</p>
+
+
+
+<p>En una segunda instancia y una vez terminada cada presentación, se dará el espacio para cuestionar la actividad y mostrar los aspectos negativos y positivos.</p>
+
+
+
+<p>Los compañeros de unidad tendrán la misión de hacer preguntas y atacar la actividad.</p>
+
+
+
+<p>Luego será sometida a una votación donde se verá qué actividad saca el máximo de votos de los participantes del juicio.</p>', extracto = 'El juego democrático: Juicio en la corte , es una actividad participativa que tiene por fin la elección de otras actividades, las que serán realizadas durante...', metadata = '{"areas": ["carácter", "creatividad", "sociabilidad"], "lugares": ["Exterior", "Interior", "Sala"], "cantidad": "04 participantes", "duracion": "01 hora", "unidades": ["manada", "compañía", "tropa", "avanzada", "clan"], "objetivos": ["Estimular el pensamiento crítico", "Estimular la participación", "Fomentar el desarrollo del criterio", "Toma de Decisiones"], "materiales": ["Martillo de Juicio"], "variaciones": "Se pueden hacer adaptaciones a los procesos judiciales de cada país con el fin de también facilitar el conocimiento sobre el proceso judicial.", "recomendaciones": "Procure ser acotado con los tiempos de presentación y defensa para no sobre extender la actividad, de la misma manera procure generar un clima de solemnidad y respeto por los demás.", "justificacion_areas": "Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Ayuda a consolidar los valores scouts de honestidad, lealtad y fair play en la competencia. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_JuegoDemocraticoJuicioEnLaCorte.png", "objetivos_educativos": [{"id": "baa365a9-087c-4c25-b0ad-57893df5ff74", "area": "Carácter", "texto": "sí lo que significa decir la verdad.", "unidad": "Manada", "como_se_cumple": "Jugando de manera transparente y honesta en Juego democrático: Juicio en la corte, aceptando con alegría la victoria o la derrota."}, {"id": "506b7596-cac4-48e0-88c7-942d575172db", "area": "Carácter", "texto": "Digo la verdad, aunque a veces no me gusten las consecuencias.", "unidad": "Manada", "como_se_cumple": "Jugando de manera transparente y honesta en Juego democrático: Juicio en la corte, aceptando con alegría la victoria o la derrota."}, {"id": "075c93b1-81d2-4370-8e47-f0a4d086b20e", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Juego democrático: Juicio en la corte."}, {"id": "7a9e143e-c837-473b-a014-e41ef5fc2ec2", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Juego democrático: Juicio en la corte."}, {"id": "38f4863e-12a6-4a4b-9767-8cdf55020734", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Juego democrático: Juicio en la corte."}, {"id": "5311be36-87be-40c4-ab4a-e6ce6e662183", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Juego democrático: Juicio en la corte."}, {"id": "1d9d6751-4ab1-45db-9999-3f18606b4909", "area": "Carácter", "texto": "Soy fiel a la palabra dada.", "unidad": "Avanzada", "como_se_cumple": "Actuando consecuentemente con sus principios y valores individuales en cada decisión y rol de Juego democrático: Juicio en la corte."}, {"id": "770a8ff3-7bb8-45dd-b114-5ae1069eff62", "area": "Carácter", "texto": "actúa consecuentemente con los valores que lo inspiran.", "unidad": "Clan", "como_se_cumple": "Actuando consecuentemente con sus principios y valores individuales en cada decisión y rol de Juego democrático: Juicio en la corte."}, {"id": "ec280dd0-2d80-4b84-86ad-2d362da14886", "area": "Creatividad", "texto": "Me gusta participar en juegos de observación.", "unidad": "Manada", "como_se_cumple": "Proponiendo ideas originales y rápidas para resolver los acertijos o enigmas mentales de Juego democrático: Juicio en la corte."}, {"id": "418f2b77-f15b-405a-95bd-8033c0b6a4c2", "area": "Creatividad", "texto": "Puedo contar con detalles las anécdotas y aventuras que hemos tenido en la Manada.", "unidad": "Manada", "como_se_cumple": "Proponiendo ideas originales y rápidas para resolver los acertijos o enigmas mentales de Juego democrático: Juicio en la corte."}, {"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Juego democrático: Juicio en la corte."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Juego democrático: Juicio en la corte."}, {"id": "49ae6ac6-be8f-4f2c-8b3e-6711d041181f", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Juego democrático: Juicio en la corte."}, {"id": "cf530cf9-73a6-4423-a075-79be433fe96c", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Juego democrático: Juicio en la corte."}, {"id": "3cdf4b56-b55f-4878-b3fa-da32a7200ca4", "area": "Creatividad", "texto": "Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.", "unidad": "Avanzada", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Juego democrático: Juicio en la corte."}, {"id": "ef75fbed-4a6d-49ea-bfab-f2952415e1a0", "area": "Creatividad", "texto": "actúa con agilidad mental ante las situaciones más diversas, desarrollando su capacidad de pensar, innovar y aventurar.", "unidad": "Clan", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Juego democrático: Juicio en la corte."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Juego democrático: Juicio en la corte."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Juego democrático: Juicio en la corte."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Juego democrático: Juicio en la corte."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Juego democrático: Juicio en la corte."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Juego democrático: Juicio en la corte."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Juego democrático: Juicio en la corte."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Juego democrático: Juicio en la corte."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Juego democrático: Juicio en la corte."}]}'::jsonb WHERE id = 'e999778b-cc5a-4c53-bbe7-815a64237a11';
+
+UPDATE public.articulos SET titulo = 'Competencia de Nudos', contenido = '<p>Para realizar la competencia de <a href="https://nuamana.com/nuanew/tecnicas/nudos/" target="_blank" rel="noreferrer noopener">nudos</a> se organizarán dos o más equipos, el objetivo es que la mayor cantidad de participantes de cada equipo aprenda la mayor cantidad de nudos en un tiempo determinado, para ello se deben preparar hojas con imágenes del paso a paso cómo hacer cada nudo que se quiera aprender (<a href="https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CompetenciaDeNudos_NudosBasicosRecomendados.pdf" target="_blank" rel="noreferrer noopener">ver documento en la descarga para referencia</a>).</p>
+
+
+
+
+
+
+
+<p>Antes de comenzar la competencia de nudos se repartirán las hojas con las imágenes de los nudos en diferentes lugares del área de juego, distribuidas a una distancia mayor a 3 mts una imagen de otra, se les indicarán a los equipos la cantidad de nudos y el área aproximada donde se encuentren las imágenes, se les indicará que deben aprender la mayor cantidad de nudos posibles como equipo, la estrategia de aprendizaje la determinará cada equipo.</p>
+
+
+
+
+
+
+
+<h3 class="wp-block-heading">Competencia de Nudos</h3>
+
+
+
+
+
+
+
+<p>A la señal, los equipos pueden ir en busca de los nudos para aprenderlos, se les dará 12 minutos para aprenderlos, hasta la próxima señal en la que se deben reunir nuevamente para demostrar lo aprendido, se entregará un punto a cada equipo que haga el mejor nudo solicitado.</p>
+
+
+
+
+
+
+
+<p>Los parámetros para determinar el mejor nudo son:</p>
+
+
+
+
+
+
+
+<h4 class="wp-block-heading">Resistencia:</h4>
+
+
+
+
+
+
+
+<p>Deben cumplir con su función y nunca se deben correr ni desatarse, deben parecer firmes.</p>
+
+
+
+
+
+
+
+<h4 class="wp-block-heading">Seguros:</h4>
+
+
+
+
+
+
+
+<p>Nunca deberá quedar cruzados, sobrepuestos o encimados, para evitar que una carga genere una ruptura.</p>
+
+
+
+
+
+
+
+<h4 class="wp-block-heading">Fácil de Deshacer:</h4>
+
+
+
+
+
+
+
+<p>Deben ser fáciles de hacer y deshacer, siendo limpios en su manufactura.</p>
+
+
+
+
+
+
+
+<h4 class="wp-block-heading">Útiles:</h4>
+
+
+
+
+
+
+
+<p>Deben cumplir su propósito.</p>
+
+
+
+
+
+
+
+<h4 class="wp-block-heading">Azocados:</h4>
+
+
+
+
+
+
+
+<p>No debe quedar ni muy apretado como para no poder deshacerlo, ni muy suelto como para que se desarmen solos.</p>
+
+
+
+
+
+
+
+<h4 class="wp-block-heading">Estéticos:</h4>
+
+
+
+
+
+
+
+<p>Un nudo bien hecho es un nudo que se puede distinguir claramente por su forma.</p>
+
+
+
+
+
+
+
+<p class="uagb-ifb-desc">Documento adjunto - Nudos Básicos Recomendados</p><div class="uagb-ifb-button-wrapper wp-block-button"></div></div></div>', extracto = 'Para realizar la competencia de  nudos  se organizarán dos o más equipos, el objetivo es que la mayor cantidad de participantes de cada equipo aprenda la mayor...', metadata = '{"areas": ["corporalidad", "creatividad", "sociabilidad"], "lugares": ["Campo Abierto", "Exterior"], "cantidad": "02 participantes", "duracion": "20 minutos", "unidades": ["compañía", "tropa", "avanzada"], "descargas": [{"url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CompetenciaDeNudos_NudosBasicosRecomendados.pdf", "nombre": "Documento Adjunto - Nudos Básicos Recomendados"}], "objetivos": ["Aprender nudos", "Aprendizaje por la acción", "Trabajo en equipo"], "materiales": ["Cinta Adhesiva", "Cuerda", "Papel"], "variaciones": "", "recomendaciones": "", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_CompetenciaDeNudos.png", "objetivos_educativos": [{"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se estén produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Competencia de Nudos."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Competencia de Nudos."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Competencia de Nudos."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Competencia de Nudos."}, {"id": "05f42879-f5f5-40c4-bed6-c577bf61340a", "area": "Corporalidad", "texto": "Cuido mi salud y mantengo hábitos que la protegen.", "unidad": "Avanzada", "como_se_cumple": "Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de Competencia de Nudos."}, {"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Competencia de Nudos."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Competencia de Nudos."}, {"id": "49ae6ac6-be8f-4f2c-8b3e-6711d041181f", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Competencia de Nudos."}, {"id": "cf530cf9-73a6-4423-a075-79be433fe96c", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Competencia de Nudos."}, {"id": "3cdf4b56-b55f-4878-b3fa-da32a7200ca4", "area": "Creatividad", "texto": "Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.", "unidad": "Avanzada", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Competencia de Nudos."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Competencia de Nudos."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Competencia de Nudos."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Competencia de Nudos."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Competencia de Nudos."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Competencia de Nudos."}]}'::jsonb WHERE id = 'a5082bd8-22d6-4ba1-b0b2-a155f009a3e8';
+
+UPDATE public.articulos SET titulo = 'Cacería de Vampiros', contenido = '<p>La Cacería de Vampiros es una actividad que funciona mejor como juego nocturno, aunque no por ello no se puede hacer durante el día, su principal característica es la promoción del <a href="https://nuamana.com/nuanew/objetivos-actividad/trabajo-en-equipo/" target="_blank" rel="noreferrer noopener">trabajo en equipo</a>, el desfogue de energías y el permitir superar el miedo a la oscuridad.</p>
+
+
+
+<p>La primera recomendación en una actividad como la Cacería de Vampiros que se debe hacer a las y los jugadores es que, si se hace como <a href="https://www.mohwashop.com/2023/03/02/juegos-nocturnos-scouts/" target="_blank" rel="noreferrer noopener">juego nocturno</a>, deberán vestir ropa oscura para facilitar que se puedan ocultar.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace la Cacería de Vampiros?</h3>
+
+
+
+<p>Para hacer la Cacería de Vampiros, lo primero es dividir al grupo en dos equipos, unos serán las víctimas y el otro equipo se dividirá a su vez en vampiros y cazadores. Para comenzar el juego las víctimas tendrán un tiempo para esconderse.</p>
+
+
+
+<p>Una vez acabado este tiempo se soltará a los vampiros los cuales tendrán que cazar a las víctimas. El modo de cazar a las víctimas es atrapandolas. Las víctimas que sean atrapadas pasarán a ser vampiros convertidos.</p>
+
+
+
+<p>Cuando pase un pequeño tiempo desde que salen los vampiros, los cazadores van a la caza de los vampiros. Se caza del mismo modo y el vampiro cazado se lleva a una zona llamada santuario en la cual nadie podrá cazar.</p>
+
+
+
+<p>En esta zona una guiadora o dirigente preguntará a la o el jugador cazado si es vampiro original o convertido. Si es vampiro original se queda atrapado en el santuario. Si es convertido pasa a ser de nuevo víctima.</p>
+
+
+
+<p>El vampiro atrapado queda en este estado hasta que un vampiro le traiga una víctima al santuario para que el atrapado lo “muerda”. El juego termina cuando quiera el o la directora del juego y ganan los vampiros si hay más vampiros que víctimas y viceversa.</p>', extracto = 'La Cacería de Vampiros es una actividad que funciona mejor como juego nocturno, aunque no por ello no se puede hacer durante el día, su principal característic...', metadata = '{"areas": ["carácter", "sociabilidad"], "lugares": ["Bosque", "Campo Abierto", "Campo delimitado", "Exterior"], "cantidad": "06 participantes", "duracion": "30 minutos", "unidades": ["avanzada", "clan", "compañía", "tropa"], "objetivos": ["Perder el miedo a la oscuridad", "Trabajo en equipo"], "materiales": ["Sin Materiales"], "variaciones": "Una variación para el juego puede ser que entre las víctimas haya cazadores escondidos para que sorprendan a los o las vampiras.", "recomendaciones": "Previo al juego, deje que las y los participantes revisen el terreno en el que se efectuará la actividad, esto para que reconozcan los lugares en que deben tener más cuidado con sus pisadas y evitar accidentes.", "justificacion_areas": "Ayuda a consolidar los valores scouts de honestidad, lealtad y fair play en la competencia. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_caceriaDeVampiros.png", "objetivos_educativos": [{"id": "1d9d6751-4ab1-45db-9999-3f18606b4909", "area": "Carácter", "texto": "Soy fiel a la palabra dada.", "unidad": "Avanzada", "como_se_cumple": "Actuando consecuentemente con sus principios y valores individuales en cada decisión y rol de Cacería de Vampiros."}, {"id": "770a8ff3-7bb8-45dd-b114-5ae1069eff62", "area": "Carácter", "texto": "actúa consecuentemente con los valores que lo inspiran.", "unidad": "Clan", "como_se_cumple": "Actuando consecuentemente con sus principios y valores individuales en cada decisión y rol de Cacería de Vampiros."}, {"id": "075c93b1-81d2-4370-8e47-f0a4d086b20e", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Cacería de Vampiros."}, {"id": "7a9e143e-c837-473b-a014-e41ef5fc2ec2", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Compañía", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Cacería de Vampiros."}, {"id": "38f4863e-12a6-4a4b-9767-8cdf55020734", "area": "Carácter", "texto": "sí lo que significa ser leal.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Cacería de Vampiros."}, {"id": "5311be36-87be-40c4-ab4a-e6ce6e662183", "area": "Carácter", "texto": "Entiendo que es importante actuar de acuerdo a lo que pienso.", "unidad": "Tropa", "como_se_cumple": "Demostrando lealtad con sus compañeros y respeto por la palabra empeñada en el transcurso de Cacería de Vampiros."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Cacería de Vampiros."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Cacería de Vampiros."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Cacería de Vampiros."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Cacería de Vampiros."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Cacería de Vampiros."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Cacería de Vampiros."}]}'::jsonb WHERE id = '703d3a66-25b8-4d61-8640-88a0b6841421';
+
+UPDATE public.articulos SET titulo = 'Adivina la palabra', contenido = '<p>Adivina la palabra es una actividad enfocada en el trabajo de equipo y el desarrollo de estrategias, para poder efectuar la actividad es necesario tener una cartulina por equipo y aguja o algo con punta para poder perforar la carpeta, de un grosor no tan pequeño.</p>
+
+
+
+<p>El juego Adivina la palabra se desarrolla en equipos que deberán descifrar una palabra que no es visible, sin embargo, como variable se puede agregar que tengan los ojos vendados.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace Adivina la palabra?</h3>
+
+
+
+<p>Primero, en caso de que no se así desde antes, se dividen los equipos, los equipos se colocan en filas (un participante detrás de otro) detrás de la línea de inicio.</p>
+
+
+
+<p>A la señal el último de la fila gritara <a href="https://nuamana.com/nuanew/actividades/juegos/cuerpo-a-tierra/" target="_blank" rel="noreferrer noopener">¡Cuerpo a Tierra!</a> y saldrá corriendo por sobre sus compañeras y/o compañeros hasta el punto de meta en el final del área de juego.</p>
+
+
+
+<p>Al llegar el o la participante encontrará una cartulina con relieves perforados, parecida a como se escribe en <a href="https://es.wikipedia.org/wiki/Braille_(lectura)" target="_blank" rel="noreferrer noopener">Braille</a>, la idea es que estos relieves en la cartulina formen una palabra o frase, en caso de ir con los ojos desvendados las perforaciones deben ser pequeñas.</p>
+
+
+
+<p>La cartulina se debe perforar desde atrás hacia adelante formando la letra, la idea es que descubran la letra a través del tacto y no de la vista; En la cartulina se escribirá mediante perforaciones una frase o una palabra, dependiendo de la dificultad que se quiera dar.</p>
+
+
+
+<p>Al llegar la o el participante a la cartulina mediante el tacto tratara de descifrar la primera letra (en caso de ser una palabra) o palabra (en caso de ser una frase, cuando crea que ya sabe que dice, vuelve con su equipo se coloca al principio de la fila y sale nuevamente el último de la fila después de gritar <a href="https://nuamana.com/nuanew/actividades/juegos/cuerpo-a-tierra/" target="_blank" rel="noreferrer noopener">¡Cuerpo a Tierra!</a> y así sucesivamente hasta que el equipo se logre Adivina la palabra.</p>
+
+
+
+<p>Ganará el equipo que primero diga la palabra o frase en su cartulina.</p>', extracto = 'Adivina la palabra es una actividad enfocada en el trabajo de equipo y el desarrollo de estrategias, para poder efectuar la actividad es necesario tener una ca...', metadata = '{"areas": ["creatividad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior"], "cantidad": "04 participantes", "duracion": "30 minutos", "unidades": ["avanzada", "compañía", "tropa"], "objetivos": ["Promover la elaboración de estrategias", "Trabajo en equipo"], "materiales": ["Aguja", "Cartulina"], "variaciones": "La actividad se puede hacer con los ojos vendados, donde para llegar a la cartulina su equipo lo debe guiar con gritos y lo mismo al regresar, en este caso las perforaciones deben ser más grandes.", "recomendaciones": "A los dos grupos, es recomendable que tengan un cuaderno y lápiz donde puedan escribir lo que hayan descifrado con el tacto.\r\n\r\nProcure que el terreno de juego sea parejo para evitar accidentes de caídas.", "justificacion_areas": "Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_adivinaLaPalabra.png", "objetivos_educativos": [{"id": "3cdf4b56-b55f-4878-b3fa-da32a7200ca4", "area": "Creatividad", "texto": "Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.", "unidad": "Avanzada", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Adivina la palabra."}, {"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Adivina la palabra."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Adivina la palabra."}, {"id": "49ae6ac6-be8f-4f2c-8b3e-6711d041181f", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Adivina la palabra."}, {"id": "cf530cf9-73a6-4423-a075-79be433fe96c", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Adivina la palabra."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Adivina la palabra."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Adivina la palabra."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Adivina la palabra."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Adivina la palabra."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Adivina la palabra."}]}'::jsonb WHERE id = '7bf6a7d3-21a1-40c7-83dd-53178bfdc23f';
+
+UPDATE public.articulos SET titulo = 'Escultores', contenido = '<p>Escultores es una dinámica enfocada en el <a href="https://nuamana.com/nuanew/objetivos-actividad/fomentar-un-entorno-de-confianza/" target="_blank" rel="noreferrer noopener">desarrollo de la confianza entre pares</a>, al mismo tiempo que busca estimular y desarrollar la creatividad de las y los participantes, pero que también puede tener un enfoque en el <a href="https://www.educ.ar/recursos/157438/cuidamos-nuestro-cuerpo" target="_blank" rel="noreferrer noopener">cuidado y respeto del cuerpo</a>.</p>
+
+
+
+<p>Las y los escultores se encontraran ante indicaciones que deberán resolver con su propia creatividad, mientras que las parejas tendrán que confiar en el criterio de sus pares. Idealmente puede hacer un énfasis en la importancia de la empatía.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace Escultores?</h3>
+
+
+
+<p>Primero se dividirá a los y las participantes en parejas, se recomienda que en este paso inicialmente las parejas sean elegidas libremente por un tema de confianzas entre las parejas, aunque se puede hacer una segunda fase de forma más aleatoria de ser necesaria.</p>
+
+
+
+<p>El juego consiste en que, una o uno de los participantes, será la escultura, y otro el escultor, se les indica una consigna, que puede ser "Un ninja", "Un superhéroe", un "animal", etc. y el escultor moldea a la escultura para adoptar la pose que él o ella cree que mejor se adapta a lo indicado, lo ideal sería que existan distintas parejas para comparar y elegir el ganador que mejor se adapte a la consigna dada.</p>', extracto = 'Escultores es una dinámica enfocada en el  desarrollo de la confianza entre pares , al mismo tiempo que busca estimular y desarrollar la creatividad de las y l...', metadata = '{"areas": ["corporalidad", "creatividad", "sociabilidad"], "lugares": ["Exterior", "Interior"], "cantidad": "04 participantes", "duracion": "20 minutos", "unidades": ["avanzada", "compañía", "manada", "tropa"], "objetivos": ["Conocer las capacidades corporales", "Crear un ambiente de distensión", "Estimular la confianza", "Estimular la creatividad", "Fomentar un entorno de confianza"], "materiales": ["Sin Materiales"], "variaciones": "También se puede realizar con el escultor con los ojos vendados, para agregar dificultad.", "recomendaciones": "Procure dar indicaciones sobre el cuidado y el respeto del cuerpo de los demás.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_escultores.png", "objetivos_educativos": [{"id": "05f42879-f5f5-40c4-bed6-c577bf61340a", "area": "Corporalidad", "texto": "Cuido mi salud y mantengo hábitos que la protegen.", "unidad": "Avanzada", "como_se_cumple": "Aceptando sus capacidades físicas y perfeccionando el control psicomotor durante el desarrollo de Escultores."}, {"id": "705b686a-8374-467a-b871-f6470f0d58ae", "area": "Corporalidad", "texto": "Me doy cuenta de los cambios que se estén produciendo en mi cuerpo.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Escultores."}, {"id": "57887da4-c70e-45bc-bdfb-f79db513a89c", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Compañía", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Escultores."}, {"id": "36d989b6-30dd-434a-874a-70a993ed0bec", "area": "Corporalidad", "texto": "Conozco las principales enfermedades que me pueden dar y por qué.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Escultores."}, {"id": "6467298d-fe2b-4920-9b9a-e3524e4b2aef", "area": "Corporalidad", "texto": "sí en qué lugar de mi cuerpo estén ubicados los órganos más importantes.", "unidad": "Manada", "como_se_cumple": "Ejercitando la precisión visomotora y el control de su cuerpo en los desafíos corporales de Escultores."}, {"id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439", "area": "Corporalidad", "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Escultores."}, {"id": "68add558-4b03-4105-b00d-e7f2ead6ac23", "area": "Corporalidad", "texto": "sí qué hacer frente a una enfermedad o accidente.", "unidad": "Tropa", "como_se_cumple": "Desarrollando destrezas corporales finas y regulando su respiración ante la tensión visomotora de Escultores."}, {"id": "843fda9c-6c4a-4516-b30c-23c92ef755a8", "area": "Creatividad", "texto": "Puedo resolver la mayoría de los problemas Técnicos domásticos simples.", "unidad": "Avanzada", "como_se_cumple": "Combinando conocimientos prácticos e inventiva técnica para resolver los retos de pionerismo y diseño en Escultores."}, {"id": "103661fc-3396-4eac-9182-58b7e54d5115", "area": "Creatividad", "texto": "Perfecciono mis habilidades manuales.", "unidad": "Compañía", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Escultores."}, {"id": "0f60be94-6de3-4c34-a6ff-5b5018f0b156", "area": "Creatividad", "texto": "Coopero en la mantención y renovación del local y materiales de mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Escultores."}, {"id": "8985ff05-ee84-4fba-af46-146c5374df89", "area": "Creatividad", "texto": "Participo en los talleres de manualidades que se hacen en la Manada.", "unidad": "Manada", "como_se_cumple": "Manipulando de forma segura y creativa los materiales de la actividad para modelar o construir en Escultores."}, {"id": "d4232b99-5655-49c6-9d24-099cfe9c8180", "area": "Creatividad", "texto": "Practico continuamente mis habilidades manuales.", "unidad": "Manada", "como_se_cumple": "Manipulando de forma segura y creativa los materiales de la actividad para modelar o construir en Escultores."}, {"id": "11320fb6-98de-4725-825d-db858e3bffa2", "area": "Creatividad", "texto": "Perfecciono mis habilidades manuales.", "unidad": "Tropa", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Escultores."}, {"id": "fd3d3e14-e92b-4ab5-8298-9018c6e70b20", "area": "Creatividad", "texto": "Coopero en la mantención y renovación del local y materiales de mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Aplicando ingenio práctico y destrezas manuales para optimizar los recursos construidos en Escultores."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Escultores."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Escultores."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Escultores."}, {"id": "b69188bf-2391-43c1-a885-abd1b13912be", "area": "Sociabilidad", "texto": "Acepto las reglas que se ponen en mi casa, en la escuela y en la Manada.", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Escultores."}, {"id": "2394dd5b-87b9-4f3d-9cdd-a42649139782", "area": "Sociabilidad", "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre está de acuerdo con ellas", "unidad": "Manada", "como_se_cumple": "Respetando rigurosamente las reglas del juego de relevos y las instrucciones de seguridad en Escultores."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Escultores."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Escultores."}]}'::jsonb WHERE id = '67638ef0-43bf-4a38-92a5-48744d55e9c2';
+
+UPDATE public.articulos SET titulo = 'Cazadores Sabuesos y Venados', contenido = '<p>Cazadores Sabuesos y Venados es una actividad que funciona mejor como juego nocturno, aunque no por ello no se puede hacer durante el día, su principal característica es la promoción del <a href="https://nuamana.com/nuanew/objetivos-actividad/trabajo-en-equipo/" target="_blank" rel="noreferrer noopener">trabajo en equipo</a> y la división de labores dentro de la unidad.</p>
+
+
+
+<p>Como juego nocturno "Cazadores Sabuesos y Venados" requiere que se supervise previamente el terreno en que se efectuará la actividad por parte de los y las participantes, esto para que reconozcan los lugares donde deben tener más cuidado con sus pisadas para evitar accidentes principalmente.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se juega a "Cazadores Sabuesos y Venados"?</h3>
+
+
+
+<p>Para hacer el juego de "Cazadores <a href="https://es.wikipedia.org/wiki/Sabueso" target="_blank" rel="noreferrer noopener">Sabuesos</a> y Venados" primero necesitamos dividir al grupo en dos equipos, unos serán los venados y el otro grupo serán los cazadores y venados.</p>
+
+
+
+<p>Se le permite a los venados un tiempo para que se puedan esconder y repartir por el área de juego, durante este tiempo se dividirá a los cazadores y sabuesos y la idea es que haya una relación de al menos 2 sabuesos por cada cazador.</p>
+
+
+
+<p>La cacería consiste en que los sabuesos buscan a los venados y una vez que los encuentran avisaran a los cazadores con ladridos (sin hablar) y perseguirán al venado hasta que llegue el cazador y lo atrape.</p>', extracto = 'Cazadores Sabuesos y Venados es una actividad que funciona mejor como juego nocturno, aunque no por ello no se puede hacer durante el día, su principal caracte...', metadata = '{"areas": ["corporalidad", "sociabilidad"], "lugares": ["Bosque", "Campo Abierto", "Exterior"], "cantidad": "08 participantes", "duracion": "30 minutos", "unidades": ["avanzada", "clan", "compañía", "tropa"], "objetivos": ["Crear un ambiente de distensión", "Perder el miedo a la oscuridad", "Trabajo en equipo"], "materiales": ["Sin Materiales"], "variaciones": "", "recomendaciones": "Previo al juego, deje que las y los participantes revisen el terreno en el que se efectuará la actividad, esto para que reconozcan los lugares en que deben tener más cuidado con sus pisadas y evitar accidentes.", "justificacion_areas": "Fomenta la coordinación física y la resistencia cardiovascular mediante desafíos corporales dinámicos. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/actividad_cazadoresSabuesosVenados.png", "objetivos_educativos": [{"id": "7200435f-b020-46fc-b323-8249048b1d18", "area": "Corporalidad", "texto": "Participo en la organización de juegos y actividades recreativas para los demás.", "unidad": "Avanzada", "como_se_cumple": "Desplegando su máximo rendimiento aeróbico, agilidad y coordinación táctica en la carrera de Cazadores Sabuesos y Venados."}, {"id": "106e27af-ec7a-45fa-9295-fcef88fbef3d", "area": "Corporalidad", "texto": "Convive constantemente en la naturaleza y participa en actividades deportivas y recreativas.", "unidad": "Clan", "como_se_cumple": "Desplegando su máximo rendimiento aeróbico, agilidad y coordinación táctica en la carrera de Cazadores Sabuesos y Venados."}, {"id": "d5b111f1-5f6f-4716-8a02-e1826d653c59", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Cazadores Sabuesos y Venados."}, {"id": "b12da732-d736-480c-82b8-95b312316390", "area": "Corporalidad", "texto": "Me esfuerzo por mejorar mi rendimiento en el deporte que practico y sí ganar y perder.", "unidad": "Compañía", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Cazadores Sabuesos y Venados."}, {"id": "58b4936a-816e-4d17-8d0a-c92d0606009d", "area": "Corporalidad", "texto": "Participo en los juegos, excursiones y campamentos que organiza mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Cazadores Sabuesos y Venados."}, {"id": "6768d60a-187e-4bbf-97b9-cdc25a316030", "area": "Corporalidad", "texto": "Ayudo a preparar los juegos, excursiones y campamentos de mi patrulla y mi Tropa.", "unidad": "Tropa", "como_se_cumple": "Corriendo velozmente y dosificando su energía y esfuerzo aeróbico para superar las fases físicas de Cazadores Sabuesos y Venados."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Cazadores Sabuesos y Venados."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Cazadores Sabuesos y Venados."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Cazadores Sabuesos y Venados."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Cazadores Sabuesos y Venados."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Cazadores Sabuesos y Venados."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Cazadores Sabuesos y Venados."}]}'::jsonb WHERE id = '46d6eb1f-2a28-4a4a-96ce-69d09d8b6a1a';
+
+UPDATE public.articulos SET titulo = 'Tú Ley Scout', contenido = '<p>Tú Ley Scout es una actividad que permite reforzar el liderazgo, el trabajo en equipo y reforzar los valores del movimiento Scout, es esencialmente una conversación entre pares sobre la priorización de sus valores en un entorno Scout</p>
+
+
+
+<p>Para esto necesitaremos que haya un ambiente de concentración por lo que es recomendable dejar esta actividad después de otras que tengan más movimiento físico y así puedan correctamente elegir Tú <a href="https://nuamana.cl/lo-que-hacemos/ley-y-promesa/" data-type="page" data-id="838">Ley Scout</a>.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace Tú Ley Scout?</h3>
+
+
+
+<p>Lo primero es entregar a las y los participantes los <a href="https://es.wikipedia.org/wiki/Ley_scout" target="_blank" data-type="link" data-id="https://es.wikipedia.org/wiki/Ley_scout" rel="noreferrer noopener">artículos de la ley scout</a> sin numeración, esto se puede hacer con un doble reforzamiento si se dispone de tiempo, en este caso daremos a los y las participantes papelógrafo y plumón o papel y lápiz y les diremos que anoten los artículos que más les gusten, o que menos cumplen o que más cumples, etc. y que los anoten en letra grande. Si elige esta opción, considere no dictar los artículos en el orden que aparecen en los documentos.</p>
+
+
+
+<p>La otra opción es entregarles los artículos ya impresos y proceder con el siguiente paso.</p>
+
+
+
+<p>Agrupe a las y los participantes en equipos más pequeños de su mismo equipo o con sus respectivas patrullas, e indíqueles que deben elegir los mejores 3 artículos de la ley, esa será "Tú Ley Scout", deles un tiempo prudente para deliberación y observe como actúan sus liderazgos sin intervenir, si le hacen una pregunta simplemente limítese a repetir la instrucción "Elija los mejores 3 artículos de la ley".</p>
+
+
+
+<p>Una vez completado el tiempo permita que los equipos se organicen para presentar y justificar su elección.</p>', extracto = 'Tú Ley Scout es una actividad que permite reforzar el liderazgo, el trabajo en equipo y reforzar los valores del movimiento Scout, es esencialmente una convers...', metadata = '{"areas": ["carácter", "creatividad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior", "Interior", "Sala"], "cantidad": "02 participantes", "duracion": "20 minutos", "unidades": ["avanzada", "clan", "compañía", "tropa"], "objetivos": ["Aprendizaje por la acción", "Estimular el liderazgo", "Estimular la participación", "Estimular la reflexión", "Trabajo en equipo"], "materiales": "", "variaciones": "", "recomendaciones": "", "justificacion_areas": "Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Ayuda a consolidar los valores scouts de honestidad, lealtad y fair play en la competencia. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_TuLeyScout.png", "objetivos_educativos": [{"id": "51210a26-62f2-4e33-8ca4-09b4b364a143", "area": "Carácter", "texto": "Comprendo el significado de la Ley y la Promesa en esta etapa de mi vida.", "unidad": "Avanzada", "como_se_cumple": "Reflexionando de manera madura sobre cómo los valores fundamentales de la Ley Scout modelan su vida en Tú Ley Scout."}, {"id": "0bdf2252-6db5-41f9-8bc7-87e4da3ee602", "area": "Carácter", "texto": "Construye su proyecto de vida en base a los valores de la Ley y la Promesa Guía y Scout.", "unidad": "Clan", "como_se_cumple": "Reflexionando de manera madura sobre cómo los valores fundamentales de la Ley Scout modelan su vida en Tú Ley Scout."}, {"id": "a8667e56-d5f7-4f7b-b666-06c0b0d0d430", "area": "Carácter", "texto": "Conozco y comprendo la Ley y la Promesa Guía.", "unidad": "Compañía", "como_se_cumple": "Asumiendo los valores de la Ley Scout como guía ética de comportamiento durante las pruebas de Tú Ley Scout."}, {"id": "2b89163c-b44c-4a1e-b71d-f5e9e2e87abd", "area": "Carácter", "texto": "Comprendo que lo que me piden la Ley y la Promesa Guía es importante para mi vida.", "unidad": "Compañía", "como_se_cumple": "Asumiendo los valores de la Ley Scout como guía ética de comportamiento durante las pruebas de Tú Ley Scout."}, {"id": "9bff5b7a-0d53-456f-9b26-e819f0f26771", "area": "Carácter", "texto": "He prometido esforzarme por vivir la Ley y la Promesa Scout.", "unidad": "Tropa", "como_se_cumple": "Asumiendo los valores de la Ley Scout como guía ética de comportamiento durante las pruebas de Tú Ley Scout."}, {"id": "a8a02119-585a-4d04-852c-fddc9a10e465", "area": "Carácter", "texto": "Me esfuerzo por vivir la Ley y la Promesa.", "unidad": "Tropa", "como_se_cumple": "Asumiendo los valores de la Ley Scout como guía ética de comportamiento durante las pruebas de Tú Ley Scout."}, {"id": "3cdf4b56-b55f-4878-b3fa-da32a7200ca4", "area": "Creatividad", "texto": "Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.", "unidad": "Avanzada", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Tú Ley Scout."}, {"id": "ef75fbed-4a6d-49ea-bfab-f2952415e1a0", "area": "Creatividad", "texto": "actúa con agilidad mental ante las situaciones más diversas, desarrollando su capacidad de pensar, innovar y aventurar.", "unidad": "Clan", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Tú Ley Scout."}, {"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Tú Ley Scout."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Tú Ley Scout."}, {"id": "49ae6ac6-be8f-4f2c-8b3e-6711d041181f", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Tú Ley Scout."}, {"id": "cf530cf9-73a6-4423-a075-79be433fe96c", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Tú Ley Scout."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Tú Ley Scout."}, {"id": "b5954f1c-4d0d-4bdb-97d8-821583beb77e", "area": "Sociabilidad", "texto": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.", "unidad": "Clan", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Tú Ley Scout."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Tú Ley Scout."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Tú Ley Scout."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Tú Ley Scout."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Tú Ley Scout."}]}'::jsonb WHERE id = '9be31054-984b-4f4a-98ad-d8c54a51b76e';
+
+UPDATE public.articulos SET titulo = 'Asalto a la Fortaleza', contenido = '<p>Asalto a la Fortaleza es una actividad que busca promover el <a href="https://es.wikipedia.org/wiki/Trabajo_en_equipo" target="_blank" data-type="link" data-id="https://es.wikipedia.org/wiki/Trabajo_en_equipo" rel="noreferrer noopener">trabajo en equipo</a>, el desarrollo de estrategias y la creatividad, así mismo puede ayudar a estimular el liderazgo.</p>
+
+
+
+<h3 class="wp-block-heading">¿Cómo se hace el Asalto a la Fortaleza?</h3>
+
+
+
+<p>Primero haz que cada pañolin se convierta en una pelota pequeña de genero, para hacer esto de forma rápida te recomiendo que con el pañolin armado simplemente hagas <a href="https://nuamana.cl/tecnicas/cabuyeria/nudos/nudo-simple/" data-type="post" data-id="154">nudos simples</a> sobre <a href="https://nuamana.cl/tecnicas/cabuyeria/nudos/nudo-simple/" data-type="post" data-id="154">nudos simples</a>, es decir, haz un nudo simple en la parte que se posa en tu cuello, luego lo giras en 180° y haz otro nudo simple que apriete el anterior, así sucesivamente hasta que ya no quede ninguna punta.</p>
+
+
+
+<p>Luego de esto divide los equipos, en dos grupos, un grupo defiende y otro grupo ataca, a ambos grupos dales 3 minutos para que organicen una estrategia, el que defiende puede, por ejemplo, hacer una pequeña fortaleza para resistir mejor, o puedes decirles a todos que armen primero la fortaleza que ambos van a tener que defender.</p>
+
+
+
+<p>El juego consiste en que el equipo que ataca debe tomar por asalto a la fortaleza ingresando sus miembros dentro de la fortaleza, mientras que el equipo que defiende debe evitar que ingresen o tomen por asalto a la fortaleza. Cada pelota es una bala, obviamente todas las balas se pueden reutilizar, si te llega una bala quedas fuera.</p>
+
+
+
+<p>Gana el equipo que "mata" a todos los jugadores del equipo contrario o si el equipo asaltante ingresa a la fortaleza sin ser herido, o si el equipo defensor sobrevive un tiempo establecido. Básicamente es agarrarse a pelotazos con un fin, o simular una batalla de forma simple.</p>', extracto = 'Asalto a la Fortaleza es una actividad que busca promover el  trabajo en equipo , el desarrollo de estrategias y la creatividad, así mismo puede ayudar a estim...', metadata = '{"areas": ["creatividad", "sociabilidad"], "lugares": ["Campo delimitado", "Exterior", "Interior"], "cantidad": "04 participantes", "duracion": "30 minutos", "unidades": ["avanzada", "compañía", "tropa"], "objetivos": ["Estimular el liderazgo", "Estimular la creatividad", "Promover la elaboración de estrategias", "Trabajo en equipo"], "materiales": ["Pañolin"], "variaciones": "Puede dejar al Guía de Patrulla a cargo 100% de la estrategia y dar instrucciones a las y/o los participantes de su patrulla como si fuera un capitán en una batalla.", "recomendaciones": "Elija un terreno donde sea difícil que se pierdan las pelotas, idealmente plano o con muchos lugares donde se puedan perder las pelotas como con hiervas altas o similares.", "justificacion_areas": "Promueve el ingenio práctico, la agilidad mental y la resolución de problemas Técnicos o enigmas. Incentiva el cumplimiento de reglas, el trabajo cooperativo y el respeto de la seguridad grupal.", "imagen_destacada_url": "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/Actividad_AsaltoALaFortaleza.png", "objetivos_educativos": [{"id": "3cdf4b56-b55f-4878-b3fa-da32a7200ca4", "area": "Creatividad", "texto": "Soy capaz de sintetizar, criticar, proponer y apreciar las opiniones de los demás.", "unidad": "Avanzada", "como_se_cumple": "Demostrando agilidad mental y pensamiento crítico inmediato para liderar la resolución estratégica de Asalto a la Fortaleza."}, {"id": "e1b7276f-4fd2-4c39-a32a-bd7fadbee702", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Asalto a la Fortaleza."}, {"id": "9f30f035-9179-4ac4-acfb-bea0e169e97a", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Compañía", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Asalto a la Fortaleza."}, {"id": "49ae6ac6-be8f-4f2c-8b3e-6711d041181f", "area": "Creatividad", "texto": "Doy mi opinión sobre las cosas que me pasan.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Asalto a la Fortaleza."}, {"id": "cf530cf9-73a6-4423-a075-79be433fe96c", "area": "Creatividad", "texto": "Propongo temas para discutir en mi patrulla.", "unidad": "Tropa", "como_se_cumple": "Analizando el escenario táctico del juego de forma ágil para proponer alternativas mentales en Asalto a la Fortaleza."}, {"id": "f1496221-0da5-4775-b3ba-29e65603cfee", "area": "Sociabilidad", "texto": "Acepto las normas de los diferentes ambientes en que actúo, sin renunciar a mi derecho de tratar de cambiarlas cuando no me parecen correctas.", "unidad": "Avanzada", "como_se_cumple": "Velando por la seguridad física y el cumplimiento estricto del reglamento de competencia en Asalto a la Fortaleza."}, {"id": "007e85ea-2b06-48c2-8ac1-873d59643aae", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Asalto a la Fortaleza."}, {"id": "de2f5693-de4b-48f1-b870-3c62be99aea8", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Compañía", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Asalto a la Fortaleza."}, {"id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad", "area": "Sociabilidad", "texto": "Conozco y respeto las principales normas de convivencia.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Asalto a la Fortaleza."}, {"id": "bbc48d53-f4aa-4de7-84d4-95614df76034", "area": "Sociabilidad", "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre está de acuerdo con ellas.", "unidad": "Tropa", "como_se_cumple": "Acatando las normas de fair play y cooperando en la mantención del orden colectivo durante Asalto a la Fortaleza."}]}'::jsonb WHERE id = '43be9855-17d1-4ac1-b344-8fa575676129';
