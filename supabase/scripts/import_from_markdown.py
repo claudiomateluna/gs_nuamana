@@ -11,7 +11,7 @@ SCRIPTS_DIR = os.path.dirname(__file__)
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 ACTIVITIES_DIR = os.path.join(ROOT_DIR, "docs", "actividades")
 UPLOADED_IMAGES_JSON = os.path.join(SCRIPTS_DIR, "uploaded_images.json")
-OUTPUT_SQL_FILE = os.path.join(SCRIPTS_DIR, "insert_all_activities.sql")
+OUTPUT_SQL_FILE = os.path.join(ROOT_DIR, "supabase", "migrations", "20260713000001_insert_14_activities.sql")
 
 SLUG_CATEGORY_MAP = {
     "pelea-de-gallos": {"id": 7, "name": "Juegos"},
