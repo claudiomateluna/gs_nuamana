@@ -116,6 +116,8 @@ def main():
     sql_inserts = []
     sql_inserts.append("-- SQL Migration script for batch importing Nua Mana Scout Activities\n")
     sql_inserts.append("BEGIN;\n")
+    sql_inserts.append("-- Disable triggers in this session to prevent notification spam\n")
+    sql_inserts.append("SET session_replication_role = 'replica';\n")
     
     activities_processed = 0
     
@@ -275,7 +277,9 @@ ON CONFLICT (articulo_id, objetivo_id) DO UPDATE SET como_se_cumple = EXCLUDED.c
         activities_processed += 1
         print(f"Compiled: '{title}' ({len(resolved_objs)} objectives, image={bool(image_url)})")
 
-    sql_inserts.append("\nCOMMIT;\n")
+    sql_inserts.append("\n-- Restore triggers in this session\n")
+    sql_inserts.append("SET session_replication_role = 'origin';\n")
+    sql_inserts.append("COMMIT;\n")
     
     with open(OUTPUT_SQL_FILE, "w", encoding="utf-8") as f:
         f.write("\n".join(sql_inserts))
