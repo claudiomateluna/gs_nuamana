@@ -130,7 +130,7 @@ def generate_markdown():
     with open(output_file, "w", encoding="utf-8") as f:
         f.write(md_content)
         
-    print(f"\n✅ Markdown file generated successfully!")
+    print(f"\n[OK] Markdown file generated successfully!")
     print(f"File created at: {output_file}")
 
 def generate_sql():
@@ -211,7 +211,7 @@ ON CONFLICT (articulo_id, objetivo_id) DO UPDATE SET como_se_cumple = EXCLUDED.c
         f.write(sql_art)
         f.write(sql_rel)
         
-    print(f"\n✅ SQL statements generated successfully!")
+    print(f"\n[OK] SQL statements generated successfully!")
     print(f"SQL file created at: {output_sql_file}")
     print("You can run this file directly in your Postgres database.")
 
