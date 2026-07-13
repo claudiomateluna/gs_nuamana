@@ -2,18 +2,18 @@
 titulo: "Los Mensajeros de la Selva"
 tipo: "juego"
 duracion: "45 minutos"
-cantidad: "16 participantes"
+cantidad: "04 participantes"
 lugares: ["Exterior", "bosque"]
 unidades: ["manada"]
 areas_desarrollo: ["Creatividad", "Corporalidad"]
 objetivos_generales: ["Reforzar el desarrollo de los sentidos", "Estimular la observación", "Trabajo en equipo", "Conocer a los demás"]
-materiales: ["Tarjetas con puntajes (del 1 al número de patrullas/seisenas) para cada animal escondido", "Silbato del Scouter para marcar el inicio y el fin"]
+materiales: ["Tarjetas", "Silbato"]
 ---
 
 # Los Mensajeros de la Selva
 
 ## 📝 Descripción
-Juego sensorial y de acecho nocturno o diurno en el bosque. Varios dirigentes se ocultan en diferentes puntos y representan a un animal de la selva de Seeonee, cada uno con un sonido característico (como la vaca, burro, oveja o el lobo). Cada 30 segundos, los dirigentes emiten su respectivo grito de llamada. Las seisenas de lobatos deben avanzar en sigilo y usar el oído para rastrear a los animales en el follaje. Al encontrar uno, reciben tarjetas con puntaje descendente (premiando la rapidez). El juego finaliza cuando la manada ha localizado y registrado a todos los mensajeros.
+Juego sensorial y de acecho nocturno o diurno en el bosque. Varios dirigentes se ocultan en diferentes puntos y representan a un animal de la selva de Seeonee, cada uno con un sonido característico (como el elefante, tigre, mono o el lobo). Cada 30 segundos, los dirigentes emiten su respectivo grito de llamada. Las seisenas de lobatos deben avanzar en sigilo y usar el oído para rastrear a los animales en el follaje. Al encontrar uno, reciben tarjetas con puntaje descendente (premiando la rapidez). El juego finaliza cuando la manada ha localizado y registrado a todos los mensajeros.
 
 ## 🔄 Variaciones
 Los animales pueden cambiar de sonido de llamada si se ven acorralados. Se puede realizar de noche aumentando el factor del acecho con linternas.

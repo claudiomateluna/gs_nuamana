@@ -1,8 +1,8 @@
 ---
-titulo: "El Sendero del Cuidado Scout"
+titulo: "El Sendero del Cuidado"
 tipo: "dinámica"
 duracion: "15 minutos"
-cantidad: "12 participantes"
+cantidad: "04 participantes"
 lugares: ["Interior", "salón"]
 unidades: ["Manada", "Compañía"]
 areas_desarrollo: ["Afectividad"]
@@ -10,7 +10,7 @@ objetivos_generales: ["Facilitar el contacto inicial", "Estimular la confianza",
 materiales: ["Sin Materiales"]
 ---
 
-# El Sendero del Cuidado Scout
+# El Sendero del Cuidado
 
 ## 📝 Descripción
 Esta dinámica busca generar un espacio de confianza mutua, calidez y afecto colectivo a través del contacto físico respetuoso. Para comenzar, los participantes forman dos columnas paralelas, una frente a la otra, dejando un pasillo estrecho en medio que representará la 'senda'. Cada pareja de la columna simula ser una reconfortante estación de cuidado, listos para ofrecer palmaditas suaves, masajes ligeros y gestos amables en los hombros, brazos y espalda de quien cruce. Uno a uno, los integrantes transitan lentamente por esta senda con paso pausado, recibiendo el afecto y la energía positiva de sus compañeros. Al terminar el recorrido, la persona se integra al final de la columna para que un nuevo participante inicie su marcha. La actividad continúa de manera sucesiva hasta que todo el grupo haya cruzado. Al finalizar, es fundamental sentarse en círculo para reflexionar sobre cómo nos sentimos al recibir el aprecio del grupo y el valor de ser acogidos.

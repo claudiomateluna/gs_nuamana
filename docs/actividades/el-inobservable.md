@@ -1,19 +1,19 @@
 ---
-titulo: "El Acecho del Inobservable"
+titulo: "El Inobservable"
 tipo: "juego nocturno"
 duracion: "45 minutos"
-cantidad: "16 participantes"
+cantidad: "04 participantes"
 lugares: ["Exterior", "bosque"]
 unidades: ["tropa", "compania"]
 areas_desarrollo: ["Creatividad", "Corporalidad"]
 objetivos_generales: ["Estimular la observación", "Perder el miedo a la oscuridad", "Trabajo en equipo", "Estimular la atención a los detalles"]
-materiales: ["1 linterna para el Scouter invisible", "2 linternas para los Scouters guardianes", "Tarjetas de 'vida' o cintas para los jugadores", "Objetos ruidosos (tarros, campanas)"]
+materiales: ["Linterna", "Objetos ruidosos (tarros, campanas)"]
 ---
 
-# El Acecho del Inobservable
+# El Inobservable
 
 ## 📝 Descripción
-Dinámica de acecho nocturno que entrena la observación minuciosa y la paciencia. Un dirigente (el "Inobservable") se oculta en una zona arbolada. Cuenta con una linterna y realiza acciones extrañas de tanto en tanto (emitir sonidos, interactuar de manera misteriosa con objetos, encender la linterna brevemente). Los participantes deben infiltrarse en el sector, encontrarlo y observarlo detenidamente para anotar todo lo que hace, sin revelar su propia presencia. Si el Inobservable u otros dos Scouters patrulleros con linternas iluminan directamente a un jugador, este debe volver a la base segura para recuperar una vida antes de continuar.
+Dinámica de acecho nocturno que entrena la observación minuciosa y la paciencia. Un dirigente (el "Inobservable") se oculta en una zona arbolada. Cuenta con una linterna y realiza acciones extrañas de tanto en tanto (emitir sonidos, interactuar de manera misteriosa con objetos, encender la linterna brevemente). Los participantes deben infiltrarse en el sector, encontrarlo y observarlo detenidamente para anotar todo lo que hace, sin revelar su propia presencia. Si el Inobservable u otras dos guiadoras y/o dirigentes  patrulleros con linternas iluminan directamente a un jugador, este debe volver a la base segura para recuperar una vida antes de continuar.
 
 ## 🔄 Variaciones
 El inobservable puede dejar pistas luminosas intermitentes (como varitas de luz química). Los jugadores pueden organizarse en parejas de acecho.

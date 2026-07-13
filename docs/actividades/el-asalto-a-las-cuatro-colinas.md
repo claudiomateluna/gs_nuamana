@@ -2,12 +2,12 @@
 titulo: "El Asalto a las Cuatro Colinas"
 tipo: "juego nocturno"
 duracion: "90 minutos"
-cantidad: "24 participantes"
+cantidad: "12 participantes"
 lugares: ["Exterior", "bosque"]
 unidades: ["tropa", "compania", "avanzada"]
 areas_desarrollo: ["Creatividad", "Corporalidad"]
 objetivos_generales: ["Estrategia y planificación", "Estimular la observación", "Trabajo en equipo", "Perder el miedo a la oscuridad"]
-materiales: ["4 pañoletas de colores grandes para delimitar las colinas", "Linternas para cada defensor", "Silbatos para los árbitros", "Tarjetas identificadoras para los atacantes"]
+materiales: ["Pañolines", "Linterna", "Silbato"]
 ---
 
 # El Asalto a las Cuatro Colinas

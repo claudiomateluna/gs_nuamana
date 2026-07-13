@@ -2,12 +2,12 @@
 titulo: "El Nido de los Recuerdos"
 tipo: "dinámica"
 duracion: "30 minutos"
-cantidad: "08 participantes"
+cantidad: "04 participantes"
 lugares: ["Interior", "sala"]
 unidades: ["manada"]
 areas_desarrollo: ["Afectividad", "Sociabilidad"]
 objetivos_generales: ["Conocer a los demás", "Facilitar el conocimiento entre los pares", "Fomentar las relaciones interpersonales"]
-materiales: ["Papelógrafo o cartulina grande", "Lápices de colores y témperas", "Un dado", "Fichas improvisadas (piedras, ramas o botones)"]
+materiales: ["Papelógrafo", "Lápices de colores", "Témperas", "Dado", "Fichas improvisadas"]
 ---
 
 # El Nido de los Recuerdos

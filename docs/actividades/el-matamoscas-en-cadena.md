@@ -7,7 +7,7 @@ lugares: ["Exterior", "campo delimitado"]
 unidades: ["manada", "tropa"]
 areas_desarrollo: ["Corporalidad", "Sociabilidad"]
 objetivos_generales: ["Desfogue de Energías", "Estimular la agilidad", "Estimular la capacidad de reacción", "Trabajo en equipo"]
-materiales: ["Cinta o tiza para delimitar el campo", "Silbato para el facilitador"]
+materiales: ["Tiza", "Silbato"]
 ---
 
 # El Matamoscas en Cadena

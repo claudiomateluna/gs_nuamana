@@ -1,5 +1,5 @@
 ---
-titulo: "La Captura de las Serpientes Veloces"
+titulo: "La Captura de las Serpientes"
 tipo: "juego"
 duracion: "15 minutos"
 cantidad: "10 participantes"
@@ -7,13 +7,13 @@ lugares: ["Exterior", "campo delimitado"]
 unidades: ["manada", "tropa"]
 areas_desarrollo: ["Corporalidad", "Carácter"]
 objetivos_generales: ["Estimular la capacidad de reacción", "Estimular la agilidad", "Fomentar la sana competencia"]
-materiales: ["Cuerdas cortas de 1 metro (una menos que el total de participantes)", "Tiza o conos para delimitar el área y las metas"]
+materiales: ["Cuerdas", "Tiza", "Silbato"]
 ---
 
-# La Captura de las Serpientes Veloces
+# La Captura de las Serpientes
 
 ## 📝 Descripción
-Juego de velocidad y reflejos rápidos. Se colocan cuerdas cortas de un metro en el suelo en el centro de un área circular, debiendo haber siempre una cuerda menos que la cantidad de participantes. Al sonar el silbato, los Scouts corren libremente alrededor y deben atrapar una de las 'serpientes'. El participante que no logre conseguir cuerda queda fuera de la ronda. En caso de que dos jugadores agarren simultáneamente los extremos de una cuerda, se dirime mediante una prueba rápida de velocidad: se sitúa la cuerda a diez metros de distancia de ambos en la línea y al silbatazo corren para ser el primero en tomarla por completo.
+Juego de velocidad y reflejos rápidos. Se colocan cuerdas cortas de un metro en el suelo en el centro de un circulo, debiendo haber siempre una cuerda menos que la cantidad de participantes. Al sonar el silbato, los Scouts corren libremente alrededor del circulo y deben atrapar una de las 'serpientes'. El participante que no logre conseguir cuerda queda fuera de la ronda. En caso de que dos jugadores agarren simultáneamente los extremos de una cuerda, se dirime mediante una prueba rápida de velocidad: se sitúa la cuerda a diez metros de distancia de ambos en la línea y al silbatazo corren para ser el primero en tomarla por completo.
 
 ## 🔄 Variaciones
 En lugar de cuerdas se pueden usar pañoletas. Para Manada, se puede tematizar como capturar serpientes traviesas en la selva de Seeonee.

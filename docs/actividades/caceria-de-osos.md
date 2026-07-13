@@ -1,19 +1,19 @@
 ---
-titulo: "La Cacería del Oso Nocturno"
+titulo: "Cacería de Osos"
 tipo: "juego nocturno"
 duracion: "60 minutos"
-cantidad: "16 participantes"
+cantidad: "06 participantes"
 lugares: ["Exterior", "bosque"]
 unidades: ["tropa", "compania"]
 areas_desarrollo: ["Corporalidad", "Creatividad"]
 objetivos_generales: ["Desfogue de Energías", "Estimular la observación", "Estrategia y planificación", "Trabajo en equipo"]
-materiales: ["Silbatos para los dirigentes ('osos')", "Tarjetas o papeles con la inscripción 'OSO'", "Linternas para seguridad general (apagadas durante el juego)"]
+materiales: ["Silbato", "Tarjetas", "Linterna"]
 ---
 
-# La Cacería del Oso Nocturno
+# Cacería de Osos
 
 ## 📝 Descripción
-Dinámica de acecho y trabajo en equipo para desarrollar en campamento durante la noche. Un grupo de dirigentes (que actúan como "osos") se ocultan en sectores seguros del bosque y hacen sonar sus silbatos a intervalos regulares de 1 a 2 minutos. Cada "oso" lleva consigo tarjetas o papeles especiales con su nombre. Las patrullas o equipos deben organizarse para avanzar en absoluto sigilo a través de la oscuridad, localizarlos y obtener una tarjeta de oso. Los osos pueden cambiar de posición o permanecer fijos. La patrulla que consiga reunir la mayor cantidad de tarjetas de osos distintos al finalizar el tiempo establecido será la ganadora.
+Dinámica de acecho y trabajo en equipo para desarrollar en campamento durante la noche. Un grupo de dirigentes y/o guiadoras (que actúan como "osos") se ocultan en sectores seguros del bosque y hacen sonar sus silbatos a intervalos regulares de 1 a 2 minutos. Cada "oso" lleva consigo tarjetas o papeles especiales con su nombre. Las patrullas o equipos deben organizarse para avanzar en absoluto sigilo a través de la oscuridad, localizarlos y obtener una tarjeta de oso. Los osos pueden cambiar de posición o permanecer fijos. La patrulla que consiga reunir la mayor cantidad de tarjetas de osos distintos al finalizar el tiempo establecido será la ganadora.
 
 ## 🔄 Variaciones
 Los 'osos' pueden cambiar de escondite constantemente o correr cuando oigan ruidos. Se puede jugar en equipos mixtos o patrullas independientes.

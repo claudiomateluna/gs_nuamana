@@ -1,16 +1,16 @@
 ---
-titulo: "El Mural Colectivo a Relevos"
+titulo: "El Mural Colectivo"
 tipo: "dinámica"
 duracion: "20 minutos"
-cantidad: "12 participantes"
+cantidad: "04 participantes"
 lugares: ["Interior", "sala"]
 unidades: ["manada", "tropa", "compania"]
 areas_desarrollo: ["Creatividad", "Sociabilidad"]
 objetivos_generales: ["Estimular la creatividad", "Trabajo en equipo", "Construcción de Equipos"]
-materiales: ["Papelógrafos o cartulinas grandes pegadas en la pared (una por equipo)", "Plumones o marcadores de colores (uno por equipo)", "Silbato y cronómetro"]
+materiales: ["Papelógrafos", "Plumones", "Silbato", "Cronómetro"]
 ---
 
-# El Mural Colectivo a Relevos
+# El Mural Colectivo
 
 ## 📝 Descripción
 Dinámica artística a relevos para fomentar la expresión e integración grupal. Los equipos se alinean a 10 metros de un muro o tablero donde se ha colgado un pliego grande de papel con un plumón. A la señal del monitor, el primer integrante corre hasta el mural y dispone de 10 segundos exactos para comenzar a dibujar sobre una temática acordada previamente (como 'el campamento de patrulla' o 'la ciudad ideal'). Pasado el tiempo, regresa corriendo para entregar el marcador al siguiente, quien continúa la idea de su compañero sin pausar. Se evalúa el trabajo en equipo, la agilidad y la coherencia expresiva final.

@@ -2,7 +2,7 @@
 titulo: "El Desafío de los Magos de Teis"
 tipo: "juego"
 duracion: "120 minutos"
-cantidad: "24 participantes"
+cantidad: "06 participantes"
 lugares: ["Exterior", "campo abierto"]
 unidades: ["tropa", "compania", "avanzada"]
 areas_desarrollo: ["Creatividad", "Sociabilidad"]
@@ -13,10 +13,10 @@ materiales: ["Tiza, retazos de tela, cuerdas", "Mensajes cifrados en código Mor
 # El Desafío de los Magos de Teis
 
 ## 📝 Descripción
-Un gran juego de bases y de rol al aire libre. La historia narra que, por haber infringido las sabias normas del pueblo, unos prisioneros fueron encarcelados. Su liberación depende de que los equipos superen difíciles desafíos de los Hechiceros de la tribu para devolverles la cordura. Los participantes se dividen en equipos y recorren bases donde los guardianes/magos proponen desafíos técnicos específicos (como reescribir la leyenda histórica y crear un himno, decodificar mensajes cifrados en morse, o identificar objetos naturales misteriosos mediante el tacto y el olfato). Los Consejeros evalúan la ejecución final y otorgan pistas.
+Un gran juego de bases y de rol al aire libre. La historia narra que, por haber infringido las sabias normas del pueblo, unos prisioneros fueron encarcelados. Su liberación depende de que los equipos superen difíciles desafíos de los Hechiceros de la tribu para devolverles la cordura. Los participantes se dividen en equipos y recorren bases donde los guardianes/magos proponen desafíos técnicos específicos (como reescribir la leyenda histórica y crear un himno, decodificar mensajes cifrados en morse, o identificar objetos naturales misteriosos mediante el tacto y el olfato). Los Consejeros evalúan la ejecución final y otorgan pistas para ir a la siguiente estación.
 
 ## 🔄 Variaciones
-Se puede orientar la temática hacia la historia mitológica del grupo o del escultismo local. Las pruebas de los magos pueden adaptarse a técnicas específicas de pionería.
+Se puede orientar la temática hacia la historia mitológica del grupo o del escultismo local. Las pruebas de los magos pueden adaptarse a técnicas específicas.
 
 ## ⚠️ Recomendaciones
 Establecer límites de tiempo claros para cada base (máximo 15-20 minutos por prueba) para mantener el dinamismo y evitar esperas prolongadas entre equipos.
