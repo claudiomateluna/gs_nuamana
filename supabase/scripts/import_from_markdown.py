@@ -13,6 +13,23 @@ ACTIVITIES_DIR = os.path.join(ROOT_DIR, "docs", "actividades")
 UPLOADED_IMAGES_JSON = os.path.join(SCRIPTS_DIR, "uploaded_images.json")
 OUTPUT_SQL_FILE = os.path.join(SCRIPTS_DIR, "insert_all_activities.sql")
 
+SLUG_CATEGORY_MAP = {
+    "pelea-de-gallos": {"id": 7, "name": "Juegos"},
+    "pelea-de-cangrejos": {"id": 7, "name": "Juegos"},
+    "la-batalla-de-globos": {"id": 7, "name": "Juegos"},
+    "granjeros-y-cerditos": {"id": 7, "name": "Juegos"},
+    "el-sendero-del-cuidado": {"id": 10, "name": "Dinámicas"},
+    "el-nido-de-los-recuerdos": {"id": 10, "name": "Dinámicas"},
+    "caceria-de-osos": {"id": 9, "name": "Juegos Nocturnos"},
+    "el-inobservable": {"id": 9, "name": "Juegos Nocturnos"},
+    "el-matamoscas-en-cadena": {"id": 7, "name": "Juegos"},
+    "el-asalto-a-las-cuatro-colinas": {"id": 9, "name": "Juegos Nocturnos"},
+    "la-captura-de-las-serpientes": {"id": 7, "name": "Juegos"},
+    "el-mural-colectivo": {"id": 10, "name": "Dinámicas"},
+    "los-mensajeros-de-la-selva": {"id": 7, "name": "Juegos"},
+    "el-desafio-de-los-magos-de-teis": {"id": 7, "name": "Juegos"}
+}
+
 def get_objectives_db():
     print("Fetching progression objectives catalog from database via Docker...")
     cmd = [
@@ -233,6 +250,16 @@ ON CONFLICT (slug) DO UPDATE SET
   metadata = EXCLUDED.metadata,
   imagen_destacada = EXCLUDED.imagen_destacada,
   extracto = EXCLUDED.extracto;
+""")
+        
+        # Category mapping insertion
+        cat_info = SLUG_CATEGORY_MAP.get(slug)
+        if cat_info:
+            cat_id = cat_info["id"]
+            sql_inserts.append(f"""INSERT INTO public.articulo_categorias (articulo_id, categoria_id)
+SELECT id, {cat_id}
+FROM public.articulos WHERE slug = '{slug}'
+ON CONFLICT (articulo_id, categoria_id) DO NOTHING;
 """)
         
         # Intermediate mappings using dynamic resolution based on slug

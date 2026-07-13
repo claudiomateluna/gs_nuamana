@@ -106,7 +106,10 @@ function BlogContent() {
         return { ...post, path }
       })
 
-      setArticulos(prev => isNewFilter ? processed : [...prev, ...processed])
+      setArticulos(prev => {
+        if (isNewFilter) return processed;
+        return [...prev, ...processed.filter(p => !prev.some(x => x.id === p.id))];
+      })
       setHasMore(data.length === POSTS_PER_PAGE)
     }
     setLoading(false)

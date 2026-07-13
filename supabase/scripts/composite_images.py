@@ -44,6 +44,19 @@ def get_glow_image(text, font, text_color, glow_color, blur_radius=4):
     # Merge both
     return Image.alpha_composite(glow_img, fg_img), w, h, blur_radius*2
 
+def make_white_transparent(img, threshold=240):
+    img = img.convert("RGBA")
+    datas = img.getdata()
+    newData = []
+    for item in datas:
+        # Check if R, G, and B are all above threshold (close to white)
+        if item[0] >= threshold and item[1] >= threshold and item[2] >= threshold:
+            newData.append((255, 255, 255, 0)) # Fully transparent white
+        else:
+            newData.append(item)
+    img.putdata(newData)
+    return img
+
 def process_image(base_img_path, title, category):
     print(f"Processing image: {base_img_path}")
     if not os.path.exists(base_img_path):
@@ -63,6 +76,9 @@ def process_image(base_img_path, title, category):
     right = left + min_dim
     bottom = top + min_dim
     user_cropped = user.crop((left, top, right, bottom)).resize((540, 540))
+    
+    # Make white background transparent
+    user_cropped = make_white_transparent(user_cropped)
     
     # Merge layers: bg + user + fg
     merged = Image.alpha_composite(bg, user_cropped)

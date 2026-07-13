@@ -30,7 +30,24 @@ IMAGE_MAPPING = {
     "el-desafio-de-los-magos-de-teis": "magos_teis_base_1783981364806.jpg"
 }
 
-def parse_markdown_metadata(file_path):
+SLUG_CATEGORY_MAP = {
+    "pelea-de-gallos": {"id": 7, "name": "Juegos"},
+    "pelea-de-cangrejos": {"id": 7, "name": "Juegos"},
+    "la-batalla-de-globos": {"id": 7, "name": "Juegos"},
+    "granjeros-y-cerditos": {"id": 7, "name": "Juegos"},
+    "el-sendero-del-cuidado": {"id": 10, "name": "Dinámicas"},
+    "el-nido-de-los-recuerdos": {"id": 10, "name": "Dinámicas"},
+    "caceria-de-osos": {"id": 9, "name": "Juegos Nocturnos"},
+    "el-inobservable": {"id": 9, "name": "Juegos Nocturnos"},
+    "el-matamoscas-en-cadena": {"id": 7, "name": "Juegos"},
+    "el-asalto-a-las-cuatro-colinas": {"id": 9, "name": "Juegos Nocturnos"},
+    "la-captura-de-las-serpientes": {"id": 7, "name": "Juegos"},
+    "el-mural-colectivo": {"id": 10, "name": "Dinámicas"},
+    "los-mensajeros-de-la-selva": {"id": 7, "name": "Juegos"},
+    "el-desafio-de-los-magos-de-teis": {"id": 7, "name": "Juegos"}
+}
+
+def parse_markdown_metadata(file_path, slug):
     with open(file_path, "r", encoding="utf-8") as f:
         content = f.read()
         
@@ -45,13 +62,8 @@ def parse_markdown_metadata(file_path):
     title_match = re.search(r"^titulo:\s*[\"']?(.*?)[\"']?\s*$", frontmatter, re.MULTILINE)
     title = title_match.group(1) if title_match else ""
     
-    # Parse areas_desarrollo (expecting a list, e.g. ["Corporalidad", "Carácter"])
-    areas_match = re.search(r"^areas_desarrollo:\s*\[(.*?)\]", frontmatter, re.MULTILINE)
-    category = "Actividad"
-    if areas_match:
-        areas = [a.strip().replace('"', '').replace("'", "") for a in areas_match.group(1).split(",")]
-        if areas and areas[0]:
-            category = areas[0]
+    # Resolve category based on SLUG_CATEGORY_MAP
+    category = SLUG_CATEGORY_MAP.get(slug, {}).get("name", "Actividad")
             
     return {
         "title": title,
@@ -68,7 +80,7 @@ def main():
             print(f"Warning: Markdown file not found for {slug} at {md_file}. Skipping.")
             continue
             
-        metadata = parse_markdown_metadata(md_file)
+        metadata = parse_markdown_metadata(md_file, slug)
         if not metadata:
             print(f"Error parsing metadata for {slug}. Skipping.")
             continue
