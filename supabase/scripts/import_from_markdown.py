@@ -202,13 +202,20 @@ def main():
             "objetivos_educativos": resolved_objs
         }
         
+        # Generate clean excerpt from description (first 160 chars, remove markdown formats)
+        clean_desc = re.sub(r'\[(.*?)\]\(.*?\)', r'\1', desc)  # remove markdown links
+        clean_desc = re.sub(r'[\*_#`]', '', clean_desc)       # remove markdown symbols
+        clean_desc = re.sub(r'\s+', ' ', clean_desc).strip()   # normalize spaces
+        excerpt = clean_desc[:160] + "..." if len(clean_desc) > 160 else clean_desc
+        excerpt_escaped = excerpt.replace("'", "''")
+
         # Escape characters for SQL insertion
         title_escaped = title.replace("'", "''")
         desc_escaped = desc.replace("'", "''")
         meta_json_str = json.dumps(meta, ensure_ascii=False).replace("'", "''")
         
         sql_inserts.append(f"\n-- Inserting activity: {title}")
-        sql_inserts.append(f"""INSERT INTO public.articulos (id, titulo, slug, contenido, estado, metadata, autor_id)
+        sql_inserts.append(f"""INSERT INTO public.articulos (id, titulo, slug, contenido, estado, metadata, autor_id, imagen_destacada, extracto)
 VALUES (
   '{art_id}',
   '{title_escaped}',
@@ -216,20 +223,25 @@ VALUES (
   '{desc_escaped}',
   'publicado',
   '{meta_json_str}'::jsonb,
-  'a158dbe1-5a8d-46b0-8105-4313125d746f' -- Default system admin/author
+  'a158dbe1-5a8d-46b0-8105-4313125d746f', -- Default system admin/author
+  '{image_url}',
+  '{excerpt_escaped}'
 )
 ON CONFLICT (slug) DO UPDATE SET 
   titulo = EXCLUDED.titulo,
   contenido = EXCLUDED.contenido,
-  metadata = EXCLUDED.metadata;
+  metadata = EXCLUDED.metadata,
+  imagen_destacada = EXCLUDED.imagen_destacada,
+  extracto = EXCLUDED.extracto;
 """)
         
-        # Intermediate mappings
+        # Intermediate mappings using dynamic resolution based on slug
         for obj in resolved_objs:
             obj_id = obj["id"]
             csc_escaped = obj["como_se_cumple"].replace("'", "''")
             sql_inserts.append(f"""INSERT INTO public.articulo_objetivos_educativos (articulo_id, objetivo_id, como_se_cumple)
-VALUES ('{art_id}', '{obj_id}', '{csc_escaped}')
+SELECT id, '{obj_id}', '{csc_escaped}'
+FROM public.articulos WHERE slug = '{slug}'
 ON CONFLICT (articulo_id, objetivo_id) DO UPDATE SET como_se_cumple = EXCLUDED.como_se_cumple;
 """)
             

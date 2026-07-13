@@ -74,6 +74,7 @@ function BlogContent() {
       .select(selectStr)
       .eq('estado', 'publicado')
       .order('created_at', { ascending: false })
+      .order('id', { ascending: true })
 
     if (search) query = query.ilike('titulo', `%${search}%`)
     if (selCat !== 'todas') query = query.eq('articulo_categorias.categoria_id', parseInt(selCat))
