@@ -28,12 +28,20 @@ jobs:
             # Descargar los últimos cambios desde GitHub
             git pull origin main
             
+            # Desactivar temporalmente el trigger de notificaciones para evitar spam en migraciones
+            echo "Desactivando trigger de notificaciones..."
+            docker exec -i supabase-db psql -U postgres -d postgres -c "ALTER TABLE public.articulos DISABLE TRIGGER trigger_notificar_cambio_articulo;"
+            
             # Aplicar todas las migraciones de base de datos pendientes en orden cronológico
             echo "Ejecutando migraciones de base de datos..."
             for f in supabase/migrations/*.sql; do
               echo "Aplicando migración: $f"
               docker exec -i supabase-db psql -U postgres -d postgres < "$f"
             done
+
+            # Reactivar el trigger de notificaciones al finalizar
+            echo "Reactivando trigger de notificaciones..."
+            docker exec -i supabase-db psql -U postgres -d postgres -c "ALTER TABLE public.articulos ENABLE TRIGGER trigger_notificar_cambio_articulo;"
 
             # Entrar al frontend e instalar y compilar limpiando la caché de Next.js
             cd frontend
