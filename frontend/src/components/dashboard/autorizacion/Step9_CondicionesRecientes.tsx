@@ -1,10 +1,7 @@
 'use client'
 
-interface StepProps {
-  formData: any
-  setFormData: (data: any) => void
-  perfil: any
-}
+import DOMPurify from 'dompurify'
+import type { StepProps } from '@/types/autorizacion'
 
 export default function Step9_CondicionesRecientes({ formData, setFormData, perfil }: StepProps) {
   const titleStyle = "text-[1.2em] font-black text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8 border-b-2 border-clr7 pb-2";
@@ -20,7 +17,7 @@ export default function Step9_CondicionesRecientes({ formData, setFormData, perf
   const hasMalestares = formData.malestares_recientes_radio === 'Si' || (formData.malestares_recientes_radio === undefined && perfil.malestares_recientes_bool === true);
   const isEnTratamientoReciente = formData.tratamiento_reciente_radio === 'Si' || (formData.tratamiento_reciente_radio === undefined && perfil.tratamiento_reciente_bool === true);
 
-  const FieldInfo = ({ label, info }: any) => (
+  const FieldInfo = ({ label, info }: { label: string; info: string }) => (
     <div className={labelContainerStyle}>
       <label className={labelStyle}>{label}</label>
       <div className="group">
@@ -31,7 +28,7 @@ export default function Step9_CondicionesRecientes({ formData, setFormData, perf
         </div>
         <div className={tooltipStyle}>
           <div className="text-clr7 font-black uppercase text-[0.8em] tracking-tight mb-3 border-b border-clr7/30 pb-2 leading-tight">{label}</div>
-          <div className="text-[0.95em]" dangerouslySetInnerHTML={{ __html: info }} />
+          <div className="text-[0.95em]" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(info) }} />
         </div>
       </div>
     </div>

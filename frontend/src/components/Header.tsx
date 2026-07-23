@@ -91,7 +91,7 @@ const Header = () => {
 
           <div className="flex items-center gap-2 md:gap-4">
             {user ? (
-              <Link href="/dashboard" className="hidden sm:flex items-center gap-2 text-clr8 font-black uppercase text-[0.8em] tracking-widest hover:text-white transition-colors">
+              <Link href="/panel" className="hidden sm:flex items-center gap-2 text-clr8 font-black uppercase text-[0.8em] tracking-widest hover:text-white transition-colors">
                 <div className="w-6 h-6 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_panel.svg)', maskImage: 'url(/images/iconos/icono_panel.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
                 <span>Mi Panel</span>
               </Link>

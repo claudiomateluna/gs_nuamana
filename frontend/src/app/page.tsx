@@ -97,7 +97,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-4">
               {user ? (
                 <button
-                  onClick={() => router.push('/dashboard')}
+                  onClick={() => router.push('/panel')}
                   className="px-12 py-6 bg-clr7 text-white font-black font-display uppercase rounded-[2.5rem] shadow-2xl hover:scale-105 active:scale-95 transition-all tracking-widest text-lg"
                 >
                   Ir a mi Panel Personal

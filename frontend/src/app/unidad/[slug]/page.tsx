@@ -114,7 +114,7 @@ export default async function UnidadPage({ params }: PageProps) {
 
   // 5. Procesar las URLs de los artículos utilizando la lógica jerárquica del blog
   const processedArticles = filteredArticles.map(post => {
-    const linkedCats = post.articulo_categorias?.map((ac: any) => ac.categorias).filter(Boolean) || []
+    const linkedCats = post.articulo_categorias?.map((ac: { categorias?: unknown }) => ac.categorias).filter(Boolean) || []
     const sortedCats = [...linkedCats].sort((a, b) => buildCatPathSlugs(b.id).length - buildCatPathSlugs(a.id).length)
     const mainCat = sortedCats[0]
     const path = mainCat ? `${buildCatPathSlugs(mainCat.id).join('/')}/${post.slug}` : `general/${post.slug}`

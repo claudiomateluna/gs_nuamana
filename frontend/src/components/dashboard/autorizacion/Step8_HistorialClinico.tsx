@@ -1,12 +1,8 @@
 'use client'
 
 import { useEffect } from 'react'
-
-interface StepProps {
-  formData: any
-  setFormData: (data: any) => void
-  perfil: any
-}
+import DOMPurify from 'dompurify'
+import type { StepProps } from '@/types/autorizacion'
 
 export default function Step8_HistorialClinico({ formData, setFormData, perfil }: StepProps) {
   const titleStyle = "text-[1.2em] font-black text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8 border-b-2 border-clr7 pb-2";
@@ -32,38 +28,38 @@ export default function Step8_HistorialClinico({ formData, setFormData, perfil }
   }, []);
 
   const addHospitalizacion = () => {
-    const newList = [...(formData.hospitalizaciones || []), { motivo: '', fecha: '' }];
+    const newList = [...(formData.hospitalizaciones ?? []), { motivo: '', fecha: '' }];
     setFormData({ ...formData, hospitalizaciones: newList });
   };
 
   const updateHospitalizacion = (index: number, field: string, value: string) => {
-    const newList = [...formData.hospitalizaciones];
+    const newList = [...(formData.hospitalizaciones ?? [])];
     newList[index] = { ...newList[index], [field]: value };
     setFormData({ ...formData, hospitalizaciones: newList });
   };
 
   const removeHospitalizacion = (index: number) => {
-    const newList = formData.hospitalizaciones.filter((_: any, i: number) => i !== index);
+    const newList = (formData.hospitalizaciones ?? []).filter((_, i) => i !== index);
     setFormData({ ...formData, hospitalizaciones: newList });
   };
 
   const addCirugia = () => {
-    const newList = [...(formData.cirugias || []), { nombre: '', fecha: '' }];
+    const newList = [...(formData.cirugias ?? []), { nombre: '', fecha: '' }];
     setFormData({ ...formData, cirugias: newList });
   };
 
   const updateCirugia = (index: number, field: string, value: string) => {
-    const newList = [...formData.cirugias];
+    const newList = [...(formData.cirugias ?? [])];
     newList[index] = { ...newList[index], [field]: value };
     setFormData({ ...formData, cirugias: newList });
   };
 
   const removeCirugia = (index: number) => {
-    const newList = formData.cirugias.filter((_: any, i: number) => i !== index);
+    const newList = (formData.cirugias ?? []).filter((_, i) => i !== index);
     setFormData({ ...formData, cirugias: newList });
   };
 
-  const FieldInfo = ({ label, info }: any) => (
+  const FieldInfo = ({ label, info }: { label: string; info: string }) => (
     <div className={labelContainerStyle}>
       <label className={labelStyle}>{label}</label>
       <div className="group">
@@ -74,7 +70,7 @@ export default function Step8_HistorialClinico({ formData, setFormData, perfil }
         </div>
         <div className={tooltipStyle}>
           <div className="text-clr7 font-black uppercase text-[0.8em] tracking-tight mb-3 border-b border-clr7/30 pb-2 leading-tight">{label}</div>
-          <div className="text-[0.95em]" dangerouslySetInnerHTML={{ __html: info }} />
+          <div className="text-[0.95em]" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(info) }} />
         </div>
       </div>
     </div>
@@ -104,7 +100,7 @@ export default function Step8_HistorialClinico({ formData, setFormData, perfil }
 
           {formData.has_hospitalizaciones === 'Si' && (
             <div className="space-y-6 animate-in slide-in-from-top-4 duration-500 bg-zinc-50 dark:bg-black/10 p-6 rounded-[2rem] border border-clr10 dark:border-clr4">
-              {(formData.hospitalizaciones || []).map((h: any, i: number) => (
+              {(formData.hospitalizaciones || []).map((h, i) => (
                 <div key={i} className="space-y-4 pb-6 border-b border-clr10 dark:border-clr4 last:border-0 last:pb-0">
                   <div className="flex justify-between items-center">
                     <span className="text-[0.8em] font-black uppercase tracking-widest text-clr7">Registro #{i + 1}</span>
@@ -145,7 +141,7 @@ export default function Step8_HistorialClinico({ formData, setFormData, perfil }
 
           {formData.has_cirugias === 'Si' && (
             <div className="space-y-6 animate-in slide-in-from-top-4 duration-500 bg-zinc-50 dark:bg-black/10 p-6 rounded-[2rem] border border-clr10 dark:border-clr4">
-              {(formData.cirugias || []).map((c: any, i: number) => (
+              {(formData.cirugias || []).map((c, i) => (
                 <div key={i} className="space-y-4 pb-6 border-b border-clr10 dark:border-clr4 last:border-0 last:pb-0">
                   <div className="flex justify-between items-center">
                     <span className="text-[0.8em] font-black uppercase tracking-widest text-clr7">Cirugía #{i + 1}</span>

@@ -1,6 +1,7 @@
 import { supabase } from '@/lib/supabase'
+import { getRoleIds } from '@/lib/roles'
 
-const cleanUnidadId = (id: any): number | null => {
+const cleanUnidadId = (id: string | number | null | undefined): number | null => {
   if (id === null || id === undefined || id === 'null' || id === 'undefined') return null;
   const parsed = typeof id === 'string' ? parseInt(id, 10) : id;
   return isNaN(parsed) ? null : parsed;
@@ -15,7 +16,7 @@ export const cycleService = {
   /**
    * Carga el ciclo activo para una unidad, o un ciclo específico si se provee overrideId
    */
-  async getActiveCycle(unidadId?: any, overrideId?: string, isDirectivoAdmin?: boolean) {
+  async getActiveCycle(unidadId?: string | number | null, overrideId?: string, isDirectivoAdmin?: boolean) {
     const cleanId = cleanUnidadId(unidadId);
 
     // Si estamos en el cliente y sin señal, ir directo a base local
@@ -108,18 +109,21 @@ export const cycleService = {
   async getGroupAgreements(unidadId: number) {
     const { data, error } = await supabase
       .from('acta_acuerdos')
-      .select('id, titulo, descripcion, fecha_compromiso')
+      .select('id, titulo, descripcion, fecha_compromiso, fichas:acta_acuerdo_fichas(articulo:articulos(id, titulo, slug))')
       .eq('es_actividad_grupal', true)
       .not('fecha_compromiso', 'is', null)
 
     if (error) throw error
-    return data || []
+    return (data || []).map((row: any) => ({
+      ...row,
+      fichas_vinculadas: row.fichas?.map((f: any) => f.articulo).filter(Boolean) || []
+    }))
   },
 
   /**
    * Obtiene las actividades programadas de la unidad o globales
    */
-  async getProgrammedActivities(unidadId?: any) {
+  async getProgrammedActivities(unidadId?: string | number | null) {
     const cleanId = cleanUnidadId(unidadId);
     const { data, error } = await supabase
       .from('actividades_programadas')
@@ -178,7 +182,7 @@ export const cycleService = {
   /**
    * Busca la bitácora más reciente relacionada con el título de la propuesta
    */
-  async getLatestBitacoraWithTitle(unidadId: any, title: string) {
+  async getLatestBitacoraWithTitle(unidadId: string | number | null, title: string) {
     const cleanId = cleanUnidadId(unidadId);
     if (cleanId === null) return null;
     const { data, error } = await supabase
@@ -339,14 +343,15 @@ export const cycleService = {
   /**
    * Obtiene todos los NNJ de una unidad para evaluación de dirigentes
    */
-  async getNnjForEvaluation(unidadId: any) {
+  async getNnjForEvaluation(unidadId: string | number | null) {
     const cleanId = cleanUnidadId(unidadId);
     if (cleanId === null) return [];
     const { data, error } = await supabase
       .from('perfiles')
       .select('id, nombres, apellidos, unidad_id, progresion_etapa_id, fecha_nacimiento')
       .eq('unidad_id', cleanId)
-      .in('rol_id', [9, 10, 11, 12, 13])
+      .in('rol_id', getRoleIds('nnj'))
+      .neq('estado', 'inactivo')
       .order('apellidos')
 
     if (error) throw error

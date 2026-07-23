@@ -4,18 +4,30 @@ import { useState } from 'react'
 import { startOfMonth, endOfMonth, startOfWeek, endOfWeek, eachDayOfInterval, format, isSameMonth, isSameDay, addMonths, subMonths } from 'date-fns'
 import { es } from 'date-fns/locale'
 import { projectService } from '@/services/projectService'
+import { UNIT_IDS } from '@/lib/unit-constants'
+import type { Perfil, CicloUnidad, CicloPropuesta } from '@/types'
+import { toast } from 'sonner';
+
+/** Parsea fecha "YYYY-MM-DD" como hora local (evita desfase de timezone) */
+function parseLocalDate(dateStr: string | null | undefined): Date | null {
+  if (!dateStr || typeof dateStr !== 'string') return null
+  const parts = dateStr.split('-')
+  if (parts.length < 3) return null
+  const [y, m, d] = parts.map(Number)
+  return new Date(y, m - 1, d)
+}
 
 interface CicloFase3PlaneacionProps {
-  perfil: any
-  cicloActivo: any
-  propuestas: any[]
-  votos: any[]
+  perfil: Perfil
+  cicloActivo: CicloUnidad
+  propuestas: CicloPropuesta[]
+  votos: Array<{ propuesta_id: string; perfil_id: string; cantidad: number }>
   canManage: boolean
   unitColor: string
-  setSelectedPropuesta: (prop: any) => void
+  setSelectedPropuesta: (prop: CicloPropuesta | null) => void
   setIsModAgendarOpen: (open: boolean) => void
   setIsModVincularArticuloOpen: (open: boolean) => void
-  setWizardProyecto: (proj: any) => void
+  setWizardProyecto: (proj: Record<string, unknown>) => void
   setWizardEsGrupal: (val: boolean) => void
   setIsWizardOpen: (open: boolean) => void
   onUnscheduleProposal: (propId: string) => Promise<void>
@@ -39,6 +51,7 @@ export default function CicloFase3Planeacion({
   const [currentMonth, setCurrentMonth] = useState(new Date())
 
   const handleProjectWizardOpen = async (titulo: string) => {
+    if (perfil.unidad_id == null) return
     try {
       const existingProj = await projectService.getProjectByTitleAndUnit(titulo, perfil.unidad_id)
       if (existingProj) {
@@ -48,8 +61,8 @@ export default function CicloFase3Planeacion({
       }
       setWizardEsGrupal(true)
       setIsWizardOpen(true)
-    } catch (err: any) {
-      alert('Error al buscar proyecto: ' + err.message)
+    } catch (err: unknown) {
+      toast.error('Error al buscar proyecto: ' + (err instanceof Error ? err.message : String(err)))
     }
   }
 
@@ -191,28 +204,52 @@ export default function CicloFase3Planeacion({
           <h4 className="text-[1em] font-black uppercase tracking-widest opacity-40 font-body">Calendario Detallado del Ciclo</h4>
           <div className="grid gap-2">
             {proposalsScheduled
-              .sort((a, b) => new Date(a.fecha_programada).getTime() - new Date(b.fecha_programada).getTime())
-              .map(p => (
-                <div key={p.id} className="p-4 rounded-3xl bg-white dark:bg-black/20 border-2 border-green-500/20 shadow-sm flex flex-col gap-4 relative overflow-hidden group font-body">
+              .sort((a, b) => (parseLocalDate(a.fecha_programada)?.getTime() ?? 0) - (parseLocalDate(b.fecha_programada)?.getTime() ?? 0))
+              .map(p => {
+                const isGrupalFromActa = p.es_grupal_global && p.fichas_vinculadas && p.fichas_vinculadas.length > 0
+                return (
+                <div key={p.id} className={`p-4 rounded-3xl border-2 shadow-sm flex flex-col gap-4 relative overflow-hidden group font-body ${
+                  p.es_grupal_global 
+                    ? 'border-clr8/30' 
+                    : 'bg-white dark:bg-black/20 border-green-500/20'
+                }`} style={p.es_grupal_global ? {
+                  background: 'linear-gradient(to right, var(--clr7, #1e3a5f), var(--clr4, #4a7c59))',
+                  color: 'var(--clr8, #ffffff)'
+                } : undefined}>
                   <div className="absolute top-0 right-0 p-4 opacity-5">
                     <span className="text-6xl">📅</span>
                   </div>
                   
                   <div className="flex justify-between items-start z-10">
                     <div>
-                      <span className="text-[0.9em] font-bold uppercase text-clr2">
-                        {new Date(p.fecha_programada).toLocaleDateString('es-CL', { weekday: 'long', day: 'numeric', month: 'long' })}
+                      <span className={`text-[0.9em] font-bold uppercase ${p.es_grupal_global ? 'opacity-80' : 'text-clr2'}`}>
+                        {parseLocalDate(p.fecha_programada)?.toLocaleDateString('es-CL', { weekday: 'long', day: 'numeric', month: 'long' }) || '—'}
                       </span>
-                      <h5 className="font-bold text-lg uppercase leading-none text-clr5 dark:text-clr1 mt-1">{p.titulo}</h5>
+                      <h5 className={`font-bold text-lg uppercase leading-none mt-1 ${p.es_grupal_global ? '' : 'text-clr5 dark:text-clr1'}`}>{p.titulo}</h5>
+                      {p.fichas_vinculadas && p.fichas_vinculadas.length > 0 && (
+                        <div className="flex flex-wrap gap-1 mt-1">
+                          {p.fichas_vinculadas.map((f: any) => (
+                            <a key={f.id} href={`/blog/actividades/${f.slug}`} target="_blank"
+                               className={`px-2 py-0.5 rounded-full text-[0.7em] font-bold ${
+                                 p.es_grupal_global ? 'bg-white/20 hover:bg-white/30' : 'bg-blue-100 text-blue-700 hover:bg-blue-200'
+                               }`}>
+                              📋 {f.titulo}
+                            </a>
+                          ))}
+                        </div>
+                      )}
                       {p.es_especialidad && p.autor && (
                         <p className="text-[0.8em] font-semibold text-purple-650 dark:text-purple-300 mt-1.5 uppercase tracking-wider">
                           Scout: {p.autor.nombres} {p.autor.apellidos}
                         </p>
                       )}
+                      {p.es_grupal_global && (
+                        <span className="inline-block mt-1 px-2 py-0.5 bg-white/20 rounded-full text-[0.7em] font-bold uppercase">👥 Actividad Grupal</span>
+                      )}
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between z-10 border-t border-zinc-50 dark:border-clr4 pt-4">
+                  <div className="flex items-center justify-between z-10 border-t border-white/10 pt-4">
                     {p.es_actividad_programada ? (
                       <div className="flex items-center gap-2">
                         <span 
@@ -229,6 +266,15 @@ export default function CicloFase3Planeacion({
                           Ver Ficha
                         </a>
                       </div>
+                    ) : p.es_grupal_global ? (
+                      /* Actividad grupal de acta — sin botones de edición */
+                      <div className="flex items-center gap-2">
+                        {p.fichas_vinculadas && p.fichas_vinculadas.length > 0 ? (
+                          <span className="px-2 py-1 bg-white/20 rounded-md text-[0.8em] font-bold uppercase">✅ Vinculada</span>
+                        ) : (
+                          <span className="px-2 py-1 bg-white/10 rounded-md text-[0.8em] font-bold uppercase opacity-60">Sin ficha</span>
+                        )}
+                      </div>
                     ) : (
                       <div className="flex items-center gap-2">
                         <span className="px-2 py-1 bg-amber-100 text-amber-700 rounded-md text-[0.8em] font-bold uppercase animate-pulse">Falta Ficha</span>
@@ -241,16 +287,16 @@ export default function CicloFase3Planeacion({
                     )}
                     
                     <div className="flex gap-4 items-center">
-                      {[4, 5].includes(perfil?.unidad_id) && (
+                      {perfil?.unidad_id != null && (perfil.unidad_id === UNIT_IDS.AVANZADA || perfil.unidad_id === UNIT_IDS.CLAN) && !p.es_grupal_global && (
                         <button
                           onClick={() => handleProjectWizardOpen(p.titulo)}
                           className="text-[0.8em] font-black uppercase text-blue-600 hover:text-blue-700 transition-colors border-none bg-transparent"
                         >
-                          📋 Proyecto {perfil?.unidad_id === 4 ? 'Empresa' : '12 Pasos'}
+                          📋 Proyecto {perfil.unidad_id === UNIT_IDS.AVANZADA ? 'Empresa' : '12 Pasos'}
                         </button>
                       )}
 
-                      {canManage && cicloActivo.fase_actual === 3 && !p.es_actividad_programada && (
+                      {canManage && cicloActivo.fase_actual === 3 && !p.es_actividad_programada && !p.es_grupal_global && (
                         <button 
                           onClick={() => onUnscheduleProposal(p.id)}
                           className="text-[0.8em] opacity-60 hover:opacity-100 hover:text-red-500 transition-colors uppercase font-bold border-none bg-transparent"
@@ -261,7 +307,8 @@ export default function CicloFase3Planeacion({
                     </div>
                   </div>
                 </div>
-              ))}
+                )
+              })}
             {proposalsScheduled.length === 0 && (
               <div className="py-20 text-center border-2 border-dashed border-green-500/30 rounded-[2rem] opacity-60 bg-green-50/10">
                 <span className="text-4xl block mb-2">🗓️</span>

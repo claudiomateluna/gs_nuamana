@@ -5,7 +5,7 @@ export interface ContentMetadata {
   title?: string;
   description?: string;
   image?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export interface ContentFile {
@@ -22,6 +22,10 @@ const CONTENT_DIR = path.join(process.cwd(), 'content');
 
 export async function readContentFile(folder: string, slug: string): Promise<ContentFile> {
   const filePath = path.join(CONTENT_DIR, folder, `${slug}.md`);
+  const resolved = path.resolve(filePath);
+  if (!resolved.startsWith(path.resolve(CONTENT_DIR))) {
+    throw new Error('Invalid path');
+  }
   try {
     let fileContents = fs.readFileSync(filePath, 'utf8');
     let metadata: ContentMetadata = {};

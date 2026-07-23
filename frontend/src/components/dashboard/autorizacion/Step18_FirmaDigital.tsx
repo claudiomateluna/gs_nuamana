@@ -1,18 +1,15 @@
 'use client'
 
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useCallback, useState } from 'react'
 import SignatureCanvas from 'react-signature-canvas'
+import type { StepWithActividadProps } from '@/types/autorizacion'
 
-interface StepProps {
-  formData: any
-  setFormData: (data: any) => void
-  perfil: any
-  apoderadoData?: any
-}
-
-export default function Step18_FirmaDigital({ formData, setFormData, perfil, apoderadoData }: StepProps) {
+export default function Step18_FirmaDigital({ formData, setFormData, perfil, apoderadoData }: StepWithActividadProps) {
   const sigCanvas = useRef<SignatureCanvas>(null);
-  const isAdult = perfil.edad >= 18;
+  // Guardar firma en un ref para NO causar re-renders en cada trazo
+  const firmaDataRef = useRef<string | null>(null);
+  const [firmaCapturada, setFirmaCapturada] = useState(false);
+  const isAdult = (perfil.edad ?? 0) >= 18;
 
   const titleStyle = "text-[1.2em] font-black text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8 border-b-2 border-clr7 pb-2 text-center";
   const labelStyle = "text-[0.9em] font-black uppercase text-clr2 tracking-widest block opacity-70 mb-1";
@@ -21,38 +18,27 @@ export default function Step18_FirmaDigital({ formData, setFormData, perfil, apo
   const infoIconStyle = "text-clr7 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
   const tooltipStyle = "fixed z-[300] left-1/2 -translate-x-1/2 top-1/4 w-[90%] max-w-lg p-6 bg-zinc-800 dark:bg-zinc-900 text-white text-[1em] font-medium leading-relaxed rounded-[2rem] shadow-2xl opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 border-2 border-clr7/50 backdrop-blur-md";
 
-  // Efecto para sincronizar el tamaño del canvas y evitar el offset del puntero
+  // Solo sincronizar el ref al padre cuando el usuario hace click en "Borrar" o al montar
   useEffect(() => {
-    const resizeCanvas = () => {
-      if (sigCanvas.current) {
-        const canvas = sigCanvas.current.getCanvas();
-        // Solo redimensionar si es necesario para evitar ciclos infinitos
-        const ratio = Math.max(window.devicePixelRatio || 1, 1);
-        const targetWidth = canvas.offsetWidth * ratio;
-        const targetHeight = canvas.offsetHeight * ratio;
-
-        if (canvas.width !== targetWidth || canvas.height !== targetHeight) {
-          canvas.width = targetWidth;
-          canvas.height = targetHeight;
-          canvas.getContext("2d")?.scale(ratio, ratio);
-          // Si ya había una firma, el redimensionado la borra, por lo que limpiamos el estado
-          if (formData.firma) {
-            setFormData({ ...formData, firma: null });
+    // Si ya había una firma previa, restaurarla en el canvas
+    if (formData.firma && sigCanvas.current) {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = sigCanvas.current?.getCanvas();
+        if (canvas) {
+          const ctx = canvas.getContext('2d');
+          if (ctx) {
+            setTimeout(() => {
+              ctx.drawImage(img, 0, 0, canvas.offsetWidth, canvas.offsetHeight);
+              firmaDataRef.current = formData.firma ?? null;
+              setFirmaCapturada(true);
+            }, 300);
           }
-          sigCanvas.current.clear();
         }
-      }
-    };
-
-    // Pequeño delay para asegurar que el DOM esté listo y el modal desplegado
-    const timeout = setTimeout(resizeCanvas, 200);
-    window.addEventListener("resize", resizeCanvas);
-    
-    return () => {
-      clearTimeout(timeout);
-      window.removeEventListener("resize", resizeCanvas);
-    };
-  }, [formData.firma, setFormData]);
+      };
+      img.src = formData.firma;
+    }
+  }, []); // Solo al montar
 
   // Determinar quién firma
   const nombreFirmante = isAdult 
@@ -65,17 +51,22 @@ export default function Step18_FirmaDigital({ formData, setFormData, perfil, apo
 
   const clear = () => {
     sigCanvas.current?.clear();
-    setFormData({ ...formData, firma: null });
+    firmaDataRef.current = null;
+    setFirmaCapturada(false);
+    setFormData({ ...formData, firma: null } as any);
   };
 
-  const save = () => {
+  // Capturar firma manualmente con botón — verifica el canvas en el momento del click
+  const confirmarFirma = useCallback(() => {
     if (sigCanvas.current && !sigCanvas.current.isEmpty()) {
-      const dataURL = sigCanvas.current.getTrimmedCanvas().toDataURL('image/png');
-      setFormData({ ...formData, firma: dataURL });
+      const canvas = sigCanvas.current.getCanvas();
+      firmaDataRef.current = canvas.toDataURL('image/png');
+      setFormData({ ...formData, firma: firmaDataRef.current ?? null } as any);
+      setFirmaCapturada(true);
     }
-  };
+  }, [setFormData]);
 
-  const Field = ({ label, info, children }: any) => {
+  const Field = ({ label, info, children }: { label: string; info: string; children: React.ReactNode }) => {
     return (
       <div className="space-y-1">
         <div className="flex items-center gap-2 mb-1">
@@ -123,14 +114,14 @@ export default function Step18_FirmaDigital({ formData, setFormData, perfil, apo
               penColor='#1b1b1b'
               minWidth={2.0}
               maxWidth={4.0}
+              clearOnResize={false}
               canvasProps={{
                 className: 'signature-canvas w-full h-[250px] cursor-crosshair'
               }}
-              onEnd={save}
             />
           </div>
           
-          <div className="flex justify-between items-center mt-4 px-2">
+          <div className="flex flex-wrap justify-between items-center gap-3 mt-4 px-2">
             <button 
               type="button"
               onClick={clear}
@@ -138,13 +129,19 @@ export default function Step18_FirmaDigital({ formData, setFormData, perfil, apo
             >
               ✕ Borrar Firma
             </button>
-            
-            {formData.firma && (
-              <span className="text-green-600 text-[0.8em] font-black uppercase flex items-center gap-2 animate-pulse">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                Firma Capturada
-              </span>
-            )}
+
+            <button 
+              type="button"
+              onClick={confirmarFirma}
+              disabled={firmaCapturada}
+              className={`px-6 py-2 text-[0.8em] font-black uppercase rounded-xl transition-all border-2 ${
+                !firmaCapturada
+                  ? 'bg-clr7 text-white border-clr7 hover:brightness-110 active:scale-95 shadow-lg'
+                  : 'bg-green-100 text-green-700 border-green-300 cursor-default'
+              }`}
+            >
+              {firmaCapturada ? '✓ Firma Confirmada' : '✍ Confirmar Firma'}
+            </button>
           </div>
         </div>
       </Field>

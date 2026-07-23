@@ -38,8 +38,8 @@ export default function LoginPage() {
 
       if (authError) throw authError
 
-      window.location.href = '/dashboard' 
-    } catch (e: any) {
+      window.location.href = '/panel' 
+    } catch (e: unknown) {
       setError('Credenciales inválidas. Verifica tu RUT y contraseña.')
     } finally {
       setLoading(false)
@@ -70,10 +70,10 @@ export default function LoginPage() {
                 type="text" 
                 {...register('rut')} 
                 placeholder="12345678-9"
-                onInput={(e: any) => {
-                  let v = e.target.value.toUpperCase().replace(/[^0-9K]/g, ''); 
+                onInput={(e: React.FormEvent<HTMLInputElement>) => {
+                  let v = e.currentTarget.value.toUpperCase().replace(/[^0-9K]/g, ''); 
                   if (v.length > 1) v = v.slice(0, -1) + '-' + v.slice(-1); 
-                  e.target.value = v;
+                  e.currentTarget.value = v;
                 }}
                 className="w-full bg-zinc-50 dark:bg-black/20 border-2 border-transparent focus:border-clr7 rounded-2xl p-4 text-clr4 dark:text-clr1 outline-none transition-all font-bold text-lg text-center tracking-widest shadow-inner" 
               />

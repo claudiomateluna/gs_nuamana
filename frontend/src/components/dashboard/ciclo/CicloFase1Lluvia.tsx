@@ -1,9 +1,11 @@
 'use client'
 
+import type { Perfil, CicloUnidad, CicloPropuesta } from '@/types'
+
 interface CicloFase1LluviaProps {
-  perfil: any
-  cicloActivo: any
-  propuestas: any[]
+  perfil: Perfil
+  cicloActivo: CicloUnidad
+  propuestas: CicloPropuesta[]
   readOnlyOverride: boolean
   canManage: boolean
   unitColor: string
@@ -58,7 +60,7 @@ export default function CicloFase1Lluvia({
             {(cicloActivo?.unidades?.logo_unidad_url || perfil.unidades?.logo_unidad_url) && (
               <div className="absolute -right-4 -bottom-4 opacity-[0.03] pointer-events-none">
                 <img 
-                  src={cicloActivo?.unidades?.logo_unidad_url || perfil.unidades?.logo_unidad_url} 
+                  src={(cicloActivo?.unidades?.logo_unidad_url || perfil.unidades?.logo_unidad_url) ?? undefined} 
                   alt="" 
                   className="w-24 h-24 object-contain grayscale" 
                 />

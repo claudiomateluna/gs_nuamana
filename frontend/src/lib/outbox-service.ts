@@ -1,11 +1,54 @@
 import { db } from './db'
 
+interface ActaPayload {
+  tipo: string;
+  fecha: string;
+  [key: string]: unknown;
+}
+
+interface Tema {
+  titulo?: string;
+  descripcion?: string;
+  conclusiones?: string;
+  duracion_estimada?: string;
+  duracion_real?: string;
+}
+
+interface Participante {
+  perfil_id: string;
+  rol_en_reunion?: string;
+  asistencia?: string;
+}
+
+interface Acuerdo {
+  titulo: string;
+  descripcion?: string;
+  responsable_id?: string | null;
+  fecha_compromiso?: string | null;
+  prioridad?: string;
+  estado?: string;
+  es_actividad_grupal?: boolean;
+  fichas_vinculadas?: string[];
+}
+
+interface ActaCompletoPayload {
+  payload: ActaPayload;
+  temas: Tema[];
+  participantes: Participante[];
+  acuerdos: Acuerdo[];
+}
+
+interface SupabaseError {
+  message: string;
+  status?: number;
+}
+
 export const outboxService = {
   /**
    * Encola una acción de escritura localmente en IndexedDB.
    * Si está online, intenta vaciar la cola de inmediato.
    */
-  async enqueue(tabla: string, accion: string, payload: any) {
+  async enqueue(tabla: string, accion: string, payload: Record<string, unknown>) {
     await db.outbox_queue.add({
       tabla,
       accion,
@@ -29,7 +72,6 @@ export const outboxService = {
     const items = await db.outbox_queue.orderBy('timestamp').toArray()
     if (items.length === 0) return
 
-    console.log(`🔄 Procesando cola de envío local (${items.length} elementos)...`)
     const { supabase } = await import('./supabase')
 
     // Verificar sesión antes de iniciar
@@ -41,7 +83,7 @@ export const outboxService = {
 
     for (const item of items) {
       try {
-        let error: any = null
+        let error: SupabaseError | null = null
 
         if (item.tabla === 'progresion_avance') {
           if (item.accion === 'UPSERT') {
@@ -69,9 +111,18 @@ export const outboxService = {
               .eq('id', item.payload.id)
             error = err
           }
+        } else if (item.tabla === 'ciclo_propuestas') {
+          if (item.accion === 'UPDATE') {
+            const { id, ...updates } = item.payload as { id: string; [key: string]: unknown }
+            const { error: err } = await supabase
+              .from('ciclo_propuestas')
+              .update(updates)
+              .eq('id', id)
+            error = err
+          }
         } else if (item.tabla === 'actas_completo') {
           if (item.accion === 'INSERT') {
-            const { payload: actPayload, temas, participantes, acuerdos } = item.payload;
+            const { payload: actPayload, temas, participantes, acuerdos } = item.payload as any;
             const codigo = `ACT-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
             
             // 1. Insertar acta
@@ -87,13 +138,13 @@ export const outboxService = {
               const newActaId = newActa.id;
               
               // 2. Insertar temas
-              const temasParaGuardar = temas.map((t: any, i: number) => ({
+              const temasParaGuardar = temas.map((t: Tema, i: number) => ({
                 acta_id: newActaId,
                 titulo: t.titulo?.trim() || 'Sin título',
                 descripcion: t.descripcion || '',
                 conclusiones: t.conclusiones || '',
-                duracion_estimada: parseInt(t.duracion_estimada) || 0,
-                duracion_real: parseInt(t.duracion_real) || 0,
+                duracion_estimada: parseInt(t.duracion_estimada || '0') || 0,
+                duracion_real: parseInt(t.duracion_real || '0') || 0,
                 orden: i
               }));
               if (temasParaGuardar.length > 0) {
@@ -102,7 +153,7 @@ export const outboxService = {
               }
               
               // 3. Insertar participantes
-              const partParaGuardar = participantes.map((p: any) => ({
+              const partParaGuardar = participantes.map((p: Participante) => ({
                 acta_id: newActaId,
                 perfil_id: p.perfil_id,
                 rol_en_reunion: p.rol_en_reunion || 'Asistente',
@@ -114,9 +165,9 @@ export const outboxService = {
               }
               
               // 4. Crear los casilleros de firma
-              const invitadosObligatorios = participantes.filter((p: any) => p.asistencia !== 'No Invitado');
+              const invitadosObligatorios = participantes.filter((p: Participante) => p.asistencia !== 'No Invitado');
               if (!error && invitadosObligatorios.length > 0) {
-                const firmasParaGuardar = invitadosObligatorios.map((p: any) => ({
+                const firmasParaGuardar = invitadosObligatorios.map((p: Participante) => ({
                   acta_id: newActaId,
                   perfil_id: p.perfil_id,
                   firmado: false
@@ -126,7 +177,7 @@ export const outboxService = {
               }
               
               // 5. Insertar acuerdos
-              const acToIns = acuerdos.map((a: any) => ({
+              const acToIns = acuerdos.map((a: Acuerdo) => ({
                 acta_id: newActaId,
                 titulo: a.titulo.trim(),
                 descripcion: a.descripcion || '',
@@ -136,19 +187,36 @@ export const outboxService = {
                 estado: a.estado || 'Abierta',
                 es_actividad_grupal: !!a.es_actividad_grupal
               }));
+              let insertedAcuerdos: Array<{ id: string }> = [];
               if (!error && acToIns.length > 0) {
-                const { error: acErr } = await supabase.from('acta_acuerdos').insert(acToIns);
+                const { data: insAc, error: acErr } = await supabase.from('acta_acuerdos').insert(acToIns).select('id');
                 if (acErr) error = acErr;
+                else insertedAcuerdos = insAc || [];
+              }
+
+              // 5b. Insertar links de fichas para acuerdos grupales
+              if (!error && insertedAcuerdos.length > 0) {
+                for (let ai = 0; ai < acuerdos.length; ai++) {
+                  const acuerdo = acuerdos[ai];
+                  if (acuerdo.fichas_vinculadas && acuerdo.fichas_vinculadas.length > 0 && insertedAcuerdos[ai]) {
+                    const links = acuerdo.fichas_vinculadas.map((fichaId: string) => ({
+                      acuerdo_id: insertedAcuerdos[ai].id,
+                      articulo_id: fichaId
+                    }));
+                    const { error: fErr } = await supabase.from('acta_acuerdo_fichas').insert(links);
+                    if (fErr) console.warn('Error inserting ficha links:', fErr);
+                  }
+                }
               }
               
               // 6. Insertar notificaciones
               if (!error && invitadosObligatorios.length > 0) {
                 const msg = `Se ha creado el acta (${actPayload.tipo}) del ${actPayload.fecha}. Revisa y firma en el panel.`;
-                const notifs = invitadosObligatorios.map((p: any) => ({
+                const notifs = invitadosObligatorios.map((p: Participante) => ({
                   perfil_id: p.perfil_id,
                   mensaje: msg,
                   tipo: 'sistema',
-                  link_url: '/dashboard'
+                  link_url: '/panel'
                 }));
                 const { error: notifErr } = await supabase.from('notificaciones').insert(notifs);
                 if (notifErr) {
@@ -157,16 +225,24 @@ export const outboxService = {
               }
             }
           }
+        } else {
+          // Tabla no soportada — eliminar de la cola para evitar loop infinito
+          console.warn(`⚠️ Outbox item #${item.id}: tabla "${item.tabla}" no soportada. Eliminando.`)
+          await db.outbox_queue.delete(item.id!)
+          continue
         }
 
         if (error) {
-          console.error(`❌ Error procesando outbox item #${item.id}:`, error)
+          const errorMsg = (error && typeof error === 'object' && 'message' in error) 
+            ? (error as { message: string }).message 
+            : String(error)
+          console.error(`❌ Error procesando outbox item #${item.id} (${item.tabla}/${item.accion}):`, errorMsg)
           // Si es un fallo de red o del servidor remoto, detenemos el procesamiento para reintentar más tarde
           if (
             error.message?.includes('Fetch') || 
             error.status === 0 || 
             error.message?.includes('Network') ||
-            error.status >= 500
+            (error.status !== undefined && error.status >= 500)
           ) {
             break
           }
@@ -185,10 +261,9 @@ export const outboxService = {
         } else {
           // Éxito completo: eliminar de la cola local
           await db.outbox_queue.delete(item.id!)
-          console.log(`✅ Outbox item #${item.id} sincronizado con éxito.`)
         }
-      } catch (e: any) {
-        console.error('💥 Excepción procesando elemento de outbox:', e)
+      } catch (e) {
+        console.error('💥 Excepción procesando elemento de outbox:', e instanceof Error ? e.message : e)
         break // Detener por seguridad
       }
     }
@@ -202,7 +277,6 @@ export const outboxService = {
 
     // Registrar listener de vuelta de conexión
     window.addEventListener('online', () => {
-      console.log('📶 Conexión restablecida. Procesando cola de envío...')
       this.processQueue()
     })
   }

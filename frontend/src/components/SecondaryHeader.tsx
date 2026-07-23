@@ -104,7 +104,7 @@ const SecondaryHeader = () => {
     if (user) fetchNotifications(user.id);
   };
 
-  const handleNotifClick = async (notif: any) => {
+  const handleNotifClick = async (notif: { id: string; leido: boolean; link_url?: string }) => {
     if (!notif.leido) {
       await supabase.from('notificaciones').update({ leido: true }).eq('id', notif.id);
       if (user) fetchNotifications(user.id);
@@ -190,7 +190,7 @@ const SecondaryHeader = () => {
               )}
 
               {user ? (
-                <Link href="/dashboard" className="hidden sm:flex items-center gap-2 text-clr5 dark:text-clr8 font-black uppercase text-[0.8em] tracking-widest hover:text-clr7 transition-colors">
+                <Link href="/panel" className="hidden sm:flex items-center gap-2 text-clr5 dark:text-clr8 font-black uppercase text-[0.8em] tracking-widest hover:text-clr7 transition-colors">
                   <div className="w-6 h-6 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_panel.svg)', maskImage: 'url(/images/iconos/icono_panel.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
                   <span>Mi Panel</span>
                 </Link>

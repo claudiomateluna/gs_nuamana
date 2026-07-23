@@ -275,9 +275,10 @@ export const syncService = {
         console.warn('Error al escribir fecha de sincronización en localStorage:', e);
       }
 
-    } catch (error: any) {
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : String(error);
       console.error('Error durante la sincronización offline:', error);
-      reportProgress(-1, `Error en la sincronización: ${error.message || error}`);
+      reportProgress(-1, `Error en la sincronización: ${message}`);
       throw error;
     }
   }

@@ -1,10 +1,6 @@
 'use client'
 
-interface StepProps {
-  formData: any
-  setFormData: (data: any) => void
-  perfil: any
-}
+import type { StepProps } from '@/types/autorizacion'
 
 export default function Step5_AlergiasIntolerancias({ formData, setFormData, perfil }: StepProps) {
   const titleStyle = "text-[1.2em] font-black text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8 border-b-2 border-clr7 pb-2";
@@ -30,7 +26,7 @@ export default function Step5_AlergiasIntolerancias({ formData, setFormData, per
     setFormData({ ...formData, dieta_alimentaria: newList });
   };
 
-  const FieldInfo = ({ label, info }: any) => (
+  const FieldInfo = ({ label, info }: { label: string; info: string }) => (
     <div className={labelContainerStyle}>
       <label className={labelStyle}>{label}</label>
       <div className="group">

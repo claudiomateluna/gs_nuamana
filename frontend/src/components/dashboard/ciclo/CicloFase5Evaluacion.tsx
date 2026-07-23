@@ -3,27 +3,37 @@
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
 import { getObjetivoTerm } from '@/lib/progression-utils'
-import RadarProgresion from '../radar_progresion'
+import RadarProgresion from '../progresion/radar_progresion'
+import type { Perfil, CicloUnidad, CicloPropuesta, ObjetivoMetadata } from '@/types'
+
+/** Parsea fecha "YYYY-MM-DD" como hora local (evita desfase de timezone) */
+function parseLocalDate(dateStr: string | null | undefined): Date | null {
+  if (!dateStr || typeof dateStr !== 'string') return null
+  const parts = dateStr.split('-')
+  if (parts.length < 3) return null
+  const [y, m, d] = parts.map(Number)
+  return new Date(y, m - 1, d)
+}
 
 interface CicloFase5EvaluacionProps {
-  perfil: any
-  cicloActivo: any
-  propuestas: any[]
-  votos: any[]
-  objetivosTrabajados: any[]
+  perfil: Perfil
+  cicloActivo: CicloUnidad
+  propuestas: CicloPropuesta[]
+  votos: Array<{ propuesta_id: string; perfil_id: string; cantidad: number }>
+  objetivosTrabajados: ObjetivoMetadata[]
   unitColor: string
   canManage: boolean
   isDirectivo: boolean
   readOnlyOverride: boolean
-  actividadesAsistidas: any[]
-  nnjEvaluables: any[]
+  actividadesAsistidas: CicloPropuesta[]
+  nnjEvaluables: Array<{ id: string; nombres: string; apellidos: string; unidad_id?: number | null; actividades: CicloPropuesta[] }>
   evaluacionGeneral: string
   setEvaluacionGeneral: (val: string) => void
   evaluacionEnfasis: string
   setEvaluacionEnfasis: (val: string) => void
-  setSelectedPropuesta: (prop: any) => void
+  setSelectedPropuesta: (prop: CicloPropuesta | null) => void
   setIsModEvalNNJOpen: (open: boolean) => void
-  setSelectedNNJ: (nnj: any) => void
+  setSelectedNNJ: (nnj: { id: string; nombres: string; apellidos: string; unidad_id?: number | null; actividades: CicloPropuesta[] } | null) => void
   setIsModRadarOpen: (open: boolean) => void
   cerrarCiclo: () => void
   guardarEvaluacion: () => void
@@ -71,7 +81,7 @@ export default function CicloFase5Evaluacion({
               <div key={act.id} className="p-2 bg-white dark:bg-black/20 rounded-[1rem] border-2 border-zinc-100 dark:border-clr4 flex items-center justify-between gap-4 group hover:border-clr7 transition-all">
                 <div className="flex-1">
                   <span className="text-[0.8em] font-black uppercase opacity-40 tracking-widest leading-none block mb-[-4px]">
-                    {format(new Date(act.fecha_programada), 'dd MMMM', { locale: es })}
+                    {act.fecha_programada && parseLocalDate(act.fecha_programada) && format(parseLocalDate(act.fecha_programada)!, 'dd MMMM', { locale: es })}
                   </span>
                   <h4 className="font-bold uppercase text-clr5 dark:text-clr1 line-clamp-1">{act.titulo}</h4>
                 </div>
@@ -83,7 +93,7 @@ export default function CicloFase5Evaluacion({
                     }}
                     className="px-2 py-1 bg-zinc-900 text-white text-[0.8em] font-black uppercase rounded-[0.6rem] shadow-lg hover:scale-105 active:scale-95 transition-all tracking-widest border-none"
                   >
-                    Evaluar {getObjetivoTerm(perfil.unidad_id)}s
+                    Evaluar {getObjetivoTerm(perfil.unidad_id ?? 1)}s
                   </button>
                 )}
               </div>
@@ -122,7 +132,7 @@ export default function CicloFase5Evaluacion({
                 <div className="space-y-2">
                   <p className="text-[0.9em] font-bold uppercase opacity-40 tracking-widest">Evaluar actividades:</p>
                   <div className="flex flex-wrap gap-2">
-                    {nnj.actividades.map((act: any) => (
+                    {nnj.actividades.map((act: CicloPropuesta) => (
                       <button 
                         key={act.id}
                         type="button"
@@ -310,19 +320,19 @@ export default function CicloFase5Evaluacion({
           {objetivosTrabajados.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar">
               {Object.entries(
-                objetivosTrabajados.reduce((acc: any, obj: any) => {
+                objetivosTrabajados.reduce((acc: Record<string, ObjetivoMetadata[]>, obj: ObjetivoMetadata) => {
                   if (!acc[obj.area]) acc[obj.area] = []
                   acc[obj.area].push(obj)
                   return acc
                 }, {})
-              ).map(([area, objs]: [string, any]) => (
+              ).map(([area, objs]: [string, ObjetivoMetadata[]]) => (
                 <div key={area} className="p-2 rounded-[1rem] bg-white dark:bg-black/20 border-2 border-zinc-100 dark:border-clr4 shadow-sm space-y-4 font-body">
                   <div className="flex justify-between items-center border-b border-zinc-50 dark:border-clr4 pb-2">
                     <span className="text-sm font-black uppercase tracking-widest" style={{ color: unitColor }}>{area}</span>
                     <span className="w-10 h-10 rounded-full bg-zinc-100 dark:bg-clr4 flex items-center justify-center text-sm font-black">{objs.length}</span>
                   </div>
                   <div className="space-y-3">
-                    {Array.from(new Set(objs.map((o: any) => o.texto))).map((textoStr: any, idx) => (
+                    {Array.from(new Set(objs.map((o: ObjetivoMetadata) => o.texto))).map((textoStr: string, idx) => (
                       <p key={idx} className="text-[1em] leading-relaxed flex gap-2">
                         <span className="mt-0.5" style={{ color: unitColor }}>•</span> {textoStr}
                       </p>

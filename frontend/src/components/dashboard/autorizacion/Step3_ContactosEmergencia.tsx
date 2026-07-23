@@ -2,12 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
-
-interface StepProps {
-  formData: any
-  setFormData: (data: any) => void
-  perfil: any
-}
+import type { StepProps } from '@/types/autorizacion'
 
 export default function Step3_ContactosEmergencia({ formData, setFormData, perfil }: StepProps) {
   const [loading, setLoading] = useState(true)
@@ -59,12 +54,12 @@ export default function Step3_ContactosEmergencia({ formData, setFormData, perfi
   }, [])
 
   const addContact = () => {
-    const newList = [...(formData.contactos_emergencia || []), { nombre: '', relacion: 'No Aplica', telefono: '' }]
+    const newList = [...(formData.contactos_emergencia ?? []), { nombre: '', relacion: 'No Aplica', telefono: '' }]
     setFormData({ ...formData, contactos_emergencia: newList })
   }
 
   const updateContact = (index: number, field: string, value: string) => {
-    const newList = [...formData.contactos_emergencia]
+    const newList = [...(formData.contactos_emergencia ?? [])]
     if (field === 'telefono') {
       newList[index] = { ...newList[index], [field]: aplicarMascaraTelefono(value) }
     } else {
@@ -74,11 +69,11 @@ export default function Step3_ContactosEmergencia({ formData, setFormData, perfi
   }
 
   const removeContact = (index: number) => {
-    const newList = formData.contactos_emergencia.filter((_: any, i: number) => i !== index)
+    const newList = (formData.contactos_emergencia ?? []).filter((_, i) => i !== index)
     setFormData({ ...formData, contactos_emergencia: newList })
   }
 
-  const FieldInfo = ({ label, info }: any) => (
+  const FieldInfo = ({ label, info }: { label: string; info: string }) => (
     <div className={labelContainerStyle}>
       <label className={labelStyle}>{label}</label>
       <div className="group">
@@ -103,7 +98,7 @@ export default function Step3_ContactosEmergencia({ formData, setFormData, perfi
         <div className="py-20 text-center animate-pulse text-clr2 font-black uppercase text-[1em] tracking-widest">Cargando contactos...</div>
       ) : (
         <div className="space-y-2">
-          {(formData.contactos_emergencia || []).map((c: any, i: number) => (
+          {(formData.contactos_emergencia || []).map((c, i) => (
             <div key={i} className="p-4 bg-zinc-50 dark:bg-clr4 rounded-[1em] border border-clr10 dark:border-clr4 space-y-4 relative shadow-sm">
               <div className="flex justify-between items-center border-b border-clr10 dark:border-clr5 pb-2 mb-4">
                 <span className="text-[0.8em] font-black uppercase tracking-[0.2em] text-clr7">Contacto #{i + 1}</span>

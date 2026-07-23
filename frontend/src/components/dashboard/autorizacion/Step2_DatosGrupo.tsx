@@ -1,10 +1,7 @@
 'use client'
 
-interface StepProps {
-  formData: any
-  setFormData: (data: any) => void
-  perfil: any
-}
+import DOMPurify from 'dompurify'
+import type { StepProps } from '@/types/autorizacion'
 
 export default function Step2_DatosGrupo({ formData, setFormData, perfil }: StepProps) {
   const unidadesMap: Record<number, string> = { 1: 'Manada', 2: 'Compañía', 3: 'Tropa', 4: 'Avanzada', 5: 'Clan' };
@@ -31,9 +28,9 @@ export default function Step2_DatosGrupo({ formData, setFormData, perfil }: Step
     'Santiago Sur': ['La Cisterna', 'La Granja', 'Pedro Aguirre Cerda', 'San Joaquín', 'San Miguel', 'Santa Rosa']
   };
 
-  const currentZona = formData.zona || perfil.zona || 'La Florida';
+  const currentZona = formData.zona || perfil.zona || 'Santiago Sur';
 
-  const Field = ({ label, info, children, fullWidth = false }: any) => {
+  const Field = ({ label, info, children, fullWidth = false }: { label: string; info: string; children: React.ReactNode; fullWidth?: boolean }) => {
     return (
       <div className={`space-y-1 ${fullWidth ? 'md:col-span-2' : ''}`}>
         <div className={labelContainerStyle}>
@@ -46,7 +43,7 @@ export default function Step2_DatosGrupo({ formData, setFormData, perfil }: Step
             </div>
             <div className={tooltipStyle}>
               <div className="text-clr7 font-black uppercase text-[0.8em] tracking-tight mb-3 border-b border-clr7/30 pb-2 leading-tight">{label}</div>
-              <div className="text-[0.95em]" dangerouslySetInnerHTML={{ __html: info }} />
+              <div className="text-[0.95em]" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(info) }} />
             </div>
           </div>
         </div>
@@ -76,18 +73,18 @@ export default function Step2_DatosGrupo({ formData, setFormData, perfil }: Step
         </Field>
 
         <Field label="¿A que unidad perteneces?" info="Seleccione la unidad a la que pertenece la niña, niño o joven de acuerdo a la edad del mismo (si es adulto seleccione su unidad)<br></br><br></br><b>Manada</b> – niños y niñas entre 7 y 11 años (unidad mixta)<br></br><b>Compañía</b> – niñas y jóvenes mujeres entre 11 y 15 años (unidad femenina)<br></br><b>Tropa</b> – niños y jóvenes entre 11 y 15 años (unidad masculina)<br></br><b>Avanzada</b> – jóvenes entre 15 y 17 años (unidad mixta)<br></br><b>Clan</b> – jóvenes entre 17 y 20 años (unidad mixta)<br></br><br></br><span class='font-black text-clr7'>* Estos campos son obligatorios</span>">
-          <select defaultValue={formData.unidad_nombre || unidadesMap[perfil.unidad_id] || 'Manada'} onChange={(e) => setFormData({ ...formData, unidad_nombre: e.target.value })} className={inputStyle}>
+          <select defaultValue={formData.unidad_nombre || (perfil.unidad_id ? unidadesMap[perfil.unidad_id] : undefined) || 'Manada'} onChange={(e) => setFormData({ ...formData, unidad_nombre: e.target.value })} className={inputStyle}>
             {unidades.map(u => <option key={u} value={u}>{u}</option>)}
           </select>
         </Field>
 
-        <Field label="¿En que Zona está tu grupo?" info="Indica la Zona administrativa de la Asociación de Guías y Scouts de Chile a la que pertenece el grupo Guía y Scout que seleccionaste antes, normalmente es 'La Florida'. *Este Dato es Obligatorio">
+        <Field label="¿En que Zona está tu grupo?" info="Indica la Zona administrativa de la Asociación de Guías y Scouts de Chile a la que pertenece el grupo Guía y Scout que seleccionaste antes, normalmente es 'Santiago Sur'.<br/> *Este Dato es Obligatorio">
           <select defaultValue={currentZona} onChange={(e) => setFormData({ ...formData, zona: e.target.value, distrito: zonasDistritos[e.target.value][0] })} className={inputStyle}>
             {Object.keys(zonasDistritos).map(z => <option key={z} value={z}>{z}</option>)}
           </select>
         </Field>
 
-        <Field fullWidth label="¿En que Distrito se encuentra tu grupo Guía y Scout?" info="Indica el Distrito administrativo de la Asociación de Guías y Scouts de Chile a la que pertenece el grupo Guía y Scout que seleccionaste antes, normalmente es 'Mapurayen'. *Este Dato es Obligatorio">
+        <Field fullWidth label="¿En que Distrito se encuentra tu grupo Guía y Scout?" info="Indica el Distrito administrativo de la Asociación de Guías y Scouts de Chile a la que pertenece el grupo Guía y Scout que seleccionaste antes, normalmente es 'La Granja'. *Este Dato es Obligatorio">
           <select value={formData.distrito || perfil.distrito || zonasDistritos[currentZona][0]} onChange={(e) => setFormData({ ...formData, distrito: e.target.value })} className={inputStyle}>
             {zonasDistritos[currentZona]?.map(d => <option key={d} value={d}>{d}</option>)}
           </select>

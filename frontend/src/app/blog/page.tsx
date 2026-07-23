@@ -33,7 +33,7 @@ function BlogContent() {
   const objEdFilter = searchParams.get('obj_ed') || ''
 
   const observer = useRef<IntersectionObserver | null>(null)
-  const lastPostRef = useCallback((node: any) => {
+  const lastPostRef = useCallback((node: Element | null) => {
     if (loading) return
     if (observer.current) observer.current.disconnect()
     observer.current = new IntersectionObserver(entries => {
@@ -86,7 +86,10 @@ function BlogContent() {
     if (metaKey && metaValue) {
       // Algunos metadatos son arreglos (objetivos, lugares) y otros son strings (duracion, cantidad)
       // Usamos una consulta combinada: intentamos filtrar como string exacto O como elemento de arreglo
-      query = query.or(`metadata->>${metaKey}.eq."${metaValue}",metadata->${metaKey}.cs.["${metaValue}"]`)
+      query = query.or([
+        `metadata->>${metaKey}.eq."${metaValue}"`,
+        `metadata->${metaKey}.cs.["${metaValue}"]`
+      ].join(','))
     }
     
     if (tagFilter) query = query.contains('etiquetas', [tagFilter])
@@ -98,7 +101,7 @@ function BlogContent() {
 
     if (data) {
       const processed = data.map(post => {
-        const linkedCats = post.articulo_categorias?.map((ac: any) => ac.categorias).filter(Boolean) || []
+        const linkedCats = post.articulo_categorias?.map((ac: { categorias?: unknown }) => ac.categorias).filter(Boolean) || []
         // Encontrar la categoría más profunda para construir el breadcrumb
         const sortedCats = [...linkedCats].sort((a, b) => buildCatPathSlugs(b.id).length - buildCatPathSlugs(a.id).length)
         const mainCat = sortedCats[0]
@@ -155,7 +158,7 @@ function BlogContent() {
           <input 
             type="text" placeholder="🔍 Buscar..." 
             className="p-2 rounded-2xl border bg-zinc-50 dark:bg-clr4 text-[1em] focus:outline-clr7 transition-colors border-clr10 dark:border-dclr4 font-bold"
-            defaultValue={search} onKeyDown={(e: any) => e.key === 'Enter' && updateURL('q', e.target.value)}
+            defaultValue={search} onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => e.key === 'Enter' && updateURL('q', e.currentTarget.value)}
           />
           <select className="p-2 rounded-2xl border bg-zinc-50 dark:bg-clr4 text-[0.8em] focus:outline-clr7 transition-colors border-clr10 dark:border-dclr4 font-bold" value={selCat} onChange={(e) => updateURL('category', e.target.value)}>
             <option value="todas">Todas las Categorías</option>

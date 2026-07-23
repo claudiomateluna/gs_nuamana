@@ -2,18 +2,28 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import webpush from 'web-push';
 
-// Configurar claves VAPID por defecto
-// Estas claves sirven para firmar los payloads y autenticarnos ante FCM/APNs
-const VAPID_PUBLIC_KEY = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY || 'BHAnBwEN1pUusDJR5xRNFMh9M5JCH6sGEUp0cd1ztwAjezxhRO3o0Igs1FhUI_k4R_r6BJhj4dqHTmfrV2zGXuQ';
-const VAPID_PRIVATE_KEY = process.env.VAPID_PRIVATE_KEY || 'luijpVvAnqLbCHT_RRDDii49d_XVszq6RTj_XsKPuZk';
-const WEBHOOK_SECRET = process.env.PUSH_WEBHOOK_SECRET || 'nua-mana-secret-push-token-2026';
+const VAPID_PUBLIC_KEY = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY;
+const VAPID_PRIVATE_KEY = process.env.VAPID_PRIVATE_KEY;
+const WEBHOOK_SECRET = process.env.PUSH_WEBHOOK_SECRET;
 
-// Configurar los detalles de VAPID
-webpush.setVapidDetails(
-  'mailto:contacto@nuamana.cl',
-  VAPID_PUBLIC_KEY,
-  VAPID_PRIVATE_KEY
-);
+if (!VAPID_PUBLIC_KEY || !VAPID_PRIVATE_KEY || !WEBHOOK_SECRET) {
+  console.error('Missing required environment variables: NEXT_PUBLIC_VAPID_PUBLIC_KEY, VAPID_PRIVATE_KEY, PUSH_WEBHOOK_SECRET');
+}
+
+let vapidConfigured = false;
+
+function ensureVapidConfigured() {
+  if (vapidConfigured) return;
+  if (!VAPID_PUBLIC_KEY || !VAPID_PRIVATE_KEY) {
+    throw new Error('VAPID keys not configured. Set NEXT_PUBLIC_VAPID_PUBLIC_KEY and VAPID_PRIVATE_KEY.');
+  }
+  webpush.setVapidDetails(
+    'mailto:contacto@nuamana.cl',
+    VAPID_PUBLIC_KEY,
+    VAPID_PRIVATE_KEY
+  );
+  vapidConfigured = true;
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -63,6 +73,8 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ success: true, message: 'El usuario no tiene dispositivos suscritos' }, { status: 200 });
     }
 
+    ensureVapidConfigured();
+
     // Payload de la notificación
     const payload = JSON.stringify({
       title: titulo,
@@ -82,12 +94,12 @@ export async function POST(request: NextRequest) {
         };
 
         await webpush.sendNotification(pushSubscription, payload);
-      } catch (err: any) {
+      } catch (err: unknown) {
         console.error(`Error enviando notificación a la suscripción ${sub.id}:`, err);
         // Si el servidor de notificaciones (Google/Mozilla/Apple) devuelve 410 (Gone) o 404 (Not Found),
         // significa que el token expiró o la app fue desinstalada. Lo eliminamos para mantener limpia la DB.
-        if (err.statusCode === 410 || err.statusCode === 404) {
-          console.log(`Removiendo suscripción obsoleta/inexistente: ${sub.id}`);
+        const statusCode = err instanceof Error && 'statusCode' in err ? (err as { statusCode: number }).statusCode : null;
+        if (statusCode === 410 || statusCode === 404) {
           await adminClient.from('suscripciones_push').delete().eq('id', sub.id);
         }
       }
@@ -96,8 +108,8 @@ export async function POST(request: NextRequest) {
     await Promise.all(sendPromises);
 
     return NextResponse.json({ success: true, sent_count: subs.length });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error procesando webhook de notificaciones push:', error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ error: 'Error interno del servidor' }, { status: 500 });
   }
 }

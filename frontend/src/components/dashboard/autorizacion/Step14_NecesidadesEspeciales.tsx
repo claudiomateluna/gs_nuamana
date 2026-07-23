@@ -1,10 +1,7 @@
 'use client'
 
-interface StepProps {
-  formData: any
-  setFormData: (data: any) => void
-  perfil: any
-}
+import DOMPurify from 'dompurify'
+import type { StepProps } from '@/types/autorizacion'
 
 export default function Step14_NecesidadesEspeciales({ formData, setFormData, perfil }: StepProps) {
   const titleStyle = "text-[1.2em] font-black text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8 border-b-2 border-clr7 pb-2";
@@ -16,7 +13,7 @@ export default function Step14_NecesidadesEspeciales({ formData, setFormData, pe
   const infoIconStyle = "text-clr7 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
   const tooltipStyle = "fixed z-[300] left-1/2 -translate-x-1/2 top-1/4 w-[90%] max-w-lg p-6 bg-zinc-800 dark:bg-zinc-900 text-white text-[1em] font-medium leading-relaxed rounded-[2rem] shadow-2xl opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 border-2 border-clr7/50 backdrop-blur-md";
 
-  const FieldInfo = ({ label, info }: any) => (
+  const FieldInfo = ({ label, info }: { label: string; info: string }) => (
     <div className={labelContainerStyle}>
       <label className={labelStyle}>{label}</label>
       <div className="group">
@@ -27,7 +24,7 @@ export default function Step14_NecesidadesEspeciales({ formData, setFormData, pe
         </div>
         <div className={tooltipStyle}>
           <div className="text-clr7 font-black uppercase text-[0.8em] tracking-tight mb-3 border-b border-clr7/30 pb-2 leading-tight">{label}</div>
-          <div className="text-[0.95em]" dangerouslySetInnerHTML={{ __html: info }} />
+          <div className="text-[0.95em]" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(info) }} />
         </div>
       </div>
     </div>

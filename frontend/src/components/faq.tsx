@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { IconoChevronUp, IconoChevronDown } from './ui/iconos';
+import DOMPurify from 'dompurify';
 
 const FAQ_DATA = [
   {
@@ -62,7 +63,7 @@ const FAQItem = ({ question, answer, isOpen, toggleOpen, image }: {
             </div>
             <div
               className="text-clr4/80 dark:text-clr2 flex-grow font-body text-base leading-relaxed"
-              dangerouslySetInnerHTML={{ __html: answer }}
+              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(answer) }}
             />
           </div>
         </div>

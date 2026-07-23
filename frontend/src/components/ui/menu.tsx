@@ -89,7 +89,6 @@ const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
     if (!deferredPrompt) return;
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
-    console.log(`User response to install prompt: ${outcome}`);
     setDeferredPrompt(null);
     setIsInstallable(false);
   };
@@ -246,7 +245,7 @@ const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
               </div>
             )}
             {user ? (
-              <button onClick={() => { router.push('/dashboard'); onClose(); }} className="w-full p-2 bg-clr7 text-white font-black uppercase rounded-2xl shadow-xl hover:brightness-110 transition-all mb-6 flex items-center justify-between gap-2">
+              <button onClick={() => { router.push('/panel'); onClose(); }} className="w-full p-2 bg-clr7 text-white font-black uppercase rounded-2xl shadow-xl hover:brightness-110 transition-all mb-6 flex items-center justify-between gap-2">
                 <div className="w-12 h-12 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_mi_panel.svg)', maskImage: 'url(/images/iconos/icono_mi_panel.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
                  Mi Panel Personal
               </button>

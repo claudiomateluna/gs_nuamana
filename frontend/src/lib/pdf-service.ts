@@ -1,9 +1,126 @@
-import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
+import { PDFDocument, rgb, StandardFonts, type PDFForm, type PDFPage } from 'pdf-lib';
 import { format, parseISO, differenceInYears } from 'date-fns';
+import { toast } from 'sonner';
 
-export async function generateOfficialPDF(auth: any, perfil: any, fichaMedica: any, shouldDownload = true) {
+interface AuthData {
+  tipo_formulario: string;
+  nombre_firmante: string;
+  rut_firmante: string;
+  actividad_nombre: string;
+  fecha_inicio?: string;
+  fecha_fin?: string;
+  lugar?: string;
+  firma_digital_b64?: string;
+}
+
+interface ContactoEmergencia {
+  nombre: string;
+  relacion: string;
+  telefono: string;
+}
+
+interface PerfilData {
+  fecha_nacimiento?: string;
+  nombres: string;
+  apellidos: string;
+  rut?: string;
+  nombre_social?: string;
+  nacionalidad?: string;
+  sexo?: string;
+  unidades?: { nombre: string };
+  zona?: string;
+  distrito?: string;
+  sistema_salud?: string;
+  tipo_sangre?: string;
+  alergias?: string;
+  medicamentos?: string;
+  detalle_sistema_salud?: string;
+  contactos_emergencia?: ContactoEmergencia[];
+}
+
+interface Hospitalizacion {
+  motivo: string;
+  fecha: string;
+}
+
+interface Cirugia {
+  nombre: string;
+  fecha: string;
+}
+
+interface FichaMedicaData {
+  lista_hospitalizaciones?: Hospitalizacion[];
+  lista_cirugias?: Cirugia[];
+  estatura_m?: number;
+  peso_kg?: number;
+  seguro_complementario?: string;
+  intolerancia_alimentaria?: string;
+  otras_cronicas?: string;
+  medicamentos_detalle?: string;
+  salud_mental_diagnostico?: string;
+  salud_mental_medicamentos?: string;
+  salud_mental_profesional?: string;
+  salud_mental_contacto?: string;
+  salud_mental_tratamiento?: string;
+  malestares_recientes?: string;
+  tratamiento_reciente_fecha?: string;
+  tratamiento_reciente?: string;
+  contacto_infecto?: boolean;
+  contacto_infecto_detalle?: string;
+  viajes_extranjero?: string;
+  vacunas_al_dia?: boolean;
+  vacunas_extra?: string;
+  menstruaciones?: boolean;
+  ciclo_regular?: boolean;
+  dismenorrea?: boolean;
+  embarazo?: boolean;
+  embarazo_semana?: string;
+  metodo_anticonceptivo?: string;
+  medicamento_colicos?: string;
+  ultimo_control_dental?: string;
+  tratamiento_dental_detalle?: string;
+  tratamiento_dental_curso?: boolean;
+  necesidades_especiales?: string;
+  diagnostico_relevante_detalle?: string;
+  presenta_diagnostico_relevante?: boolean;
+  intereses_disfrute?: string;
+  situaciones_estres?: string;
+  apoyo_comunicacion?: string;
+  dificultades_sensoriales?: string;
+  ayuda_organizacion?: string;
+  otras_necesidades?: string;
+  estrategias_calma?: string;
+  observaciones_adicionales?: string;
+  diabetes?: boolean;
+  asma?: boolean;
+  hipertension?: boolean;
+  epilepsia?: boolean;
+  enfermedad_renal?: boolean;
+  enfermedad_autoinmune?: boolean;
+  patologia_cardiaca?: boolean;
+  hipo_hipertiroidismo?: boolean;
+  tuberculosis?: boolean;
+  alteraciones_sanguineas?: boolean;
+  dolor_de_cabeza?: boolean;
+  tiene_seguro_complementario?: boolean;
+}
+
+interface EspecialidadDefinicion {
+  nombre: string;
+}
+
+interface EspecialidadData {
+  nombre_personalizado?: string;
+  especialidades_definiciones?: EspecialidadDefinicion;
+  campo_interes?: string;
+  fecha_entrega?: string;
+  firma_monitor_b64?: string;
+  firma_dirigente_b64?: string;
+  fecha_fin?: string;
+}
+
+export async function generateOfficialPDF(auth: AuthData, perfil: PerfilData, fichaMedica: FichaMedicaData | null, shouldDownload = true) {
   try {
-    console.log('--- GENERACIÓN PDF: INICIO COMPLETO ---');
     const isMenor = auth.tipo_formulario === 'Menor de Edad';
     const pdfBaseUrl = isMenor 
       ? '/autorizacion/FichaMedicaAutorizacionesMenoresEdad.pdf' 
@@ -26,13 +143,13 @@ export async function generateOfficialPDF(auth: any, perfil: any, fichaMedica: a
     const hosps = fichaMedica?.lista_hospitalizaciones || [];
     const cirus = fichaMedica?.lista_cirugias || [];
     
-    const fieldMapping: any = {
+    const fieldMapping: Record<string, string> = {
       // PÁGINA 1
       'current_date_p1': fechaActual,
       'nombre_firmante_p1': auth.nombre_firmante,
       'rut_firmante_p1': auth.rut_firmante,
       'nombre_beneficiario_p1': `${perfil.nombres} ${perfil.apellidos}`,
-      'rut_beneficiario_p1': perfil.rut,
+      'rut_beneficiario_p1': perfil.rut ?? '',
       'actividad_nombre_p1': auth.actividad_nombre,
       'actividad_fecha_inicial_p1': auth.fecha_inicio ? format(parseISO(auth.fecha_inicio), 'dd/MM/yyyy') : '',
       'actividad_fecha_final_p1': auth.fecha_fin ? format(parseISO(auth.fecha_fin), 'dd/MM/yyyy') : '',
@@ -54,7 +171,7 @@ export async function generateOfficialPDF(auth: any, perfil: any, fichaMedica: a
       'nombre_social_p2': perfil.nombre_social || '',
       'nacionalidad_p2': perfil.nacionalidad || 'Chilena',
       'sexo_p2': perfil.sexo || '',
-      'rut_p2': perfil.rut,
+      'rut_p2': perfil.rut ?? '',
       'fecha_nac_p2': fechaNac,
       'edad_p2': edad,
       'estatura_p2': String(fichaMedica?.estatura_m || ''),
@@ -124,11 +241,11 @@ export async function generateOfficialPDF(auth: any, perfil: any, fichaMedica: a
       'nombre_firmante_p6': auth.nombre_firmante,
       'rut_firmante_p6': auth.rut_firmante,
       'nombre_beneficiario_p6': `${perfil.nombres} ${perfil.apellidos}`,
-      'rut_beneficiario_p6': perfil.rut,
+      'rut_beneficiario_p6': perfil.rut ?? '',
     };
 
     // --- 2. MAPEÓ DE CHECKBOXES (EXTENDIDO) ---
-    const checkboxMapping: any = {
+    const checkboxMapping: Record<string, boolean | undefined> = {
       'chk_urgencia_si_p1': true,
       'chk_fonasa_p2': perfil.sistema_salud?.toUpperCase() === 'FONASA',
       'chk_isapre_p2': perfil.sistema_salud?.toUpperCase() === 'ISAPRE',
@@ -209,11 +326,10 @@ export async function generateOfficialPDF(auth: any, perfil: any, fichaMedica: a
               const rect = widgets[0].getRectangle();
               let foundPageIdx = -1;
               for (let i = 0; i < pages.length; i++) {
-                const pageAnnots = (pages[i].node as any).dict.get(pdfDoc.context.obj('Annots'));
+                const pageAnnots = (pages[i].node as unknown as PDFNodeInternal).dict.get(pdfDoc.context.obj('Annots'));
                 if (pageAnnots) {
-                  const annotsArray = pdfDoc.context.lookup(pageAnnots);
-                  // @ts-ignore
-                  if ((annotsArray as any).array.some(a => pdfDoc.context.lookup(a) === (widgets[0] as any).dict)) {
+                  const annotsArray = pdfDoc.context.lookup(pageAnnots as never) as unknown as PDFDictInternal;
+                  if (annotsArray.array.some(a => (pdfDoc.context.lookup(a as never) as unknown) === (widgets[0] as unknown as { dict: PDFDictInternal }).dict)) {
                     foundPageIdx = i; break;
                   }
                 }
@@ -242,7 +358,6 @@ export async function generateOfficialPDF(auth: any, perfil: any, fichaMedica: a
     Object.keys(checkboxMapping).forEach(key => {
       try {
         const field = form.getTextField(key);
-        // @ts-ignore
         if (field && checkboxMapping[key]) field.setText('X');
       } catch (e) { }
     });
@@ -250,10 +365,9 @@ export async function generateOfficialPDF(auth: any, perfil: any, fichaMedica: a
     // --- 5. FINALIZAR ---
     form.flatten();
     const pdfBytes = await pdfDoc.save();
-    console.log('PDF GENERADO CON ÉXITO');
 
     if (shouldDownload) {
-      const blob = new Blob([pdfBytes as any], { type: 'application/pdf' });
+      const blob = new Blob([pdfBytes as Uint8Array<ArrayBuffer>], { type: 'application/pdf' });
       const link = document.createElement('a');
       link.href = URL.createObjectURL(blob);
       link.download = `Oficial_NuaMana_${perfil.rut}.pdf`;
@@ -361,7 +475,17 @@ async function svgUrlToPngDataUrl(urls: string[], width = 400, height = 400): Pr
   throw new Error(`All SVG urls failed to load: ${urls.join(', ')}`);
 }
 
-async function drawImageOnField(pdfDoc: any, form: any, pages: any[], fieldName: string, imageBytes: Uint8Array) {
+interface PDFDictInternal {
+  get(key: unknown): unknown;
+  dict: PDFDictInternal;
+  array: unknown[];
+}
+
+interface PDFNodeInternal {
+  dict: PDFDictInternal;
+}
+
+async function drawImageOnField(pdfDoc: PDFDocument, form: PDFForm, pages: PDFPage[], fieldName: string, imageBytes: Uint8Array) {
   try {
     const field = form.getField(fieldName);
     if (!field) return;
@@ -371,11 +495,10 @@ async function drawImageOnField(pdfDoc: any, form: any, pages: any[], fieldName:
     const rect = widgets[0].getRectangle();
     let foundPageIdx = -1;
     for (let i = 0; i < pages.length; i++) {
-      const pageAnnots = (pages[i].node as any).dict.get(pdfDoc.context.obj('Annots'));
+      const pageAnnots = (pages[i].node as unknown as PDFNodeInternal).dict.get(pdfDoc.context.obj('Annots'));
       if (pageAnnots) {
-        const annotsArray = pdfDoc.context.lookup(pageAnnots);
-        // @ts-ignore
-        if ((annotsArray as any).array.some(a => pdfDoc.context.lookup(a) === (widgets[0] as any).dict)) {
+        const annotsArray = pdfDoc.context.lookup(pageAnnots as never) as unknown as PDFDictInternal;
+        if (annotsArray.array.some(a => (pdfDoc.context.lookup(a as never) as unknown) === (widgets[0] as unknown as { dict: PDFDictInternal }).dict)) {
           foundPageIdx = i; break;
         }
       }
@@ -392,20 +515,19 @@ async function drawImageOnField(pdfDoc: any, form: any, pages: any[], fieldName:
   }
 }
 
-export async function generateSpecialtyCertificate(perfil: any, especialidad: any) {
+export async function generateSpecialtyCertificate(perfil: PerfilData, especialidad: EspecialidadData) {
   try {
     // Intentar cargar la plantilla PDF
     const pdfUrl = `/autorizacion/CertificadoEspecialidadTemplate.pdf?v=${Date.now()}`;
     const response = await fetch(pdfUrl);
     
     if (response.ok) {
-      console.log('--- GENERACIÓN CERTIFICADO: CON PLANTILLA ---');
       const existingPdfBytes = await response.arrayBuffer();
       const pdfDoc = await PDFDocument.load(existingPdfBytes);
       const form = pdfDoc.getForm();
       const pages = pdfDoc.getPages();
       
-      const fieldLabels: any = {
+      const fieldLabels: Record<string, string> = {
         arte_expresion: 'Arte y Cultura',
         deportes: 'Deportes y Juegos',
         ciencia_tecnologia: 'Ciencia y Tecnología',
@@ -415,7 +537,7 @@ export async function generateSpecialtyCertificate(perfil: any, especialidad: an
       };
       
       const specName = especialidad.nombre_personalizado || especialidad.especialidades_definiciones?.nombre || 'Especialidad';
-      const categoryName = fieldLabels[especialidad.campo_interes] || especialidad.campo_interes || 'Especialidad';
+      const categoryName = (especialidad.campo_interes ? fieldLabels[especialidad.campo_interes] : undefined) || especialidad.campo_interes || 'Especialidad';
       const userName = `${perfil.nombres} ${perfil.apellidos}`.toUpperCase();
       let deliveryDateStr = '';
       try {
@@ -478,7 +600,7 @@ export async function generateSpecialtyCertificate(perfil: any, especialidad: an
 
       form.flatten();
       const pdfBytes = await pdfDoc.save();
-      const blob = new Blob([pdfBytes as any], { type: 'application/pdf' });
+      const blob = new Blob([pdfBytes as Uint8Array<ArrayBuffer>], { type: 'application/pdf' });
       const link = document.createElement('a');
       link.href = URL.createObjectURL(blob);
       link.download = `Certificado_Especialidad_${specName.replace(/\s+/g, '_')}_${perfil.rut}.pdf`;
@@ -559,7 +681,7 @@ export async function generateSpecialtyCertificate(perfil: any, especialidad: an
       color: rgb(0, 0, 0),
     });
 
-    const fieldLabels: any = {
+    const fieldLabels: Record<string, string> = {
       arte_expresion: 'Arte y Expresión',
       deportes: 'Deportes',
       ciencia_tecnologia: 'Ciencia y Tecnología',
@@ -568,7 +690,7 @@ export async function generateSpecialtyCertificate(perfil: any, especialidad: an
       servicio_comunidad: 'Servicio y Comunidad'
     };
 
-    const fieldColors: any = {
+    const fieldColors: Record<string, ReturnType<typeof rgb>> = {
       deportes: rgb(0.72, 0.54, 0.07),            // #b78913
       arte_expresion: rgb(0.87, 0.0, 0.38),        // #dd0061
       ciencia_tecnologia: rgb(0.15, 0.11, 0.31),    // #261d4e
@@ -578,8 +700,8 @@ export async function generateSpecialtyCertificate(perfil: any, especialidad: an
     };
 
     const specName = especialidad.nombre_personalizado || especialidad.especialidades_definiciones?.nombre || 'Especialidad';
-    const fieldName = fieldLabels[especialidad.campo_interes] || especialidad.campo_interes;
-    const activeColor = fieldColors[especialidad.campo_interes] || rgb(0.1, 0.5, 0.3);
+    const fieldName = (especialidad.campo_interes ? fieldLabels[especialidad.campo_interes] : undefined) || especialidad.campo_interes;
+    const activeColor = (especialidad.campo_interes ? fieldColors[especialidad.campo_interes] : undefined) || rgb(0.1, 0.5, 0.3);
 
     const descText = `Por haber demostrado constancia, dedicación y superación personal al completar\ntodas las actividades correspondientes a la especialidad de:`;
     
@@ -686,14 +808,14 @@ export async function generateSpecialtyCertificate(perfil: any, especialidad: an
 
     const pdfBytes = await pdfDoc.save();
 
-    const blob = new Blob([pdfBytes as any], { type: 'application/pdf' });
+    const blob = new Blob([pdfBytes as Uint8Array<ArrayBuffer>], { type: 'application/pdf' });
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
     link.download = `Certificado_Especialidad_${specName.replace(/\s+/g, '_')}_${perfil.rut}.pdf`;
     link.click();
   } catch (error) {
     console.error('Error al generar certificado de especialidad:', error);
-    alert('Error al generar PDF de certificado');
+    toast.error('Error al generar PDF de certificado');
   }
 }
 

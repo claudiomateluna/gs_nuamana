@@ -4,17 +4,10 @@ import { useState, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
+import type { Step0Props, ActividadData } from '@/types/autorizacion'
 
-interface StepProps {
-  formData: any
-  setFormData: (data: any) => void
-  perfil: any
-  setActividadSelected: (actividad: any) => void
-  actividadSelected: any
-}
-
-export default function Step0_SeleccionActividad({ perfil, setActividadSelected, actividadSelected }: StepProps) {
-  const [actividades, setActividades] = useState<any[]>([])
+export default function Step0_SeleccionActividad({ perfil, setActividadSelected, actividadSelected }: Step0Props) {
+  const [actividades, setActividades] = useState<ActividadData[]>([])
   const [loading, setLoading] = useState(true)
 
   const titleStyle = "text-[1.2em] font-black text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8 border-b-2 border-clr7 pb-2";

@@ -36,7 +36,7 @@ export default function NotFound() {
 
         if (articlesData) {
           const processed = articlesData.map(post => {
-            const linkedCats = post.articulo_categorias?.map((ac: any) => ac.categorias).filter(Boolean) || [];
+            const linkedCats = post.articulo_categorias?.map((ac: { categorias?: unknown }) => ac.categorias).filter(Boolean) || [];
             const sortedCats = [...linkedCats].sort((a, b) => buildCatPathSlugs(b.id).length - buildCatPathSlugs(a.id).length);
             const mainCat = sortedCats[0];
             const path = mainCat ? `${buildCatPathSlugs(mainCat.id).join('/')}/${post.slug}` : `general/${post.slug}`;

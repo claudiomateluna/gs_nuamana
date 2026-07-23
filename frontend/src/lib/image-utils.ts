@@ -17,7 +17,6 @@ export async function compressImage(file: File, maxWidth: number = 1200): Promis
   try {
     const imageCompression = (await import('browser-image-compression')).default;
     const compressedFile = await imageCompression(file, options);
-    console.log(`Compresión finalizada: ${file.size / 1024 / 1024}MB -> ${compressedFile.size / 1024 / 1024}MB`);
     return compressedFile;
   } catch (error) {
     console.error('Error al comprimir imagen:', error);
@@ -126,7 +125,7 @@ export async function processArticleImage(file: File, title: string, category: s
       }, 'image/webp', 0.8);
     });
 
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error('Error al procesar capas en la imagen:', err);
     return file; // Retornamos el original ante cualquier error de carga para no bloquear al usuario
   }

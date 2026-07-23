@@ -1,10 +1,6 @@
 'use client'
 
-interface StepProps {
-  formData: any
-  setFormData: (data: any) => void
-  perfil: any
-}
+import type { StepProps } from '@/types/autorizacion'
 
 export default function Step1_DatosPersonales({ formData, setFormData, perfil }: StepProps) {
   const titleStyle = "text-[1.2em] font-black text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-4 border-b-2 border-clr7 pb-2";
@@ -19,7 +15,7 @@ export default function Step1_DatosPersonales({ formData, setFormData, perfil }:
 
   const nacionalidades = ['Argentina', 'Boliviana', 'Brasileña', 'Chilena', 'Colombiana', 'Costarricense', 'Cubana', 'Ecuatoriana', 'Salvadoreña', 'Guatemalteca', 'Haitiana', 'Hondureña', 'Mexicana', 'Nicaragüense', 'Panameña', 'Paraguaya', 'Peruana', 'Dominicana', 'Uruguaya', 'Venezolana', 'Otra'];
 
-  const Field = ({ label, info, children, fullWidth = false }: any) => {
+  const Field = ({ label, info, children, fullWidth = false }: { label: string; info: string; children: React.ReactNode; fullWidth?: boolean }) => {
     return (
       <div className={`space-y-1 ${fullWidth ? 'md:col-span-2' : ''}`}>
         <div className={labelContainerStyle}>
@@ -82,7 +78,7 @@ export default function Step1_DatosPersonales({ formData, setFormData, perfil }:
         </Field>
 
         <Field label="¿Cuándo Naciste?" info="Ingrese la fecha de nacimiento de la persona que está completando el formulario. *Este Dato es Obligatorio">
-          <input type="date" defaultValue={formData.fecha_nacimiento || perfil.fecha_nacimiento} onChange={(e) => setFormData({ ...formData, fecha_nacimiento: e.target.value })} className={inputStyle} />
+          <input type="date" defaultValue={formData.fecha_nacimiento || perfil.fecha_nacimiento || undefined} onChange={(e) => setFormData({ ...formData, fecha_nacimiento: e.target.value })} className={inputStyle} />
         </Field>
 
         <Field label="¿Cuál es tu edad?" info="Indica la edad del apersona que está completando el formulario. *Este Dato es Obligatorio">

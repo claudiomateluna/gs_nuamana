@@ -2,14 +2,7 @@
 
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
-
-interface StepProps {
-  formData: any
-  setFormData: (data: any) => void
-  perfil: any
-  actividad: any
-  apoderadoData?: any
-}
+import type { StepWithActividadProps } from '@/types/autorizacion'
 
 const validarRut = (rut: string) => {
   if (!rut) return true; // No validar si está vacío aquí (se maneja con obligatorio en el submit)
@@ -25,14 +18,14 @@ const validarRut = (rut: string) => {
   return expectedDv === dv.toLowerCase()
 }
 
-export default function Step16_AutorizacionParticipacion({ formData, setFormData, perfil, actividad, apoderadoData }: StepProps) {
-  const isAdult = perfil.edad >= 18;
+export default function Step16_AutorizacionParticipacion({ formData, setFormData, perfil, actividad, apoderadoData }: StepWithActividadProps) {
+  const isAdult = (perfil.edad ?? 0) >= 18;
   const fechaHoy = format(new Date(), "yyyy-MM-dd");
 
   const titleStyle = "text-[1.2em] font-black text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8 border-b-2 border-clr7 pb-2";
   const labelContainerStyle = "flex items-center gap-2 mb-1";
   const labelStyle = "text-[0.9em] font-black uppercase text-clr2 tracking-widest block";
-  const inputStyle = (isValid: boolean) => `w-full bg-zinc-50 dark:bg-clr3 dark:text-dclr2 border-2 ${!isValid ? 'border-red-500 bg-red-50' : 'border-transparent focus:border-clr7'} rounded-xl p-3 text-[1em] font-bold outline-none transition-all shadow-inner`;
+  const inputStyle = (isValid: boolean) => `w-full bg-zinc-50 dark:bg-clr3 dark:text-dclr2 border-2 ${!isValid ? 'border-red-500 bg-red-50' : 'border-transparent focus:border-clr7'} rounded-xl p-3 text-[1em] font-bold outline-none transition-colors duration-200 shadow-inner`;
   const disabledInputStyle = "w-full bg-zinc-100 dark:bg-clr3/50 p-3 rounded-xl font-bold text-[1em] dark:text-dclr2 border border-zinc-200 dark:border-clr4 opacity-70 cursor-not-allowed outline-none";
   
   const infoIconContainerStyle = "inline-block";
@@ -59,7 +52,7 @@ export default function Step16_AutorizacionParticipacion({ formData, setFormData
     ? "Autorizo a quien es responsable de la actividad para que, en caso de urgencia y bajo recomendación de un profesional médico, disponga el tratamiento o intervenciones quirúrgicas que fueran necesarias realizar."
     : "Autorizo a quien es responsable de la actividad para que, en caso de urgencia y bajo recomendación de un profesional médico, disponga el tratamiento o intervenciones quirúrgicas que fueran necesarias realizar al niño, niña o adolescente que represento.";
 
-  const Field = ({ label, info, children, fullWidth = false, error }: any) => {
+  const Field = ({ label, info, children, fullWidth = false, error }: { label: string; info: string; children: React.ReactNode; fullWidth?: boolean; error?: string | null }) => {
     return (
       <div className={`space-y-1 ${fullWidth ? 'md:col-span-2' : ''}`}>
         <div className={labelContainerStyle}>
@@ -167,8 +160,13 @@ export default function Step16_AutorizacionParticipacion({ formData, setFormData
               <input 
                 type="text" 
                 placeholder="12345678-9" 
-                value={currentRutA} 
-                onChange={(e) => setFormData({ ...formData, rut_apoderado: aplicarMascaraRut(e.target.value) })} 
+                defaultValue={currentRutA}
+                onInput={(e: React.FormEvent<HTMLInputElement>) => {
+                  let v = e.currentTarget.value.replace(/[^0-9kK]/g, '').slice(0, 9);
+                  if (v.length > 1) v = v.slice(0, -1) + '-' + v.slice(-1);
+                  e.currentTarget.value = v;
+                }}
+                onBlur={(e) => setFormData({ ...formData, rut_apoderado: e.currentTarget.value })}
                 className={inputStyle(isRutAValid || !currentRutA)} 
               />
             </Field>
@@ -220,8 +218,13 @@ export default function Step16_AutorizacionParticipacion({ formData, setFormData
           <input 
             type="text" 
             placeholder="12345678-9" 
-            value={currentRutU} 
-            onChange={(e) => setFormData({ ...formData, rut_usuario: aplicarMascaraRut(e.target.value) })}
+            defaultValue={currentRutU}
+            onInput={(e: React.FormEvent<HTMLInputElement>) => {
+              let v = e.currentTarget.value.replace(/[^0-9kK]/g, '').slice(0, 9);
+              if (v.length > 1) v = v.slice(0, -1) + '-' + v.slice(-1);
+              e.currentTarget.value = v;
+            }}
+            onBlur={(e) => setFormData({ ...formData, rut_usuario: e.currentTarget.value })}
             className={inputStyle(isRutUValid || !currentRutU)} 
           />
         </Field>

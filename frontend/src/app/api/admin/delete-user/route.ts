@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+import { isAdmin } from '@/lib/roles';
 
 export async function POST(request: Request) {
   try {
@@ -38,7 +39,7 @@ export async function POST(request: Request) {
       .eq('id', user.id)
       .single();
 
-    if (profileError || !profile || profile.rol_id !== 1) {
+    if (profileError || !profile || !isAdmin(profile)) {
       return NextResponse.json({ error: 'Solo los administradores pueden eliminar usuarios' }, { status: 403 });
     }
 
@@ -87,12 +88,12 @@ export async function POST(request: Request) {
 
     if (deleteError) {
       console.error('Error al eliminar usuario en auth:', deleteError);
-      return NextResponse.json({ error: deleteError.message }, { status: 500 });
+      return NextResponse.json({ error: 'Error interno del servidor' }, { status: 500 });
     }
 
     return NextResponse.json({ success: true });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error en la ruta de eliminación de usuario:', error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ error: 'Error interno del servidor' }, { status: 500 });
   }
 }

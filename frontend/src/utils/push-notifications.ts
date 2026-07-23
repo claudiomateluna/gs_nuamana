@@ -32,7 +32,6 @@ export async function subscribeUserToPush() {
     // 1. Obtener el usuario autenticado actual
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) {
-      console.log('No hay sesión de usuario activa para registrar notificaciones Push.');
       return;
     }
 
@@ -88,8 +87,6 @@ export async function subscribeUserToPush() {
 
     if (error) {
       console.error('Error al guardar la suscripción push en Supabase:', error.message);
-    } else {
-      console.log('Suscripción Push registrada con éxito en Supabase.');
     }
   } catch (err) {
     console.error('Excepción al registrar notificaciones push:', err);

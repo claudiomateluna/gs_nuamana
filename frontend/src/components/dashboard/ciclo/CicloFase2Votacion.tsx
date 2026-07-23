@@ -1,10 +1,22 @@
 'use client'
 
+import type { Perfil, CicloUnidad, CicloPropuesta } from '@/types'
+
+type CicloActivoVotacion = CicloUnidad & {
+  articulo_juego_id?: string | null
+  articulo_juego?: {
+    titulo: string
+    slug: string
+    extracto?: string | null
+    imagen_destacada?: string | null
+  } | null
+}
+
 interface CicloFase2VotacionProps {
-  perfil: any
-  cicloActivo: any
-  propuestas: any[]
-  votos: any[]
+  perfil: Perfil
+  cicloActivo: CicloActivoVotacion
+  propuestas: CicloPropuesta[]
+  votos: Array<{ propuesta_id: string; perfil_id: string; cantidad: number }>
   readOnlyOverride: boolean
   isDirectivo: boolean
   canManage: boolean
@@ -172,7 +184,7 @@ export default function CicloFase2Votacion({
               {(cicloActivo?.unidades?.logo_unidad_url || perfil.unidades?.logo_unidad_url) && (
                 <div className="absolute -right-8 -bottom-8 opacity-[0.2] pointer-events-none group-hover:scale-110 transition-transform duration-700">
                   <img 
-                    src={cicloActivo?.unidades?.logo_unidad_url || perfil.unidades?.logo_unidad_url} 
+                    src={(cicloActivo?.unidades?.logo_unidad_url || perfil.unidades?.logo_unidad_url) ?? undefined} 
                     alt="" 
                     className="w-48 h-48 object-contain" 
                   />

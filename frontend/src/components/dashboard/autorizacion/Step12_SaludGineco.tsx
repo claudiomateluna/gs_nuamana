@@ -1,10 +1,7 @@
 'use client'
 
-interface StepProps {
-  formData: any
-  setFormData: (data: any) => void
-  perfil: any
-}
+import DOMPurify from 'dompurify'
+import type { StepProps } from '@/types/autorizacion'
 
 export default function Step12_SaludGineco({ formData, setFormData, perfil }: StepProps) {
   const isFemale = perfil.sexo === 'femenina';
@@ -22,7 +19,7 @@ export default function Step12_SaludGineco({ formData, setFormData, perfil }: St
   const hasMenstruacion = formData.menstruaciones === 'Si' || (formData.menstruaciones === undefined && perfil.menstruaciones === 'Si');
   const isEmbarazada = formData.embarazo === 'Si' || (formData.embarazo === undefined && perfil.embarazo === 'Si');
 
-  const FieldInfo = ({ label, info }: any) => (
+  const FieldInfo = ({ label, info }: { label: string; info: string }) => (
     <div className={labelContainerStyle}>
       <label className={labelStyle}>{label}</label>
       <div className="group">
@@ -33,7 +30,7 @@ export default function Step12_SaludGineco({ formData, setFormData, perfil }: St
         </div>
         <div className={tooltipStyle}>
           <div className="text-clr7 font-black uppercase text-[0.8em] tracking-tight mb-3 border-b border-clr7/30 pb-2 leading-tight">{label}</div>
-          <div className="text-[0.95em]" dangerouslySetInnerHTML={{ __html: info }} />
+          <div className="text-[0.95em]" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(info) }} />
         </div>
       </div>
     </div>

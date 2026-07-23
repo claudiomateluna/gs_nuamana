@@ -1,5 +1,7 @@
 'use client'
 
+import { UNIT_IDS } from '@/lib/unit-constants'
+
 interface ProyectoPaso1QueProps {
   formData: any
   setFormData: (data: any) => void
@@ -54,7 +56,7 @@ export default function ProyectoPaso1Que({
             />
           </div>
 
-          {perfil.unidad_id === 5 && (
+          {perfil.unidad_id === UNIT_IDS.CLAN && (
             <div className="space-y-1">
               <label className="text-[0.8em] md:text-[0.9em] font-bold uppercase text-zinc-500 ml-1 p-1 rounded-[0.6rem]" style={{ backgroundColor: themePrimary }}>Campo de Acción</label>
               <select 
@@ -71,7 +73,7 @@ export default function ProyectoPaso1Que({
             </div>
           )}
           
-          {perfil.unidad_id === 4 && (
+          {perfil.unidad_id === UNIT_IDS.AVANZADA && (
             <div className="space-y-1">
               <label className="text-[0.8em] md:text-[0.9em] font-bold uppercase text-zinc-500 ml-1 p-1 rounded-[0.6rem]" style={{ backgroundColor: themePrimary, color: themeSecondary }}>Competencias</label>
               <select 

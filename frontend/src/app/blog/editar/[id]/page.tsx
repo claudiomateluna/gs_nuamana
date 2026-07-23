@@ -7,7 +7,10 @@ import dynamic from 'next/dynamic'
 import 'suneditor/dist/css/suneditor.min.css'
 import SecondaryHeader from '@/components/SecondaryHeader'
 import { uploadToStorage } from '@/lib/storage-utils'
+import { isDirectivo } from '@/lib/roles'
 import { processArticleImage } from '@/lib/image-utils'
+import type { Categoria, ArticuloCategoriaJoin, ArticuloMetadata } from '@/types'
+import { toast } from 'sonner';
 
 const SunEditor = dynamic(() => import('suneditor-react'), { ssr: false })
 
@@ -30,9 +33,55 @@ const LUGARES_TREE = [
 const UNIT_MAP: Record<string, number> = { 'manada': 1, 'compañía': 2, 'tropa': 3, 'avanzada': 4, 'clan': 5 }
 const AREA_MAP: Record<string, number> = { 'corporalidad': 1, 'creatividad': 2, 'carácter': 3, 'afectividad': 4, 'sociabilidad': 5, 'espiritualidad': 6 }
 
+interface LugarNode {
+  name: string
+  children: (string | { name: string; children: string[] })[]
+}
+
+interface ObjetivoDisponible {
+  id: string
+  texto_infantil: string
+  texto_terminal?: string | null
+  rango_edad?: string | null
+  area: { nombre: string } | null
+  unidad: { nombre: string; colores: { primario?: string | null } | string | null } | null
+}
+
+interface ObjEdSeleccionado extends ObjetivoDisponible {
+  como_se_cumple: string
+}
+
+interface ArticuloForm {
+  titulo: string
+  contenido: string
+  extracto: string
+  imagen_destacada: string
+  categorias_ids: string[]
+  etiquetas_input: string
+  unidades: string[]
+  areas: string[]
+  lugares: string[]
+  justificacion_areas: string
+  materiales: string
+  objetivos_input: string
+  participantes: string
+  duracion: string
+  cantidad: string
+  variaciones: string
+  recomendaciones: string
+  lugar_nacimiento: string
+  pais_nacimiento: string
+  fecha_nacimiento: string
+  fecha_defuncion: string
+  lugar_hecho: string
+  pais_hecho: string
+  ano_hecho: string
+  [key: string]: unknown
+}
+
 export default function EditarArticuloPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params)
-  const [categorias, setCategorias] = useState<any[]>([])
+  const [categorias, setCategorias] = useState<Categoria[]>([])
   const [sugerencias, setSugerencias] = useState({ objetivos: [] as string[], materiales: [] as string[], lugares: [] as string[], paises: [] as string[], etiquetas: [] as string[] })
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
@@ -42,8 +91,8 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
   const fileInputRef = useRef<HTMLInputElement>(null)
 
   // Estados para Objetivos Educativos
-  const [objsDisponibles, setObjsDisponibles] = useState<any[]>([])
-  const [selectedObjsEd, setSelectedObjsEd] = useState<any[]>([])
+  const [objsDisponibles, setObjsDisponibles] = useState<ObjetivoDisponible[]>([])
+  const [selectedObjsEd, setSelectedObjsEd] = useState<ObjEdSeleccionado[]>([])
   const [searchObj, setSearchObj] = useState('')
   const [fetchingObjs, setFetchingObjs] = useState(false)
   const [descargas, setDescargas] = useState<{ nombre: string; url: string }[]>([])
@@ -114,7 +163,7 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
       const title = getValues('titulo') || 'Artículo'
       const selectedCatIds = getValues('categorias_ids') || []
 
-      const getPrimaryCategoryName = (selectedIds: string[], allCats: any[]): string => {
+      const getPrimaryCategoryName = (selectedIds: string[], allCats: Categoria[]): string => {
         const ids = selectedIds.map(id => parseInt(id))
         const filteredCats = allCats.filter(c => {
           if (!ids.includes(c.id)) return false
@@ -141,8 +190,8 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
 
       const publicUrl = await uploadToStorage(processedFile, 'articulos', 'blog')
       setValue('imagen_destacada', publicUrl)
-    } catch (err: any) {
-      alert('Error al subir imagen: ' + err.message)
+    } catch (err: unknown) {
+      toast.error('Error al subir imagen: ' + (err instanceof Error ? err.message : String(err)))
     } finally {
       setUploading(false)
     }
@@ -198,7 +247,7 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
           contenido: (art.contenido || '').replace(/&nbsp;/g, ' ').replace(/\u00A0/g, ' '),
           extracto: art.extracto,
           imagen_destacada: art.imagen_destacada || '',
-          categorias_ids: art.articulo_categorias?.map((c: any) => c.categoria_id.toString()) || [],
+          categorias_ids: art.articulo_categorias?.map((c: ArticuloCategoriaJoin) => c.categoria_id.toString()) || [],
           etiquetas_input: art.etiquetas?.join(', ') || '',
           ...meta,
           unidades: meta.unidades || [],
@@ -217,20 +266,20 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
           .eq('articulo_id', art.id)
 
         if (relObjs && relObjs.length > 0) {
-          setSelectedObjsEd(relObjs.map((r: any) => ({
+          setSelectedObjsEd((relObjs as unknown as Array<{ objetivo?: ObjetivoDisponible | null; objective?: ObjetivoDisponible | null; como_se_cumple?: string | null }>).map((r) => ({
             ...r.objective || r.objetivo,
             como_se_cumple: r.como_se_cumple || ''
-          })))
+          })) as ObjEdSeleccionado[])
         } else if (meta.objetivos_educativos) {
           // Fallback para artículos que solo tienen datos en el JSONB
           const { data: fullObjs } = await supabase
             .from('progresion_objetivos')
             .select('*, area:progresion_areas(nombre), unidad:unidades(nombre, colores)')
-            .in('id', meta.objetivos_educativos.map((o: any) => o.id))
+            .in('id', meta.objetivos_educativos.map((o: { id: string }) => o.id))
           
           if (fullObjs) {
-            setSelectedObjsEd(fullObjs.map((f: any) => {
-              const metaObj = meta.objetivos_educativos.find((o: any) => o.id === f.id)
+            setSelectedObjsEd(fullObjs.map((f: ObjetivoDisponible) => {
+              const metaObj = meta.objetivos_educativos?.find((o: { id: string; como_se_cumple?: string | null }) => o.id === f.id)
               return {
                 ...f,
                 como_se_cumple: metaObj?.como_se_cumple || ''
@@ -261,7 +310,7 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
     setValue('categorias_ids', currentIds)
   }
 
-  const toggleObjEd = (obj: any) => {
+  const toggleObjEd = (obj: ObjetivoDisponible) => {
     if (selectedObjsEd.find(o => o.id === obj.id)) {
       setSelectedObjsEd(selectedObjsEd.filter(o => o.id !== obj.id))
     } else {
@@ -273,13 +322,13 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
     setSelectedObjsEd(prev => prev.map(o => o.id === id ? { ...o, como_se_cumple: text } : o))
   }
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: ArticuloForm) => {
     setSaving(true)
     try {
       const { data: { user } } = await supabase.auth.getUser()
       if (!user) throw new Error("Sesión expirada")
       const { data: perfil } = await supabase.from('perfiles').select('rol_id').eq('id', user.id).single()
-      const puedePublicarDirecto = [1, 2, 3].includes(perfil?.rol_id || 0)
+      const puedePublicarDirecto = perfil ? isDirectivo(perfil) : false
       const estadoFinal = puedePublicarDirecto ? 'publicado' : 'borrador'
 
       const { titulo, contenido, extracto, categorias_ids, etiquetas_input, objetivos_input, materiales, imagen_destacada, ...metas } = data
@@ -299,8 +348,8 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
         objetivos_educativos: selectedObjsEd.map(o => ({ 
           id: o.id, 
           texto: o.texto_infantil, 
-          unidad: o.unidad.nombre, 
-          area: o.area.nombre,
+          unidad: o.unidad?.nombre ?? '', 
+          area: o.area?.nombre ?? '',
           como_se_cumple: o.como_se_cumple || null
         }))
       }
@@ -334,10 +383,10 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
         }
       }
 
-      if (puedePublicarDirecto) alert('¡Artículo actualizado!');
-      else alert('¡Cambios guardados! Tu edición será revisada por la directiva.');
+      if (puedePublicarDirecto) toast.success('¡Artículo actualizado!');
+      else toast.success('¡Cambios guardados! Tu edición será revisada por la directiva.');
       window.location.reload(); 
-    } catch (e: any) { alert('Error: ' + e.message) } finally { setSaving(false) }
+    } catch (e: unknown) { toast.error('Error: ' + (e instanceof Error ? e.message : String(e))) } finally { setSaving(false) }
   }
 
   if (!mounted || loading) return <div className="p-20 text-center font-body text-clr2 italic tracking-widest text-[0.8em] uppercase">Abriendo bitácora...</div>
@@ -391,11 +440,11 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
                     <div className="space-y-2">
                       <label className="text-[1em] uppercase opacity-60 tracking-widest">Lugar</label>
                       <div className="h-[250px] overflow-y-auto space-y-2 pr-2 custom-scrollbar">
-                        {LUGARES_TREE.map(p => (
+                        {(LUGARES_TREE as LugarNode[]).map(p => (
                           <div key={p.name} className="space-y-2">
                             <label className="flex items-center gap-2 text-[1em] font-black text-blue-700 dark:text-blue-300 uppercase cursor-pointer"><input type="checkbox" value={p.name} {...register('lugares')} className="w-4 h-4 rounded" /> {p.name}</label>
                             <div className="ml-2 space-y-2 border-l-2 border-blue-100 dark:border-blue-900/30 pl-3">
-                              {p.children.map((c: any) => typeof c === 'string' ? (
+                              {p.children.map((c: string | { name: string; children: string[] }) => typeof c === 'string' ? (
                                 <label key={c} className="flex items-center gap-2 text-[0.9em] cursor-pointer font-bold"><input type="checkbox" value={c} {...register('lugares')} className="w-3.5 h-3.5 rounded" /> {c}</label>
                               ) : (
                                 <div key={c.name} className="space-y-1">
@@ -445,22 +494,22 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
                       ) : objsDisponibles.length > 0 ? (
                         Object.entries(
                           objsDisponibles
-                            .filter(o => o.texto_infantil.toLowerCase().includes(searchObj.toLowerCase()) || o.area.nombre.toLowerCase().includes(searchObj.toLowerCase()))
-                            .reduce((acc: any, obj: any) => {
+                            .filter(o => o.texto_infantil.toLowerCase().includes(searchObj.toLowerCase()) || o.area?.nombre.toLowerCase().includes(searchObj.toLowerCase()))
+                            .reduce<Record<string, ObjetivoDisponible[]>>((acc, obj) => {
                               const term = obj.texto_terminal || 'Objetivos Específicos'
                               if (!acc[term]) acc[term] = []
                               acc[term].push(obj)
                               return acc
                             }, {})
-                        ).map(([terminal, objs]: [string, any], idx) => (
+                        ).map(([terminal, objs], idx) => (
                           <div key={idx} className="col-span-1 md:col-span-2 flex flex-col gap-3 mt-4 first:mt-0">
                             <h4 className="font-bold text-[0.9em] text-clr5 dark:text-clr2 leading-relaxed border-b border-zinc-200 dark:border-zinc-800 pb-2 uppercase tracking-widest">
                               🎯 {terminal}
                             </h4>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                              {objs.map((obj: any) => {
-                                const isSelected = selectedObjsEd.find((s: any) => s.id === obj.id)
-                                const unitColor = obj.unidad?.colores?.primario || '#ccc'
+                              {objs.map((obj) => {
+                                const isSelected = selectedObjsEd.find((s) => s.id === obj.id)
+                                const unitColor = typeof obj.unidad?.colores === 'object' && obj.unidad?.colores ? obj.unidad.colores.primario || '#ccc' : '#ccc'
                                 return (
                                   <div
                                     key={obj.id}
@@ -469,10 +518,10 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
                                     className={`p-4 rounded-2xl border-2 border-l-4 cursor-pointer transition-all hover:scale-[1.02] active:scale-95 flex flex-col gap-2 ${isSelected ? 'bg-zinc-50 dark:bg-clr4 border-clr7' : 'bg-white dark:bg-black/10 border-zinc-100 dark:border-clr4 opacity-80 hover:opacity-100'}`}
                                   >
                                     <div className="flex justify-between items-center relative">
-                                      <span className="text-[0.9em] font-black uppercase px-2 py-0.5 rounded-md text-white shadow-sm" style={{ backgroundColor: unitColor }}>{obj.unidad.nombre}</span>
+                                      <span className="text-[0.9em] font-black uppercase px-2 py-0.5 rounded-md text-white shadow-sm" style={{ backgroundColor: unitColor }}>{obj.unidad?.nombre}</span>
                                       <div className="flex items-center gap-2">
                                         {obj.texto_terminal && (
-                                          <div className="relative group/tooltip flex items-center justify-center" onClick={(e) => { e.stopPropagation(); alert('🎯 OBJETIVO TERMINAL:\n\n' + obj.texto_terminal); }}>
+                                          <div className="relative group/tooltip flex items-center justify-center" onClick={(e) => { e.stopPropagation(); toast.info('🎯 OBJETIVO TERMINAL:\n\n' + obj.texto_terminal); }}>
                                             <span className="text-xl cursor-help opacity-50 hover:opacity-100 transition-opacity" title="Ver Objetivo Terminal (Clic en móvil)">🎯</span>
                                             <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:group-hover/tooltip:block w-80 max-w-[90vw] p-2 bg-zinc-900 text-white text-[0.9em] font-bold rounded-[1rem] shadow-[0_0_50px_rgba(0,0,0,0.5)] z-[9999] animate-in fade-in zoom-in duration-200 pointer-events-none text-center border border-zinc-800 flex flex-col items-center gap-3">
                                               <div className="flex flex-col items-center gap-1">
@@ -482,7 +531,7 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
                                             </div>
                                           </div>
                                         )}
-                                        <span className="text-[0.9em] font-black uppercase text-zinc-400">{obj.area.nombre}</span>
+                                        <span className="text-[0.9em] font-black uppercase text-zinc-400">{obj.area?.nombre}</span>
                                       </div>
                                     </div>
                                     <div className="text-center space-y-2 mt-2">
@@ -518,15 +567,15 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
                                 ✕
                               </button>
                               <div className="flex items-center gap-2">
-                                <span className="text-[0.8em] font-black uppercase px-2 py-0.5 rounded text-white" style={{ backgroundColor: o.unidad?.colores?.primario || '#ccc' }}>
-                                  {o.unidad?.nombre || o.unidad}
+                                <span className="text-[0.8em] font-black uppercase px-2 py-0.5 rounded text-white" style={{ backgroundColor: typeof o.unidad?.colores === 'object' && o.unidad?.colores ? o.unidad.colores.primario || '#ccc' : '#ccc' }}>
+                                  {o.unidad?.nombre ?? ''}
                                 </span>
                                 <span className="text-[0.8em] font-black text-zinc-400 uppercase">
-                                  {o.area?.nombre || o.area}
+                                  {o.area?.nombre ?? ''}
                                 </span>
                               </div>
                               <p className="font-bold text-[1em] italic leading-relaxed text-zinc-800 dark:text-clr1">
-                                "{o.texto_infantil || o.texto}"
+                                "{o.texto_infantil}"
                               </p>
                               <div className="space-y-1">
                                 <label className="text-[0.8em] font-black uppercase opacity-60 block">¿Cómo se cumple en esta actividad? (Opcional)</label>

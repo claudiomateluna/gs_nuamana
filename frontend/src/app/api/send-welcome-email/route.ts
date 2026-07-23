@@ -1,7 +1,20 @@
 import { NextResponse } from 'next/server';
 
+function escapeHtml(str: string): string {
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
 export async function POST(request: Request) {
   try {
+    const headers = request.headers;
+    const secret = headers.get('x-webhook-secret');
+    const API_SECRET = process.env.SEND_EMAIL_SECRET;
+
+    if (!API_SECRET || secret !== API_SECRET) {
+      console.warn('Intento de llamada no autorizada al envío de correo');
+      return NextResponse.json({ error: 'No autorizado' }, { status: 401 });
+    }
+
     const { email, nombres, apellidos, rut, rol } = await request.json();
 
     if (!email || !nombres) {
@@ -44,7 +57,7 @@ export async function POST(request: Request) {
         <hr style="border: 0; border-top: 1px solid #e4e4e7; margin-bottom: 25px;" />
         
         <p style="font-size: 1em; line-height: 1.6; margin-bottom: 15px;">
-          Hola <strong>${nombres} ${apellidos}</strong>,
+          Hola <strong>${escapeHtml(nombres)} ${escapeHtml(apellidos)}</strong>,
         </p>
         
         <p style="font-size: 0.95em; line-height: 1.6; color: #3f3f46; margin-bottom: 20px;">
@@ -58,15 +71,15 @@ export async function POST(request: Request) {
           <table style="width: 100%; font-size: 0.95em; border-collapse: collapse;">
             <tr>
               <td style="padding: 6px 0; color: #71717a; width: 40%;"><strong>R.U.T. de Ingreso:</strong></td>
-              <td style="padding: 6px 0; color: #1b1b1b; font-family: monospace; font-size: 1.1em;"><strong>${rut}</strong></td>
+              <td style="padding: 6px 0; color: #1b1b1b; font-family: monospace; font-size: 1.1em;"><strong>${escapeHtml(rut || '')}</strong></td>
             </tr>
             <tr>
               <td style="padding: 6px 0; color: #71717a;"><strong>Rol asignado:</strong></td>
-              <td style="padding: 6px 0; color: #1b1b1b;">${friendlyRol}</td>
+              <td style="padding: 6px 0; color: #1b1b1b;">${escapeHtml(friendlyRol)}</td>
             </tr>
             <tr>
               <td style="padding: 6px 0; color: #71717a;"><strong>Correo electrónico:</strong></td>
-              <td style="padding: 6px 0; color: #1b1b1b;">${email}</td>
+              <td style="padding: 6px 0; color: #1b1b1b;">${escapeHtml(email)}</td>
             </tr>
           </table>
         </div>
@@ -111,8 +124,8 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json({ success: true });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error en la ruta de envío de correo:', error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ error: 'Error interno del servidor' }, { status: 500 });
   }
 }

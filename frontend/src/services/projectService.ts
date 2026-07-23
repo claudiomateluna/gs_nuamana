@@ -154,7 +154,7 @@ export const projectService = {
   /**
    * Guarda un proyecto (crea nuevo o actualiza existente)
    */
-  async saveProject(proyecto: any, isNew: boolean) {
+  async saveProject(proyecto: Record<string, unknown>, isNew: boolean) {
     if (isNew) {
       const { data, error } = await supabase
         .from('proyectos')
@@ -180,7 +180,7 @@ export const projectService = {
   /**
    * Reemplaza participantes de un proyecto eliminando los anteriores y agregando nuevos
    */
-  async updateParticipants(proyectoId: string, insertParticipants: any[]) {
+  async updateParticipants(proyectoId: string, insertParticipants: Record<string, unknown>[]) {
     // 1. Eliminar participantes anteriores
     const { error: deleteErr } = await supabase
       .from('proyecto_participantes')
@@ -204,7 +204,7 @@ export const projectService = {
    */
   async getProposalByCycleAndTitle(cicloId: string, titulo: string) {
     const { data, error } = await supabase
-      .from('ciclo_propuestas' as any)
+      .from('ciclo_propuestas')
       .select('*')
       .eq('ciclo_id', cicloId)
       .eq('titulo', titulo)
@@ -217,7 +217,7 @@ export const projectService = {
   /**
    * Guarda o actualiza una propuesta asociada al proyecto
    */
-  async saveCycleProposal(proposal: any, isNew: boolean, existingId?: string) {
+  async saveCycleProposal(proposal: Record<string, unknown>, isNew: boolean, existingId?: string) {
     if (isNew) {
       const { error } = await supabase
         .from('ciclo_propuestas')

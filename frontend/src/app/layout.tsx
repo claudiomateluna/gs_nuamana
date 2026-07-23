@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inika, Quicksand, Roboto_Slab } from "next/font/google";
+import { Toaster } from 'sonner';
 import "./globals.css";
 import { ThemeProvider } from "@/contexts/theme-context";
 import Footer from "@/components/footer";
@@ -68,6 +69,7 @@ export default function RootLayout({
             <Footer />
           </div>
         </ThemeProvider>
+        <Toaster position="top-right" richColors closeButton />
       </body>
     </html>
   );

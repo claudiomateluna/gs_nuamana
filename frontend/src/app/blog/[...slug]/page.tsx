@@ -7,6 +7,8 @@ import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
 import Link from 'next/link'
 import SecondaryHeader from '@/components/SecondaryHeader'
+import DOMPurify from 'dompurify'
+import type { Articulo, ArticuloResena, Categoria, ArticuloMetadata, ObjEducacionMeta } from '@/types'
 
 const POSTS_PER_PAGE = 9
 
@@ -40,10 +42,10 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
   const lastSlug = slugArray[slugArray.length - 1]
   const currentPath = slugArray.join('/')
 
-  const [articulo, setArticulo] = useState<any>(null)
-  const [categoria, setCategoria] = useState<any>(null)
-  const [postsCategoria, setPostsCategoria] = useState<any[]>([])
-  const [pathCategorias, setPathCategorias] = useState<any[]>([])
+  const [articulo, setArticulo] = useState<Articulo | null>(null)
+  const [categoria, setCategoria] = useState<Categoria | null>(null)
+  const [postsCategoria, setPostsCategoria] = useState<(Articulo & { fullPath: string })[]>([])
+  const [pathCategorias, setPathCategorias] = useState<Categoria[]>([])
   const [loading, setLoading] = useState(true)
   const [loadingMore, setLoadingMore] = useState(false)
   const [error404, setError404] = useState(false)
@@ -56,7 +58,7 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
   const [selArea, setSelArea] = useState('')
 
   const observer = useRef<IntersectionObserver | null>(null)
-  const lastPostRef = useCallback((node: any) => {
+  const lastPostRef = useCallback((node: HTMLElement | null) => {
     if (loading || loadingMore) return
     if (observer.current) observer.current.disconnect()
     observer.current = new IntersectionObserver(entries => {
@@ -71,7 +73,7 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
     if (pageNum === 0) setLoading(true)
     else setLoadingMore(true)
 
-    const { data: allCats } = await supabase.from('categorias').select('*')
+    const { data: allCats } = await supabase.from('categorias').select('*') as { data: Categoria[] | null }
 
     const buildCatPathSlugs = (catId: number): string[] => {
       const cat = allCats?.find(c => c.id === catId)
@@ -79,7 +81,7 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
       return cat.parent_id ? [...buildCatPathSlugs(cat.parent_id), cat.slug] : [cat.slug]
     }
 
-    const buildFullPath = (catId: number): any[] => {
+    const buildFullPath = (catId: number): Categoria[] => {
       const c = allCats?.find(x => x.id === catId); if (!c) return [];
       return c.parent_id ? [...buildFullPath(c.parent_id), c] : [c]
     }
@@ -90,49 +92,49 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
         .from('articulos')
         .select(`*, articulo_categorias(categoria_id, categorias(id, nombre, slug, parent_id)), articulo_resenas(*, perfiles(nombres, apellidos, fecha_nacimiento, unidades(nombre)))`)
         .eq('slug', lastSlug)
-        .maybeSingle()
+        .maybeSingle() as { data: Articulo | null }
 
       if (art) {
-        const linkedCats = art.articulo_categorias?.map((ac: any) => ac.categorias).filter(Boolean) || []       
-        const allPossiblePaths = linkedCats.map((c: any) => [...buildCatPathSlugs(c.id), art.slug].join('/'))   
+        const linkedCats = art.articulo_categorias?.map((ac) => ac.categorias).filter((c): c is NonNullable<typeof c> => !!c) || []       
+        const allPossiblePaths = linkedCats.map((c) => [...buildCatPathSlugs(c.id), art.slug].join('/'))   
 
         if (allPossiblePaths.includes(currentPath)) {
           // Intentar cargar objetivos educativos desde la tabla relacional
           const { data: relObjs } = await supabase
             .from('articulo_objetivos_educativos')
             .select('objetivo_id, como_se_cumple, objetivo:progresion_objetivos(id, texto_infantil, texto_terminal, rango_edad, area_id, unidad_id, area:progresion_areas(nombre), unidad:unidades(nombre, colores))')
-            .eq('articulo_id', art.id)
+            .eq('articulo_id', art.id) as unknown as { data: Array<{ objetivo_id: string; como_se_cumple: string | null; objetivo: { id: string; texto_infantil: string; texto_terminal: string; rango_edad: string; area: { nombre: string } | null; unidad: { nombre: string; colores: { primario?: string } | string | null } | null } | null }> | null }
 
-          art.metadata = art.metadata || {}
+          art.metadata = art.metadata || {} as ArticuloMetadata
           if (relObjs && relObjs.length > 0) {
-            art.metadata.objetivos_educativos = relObjs.map((r: any) => ({
+            art.metadata.objetivos_educativos = relObjs.map((r) => ({
               id: r.objetivo_id,
               texto: r.objetivo?.texto_infantil,
               texto_terminal: r.objetivo?.texto_terminal,
               rango_edad: r.objetivo?.rango_edad,
               unidad: r.objetivo?.unidad?.nombre,
               area: r.objetivo?.area?.nombre,
-              color: r.objetivo?.unidad?.colores?.primario,
+              color: typeof r.objetivo?.unidad?.colores === 'object' && r.objetivo?.unidad?.colores ? r.objetivo.unidad.colores.primario : undefined,
               como_se_cumple: r.como_se_cumple
             }))
-          } else if (art.metadata?.objetivos_educativos?.length > 0) {
+          } else if (art.metadata?.objetivos_educativos && art.metadata.objetivos_educativos.length > 0) {
             // Fallback para artículos viejos que solo tienen la info histórica en JSONB
-            const ids = art.metadata.objetivos_educativos.map((o: any) => o.id)
+            const ids = art.metadata.objetivos_educativos.map((o) => o.id)
             const { data: fullObjs } = await supabase
               .from('progresion_objetivos')
               .select('id, texto_terminal, rango_edad, unidad:unidades(colores)')
-              .in('id', ids)
+              .in('id', ids) as unknown as { data: Array<{ id: string; texto_terminal: string; rango_edad: string; unidad: { colores: { primario?: string } | string | null } | null }> | null }
             
-            if (fullObjs) {
-              art.metadata.objetivos_educativos = art.metadata.objetivos_educativos.map((o: any) => {
-                const full = fullObjs.find((f: any) => f.id === o.id) as any
-                return full ? { ...o, texto_terminal: full.texto_terminal, rango_edad: full.rango_edad, color: full.unidad?.colores?.primario } : o
+            if (fullObjs && art.metadata.objetivos_educativos) {
+              art.metadata.objetivos_educativos = art.metadata.objetivos_educativos.map((o) => {
+                const full = fullObjs.find((f) => f.id === o.id)
+                return full ? { ...o, texto_terminal: full.texto_terminal, rango_edad: full.rango_edad, color: typeof full.unidad?.colores === 'object' && full.unidad?.colores ? full.unidad.colores.primario : undefined } : o
               })
             }
           }
           setArticulo(art)
           const sortedCats = [...linkedCats].sort((a, b) => buildCatPathSlugs(b.id).length - buildCatPathSlugs(a.id).length)
-          const matchingCat = sortedCats.find((c: any) => currentPath.startsWith(buildCatPathSlugs(c.id).join('/')))
+          const matchingCat = sortedCats.find((c) => currentPath.startsWith(buildCatPathSlugs(c.id).join('/')))
 
           if (matchingCat) {
             setPathCategorias(buildFullPath(matchingCat.id))
@@ -254,7 +256,7 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {postsCategoria.map((post: any, index: number) => {
+            {postsCategoria.map((post, index) => {
               const isLast = postsCategoria.length === index + 1
               return (
                 <Link
@@ -284,10 +286,10 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
   }
 
   if (articulo) {
-    const metadata = articulo.metadata || {}
+    const metadata = articulo.metadata || {} as ArticuloMetadata
     const contenidoLimpio = (articulo.contenido || '').replace(/&nbsp;/g, ' ').replace(/\u00A0/g, ' ').replace(/&shy;/g, '').replace(/\u00AD/g, '').replace(/\u200B/g, '')
 
-    const RowMeta = ({ label, value, iconUrl, metaKey }: { label: string, value: any, iconUrl: string, metaKey?: string }) => {
+    const RowMeta = ({ label, value, iconUrl, metaKey }: { label: string, value: string | string[] | undefined | null, iconUrl: string, metaKey?: string }) => {
       if (!value || (Array.isArray(value) && value.length === 0)) return null
       const items = Array.isArray(value) ? value : [value]
       return (
@@ -320,7 +322,7 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
             <div className="w-full lg:w-[70%]">
               <div className="flex items-center gap-2 mb-2">
                 <Icon url={ICON_URLS.categoria} />
-                <span className="text-[0.8em] text-clr7 uppercase tracking-wider font-display">Categorías: {articulo.articulo_categorias?.map((c: any) => c.categorias.nombre).join(', ')}</span>
+                <span className="text-[0.8em] text-clr7 uppercase tracking-wider font-display">Categorías: {articulo.articulo_categorias?.map((c) => c.categorias?.nombre).join(', ')}</span>
               </div>
               <h1 className="text-3xl lg:text-4xl font-display font-bold leading-none text-clr4 dark:text-dclr2 uppercase my-0 py-0">{articulo.titulo}</h1>
               <div className="mt-6 space-y-0.5">
@@ -347,14 +349,14 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
                   </div>
                   <p className="text-[0.8em] tracking-widest text-clr6 mt-[-8px] pl-2">
                     {Array.isArray(metadata.areas || metadata.areas_desarrollo)
-                      ? (metadata.areas || metadata.areas_desarrollo).map((a: string) => a.charAt(0).toUpperCase() + a.slice(1)).join(', ')
+                      ? (metadata.areas || metadata.areas_desarrollo)!.map((a: string) => a.charAt(0).toUpperCase() + a.slice(1)).join(', ')
                       : (metadata.areas || metadata.areas_desarrollo)}
                   </p>
                 </div>
                 <p className="italic opacity-90 leading-relaxed text-clr4 dark:text-dclr2 pl-2 mt-2">{metadata.justificacion_areas}</p>
               </div>
             )}
-          <article className="blog-content dark:text-dclr2 w-full mb-10 text-[1.125rem]"><div dangerouslySetInnerHTML={{ __html: contenidoLimpio }} /></article>
+          <article className="blog-content dark:text-dclr2 w-full mb-10 text-[1.125rem]"><div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(contenidoLimpio) }} /></article>
           <section className="space-y-12">
 
             {metadata.objetivos_educativos && metadata.objetivos_educativos.length > 0 && (
@@ -365,15 +367,15 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
                 </div>
                 <div className="flex flex-col gap-2">
                   {Object.entries(
-                    [...metadata.objetivos_educativos].sort((a: any, b: any) => {
-                      const uMap: any = { 'Manada': 1, 'Compañía': 2, 'Tropa': 3, 'Avanzada': 4, 'Clan': 5 };
-                      return (uMap[a.unidad] || 99) - (uMap[b.unidad] || 99);
-                    }).reduce((acc: any, obj: any) => {
+                    [...metadata.objetivos_educativos].sort((a, b) => {
+                      const uMap: Record<string, number> = { 'Manada': 1, 'Compañía': 2, 'Tropa': 3, 'Avanzada': 4, 'Clan': 5 };
+                      return (uMap[a.unidad || ''] || 99) - (uMap[b.unidad || ''] || 99);
+                    }).reduce<Record<string, ObjEducacionMeta[]>>((acc, obj) => {
                     const term = obj.texto_terminal || 'Objetivos Específicos'
                     if (!acc[term]) acc[term] = []
                     acc[term].push(obj)
                     return acc
-                  }, {})).map(([terminal, objs]: [string, any], idx) => (
+                  }, {})).map(([terminal, objs], idx) => (
                     <div key={idx} className="flex flex-col gap-2">
                       <div className="p-4 border border-clr3 rounded-[1em]">
                         <h3 className="text-clr7 uppercase mb-[-4px]">🎯 Objetivo Terminal:</h3>
@@ -382,14 +384,14 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
                         </div>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {objs.map((o: any, i: number) => (
+                        {objs.map((o, i) => (
                           <div key={i} className="group flex flex-col gap-1 p-3 bg-white dark:bg-black/40 rounded-xl shadow-sm border border-zinc-100 dark:border-clr4 relative overflow-hidden pl-5">
                             <div className="absolute left-0 top-0 bottom-0 w-2" style={{ backgroundColor: o.color || '#ccc' }} />
                             <div className="flex items-center gap-2 flex-wrap">
                               <span className="text-[0.8em] font-black uppercase tracking-widest" style={{ color: o.color || '#ccc' }}>{o.unidad}</span><span>•</span>
                               <span className="text-[0.8em] font-black uppercase text-zinc-400">{o.area}</span><span>•</span>
                               {o.rango_edad && <span className="text-[0.8em] font-black uppercase px-2 py-0.5 rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-500">{o.rango_edad}</span>}
-                              <Link href={`/blog?obj_ed=${encodeURIComponent(o.texto)}`} className="text-[0.8em] font-black uppercase text-zinc-300 opacity-0 group-hover:opacity-100 hover:text-clr7 transition-all ml-auto">Filtrar →</Link>
+                              <Link href={`/blog?obj_ed=${encodeURIComponent(o.texto || '')}`} className="text-[0.8em] font-black uppercase text-zinc-300 opacity-0 group-hover:opacity-100 hover:text-clr7 transition-all ml-auto">Filtrar →</Link>
                             </div>
                             <p className="font-bold text-[1em] text-clr4 dark:text-white italic">"{o.texto}"</p>
                             {o.como_se_cumple && (
@@ -416,7 +418,7 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
                   <h3 className="text-2xl font-display font-bold text-emerald-600 uppercase my-0">Material Descargable</h3>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {metadata.descargas.map((d: any, idx: number) => (
+                  {metadata.descargas.map((d, idx) => (
                     <a
                       key={idx}
                       href={d.url}
@@ -449,22 +451,22 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
                   </div>
                   <div className="flex items-center gap-1">
                     <span className="text-2xl font-black text-clr6">
-                      {(articulo.articulo_resenas.reduce((acc: number, r: any) => acc + r.calificacion, 0) / articulo.articulo_resenas.length).toFixed(1)}
+                      {(articulo.articulo_resenas.reduce((acc: number, r) => acc + r.calificacion, 0) / articulo.articulo_resenas.length).toFixed(1)}
                     </span>
                     <span className="text-[0.8em] font-black uppercase opacity-40 leading-tight leading-none">Nota<br/>Media</span>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                  {articulo.articulo_resenas.map((res: any) => {
-                    const profile = res.perfiles || {};
+                  {articulo.articulo_resenas.map((res) => {
+                    const profile = res.perfiles
                     // Usamos los datos históricos capturados en la reseña
                     const unitLabel = res.unidad_resena || 'Scout';
                     const age = res.edad_resena || 0;
                     const uColor = res.unidad_color_resena || '#cb3327';
                     const uLogo = res.unidad_logo_resena;
                     
-                    const displayName = res.es_anonimo ? 'ANÓNIMO' : `${profile.nombres} ${profile.apellidos}`;
+                    const displayName = res.es_anonimo ? 'ANÓNIMO' : `${profile?.nombres} ${profile?.apellidos}`;
 
                     return (
                       <div key={res.id} className="p-2 bg-white dark:bg-black/40 rounded-[1rem] border-2 shadow-sm flex flex-col gap-5 transition-all hover:shadow-2xl relative overflow-hidden group" style={{ borderColor: `${uColor}30` }}>
@@ -485,7 +487,7 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
                               <span>{unitLabel}</span><span>•</span>
                               {age > 0 && <span>{age} AÑOS</span>}<span>•</span>
                               <span>
-                                {format(new Date(res.created_at), 'dd/MM/yy')}
+                                {res.created_at && format(new Date(res.created_at), 'dd/MM/yy')}
                               </span>
                             </div>
                           </div>
@@ -516,7 +518,7 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
                 </div>
               </div>
             )}
-            {articulo.etiquetas?.length > 0 && <footer className="pt-12 border-t border-clr10 dark:border-zinc-800 flex flex-wrap gap-3 items-center"><div className="flex items-center gap-2 mr-4"><Icon url={ICON_URLS.etiquetas} className="w-5 h-5" /><span className="text-[0.8em] font-bold text-clr2 uppercase tracking-widest">Etiquetas:</span></div>{articulo.etiquetas.map((t: string) => (<Link key={t} href={`/blog?tag=${t}`} className="px-5 py-2 bg-clr10 dark:bg-zinc-800 rounded-full text-sm font-bold text-clr4 dark:text-clr1 hover:bg-clr7 hover:text-white transition-all shadow-sm">#{t}</Link>))}</footer>}
+            {articulo.etiquetas && articulo.etiquetas.length > 0 && <footer className="pt-12 border-t border-clr10 dark:border-zinc-800 flex flex-wrap gap-3 items-center"><div className="flex items-center gap-2 mr-4"><Icon url={ICON_URLS.etiquetas} className="w-5 h-5" /><span className="text-[0.8em] font-bold text-clr2 uppercase tracking-widest">Etiquetas:</span></div>{articulo.etiquetas.map((t) => (<Link key={t} href={`/blog?tag=${t}`} className="px-5 py-2 bg-clr10 dark:bg-zinc-800 rounded-full text-sm font-bold text-clr4 dark:text-clr1 hover:bg-clr7 hover:text-white transition-all shadow-sm">#{t}</Link>))}</footer>}
           </section>
         </main>
       </div>

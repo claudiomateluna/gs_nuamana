@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { marked } from 'marked';
+import DOMPurify from 'dompurify';
 
 interface MarkdownRendererProps {
   content: string;
@@ -10,16 +11,12 @@ interface MarkdownRendererProps {
 const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
   if (!content) return null;
 
-  // Simple sanitization by removing dangerous tags
   let rawHtml = marked(content) as string;
-  rawHtml = rawHtml
-    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
-    .replace(/on\w+="[^"]*"/gi, '')
-    .replace(/javascript:/gi, '');
+  const cleanHtml = typeof window !== 'undefined' ? DOMPurify.sanitize(rawHtml) : rawHtml;
 
   return (
     <div className="blog-content prose max-w-none dark:prose-invert">
-      <div dangerouslySetInnerHTML={{ __html: rawHtml }} />
+      <div dangerouslySetInnerHTML={{ __html: cleanHtml }} />
     </div>
   );
 };
