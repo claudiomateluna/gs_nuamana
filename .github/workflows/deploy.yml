@@ -46,7 +46,7 @@ jobs:
                 echo "Migración ya aplicada, omitiendo: $filename"
               else
                 echo "Aplicando migración: $filename"
-                docker exec -i -e PGCLIENTENCODING=UTF8 supabase-db psql -U postgres -d postgres -v ON_ERROR_STOP=1 < "$f"
+                cat "$f" | docker exec -i -e PGCLIENTENCODING=UTF8 supabase-db psql -U postgres -d postgres -v ON_ERROR_STOP=1
                 if [ $? -eq 0 ]; then
                   docker exec -i supabase-db psql -U postgres -d postgres -c "INSERT INTO public.applied_migrations (filename) VALUES ('$filename');"
                 else
