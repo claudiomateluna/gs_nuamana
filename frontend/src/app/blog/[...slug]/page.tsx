@@ -109,15 +109,26 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
       return c.parent_id ? [...buildFullPath(c.parent_id), c] : [c]
     }
 
-    // 1. INTENTAR BUSCAR COMO ARTÍCULO
-    if (pageNum === 0) {
-      const { data: art } = await supabase
-        .from('articulos')
-        .select(`*, articulo_categorias(categoria_id, categorias(id, nombre, slug, parent_id)), articulo_resenas(*, perfiles(nombres, apellidos, fecha_nacimiento, unidades(nombre)))`)
-        .eq('slug', lastSlug)
-        .maybeSingle() as { data: Articulo | null }
+    try {
+      // 1. INTENTAR BUSCAR COMO ARTÍCULO
+      if (pageNum === 0) {
+        let { data: art } = await supabase
+          .from('articulos')
+          .select(`*, articulo_categorias(categoria_id, categorias(id, nombre, slug, parent_id)), articulo_resenas(*, perfiles(nombres, apellidos, fecha_nacimiento, unidades(nombre)))`)
+          .eq('slug', lastSlug)
+          .maybeSingle() as { data: Articulo | null }
 
-      if (art) {
+        if (!art) {
+          // Fallback en caso de que articulo_resenas o perfiles(unidades) no exista en el esquema de producción
+          const { data: simpleArt } = await supabase
+            .from('articulos')
+            .select(`*, articulo_categorias(categoria_id, categorias(id, nombre, slug, parent_id))`)
+            .eq('slug', lastSlug)
+            .maybeSingle() as { data: Articulo | null }
+          art = simpleArt
+        }
+
+        if (art) {
         const linkedCats = art.articulo_categorias?.map((ac) => ac.categorias).filter((c): c is NonNullable<typeof c> => !!c) || []       
         const allPossiblePaths = linkedCats.map((c) => [...buildCatPathSlugs(c.id), art.slug].join('/'))   
 
@@ -213,9 +224,12 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
       }
     }
 
-    setError404(true)
-    setLoading(false)
-    setLoadingMore(false)
+    } catch (err) {
+      console.error('Error fetching blog data:', err)
+      setError404(true)
+      setLoading(false)
+      setLoadingMore(false)
+    }
   }
 
   // Leer parámetros de URL para filtros internos
