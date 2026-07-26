@@ -16,7 +16,7 @@ export default function BlogSlideshow() {
         .select(`*, articulo_categorias(categorias(nombre, slug))`)
         .eq('estado', 'publicado')
         .order('created_at', { ascending: false })
-        .limit(5)
+        .limit(10)
       
       setRecentPosts(data || [])
       setLoading(false)

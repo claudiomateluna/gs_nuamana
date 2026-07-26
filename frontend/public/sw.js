@@ -1,5 +1,5 @@
-const CACHE_NAME = 'nuamana-cache-v3';
-const OFFLINE_URL = '/dashboard';
+const CACHE_NAME = 'nuamana-cache-v4';
+const OFFLINE_URL = '/panel';
 const LOGIN_URL = '/login';
 
 self.addEventListener('install', (event) => {

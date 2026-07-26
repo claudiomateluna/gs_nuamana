@@ -32,9 +32,9 @@ jobs:
             echo "Inicializando tabla de control de migraciones..."
             docker exec -i supabase-db psql -U postgres -d postgres -c "CREATE TABLE IF NOT EXISTS public.applied_migrations (filename text PRIMARY KEY, applied_at timestamp default now());"
 
-            # Desactivar temporalmente el trigger de notificaciones para evitar spam en migraciones
+            # Desactivar temporalmente el trigger de notificaciones si existe para evitar spam en migraciones
             echo "Desactivando trigger de notificaciones..."
-            docker exec -i supabase-db psql -U postgres -d postgres -c "ALTER TABLE public.articulos DISABLE TRIGGER trigger_notificar_cambio_articulo;"
+            docker exec -i supabase-db psql -U postgres -d postgres -c "ALTER TABLE public.articulos DISABLE TRIGGER trigger_notificar_cambio_articulo;" || true
             
             # Aplicar sólo las migraciones no ejecutadas anteriormente en orden cronológico
             echo "Ejecutando migraciones de base de datos..."
@@ -56,9 +56,9 @@ jobs:
               fi
             done
 
-            # Reactivar el trigger de notificaciones al finalizar
+            # Reactivar el trigger de notificaciones al finalizar si existe
             echo "Reactivando trigger de notificaciones..."
-            docker exec -i supabase-db psql -U postgres -d postgres -c "ALTER TABLE public.articulos ENABLE TRIGGER trigger_notificar_cambio_articulo;"
+            docker exec -i supabase-db psql -U postgres -d postgres -c "ALTER TABLE public.articulos ENABLE TRIGGER trigger_notificar_cambio_articulo;" || true
 
             # Entrar al frontend e instalar y compilar limpiando la caché de Next.js
             cd frontend

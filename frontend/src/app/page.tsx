@@ -11,6 +11,8 @@ import FeaturesSection from '@/components/features-section';
 import BlogSlideshow from '@/components/blog-slideshow';
 import { supabase } from '@/lib/supabase';
 
+import CategoryPromoBanner from '@/components/CategoryPromoBanner';
+
 export default function Home() {
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const [user, setUser] = useState<any>(null);
@@ -51,6 +53,13 @@ export default function Home() {
 
         {/* Features Section */}
         <FeaturesSection />
+
+        {/* Banner Publicitario de Categorías Principales con Contador */}
+        <section className="py-8 bg-white dark:bg-clr4 transition-colors">
+          <div className="max-w-[1080px] mx-auto px-4 sm:px-6">
+            <CategoryPromoBanner />
+          </div>
+        </section>
 
         {/* Blog Slideshow */}
         <BlogSlideshow />

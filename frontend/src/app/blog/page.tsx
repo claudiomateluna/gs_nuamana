@@ -6,6 +6,8 @@ import { supabase } from '@/lib/supabase'
 import Link from 'next/link'
 import SecondaryHeader from '@/components/SecondaryHeader'
 
+import CategoryPromoBanner from '@/components/CategoryPromoBanner'
+
 const POSTS_PER_PAGE = 9
 
 // Normalizado para coincidir exactamente con los valores en la base de datos
@@ -50,11 +52,30 @@ function BlogContent() {
       if (isNewFilter) setArticulos([]) 
     }
     
-    // Carga perezosa de categorías (solo una vez por sesión de navegación)
+    // Carga perezosa de categorías activas con conteo (omitiendo las vacías)
     let cats = allCategorias
     if (cats.length === 0) {
-      const { data } = await supabase.from('categorias').select('*').order('nombre')
-      cats = data || []
+      const { data: rawLinks } = await supabase
+        .from('articulo_categorias')
+        .select('categoria_id, categorias(id, nombre, slug, parent_id), articulos!inner(id, estado)')
+        .eq('articulos.estado', 'publicado')
+
+      const countsMap: Record<number, number> = {}
+      const catMap: Record<number, any> = {}
+
+      rawLinks?.forEach((item: any) => {
+        const cid = item.categoria_id
+        if (cid) {
+          countsMap[cid] = (countsMap[cid] || 0) + 1
+          if (item.categorias) catMap[cid] = item.categorias
+        }
+      })
+
+      cats = Object.values(catMap)
+        .map((c: any) => ({ ...c, count: countsMap[c.id] || 0 }))
+        .filter((c: any) => c.count > 0 && c.slug !== 'administrativo' && c.nombre?.toLowerCase() !== 'administrativo')
+        .sort((a: any, b: any) => b.count - a.count)
+
       setAllCategorias(cats)
     }
     
@@ -148,10 +169,13 @@ function BlogContent() {
       <SecondaryHeader />
       
       <main className="max-w-[1080px] mx-auto px-2 py-32">
-        <header className="mb-16">
+        <header className="mb-8">
           <h1 className="text-4xl text-clr7 dark:text-dclr7 font-bold font-display uppercase">Bitácora Nua Mana</h1>
           <p className="text-[0.9em] text-clr2 dark:text-dclr8 uppercase tracking-wider">Explora nuestras actividades, técnicas e historia</p>
         </header>
+
+        {/* BANNER ANUNCIO DE CATEGORÍAS PRINCIPALES CON CONTADORES */}
+        <CategoryPromoBanner className="mb-6" />
 
         {/* BARRA DE FILTROS */}
         <div className="bg-clr9 dark:bg-clr5 rounded-3xl border border-zinc-100 dark:border-clr3 p-2 mb-2 shadow-sm grid grid-cols-1 md:grid-cols-4 gap-2">
@@ -162,7 +186,7 @@ function BlogContent() {
           />
           <select className="p-2 rounded-2xl border bg-zinc-50 dark:bg-clr4 text-[0.8em] focus:outline-clr7 transition-colors border-clr10 dark:border-dclr4 font-bold" value={selCat} onChange={(e) => updateURL('category', e.target.value)}>
             <option value="todas">Todas las Categorías</option>
-            {allCategorias.map(c => <option key={c.id} value={c.id.toString()}>{c.nombre}</option>)}
+            {allCategorias.map(c => <option key={c.id} value={c.id.toString()}>{c.nombre} ({c.count})</option>)}
           </select>
           <select className="p-2 rounded-2xl border bg-zinc-50 dark:bg-clr4 text-[0.8em] focus:outline-clr7 transition-colors border-clr10 dark:border-dclr4 font-bold" value={selUnidad} onChange={(e) => updateURL('unidades', e.target.value)}>
             <option value="">Unidad (Todas)</option>
