@@ -99,17 +99,39 @@ export async function processArticleImage(file: File, title: string, category: s
     ctx.strokeText(textToDraw, targetX, targetY);
     ctx.fillText(textToDraw, targetX, targetY);
 
-    // Capa 5: Categoría (Glow rojo, tamaño 20px, mayúsculas, fuente del cuerpo de página)
+    // Capa 5: Categoría (con fondo clr1 #ffffff, padding y redondeado sm)
     ctx.save();
-    ctx.shadowColor = '#cb3327';
-    ctx.shadowBlur = 6;
-    ctx.fillStyle = '#cb3327';
     ctx.font = 'bold 20px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif';
     ctx.textAlign = 'right';
     ctx.textBaseline = 'middle';
     
-    // Posicionar en la esquina superior derecha del canvas de 540px
-    ctx.fillText(category.toUpperCase(), 505, 35);
+    const catText = category.toUpperCase();
+    const metrics = ctx.measureText(catText);
+    const textWidth = metrics.width;
+
+    const padX = 6;
+    const padY = 3;
+    const bgX = 505 - textWidth - padX;
+    const bgY = 35 - 12 - padY;
+    const bgW = textWidth + padX * 2;
+    const bgH = 24 + padY * 2;
+    const radius = 4; // redondeado sm
+
+    // Fondo clr1 (#ffffff) redondeado
+    ctx.fillStyle = '#ffffff';
+    if (typeof ctx.roundRect === 'function') {
+      ctx.beginPath();
+      ctx.roundRect(bgX, bgY, bgW, bgH, radius);
+      ctx.fill();
+    } else {
+      ctx.fillRect(bgX, bgY, bgW, bgH);
+    }
+
+    // Texto de categoría en rojo #cb3327
+    ctx.shadowColor = '#cb3327';
+    ctx.shadowBlur = 4;
+    ctx.fillStyle = '#cb3327';
+    ctx.fillText(catText, 505, 35);
     ctx.restore();
 
     // 3. Exportar como WebP comprimido (80% calidad)

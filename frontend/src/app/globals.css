@@ -67,7 +67,15 @@ h1, h2, h3, h4, h5, h6, .font-display {
   font-family: var(--font-roboto-slab), serif;
   margin-bottom: 1em;
 }
-.blog-content p {
+.blog-content p, .blog-content li {
+  margin-top: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.blog-content hr {
+  color: var(--clr7);
+  width: 50%;
+  height: 1px;
+  margin-left: 25%;
   margin-bottom: 1em;
 }
 

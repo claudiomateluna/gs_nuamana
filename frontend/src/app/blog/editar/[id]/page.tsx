@@ -250,8 +250,20 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
           categorias_ids: art.articulo_categorias?.map((c: ArticuloCategoriaJoin) => c.categoria_id.toString()) || [],
           etiquetas_input: art.etiquetas?.join(', ') || '',
           ...meta,
-          unidades: meta.unidades || [],
-          areas: meta.areas || meta.areas_desarrollo || [],
+          unidades: Array.isArray(meta.unidades)
+            ? meta.unidades.map((u: string) => {
+                const lower = String(u).toLowerCase().trim()
+                if (lower === 'compania') return 'compañía'
+                return lower
+              })
+            : [],
+          areas: Array.isArray(meta.areas || meta.areas_desarrollo)
+            ? (meta.areas || meta.areas_desarrollo).map((a: string) => {
+                const lower = String(a).toLowerCase().trim()
+                if (lower === 'caracter') return 'carácter'
+                return lower
+              })
+            : [],
           lugares: meta.lugares || meta.lugar || [],
           duracion: (meta.duracion || '').toLowerCase(),
           cantidad: (meta.cantidad || '').toLowerCase(),
@@ -475,8 +487,14 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
                     </div>
                     <div><label className="text-[1em] uppercase opacity-60 block mb-1">Duración</label><select {...register('duracion')} className="w-full p-4 rounded-2xl border bg-white dark:bg-black/20 text-sm font-bold">{DURACIONES.map(d => <option key={d} value={d}>{d}</option>)}</select></div>
                     <div><label className="text-[1em] uppercase opacity-60 block mb-1">Participantes</label><select {...register('cantidad')} className="w-full p-4 rounded-2xl border bg-white dark:bg-black/20 text-sm font-bold">{PARTICIPANTES.map(p => <option key={p} value={p}>{p}</option>)}</select></div>
-                    <div className="col-span-2"><textarea {...register('variaciones')} placeholder="Variaciones..." className="w-full p-4 rounded-2xl border h-24 text-sm bg-white dark:bg-black/20 font-bold" /></div>
-                    <div className="col-span-2"><textarea {...register('recomendaciones')} placeholder="Recomendaciones..." className="w-full p-4 rounded-2xl border h-24 text-sm bg-white dark:bg-black/20 font-bold" /></div>
+                    <div className="col-span-2 space-y-1">
+                      <label className="text-[0.9em] font-black uppercase opacity-60 block tracking-wider font-display">Variaciones (Usa saltos de línea para separar párrafos)</label>
+                      <textarea {...register('variaciones')} placeholder="Escribe las variaciones de la actividad. Usa saltos de línea para separar cada párrafo..." className="w-full p-4 rounded-2xl border h-36 text-sm bg-white dark:bg-black/20 font-bold focus:border-clr7 outline-none" />
+                    </div>
+                    <div className="col-span-2 space-y-1">
+                      <label className="text-[0.9em] font-black uppercase opacity-60 block tracking-wider font-display">Recomendaciones (Usa saltos de línea para separar párrafos)</label>
+                      <textarea {...register('recomendaciones')} placeholder="Escribe las recomendaciones de seguridad, animación y facilitación..." className="w-full p-4 rounded-2xl border h-36 text-sm bg-white dark:bg-black/20 font-bold focus:border-clr7 outline-none" />
+                    </div>
                   </div>
 
                   <div className="mt-4 pt-4 border-t border-blue-100 dark:border-blue-900/30 space-y-6">

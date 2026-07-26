@@ -19,6 +19,7 @@ const ICON_URLS = {
   lugar: "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/icono_lugar.svg",
   duracion: "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/icono_duracion.svg",   
   cantidad: "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/icono_participantes.svg",
+  materiales: "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/icono_materiales.svg",
   objetivos: "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/icono_objetivos.svg", 
   pais: "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/icono_pais.svg",
   nacimiento: "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/icono_nacimiento.svg",
@@ -35,6 +36,24 @@ const AREAS = ['corporalidad', 'creatividad', 'caracter', 'afectividad', 'sociab
 const Icon = ({ url, className = "w-4 h-4" }: { url: string, className?: string }) => (
   <img src={url} alt="icon" className={`${className} inline-block dark:invert-[0.9]`} />
 )
+
+const renderFormattedText = (text: string) => {
+  if (!text) return null
+  const paragraphs = text.split(/\n\s*\n/).filter(Boolean)
+  return (
+    <div className="space-y-4 font-normal text-[1.05rem] leading-relaxed text-zinc-700 dark:text-zinc-200">
+      {paragraphs.map((para, i) => (
+        <p
+          key={i}
+          className="my-0 leading-relaxed"
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(para.trim().replace(/\n/g, '<br/>'))
+          }}
+        />
+      ))}
+    </div>
+  )
+}
 
 function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
   const searchParams = useSearchParams()
@@ -331,6 +350,7 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
                 <RowMeta label="Lugar" value={metadata.lugares || metadata.lugar} iconUrl={ICON_URLS.lugar} metaKey="lugares" />
                 <RowMeta label="Duración" value={metadata.duracion} iconUrl={ICON_URLS.duracion} metaKey="duracion" />
                 <RowMeta label="Cantidad" value={metadata.cantidad} iconUrl={ICON_URLS.cantidad} metaKey="cantidad" />
+                <RowMeta label="Materiales" value={metadata.materiales} iconUrl={ICON_URLS.materiales || ICON_URLS.categoria} metaKey="materiales" />
                 <RowMeta label="Objetivos" value={metadata.objetivos} iconUrl={ICON_URLS.objetivos} metaKey="objetivos" />
                 <RowMeta label="Lugar de Nacimiento" value={metadata.lugar_nacimiento} iconUrl={ICON_URLS.lugar} metaKey="lugar_nacimiento" />
                 <RowMeta label="País de Nacimiento" value={metadata.pais_nacimiento} iconUrl={ICON_URLS.pais} metaKey="pais_nacimiento" />
@@ -353,7 +373,7 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
                       : (metadata.areas || metadata.areas_desarrollo)}
                   </p>
                 </div>
-                <p className="italic opacity-90 leading-relaxed text-clr4 dark:text-dclr2 pl-2 mt-2">{metadata.justificacion_areas}</p>
+                <div className="pl-2 mt-2">{renderFormattedText(metadata.justificacion_areas)}</div>
               </div>
             )}
           <article className="blog-content dark:text-dclr2 w-full mb-10 text-[1.125rem]"><div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(contenidoLimpio) }} /></article>
@@ -408,8 +428,24 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
                 </div>
               </div>
             )}
-            {metadata.variaciones && <div className="p-10 bg-clr9 dark:bg-zinc-900 rounded-[2.5rem] border-l-[12px] border-clr7 shadow-sm"><div className="flex items-center gap-3 mb-4"><Icon url={ICON_URLS.variacion} className="w-8 h-8" /><h3 className="text-2xl font-display font-bold text-clr7 uppercase my-0">Variaciones</h3></div><div className="italic opacity-90 blog-content">{metadata.variaciones}</div></div>}
-            {metadata.recomendaciones && <div className="p-10 bg-blue-50 dark:bg-blue-900/20 rounded-[2.5rem] border-l-[12px] border-blue-600 shadow-sm"><div className="flex items-center gap-3 mb-4"><Icon url={ICON_URLS.recomendacion} className="w-8 h-8" /><h3 className="text-2xl font-display font-bold text-blue-600 uppercase my-0">Recomendaciones</h3></div><div className="blog-content">{metadata.recomendaciones}</div></div>}
+            {metadata.variaciones && (
+              <div className="p-8 md:p-10 bg-clr9 dark:bg-zinc-900 rounded-[2.5rem] border-l-[12px] border-clr7 shadow-sm space-y-4">
+                <div className="flex items-center gap-3 mb-2">
+                  <Icon url={ICON_URLS.variacion} className="w-8 h-8" />
+                  <h3 className="text-2xl font-display font-bold text-clr7 uppercase my-0">Variaciones</h3>
+                </div>
+                {renderFormattedText(metadata.variaciones)}
+              </div>
+            )}
+            {metadata.recomendaciones && (
+              <div className="p-8 md:p-10 bg-blue-50 dark:bg-blue-900/20 rounded-[2.5rem] border-l-[12px] border-blue-600 shadow-sm space-y-4">
+                <div className="flex items-center gap-3 mb-2">
+                  <Icon url={ICON_URLS.recomendacion} className="w-8 h-8" />
+                  <h3 className="text-2xl font-display font-bold text-blue-600 uppercase my-0">Recomendaciones</h3>
+                </div>
+                {renderFormattedText(metadata.recomendaciones)}
+              </div>
+            )}
             
             {metadata.descargas && metadata.descargas.length > 0 && (
               <div className="p-10 bg-zinc-50 dark:bg-zinc-900/40 rounded-[2.5rem] border-l-[12px] border-emerald-600 shadow-sm">

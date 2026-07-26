@@ -1,0 +1,58 @@
+{
+  "titulo_reescrito": "El Sendero del Cuidado Scout",
+  "descripcion_reescrita": "Esta dinámica busca generar un espacio de confianza mutua, calidez y afecto colectivo a través del contacto físico respetuoso. Para comenzar, los participantes forman dos columnas paralelas, una frente a la otra, dejando un pasillo estrecho en medio que representará la 'senda'. Cada pareja de la columna simula ser una reconfortante estación de cuidado, listos para ofrecer palmaditas suaves, masajes ligeros y gestos amables en los hombros, brazos y espalda de quien cruce. Uno a uno, los integrantes transitan lentamente por esta senda con paso pausado, recibiendo el afecto and la energía positiva de sus compañeros. Al terminar el recorrido, la persona se integra al final de la columna para que un nuevo participante inicie su marcha. La actividad continúa de manera sucesiva hasta que todo el grupo haya cruzado. Al finalizar, es fundamental sentarse en círculo para reflexionar sobre cómo nos sentimos al recibir el aprecio del grupo y el valor de ser acogidos.",
+  "tipo": "dinámica",
+  "lugares": [
+    "Interior",
+    "salón"
+  ],
+  "duracion": "15 minutos",
+  "cantidad": "12 participantes",
+  "areas_desarrollo": [
+    "Afectividad"
+  ],
+  "justificacion_areas": "Esta actividad se centra directamente en el desarrollo de la afectividad. Al requerir un contacto físico sumamente respetuoso y cálido, promueve la empatía, el autoconocimiento corporal y la confianza colectiva. Los participantes experimentan activamente la reciprocidad al dar y recibir cuidado, lo cual fomenta la madurez en la expresión de emociones y el fortalecimiento de lazos afectivos significativos dentro del grupo.",
+  "materiales": [
+    "Sin Materiales"
+  ],
+  "variaciones": "El participante que hace el recorrido puede avanzar con los ojos cerrados para incrementar la confianza y concentrarse plenamente en las sensaciones táctiles y de cuidado del entorno.",
+  "recomendaciones": "Establecer pautas claras de respeto antes de comenzar: los movimientos y el contacto deben realizarse únicamente en zonas seguras y cómodas como los hombros, brazos y espalda alta.",
+  "objetivos_generales": [
+    "Facilitar el contacto inicial",
+    "Estimular la confianza",
+    "Fomentar un entorno de confianza",
+    "Fomentar las relaciones interpersonales",
+    "Permitir el contacto físico",
+    "Crear un ambiente de distensión"
+  ],
+  "objetivos_educativos": [
+    {
+      "id": "ab6e594f-b0a0-4e6d-96aa-7779299b02ef",
+      "area": "Afectividad",
+      "texto": "Trato con cariño a los demás en la Manada y me gusta que me traten igual.",
+      "unidad": "Manada",
+      "como_se_cumple": "Tratando con cuidado y afecto a los demás lobatos y lobeznas durante el recorrido por la senda, y experimentando la satisfacción y agrado de recibir el mismo trato cariñoso y respetuoso al realizar su propio turno."
+    },
+    {
+      "id": "66de9e77-aa53-48a1-98db-9de3d3958486",
+      "area": "Afectividad",
+      "texto": "Puedo hablar con los demás de las cosas que me ponen alegre y también de las que me ponen triste.",
+      "unidad": "Manada",
+      "como_se_cumple": "Expresando y compartiendo abiertamente sus sensaciones y emociones durante la reflexión grupal en círculo al finalizar el juego, manifestando qué aspectos del contacto y acogida del grupo le generaron alegría, tranquilidad o timidez."
+    },
+    {
+      "id": "9ad078db-d6b6-4302-9663-cafd868b6876",
+      "area": "Afectividad",
+      "texto": "Me gusta querer y que me quieran.",
+      "unidad": "Compañía",
+      "como_se_cumple": "Participando activamente en la entrega de gestos de aprecio y cuidado hacia sus pares en la Compañía, y aceptando positivamente las muestras de afecto y contención emocional brindadas por el grupo al transitar por el sendero."
+    },
+    {
+      "id": "bb4bbc06-8313-45b2-b06e-c2a52a3d9322",
+      "area": "Afectividad",
+      "texto": "Comparto mis sentimientos y emociones con mi patrulla.",
+      "unidad": "Compañía",
+      "como_se_cumple": "Socializando de forma sincera con sus compañeros en la ronda de evaluación final cómo se sintió a nivel emocional al recibir el soporte físico y afectivo del grupo, fortaleciendo el clima de confianza mutua."
+    }
+  ]
+}
