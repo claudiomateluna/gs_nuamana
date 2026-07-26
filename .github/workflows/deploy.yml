@@ -41,8 +41,8 @@ jobs:
             for f in supabase/migrations/*.sql; do
               filename=$(basename "$f")
               # Comprobar si la migración ya fue aplicada
-              exists=$(docker exec -i supabase-db psql -U postgres -d postgres -t -c "SELECT 1 FROM public.applied_migrations WHERE filename = '$filename';" | tr -d '[:space:]')
-              if [ "$exists" = "1" ]; then
+              count=$(docker exec -i supabase-db psql -U postgres -d postgres -t -q -A -c "SELECT count(*) FROM public.applied_migrations WHERE filename = '$filename';" | tr -d '[:space:]')
+              if [ "$count" != "0" ]; then
                 echo "Migración ya aplicada, omitiendo: $filename"
               else
                 echo "Aplicando migración: $filename"
