@@ -1,4 +1,5 @@
 SET client_encoding = 'UTF8';
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 
 -- ==============================================
@@ -16,7 +17,7 @@ BEGIN
 
   DELETE FROM articulos WHERE slug = 'el-nido-de-los-recuerdos';
 
-  v_articulo_id := uuid_generate_v4();
+  v_articulo_id := gen_random_uuid();
 
   INSERT INTO articulos (
     id,
@@ -86,7 +87,7 @@ BEGIN
 
   DELETE FROM articulos WHERE slug = 'desafio-de-las-cuatro-colinas';
 
-  v_articulo_id := uuid_generate_v4();
+  v_articulo_id := gen_random_uuid();
 
   INSERT INTO articulos (
     id,
@@ -153,7 +154,7 @@ BEGIN
 
   DELETE FROM articulos WHERE slug = 'el-lavado-de-autos';
 
-  v_articulo_id := uuid_generate_v4();
+  v_articulo_id := gen_random_uuid();
 
   INSERT INTO articulos (
     id,
@@ -223,7 +224,7 @@ BEGIN
 
   DELETE FROM articulos WHERE slug = 'caza-de-panolines';
 
-  v_articulo_id := uuid_generate_v4();
+  v_articulo_id := gen_random_uuid();
 
   INSERT INTO articulos (
     id,
@@ -293,7 +294,7 @@ BEGIN
 
   DELETE FROM articulos WHERE slug = 'cazadores-de-serpientes';
 
-  v_articulo_id := uuid_generate_v4();
+  v_articulo_id := gen_random_uuid();
 
   INSERT INTO articulos (
     id,
@@ -363,7 +364,7 @@ BEGIN
 
   DELETE FROM articulos WHERE slug = 'el-abrazo-musical';
 
-  v_articulo_id := uuid_generate_v4();
+  v_articulo_id := gen_random_uuid();
 
   INSERT INTO articulos (
     id,
@@ -430,7 +431,7 @@ BEGIN
 
   DELETE FROM articulos WHERE slug = 'duelo-de-gallitos';
 
-  v_articulo_id := uuid_generate_v4();
+  v_articulo_id := gen_random_uuid();
 
   INSERT INTO articulos (
     id,
@@ -491,7 +492,7 @@ BEGIN
 
   DELETE FROM articulos WHERE slug = 'caza-globos';
 
-  v_articulo_id := uuid_generate_v4();
+  v_articulo_id := gen_random_uuid();
 
   INSERT INTO articulos (
     id,
@@ -546,7 +547,7 @@ BEGIN
 
   DELETE FROM articulos WHERE slug = 'cuatro-esquinas';
 
-  v_articulo_id := uuid_generate_v4();
+  v_articulo_id := gen_random_uuid();
 
   INSERT INTO articulos (
     id,
@@ -616,7 +617,7 @@ BEGIN
 
   DELETE FROM articulos WHERE slug = 'los-submarinos';
 
-  v_articulo_id := uuid_generate_v4();
+  v_articulo_id := gen_random_uuid();
 
   INSERT INTO articulos (
     id,
@@ -689,7 +690,7 @@ BEGIN
 
   DELETE FROM articulos WHERE slug = 'el-arbol-y-el-viento';
 
-  v_articulo_id := uuid_generate_v4();
+  v_articulo_id := gen_random_uuid();
 
   INSERT INTO articulos (
     id,
@@ -756,7 +757,7 @@ BEGIN
 
   DELETE FROM articulos WHERE slug = 'el-matamoscas';
 
-  v_articulo_id := uuid_generate_v4();
+  v_articulo_id := gen_random_uuid();
 
   INSERT INTO articulos (
     id,
@@ -826,7 +827,7 @@ BEGIN
 
   DELETE FROM articulos WHERE slug = 'el-juego-del-vampiro';
 
-  v_articulo_id := uuid_generate_v4();
+  v_articulo_id := gen_random_uuid();
 
   INSERT INTO articulos (
     id,

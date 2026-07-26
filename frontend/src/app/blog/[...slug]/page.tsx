@@ -42,15 +42,19 @@ const renderFormattedText = (text: string) => {
   const paragraphs = text.split(/\n\s*\n/).filter(Boolean)
   return (
     <div className="space-y-4 font-normal text-[1.05rem] leading-relaxed text-zinc-700 dark:text-zinc-200">
-      {paragraphs.map((para, i) => (
-        <p
-          key={i}
-          className="my-0 leading-relaxed"
-          dangerouslySetInnerHTML={{
-            __html: DOMPurify.sanitize(para.trim().replace(/\n/g, '<br/>'))
-          }}
-        />
-      ))}
+      {paragraphs.map((para, i) => {
+        const rawHtml = para.trim().replace(/\n/g, '<br/>')
+        const cleanHtml = typeof window !== 'undefined' ? DOMPurify.sanitize(rawHtml) : rawHtml
+        return (
+          <p
+            key={i}
+            className="my-0 leading-relaxed"
+            dangerouslySetInnerHTML={{
+              __html: cleanHtml
+            }}
+          />
+        )
+      })}
     </div>
   )
 }
