@@ -1,5 +1,5 @@
 -- ====================================================================
--- MIGRACIÓN CANÓNICA 100% FIEL A LA SKILL ARTICULOS-NUAMANA: EL AMIGO SECRETO SCOUT
+-- MIGRACIÓN ESTÁNDAR IDÉNTICA A LOS DEMÁS ARTÍCULOS DE NUAMANA: EL AMIGO SECRETO SCOUT
 -- ====================================================================
 
 DO $$
@@ -65,7 +65,6 @@ BEGIN
                                 "texto_infantil": "Converso y comparto con todas las personas.",
                                 "texto_terminal": "Construye su felicidad personal en el amor, sirviendo a los otros sin esperar recompensa y valorándolos por lo que son.",
                                 "como_se_cumple": "Conversando y compartiendo mi alegría con todos mis compañeros de la Manada sin hacer distinción.",
-                                "color": "#f6c812",
                                 "objetivo_id": "b39109f4-260d-46e2-9192-2db4de116b1b"
                 },
                 {
@@ -76,7 +75,6 @@ BEGIN
                                 "texto_infantil": "Comparto con todos mis compañeros, sin importarme su raza, en qué trabajan sus papás, o si tienen o no dinero.",
                                 "texto_terminal": "Construye su felicidad personal en el amor, sirviendo a los otros sin esperar recompensa y valorándolos por lo que son.",
                                 "como_se_cumple": "Acogiendo con entusiasmo a cualquier compañero que me haya tocado en el sorteo de la Manada.",
-                                "color": "#f6c812",
                                 "objetivo_id": "b658a9a2-c0fb-4aec-b862-528eb90e07d1"
                 },
                 {
@@ -87,7 +85,6 @@ BEGIN
                                 "texto_infantil": "Me intereso por las demás personas y soy generosa.",
                                 "texto_terminal": "Construye su felicidad personal en el amor, sirviendo a los otros sin esperar recompensa y valorándolos por lo que son.",
                                 "como_se_cumple": "Demostrando mi generosidad y preocupación constante por las vivencias de mi amiga secreta.",
-                                "color": "#3fb34a",
                                 "objetivo_id": "1999e4c0-935b-4134-95be-92f01a5edf81"
                 },
                 {
@@ -98,7 +95,6 @@ BEGIN
                                 "texto_infantil": "Aprecio a las personas por lo que son.",
                                 "texto_terminal": "Construye su felicidad personal en el amor, sirviendo a los otros sin esperar recompensa y valorándolos por lo que son.",
                                 "como_se_cumple": "Expresando en mi carta fraterna las virtudes auténticas de mi compañera de patrulla.",
-                                "color": "#3fb34a",
                                 "objetivo_id": "80ff5a70-cc39-4599-99b1-38aa13b44f49"
                 },
                 {
@@ -109,7 +105,6 @@ BEGIN
                                 "texto_infantil": "Me intereso por los demás personas y soy generoso.",
                                 "texto_terminal": "Construye su felicidad personal en el amor, sirviendo a los otros sin esperar recompensa y valorándolos por lo que son.",
                                 "como_se_cumple": "Observando atentamente las buenas acciones de mi hermano scout para destacarlas en mi mensaje secreto.",
-                                "color": "#2b7fff",
                                 "objetivo_id": "70177516-c52f-4e19-8c59-32375c40eaac"
                 },
                 {
@@ -120,7 +115,6 @@ BEGIN
                                 "texto_infantil": "Estoy siempre dispuesto a ayudar a mis compañeros de patrulla.",
                                 "texto_terminal": "Construye su felicidad personal en el amor, sirviendo a los otros sin esperar recompensa y valorándolos por lo que son.",
                                 "como_se_cumple": "Brindando mi ayuda desinteresada y servicio diario a mis compañeros durante el campamento.",
-                                "color": "#2b7fff",
                                 "objetivo_id": "28433366-23af-4d9a-a8c6-fbca64ef0c95"
                 },
                 {
@@ -131,7 +125,6 @@ BEGIN
                                 "texto_infantil": "Comparto y defiendo el derecho de los demás a ser valorados por lo que son y no por lo que tienen.",
                                 "texto_terminal": "Construye su felicidad personal en el amor, sirviendo a los otros sin esperar recompensa y valorándolos por lo que son.",
                                 "como_se_cumple": "Defendiendo el respeto mutuo y la valoración auténtica entre todos los integrantes de mi avanzada.",
-                                "color": "#f39c12",
                                 "objetivo_id": "edfc3452-910a-4b7b-bcc5-73628cf20c0a"
                 },
                 {
@@ -142,7 +135,6 @@ BEGIN
                                 "texto_infantil": "Construyo mi felicidad personal en el amor, sirviendo a los otros sin esperar recompensa y valorándolos por lo que son.",
                                 "texto_terminal": "Construye su felicidad personal en el amor, sirviendo a los otros sin esperar recompensa y valorándolos por lo que son.",
                                 "como_se_cumple": "Viviendo la fraternidad scout como un servicio desinteresado de afecto y apoyo incondicional.",
-                                "color": "#cb3327",
                                 "objetivo_id": "39de3f68-3477-4c1f-8a29-170e914596d7"
                 },
                 {
@@ -153,7 +145,6 @@ BEGIN
                                 "texto_infantil": "Escucho a los demás lobatos, a mis papás y a mis dirigentes y guiadoras.",
                                 "texto_terminal": "Reconoce en su grupo de pertenencia un apoyo para su crecimiento personal y para la realización de su proyecto de vida.",
                                 "como_se_cumple": "Escuchando con atención y afecto a los demás lobatos durante el círculo de revelación.",
-                                "color": "#f6c812",
                                 "objetivo_id": "99c6e695-ef0b-4e36-956b-3faf15ada355"
                 },
                 {
@@ -164,7 +155,6 @@ BEGIN
                                 "texto_infantil": "Me llevo bien con todos los lobatos de la Manada.",
                                 "texto_terminal": "Reconoce en su grupo de pertenencia un apoyo para su crecimiento personal y para la realización de su proyecto de vida.",
                                 "como_se_cumple": "Promoviendo el buen trato y la amistad fraterna con todos los lobatos de mi seisenas.",
-                                "color": "#f6c812",
                                 "objetivo_id": "6b8c5fb5-6730-4c61-a332-2a7e6033bd94"
                 },
                 {
@@ -175,7 +165,6 @@ BEGIN
                                 "texto_infantil": "Aprecio los consejos que me dan en mi patrulla.",
                                 "texto_terminal": "Reconoce en su grupo de pertenencia un apoyo para su crecimiento personal y para la realización de su proyecto de vida.",
                                 "como_se_cumple": "Apreciando las palabras de aliento y reflexiones compartidas por mis compañeras.",
-                                "color": "#3fb34a",
                                 "objetivo_id": "81cd6596-30cd-40fe-83e8-c86bf12a21f2"
                 },
                 {
@@ -186,7 +175,6 @@ BEGIN
                                 "texto_infantil": "Ayudo a mis compañeras de patrulla a superarse.",
                                 "texto_terminal": "Reconoce en su grupo de pertenencia un apoyo para su crecimiento personal y para la realización de su proyecto de vida.",
                                 "como_se_cumple": "Ayudando discretamente a mis compañeras de patrulla a destacar sus fortalezas personales.",
-                                "color": "#3fb34a",
                                 "objetivo_id": "0da6c9df-7a09-44cd-9961-e06c0173d41a"
                 },
                 {
@@ -197,7 +185,6 @@ BEGIN
                                 "texto_infantil": "Aprecio los consejos que me dan en mi patrulla.",
                                 "texto_terminal": "Reconoce en su grupo de pertenencia un apoyo para su crecimiento personal y para la realización de su proyecto de vida.",
                                 "como_se_cumple": "Recibiendo con humildad y madurez las opiniones positivas de mis hermanos scouts.",
-                                "color": "#2b7fff",
                                 "objetivo_id": "0969a204-e8c6-4ab6-ac4f-c777bae066df"
                 },
                 {
@@ -208,7 +195,6 @@ BEGIN
                                 "texto_infantil": "Ayudo a mis compañeros de patrulla a superarse.",
                                 "texto_terminal": "Reconoce en su grupo de pertenencia un apoyo para su crecimiento personal y para la realización de su proyecto de vida.",
                                 "como_se_cumple": "Motivando a mis compañeros de patrulla a superar sus dificultades mediante gestos solidarios.",
-                                "color": "#2b7fff",
                                 "objetivo_id": "f608eb2d-613a-477a-86f9-03e769a87bf2"
                 },
                 {
@@ -219,7 +205,6 @@ BEGIN
                                 "texto_infantil": "Reconozco en mi Avanzada una comunidad de vida y acepto las críticas y recomendaciones que mis compañeros y compañeras me hacen.",
                                 "texto_terminal": "Reconoce en su grupo de pertenencia un apoyo para su crecimiento personal y para la realización de su proyecto de vida.",
                                 "como_se_cumple": "Reconociendo en mi avanzada un espacio seguro de crecimiento y valoración personal.",
-                                "color": "#f39c12",
                                 "objetivo_id": "db877208-738b-4e2e-bcbc-591331f75703"
                 },
                 {
@@ -230,7 +215,6 @@ BEGIN
                                 "texto_infantil": "Reconozco en mi grupo de pertenencia un apoyo para mi crecimiento personal y para la realización de mi proyecto de vida.",
                                 "texto_terminal": "Reconoce en su grupo de pertenencia un apoyo para su crecimiento personal y para la realización de su proyecto de vida.",
                                 "como_se_cumple": "Encontrando en la comunidad de clan el testimonio fraterno para fortalecer mi proyecto de vida.",
-                                "color": "#cb3327",
                                 "objetivo_id": "8df0eaed-f805-4347-881d-3d5fac18c8a5"
                 }
 ]
@@ -241,5 +225,5 @@ BEGIN
     INSERT INTO public.articulo_categorias (articulo_id, categoria_id) VALUES (v_articulo_id, v_cat_hijo_id);
     INSERT INTO public.articulo_categorias (articulo_id, categoria_id) VALUES (v_articulo_id, v_cat_padre_id);
 
-    RAISE NOTICE 'Artículo "El Amigo Secreto Scout" generado con estricta observancia de la Matriz de 5 Claves (16 objetivos canónicos agrupados por 2 Ejes Terminales)';
+    RAISE NOTICE 'Artículo "El Amigo Secreto Scout" actualizado removiendo la propiedad color para ser 100 por ciento idéntico al resto del sitio';
 END $$;
