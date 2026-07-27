@@ -78,9 +78,9 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
   const [page, setPage] = useState(0)
   const [hasMore, setHasMore] = useState(true)
   
-  const search = searchParams.get('q') || ''
-  const selUnidad = searchParams.get('unidad') || searchParams.get('unidades') || ''
-  const selArea = searchParams.get('area') || searchParams.get('areas') || ''
+  const [search, setSearch] = useState(searchParams.get('q') || '')
+  const [selUnidad, setSelUnidad] = useState(searchParams.get('unidad') || searchParams.get('unidades') || '')
+  const [selArea, setSelArea] = useState(searchParams.get('area') || searchParams.get('areas') || '')
 
   const observer = useRef<IntersectionObserver | null>(null)
   const lastPostRef = useCallback((node: HTMLElement | null) => {
