@@ -110,8 +110,8 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
           : Promise.resolve({ data: null, error: null })
       ])
 
-      const allCats = (catsRes.data as Categoria[] | null) || []
-      let art = artRes.data as Articulo | null
+      const allCats = Array.isArray(catsRes.data) ? (catsRes.data as Categoria[]) : []
+      let art = (artRes.data && typeof artRes.data === 'object' && 'slug' in artRes.data) ? (artRes.data as Articulo) : null
 
       if (pageNum === 0 && !art && artRes.error) {
         // Fallback rápido sólo si la consulta compleja dio un error de esquema/relación en Supabase
@@ -219,7 +219,7 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
       // Si no coincidió con ningún artículo ni categoría para esta ruta, es un 404
       setError404(true)
       setLoading(false)
-      setLoadingMore(false)re(false)
+      setLoadingMore(false)
 
     } catch (err) {
       console.error('Error fetching blog data:', err)
@@ -229,14 +229,10 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
     }
   }
 
-  // Leer parámetros de URL para filtros internos
   useEffect(() => {
-    const s = searchParams.get('q')
-    const u = searchParams.get('unidades')
-    const a = searchParams.get('areas')
-    if (s) setSearch(s)
-    if (u) setSelUnidad(u)
-    if (a) setSelArea(a)
+    setSearch(searchParams.get('q') || '')
+    setSelUnidad(searchParams.get('unidad') || '')
+    setSelArea(searchParams.get('area') || '')
   }, [searchParams])
 
   useEffect(() => { fetchData(0, true) }, [lastSlug, currentPath, search, selUnidad, selArea])
@@ -245,8 +241,8 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
     if (page > 0) fetchData(page)
   }, [page])
 
-  if (loading) return <div className="p-20 text-center font-body text-clr2 italic tracking-widest text-[0.8em] uppercase">Explorando...</div>
   if (error404) return <NotFound />
+  if (loading) return <div className="p-20 text-center font-body text-clr2 italic tracking-widest text-[0.8em] uppercase">Explorando...</div>
 
   const Breadcrumbs = () => (
     <nav className="text-[1em] uppercase text-clr5 dark:text-dclr2 mb-8 flex gap-2 items-center flex-wrap">     
