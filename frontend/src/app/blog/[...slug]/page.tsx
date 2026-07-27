@@ -2,6 +2,7 @@
 
 import { useEffect, useState, use, useRef, useCallback, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
+import NotFound from '@/app/not-found'
 import { supabase } from '@/lib/supabase'
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
@@ -215,7 +216,7 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
           setHasMore(arts.length === POSTS_PER_PAGE)
         }
 
-        if (pageNum === 0) {
+  if (pageNum === 0) {
           setPathCategorias(buildFullPath(cat.id))
         }
         setLoading(false)
@@ -223,6 +224,11 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
         return
       }
     }
+
+    // Si no coincidió con ningún artículo ni categoría para esta ruta, es un 404
+    setError404(true)
+    setLoading(false)
+    setLoadingMore(false)
 
     } catch (err) {
       console.error('Error fetching blog data:', err)
@@ -249,7 +255,7 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
   }, [page])
 
   if (loading) return <div className="p-20 text-center font-body text-clr2 italic tracking-widest text-[0.8em] uppercase">Explorando...</div>
-  if (error404) return <div className="p-20 text-center font-body text-clr2 font-black uppercase tracking-tighter text-2xl text-clr7">404: Ruta no válida</div>
+  if (error404) return <NotFound />
 
   const Breadcrumbs = () => (
     <nav className="text-[1em] uppercase text-clr5 dark:text-dclr2 mb-8 flex gap-2 items-center flex-wrap">     

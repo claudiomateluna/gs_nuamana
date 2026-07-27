@@ -96,6 +96,16 @@ def process_article_image_py(input_img_path, output_img_path, title, category):
     print(f"Processed image with template saved to: {output_img_path}")
 
 if __name__ == "__main__":
-    raw_img = r"C:\Users\claud\.gemini\antigravity-cli\brain\1a6629cd-bb47-41eb-8e2a-da64d2f5d41e\el_nido_juego_1784875874733.jpg"
-    out_img = r"frontend/public/uploads/actividad_elNido.webp"
-    process_article_image_py(raw_img, out_img, "El Nido de los Recuerdos", "Dinámicas")
+    import sys
+    if len(sys.argv) >= 5:
+        raw_img = sys.argv[1]
+        title = sys.argv[2]
+        category = sys.argv[3]
+        out_img = sys.argv[4]
+    else:
+        raw_img = r"C:\Users\claud\.gemini\antigravity-cli\brain\1a6629cd-bb47-41eb-8e2a-da64d2f5d41e\el_nido_juego_1784875874733.jpg"
+        title = "El Nido de los Recuerdos"
+        category = "Dinámicas"
+        out_img = r"frontend/public/uploads/actividad_elNido.webp"
+
+    process_article_image_py(raw_img, out_img, title, category)
