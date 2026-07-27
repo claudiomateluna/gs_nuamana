@@ -567,7 +567,7 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
     )
   }
 
-  return null
+  return <NotFound />
 }
 
 export default function BlogCatchAllPage({ params }: { params: Promise<{ slug: string[] }> }) {
