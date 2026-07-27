@@ -97,20 +97,20 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
     if (pageNum === 0) setLoading(true)
     else setLoadingMore(true)
 
-    const { data: allCats } = await supabase.from('categorias').select('*') as { data: Categoria[] | null }
-
-    const buildCatPathSlugs = (catId: number): string[] => {
-      const cat = allCats?.find(c => c.id === catId)
-      if (!cat) return []
-      return cat.parent_id ? [...buildCatPathSlugs(cat.parent_id), cat.slug] : [cat.slug]
-    }
-
-    const buildFullPath = (catId: number): Categoria[] => {
-      const c = allCats?.find(x => x.id === catId); if (!c) return [];
-      return c.parent_id ? [...buildFullPath(c.parent_id), c] : [c]
-    }
-
     try {
+      const { data: allCats } = await supabase.from('categorias').select('*') as { data: Categoria[] | null }
+
+      const buildCatPathSlugs = (catId: number): string[] => {
+        const cat = allCats?.find(c => c.id === catId)
+        if (!cat) return []
+        return cat.parent_id ? [...buildCatPathSlugs(cat.parent_id), cat.slug] : [cat.slug]
+      }
+
+      const buildFullPath = (catId: number): Categoria[] => {
+        const c = allCats?.find(x => x.id === catId); if (!c) return [];
+        return c.parent_id ? [...buildFullPath(c.parent_id), c] : [c]
+      }
+
       // 1. INTENTAR BUSCAR COMO ARTÍCULO
       if (pageNum === 0) {
         let { data: art } = await supabase
