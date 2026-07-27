@@ -25,8 +25,9 @@ jobs:
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
             
             cd /var/www/nuamana
-            # Descargar los últimos cambios desde GitHub
-            git pull origin main
+            # Descargar y forzar la sincronización exacta con origin/main
+            git fetch origin main
+            git reset --hard origin/main
             
             # Asegurar la existencia de la tabla de control de migraciones
             echo "Inicializando tabla de control de migraciones..."
