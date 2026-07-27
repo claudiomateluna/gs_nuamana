@@ -31,25 +31,25 @@ jobs:
             
             # Asegurar la existencia de la tabla de control de migraciones
             echo "Inicializando tabla de control de migraciones..."
-            docker exec -i supabase-db psql -U postgres -d postgres -c "CREATE TABLE IF NOT EXISTS public.applied_migrations (filename text PRIMARY KEY, applied_at timestamp default now());"
+            docker exec -i supabase-db psql -U supabase_admin -d postgres -c "CREATE TABLE IF NOT EXISTS public.applied_migrations (filename text PRIMARY KEY, applied_at timestamp default now());"
 
             # Desactivar temporalmente el trigger de notificaciones si existe para evitar spam en migraciones
             echo "Desactivando trigger de notificaciones..."
-            docker exec -i supabase-db psql -U postgres -d postgres -c "ALTER TABLE public.articulos DISABLE TRIGGER trigger_notificar_cambio_articulo;" || true
+            docker exec -i supabase-db psql -U supabase_admin -d postgres -c "ALTER TABLE public.articulos DISABLE TRIGGER trigger_notificar_cambio_articulo;" || true
             
             # Aplicar sólo las migraciones no ejecutadas anteriormente en orden cronológico
             echo "Ejecutando migraciones de base de datos..."
             for f in supabase/migrations/*.sql; do
               filename=$(basename "$f")
               # Comprobar si la migración ya fue aplicada
-              count=$(docker exec -i supabase-db psql -U postgres -d postgres -t -q -A -c "SELECT count(*) FROM public.applied_migrations WHERE filename = '$filename';" | tr -d '[:space:]')
+              count=$(docker exec -i supabase-db psql -U supabase_admin -d postgres -t -q -A -c "SELECT count(*) FROM public.applied_migrations WHERE filename = '$filename';" | tr -d '[:space:]')
               if [ "$count" != "0" ]; then
                 echo "Migración ya aplicada, omitiendo: $filename"
               else
                 echo "Aplicando migración: $filename"
-                cat "$f" | docker exec -i -e PGCLIENTENCODING=UTF8 supabase-db psql -U postgres -d postgres -v ON_ERROR_STOP=1
+                cat "$f" | docker exec -i -e PGCLIENTENCODING=UTF8 supabase-db psql -U supabase_admin -d postgres -v ON_ERROR_STOP=1
                 if [ $? -eq 0 ]; then
-                  docker exec -i supabase-db psql -U postgres -d postgres -c "INSERT INTO public.applied_migrations (filename) VALUES ('$filename');"
+                  docker exec -i supabase-db psql -U supabase_admin -d postgres -c "INSERT INTO public.applied_migrations (filename) VALUES ('$filename');"
                 else
                   echo "ERROR crítico al aplicar migración: $filename"
                   exit 1
@@ -59,7 +59,7 @@ jobs:
 
             # Reactivar el trigger de notificaciones al finalizar si existe
             echo "Reactivando trigger de notificaciones..."
-            docker exec -i supabase-db psql -U postgres -d postgres -c "ALTER TABLE public.articulos ENABLE TRIGGER trigger_notificar_cambio_articulo;" || true
+            docker exec -i supabase-db psql -U supabase_admin -d postgres -c "ALTER TABLE public.articulos ENABLE TRIGGER trigger_notificar_cambio_articulo;" || true
 
             # Entrar al frontend e instalar y compilar limpiando la caché de Next.js
             cd frontend
