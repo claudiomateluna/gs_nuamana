@@ -69,8 +69,9 @@ jobs:
             # Sincronizar imágenes a la carpeta de uploads servida por Nginx
             mkdir -p /var/www/nuamana/public/uploads
             mkdir -p /var/www/nuamana/frontend/public/uploads
-            cp -r public/uploads/* /var/www/nuamana/public/uploads/ 2>/dev/null || true
-            cp -r public/uploads/* /var/www/nuamana/frontend/public/uploads/ 2>/dev/null || true
+            cp -r /var/www/nuamana/frontend/public/uploads/* /var/www/nuamana/public/uploads/ 2>/dev/null || true
+            chmod -R 755 /var/www/nuamana/public/uploads
+            chmod -R 755 /var/www/nuamana/frontend/public/uploads
 
             # Reiniciar la aplicación de Next.js en PM2
-            pm2 restart nuamana-pwa
+            pm2 reload nuamana-pwa --update-env || pm2 restart nuamana-pwa

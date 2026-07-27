@@ -77,9 +77,10 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
   // Infinite Scroll & Filtros
   const [page, setPage] = useState(0)
   const [hasMore, setHasMore] = useState(true)
-  const [search, setSearch] = useState('')
-  const [selUnidad, setSelUnidad] = useState('')
-  const [selArea, setSelArea] = useState('')
+  
+  const search = searchParams.get('q') || ''
+  const selUnidad = searchParams.get('unidad') || searchParams.get('unidades') || ''
+  const selArea = searchParams.get('area') || searchParams.get('areas') || ''
 
   const observer = useRef<IntersectionObserver | null>(null)
   const lastPostRef = useCallback((node: HTMLElement | null) => {
@@ -228,12 +229,6 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
       setLoadingMore(false)
     }
   }
-
-  useEffect(() => {
-    setSearch(searchParams.get('q') || '')
-    setSelUnidad(searchParams.get('unidad') || '')
-    setSelArea(searchParams.get('area') || '')
-  }, [searchParams])
 
   useEffect(() => { fetchData(0, true) }, [lastSlug, currentPath, search, selUnidad, selArea])
 
