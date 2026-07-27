@@ -98,38 +98,44 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
     else setLoadingMore(true)
 
     try {
-      const { data: allCats } = await supabase.from('categorias').select('*') as { data: Categoria[] | null }
+      // Realizar consultas iniciales de categorías y artículo en paralelo
+      const [catsRes, artRes] = await Promise.all([
+        supabase.from('categorias').select('*'),
+        pageNum === 0
+          ? supabase
+              .from('articulos')
+              .select(`*, articulo_categorias(categoria_id, categorias(id, nombre, slug, parent_id)), articulo_resenas(*, perfiles(nombres, apellidos, fecha_nacimiento, unidades(nombre)))`)
+              .eq('slug', lastSlug)
+              .maybeSingle()
+          : Promise.resolve({ data: null, error: null })
+      ])
+
+      const allCats = (catsRes.data as Categoria[] | null) || []
+      let art = artRes.data as Articulo | null
+
+      if (pageNum === 0 && !art && artRes.error) {
+        // Fallback rápido sólo si la consulta compleja dio un error de esquema/relación en Supabase
+        const { data: simpleArt } = await supabase
+          .from('articulos')
+          .select(`*, articulo_categorias(categoria_id, categorias(id, nombre, slug, parent_id))`)
+          .eq('slug', lastSlug)
+          .maybeSingle() as { data: Articulo | null }
+        art = simpleArt
+      }
 
       const buildCatPathSlugs = (catId: number): string[] => {
-        const cat = allCats?.find(c => c.id === catId)
+        const cat = allCats.find(c => c.id === catId)
         if (!cat) return []
         return cat.parent_id ? [...buildCatPathSlugs(cat.parent_id), cat.slug] : [cat.slug]
       }
 
       const buildFullPath = (catId: number): Categoria[] => {
-        const c = allCats?.find(x => x.id === catId); if (!c) return [];
+        const c = allCats.find(x => x.id === catId); if (!c) return [];
         return c.parent_id ? [...buildFullPath(c.parent_id), c] : [c]
       }
 
       // 1. INTENTAR BUSCAR COMO ARTÍCULO
-      if (pageNum === 0) {
-        let { data: art } = await supabase
-          .from('articulos')
-          .select(`*, articulo_categorias(categoria_id, categorias(id, nombre, slug, parent_id)), articulo_resenas(*, perfiles(nombres, apellidos, fecha_nacimiento, unidades(nombre)))`)
-          .eq('slug', lastSlug)
-          .maybeSingle() as { data: Articulo | null }
-
-        if (!art) {
-          // Fallback en caso de que articulo_resenas o perfiles(unidades) no exista en el esquema de producción
-          const { data: simpleArt } = await supabase
-            .from('articulos')
-            .select(`*, articulo_categorias(categoria_id, categorias(id, nombre, slug, parent_id))`)
-            .eq('slug', lastSlug)
-            .maybeSingle() as { data: Articulo | null }
-          art = simpleArt
-        }
-
-        if (art) {
+      if (pageNum === 0 && art) {
         const linkedCats = art.articulo_categorias?.map((ac) => ac.categorias).filter((c): c is NonNullable<typeof c> => !!c) || []       
         const allPossiblePaths = linkedCats.map((c) => [...buildCatPathSlugs(c.id), art.slug].join('/'))   
 
@@ -152,20 +158,6 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
               color: typeof r.objetivo?.unidad?.colores === 'object' && r.objetivo?.unidad?.colores ? r.objetivo.unidad.colores.primario : undefined,
               como_se_cumple: r.como_se_cumple
             }))
-          } else if (art.metadata?.objetivos_educativos && art.metadata.objetivos_educativos.length > 0) {
-            // Fallback para artículos viejos que solo tienen la info histórica en JSONB
-            const ids = art.metadata.objetivos_educativos.map((o) => o.id)
-            const { data: fullObjs } = await supabase
-              .from('progresion_objetivos')
-              .select('id, texto_terminal, rango_edad, unidad:unidades(colores)')
-              .in('id', ids) as unknown as { data: Array<{ id: string; texto_terminal: string; rango_edad: string; unidad: { colores: { primario?: string } | string | null } | null }> | null }
-            
-            if (fullObjs && art.metadata.objetivos_educativos) {
-              art.metadata.objetivos_educativos = art.metadata.objetivos_educativos.map((o) => {
-                const full = fullObjs.find((f) => f.id === o.id)
-                return full ? { ...o, texto_terminal: full.texto_terminal, rango_edad: full.rango_edad, color: typeof full.unidad?.colores === 'object' && full.unidad?.colores ? full.unidad.colores.primario : undefined } : o
-              })
-            }
           }
           setArticulo(art)
           const sortedCats = [...linkedCats].sort((a, b) => buildCatPathSlugs(b.id).length - buildCatPathSlugs(a.id).length)
@@ -178,57 +170,56 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
           return
         }
       }
-    }
 
-    // 2. INTENTAR BUSCAR COMO CATEGORÍA
-    const cat = allCats?.find(c => c.slug === lastSlug)
-    if (cat) {
-      const expectedCatPath = buildCatPathSlugs(cat.id).join('/')
-      if (currentPath === expectedCatPath) {
-        setCategoria(cat)
-        const getDescendants = (parentId: number): number[] => {
-          const children = allCats?.filter(c => c.parent_id === parentId).map(c => c.id) || []
-          let descendants = [...children]; children.forEach(id => descendants = [...descendants, ...getDescendants(id)])
-          return descendants
+      // 2. INTENTAR BUSCAR COMO CATEGORÍA
+      const cat = allCats.find(c => c.slug === lastSlug)
+      if (cat) {
+        const expectedCatPath = buildCatPathSlugs(cat.id).join('/')
+        if (currentPath === expectedCatPath) {
+          setCategoria(cat)
+          const getDescendants = (parentId: number): number[] => {
+            const children = allCats.filter(c => c.parent_id === parentId).map(c => c.id) || []
+            let descendants = [...children]; children.forEach(id => descendants = [...descendants, ...getDescendants(id)])
+            return descendants
+          }
+          const allIds = [cat.id, ...getDescendants(cat.id)]
+
+          let query = supabase
+            .from('articulos')
+            .select(`*, articulo_categorias!inner(categoria_id)`, { count: 'exact' })
+            .in('articulo_categorias.categoria_id', allIds)
+            .eq('estado', 'publicado')
+            .order('created_at', { ascending: false })
+
+          if (search) query = query.ilike('titulo', `%${search}%`)
+          if (selUnidad) query = query.contains('metadata', { unidades: [selUnidad] })
+          if (selArea) query = query.contains('metadata', { areas: [selArea] })
+
+          const from = pageNum * POSTS_PER_PAGE
+          const { data: arts } = await query.range(from, from + POSTS_PER_PAGE - 1)
+
+          if (arts) {
+            const processedArts = arts.map(post => {
+              const fullPath = `/blog/${currentPath}/${post.slug}`
+              return { ...post, fullPath }
+            })
+            setPostsCategoria(prev => isNewFilter ? processedArts : [...prev, ...processedArts])
+            setHasMore(arts.length === POSTS_PER_PAGE)
+          }
+
+          if (pageNum === 0) {
+            setPathCategorias(buildFullPath(cat.id))
+          }
+          setLoading(false)
+          setLoadingMore(false)
+          return
         }
-        const allIds = [cat.id, ...getDescendants(cat.id)]
-
-        let query = supabase
-          .from('articulos')
-          .select(`*, articulo_categorias!inner(categoria_id)`, { count: 'exact' })
-          .in('articulo_categorias.categoria_id', allIds)
-          .eq('estado', 'publicado')
-          .order('created_at', { ascending: false })
-
-        if (search) query = query.ilike('titulo', `%${search}%`)
-        if (selUnidad) query = query.contains('metadata', { unidades: [selUnidad] })
-        if (selArea) query = query.contains('metadata', { areas: [selArea] })
-
-        const from = pageNum * POSTS_PER_PAGE
-        const { data: arts } = await query.range(from, from + POSTS_PER_PAGE - 1)
-
-        if (arts) {
-          const processedArts = arts.map(post => {
-            const fullPath = `/blog/${currentPath}/${post.slug}`
-            return { ...post, fullPath }
-          })
-          setPostsCategoria(prev => isNewFilter ? processedArts : [...prev, ...processedArts])
-          setHasMore(arts.length === POSTS_PER_PAGE)
-        }
-
-  if (pageNum === 0) {
-          setPathCategorias(buildFullPath(cat.id))
-        }
-        setLoading(false)
-        setLoadingMore(false)
-        return
       }
-    }
 
-    // Si no coincidió con ningún artículo ni categoría para esta ruta, es un 404
-    setError404(true)
-    setLoading(false)
-    setLoadingMore(false)
+      // Si no coincidió con ningún artículo ni categoría para esta ruta, es un 404
+      setError404(true)
+      setLoading(false)
+      setLoadingMore(false)re(false)
 
     } catch (err) {
       console.error('Error fetching blog data:', err)
@@ -591,7 +582,7 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
 export default function BlogCatchAllPage({ params }: { params: Promise<{ slug: string[] }> }) {
   const resolvedParams = use(params)
   return (
-    <Suspense fallback={<div className="p-20 text-center font-display uppercase italic text-clr2">Explorando...</div>}>
+    <Suspense fallback={null}>
       <BlogCatchAllContent params={resolvedParams} />
     </Suspense>
   )
