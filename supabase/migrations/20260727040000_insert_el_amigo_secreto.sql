@@ -1,5 +1,5 @@
 -- ====================================================================
--- MIGRACIÓN DEFINTIVA: EL AMIGO SECRETO SCOUT (CAMPOS 'texto' Y 'color' INCLUIDOS EN JSON)
+-- MIGRACIÓN CANÓNICA 100% FIEL A LA SKILL ARTICULOS-NUAMANA: EL AMIGO SECRETO SCOUT
 -- ====================================================================
 
 DO $$
@@ -15,7 +15,7 @@ BEGIN
         SELECT id INTO v_autor_id FROM perfiles LIMIT 1;
     END IF;
 
-    -- Eliminar versión previa si existe para reinserción limpia
+    -- Eliminar versión previa para reinserción totalmente limpia
     DELETE FROM public.articulos WHERE slug = 'el-amigo-secreto-scout';
 
     -- 2. Insertar el artículo principal
@@ -58,171 +58,182 @@ BEGIN
             "recomendaciones": "<b>Rol de la Jefatura:</b> Asegurar que ningún participante quede sin amigo secreto y supervisar que las cartas resalten aspectos positivos, promoviendo siempre el respeto y la autoestima.<br><b>Ambiente Cálido:</b> Realizar el cierre en un círculo acogedor, permitiendo que cada participante exprese cómo se sintió al recibir y entregar las muestras de afecto.",
             "objetivos_educativos": [
                 {
-                    "unidad": "Manada",
-                    "area": "Afectividad",
-                    "rango_edad": "Infancia Media",
-                    "texto": "Trato con cariño a los demás en la Manada y me gusta que me traten igual.",
-                    "texto_infantil": "Trato con cariño a los demás en la Manada y me gusta que me traten igual.",
-                    "texto_terminal": "Practica una conducta asertiva y una actitud afectuosa hacia las demás personas, sin inhibiciones ni agresividad.",
-                    "como_se_cumple": "Demostrando cariño y afecto sincero hacia su amigo secreto mediante notas de aliento.",
-                    "color": "#f6c812",
-                    "objetivo_id": "ab6e594f-b0a0-4e6d-96aa-7779299b02ef"
+                                "unidad": "Manada",
+                                "area": "Afectividad",
+                                "rango_edad": "Infancia Media",
+                                "texto": "Converso y comparto con todas las personas.",
+                                "texto_infantil": "Converso y comparto con todas las personas.",
+                                "texto_terminal": "Construye su felicidad personal en el amor, sirviendo a los otros sin esperar recompensa y valorándolos por lo que son.",
+                                "como_se_cumple": "Conversando y compartiendo mi alegría con todos mis compañeros de la Manada sin hacer distinción.",
+                                "color": "#f6c812",
+                                "objetivo_id": "b39109f4-260d-46e2-9192-2db4de116b1b"
                 },
                 {
-                    "unidad": "Manada",
-                    "area": "Sociabilidad",
-                    "rango_edad": "Infancia Media",
-                    "texto": "Comparto lo que tengo con mis compañeros y compañeras.",
-                    "texto_infantil": "Comparto lo que tengo con mis compañeros y compañeras.",
-                    "texto_terminal": "Vive su libertad de un modo solidario, ejerciendo sus derechos, cumpliendo sus obligaciones y defendiendo igual derecho para los demás.",
-                    "como_se_cumple": "Compartiendo gestos de atención y pequeños detalles anónimos con su amigo secreto.",
-                    "color": "#f6c812",
-                    "objetivo_id": "59a7750e-a71e-4b25-a59c-c9594d5f2e0a"
+                                "unidad": "Manada",
+                                "area": "Afectividad",
+                                "rango_edad": "Infancia Tardía",
+                                "texto": "Comparto con todos mis compañeros, sin importarme su raza, en qué trabajan sus papás, o si tienen o no dinero.",
+                                "texto_infantil": "Comparto con todos mis compañeros, sin importarme su raza, en qué trabajan sus papás, o si tienen o no dinero.",
+                                "texto_terminal": "Construye su felicidad personal en el amor, sirviendo a los otros sin esperar recompensa y valorándolos por lo que son.",
+                                "como_se_cumple": "Acogiendo con entusiasmo a cualquier compañero que me haya tocado en el sorteo de la Manada.",
+                                "color": "#f6c812",
+                                "objetivo_id": "b658a9a2-c0fb-4aec-b862-528eb90e07d1"
                 },
                 {
-                    "unidad": "Manada",
-                    "area": "Carácter",
-                    "rango_edad": "Infancia Media",
-                    "texto": "He aprendido que en las cosas que hago con mis compañeros debo cumplir la Ley de la Manada.",
-                    "texto_infantil": "He aprendido que en las cosas que hago con mis compañeros debo cumplir la Ley de la Manada.",
-                    "texto_terminal": "Actúa consecuentemente con los valores que lo inspiran.",
-                    "como_se_cumple": "Cumpliendo con alegría la Ley de la Manada al brindar afecto y lealtad a su compañero.",
-                    "color": "#f6c812",
-                    "objetivo_id": "7719fbc7-1335-430c-abce-530188ea6873"
+                                "unidad": "Compañía",
+                                "area": "Afectividad",
+                                "rango_edad": "11 a 13 años",
+                                "texto": "Me intereso por las demás personas y soy generosa.",
+                                "texto_infantil": "Me intereso por las demás personas y soy generosa.",
+                                "texto_terminal": "Construye su felicidad personal en el amor, sirviendo a los otros sin esperar recompensa y valorándolos por lo que son.",
+                                "como_se_cumple": "Demostrando mi generosidad y preocupación constante por las vivencias de mi amiga secreta.",
+                                "color": "#3fb34a",
+                                "objetivo_id": "1999e4c0-935b-4134-95be-92f01a5edf81"
                 },
                 {
-                    "unidad": "Compañía",
-                    "area": "Afectividad",
-                    "rango_edad": "11 a 13 años",
-                    "texto": "Me intereso por las demás personas y soy generosa.",
-                    "texto_infantil": "Me intereso por las demás personas y soy generosa.",
-                    "texto_terminal": "Construye su felicidad personal en el amor, sirviendo a los otros sin esperar recompensa y valorándolos por lo que son.",
-                    "como_se_cumple": "Demostrando generosidad y preocupación constante por las vivencias de su amiga secreta durante la dinámica.",
-                    "color": "#3fb34a",
-                    "objetivo_id": "1999e4c0-935b-4134-95be-92f01a5edf81"
+                                "unidad": "Compañía",
+                                "area": "Afectividad",
+                                "rango_edad": "13 a 15 años",
+                                "texto": "Aprecio a las personas por lo que son.",
+                                "texto_infantil": "Aprecio a las personas por lo que son.",
+                                "texto_terminal": "Construye su felicidad personal en el amor, sirviendo a los otros sin esperar recompensa y valorándolos por lo que son.",
+                                "como_se_cumple": "Expresando en mi carta fraterna las virtudes auténticas de mi compañera de patrulla.",
+                                "color": "#3fb34a",
+                                "objetivo_id": "80ff5a70-cc39-4599-99b1-38aa13b44f49"
                 },
                 {
-                    "unidad": "Compañía",
-                    "area": "Sociabilidad",
-                    "rango_edad": "11 a 13 años",
-                    "texto": "Conozco y respeto las principales normas de convivencia.",
-                    "texto_infantil": "Conozco y respeto las principales normas de convivencia.",
-                    "texto_terminal": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.",
-                    "como_se_cumple": "Construyendo un ambiente de convivencia respetuoso e integrador en la patrulla.",
-                    "color": "#3fb34a",
-                    "objetivo_id": "007e85ea-2b06-48c2-8ac1-873d59643aae"
+                                "unidad": "Tropa",
+                                "area": "Afectividad",
+                                "rango_edad": "11 a 13 años",
+                                "texto": "Me intereso por los demás personas y soy generoso.",
+                                "texto_infantil": "Me intereso por los demás personas y soy generoso.",
+                                "texto_terminal": "Construye su felicidad personal en el amor, sirviendo a los otros sin esperar recompensa y valorándolos por lo que son.",
+                                "como_se_cumple": "Observando atentamente las buenas acciones de mi hermano scout para destacarlas en mi mensaje secreto.",
+                                "color": "#2b7fff",
+                                "objetivo_id": "70177516-c52f-4e19-8c59-32375c40eaac"
                 },
                 {
-                    "unidad": "Compañía",
-                    "area": "Carácter",
-                    "rango_edad": "11 a 13 años",
-                    "texto": "Escucho las críticas que me hacen los demás y reflexiono sobre ellas.",
-                    "texto_infantil": "Escucho las críticas que me hacen los demás y reflexiono sobre ellas.",
-                    "texto_terminal": "Conoce sus posibilidades y limitaciones, aceptándose con capacidad de autocrítica y manteniendo a la vez una buena imagen de sí mismo.",
-                    "como_se_cumple": "Asumiendo una actitud madura y honesta al expresar el aprecio por sus pares.",
-                    "color": "#3fb34a",
-                    "objetivo_id": "3a35ddd8-f6dc-4e00-a04d-107a0825bd99"
+                                "unidad": "Tropa",
+                                "area": "Afectividad",
+                                "rango_edad": "13 a 15 años",
+                                "texto": "Estoy siempre dispuesto a ayudar a mis compañeros de patrulla.",
+                                "texto_infantil": "Estoy siempre dispuesto a ayudar a mis compañeros de patrulla.",
+                                "texto_terminal": "Construye su felicidad personal en el amor, sirviendo a los otros sin esperar recompensa y valorándolos por lo que son.",
+                                "como_se_cumple": "Brindando mi ayuda desinteresada y servicio diario a mis compañeros durante el campamento.",
+                                "color": "#2b7fff",
+                                "objetivo_id": "28433366-23af-4d9a-a8c6-fbca64ef0c95"
                 },
                 {
-                    "unidad": "Tropa",
-                    "area": "Afectividad",
-                    "rango_edad": "11 a 13 años",
-                    "texto": "Me intereso por los demás personas y soy generoso.",
-                    "texto_infantil": "Me intereso por los demás personas y soy generoso.",
-                    "texto_terminal": "Construye su felicidad personal en el amor, sirviendo a los otros sin esperar recompensa y valorándolos por lo que son.",
-                    "como_se_cumple": "Observando atentamente las buenas acciones de su compañero para plasmarlas en su mensaje secreto.",
-                    "color": "#2b7fff",
-                    "objetivo_id": "70177516-c52f-4e19-8c59-32375c40eaac"
+                                "unidad": "Avanzada",
+                                "area": "Afectividad",
+                                "rango_edad": "15 a 17 años",
+                                "texto": "Comparto y defiendo el derecho de los demás a ser valorados por lo que son y no por lo que tienen.",
+                                "texto_infantil": "Comparto y defiendo el derecho de los demás a ser valorados por lo que son y no por lo que tienen.",
+                                "texto_terminal": "Construye su felicidad personal en el amor, sirviendo a los otros sin esperar recompensa y valorándolos por lo que son.",
+                                "como_se_cumple": "Defendiendo el respeto mutuo y la valoración auténtica entre todos los integrantes de mi avanzada.",
+                                "color": "#f39c12",
+                                "objetivo_id": "edfc3452-910a-4b7b-bcc5-73628cf20c0a"
                 },
                 {
-                    "unidad": "Tropa",
-                    "area": "Sociabilidad",
-                    "rango_edad": "11 a 13 años",
-                    "texto": "Conozco y respeto las principales normas de convivencia.",
-                    "texto_infantil": "Conozco y respeto las principales normas de convivencia.",
-                    "texto_terminal": "Cumple las normas que la sociedad se ha dado, evaluándolas con responsabilidad y sin renunciar a cambiarlas.",
-                    "como_se_cumple": "Fomentando la integración y el compañerismo dentro del pequeño grupo.",
-                    "color": "#2b7fff",
-                    "objetivo_id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad"
+                                "unidad": "Clan",
+                                "area": "Afectividad",
+                                "rango_edad": "17 a 20 años",
+                                "texto": "Construyo mi felicidad personal en el amor, sirviendo a los otros sin esperar recompensa y valorándolos por lo que son.",
+                                "texto_infantil": "Construyo mi felicidad personal en el amor, sirviendo a los otros sin esperar recompensa y valorándolos por lo que son.",
+                                "texto_terminal": "Construye su felicidad personal en el amor, sirviendo a los otros sin esperar recompensa y valorándolos por lo que son.",
+                                "como_se_cumple": "Viviendo la fraternidad scout como un servicio desinteresado de afecto y apoyo incondicional.",
+                                "color": "#cb3327",
+                                "objetivo_id": "39de3f68-3477-4c1f-8a29-170e914596d7"
                 },
                 {
-                    "unidad": "Tropa",
-                    "area": "Carácter",
-                    "rango_edad": "11 a 13 años",
-                    "texto": "Contribuyo al ambiente de alegría de mi Tropa.",
-                    "texto_infantil": "Contribuyo al ambiente de alegría de mi Tropa.",
-                    "texto_terminal": "Enfrenta la vida con alegría y sentido del humor.",
-                    "como_se_cumple": "Fortaleciendo su compromiso con los valores scouts al destacar el bien en los demás.",
-                    "color": "#2b7fff",
-                    "objetivo_id": "73b20cb5-9d12-46ba-96b1-53613aa8c58c"
+                                "unidad": "Manada",
+                                "area": "Carácter",
+                                "rango_edad": "Infancia Media",
+                                "texto": "Escucho a los demás lobatos, a mis papás y a mis dirigentes y guiadoras.",
+                                "texto_infantil": "Escucho a los demás lobatos, a mis papás y a mis dirigentes y guiadoras.",
+                                "texto_terminal": "Reconoce en su grupo de pertenencia un apoyo para su crecimiento personal y para la realización de su proyecto de vida.",
+                                "como_se_cumple": "Escuchando con atención y afecto a los demás lobatos durante el círculo de revelación.",
+                                "color": "#f6c812",
+                                "objetivo_id": "99c6e695-ef0b-4e36-956b-3faf15ada355"
                 },
                 {
-                    "unidad": "Avanzada",
-                    "area": "Afectividad",
-                    "rango_edad": "15 a 17 años",
-                    "texto": "Comparto y defiendo el derecho de los demás a ser valorados por lo que son y no por lo que tienen.",
-                    "texto_infantil": "Comparto y defiendo el derecho de los demás a ser valorados por lo que son y no por lo que tienen.",
-                    "texto_terminal": "Construye su felicidad personal en el amor, sirviendo a los otros sin esperar recompensa y valorándolos por lo que son.",
-                    "como_se_cumple": "Fomentando la empatía y la valoración auténtica de cada integrante de la avanzada.",
-                    "color": "#f39c12",
-                    "objetivo_id": "edfc3452-910a-4b7b-bcc5-73628cf20c0a"
+                                "unidad": "Manada",
+                                "area": "Carácter",
+                                "rango_edad": "Infancia Tardía",
+                                "texto": "Me llevo bien con todos los lobatos de la Manada.",
+                                "texto_infantil": "Me llevo bien con todos los lobatos de la Manada.",
+                                "texto_terminal": "Reconoce en su grupo de pertenencia un apoyo para su crecimiento personal y para la realización de su proyecto de vida.",
+                                "como_se_cumple": "Promoviendo el buen trato y la amistad fraterna con todos los lobatos de mi seisenas.",
+                                "color": "#f6c812",
+                                "objetivo_id": "6b8c5fb5-6730-4c61-a332-2a7e6033bd94"
                 },
                 {
-                    "unidad": "Avanzada",
-                    "area": "Sociabilidad",
-                    "rango_edad": "15 a 17 años",
-                    "texto": "Creo que todas las personas somos iguales en dignidad y eso marca mis relaciones con los demás.",
-                    "texto_infantil": "Creo que todas las personas somos iguales en dignidad y eso marca mis relaciones con los demás.",
-                    "texto_terminal": "Vive su libertad de un modo solidario, ejerciendo sus derechos, cumpliendo sus obligaciones y defendiendo igual derecho para los demás.",
-                    "como_se_cumple": "Promoviendo activamente la solidaridad y el respeto de los derechos de todos.",
-                    "color": "#f39c12",
-                    "objetivo_id": "007591fb-a2b6-4fb5-9286-acde65455f53"
+                                "unidad": "Compañía",
+                                "area": "Carácter",
+                                "rango_edad": "11 a 13 años",
+                                "texto": "Aprecio los consejos que me dan en mi patrulla.",
+                                "texto_infantil": "Aprecio los consejos que me dan en mi patrulla.",
+                                "texto_terminal": "Reconoce en su grupo de pertenencia un apoyo para su crecimiento personal y para la realización de su proyecto de vida.",
+                                "como_se_cumple": "Apreciando las palabras de aliento y reflexiones compartidas por mis compañeras.",
+                                "color": "#3fb34a",
+                                "objetivo_id": "81cd6596-30cd-40fe-83e8-c86bf12a21f2"
                 },
                 {
-                    "unidad": "Avanzada",
-                    "area": "Carácter",
-                    "rango_edad": "15 a 17 años",
-                    "texto": "Reconozco en mi Avanzada una comunidad de vida y acepto las críticas y recomendaciones que mis compañeros y compañeras me hacen.",
-                    "texto_infantil": "Reconozco en mi Avanzada una comunidad de vida y acepto las críticas y recomendaciones que mis compañeros y compañeras me hacen.",
-                    "texto_terminal": "Reconoce en su grupo de pertenencia un apoyo para su crecimiento personal y para la realización de su proyecto de vida.",
-                    "como_se_cumple": "Orientando sus acciones con coherencia y liderazgo positivo hacia su comunidad.",
-                    "color": "#f39c12",
-                    "objetivo_id": "cd69934e-f0e0-47b7-b0eb-447884b615c6"
+                                "unidad": "Compañía",
+                                "area": "Carácter",
+                                "rango_edad": "13 a 15 años",
+                                "texto": "Ayudo a mis compañeras de patrulla a superarse.",
+                                "texto_infantil": "Ayudo a mis compañeras de patrulla a superarse.",
+                                "texto_terminal": "Reconoce en su grupo de pertenencia un apoyo para su crecimiento personal y para la realización de su proyecto de vida.",
+                                "como_se_cumple": "Ayudando discretamente a mis compañeras de patrulla a destacar sus fortalezas personales.",
+                                "color": "#3fb34a",
+                                "objetivo_id": "0da6c9df-7a09-44cd-9961-e06c0173d41a"
                 },
                 {
-                    "unidad": "Clan",
-                    "area": "Afectividad",
-                    "rango_edad": "17 a 20 años",
-                    "texto": "Construyo mi felicidad personal en el amor, sirviendo a los otros sin esperar recompensa y valorándolos por lo que son.",
-                    "texto_infantil": "Construyo mi felicidad personal en el amor, sirviendo a los otros sin esperar recompensa y valorándolos por lo que son.",
-                    "texto_terminal": "Construye su felicidad personal en el amor, sirviendo a los otros sin esperar recompensa y valorándolos por lo que son.",
-                    "como_se_cumple": "Viviendo la fraternidad scout como un servicio desinteresado de afecto y apoyo mutuo.",
-                    "color": "#cb3327",
-                    "objetivo_id": "39de3f68-3477-4c1f-8a29-170e914596d7"
+                                "unidad": "Tropa",
+                                "area": "Carácter",
+                                "rango_edad": "11 a 13 años",
+                                "texto": "Aprecio los consejos que me dan en mi patrulla.",
+                                "texto_infantil": "Aprecio los consejos que me dan en mi patrulla.",
+                                "texto_terminal": "Reconoce en su grupo de pertenencia un apoyo para su crecimiento personal y para la realización de su proyecto de vida.",
+                                "como_se_cumple": "Recibiendo con humildad y madurez las opiniones positivas de mis hermanos scouts.",
+                                "color": "#2b7fff",
+                                "objetivo_id": "0969a204-e8c6-4ab6-ac4f-c777bae066df"
                 },
                 {
-                    "unidad": "Clan",
-                    "area": "Sociabilidad",
-                    "rango_edad": "17 a 20 años",
-                    "texto": "Vivo mi libertad de un modo solidario, ejerciendo mis derechos, cumpliendo sus obligaciones y defendiendo igual derecho para los demás.",
-                    "texto_infantil": "Vivo mi libertad de un modo solidario, ejerciendo mis derechos, cumpliendo sus obligaciones y defendiendo igual derecho para los demás.",
-                    "texto_terminal": "Vive su libertad de un modo solidario, ejerciendo sus derechos, cumpliendo sus obligaciones y defendiendo igual derecho para los demás.",
-                    "como_se_cumple": "Contribuyendo a crear un ambiente comunitario justo, participativo y fraterno.",
-                    "color": "#cb3327",
-                    "objetivo_id": "b5a81328-5c07-41bd-a1ea-1ed401762841"
+                                "unidad": "Tropa",
+                                "area": "Carácter",
+                                "rango_edad": "13 a 15 años",
+                                "texto": "Ayudo a mis compañeros de patrulla a superarse.",
+                                "texto_infantil": "Ayudo a mis compañeros de patrulla a superarse.",
+                                "texto_terminal": "Reconoce en su grupo de pertenencia un apoyo para su crecimiento personal y para la realización de su proyecto de vida.",
+                                "como_se_cumple": "Motivando a mis compañeros de patrulla a superar sus dificultades mediante gestos solidarios.",
+                                "color": "#2b7fff",
+                                "objetivo_id": "f608eb2d-613a-477a-86f9-03e769a87bf2"
                 },
                 {
-                    "unidad": "Clan",
-                    "area": "Carácter",
-                    "rango_edad": "17 a 20 años",
-                    "texto": "Reconozco en mi grupo de pertenencia un apoyo para mi crecimiento personal y para la realización de mi proyecto de vida.",
-                    "texto_infantil": "Reconozco en mi grupo de pertenencia un apoyo para mi crecimiento personal y para la realización de mi proyecto de vida.",
-                    "texto_terminal": "Reconoce en su grupo de pertenencia un apoyo para su crecimiento personal y para la realización de su proyecto de vida.",
-                    "como_se_cumple": "Guiando su vida con criterio propio, coherencia ética y servicio al prójimo.",
-                    "color": "#cb3327",
-                    "objetivo_id": "8f0eb7d9-c291-44f3-9551-4330c19e0cc2"
+                                "unidad": "Avanzada",
+                                "area": "Carácter",
+                                "rango_edad": "15 a 17 años",
+                                "texto": "Reconozco en mi Avanzada una comunidad de vida y acepto las críticas y recomendaciones que mis compañeros y compañeras me hacen.",
+                                "texto_infantil": "Reconozco en mi Avanzada una comunidad de vida y acepto las críticas y recomendaciones que mis compañeros y compañeras me hacen.",
+                                "texto_terminal": "Reconoce en su grupo de pertenencia un apoyo para su crecimiento personal y para la realización de su proyecto de vida.",
+                                "como_se_cumple": "Reconociendo en mi avanzada un espacio seguro de crecimiento y valoración personal.",
+                                "color": "#f39c12",
+                                "objetivo_id": "db877208-738b-4e2e-bcbc-591331f75703"
+                },
+                {
+                                "unidad": "Clan",
+                                "area": "Carácter",
+                                "rango_edad": "17 a 20 años",
+                                "texto": "Reconozco en mi grupo de pertenencia un apoyo para mi crecimiento personal y para la realización de mi proyecto de vida.",
+                                "texto_infantil": "Reconozco en mi grupo de pertenencia un apoyo para mi crecimiento personal y para la realización de mi proyecto de vida.",
+                                "texto_terminal": "Reconoce en su grupo de pertenencia un apoyo para su crecimiento personal y para la realización de su proyecto de vida.",
+                                "como_se_cumple": "Encontrando en la comunidad de clan el testimonio fraterno para fortalecer mi proyecto de vida.",
+                                "color": "#cb3327",
+                                "objetivo_id": "8df0eaed-f805-4347-881d-3d5fac18c8a5"
                 }
-            ]
+]
         }'::jsonb
     ) RETURNING id INTO v_articulo_id;
 
@@ -230,5 +241,5 @@ BEGIN
     INSERT INTO public.articulo_categorias (articulo_id, categoria_id) VALUES (v_articulo_id, v_cat_hijo_id);
     INSERT INTO public.articulo_categorias (articulo_id, categoria_id) VALUES (v_articulo_id, v_cat_padre_id);
 
-    RAISE NOTICE 'Artículo "El Amigo Secreto Scout" actualizado exitosamente con campos texto y color';
+    RAISE NOTICE 'Artículo "El Amigo Secreto Scout" generado con estricta observancia de la Matriz de 5 Claves (16 objetivos canónicos agrupados por 2 Ejes Terminales)';
 END $$;
