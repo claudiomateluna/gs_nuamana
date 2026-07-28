@@ -1,0 +1,351 @@
+[
+  {
+    "original_title": "Aplausos.",
+    "titulo_reescrito": "Ritmo de Nombres",
+    "tipo": "Actividad",
+    "subtipo": "dinámica",
+    "duracion": "15 min",
+    "cantidad": "10-25",
+    "base_image": "juegos_circulo_base.jpg",
+    "lugares": [
+      "sala",
+      "salón",
+      "campo abierto"
+    ],
+    "materiales": [
+      "Sin Materiales"
+    ],
+    "variaciones": "Se puede aumentar la velocidad del ritmo progresivamente o realizarlo sentados en círculo golpeando rítmicamente el suelo con los pies en lugar de dar palmadas.",
+    "recomendaciones": "Mantener un ritmo lento y constante al inicio para que todos los participantes se sientan cómodos e integrados, evitando burlas o exclusiones si alguien se equivoca.",
+    "descripcion_reescrita": "Los participantes se colocan sentados o de pie formando un círculo amplio y despejado. El facilitador inicia marcando un ritmo constante de cuatro tiempos que todo el grupo debe seguir al unísono: primer tiempo golpeando las piernas con las palmas de las manos, segundo tiempo dando una palmada, tercer tiempo llevando la mano derecha hacia atrás sobre el hombro derecho con el pulgar apuntando hacia atrás, y cuarto tiempo haciendo el mismo movimiento con la mano izquierda sobre el hombro izquierdo.\n\nEl desafío pedagógico del juego comienza cuando, al realizar el movimiento de la mano derecha (tercer tiempo), el participante debe pronunciar en voz alta su propio nombre, y al realizar el movimiento de la mano izquierda (cuarto tiempo), debe pronunciar el nombre de otro integrante del círculo. La persona que ha sido nombrada adquiere el turno y debe continuar en el siguiente ciclo diciendo su propio nombre en el tercer tiempo y el de otro compañero en el cuarto tiempo, sin romper la sincronía rítmica del grupo. El juego continúa fluyendo por el círculo de forma dinámica hasta que todos se hayan presentado y se logre un ambiente de distensión e integración social.",
+    "extracto": "Una divertida dinámica en círculo donde los scouts coordinan palmas y movimientos corporales para presentarse y memorizar los nombres de sus compañeros al ritmo de un compás constante.",
+    "areas": [
+      "sociabilidad"
+    ],
+    "unidades": [
+      "manada"
+    ],
+    "objetivos_generales": [
+      "Conocer a los demás",
+      "Facilitar el contacto inicial",
+      "Estímulo y desarrollo de la memoria"
+    ],
+    "justificacion_areas": "Esta dinámica estimula la Sociabilidad al promover la integración y el conocimiento mutuo del grupo a través del juego. Al obligar a los participantes a memorizar y pronunciar los nombres de sus compañeros, se eliminan barreras iniciales de comunicación y se crea un sentido de pertenencia en la seisena.",
+    "objetivos_educativos": [
+      {
+        "id": "cfa10133-c25c-4deb-aebe-a00f8fe3f7ef",
+        "area": "Sociabilidad",
+        "texto": "Comparto lo que tengo con mis compañeros y compañeras.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Apoyando** con entusiasmo al compañero que dirige el compás en el centro del círculo, diciendo mi nombre con claridad en el tercer tiempo de la secuencia."
+      },
+      {
+        "id": "2394dd5b-87b9-4f3d-9cdd-a42649139782",
+        "area": "Sociabilidad",
+        "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre esté de acuerdo con ellas",
+        "unidad": "Manada",
+        "como_se_cumple": "**Respetando** el turno rítmico de cada participante y ayudando de forma lúdica a integrar a los nuevos lobatos al círculo de presentación de nombres."
+      }
+    ]
+  },
+  {
+    "original_title": "Pelota en el aire.",
+    "titulo_reescrito": "Pelota al Aire",
+    "tipo": "Actividad",
+    "subtipo": "juego",
+    "duracion": "15 min",
+    "cantidad": "10-20",
+    "base_image": "juegos_carrera_base.jpg",
+    "lugares": [
+      "campo abierto",
+      "patio",
+      "gimnasio"
+    ],
+    "materiales": [
+      "Una pelota de goma o balón liviano"
+    ],
+    "variaciones": "Se puede jugar usando un disco volador (frisbee) en lugar de una pelota para añadir dificultad, o requerir que la persona nombrada deba dar un giro completo de 360 grados antes de atrapar la pelota.",
+    "recomendaciones": "Asegurar que los participantes en el círculo mantengan suficiente distancia para evitar colisiones al correr hacia el centro por la pelota.",
+    "descripcion_reescrita": "Los jugadores se colocan de pie formando un gran círculo, manteniendo los brazos sueltos y alertas. Un participante se ubica en el centro sosteniendo una pelota liviana. El jugador del centro lanza la pelota con fuerza y precisión verticalmente hacia arriba mientras grita con claridad el nombre de uno de los compañeros del círculo. Inmediatamente después de lanzar la pelota, el lanzador corre a ocupar el lugar vacío que dejó el compañero nombrado en el círculo exterior.\n\nEl participante cuyo nombre fue gritado debe reaccionar con rapidez, correr hacia el centro y atrapar la pelota en el aire antes de que esta toque el suelo. Si logra atraparla, se convierte en el nuevo lanzador en el centro, lanzándola nuevamente al aire mientras grita otro nombre. Si no la atrapa a tiempo, el juego se detiene brevemente para alentar al compañero y reiniciar desde el centro. El juego fluye velozmente hasta que todos hayan sido nombrados al menos una vez, logrando que los scouts memoricen los nombres y coordinen reflejos físicos.",
+    "extracto": "Un emocionante juego de agilidad y velocidad de reacción donde los scouts corren al centro para atrapar una pelota lanzada al aire al escuchar su nombre.",
+    "areas": [
+      "corporalidad",
+      "sociabilidad"
+    ],
+    "unidades": [
+      "manada"
+    ],
+    "objetivos_generales": [
+      "Conocer a los demás",
+      "Estimular la capacidad de reacción",
+      "Estimular la agilidad"
+    ],
+    "justificacion_areas": "Estimula la Corporalidad mediante el desarrollo de la velocidad de desplazamiento, coordinación visomotora y reflejos rápidos al atrapar la pelota. Fomenta la Sociabilidad al exigir que todos los participantes presten atención y memoricen los nombres de sus compañeros para integrarlos activamente en la dinámica.",
+    "objetivos_educativos": [
+      {
+        "id": "b76e1d3e-fc1e-4956-806b-f372cd0369bb",
+        "area": "Corporalidad",
+        "texto": "Me preocupo porque mi cuerpo esté limpio.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Corriendo** con velocidad hacia el centro del círculo al oír mi nombre para atrapar la pelota antes de que toque el suelo, ejercitando mi agilidad física."
+      },
+      {
+        "id": "dff629b3-b399-4eb0-b2d5-c46acd2b8931",
+        "area": "Corporalidad",
+        "texto": "Ando siempre limpio y se nota, por ejemplo, en mi pelo, orejas, dientes y uñas.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Coordinando** mis brazos y manos para capturar de forma segura la pelota en el aire mientras equilibro mi cuerpo al frenar mi carrera en el centro."
+      },
+      {
+        "id": "cfa10133-c25c-4deb-aebe-a00f8fe3f7ef",
+        "area": "Sociabilidad",
+        "texto": "Comparto lo que tengo con mis compañeros y compañeras.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Acatando** la regla de esperar en la línea del círculo exterior sin invadir el centro de juego hasta que sea explícitamente nombrado por el lanzador."
+      },
+      {
+        "id": "2394dd5b-87b9-4f3d-9cdd-a42649139782",
+        "area": "Sociabilidad",
+        "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre esté de acuerdo con ellas",
+        "unidad": "Manada",
+        "como_se_cumple": "**Respetando** el reglamento de juego limpio del círculo, aceptando de buena gana cuando no alcanzo la pelota y apoyando al compañero que toma el centro."
+      }
+    ]
+  },
+  {
+    "original_title": "Carrera de nombres.",
+    "titulo_reescrito": "Carrera de Presentación",
+    "tipo": "Actividad",
+    "subtipo": "juego",
+    "duracion": "15 min",
+    "cantidad": "10-25",
+    "base_image": "juegos_carrera_base.jpg",
+    "lugares": [
+      "campo abierto",
+      "patio",
+      "gimnasio"
+    ],
+    "materiales": [
+      "Sin Materiales"
+    ],
+    "variaciones": "El dirigente puede señalar saltando en un pie, obligando a los señalados a correr al centro diciendo su nombre de la misma forma, o girar velozmente señalando múltiples scouts al mismo tiempo.",
+    "recomendaciones": "Establecer un área libre de obstáculos en el suelo para evitar tropiezos al cambiar de dirección o girar de manera rápida.",
+    "descripcion_reescrita": "Los scouts forman un gran círculo con las manos atrás y los ojos puestos en el centro. Un dirigente o seisenero se ubica en el centro de pie y asume el rol de señalador. El señalador gira en el centro y, de manera repentina, extiende el brazo señalando a un participante del círculo exterior mientras grita una señal de voz. El participante señalado debe responder gritando su nombre propio en voz alta de manera instantánea.\n\nEl señalador puede variar la dinámica del juego girando lentamente, aumentando la velocidad, saltando o señalando de forma consecutiva a dos participantes en extremos opuestos del círculo. En variaciones más activas, cuando el señalador grita '¡Relevo!', todos los participantes del círculo deben buscar un nuevo puesto corriendo, mientras el señalador intenta ocupar una de las posiciones libres en el círculo exterior, dejando al scout sin puesto como el nuevo señalador en el centro. El juego fomenta la agilidad mental y física de forma integrada.",
+    "extracto": "Una dinámica ágil y divertida de presentación rápida donde los scouts deben reaccionar al instante cuando el señalador del centro los apunta con el brazo.",
+    "areas": [
+      "sociabilidad"
+    ],
+    "unidades": [
+      "manada"
+    ],
+    "objetivos_generales": [
+      "Conocer a los demás",
+      "Facilitar el contacto inicial",
+      "Estimular la capacidad de reacción"
+    ],
+    "justificacion_areas": "Este juego de presentación rápida estimula la Sociabilidad al forzar el contacto visual e interactivo de los lobatos, eliminando tensiones iniciales. Fomenta el conocimiento del grupo al asociar rostros con nombres en un clima muy activo.",
+    "objetivos_educativos": [
+      {
+        "id": "cfa10133-c25c-4deb-aebe-a00f8fe3f7ef",
+        "area": "Sociabilidad",
+        "texto": "Comparto lo que tengo con mis compañeros y compañeras.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Colaborando** activamente con el señalador del centro al responder de forma instantánea mi nombre cuando me apunta con el brazo extendido."
+      },
+      {
+        "id": "2394dd5b-87b9-4f3d-9cdd-a42649139782",
+        "area": "Sociabilidad",
+        "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre esté de acuerdo con ellas",
+        "unidad": "Manada",
+        "como_se_cumple": "**Acatando** las variaciones rápidas de ritmo dispuestas por el dirigente al girar, saltar o correr hacia el centro, manteniendo el respeto del juego colectivo."
+      }
+    ]
+  },
+  {
+    "original_title": "¿Te gustan tus vecinos?",
+    "titulo_reescrito": "Vecinos Afectuosos",
+    "tipo": "Actividad",
+    "subtipo": "juego",
+    "duracion": "20 min",
+    "cantidad": "10-25",
+    "base_image": "juegos_circulo_base.jpg",
+    "lugares": [
+      "sala",
+      "salón",
+      "patio"
+    ],
+    "materiales": [
+      "Una silla menos que la cantidad de participantes (o pañoletas en el suelo como marcas)"
+    ],
+    "variaciones": "Si se juega al aire libre, se pueden usar troncos o pañoletas en el suelo para delimitar los puestos. Se puede agregar la regla de que el vecino elegido debe gritar un lema scout antes de sentarse.",
+    "recomendaciones": "Evitar movimientos bruscos al correr hacia las sillas vacías para prevenir caídas. Asegurar que las sillas sean estables y seguras.",
+    "descripcion_reescrita": "Todos los participantes se sientan en círculo en sus respectivas sillas, excepto uno que comienza de pie en el centro. El participante del centro camina alrededor y se detiene frente a un compañero sentado para preguntarle formalmente: «¿Te gustan tus vecinos?». Si el participante responde «NO», debe declarar inmediatamente los nombres de dos personas de la Manada que desea tener como vecinos a su derecha e izquierda. En ese instante, los vecinos actuales del participante deben levantarse y correr a buscar un nuevo lugar, mientras los dos elegidos corren para ocupar esas dos posiciones libres al lado del participante. Durante este caótico cruce de lugares, el jugador del centro intentará sentarse en cualquiera de las sillas desocupadas, dejando a un nuevo scout sin silla, quien continuará el juego en el centro.\n\nSi el participante frente al cual se detuvo el de pie responde «SÍ», se activa una dinámica colectiva: todo el grupo en círculo debe levantarse y correr un lugar hacia la derecha. Al tercer «SÍ» que se escuche en la ronda, el grupo se levantará para correr dos lugares a la derecha; al cuarto, dos lugares a la izquierda, y así sucesivamente. Esta alternancia exige que los scouts estén en constante atención mental y reaccionen físicamente para no quedarse sin su asiento, fomentando la diversión, la agilidad mental y la risa en el grupo.",
+    "extracto": "Una activa dinámica en círculo con sillas donde los participantes eligen nuevos vecinos de derecha e izquierda, desatando un veloz intercambio de lugares.",
+    "areas": [
+      "corporalidad",
+      "sociabilidad"
+    ],
+    "unidades": [
+      "manada"
+    ],
+    "objetivos_generales": [
+      "Conocer a los demás",
+      "Fomentar un entorno de confianza",
+      "Estimular la agilidad"
+    ],
+    "justificacion_areas": "Desarrolla la Sociabilidad al incentivar la socialización rápida y la memorización de nombres en un clima de mucha risa y confianza. Promueve la Corporalidad a través de movimientos rápidos de desplazamiento y esquiva en distancias cortas al intentar sentarse antes de que la silla sea ocupada.",
+    "objetivos_educativos": [
+      {
+        "id": "cfa10133-c25c-4deb-aebe-a00f8fe3f7ef",
+        "area": "Sociabilidad",
+        "texto": "Comparto lo que tengo con mis compañeros y compañeras.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Compartiendo** mi espacio de juego y mi silla con mis compañeros cuando se produce el intercambio masivo al decir NO a la pregunta de vecinos."
+      },
+      {
+        "id": "2394dd5b-87b9-4f3d-9cdd-a42649139782",
+        "area": "Sociabilidad",
+        "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre esté de acuerdo con ellas",
+        "unidad": "Manada",
+        "como_se_cumple": "**Aceptando** con alegría cuando me quedo sin silla en la carrera del círculo exterior, asumiendo mi rol de preguntar en el centro con buena disposición."
+      },
+      {
+        "id": "b76e1d3e-fc1e-4956-806b-f372cd0369bb",
+        "area": "Corporalidad",
+        "texto": "Me preocupo porque mi cuerpo esté limpio.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Desplazándome** de forma ágil y rápida para ocupar una silla libre durante el cruce de lugares, ejercitando mi velocidad de reacción física."
+      },
+      {
+        "id": "dff629b3-b399-4eb0-b2d5-c46acd2b8931",
+        "area": "Corporalidad",
+        "texto": "Ando siempre limpio y se nota, por ejemplo, en mi pelo, orejas, dientes y uñas.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Controlando** la coordinación de mis piernas al correr a máxima velocidad por el círculo, frenando de manera controlada y sin chocar con mis compañeros."
+      }
+    ]
+  },
+  {
+    "original_title": "Entrevistas mutuas.",
+    "titulo_reescrito": "Entrevistas Cruzadas",
+    "tipo": "Actividad",
+    "subtipo": "dinámica",
+    "duracion": "20 min",
+    "cantidad": "10-30",
+    "base_image": "juegos_mesa_base.jpg",
+    "lugares": [
+      "sala",
+      "salón",
+      "campo abierto"
+    ],
+    "materiales": [
+      "Hojas de papel",
+      "Lápices para anotar"
+    ],
+    "variaciones": "Se puede realizar la entrevista a ciegas (con los ojos vendados) para agudizar el sentido de la escucha y favorecer una mayor profundidad de empatía en la conversación.",
+    "recomendaciones": "Fomentar una atmósfera de absoluto respeto e intimidad, impidiendo burlas y asegurando que las parejas tengan suficiente espacio físico para hablar tranquilamente.",
+    "descripcion_reescrita": "Esta dinámica está orientada a la construcción de relaciones de confianza profunda en parejas. Para iniciar, el facilitador divide al grupo en parejas, emparejando de manera intencional a scouts que no conviven o interactúan habitualmente en sus seisenas o patrullas. Las parejas deben aislarse en diferentes rincones de la sala o el campo abierto para evitar distracciones. Durante los primeros 10 minutos, un integrante de la pareja entrevista al otro, escuchando con atención e interés genuino su historia personal, sus gustos, temores y metas. Al finalizar el tiempo, los roles se intercambian durante otros 10 minutos para que ambos compartan sus visiones.\n\nEl objetivo final es crear un 'mundo común' entre ambos integrantes, encontrando puntos de coincidencia y comprendiendo que las relaciones se fortalecen cuando se basan en la confianza sincera a priori en lugar de prejuicios o distancias. Al finalizar la dinámica, todo el grupo se reúne en círculo para evaluar los sentimientos experimentados, los cambios de perspectiva y el valor de ser escuchado con respeto mutuo.",
+    "extracto": "Una dinámica profunda en parejas orientada a la empatía y confianza, donde los scouts se entrevistan mutuamente para derribar prejuicios y crear lazos de amistad.",
+    "areas": [
+      "afectividad",
+      "sociabilidad"
+    ],
+    "unidades": [
+      "compañía",
+      "manada",
+      "tropa"
+    ],
+    "objetivos_generales": [
+      "Conocer a los demás",
+      "Fomentar las relaciones interpersonales",
+      "Favorecer la comunicación en el grupo"
+    ],
+    "justificacion_areas": "Esta dinámica estimula la Afectividad al requerir que los participantes se abran emocionalmente y compartan su identidad, lo cual promueve la madurez y la empatía al ponerse en el lugar del otro. Favorece la Sociabilidad al establecer un canal de comunicación de calidad entre scouts de distintas procedencias o intereses, fortaleciendo el tejido del grupo.",
+    "objetivos_educativos": [
+      {
+        "id": "054680a5-f07a-4771-8d7a-811a5db8f505",
+        "area": "Afectividad",
+        "texto": "Acepto separarme de mi familia cuando voy de campamento con la Manada.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Escuchando** con aprecio y calidez el relato de la historia personal de mi compañero durante la entrevista aislada en parejas."
+      },
+      {
+        "id": "66de9e77-aa53-48a1-98db-9de3d3958486",
+        "area": "Afectividad",
+        "texto": "Puedo hablar con los demás de las cosas que me ponen alegre y también de las que me ponen triste.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Compartiendo** en voz alta mis emociones personales, recuerdos de mi infancia y temores con mi pareja de juego en un clima de respeto."
+      },
+      {
+        "id": "cfa10133-c25c-4deb-aebe-a00f8fe3f7ef",
+        "area": "Sociabilidad",
+        "texto": "Comparto lo que tengo con mis compañeros y compañeras.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Ayudando** a mi compañero de entrevista a sentirse cómodo expresando sus vivencias, prestando atención absoluta a sus palabras."
+      },
+      {
+        "id": "2394dd5b-87b9-4f3d-9cdd-a42649139782",
+        "area": "Sociabilidad",
+        "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre esté de acuerdo con ellas",
+        "unidad": "Manada",
+        "como_se_cumple": "**Respetando** la opinión e ideas de mi pareja de entrevista, incluso si piensa de forma diferente a mí, valorándolo por lo que es."
+      },
+      {
+        "id": "e159e73b-f5c4-40d2-9506-34330988b66b",
+        "area": "Afectividad",
+        "texto": "Comparto por igual con mis hermanas y hermanos las tareas que nos piden en la casa.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Abriéndome** con confianza para contarle a mi compañero de patrulla los temas que me confunden o me ponen triste durante nuestra entrevista."
+      },
+      {
+        "id": "28433366-23af-4d9a-a8c6-fbca64ef0c95",
+        "area": "Afectividad",
+        "texto": "Estoy siempre dispuesto a ayudar a mis compañeros de patrulla.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Expresando** mis sentimientos de inseguridad o rabia sin timidez, manejando mi comunicación asertiva en la charla en parejas."
+      },
+      {
+        "id": "a3d7abdf-ca3b-42b8-92b5-403958fb537c",
+        "area": "Sociabilidad",
+        "texto": "Procuro que respetemos a nuestras compañeros, cualquiera sea su manera de ser.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Dialogando** en parejas para establecer un lazo de empatía mutuo que nos permita integrarnos mejor en el trabajo de nuestra patrulla."
+      },
+      {
+        "id": "0d3af46a-d64c-4e59-a765-1f72dc41ba76",
+        "area": "Sociabilidad",
+        "texto": "Ayudo a mi patrulla en los compromisos que tomamos.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Respetando** la intimidad y forma de pensar de mi compañero de entrevista, valorándolo sin juzgar su clase social o su vida."
+      },
+      {
+        "id": "c1b60b80-c7cb-4ee7-adc8-4a87b14e6533",
+        "area": "Afectividad",
+        "texto": "Me informo adecuadamente sobre lo que significa ser hombre y ser mujer.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Comunicando** con sinceridad mis alegrías y dudas a mi compañera de entrevista, fortaleciendo nuestro vínculo de amistad en la patrulla."
+      },
+      {
+        "id": "d98af0cf-c30c-42c5-ae17-f454ffa02553",
+        "area": "Afectividad",
+        "texto": "Estoy siempre dispuesta a ayudar a mis compañeras de patrulla.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Reconociendo** mis emociones de timidez o duda al conversar de mí misma, compartiendo estas sensaciones de forma honesta con mi compañera."
+      },
+      {
+        "id": "fce82191-77ea-444b-89d9-e33b62a323a5",
+        "area": "Sociabilidad",
+        "texto": "Procuro que respetemos a nuestras compañeras, cualquiera sea su manera de ser.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Acatando** la regla de confidencialidad de la entrevista cruzada, cuidando la información que mi compañera ha confiado en mí."
+      },
+      {
+        "id": "944660c8-0093-4181-ba2c-5f95cc74ba47",
+        "area": "Sociabilidad",
+        "texto": "No me gusta cuando no se respetan los derechos humanos y lo digo.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Valorando** la diversidad y las opiniones personales de mi compañera de entrevista, fomentando una cultura de aprecio mutuo en la Compañía."
+      }
+    ]
+  }
+]

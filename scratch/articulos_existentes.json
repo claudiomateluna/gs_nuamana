@@ -1,0 +1,802 @@
+[
+  {
+    "id": "b9b8b49f-bca3-4e3f-bcc1-0cd35f65dbef",
+    "titulo": "Carrera de Jarras",
+    "slug": "carrera-de-jarras"
+  },
+  {
+    "id": "68831c52-af0b-4922-8933-b064cb2a022c",
+    "titulo": "Costura Larga",
+    "slug": "costura-larga"
+  },
+  {
+    "id": "16e69918-d8ce-4ec0-96dc-b4972b41e3f5",
+    "titulo": "Costura Mixta Cabo-Cable",
+    "slug": "costura-mixta-cabo-cable"
+  },
+  {
+    "id": "4c1b8ea1-fa99-4c04-9601-22296e536bf2",
+    "titulo": "Vuelta de Escota",
+    "slug": "vuelta-de-escota"
+  },
+  {
+    "id": "f5384cbe-cc50-4aed-9f95-3d99a221069a",
+    "titulo": "Nudo Calabrote Doble",
+    "slug": "nudo-calabrote-doble"
+  },
+  {
+    "id": "6709f9fb-5570-4087-8154-602f8e6fde74",
+    "titulo": "Nudo de Pescador Doble",
+    "slug": "nudo-de-pescador-doble"
+  },
+  {
+    "id": "4931e8de-f4b1-4230-98f5-d60d02db8b26",
+    "titulo": "Nudo de Pescador",
+    "slug": "nudo-de-pescador"
+  },
+  {
+    "id": "05b30f71-7d13-4c7a-bdad-57cd46ee7355",
+    "titulo": "Nudo de Sangre",
+    "slug": "nudo-de-sangre"
+  },
+  {
+    "id": "5a74bc59-101d-4283-aa34-9f3803f10948",
+    "titulo": "Nudo Ordinario",
+    "slug": "nudo-ordinario"
+  },
+  {
+    "id": "bd92877e-f21a-4fe9-b55a-eb0405db01f1",
+    "titulo": "Nudo Llano",
+    "slug": "nudo-llano"
+  },
+  {
+    "id": "bbfd9878-6c8f-47f9-891c-b09aa2a28b7a",
+    "titulo": "Nudo Ocho Enlazado",
+    "slug": "nudo-ocho-enlazado"
+  },
+  {
+    "id": "e42b2923-91c1-4529-8c5a-cfe8425a4fef",
+    "titulo": "As de Guía de Escalador",
+    "slug": "as-de-guia-de-escalador"
+  },
+  {
+    "id": "626db4b4-4bdc-41b8-b0b1-eacece2ccdb3",
+    "titulo": "As de Guía Español",
+    "slug": "as-de-guia-espanol"
+  },
+  {
+    "id": "541ed6f7-2190-4b43-b26f-c3a62618e89a",
+    "titulo": "As de Guía Doble",
+    "slug": "as-de-guia-doble"
+  },
+  {
+    "id": "16dd5706-1d0c-40d1-8f10-e6ee2e2da7f7",
+    "titulo": "Vuelta de Galera",
+    "slug": "vuelta-de-galera"
+  },
+  {
+    "id": "0ade9a5e-1ad8-47b0-baff-ba6d9aa31f08",
+    "titulo": "As de Guía por Conexión",
+    "slug": "as-de-guia-por-conexion"
+  },
+  {
+    "id": "875b8b0d-c816-418a-bb98-7c1eb948fd91",
+    "titulo": "As de Guía",
+    "slug": "as-de-guia"
+  },
+  {
+    "id": "06c46976-140d-4061-b8d1-723d9a08b2d7",
+    "titulo": "As de Guía con Cabo Bajo Tensión",
+    "slug": "as-de-guia-bajo-tension"
+  },
+  {
+    "id": "f6fdb663-ea0b-4974-a954-ff29276a1f9c",
+    "titulo": "Corona de Tres Partes",
+    "slug": "corona-de-tres-partes"
+  },
+  {
+    "id": "8ccbb70c-dd93-42da-9621-515444be815a",
+    "titulo": "Encapilladura Triple",
+    "slug": "encapilladura-triple"
+  },
+  {
+    "id": "f874bed6-b8a0-4ccb-a512-cce35016a896",
+    "titulo": "Heráldica y Divisas Scouts",
+    "slug": "heraldica-y-divisas-scouts"
+  },
+  {
+    "id": "ab7c584a-abbe-49d1-be1e-5cc5e002a478",
+    "titulo": "Gaza en Ocho",
+    "slug": "gaza-en-ocho"
+  },
+  {
+    "id": "ea7e8755-2a36-4aec-abe6-1467d2a87eec",
+    "titulo": "Nudo Calafate",
+    "slug": "nudo-calafate"
+  },
+  {
+    "id": "2491f7c7-be0b-4cfc-99c7-a5d79e7409ad",
+    "titulo": "Nudo Mariposa",
+    "slug": "nudo-mariposa"
+  },
+  {
+    "id": "def9819d-e082-4d73-b869-9327177d0f1d",
+    "titulo": "As de Guía Corredizo",
+    "slug": "as-de-guia-corredizo"
+  },
+  {
+    "id": "1d25a67d-ecce-49ff-978f-b16cf3472165",
+    "titulo": "Nudo del Ahorcado",
+    "slug": "nudo-del-ahorcado"
+  },
+  {
+    "id": "a930a5d6-a33b-4744-b158-c7c9be37a2a0",
+    "titulo": "Lazo Corredizo",
+    "slug": "lazo-corredizo"
+  },
+  {
+    "id": "bc4a6368-b10d-449a-a4d1-1a62669c0b1b",
+    "titulo": "Alcibíades Vicencio Tholar",
+    "slug": "alcibiades-vicencio-tholar"
+  },
+  {
+    "id": "176f76bb-ac25-44fd-b49e-88d913e043e7",
+    "titulo": "Agnes Baden-Powell",
+    "slug": "agnes-baden-powell"
+  },
+  {
+    "id": "c3529180-e4b3-4585-b6f0-788f7098a1b4",
+    "titulo": "Warington Baden-Powell",
+    "slug": "warington-baden-powell"
+  },
+  {
+    "id": "554ed579-0ea8-43bb-ba2e-05517685f44a",
+    "titulo": "Lady Olave Saint Claire Soames",
+    "slug": "lady-olave-saint-claire-soames"
+  },
+  {
+    "id": "a688e245-0a44-4bcd-9637-07ec15409c26",
+    "titulo": "William Hillcourt",
+    "slug": "william-hillcourt"
+  },
+  {
+    "id": "0990f0bf-14c7-4eb2-8926-136a0f7c9008",
+    "titulo": "Juliette Gordon Low",
+    "slug": "juliette-gordon-low"
+  },
+  {
+    "id": "8c376b5e-d0f5-4a94-b7cb-19f9505ad499",
+    "titulo": "Ramón Ocando Pérez",
+    "slug": "ramon-ocando-perez"
+  },
+  {
+    "id": "273306f0-ea67-405c-987c-4824e8c912cd",
+    "titulo": "William D. Boyce",
+    "slug": "william-d-boyce"
+  },
+  {
+    "id": "e9497d41-ce5a-40e4-a159-7ee0b1b47336",
+    "titulo": "Warner Goodyear",
+    "slug": "warner-goodyear"
+  },
+  {
+    "id": "7b34be7f-ebfa-4051-832d-e865050336cc",
+    "titulo": "Hergé",
+    "slug": "herge"
+  },
+  {
+    "id": "53cbdb8e-ffce-413b-bb9a-601fd070dc07",
+    "titulo": "¿Quién Cuenta Mi Historia?",
+    "slug": "quien-cuenta-mi-historia"
+  },
+  {
+    "id": "5c308bc8-970e-4321-ac02-762b44db8a19",
+    "titulo": "El Jardinero",
+    "slug": "el-jardinero"
+  },
+  {
+    "id": "ff2ef89a-6073-4174-88de-cdd3435df3af",
+    "titulo": "Dinámica Cuadro Plástico",
+    "slug": "dinamica-cuadro-plastico"
+  },
+  {
+    "id": "09214a90-7ca9-4825-a408-2b800a3efd0c",
+    "titulo": "Vera Barclay Charlesworth",
+    "slug": "vera-barclay"
+  },
+  {
+    "id": "2887dd5a-1105-438c-a5aa-ac1461adf774",
+    "titulo": "Código Morse",
+    "slug": "codigo-morse"
+  },
+  {
+    "id": "b8daf1ee-84cd-46e5-a871-f6371673db05",
+    "titulo": "Dos mentiras y una verdad",
+    "slug": "dos-mentiras-y-una-verdad"
+  },
+  {
+    "id": "c37832d6-9192-43e2-9886-4a7917e8e710",
+    "titulo": "Casa Inquilino o Terremoto",
+    "slug": "casa-inquilino-o-terremoto"
+  },
+  {
+    "id": "b4c00c19-1082-4974-be52-a55c4598f5bf",
+    "titulo": "Relevos de la botella",
+    "slug": "relevos-de-la-botella"
+  },
+  {
+    "id": "cf0fce88-68dd-40ab-9a65-d684c9c28edd",
+    "titulo": "Juego del Gato Scout",
+    "slug": "juego-del-gato-scout"
+  },
+  {
+    "id": "18ae9052-19bf-48ca-89a3-c34f0081e7ca",
+    "titulo": "El Epitafio",
+    "slug": "el-epitafio"
+  },
+  {
+    "id": "bddb6314-6411-404b-9107-40c9da299291",
+    "titulo": "Juego democrático: Los Inversionistas",
+    "slug": "los-inversionistas"
+  },
+  {
+    "id": "6bfd977f-b0d8-4f57-b2c2-e4a5a335ac81",
+    "titulo": "Completa la oración",
+    "slug": "completa-la-oracion"
+  },
+  {
+    "id": "f4373764-4b71-4f03-b768-1e16316c9b13",
+    "titulo": "Esquiva el tiro",
+    "slug": "esquiva-el-tiro"
+  },
+  {
+    "id": "b6439d30-b78e-424e-828f-7691b0c00331",
+    "titulo": "Relevo de la cuerda",
+    "slug": "relevo-de-la-cuerda"
+  },
+  {
+    "id": "7787150d-690f-49f3-8ec0-5bd876690f09",
+    "titulo": "Carrera de Tres Pies",
+    "slug": "carrera-de-tres-pies"
+  },
+  {
+    "id": "c126a443-2ad1-4805-ac4b-ce7b2ba02aa2",
+    "titulo": "El viejo tarugo",
+    "slug": "el-viejo-tarugo"
+  },
+  {
+    "id": "349af827-90bc-47e4-9fe0-7cca4ba7302f",
+    "titulo": "Carrera de Trenes",
+    "slug": "carrera-de-trenes"
+  },
+  {
+    "id": "77f087e8-4dab-4a7b-a25d-9ca93292014d",
+    "titulo": "Carrera de submarinos",
+    "slug": "carrera-de-submarinos"
+  },
+  {
+    "id": "74625221-d880-4770-987c-25895469a2bc",
+    "titulo": "Relevos del pañuelo",
+    "slug": "relevos-del-panuelo"
+  },
+  {
+    "id": "c2b9f939-026c-4cb8-8d7d-7d16d718490b",
+    "titulo": "Protegiendo las bases",
+    "slug": "protegiendo-las-bases"
+  },
+  {
+    "id": "7bc4e56d-8f9d-4dc7-8e2e-3eeeabb80124",
+    "titulo": "Conejos y Guaridas",
+    "slug": "conejos-y-guaridas"
+  },
+  {
+    "id": "334dd057-0cda-4817-b473-e45367277f73",
+    "titulo": "Una torre alta firme y hermosa",
+    "slug": "una-torre-alta-firme-y-hermosa"
+  },
+  {
+    "id": "400ec7fa-74c3-4fb4-b053-c238fc8cd8db",
+    "titulo": "¿Eres Drácula?",
+    "slug": "eres-dracula"
+  },
+  {
+    "id": "3ba7a8ca-6f46-475c-9b6e-d9f09836b21c",
+    "titulo": "Nuestras Cualidades",
+    "slug": "nuestras-cualidades"
+  },
+  {
+    "id": "953f10a6-f9d4-4760-8414-2192d4ba8d48",
+    "titulo": "Capturar la bandera",
+    "slug": "capturar-la-bandera"
+  },
+  {
+    "id": "639da980-bb77-4e57-abf1-56bfdc64e39d",
+    "titulo": "Carrera de la caja sorpresa",
+    "slug": "carrera-de-la-caja-sorpresa"
+  },
+  {
+    "id": "4c9ca7dc-ec5f-43bc-a0ff-54d9d498883b",
+    "titulo": "Relevos del Jinete",
+    "slug": "relevos-del-jinete"
+  },
+  {
+    "id": "4cba3b09-1521-430d-af91-21122891afc9",
+    "titulo": "Jacques Sevin",
+    "slug": "jacques-sevin"
+  },
+  {
+    "id": "9f8ca06f-da23-4950-b75e-b7021e791b56",
+    "titulo": "Roland Philipps",
+    "slug": "roland-philipps"
+  },
+  {
+    "id": "c7e011fe-7480-43ce-83e9-26fa080d662b",
+    "titulo": "Carrera de la fotografía",
+    "slug": "carrera-de-la-fotografia"
+  },
+  {
+    "id": "567c13f7-0d8f-4cad-9127-e3c6ac3ee6f2",
+    "titulo": "La Brújula",
+    "slug": "la-brujula"
+  },
+  {
+    "id": "43be9855-17d1-4ac1-b344-8fa575676129",
+    "titulo": "Asalto a la Fortaleza",
+    "slug": "asalto-a-la-fortaleza"
+  },
+  {
+    "id": "ce7c6648-ad75-4ea8-bcb7-16529bcb5007",
+    "titulo": "Historia del guidismo",
+    "slug": "historia-del-guidismo"
+  },
+  {
+    "id": "b2b9be6d-85cb-4855-8ac1-2900c34b2d84",
+    "titulo": "Uso De La Brújula",
+    "slug": "uso-de-la-brujula"
+  },
+  {
+    "id": "c88051dd-b340-408b-8203-54de9667f919",
+    "titulo": "Acecho",
+    "slug": "acecho"
+  },
+  {
+    "id": "1272d74a-8f25-405a-b109-da4ba94dfd7b",
+    "titulo": "El Roverismo",
+    "slug": "el-roverismo"
+  },
+  {
+    "id": "a4bd943a-2f38-46d3-a1ee-c9acb23068fd",
+    "titulo": "Rose Kerr",
+    "slug": "rose-kerr"
+  },
+  {
+    "id": "67f165b7-09dc-4d94-b862-5afcbc31f742",
+    "titulo": "Carrera de Globos",
+    "slug": "carrera-de-globos"
+  },
+  {
+    "id": "d48a794f-c9c5-4799-a032-3654fda48aa1",
+    "titulo": "Carrera con Vaso de Agua",
+    "slug": "carrera-con-vaso-de-agua"
+  },
+  {
+    "id": "70755489-cdb1-4228-adaf-0e800ac81f0c",
+    "titulo": "Carrera de Objetos",
+    "slug": "carrera-de-objetos"
+  },
+  {
+    "id": "4d1189f1-fdb8-420a-aa46-59525ec38313",
+    "titulo": "Renos con hambre",
+    "slug": "renos-con-hambre"
+  },
+  {
+    "id": "158647cd-3a58-4bcd-a2c7-a758c5c12613",
+    "titulo": "El Fugitivo",
+    "slug": "el-fugitivo"
+  },
+  {
+    "id": "9be31054-984b-4f4a-98ad-d8c54a51b76e",
+    "titulo": "Tú Ley Scout",
+    "slug": "tu-ley-scout"
+  },
+  {
+    "id": "4c0e3e48-a73f-441c-b848-2db3f5e5627a",
+    "titulo": "Pata de Conejo",
+    "slug": "pata-de-conejo"
+  },
+  {
+    "id": "cc3b8e6c-9bb6-43d2-aad0-95734ecbe1cc",
+    "titulo": "Nudo del Cirujano",
+    "slug": "nudo-del-cirujano"
+  },
+  {
+    "id": "ed33063b-61ec-4831-91c4-76227644b88b",
+    "titulo": "Encesta en el árbol navideño",
+    "slug": "encesta-en-el-arbol-navideno"
+  },
+  {
+    "id": "e7583cc7-8a28-438b-bef9-afba765ea15b",
+    "titulo": "Relevos de Zapatillas",
+    "slug": "relevos-de-zapatillas"
+  },
+  {
+    "id": "3d186a50-673f-4015-b534-76b4390e6202",
+    "titulo": "Nudo Llano Vuelto Hacia Abajo",
+    "slug": "nudo-llano-vuelto-hacia-abajo"
+  },
+  {
+    "id": "deb04687-e356-4cd5-b1a7-bbab422538d1",
+    "titulo": "Gaza de Pescador",
+    "slug": "gaza-de-pescador"
+  },
+  {
+    "id": "56dbd5db-2eb1-4833-9beb-e1e74c535f88",
+    "titulo": "Corazón completo",
+    "slug": "corazon-completo"
+  },
+  {
+    "id": "a5082bd8-22d6-4ba1-b0b2-a155f009a3e8",
+    "titulo": "Competencia de Nudos",
+    "slug": "competencia-de-nudos"
+  },
+  {
+    "id": "36361c8c-7281-4f30-8b5d-bdb15b0044aa",
+    "titulo": "Gaza en Ocho Trenzada",
+    "slug": "gaza-en-ocho-trenzada"
+  },
+  {
+    "id": "5d156512-c2d5-429a-984b-b9a23324b68f",
+    "titulo": "El Pitador Loco",
+    "slug": "el-pitador-loco"
+  },
+  {
+    "id": "07d7ac45-f00c-4516-901d-61fc7a9d3f12",
+    "titulo": "Carrera del túnel",
+    "slug": "carrera-del-tunel"
+  },
+  {
+    "id": "1aa876d8-c510-4422-bc92-4f94897bd7e0",
+    "titulo": "Anécdotas de Mafeking",
+    "slug": "anecdotas-de-mafeking"
+  },
+  {
+    "id": "48a78a0a-13ab-4c32-a117-6080dfa583f5",
+    "titulo": "La Fogata",
+    "slug": "la-fogata"
+  },
+  {
+    "id": "b95e41b7-ae98-420b-902b-05e9fc791b5b",
+    "titulo": "Tipos de fogatas",
+    "slug": "tipos-de-fogatas"
+  },
+  {
+    "id": "efc4e885-84e0-4c93-a206-6b3c5f5635ff",
+    "titulo": "Taller de Fogatas",
+    "slug": "taller-de-fogatas"
+  },
+  {
+    "id": "0ed0e77c-d11d-4534-9a22-6448cd3dae30",
+    "titulo": "Cómo preparar el lugar para una fogata",
+    "slug": "lugar-para-una-fogata"
+  },
+  {
+    "id": "2a528d49-bdb2-415c-9199-1a13bb9c5316",
+    "titulo": "Cómo seleccionar la ubicación para hacer una fogata",
+    "slug": "ubicacion-para-hacer-una-fogata"
+  },
+  {
+    "id": "a4ac36ad-2f13-4593-a5e9-d4513443db9f",
+    "titulo": "Cómo Hacer Una Fogata",
+    "slug": "como-hacer-una-fogata"
+  },
+  {
+    "id": "feeffdb8-328f-4028-be45-ea667f595a14",
+    "titulo": "Cómo Cuidar la Fogata",
+    "slug": "como-cuidar-la-fogata"
+  },
+  {
+    "id": "bf9d9211-047d-4b09-be8c-c2b756fc08ae",
+    "titulo": "Cómo Apagar la Fogata",
+    "slug": "como-apagar-la-fogata"
+  },
+  {
+    "id": "4ac6da05-a5c8-43a7-921b-e2af3a956aa9",
+    "titulo": "La Isla Desierta",
+    "slug": "la-isla-desierta"
+  },
+  {
+    "id": "cfb5d456-9514-45e1-a62d-e47ca7d9d8e8",
+    "titulo": "Mano con mano",
+    "slug": "mano-con-mano"
+  },
+  {
+    "id": "0ebe55c0-b9f1-487c-8b1b-ab3d131b91a6",
+    "titulo": "Relevos de Botones",
+    "slug": "relevos-de-botones"
+  },
+  {
+    "id": "0c1cf1c8-03d1-4dee-879f-159c0963afdc",
+    "titulo": "Cómo Seguir Instrucciones",
+    "slug": "como-seguir-instrucciones"
+  },
+  {
+    "id": "2636849e-d6cf-4f07-98d6-6439d5e0b541",
+    "titulo": "Misión Nocturna: Acecho y Sigilo",
+    "slug": "mision-nocturna-acecho-y-sigilo"
+  },
+  {
+    "id": "12f2e3dc-c56d-47b8-9fb0-3779dadae69a",
+    "titulo": "Dinámica de Criterios",
+    "slug": "dinamica-de-criterios"
+  },
+  {
+    "id": "e779b517-778a-40e7-a4cf-4531c257de03",
+    "titulo": "El Trineo del Viejito Pascuero",
+    "slug": "el-trineo-del-viejito-pascuero"
+  },
+  {
+    "id": "01bf5568-9f3d-45ab-8f7d-931cf92133d0",
+    "titulo": "7 Pasos para el seguro Scout",
+    "slug": "7-pasos-para-el-seguro-scout"
+  },
+  {
+    "id": "6615c3d3-f10f-4a21-96a4-ec618483a588",
+    "titulo": "Carrera de Liderazgo",
+    "slug": "carrera-de-liderazgo"
+  },
+  {
+    "id": "c35bbb99-0eeb-4bc0-8e2f-316fd8891f5a",
+    "titulo": "Cuerpo a Tierra",
+    "slug": "cuerpo-a-tierra"
+  },
+  {
+    "id": "45c0515c-be80-4f91-a996-25e3d8f23a5d",
+    "titulo": "Arrebatar",
+    "slug": "arrebatar"
+  },
+  {
+    "id": "21b42748-cac7-4ffc-969d-86bd56cbbc73",
+    "titulo": "Las Sardinas",
+    "slug": "las-sardinas"
+  },
+  {
+    "id": "adcf3efa-26d2-489f-85d9-574039818d23",
+    "titulo": "Carrera de Saltos",
+    "slug": "carrera-de-saltos"
+  },
+  {
+    "id": "595e2d35-4636-4f20-9815-fffe4f641928",
+    "titulo": "Regalos y Guantes",
+    "slug": "regalos-y-guantes"
+  },
+  {
+    "id": "fa3fe65c-fb44-46a6-9a27-6ea8bf72e246",
+    "titulo": "Carrera de camillas",
+    "slug": "carrera-de-camillas"
+  },
+  {
+    "id": "4f0ec9d9-8b81-47d6-9e0d-003572c0fe58",
+    "titulo": "Proteger al huevo",
+    "slug": "proteger-al-huevo"
+  },
+  {
+    "id": "ee69fbc0-4bbe-4cbf-8aab-bea1e11b7e15",
+    "titulo": "Carrera del Saber",
+    "slug": "carrera-del-saber"
+  },
+  {
+    "id": "fd254b06-1ce1-46e1-bbcd-631170b07f1b",
+    "titulo": "Enredados",
+    "slug": "enredados"
+  },
+  {
+    "id": "44899c38-5ae2-4250-a6d5-955ef4158bb2",
+    "titulo": "Carrera de Cuncunas",
+    "slug": "carrera-de-cuncunas"
+  },
+  {
+    "id": "25e55b5d-8f37-40af-9d43-ba0c4f3b74fd",
+    "titulo": "Carrera de Fósforos",
+    "slug": "carrera-de-fosforos"
+  },
+  {
+    "id": "f36e1535-6aef-4cb5-bc4c-7da6dee08eaf",
+    "titulo": "Lucha con una pierna y una mano",
+    "slug": "lucha-con-una-pierna-y-una-mano"
+  },
+  {
+    "id": "025298f3-9d09-45d9-9867-6de31f8d4bf9",
+    "titulo": "Un vaso de leche para Santa",
+    "slug": "un-vaso-de-leche-para-santa"
+  },
+  {
+    "id": "0e4290d8-a6c8-4bbb-94b6-7bee0aac8dc3",
+    "titulo": "Toma una Esquina",
+    "slug": "toma-una-esquina"
+  },
+  {
+    "id": "15f46795-7117-4553-beaa-dff74860a6b1",
+    "titulo": "Carrera de Velas",
+    "slug": "carrera-de-velas"
+  },
+  {
+    "id": "e23ded89-7293-4b7f-941b-7509b43a745f",
+    "titulo": "Asesino de Esquinas",
+    "slug": "asesino-de-esquinas"
+  },
+  {
+    "id": "8aa34193-7fbd-43a6-a21c-ff46f85bcc1b",
+    "titulo": "Me pica",
+    "slug": "me-pica"
+  },
+  {
+    "id": "73044568-1f54-4fa8-a79d-fe47fcd839a1",
+    "titulo": "Carrera de porotos",
+    "slug": "carrera-de-porotos"
+  },
+  {
+    "id": "785b5274-af71-4f1d-aa4b-385c0be761b2",
+    "titulo": "El Lazarillo en Patrulla",
+    "slug": "el-lazarillo-en-patrulla"
+  },
+  {
+    "id": "6fb66f20-f92c-451d-9070-61f0251076fe",
+    "titulo": "Bomba de tiempo",
+    "slug": "bomba-de-tiempo"
+  },
+  {
+    "id": "9b62d315-8681-4991-95de-04d87a93f15f",
+    "titulo": "Pelea de pañolines",
+    "slug": "pelea-de-panolines"
+  },
+  {
+    "id": "d87c3dc3-20b6-4400-9a8f-4dc1c9ee42cc",
+    "titulo": "Ley con clave morse",
+    "slug": "ley-con-clave-morse"
+  },
+  {
+    "id": "8a6d8a79-f3dd-402c-9d2e-10d91c8f86d9",
+    "titulo": "El guardia y los prisioneros",
+    "slug": "el-guardia-y-los-prisioneros"
+  },
+  {
+    "id": "4100fb9c-f7ef-4593-a381-3bedc7e6c48f",
+    "titulo": "Carrera de botellas con agua",
+    "slug": "carrera-de-botellas-con-agua"
+  },
+  {
+    "id": "6a2b2b30-c8f4-44d1-a766-b02bdd725658",
+    "titulo": "Relevos Ciegos",
+    "slug": "relevos-ciegos"
+  },
+  {
+    "id": "371cbd0d-11e0-47ec-8420-ae021d5bd73e",
+    "titulo": "Carrera de ciempiés",
+    "slug": "carrera-de-ciempies"
+  },
+  {
+    "id": "afebb91a-f5bc-49b1-8d00-e8bcf555b4ee",
+    "titulo": "MacGyver Preparado para la Aventura",
+    "slug": "macgyver-preparado-para-la-aventura"
+  },
+  {
+    "id": "7bf6a7d3-21a1-40c7-83dd-53178bfdc23f",
+    "titulo": "Adivina la palabra",
+    "slug": "adivina-la-palabra"
+  },
+  {
+    "id": "82610966-74e3-40cc-a789-6ec6b32af1a2",
+    "titulo": "¿Que animal me gustaría será",
+    "slug": "que-animal-me-gustaria-ser"
+  },
+  {
+    "id": "22ccf0a9-ce0f-4826-88fe-5ee70930ce7f",
+    "titulo": "Asalto Al Castillo",
+    "slug": "asalto-al-castillo"
+  },
+  {
+    "id": "e5ca037f-5563-4175-aa5a-ba97acbf01b8",
+    "titulo": "Señales nocturnas",
+    "slug": "senales-nocturnas"
+  },
+  {
+    "id": "6b441dc2-22fa-441a-87e4-b0ce49b52c45",
+    "titulo": "Carrera de Maletas Con Carga",
+    "slug": "carrera-de-maletas-con-carga"
+  },
+  {
+    "id": "e999778b-cc5a-4c53-bbe7-815a64237a11",
+    "titulo": "Juego democrático: Juicio en la corte",
+    "slug": "juicio-en-la-corte"
+  },
+  {
+    "id": "703d3a66-25b8-4d61-8640-88a0b6841421",
+    "titulo": "Cacería de Vampiros",
+    "slug": "caceria-de-vampiros"
+  },
+  {
+    "id": "67638ef0-43bf-4a38-92a5-48744d55e9c2",
+    "titulo": "Escultores",
+    "slug": "escultores"
+  },
+  {
+    "id": "46d6eb1f-2a28-4a4a-96ce-69d09d8b6a1a",
+    "titulo": "Cazadores Sabuesos y Venados",
+    "slug": "cazadores-sabuesos-y-venados"
+  },
+  {
+    "id": "46bba5a4-aa33-48b7-8eac-3dad9bcc00a8",
+    "titulo": "El teléfono (Con dibujos)",
+    "slug": "el-telefono-con-dibujos"
+  },
+  {
+    "id": "844d5d4b-743e-4ebc-a734-5e7210a3be75",
+    "titulo": "Carrera de Elefantes",
+    "slug": "carrera-de-elefantes"
+  },
+  {
+    "id": "e464a04f-bef4-40c3-92db-ab32ca0d772a",
+    "titulo": "Protegiendo la fogata",
+    "slug": "protegiendo-la-fogata"
+  },
+  {
+    "id": "227840aa-8ae7-42ea-84ae-2e9ba40106a1",
+    "titulo": "Bulldog Inglés",
+    "slug": "bulldog-ingles"
+  },
+  {
+    "id": "0bf89f51-5dc3-40c9-aacf-882701689109",
+    "titulo": "Robert Baden-Powell",
+    "slug": "robert-baden-powell"
+  },
+  {
+    "id": "3e07bca3-3641-4708-919f-269069b51189",
+    "titulo": "Sitio de Mafeking",
+    "slug": "sitio-de-mafeking"
+  },
+  {
+    "id": "3cec7738-cab5-4694-9e59-0a74265ca17e",
+    "titulo": "La Carpa",
+    "slug": "la-carpa"
+  },
+  {
+    "id": "0e89ce8d-517f-46ec-bb66-623be9f16995",
+    "titulo": "Nudo Simple con Gaza",
+    "slug": "nudo-simple-con-gaza"
+  },
+  {
+    "id": "80951f57-bb43-4374-9b73-0321028d8952",
+    "titulo": "Nudo Simple",
+    "slug": "nudo-simple"
+  },
+  {
+    "id": "be6d5009-9e88-4b47-a9b8-d2d36c1757d2",
+    "titulo": "Nudo de Estacha",
+    "slug": "nudo-de-estacha"
+  },
+  {
+    "id": "eb26d155-093d-42d2-ba22-6746c6953fd6",
+    "titulo": "Nudo Ocho",
+    "slug": "nudo-ocho"
+  },
+  {
+    "id": "cfa24164-5a3d-40ee-b51e-14e0dfc2d58e",
+    "titulo": "Nudo Barrilito",
+    "slug": "nudo-barrilito"
+  },
+  {
+    "id": "d5364a40-7cb6-42bc-8046-74fabdc7281b",
+    "titulo": "Nudo Cazador",
+    "slug": "nudo-cazador"
+  },
+  {
+    "id": "432bc466-4029-4008-8eca-7ab9ba033896",
+    "titulo": "Costura Cuadrada",
+    "slug": "costura-cuadrada"
+  },
+  {
+    "id": "2cde9fb7-221c-43ca-a7f0-a2057f4c57e1",
+    "titulo": "Relevos del vaso",
+    "slug": "relevos-del-vaso"
+  }
+]

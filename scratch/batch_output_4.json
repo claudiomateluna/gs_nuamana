@@ -1,0 +1,407 @@
+[
+  {
+    "original_title": "Competiciones de relevos.",
+    "titulo_reescrito": "Relevos Scouts de Agilidad",
+    "tipo": "Actividad",
+    "subtipo": "juego",
+    "duracion": "30 min",
+    "cantidad": "10-30",
+    "base_image": "juegos_carrera_base.jpg",
+    "lugares": [
+      "campo abierto",
+      "patio"
+    ],
+    "materiales": [
+      "Botellas plásticas vacías o cartones de leche limpios y cortados",
+      "Vaso plástico para cada equipo o patrulla",
+      "Recipiente grande o cántaro con agua",
+      "Agua abundante"
+    ],
+    "variaciones": "En el primer relevo, en lugar de llevar el agua en la boca, los participantes pueden transportarla utilizando una esponja grande que deben exprimir en la botella. En el segundo relevo, se puede añadir un obstáculo intermedio que los jugadores deban saltar o esquivar antes de pasar el vaso por entre las piernas.",
+    "recomendaciones": "Asegurarse de que el terreno de juego no sea resbaladizo para evitar caídas al correr. Si se juega en patio de cemento, recordar a los participantes que corran con precaución. Mantener el agua limpia y potable en caso de que decidan llevarla en la boca.",
+    "descripcion_reescrita": "Esta entretenida dinámica de relevos pone a prueba la coordinación psicomotriz y el trabajo en equipo de los participantes a través de dos variantes mojadas y sumamente dinámicas. En el Relevo 1, cada equipo (o patrulla) se alinea frente a una botella plástica vacía ubicada a 10 metros de distancia. El primer corredor de cada equipo llena su boca con agua desde un cántaro común y, a la señal del dirigente, corre a toda velocidad hacia la botella vacía para depositar el agua. Tras vaciar el contenido de su boca en la botella, regresa corriendo para dar el relevo a su compañero mediante un choque de manos, repitiendo el proceso hasta que la botella se llene por completo.\n\nEn el Relevo 2, los equipos forman una fila india con las piernas bien separadas. Un recipiente lleno de agua se coloca al frente del primer jugador y una botella vacía detrás del último. Al dar el silbatazo de inicio, el primer competidor llena un vaso plástico con agua y lo pasa hacia atrás por debajo de sus piernas al segundo jugador, quien repite la acción en cadena. El último de la fila vierte el contenido rescatado en la botella y corre al inicio de la fila para repetir el ciclo. El juego finaliza cuando la botella de una patrulla se desborda, declarando a ese equipo como el gran vencedor de la jornada de agilidad.",
+    "extracto": "Una emocionante carrera de relevos por patrullas donde el agua es el principal obstáculo, exigiendo máxima velocidad, equilibrio y una impecable coordinación grupal.",
+    "areas": [
+      "corporalidad",
+      "sociabilidad"
+    ],
+    "unidades": [
+      "manada",
+      "tropa",
+      "compañia"
+    ],
+    "objetivos_generales": [
+      "Estimular la agilidad",
+      "Trabajo en equipo",
+      "Desfogue de Energías"
+    ],
+    "justificacion_areas": "El juego estimula el área de la Corporalidad al requerir control del propio cuerpo, equilibrio y velocidad durante el traslado del agua, además de una fina precisión motriz para pasar el vaso entre las piernas sin derramarlo. Paralelamente, se desarrolla la Sociabilidad a través del trabajo coordinado en equipo, forzando a los participantes a sincronizar sus movimientos y a apoyarse mutuamente en busca de una meta grupal común.",
+    "objetivos_educativos": [
+      {
+        "id": "d9ebcd96-c9cf-444f-94fb-5569110a1b99",
+        "area": "Corporalidad",
+        "texto": "Participo en actividades que me ayudan a tener un cuerpo cada vez más fuerte, ágil, veloz y flexible.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Corriendo** con velocidad hacia la botella asignada para depositar el agua que llevo en la boca, esforzándome por mantener el equilibrio y mejorar mi agilidad corporal."
+      },
+      {
+        "id": "626a313e-0407-4cfd-b714-c6aa6e51738c",
+        "area": "Corporalidad",
+        "texto": "Manejo cada vez mejor mis brazos, piernas, manos y pies.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Controlando** con precisión mis movimientos al pasar el vaso lleno de agua entre mis piernas a mi compañero sin derramar el líquido, logrando un mejor dominio de mis extremidades."
+      },
+      {
+        "id": "16388e31-ed8c-443f-9881-4dea357f2edd",
+        "area": "Sociabilidad",
+        "texto": "Trato de realizar una buena acción todos los días.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Apoyando** activamente a mis compañeros de patrulla durante los relevos, dándoles ánimos y ayudando a recoger los materiales al terminar el juego para mantener el orden."
+      },
+      {
+        "id": "8a38e69e-7013-4ec8-8112-181f68e4224a",
+        "area": "Sociabilidad",
+        "texto": "Realizo una buena acción cada día.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Colaborando** con empatía y alegría en el juego en cadena, asegurando que todos mis compañeros participen de forma justa y segura en el traspaso de los vasos."
+      },
+      {
+        "id": "edd3b4b5-1096-44fe-8b8b-7364449cd520",
+        "area": "Sociabilidad",
+        "texto": "Trato de realizar una buena acción todos los días.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Ayudando** con entusiasmo a mi equipo a organizarse en la fila de relevos y cooperando para que los materiales queden guardados de forma ordenada."
+      },
+      {
+        "id": "b3d92c8b-c7c8-42bc-bc03-4e925e019a87",
+        "area": "Sociabilidad",
+        "texto": "Propongo actividades de servicio de mi patrulla y Compañía y colaboro en su organización.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Asumiendo** con iniciativa el ordenamiento de mi equipo en el circuito de relevos de agua, organizando de forma justa las posiciones de cada integrante."
+      }
+    ]
+  },
+  {
+    "original_title": "La Pañoleta.",
+    "titulo_reescrito": "Arrebato de Pañoleta",
+    "tipo": "Actividad",
+    "subtipo": "juego",
+    "duracion": "15 min",
+    "cantidad": "10-25",
+    "base_image": "juegos_duelo_base.jpg",
+    "lugares": [
+      "campo abierto",
+      "patio"
+    ],
+    "materiales": [
+      "Una pañoleta scout"
+    ],
+    "variaciones": "Se pueden llamar dos o más números simultáneamente (ej: '¡uno y tres!') para que salgan parejas a colaborar y pasarse la pañoleta antes de cruzar la línea de meta. También se puede jugar con los participantes sentados o acostados en el suelo antes de oír su número, agregando un reto de reacción.",
+    "recomendaciones": "Establecer una distancia segura entre los corredores y el director del juego para evitar colisiones frontales al correr hacia la pañoleta. Vigilar que no haya tirones bruscos ni agarres de ropa cuando intenten tocar al oponente.",
+    "descripcion_reescrita": "Este clásico juego scout de velocidad y astucia divide a los participantes en dos equipos iguales alineados a ambos lados de una línea central trazada en el suelo, respetando una distancia mínima de 5 metros a cada lado. Cada integrante recibe un número secreto de forma secuencial (del 1 al número total de jugadores). En el centro de la línea, el Scouter o dirigente sostiene o coloca una pañoleta en posición neutral. Al grito del número designado por el líder (por ejemplo, '¡Cuatro!'), los dos jugadores con ese número corren velozmente hacia el centro.\n\nLa dinámica entra en una fase de tensión táctica: el objetivo no es solo tomar la pañoleta, sino lograr llevarla detrás de la línea de tu propio equipo. Si un jugador toma la pañoleta, el rival del equipo contrario puede perseguirlo y tocarlo; si lo toca antes de que cruce su línea de meta, el equipo de quien tomó la pañoleta pierde el punto. Si el jugador que toma la pañoleta logra cruzar la línea a salvo, su equipo anota un punto. El juego finaliza tras varias rondas cuando un equipo alcanza la puntuación establecida, promoviendo reflejos rápidos, amagues y agilidad mental.",
+    "extracto": "Un enfrentamiento cara a cara de reflejos y amagues donde debes arrebatar la pañoleta central y regresar a tu línea sin ser atrapado por tu oponente directo.",
+    "areas": [
+      "corporalidad",
+      "carácter"
+    ],
+    "unidades": [
+      "manada",
+      "tropa",
+      "compañia"
+    ],
+    "objetivos_generales": [
+      "Estimular la agilidad",
+      "Estimular la capacidad de reacción",
+      "Desarrollar el carácter mediante la cooperación"
+    ],
+    "justificacion_areas": "El juego estimula intensamente la Corporalidad a través de arranques rápidos de velocidad, amagos corporales para engañar al oponente y la agilidad de reacción al escuchar el número. Asimismo, fortalece el Carácter al exigir que los jugadores tomen decisiones en segundos bajo presión y acepten con deportividad el resultado de cada duelo individual en beneficio de los puntos del equipo.",
+    "objetivos_educativos": [
+      {
+        "id": "942e2a3a-b7b5-4b88-b82a-261244f3683e",
+        "area": "Corporalidad",
+        "texto": "He aprendido a medir los riesgos que tienen los juegos y las cosas que hago.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Midiendo** la fuerza y la velocidad de mis arranques para tomar la pañoleta sin chocar de frente con mi compañero del otro equipo, cuidando la integridad de ambos."
+      },
+      {
+        "id": "626a313e-0407-4cfd-b714-c6aa6e51738c",
+        "area": "Corporalidad",
+        "texto": "Manejo cada vez mejor mis brazos, piernas, manos y pies.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Esquivando** al oponente con un rápido quiebre de cadera y zancada coordinada para regresar corriendo con la pañoleta a salvo detrás de mi línea base."
+      },
+      {
+        "id": "b0042e1b-f294-4e30-88e6-418a996add56",
+        "area": "Carácter",
+        "texto": "Expreso mi alegría sin burlarme de los demás.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Expresando** mi alegría con entusiasmo al participar en el duelo por la pañoleta, evitando burlas hacia mi oponente en caso de que gane el punto."
+      },
+      {
+        "id": "97918197-8685-4bd1-bc4c-f5363326a572",
+        "area": "Carácter",
+        "texto": "Ayudo para que en mi Tropa seamos alegres sin ofender a los demás.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Ayudando** a mantener una sana competencia durante el juego de la pañoleta, animando a mis compañeros y reconociendo el esfuerzo de ambos bandos."
+      },
+      {
+        "id": "fb8a1e37-a978-433c-883b-965c7a6d9d3e",
+        "area": "Carácter",
+        "texto": "Expreso mi alegría sin burlarme de los demás.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Celebrando** de forma positiva cada punto obtenido al correr por la pañoleta, cuidando de no realizar gestos de burla o menosprecio hacia mis compañeras."
+      },
+      {
+        "id": "f2c7b28a-1103-476f-aae4-99907f8502b8",
+        "area": "Carácter",
+        "texto": "Ayudo para que en mi Compañía seamos alegres sin ofender a las demás.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Motivando** a mis compañeras a disfrutar del juego de la pañoleta con alegría y deportividad, asegurándome de que el ambiente se mantenga amigable y respetuoso."
+      }
+    ]
+  },
+  {
+    "original_title": "Una pañoleta y un círculo.",
+    "titulo_reescrito": "Círculo y Pañoleta",
+    "tipo": "Actividad",
+    "subtipo": "juego",
+    "duracion": "20 min",
+    "cantidad": "12-30",
+    "base_image": "juegos_duelo_base.jpg",
+    "lugares": [
+      "campo abierto",
+      "patio"
+    ],
+    "materiales": [
+      "Dos o más pañoletas o distintivos de colores para los brazos de los equipos",
+      "Una pañoleta para colocar en el centro",
+      "Silbato scout"
+    ],
+    "variaciones": "Se puede jugar formando un círculo doble, donde los jugadores deban rodear ambos círculos antes de entrar a buscar la pañoleta. También se puede variar el método de entrada, pidiendo que pasen por encima de las piernas (saltando) en vez de pasar por debajo de ellas.",
+    "recomendaciones": "Establecer reglas claras para evitar tropiezos o pisotones cuando los jugadores intenten pasar por entre las piernas de sus compañeros en el círculo. Asegurar que el espacio en el centro sea amplio y libre de piedras.",
+    "descripcion_reescrita": "Esta dinámica colectiva de alta intensidad combina la estructura de 'La Pañoleta' con un componente de movimiento circular. Los participantes se dividen en dos o más equipos, identificados con cintas o pañoletas de colores en sus brazos. Todos los jugadores se mezclan para formar un gran círculo único con las piernas abiertas. A cada miembro de cada equipo se le asigna un número (del 1 al número total de integrantes por equipo). Una pañoleta u objeto objetivo se coloca exactamente en el centro del círculo.\n\nCuando el Scouter hace sonar el silbato y grita un número (por ejemplo, '¡Cinco!'), los jugadores de cada equipo con ese número salen del círculo y corren alrededor de su perímetro exterior. Al completar la vuelta entera, cada corredor debe entrar de vuelta al círculo pasando por debajo de las piernas de su compañero más cercano y abalanzarse hacia el centro para recoger la pañoleta. El equipo cuyo jugador tome el objeto del centro primero y lo eleve con éxito gana la ronda. Se puede incrementar la dificultad llamando a más de un número a la vez para fomentar mayor caos divertido y estrategias de bloqueo rápido.",
+    "extracto": "Un juego en círculo de velocidad y agilidad donde los jugadores deben correr alrededor de sus compañeros, cruzar bajo sus piernas y arrebatar la pañoleta en el centro.",
+    "areas": [
+      "corporalidad",
+      "sociabilidad"
+    ],
+    "unidades": [
+      "manada",
+      "tropa",
+      "compañia"
+    ],
+    "objetivos_generales": [
+      "Estimular la agilidad",
+      "Estimular la coordinación",
+      "Fomentar la sana competencia"
+    ],
+    "justificacion_areas": "Este juego estimula la Corporalidad a través de la carrera rápida por el contorno del círculo y la flexibilidad requerida para pasar gateando o agachándose por entre las piernas de los compañeros sin perder el ritmo. Asimismo, estimula la Sociabilidad ya que los participantes que sostienen el círculo deben cooperar manteniendo las piernas firmes y abiertas, facilitando activamente el paso rápido de su compañero de equipo y fomentando el apoyo mutuo.",
+    "objetivos_educativos": [
+      {
+        "id": "d9ebcd96-c9cf-444f-94fb-5569110a1b99",
+        "area": "Corporalidad",
+        "texto": "Participo en actividades que me ayudan a tener un cuerpo cada vez más fuerte, ágil, veloz y flexible.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Gateando** de manera ágil y rápida por debajo de las piernas de mi compañero para poder salir al centro del círculo y alcanzar la pañoleta antes que los demás."
+      },
+      {
+        "id": "626a313e-0407-4cfd-b714-c6aa6e51738c",
+        "area": "Corporalidad",
+        "texto": "Manejo cada vez mejor mis brazos, piernas, manos y pies.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Coordinando** mis movimientos al agacharme con soltura y pasar limpiamente por debajo del compañero sin tropezar, midiendo el control de mis extremidades."
+      },
+      {
+        "id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad",
+        "area": "Sociabilidad",
+        "texto": "Conozco y respeto las principales normas de convivencia.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Respetando** las reglas de no empujar ni obstruir físicamente a los corredores de otros equipos al correr por el exterior del círculo."
+      },
+      {
+        "id": "bbc48d53-f4aa-4de7-84d4-95614df76034",
+        "area": "Sociabilidad",
+        "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre esté de acuerdo con ellas.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Aceptando** pacíficamente la decisión del dirigente si determina que otro jugador tocó la pañoleta antes que yo, promoviendo el juego limpio."
+      },
+      {
+        "id": "007e85ea-2b06-48c2-8ac1-873d59643aae",
+        "area": "Sociabilidad",
+        "texto": "Conozco y respeto las principales normas de convivencia.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Acotando** las indicaciones de seguridad del juego y evitando empujones al disputar la pañoleta en el centro del círculo."
+      },
+      {
+        "id": "de2f5693-de4b-48f1-b870-3c62be99aea8",
+        "area": "Sociabilidad",
+        "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre esté de acuerdo con ellas.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Cumpliendo** de buena gana el reglamento de la competencia, incluso si perdemos la ronda, valorando la diversión y convivencia de la Compañía."
+      }
+    ]
+  },
+  {
+    "original_title": "La batalla de globos.",
+    "titulo_reescrito": "Combate de Globos",
+    "tipo": "Actividad",
+    "subtipo": "juego",
+    "duracion": "30 min",
+    "cantidad": "10-30",
+    "base_image": "juegos_agua_base.jpg",
+    "lugares": [
+      "campo abierto",
+      "patio"
+    ],
+    "materiales": [
+      "Un globo inflable por participante",
+      "Lana o hilo para amarrar los globos al tobillo",
+      "Tiza o conos para delimitar el área"
+    ],
+    "variaciones": "En el juego de los globos, se pueden hacer alianzas temporales en parejas para proteger mutuamente sus globos. En 'Cerdos y Granjeros', se puede designar un 'corral' al que los granjeros deben llevar a los cerdos cargados en lugar de solo levantarlos.",
+    "recomendaciones": "Delimitar muy bien el área de juego y remover cualquier objeto u obstáculo del suelo para evitar tropiezos y caídas. En 'Cerdos y Granjeros', vigilar estrechamente la seguridad física: los 'cerditos' deben levantarse de manera controlada y respetuosa, evitando movimientos bruscos que puedan lesionar la espalda o el cuello de los participantes.",
+    "descripcion_reescrita": "Esta entretenida sesión combina dos divertidas dinámicas físicas que exigen agilidad y coordinación. En la primera fase, 'La Batalla de Globos', cada scout ata un globo inflado a su tobillo mediante una cuerda de 15 cm. El objetivo es pisar y explotar los globos de los adversarios mientras protegen el suyo dentro de un área delimitada. Quienes pierdan su globo quedan eliminados, y el último jugador con el globo intacto es el ganador. Esta dinámica fomenta la agilidad, la rapidez de reflejos y el control del espacio personal.\n\nEn la segunda fase, 'Cerdos y Granjeros', el grupo se divide en dos equipos en un espacio cerrado. Los 'granjeros' deben atrapar a los 'cerditos' y levantarlos en vilo (con los dos pies despegados del suelo) durante cinco segundos consecutivos para eliminarlos. Una vez que todos los cerditos son atrapados, los roles se intercambian. El equipo que logre resistir más tiempo sin que todos sus cerditos sean capturados gana la partida, estimulando la fuerza, la estrategia colectiva y la confianza mutua entre los miembros del equipo.",
+    "extracto": "Una doble jornada de juegos físicos de alta intensidad: pisa los globos de tus oponentes en el combate de tobillos y luego resiste o captura en el divertido juego de cerdos y granjeros.",
+    "areas": [
+      "corporalidad",
+      "sociabilidad"
+    ],
+    "unidades": [
+      "tropa",
+      "compañia",
+      "avanzada",
+      "clan"
+    ],
+    "objetivos_generales": [
+      "Estimular la agilidad",
+      "Trabajo en equipo",
+      "Aumentar el conocimiento de las limitantes físicas"
+    ],
+    "justificacion_areas": "Las dos dinámicas de este juego actúan directamente sobre la Corporalidad, desarrollando la agilidad física, la coordinación gruesa y la resistencia aeróbica, así como el reconocimiento de la fuerza y los límites físicos corporales al levantar a un compañero de forma segura. En el área de Sociabilidad, se fortalecen los lazos de equipo y el respeto a las reglas del juego limpio, demandando una estrecha cooperación grupal para idear tácticas de captura y defensa sin recurrir a la brusquedad.",
+    "objetivos_educativos": [
+      {
+        "id": "4946a6aa-4a9f-4e7b-89a3-cb5249db8257",
+        "area": "Corporalidad",
+        "texto": "Sé lo que puedo y no puedo hacer con mi cuerpo.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Reconociendo** mis límites de fuerza y peso al intentar levantar en vilo a mis compañeros durante el juego de cerdos y granjeros, evitando movimientos bruscos."
+      },
+      {
+        "id": "fb56310a-a9cf-46e3-9c34-c4643f6b9035",
+        "area": "Corporalidad",
+        "texto": "Respeto mi cuerpo y el de los demás.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Cuidando** la integridad física de mis compañeros al capturarlos en el juego de granjeros, asegurándome de no forcejear de manera peligrosa ni causarles caídas."
+      },
+      {
+        "id": "0ba0d3c3-a50a-4a04-8981-601dc7746dd6",
+        "area": "Corporalidad",
+        "texto": "Sé lo que puedo y no puedo hacer con mi cuerpo.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Esforzándome** por correr de forma ágil para proteger el globo atado a mi tobillo, midiendo mis propias capacidades de flexibilidad y rapidez."
+      },
+      {
+        "id": "91473f71-9345-4bcf-bfc7-dea709d12361",
+        "area": "Corporalidad",
+        "texto": "Respeto mi cuerpo y el de los demás.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Evitando** empujones o tirones fuertes al intentar pisar los globos de mis compañeras de patrulla, velando por un juego limpio y seguro para todas."
+      },
+      {
+        "id": "e1c20419-a6d0-48b2-91e8-20a96d2b11c3",
+        "area": "Corporalidad",
+        "texto": "Mantengo buen estado físico",
+        "unidad": "Avanzada",
+        "como_se_cumple": "**Ejercitando** mi resistencia y velocidad en el área delimitada de combate de globos, exigiéndome físicamente para mantener un buen estado corporal."
+      },
+      {
+        "id": "bc8f595b-6949-4f2e-9304-86a2306449e1",
+        "area": "Corporalidad",
+        "texto": "Asumo la parte de responsabilidad que me corresponde en el desarrollo armónico de mi cuerpo.",
+        "unidad": "Clan",
+        "como_se_cumple": "**Asumiendo** con madurez el esfuerzo físico requerido en las dinámicas de combate y carga, regulando mi energía y evitando cualquier exceso perjudicial para mi salud."
+      }
+    ]
+  },
+  {
+    "original_title": "Animales que son venerados.",
+    "titulo_reescrito": "Animales Venerados",
+    "tipo": "Actividad",
+    "subtipo": "juego",
+    "duracion": "40 min",
+    "cantidad": "12-30",
+    "base_image": "juegos_naturaleza_base.jpg",
+    "lugares": [
+      "campo abierto",
+      "bosque"
+    ],
+    "materiales": [
+      "Vales de puntuación numerados por cada animal (igual al número de patrullas)",
+      "Lápices",
+      "Distintivos o tarjetas para los animales ocultos"
+    ],
+    "variaciones": "Se puede jugar de noche como juego nocturno (aumentando la dificultad auditiva), donde los animales utilicen linternas intermitentes en lugar de gritar o en conjunto con los sonidos. También se puede hacer que los participantes deban imitar el sonido del animal capturado para validar su tarjeta en el centro de control.",
+    "recomendaciones": "Establecer límites geográficos claros en el bosque para que nadie se pierda. Enfatizar la prohibición de correr a ciegas por zonas con ramas bajas o desniveles. Asegurar que los adultos u organizadores ocultos estén en zonas seguras y visibles para casos de emergencia.",
+    "descripcion_reescrita": "Esta estimulante dinámica al aire libre transporta a las patrullas a un escenario de rastreo y agudeza sensorial. Varios dirigentes u organizadores asumen el rol de 'animales venerados' (vacas, burros, gallos, ovejas, ciervos, etc.) y se esconden en distintas zonas del bosque o campo abierto antes de comenzar el juego. Cada animal lleva consigo vales numerados con puntajes decrecientes (el primer equipo que lo encuentre recibe el puntaje más alto, y los siguientes puntajes menores). Cada 30 segundos exactos, los animales ocultos deben emitir su sonido característico a viva voz para guiar a los buscadores.\n\nLas patrullas (o manadas de lobos) parten en silencio a buscar a los animales guiándose únicamente por sus oídos. Al localizar y atrapar a uno, este les entrega un vale de puntuación. Inmediatamente después, se declara una breve tregua o alto el fuego de 3 minutos para permitir que el animal se traslade y se oculte en un nuevo sitio. Las patrullas deben trabajar en equipo de manera unida y coordinada para registrar la mayor cantidad de animales y acumular el puntaje más alto. El juego finaliza una vez que todos los animales han sido localizados en sus respectivos refugios, ganando la patrulla con mayor puntaje.",
+    "extracto": "Un emocionante juego de acecho y rastreo auditivo en el bosque donde las patrullas siguen los sonidos de animales ocultos para conseguir vales de alta puntuación.",
+    "areas": [
+      "creatividad",
+      "sociabilidad"
+    ],
+    "unidades": [
+      "manada",
+      "tropa",
+      "compañia"
+    ],
+    "objetivos_generales": [
+      "Estimular la observación",
+      "Reforzar el desarrollo de los sentidos",
+      "Trabajo en equipo"
+    ],
+    "justificacion_areas": "El juego estimula el área de la Creatividad mediante el desarrollo y uso intensivo de la agudeza auditiva y la orientación espacial en un entorno natural, forzando a los jóvenes a interpretar sonidos y planificar rutas de búsqueda. En el área de la Sociabilidad, promueve la cohesión y el trabajo en equipo, ya que los miembros de la patrulla deben permanecer siempre juntos, tomar decisiones consensuadas sobre a qué sonido seguir y respetar escrupulosamente los altos el fuego para dar una competencia justa a los demás.",
+    "objetivos_educativos": [
+      {
+        "id": "26c3a88f-5dd1-4b71-9919-07f14ed5b61e",
+        "area": "Creatividad",
+        "texto": "Quiero aprender cosas nuevas.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Escuchando** con atención y curiosidad en el bosque para aprender a distinguir los diferentes cantos y llamados de los animales ocultos, potenciando mi capacidad de exploración."
+      },
+      {
+        "id": "a7539c03-7e17-4e1b-8e3b-081c8a8161cc",
+        "area": "Creatividad",
+        "texto": "Investigo y descubro cómo funcionan las cosas.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Explorando** el entorno natural y deduciendo la ubicación exacta de los animales a través de la dirección y volumen de sus sonidos ocultos."
+      },
+      {
+        "id": "857f21bc-db3c-4e5e-bcd5-d3d331276fad",
+        "area": "Sociabilidad",
+        "texto": "Conozco y respeto las principales normas de convivencia.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Respetando** el alto el fuego de tres minutos sin intentar seguir a los animales en su reubicación, valorando las normas de convivencia del juego."
+      },
+      {
+        "id": "bbc48d53-f4aa-4de7-84d4-95614df76034",
+        "area": "Sociabilidad",
+        "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre esté de acuerdo con ellas.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Acatando** estrictamente la prohibición de búsqueda durante la tregua del juego, de manera honesta y respetuosa con el resto de las patrullas."
+      },
+      {
+        "id": "007e85ea-2b06-48c2-8ac1-873d59643aae",
+        "area": "Sociabilidad",
+        "texto": "Conozco y respeto las principales normas de convivencia.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Respetando** los límites de tiempo de tregua de tres minutos para que el juego se desarrolle bajo un entorno seguro y ordenado para todas."
+      },
+      {
+        "id": "de2f5693-de4b-48f1-b870-3c62be99aea8",
+        "area": "Sociabilidad",
+        "texto": "Respeto las normas de convivencia de los distintos ambientes en que actúo, aunque no siempre esté de acuerdo con ellas.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Frenando** mi avance en el bosque en el momento exacto en que se decreta el alto el fuego para la reubicación de los animales, asumiendo de buena gana las reglas establecidas."
+      }
+    ]
+  }
+]

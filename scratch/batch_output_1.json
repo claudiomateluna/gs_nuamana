@@ -1,0 +1,466 @@
+[
+  {
+    "original_title": "El amigo desconocido.",
+    "titulo_reescrito": "El Amigo Secreto Scout",
+    "tipo": "Actividad",
+    "subtipo": "dinámica",
+    "duracion": "30 min",
+    "cantidad": "10-30",
+    "base_image": "juegos_mesa_base.jpg",
+    "lugares": [
+      "sala",
+      "campo abierto"
+    ],
+    "materiales": [
+      "Papel",
+      "Bolígrafos",
+      "Sobres"
+    ],
+    "variaciones": "Se puede realizar a lo largo de un campamento completo, donde los participantes realizan pequeñas buenas acciones secretas para su amigo (dejar flores, ordenar su carpa, escribir notas anónimas) antes de la revelación final.",
+    "recomendaciones": "Asegurar que todos los participantes reciban una carta al final para evitar sentimientos de exclusión. Los dirigentes deben supervisar de manera indirecta para garantizar que el tono de las cartas sea constructivo y afectuoso.",
+    "descripcion_reescrita": "Este juego comienza con la reunión de todo el grupo en un círculo cerrado. El dirigente explica la importancia de la fraternidad scout y la observación del prójimo. Cada participante toma un papel de una bolsa con el nombre de otro compañero, quien se convertirá en su 'amigo secreto' durante el periodo establecido. A partir de ese momento, cada scout debe observar con atención y en absoluto secreto las cualidades, virtudes y buenas acciones del compañero que le tocó, anotando discretamente aquellas situaciones y actitudes cotidianas que demuestren su carácter y valores.\n\nUna vez finalizado el tiempo acordado (que puede ser al final del día o tras un campamento largo), cada participante redactará una carta personal detallando las cosas valiosas que ha descubierto en su amigo secreto y cómo estas han enriquecido al grupo. Posteriormente, el grupo se reúne en círculo de fuego o sala para la lectura individual de las cartas. Cada participante entrega el sobre a su destinatario, quien lee su carta en silencio o en voz alta si lo desea. Al día siguiente de la lectura, se propicia un espacio libre para compartir los sentimientos vividos y conversar de manera personal con el amigo secreto revelado, consolidando la confianza mutua.",
+    "extracto": "Una dinámica grupal de observación silenciosa y aprecio mutuo donde los participantes escriben cartas a un amigo secreto destacando sus mejores cualidades y valores scouts.",
+    "areas": [
+      "afectividad",
+      "sociabilidad"
+    ],
+    "unidades": [
+      "manada",
+      "tropa",
+      "compañía",
+      "avanzada",
+      "clan"
+    ],
+    "objetivos_generales": [
+      "Conocer a los demás",
+      "Estimular la confianza",
+      "Reforzar lazos sociales"
+    ],
+    "justificacion_areas": "Este juego estimula profundamente la Afectividad y la Sociabilidad de los participantes, ya que les invita a centrar su atención de manera constructiva en las virtudes, emociones y acciones positivas de otro miembro de su comunidad. A través de la observación atenta y silenciosa, los participantes desarrollan empatía al aprender a identificar y valorar los sentimientos y cualidades de sus pares, mitigando el prejuicio. El intercambio de la carta final y la posterior retroalimentación verbal permiten expresar sentimientos de aprecio de forma asertiva, fortaleciendo el autoconcepto de quien recibe la carta y consolidando lazos de confianza recíproca indispensables para la vida comunitaria scout.",
+    "objetivos_educativos": [
+      {
+        "id": "ab6e594f-b0a0-4e6d-96aa-7779299b02ef",
+        "area": "Afectividad",
+        "texto": "Trato con cariño a los demás en la Manada y me gusta que me traten igual.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Tratando** con especial cariño e interés a mi amigo secreto en la Manada mediante gestos sencillos de aprecio cotidiano y compartiendo con él de manera respetuosa."
+      },
+      {
+        "id": "66de9e77-aa53-48a1-98db-9de3d3958486",
+        "area": "Afectividad",
+        "texto": "Puedo hablar con los demás de las cosas que me ponen alegre y también de las que me ponen triste.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Conversando** abiertamente sobre las emociones que experimenté al escribir y recibir la carta de mi amigo secreto, identificando qué acciones de cariño me alegraron."
+      },
+      {
+        "id": "c41ebefe-da04-4671-a854-40d544b6366e",
+        "area": "Afectividad",
+        "texto": "Soy leal con mis amigas y amigos sin dejar de lado o tratar mal a quienes no lo son.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Demostrando** lealtad hacia mi amiga secreta en la patrulla al observar y rescatar sus mejores cualidades en el juego, valorando su aporte único al grupo."
+      },
+      {
+        "id": "bb4bbc06-8313-45b2-b06e-c2a52a3d9322",
+        "area": "Afectividad",
+        "texto": "Comparto mis sentimientos y emociones con mi patrulla.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Compartiendo** de manera honesta mis sentimientos y emociones con mi patrulla al leer la carta de mi amiga secreta, expresando el impacto positivo de sus palabras en mí."
+      },
+      {
+        "id": "34b68e26-4ce0-43e1-b45a-0b41336af495",
+        "area": "Afectividad",
+        "texto": "Soy leal con mis amigos y amigos sin dejar de lado o tratar mal a quienes no lo son.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Demostrando** lealtad hacia mi amigo secreto de la Tropa al observar y rescatar sus mejores cualidades en el juego, valorando su aporte único al grupo."
+      },
+      {
+        "id": "4deb9334-aee6-48e4-b480-c562929584ad",
+        "area": "Afectividad",
+        "texto": "Comparto mis sentimientos y emociones con mi patrulla.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Compartiendo** de manera honesta mis sentimientos y emociones con mi patrulla al leer la carta de mi amigo secreto, expresando el impacto positivo de sus palabras en mí."
+      },
+      {
+        "id": "755d107c-33ab-4e9a-b6f4-a1fdaf538bd5",
+        "area": "Afectividad",
+        "texto": "Comparto mis sentimientos con mi comunidad.",
+        "unidad": "Avanzada",
+        "como_se_cumple": "**Compartiendo** con madurez y apertura mis sentimientos y valoraciones interpersonales con mi comunidad de Avanzada al leer la carta de reconocimiento escrita por mí."
+      },
+      {
+        "id": "39de3f68-3477-4c1f-8a29-170e914596d7",
+        "area": "Afectividad",
+        "texto": "Construye su felicidad personal en el amor, sirviendo a los otros sin esperar recompensa y valorándolos por lo que son.",
+        "unidad": "Clan",
+        "como_se_cumple": "**Valorando** a mis compañeros del Clan por lo que son esencialmente, al redactar la carta dedicada a mi amigo secreto sin esperar ninguna retribución material, solo el fortalecimiento del lazo."
+      }
+    ]
+  },
+  {
+    "original_title": "Máxima eficiencia.",
+    "titulo_reescrito": "Desafío de Destreza y Presión Grupal",
+    "tipo": "Actividad",
+    "subtipo": "juego",
+    "duracion": "40 min",
+    "cantidad": "10-25",
+    "base_image": "juegos_cooperativo_base.jpg",
+    "lugares": [
+      "sala",
+      "campo abierto"
+    ],
+    "materiales": [
+      "Una caja ancha",
+      "Un frasco angosto",
+      "75 clips metálicos o clavos por equipo",
+      "Cronómetro"
+    ],
+    "variaciones": "Puede jugarse en equipos competitivos donde un miembro de cada patrulla realiza el juego mientras los demás miembros intentan distraerlos o alentarlos bajo diferentes pautas de ruido y presión verbal.",
+    "recomendaciones": "Mantener un ambiente controlado. Es crucial que la presión verbal del grupo no cruce hacia el hostigamiento o burlas ofensivas. La evaluación final debe enfocarse en cómo nos afectan las expectativas ajenas.",
+    "descripcion_reescrita": "Este juego consiste en someter a los participantes a un reto de habilidad manual bajo diferentes expectativas impuestas socialmente. Para iniciar, se invita a seis voluntarios a salir de la habitación, quedando el resto del grupo adentro para recibir instrucciones del dirigente sobre el verdadero propósito del juego: analizar las presiones sociales sobre el rendimiento individual. Los voluntarios serán llamados uno a uno a ingresar a la sala para realizar la prueba, la cual consiste en trasladar con una sola mano el mayor número posible de clips de una caja ancha a un frasco angosto en un tiempo de 20 segundos.\n\nLa mecánica clave radica en el mensaje de expectativa que recibe cada voluntario antes de comenzar. A los primeros dos se les informa que el rendimiento promedio es bajo (alrededor de 2 clips). A los dos siguientes se les dice que el promedio es extremadamente alto (40 clips). A los dos últimos se les impone una meta de 40 clips, pero añadiendo una consecuencia de penalización ('una prenda') si no lo logran. Antes de cada ronda, el participante debe estimar en voz alta cuántos clips cree que trasladará, y luego de jugar se le pide una segunda estimación para una ronda hipotética. Al final, se reúne a todo el grupo para debatir y evaluar el impacto del condicionamiento social en sus estimaciones y desempeño físico.",
+    "extracto": "Un juego de precisión manual donde los participantes enfrentan diferentes expectativas verbales del grupo para analizar la influencia de la presión social en la autoconfianza.",
+    "areas": [
+      "carácter"
+    ],
+    "unidades": [
+      "tropa",
+      "compañía",
+      "avanzada",
+      "clan"
+    ],
+    "objetivos_generales": [
+      "Fomentar el desarrollo del criterio",
+      "Estimular el pensamiento crítico",
+      "Identificar fortalezas y debilidades"
+    ],
+    "justificacion_areas": "La dinámica confronta al participante con las presiones externas del grupo y las normas sociales frente a sus propias estimaciones de capacidad y autoconfianza. Al establecer una predicción inicial y luego verse influenciado por metas externas artificialmente bajas o altas, o por la introducción de consecuencias adicionales ('prendas'), el joven experimenta la tensión entre la conformidad social y su juicio individual. La posterior evaluación reflexiva estimula el desarrollo del carácter al promover la autocrítica, la resiliencia mental y la toma de decisiones autónomas, ayudando a los participantes a construir un criterio propio sólido frente a las influencias coercitivas del entorno.",
+    "objetivos_educativos": [
+      {
+        "id": "3a35ddd8-f6dc-4e00-a04d-107a0825bd99",
+        "area": "Carácter",
+        "texto": "Escucho las críticas que me hacen los demás y reflexiono sobre ellas.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Escuchando** atentamente las valoraciones y críticas que mis compañeras hacen respecto a mi destreza y metas de transferencia de clips, y reflexionando sobre cómo eso moldea mi comportamiento."
+      },
+      {
+        "id": "006c5b09-47cf-4ed8-bf25-212203261a03",
+        "area": "Carácter",
+        "texto": "Sé que soy capaz de hacer cosas y de hacerlas bien.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Demostrando** mi capacidad manual y autoconfianza al trasladar los clips al recipiente angosto con precisión, sin desanimarme por las variaciones de metas propuestas externamente."
+      },
+      {
+        "id": "6d5e1f25-c6a0-4c85-9e12-ff78d37b7ea0",
+        "area": "Carácter",
+        "texto": "Escucho las críticas que me hacen los demás y reflexiono sobre ellas.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Escuchando** de forma abierta las opiniones y observaciones que mis compañeros de patrulla me hacen respecto a mis metas en el traslado de clips, analizando el peso de las expectativas grupales en mi propia autoconfianza."
+      },
+      {
+        "id": "78bd48d3-5d26-4218-843a-33712bade630",
+        "area": "Carácter",
+        "texto": "Sé que soy capaz de hacer cosas y de hacerlas bien.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Esforzándome** por mantener el control del movimiento al trasladar los clips uno a uno en los 20 segundos provistos, confiando plenamente en mis capacidades frente a las presiones del grupo."
+      },
+      {
+        "id": "4bfc99e3-ba0c-4986-bfb5-5cb4f0651593",
+        "area": "Carácter",
+        "texto": "Sé que soy capaz de lograr las cosas que me he propuesto.",
+        "unidad": "Avanzada",
+        "como_se_cumple": "**Estableciendo** mis propias metas realistas de transferencia de clips y esforzándome por alcanzarlas de forma autónoma, ignorando las presiones manipuladoras de los espectadores para demostrarme que puedo cumplir lo propuesto."
+      },
+      {
+        "id": "8f0eb7d9-c291-44f3-9551-4330c19e0cc2",
+        "area": "Carácter",
+        "texto": "Conoce sus posibilidades y limitaciones, aceptándose con capacidad de autocrítica y manteniendo a la vez una buena imagen de sí mismo.",
+        "unidad": "Clan",
+        "como_se_cumple": "**Analizando** mis respuestas emocionales e impulsos de competencia ante las metas de rendimiento sugeridas externamente en el juego de los clips, desarrollando mi capacidad de autocrítica respecto a la conformidad social."
+      }
+    ]
+  },
+  {
+    "original_title": "Tanto el viento como el árbol.",
+    "titulo_reescrito": "El Árbol y el Viento",
+    "tipo": "Actividad",
+    "subtipo": "juego",
+    "duracion": "15 min",
+    "cantidad": "8-15",
+    "base_image": "juegos_circulo_base.jpg",
+    "lugares": [
+      "sala",
+      "campo abierto"
+    ],
+    "materiales": [
+      "Ninguno"
+    ],
+    "variaciones": "El participante central puede estar parado sobre un pie para aumentar la dificultad del equilibrio físico y la concentración corporal, o el círculo puede moverse lentamente mientras lo sostiene.",
+    "recomendaciones": "El juego exige el más estricto silencio y concentración para garantizar la seguridad. Los participantes en el círculo deben estar alertas con rodillas flexionadas y manos extendidas para amortiguar suavemente al compañero.",
+    "descripcion_reescrita": "Este juego de confianza y percepción corporal se desarrolla con los participantes formando un círculo compacto y cerrado. Uno de los scouts se coloca en el centro del círculo, con los pies firmemente apoyados en el suelo, los ojos cerrados y el cuerpo completamente rígido, imitando la rigidez de un tronco de árbol. Los compañeros que forman el círculo colocan sus manos a la altura del pecho, listos para recibir y guiar el peso del compañero central.\n\nEl juego comienza cuando la persona del centro se deja caer suavemente hacia cualquier dirección, manteniendo la postura firme de sus piernas sin doblar las rodillas. Los scouts del círculo lo reciben de manera controlada con sus manos y lo empujan de vuelta de forma suave y rítmica hacia otra dirección, como si fuera una rama meciéndose con el viento. La dinámica transcurre en absoluto silencio, permitiendo que el participante del centro experimente la sensación de ingravidez y entrega física. El ejercicio finaliza cuando el participante regresa a la posición vertical, respira profundamente y abre los ojos para dar paso a otro compañero.",
+    "extracto": "Una dinámica de confianza física en la que una persona con los ojos cerrados se deja balancear rítmicamente por sus compañeros posicionados en círculo.",
+    "areas": [
+      "afectividad",
+      "corporalidad"
+    ],
+    "unidades": [
+      "manada",
+      "tropa",
+      "compañía",
+      "avanzada",
+      "clan"
+    ],
+    "objetivos_generales": [
+      "Estimular la confianza",
+      "Conocer las capacidades corporales",
+      "Reforzar lazos sociales"
+    ],
+    "justificacion_areas": "Este juego se enfoca en el fortalecimiento de la confianza comunitaria y el desarrollo corporal a través del contacto físico seguro y el control cinestésico. El participante en el centro debe relajar el control racional de su equilibrio físico, manteniendo la rigidez del cuerpo y cerrando los ojos para confiar plenamente en las manos del grupo. A su vez, los miembros del círculo asumen la responsabilidad directa sobre la integridad física de su compañero, modulando su fuerza con delicadeza. Esta reciprocidad de cuidado y entrega física rompe barreras de inhibición y fomenta una atmósfera de silencio y respeto profundo en el grupo.",
+    "objetivos_educativos": [
+      {
+        "id": "942e2a3a-b7b5-4b88-b82a-261244f3683e",
+        "area": "Corporalidad",
+        "texto": "He aprendido a medir los riesgos que tienen los juegos y las cosas que hago.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Midiendo** cuidadosamente la fuerza de mis manos al sostener y empujar a mis compañeros lobatos en el círculo, asegurándome de mantener un ambiente seguro y tranquilo."
+      },
+      {
+        "id": "5d2d48ed-c461-4a8e-9048-cceecd3de2e2",
+        "area": "Corporalidad",
+        "texto": "Me gusta jugar con otros niños y niñas y respeto las reglas de los juegos.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Respetando** la regla de mantener el cuerpo rígido y los ojos cerrados cuando me toque estar en el centro, confiando plenamente en la seguridad que me brinda mi seisena."
+      },
+      {
+        "id": "5028854e-fa2e-4724-8662-812ce34fbdb8",
+        "area": "Corporalidad",
+        "texto": "Trato de no ser agresiva en juegos y actividades.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Evitando** movimientos bruscos o agresivos al empujar y recibir a mis compañeras en el péndulo del viento, concentrándome en su seguridad física."
+      },
+      {
+        "id": "91473f71-9345-4bcf-bfc7-dea709d12361",
+        "area": "Corporalidad",
+        "texto": "Respeto mi cuerpo y el de los demás.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Respetando** la integridad corporal de mis compañeras de patrulla al recibirlas con firmeza y suavidad, y asumiendo con control mi propio equilibrio físico."
+      },
+      {
+        "id": "36321046-051e-4c14-bb1e-7045faf4f5b4",
+        "area": "Corporalidad",
+        "texto": "Trato de no ser agresivo en juegos y actividades.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Evitando** movimientos bruscos o agresivos al empujar y recibir a mis compañeros en el péndulo del viento, concentrándome en su seguridad física."
+      },
+      {
+        "id": "fb56310a-a9cf-46e3-9c34-c4643f6b9035",
+        "area": "Corporalidad",
+        "texto": "Respeto mi cuerpo y el de los demás.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Respetando** la integridad corporal de mis compañeros de patrulla al recibirlos con firmeza y suavidad, y asumiendo con control mi propio equilibrio físico."
+      },
+      {
+        "id": "a40889c7-cacc-4772-9ce5-4e1fd65f077b",
+        "area": "Corporalidad",
+        "texto": "Reflexiono sobre mi comportamiento y me esfuerzo por gobernarlo.",
+        "unidad": "Avanzada",
+        "como_se_cumple": "**Gobernando** mis impulsos físicos de caerme o abrir los ojos cuando estoy al centro, manteniendo la postura rígida y dejándome llevar por el vaivén seguro del grupo."
+      },
+      {
+        "id": "69fff91f-a493-483d-92d6-8319700236c2",
+        "area": "Corporalidad",
+        "texto": "Conoce los procesos biológicos que regulan su organismo, protege su salud, acepta sus posibilidades físicas y orienta sus impulsos y fuerzas.",
+        "unidad": "Clan",
+        "como_se_cumple": "**Orientando** mis fuerzas corporales de forma armónica para sostener a mis pares con precisión y aceptar mis propios límites de equilibrio físico y relajación muscular durante el balanceo."
+      }
+    ]
+  },
+  {
+    "original_title": "Ese manual.",
+    "titulo_reescrito": "El Lazarillo Silencioso",
+    "tipo": "Actividad",
+    "subtipo": "juego",
+    "duracion": "30 min",
+    "cantidad": "10-30",
+    "base_image": "juegos_circulo_base.jpg",
+    "lugares": [
+      "sala",
+      "campo abierto"
+    ],
+    "materiales": [
+      "Vendas para los ojos o pañolines scout"
+    ],
+    "variaciones": "Se puede realizar en un entorno natural complejo con pequeños obstáculos naturales (ramas, desniveles suaves) para desafiar la coordinación espacial y afinar el sentido del oído y el tacto.",
+    "recomendaciones": "Mantener absoluto silencio durante la caminata para que los participantes ciegos puedan apoyarse en sus otros sentidos. Los guías deben actuar con extrema responsabilidad, evitando cualquier obstáculo peligroso.",
+    "descripcion_reescrita": "Este juego consiste en una caminata en parejas donde uno de los participantes se priva temporalmente del sentido de la vista y es conducido en silencio por un compañero. El grupo se divide a la mitad: una parte se coloca vendas sobre los ojos para simular la ceguera y la otra mitad asume el rol de guías. Los guías eligen en silencio a sus respectivas parejas ciegas, asegurando que estas no conozcan la identidad de quien las conduce para intensificar la confianza pura.\n\nDurante diez minutos, el guía conducirá a su compañero a través de un recorrido diseñado con la imaginación, exponiéndolo a sonidos de la naturaleza, permitiéndole tocar diferentes texturas (hojas, cortezas de árboles, piedras) o caminar sobre desniveles suaves. Toda la dinámica debe realizarse en absoluto y riguroso silencio para incentivar la propiocepción y la comunicación táctil. Pasados los diez minutos, se intercambian los roles de manera que el antiguo ciego ahora se venda y el guía pasa a ser conducido por un nuevo compañero secreto, cerrando con una evaluación colectiva de las emociones experimentadas.",
+    "extracto": "Una dinámica de empatía y confianza en parejas donde un participante guía en absoluto silencio a su compañero vendado a través de una experiencia sensorial.",
+    "areas": [
+      "afectividad",
+      "corporalidad"
+    ],
+    "unidades": [
+      "manada",
+      "tropa",
+      "compañía",
+      "avanzada",
+      "clan"
+    ],
+    "objetivos_generales": [
+      "Reforzar el desarrollo de los sentidos",
+      "Estimular la confianza",
+      "Desarrollar la motricidad"
+    ],
+    "justificacion_areas": "Este clásico juego scout estimula tanto la Afectividad como la Corporalidad al forzar al participante a privarse del sentido de la vista, obligándolo a confiar enteramente en su guía y a potenciar el resto de sus sentidos. La caminata a ciegas exige el desarrollo de la motricidad fina y la propiocepción para caminar y equilibrarse en terrenos diversos de forma calmada. A nivel socio-afectivo, el ejercicio promueve una empatía profunda en el rol del guía, quien debe cuidar de la integridad física de su compañero con delicadeza extrema y sin hablar, consolidando un fuerte sentido de responsabilidad social y cuidado mutuo.",
+    "objetivos_educativos": [
+      {
+        "id": "ab6e594f-b0a0-4e6d-96aa-7779299b02ef",
+        "area": "Afectividad",
+        "texto": "Trato con cariño a los demás en la Manada y me gusta que me traten igual.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Guiando** con paciencia y extremo cariño a mi compañero que tiene los ojos vendados, cuidando que no tropiece ni se asuste durante el recorrido."
+      },
+      {
+        "id": "c8993915-0234-464c-934e-2a09f8c4338e",
+        "area": "Afectividad",
+        "texto": "Digo lo que pienso sin ofender o insultar a mis compañeros ni burlarme de ellos.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Compartiendo** mis temores y sensaciones al estar vendado con honestidad y respeto, sin burlarme de las reacciones o temores que sintieron mis compañeros al ser guiados."
+      },
+      {
+        "id": "683c27f6-a692-4869-b22e-63f473395547",
+        "area": "Afectividad",
+        "texto": "Busco apoyo en mi patrulla cuando estoy triste o algo me confunde.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Apoyándome** en la guía de mi compañera de patrulla al desplazarme con los ojos vendados, reconociendo mi vulnerabilidad y confiando en su dirección."
+      },
+      {
+        "id": "264d7abe-e120-43b2-9884-fade01c7f96e",
+        "area": "Afectividad",
+        "texto": "Sé que es normal que a veces prefiera la soledad, o no me atreva a hacer algo, o sienta inseguridad o rabia; y trato de manejar estos sentimientos.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Reconociendo** y regulando la ansiedad o la inseguridad que me provoca la pérdida temporal de la visión en la caminata, concentrándome en mis otros sentidos para orientarme."
+      },
+      {
+        "id": "e2d76e3f-2da7-42ad-901b-797eac8840a8",
+        "area": "Afectividad",
+        "texto": "Busco apoyo en mi patrulla cuando estoy triste o algo me confunde.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Buscando** apoyo físico y emocional en mi guía cuando me encuentro desorientado y con los ojos vendados durante la caminata silenciosa."
+      },
+      {
+        "id": "61bf9404-4342-4011-b1d7-41d738fec032",
+        "area": "Afectividad",
+        "texto": "Sé que es normal que a veces prefiera la soledad, o no me atreva a hacer algo, o sienta inseguridad o rabia; y trato de manejar estos sentimientos.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Manejando** mis sentimientos de inseguridad o temor a lo desconocido mientras camino a ciegas por el terreno, confiando de manera madura en la guía de mi compañero."
+      },
+      {
+        "id": "84988974-0afa-4fa1-9abc-8923a0d53451",
+        "area": "Afectividad",
+        "texto": "Manejo cada vez mejor mis emociones y sentimientos y trato de mantener un estado de ánimo estable.",
+        "unidad": "Avanzada",
+        "como_se_cumple": "**Controlando** mis emociones de incertidumbre y sorpresa al caminar a ciegas en un terreno irregular, manteniendo la calma para cooperar eficazmente con mi guía."
+      },
+      {
+        "id": "07d61bf7-36fc-40f6-8f8e-21fe97b169f0",
+        "area": "Afectividad",
+        "texto": "Logra y mantiene un estado interior de libertad, equilibrio y madurez emocional.",
+        "unidad": "Clan",
+        "como_se_cumple": "**Manteniendo** un equilibrio emocional y una profunda madurez interna al entregar por completo el control de mis movimientos a mi guía, experimentando la libertad de confiar en mi par."
+      }
+    ]
+  },
+  {
+    "original_title": "El lavado de autos.",
+    "titulo_reescrito": "El Lavado de Autos",
+    "tipo": "Actividad",
+    "subtipo": "dinámica",
+    "duracion": "20 min",
+    "cantidad": "10-25",
+    "base_image": "juegos_circulo_base.jpg",
+    "lugares": [
+      "sala",
+      "campo abierto"
+    ],
+    "materiales": [
+      "Ninguno"
+    ],
+    "variaciones": "Se pueden reproducir sonidos de naturaleza o música instrumental suave de fondo para acentuar el estado de relajación y concentración del grupo.",
+    "recomendaciones": "Los participantes deben mantener una actitud de absoluto respeto. El contacto debe limitarse a caricias suaves en brazos, hombros y espalda; bajo ningún motivo se tolerarán golpes, cosquillas o forcejeo rústico.",
+    "descripcion_reescrita": "Esta dinámica consiste en que los participantes experimenten el cuidado y la aceptación del grupo a través de un túnel de contacto físico afectuoso y ordenado. El grupo se organiza formando dos filas paralelas, una frente a la otra, dejando un pasillo central estrecho. Cada pareja, frente a frente, simboliza una de las partes móviles de una máquina de lavado de autos: los 'cepillos giratorios', los 'chorros de agua tibia' o los 'secadores de aire caliente', realizando movimientos coordinados y rítmicos.\n\nEl juego se inicia cuando un participante voluntario (el 'auto') ingresa al pasillo central con los ojos cerrados o semiabiertos. A medida que avanza lentamente por el túnel, sus compañeros a los lados lo acarician, frotan los hombros, le dan suaves palmaditas en la espalda y susurran palabras de ánimo, emulando la limpieza del auto de forma muy cuidadosa. Al llegar al extremo final, el 'auto' limpio se integra como una parte más de la máquina de lavado, mientras otra persona del inicio de la fila entra para ser lavada. La actividad prosigue de esta forma secuencial hasta que todos los scouts del grupo hayan vivido la experiencia de ser lavados por sus compañeros.",
+    "extracto": "Una dinámica integradora de expresión de afecto físico y acogida en la que cada participante atraviesa un túnel formado por sus compañeros para ser acariciado y relajado.",
+    "areas": [
+      "afectividad",
+      "sociabilidad"
+    ],
+    "unidades": [
+      "manada",
+      "tropa",
+      "compañía",
+      "avanzada",
+      "clan"
+    ],
+    "objetivos_generales": [
+      "Fomentar un entorno de confianza",
+      "Reforzar lazos sociales",
+      "Permitir el contacto físico"
+    ],
+    "justificacion_areas": "Esta dinámica de integración facilita un primer contacto físico seguro, respetuoso y positivo dentro del grupo, estimulando directamente la Afectividad y la Sociabilidad. Al cruzar el 'túnel', el participante recibe una oleada de afecto expresada a través de caricias suaves, lo que ayuda a reforzar su autoconcepto, disminuir la ansiedad social y hacerlo sentir querido y valorado por su entorno. Para el resto del grupo, la actividad es un ejercicio de contención y expresión afectiva no agresiva, donde aprenden a modular sus gestos físicos para transmitir calidez y seguridad, cimentando una cultura de cuidado mutuo y cohesión grupal indispensable en los equipos de trabajo scout.",
+    "objetivos_educativos": [
+      {
+        "id": "ab6e594f-b0a0-4e6d-96aa-7779299b02ef",
+        "area": "Afectividad",
+        "texto": "Trato con cariño a los demás en la Manada y me gusta que me traten igual.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Tratando** con mucha suavidad y cariño a mis compañeros cuando pasan como 'autos' en el lavado, y disfrutando de los gestos amigables que me dan a mí."
+      },
+      {
+        "id": "c8993915-0234-464c-934e-2a09f8c4338e",
+        "area": "Afectividad",
+        "texto": "Digo lo que pienso sin ofender o insultar a mis compañeros ni burlarme de ellos.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Compartiendo** con alegría y respeto cómo me sentí al pasar por el túnel del lavado, valorando las caricias de mis compañeros sin burlas ni incomodidades."
+      },
+      {
+        "id": "9ad078db-d6b6-4302-9663-cafd868b6876",
+        "area": "Afectividad",
+        "texto": "Me gusta querer y que me quieran.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Aceptando** con alegría el afecto sincero y las muestras de cariño físico de mis compañeras durante la dinámica, sintiéndome parte acogida de la Compañía."
+      },
+      {
+        "id": "80ff5a70-cc39-4599-99b1-38aa13b44f49",
+        "area": "Afectividad",
+        "texto": "Aprecio a las personas por lo que son.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Demostrando** mi aceptación y aprecio por cada una de mis compañeras de patrulla al darles palmaditas y gestos suaves de bienvenida en el lavado de autos."
+      },
+      {
+        "id": "e4184d1a-67af-43c4-a7d6-9ece26430f05",
+        "area": "Afectividad",
+        "texto": "Me gusta querer y que me quieran.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Disfrutando** de recibir el afecto físico y el aprecio de mis compañeros de patrulla al pasar a través del lavado de autos, y entregándoles el mismo aprecio de vuelta."
+      },
+      {
+        "id": "037be973-3e1a-450c-a9f4-65d053aec372",
+        "area": "Afectividad",
+        "texto": "Aprecio a las personas por lo que son.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Expresando** mi aprecio genuino hacia cada compañero de la Tropa mediante gestos suaves y reconfortantes de bienvenida física mientras pasan por el túnel."
+      },
+      {
+        "id": "3b32ea2c-da58-487c-bea4-e02f301f5e3e",
+        "area": "Afectividad",
+        "texto": "Trato con afecto a los demás.",
+        "unidad": "Avanzada",
+        "como_se_cumple": "**Tratando** a cada integrante de mi comunidad de Avanzada con afecto y respeto sinceros a través del contacto corporal suave y cuidadoso en la máquina de lavado."
+      },
+      {
+        "id": "d0ba748f-313b-4ffe-b2a3-fb21c1f8943f",
+        "area": "Afectividad",
+        "texto": "Practica una conducta asertiva y una actitud afectuosa hacia las demás personas, sin inhibiciones ni agresividad.",
+        "unidad": "Clan",
+        "como_se_cumple": "**Practicando** una actitud afectuosa, libre de inhibiciones y absolutamente libre de agresividad al participar en el lavado, acogiendo a cada compañero del Clan con respeto profundo."
+      }
+    ]
+  }
+]

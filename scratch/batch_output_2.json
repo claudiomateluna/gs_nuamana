@@ -1,0 +1,479 @@
+[
+  {
+    "original_title": "El nido.",
+    "titulo_reescrito": "El Circuito del Nido",
+    "tipo": "Actividad",
+    "subtipo": "dinámica",
+    "duracion": "30 min",
+    "cantidad": "4-16",
+    "base_image": "juegos_cooperativo_base.jpg",
+    "lugares": [
+      "sala",
+      "salón"
+    ],
+    "materiales": [
+      "Papelógrafo grande o cartón continuo",
+      "Pinturas de colores",
+      "Lápices de colores",
+      "Un dado",
+      "Fichas improvisadas (piedras o botones)"
+    ],
+    "variaciones": "Se puede realizar al aire libre dibujando el nido en la tierra con una rama y usando piedras numeradas como fichas para conectarlo con la naturaleza.",
+    "recomendaciones": "Fomentar un clima de absoluto respeto y empatía. Si algún participante cae en una misión que toca un tema muy sensible y no desea compartirlo, permitirle pasar o cambiar la misión sin presiones.",
+    "descripcion_reescrita": "Los participantes se reúnen en torno a una mesa o en el suelo donde se extiende un gran papelógrafo. En él se dibuja un tablero gigante en forma de nido, dividido en casillas o cuadrados numerados en espiral. Cada participante busca un objeto de la naturaleza (como una piedra pequeña, una hoja seca o un botón de color) que servirá como su ficha personal. El juego se inicia por turnos arrojando el dado y avanzando la ficha la cantidad de casillas correspondientes.\n\nAl caer en una casilla vacía, el participante tiene la misión de escribir al lado de la misma una 'misión de honestidad' o prenda que exprese sentimientos o relate anécdotas de su pasado (por ejemplo: 'relatar un viaje familiar especial', 'compartir qué te hace reír', 'recordar un momento difícil en el colegio'). La misión debe ser de carácter general para que todos puedan participar de ella. Si el jugador cae en una casilla que ya posee una misión o tema escrito por un compañero anterior, debe responder a ella compartiendo su experiencia. El juego continúa en un circuito cerrado hasta que todos hayan compartido sus testimonios y se haya tejido una red profunda de conocimiento mutuo.",
+    "extracto": "Una dinámica cooperativa y de confianza en forma de tablero de nido donde los scouts crean casillas de honestidad y comparten recuerdos personales.",
+    "areas": [
+      "afectividad",
+      "sociabilidad"
+    ],
+    "unidades": [
+      "manada"
+    ],
+    "objetivos_generales": [
+      "Conocer a los demás",
+      "Fomentar las relaciones interpersonales",
+      "Estimular la confianza"
+    ],
+    "justificacion_areas": "Esta dinámica favorece la Afectividad al posibilitar un espacio de expresión honesta de emociones, recuerdos y vivencias en un clima grupal seguro, reforzando la autoestima. Estimula la Sociabilidad mediante la interacción respetuosa entre lobatos y lobeznas, la escucha atenta de las historias de los demás y el fomento de la cohesión familiar en la Manada.",
+    "objetivos_educativos": [
+      {
+        "id": "054680a5-f07a-4771-8d7a-811a5db8f505",
+        "area": "Afectividad",
+        "texto": "Acepto separarme de mi familia cuando voy de campamento con la Manada.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Escuchando** con respeto y cariño las historias personales que mis compañeros de Manada comparten al caer en las casillas del nido, cuidando de no burlarme de sus sentimientos."
+      },
+      {
+        "id": "66de9e77-aa53-48a1-98db-9de3d3958486",
+        "area": "Afectividad",
+        "texto": "Puedo hablar con los demás de las cosas que me ponen alegre y también de las que me ponen triste.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Expresando** mis propios sentimientos al caer en las casillas temáticas del tablero, contándole al grupo en mi turno qué cosas me hacen sentir alegre y cuáles triste."
+      },
+      {
+        "id": "cfa10133-c25c-4deb-aebe-a00f8fe3f7ef",
+        "area": "Sociabilidad",
+        "texto": "Comparto lo que tengo con mis compañeros y compañeras.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Respetando** el turno de lanzamiento de dados de mis compañeros y siguiendo las normas para escribir y responder a las misiones del tablero del nido."
+      },
+      {
+        "id": "2394dd5b-87b9-4f3d-9cdd-a42649139782",
+        "area": "Sociabilidad",
+        "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre esté de acuerdo con ellas",
+        "unidad": "Manada",
+        "como_se_cumple": "**Acatando** las pautas de silencio y atención mientras mis compañeros relatan sus vivencias personales, comprendiendo la importancia de cuidar el ambiente de la dinámica."
+      }
+    ]
+  },
+  {
+    "original_title": "Son vampiros.",
+    "titulo_reescrito": "Vampiros en el Campamento",
+    "tipo": "Actividad",
+    "subtipo": "juego",
+    "duracion": "45 min",
+    "cantidad": "10-30",
+    "base_image": "juegos_nocturno_base.jpg",
+    "lugares": [
+      "campo abierto",
+      "bosque",
+      "campamento"
+    ],
+    "materiales": [
+      "Tarjetas o papeles con los nombres de los jugadores en dos colores",
+      "Un papelógrafo continuo que representa el cementerio",
+      "Plumas o marcadores"
+    ],
+    "variaciones": "Se puede jugar durante varios días en el campamento de forma paralela a las actividades normales, o restringirlo a una hora nocturna en el bosque delimitado.",
+    "recomendaciones": "Establecer límites espaciales estrictos para el bosque y prohibir correr a oscuras en terrenos pedregosos. La mordida en el cuello debe ser una simple palmada o susurro respetuoso.",
+    "descripcion_reescrita": "Esta es una dinámica de sigilo e intriga que se desarrolla idealmente durante un campamento. Se dibuja en un gran papelógrafo un 'cementerio' con tantas tumbas como participantes jueguen. A cada jugador se le entrega una tarjeta secreta que tiene escrito su nombre por un lado y el nombre de otro participante (su 'víctima') por el reverso en un color diferente. El objetivo de cada participante es convertirse en un vampiro y 'matar' a su víctima susurrándole al oído o dándole un toque suave en el cuello.\n\nLa regla fundamental es que el asesinato solo puede ser ejecutado en absoluta ausencia de testigos oculares; si otro participante ve el toque, el intento queda anulado. Cuando un scout es asesinado, debe ir en silencio a registrar su nombre en el cementerio del papelógrafo y entregarle sus tarjetas al asesino, quien ahora adopta la víctima de la persona eliminada. Si dos personas tienen la misión de matarse mutuamente, se produce un duelo y ambas perecen si intentan morderse al mismo tiempo. El juego continúa hasta que solo quedan dos vampiros frente a frente, quienes eventualmente deberán saldar el duelo final.",
+    "extracto": "Un emocionante juego de intriga, sigilo y acecho nocturno en campamento donde los scouts deben eliminar a sus víctimas en secreto sin ser vistos.",
+    "areas": [
+      "corporalidad"
+    ],
+    "unidades": [
+      "avanzada",
+      "clan",
+      "compañía",
+      "tropa"
+    ],
+    "objetivos_generales": [
+      "Estimular la observación",
+      "Estimular la atención a los detalles",
+      "Estrategia y planificación"
+    ],
+    "justificacion_areas": "Fomenta la Corporalidad al desarrollar el acecho silencioso, el sigilo y la velocidad de desplazamiento táctico en la naturaleza. Estimula la Sociabilidad al exigir que los scouts se organicen mentalmente para rastrear a otros y cumplan rigurosamente con las reglas éticas de no mentir sobre los avistamientos de testigos.",
+    "objetivos_educativos": [
+      {
+        "id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439",
+        "area": "Corporalidad",
+        "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Acatando** la regla del asesinato sin testigos, admitiendo honestamente cuando he sido descubierto por un compañero al intentar acechar a mi víctima."
+      },
+      {
+        "id": "68add558-4b03-4105-b00d-e7f2ead6ac23",
+        "area": "Corporalidad",
+        "texto": "Sé qué hacer frente a una enfermedad o accidente.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Esforzándome** por desplazarme con sigilo y agilidad por el bosque, controlando mis movimientos físicos para no hacer ruido ni alertar a otros patrulleros."
+      },
+      {
+        "id": "273f60b8-7953-4416-97c3-e8c83615364f",
+        "area": "Corporalidad",
+        "texto": "Participo en actividades que me ayudan a mantener mi cuerpo fuerte y sano.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Respetando** las reglas éticas del juego y las decisiones del árbitro al reportar con honestidad mis avistamientos en el cementerio de campamento."
+      },
+      {
+        "id": "57887da4-c70e-45bc-bdfb-f79db513a89c",
+        "area": "Corporalidad",
+        "texto": "Sé qué hacer frente a una enfermedad o accidente.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Desplegando** mis habilidades de acecho y velocidad para aproximarme sigilosamente a mi objetivo sin ser detectada por otras patrullas."
+      },
+      {
+        "id": "05f42879-f5f5-40c4-bed6-c577bf61340a",
+        "area": "Corporalidad",
+        "texto": "Cuido mi salud y mantengo hábitos que la protegen.",
+        "unidad": "Avanzada",
+        "como_se_cumple": "**Desarrollando** estrategias físicas de desplazamiento silencioso y control corporal al moverme entre las sombras en las actividades del campamento."
+      },
+      {
+        "id": "bc8f595b-6949-4f2e-9304-86a2306449e1",
+        "area": "Corporalidad",
+        "texto": "Asume la parte de responsabilidad que le corresponde en el desarrollo armónico de su cuerpo.",
+        "unidad": "Clan",
+        "como_se_cumple": "**Asumiendo** con plena responsabilidad física las exigencias del acecho nocturno, controlando mi respiración y movimientos para no delatar mi posición."
+      }
+    ]
+  },
+  {
+    "original_title": "Ese manual.",
+    "titulo_reescrito": "Cualidades al Vuelo",
+    "tipo": "Actividad",
+    "subtipo": "juego",
+    "duracion": "20 min",
+    "cantidad": "8-20",
+    "base_image": "juegos_circulo_base.jpg",
+    "lugares": [
+      "campo abierto",
+      "patio"
+    ],
+    "materiales": [
+      "Una pelota blanda y delgada"
+    ],
+    "variaciones": "Se puede jugar usando dos pelotas al mismo tiempo para aumentar la dificultad y la necesidad de atención múltiple, o requiriendo nombrar dos cualidades en lugar de una.",
+    "recomendaciones": "Asegurar que el lanzamiento de la pelota para tocar a los compañeros sea suave y por debajo de los hombros para evitar golpes dolorosos.",
+    "descripcion_reescrita": "Los scouts se dispersan en un campo amplio y delimitado, mientras un participante inicia en el centro sosteniendo una pelota blanda. El jugador del centro lanza la pelota con fuerza verticalmente hacia arriba mientras grita en voz alta el nombre de uno de sus compañeros del círculo. En ese instante, todos los demás participantes corren a alejarse del centro tan rápido como puedan, buscando refugiarse en los extremos del campo.\n\nEl participante que fue nombrado debe correr rápidamente hacia el centro para atrapar la pelota. En el momento exacto en que logra tomarla con sus manos, debe gritar con voz firme una cualidad positiva o fortaleza del compañero que lanzó la pelota (por ejemplo: '¡Juan es muy alegre!' o '¡Sofía es muy solidaria!'). Al escuchar la cualidad, todos los scouts que huían deben congelarse en su sitio como estatuas. El jugador con la pelota en el centro tiene permitido dar hasta tres pasos y lanzar la pelota suavemente para intentar tocar a uno de los compañeros congelados. Si lo toca, ese scout pierde una vida y se reinicia el juego; si falla, el propio lanzador pierde una vida y comienza de nuevo. Es una excelente dinámica de aprecio mutuo y velocidad.",
+    "extracto": "Una activa dinámica de movimiento y aprecio donde los scouts deben congelarse al oír su nombre y recibir una cualidad positiva de sus compañeros.",
+    "areas": [
+      "afectividad"
+    ],
+    "unidades": [
+      "compañía",
+      "manada",
+      "tropa"
+    ],
+    "objetivos_generales": [
+      "Conocer a los demás",
+      "Fomentar un entorno de confianza",
+      "Estimular la agilidad"
+    ],
+    "justificacion_areas": "Esta dinámica estimula la Afectividad al requerir que los scouts piensen y verbalicen activamente cualidades positivas de sus compañeros bajo presión de tiempo, reforzando la autoestima y la confianza mutua. Desarrolla la Sociabilidad al exigir atención y respeto ante las características expresadas y el cumplimiento de las reglas físicas del congelamiento.",
+    "objetivos_educativos": [
+      {
+        "id": "054680a5-f07a-4771-8d7a-811a5db8f505",
+        "area": "Afectividad",
+        "texto": "Acepto separarme de mi familia cuando voy de campamento con la Manada.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Gritando** con cariño y entusiasmo una cualidad positiva de mi compañero al atrapar la pelota en el centro, reconociendo sus fortalezas de forma lúdica."
+      },
+      {
+        "id": "66de9e77-aa53-48a1-98db-9de3d3958486",
+        "area": "Afectividad",
+        "texto": "Puedo hablar con los demás de las cosas que me ponen alegre y también de las que me ponen triste.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Expresando** mis sentimientos en el círculo de evaluación final, compartiendo cómo me sentí alegre al escuchar las cualidades positivas que mis compañeros me gritaron."
+      },
+      {
+        "id": "e159e73b-f5c4-40d2-9506-34330988b66b",
+        "area": "Afectividad",
+        "texto": "Comparto por igual con mis hermanas y hermanos las tareas que nos piden en la casa.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Abriéndome** con confianza para contarle a mi compañero de patrulla los temas que me confunden o me ponen triste durante nuestra entrevista."
+      },
+      {
+        "id": "28433366-23af-4d9a-a8c6-fbca64ef0c95",
+        "area": "Afectividad",
+        "texto": "Estoy siempre dispuesto a ayudar a mis compañeros de patrulla.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Expresando** mis sentimientos de aprecio al gritar una fortaleza de mi compañero de juego al congelarse en el campo de juego."
+      },
+      {
+        "id": "c1b60b80-c7cb-4ee7-adc8-4a87b14e6533",
+        "area": "Afectividad",
+        "texto": "Me informo adecuadamente sobre lo que significa ser hombre y ser mujer.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Comunicando** mi aprecio y valorando las cualidades de mis compañeros de juego en voz alta al tomar la pelota."
+      },
+      {
+        "id": "d98af0cf-c30c-42c5-ae17-f454ffa02553",
+        "area": "Afectividad",
+        "texto": "Estoy siempre dispuesta a ayudar a mis compañeras de patrulla.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Reconociendo** el valor de las fortalezas afectivas de mis pares y asumiendo con alegría las devoluciones del grupo al ser congelada en el campo."
+      }
+    ]
+  },
+  {
+    "original_title": "Un oso",
+    "titulo_reescrito": "Acecho del Oso",
+    "tipo": "Actividad",
+    "subtipo": "juego nocturno",
+    "duracion": "45 min",
+    "cantidad": "10-25",
+    "base_image": "juegos_nocturno_base.jpg",
+    "lugares": [
+      "campo abierto",
+      "bosque",
+      "campamento"
+    ],
+    "materiales": [
+      "Silbatos para los dirigentes",
+      "Papeles o cartulinas con la palabra 'OSOS' escrita",
+      "Linternas para los guardianes"
+    ],
+    "variaciones": "Se puede añadir un 'prisionero' (un dirigente o scout) atado a un árbol que el equipo debe rescatar y desatar en silencio en un límite de tiempo sin ser iluminados por las linternas de los guardianes.",
+    "recomendaciones": "Delimitar perfectamente el área de bosque segura para el juego nocturno. Todos los scouts deben llevar silbato de emergencia propio y calzado adecuado para terreno rústico.",
+    "descripcion_reescrita": "Este es un emocionante juego de acecho táctico nocturno que se realiza en un área boscosa delimitada del campamento. Varios dirigentes y guiadoras se esconden en diferentes puntos del bosque antes de comenzar, asumiendo el rol de 'osos salvajes'. Cada oso lleva consigo tarjetas con la palabra 'OSOS' escrita y un silbato. A intervalos regulares (por ejemplo, cada 3 o 5 minutos), los osos ocultos hacen sonar sus silbatos brevemente para dar una pista sonora sobre su ubicación.\n\nLos participantes se organizan en patrullas o pequeños equipos y se adentran en el bosque bajo la oscuridad total. Su objetivo es rastrear y localizar a los osos guiándose únicamente por los sonidos de los silbatos. Para lograrlo, los equipos deben moverse en absoluto silencio, usando el sigilo y el arrastre táctico para evitar ser detectados por los 'guardianes' del bosque, quienes patrullan las zonas intermedias con linternas. Si un guardián ilumina directamente a un scout que se desplaza, este debe retroceder a la base de inicio. El equipo que logre encontrar a un oso y recibir su tarjeta antes de que termine el tiempo gana el desafío, promoviendo la orientación, la audición atenta y el trabajo en equipo nocturno.",
+    "extracto": "Una misteriosa aventura nocturna en el bosque donde las patrullas scouts siguen señales sonoras para capturar osos y evitar los haces de luz de las linternas.",
+    "areas": [
+      "carácter",
+      "corporalidad"
+    ],
+    "unidades": [
+      "avanzada",
+      "clan",
+      "compañía",
+      "tropa"
+    ],
+    "objetivos_generales": [
+      "Perder el miedo a la oscuridad",
+      "Estimular la observación",
+      "Trabajo en equipo"
+    ],
+    "justificacion_areas": "Fomenta la Corporalidad al obligar a los scouts a desplazarse en la oscuridad, afinando su sentido de la audición y su control psicomotor al gatear o caminar en sigilo. Estimula el Carácter al desafiar el miedo a la oscuridad, fortaleciendo el autocontrol individual y la constancia de grupo para lograr un rescate o localización táctica.",
+    "objetivos_educativos": [
+      {
+        "id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439",
+        "area": "Corporalidad",
+        "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Desarrollando** mi agilidad y orientación espacial al desplazarme por el bosque a oscuras guiándome por pistas de silbatos."
+      },
+      {
+        "id": "68add558-4b03-4105-b00d-e7f2ead6ac23",
+        "area": "Corporalidad",
+        "texto": "Sé qué hacer frente a una enfermedad o accidente.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Esforzándome** por controlar mis movimientos físicos y regular mi respiración en el suelo del bosque para evitar ser iluminado por las linternas."
+      },
+      {
+        "id": "62876ebe-214f-4caf-b164-664e12fd30ae",
+        "area": "Carácter",
+        "texto": "Me gusta participar en actividades que me ayudan a conocerme.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Enfrentando** mis temores y la incertidumbre de la oscuridad del bosque con una sonrisa, colaborando en silencio con mi patrulla."
+      },
+      {
+        "id": "c380e11a-571d-4617-924c-aa933ae30138",
+        "area": "Carácter",
+        "texto": "Soy capaz de criticarme.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Demostrando** disciplina, constancia y autocontrol corporal al mantener un silencio absoluto durante los 45 minutos de la incursión nocturna."
+      },
+      {
+        "id": "273f60b8-7953-4416-97c3-e8c83615364f",
+        "area": "Corporalidad",
+        "texto": "Participo en actividades que me ayudan a mantener mi cuerpo fuerte y sano.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Caminando** con precaución y adaptando mis movimientos corporales a la irregularidad del suelo en la penumbra del bosque nocturno."
+      },
+      {
+        "id": "57887da4-c70e-45bc-bdfb-f79db513a89c",
+        "area": "Corporalidad",
+        "texto": "Sé qué hacer frente a una enfermedad o accidente.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Esforzándome** por mejorar mi rendimiento físico al realizar acechos prolongados a ras de suelo sin fatigarme."
+      },
+      {
+        "id": "075c93b1-81d2-4370-8e47-f0a4d086b20e",
+        "area": "Carácter",
+        "texto": "Sé lo que significa ser leal.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Superando** de forma madura el miedo natural a la oscuridad de la noche, confiando en las capacidades colectivas de mi patrulla."
+      },
+      {
+        "id": "006c5b09-47cf-4ed8-bf25-212203261a03",
+        "area": "Carácter",
+        "texto": "Sé que soy capaz de hacer cosas y de hacerlas bien.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Cumpliendo** de forma honesta con las normas de no encender luces artificiales ni correr a ciegas, cuidando la integridad de mi equipo."
+      },
+      {
+        "id": "05f42879-f5f5-40c4-bed6-c577bf61340a",
+        "area": "Corporalidad",
+        "texto": "Cuido mi salud y mantengo hábitos que la protegen.",
+        "unidad": "Avanzada",
+        "como_se_cumple": "**Afinando** mis sentidos de audición y orientación en terrenos rústicos nocturnos, dosificando mi energía en el acecho."
+      },
+      {
+        "id": "dea08f50-52d5-4d87-ad7f-b7dbbb2702fc",
+        "area": "Carácter",
+        "texto": "Me acepto tal como soy, sin dejar de mirarme críticamente.",
+        "unidad": "Avanzada",
+        "como_se_cumple": "**Asumiendo** con valentía y madurez los desafíos nocturnos de orientación en el campamento, tomando decisiones rápidas en equipo."
+      },
+      {
+        "id": "bc8f595b-6949-4f2e-9304-86a2306449e1",
+        "area": "Corporalidad",
+        "texto": "Asume la parte de responsabilidad que le corresponde en el desarrollo armónico de su cuerpo.",
+        "unidad": "Clan",
+        "como_se_cumple": "**Conviviendo** activamente con la naturaleza rústica y desafiante del bosque por la noche, dominando mis capacidades de orientación física."
+      },
+      {
+        "id": "8f0eb7d9-c291-44f3-9551-4330c19e0cc2",
+        "area": "Carácter",
+        "texto": "Conoce sus posibilidades y limitaciones, aceptándose con capacidad de autocrítica y manteniendo a la vez una buena imagen de sí mismo.",
+        "unidad": "Clan",
+        "como_se_cumple": "**Evaluando** mis límites y demostrando entereza mental al liderar a mis compañeros en el avance silencioso bajo condiciones oscuras."
+      }
+    ]
+  },
+  {
+    "original_title": "Acecharse unos a otros.",
+    "titulo_reescrito": "Juego de Acechadores",
+    "tipo": "Actividad",
+    "subtipo": "juego nocturno",
+    "duracion": "45 min",
+    "cantidad": "10-25",
+    "base_image": "juegos_nocturno_base.jpg",
+    "lugares": [
+      "campo abierto",
+      "bosque",
+      "campamento"
+    ],
+    "materiales": [
+      "Libretas de notas",
+      "Lápices para registrar avistamientos",
+      "Vendas para los ojos (opcional)"
+    ],
+    "variaciones": "Se puede realizar a gran escala en un terreno rural más extenso, asignando claves radiales o consignas que cada patrulla debe descifrar del rival.",
+    "recomendaciones": "Definir un punto de encuentro o base central visible en todo momento (con una fogata o luz fija) en caso de que algún participante se desoriente en la noche.",
+    "descripcion_reescrita": "Este es un juego táctico nocturno de acecho mutuo entre patrullas que requiere alta concentración y disciplina. Se establecen límites espaciales precisos y una duración fija de 45 minutos. Un equipo o patrulla (los Acechados) sale de la base con una ventaja de 10 a 15 minutos para adentrarse en el bosque y ocultarse de la mejor manera en un área seleccionada de antemano. Llevan consigo libretas para anotar notas tácticas.\n\nUna vez cumplido el tiempo de espera, la segunda patrulla (los Acechadores) sale de la base en busca del primer equipo. Su misión es localizarlos e identificar qué miembros del equipo rival están en cada posición, al mismo tiempo que intentan permanecer ocultos y no ser vistos por los Acechados, quienes vigilan desde sus puestos. Al finalizar el tiempo asignado, ambos equipos regresan a la base para confrontar y comparar sus libretas de notas (ej. quién vio a quién, qué ropa o rasgo se identificó, etc.). Es una excelente dinámica de observación mutua y disciplina de silencio.",
+    "extracto": "Una batalla táctica en la penumbra donde dos patrullas scouts se ocultan y rastrean mutuamente en el bosque, anotando detalles del rival en sus libretas.",
+    "areas": [
+      "carácter",
+      "corporalidad"
+    ],
+    "unidades": [
+      "avanzada",
+      "clan",
+      "compañía",
+      "tropa"
+    ],
+    "objetivos_generales": [
+      "Estimular la observación",
+      "Estrategia y planificación",
+      "Trabajo en equipo"
+    ],
+    "justificacion_areas": "Fomenta la Corporalidad mediante el dominio del cuerpo en desplazamientos terrestres lentos, gateo y posturas de acecho prolongadas en la naturaleza. Estimula el Carácter al exigir honestidad rigurosa al confrontar los avistamientos y lealtad con las reglas tácticas del juego en equipo.",
+    "objetivos_educativos": [
+      {
+        "id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439",
+        "area": "Corporalidad",
+        "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Ejercitando** mi coordinación psicomotora al desplazarme agachado y en silencio absoluto a través del follaje nocturno."
+      },
+      {
+        "id": "68add558-4b03-4105-b00d-e7f2ead6ac23",
+        "area": "Corporalidad",
+        "texto": "Sé qué hacer frente a una enfermedad o accidente.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Dosificando** mi resistencia cardiovascular y manteniendo posturas de acecho prolongadas sobre el suelo del bosque sin moverme."
+      },
+      {
+        "id": "62876ebe-214f-4caf-b164-664e12fd30ae",
+        "area": "Carácter",
+        "texto": "Me gusta participar en actividades que me ayudan a conocerme.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Tratando** de ser leal y honesto al confrontar mi libreta de notas al final del juego, reconociendo si fui visto por el rival."
+      },
+      {
+        "id": "c380e11a-571d-4617-924c-aa933ae30138",
+        "area": "Carácter",
+        "texto": "Soy capaz de criticarme.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Asumiendo** con compromiso y lealtad el rol asignado en la patrulla, cuidando que mis movimientos no delaten la ubicación de mis compañeros."
+      },
+      {
+        "id": "273f60b8-7953-4416-97c3-e8c83615364f",
+        "area": "Corporalidad",
+        "texto": "Participo en actividades que me ayudan a mantener mi cuerpo fuerte y sano.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Controlando** la pisada y el equilibrio físico en la penumbra del bosque para evitar crujir ramas que puedan delatar mi posición."
+      },
+      {
+        "id": "57887da4-c70e-45bc-bdfb-f79db513a89c",
+        "area": "Corporalidad",
+        "texto": "Sé qué hacer frente a una enfermedad o accidente.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Esforzándome** por mejorar mis capacidades físicas de sigilo en el arrastre por el suelo, colaborando con las metas de mi patrulla."
+      },
+      {
+        "id": "075c93b1-81d2-4370-8e47-f0a4d086b20e",
+        "area": "Carácter",
+        "texto": "Sé lo que significa ser leal.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Escuchando** los consejos y estrategias de mi patrulla para distribuirnos en el bosque de forma segura e inteligente."
+      },
+      {
+        "id": "006c5b09-47cf-4ed8-bf25-212203261a03",
+        "area": "Carácter",
+        "texto": "Sé que soy capaz de hacer cosas y de hacerlas bien.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Cumpliendo** de forma honesta con las reglas de avistamiento y asumiendo con madurez y deportividad los resultados del juego."
+      },
+      {
+        "id": "05f42879-f5f5-40c4-bed6-c577bf61340a",
+        "area": "Corporalidad",
+        "texto": "Cuido mi salud y mantengo hábitos que la protegen.",
+        "unidad": "Avanzada",
+        "como_se_cumple": "**Afinando** mis sentidos de audición y orientación en terrenos rústicos nocturnos, dosificando mi energía en el acecho prolongado."
+      },
+      {
+        "id": "dea08f50-52d5-4d87-ad7f-b7dbbb2702fc",
+        "area": "Carácter",
+        "texto": "Me acepto tal como soy, sin dejar de mirarme críticamente.",
+        "unidad": "Avanzada",
+        "como_se_cumple": "**Asumiendo** con valentía y madurez los desafíos nocturnos de orientación en el campamento, tomando decisiones rápidas en equipo."
+      },
+      {
+        "id": "bc8f595b-6949-4f2e-9304-86a2306449e1",
+        "area": "Corporalidad",
+        "texto": "Asume la parte de responsabilidad que le corresponde en el desarrollo armónico de su cuerpo.",
+        "unidad": "Clan",
+        "como_se_cumple": "**Conviviendo** activamente con la naturaleza rústica y desafiante del bosque por la noche, dominando mis capacidades de orientación física."
+      },
+      {
+        "id": "8f0eb7d9-c291-44f3-9551-4330c19e0cc2",
+        "area": "Carácter",
+        "texto": "Conoce sus posibilidades y limitaciones, aceptándose con capacidad de autocrítica y manteniendo a la vez una buena imagen de sí mismo.",
+        "unidad": "Clan",
+        "como_se_cumple": "**Evaluando** mis límites y demostrando entereza mental al liderar a mis compañeros en el avance silencioso bajo condiciones oscuras."
+      }
+    ]
+  }
+]

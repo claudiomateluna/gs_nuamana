@@ -1,0 +1,489 @@
+[
+  {
+    "original_title": "Lo inobservable.",
+    "titulo_reescrito": "El Guardia Invisible",
+    "tipo": "Actividad",
+    "subtipo": "juego nocturno",
+    "duracion": "45 min",
+    "cantidad": "15-30",
+    "base_image": "juegos_nocturno_base.jpg",
+    "lugares": [
+      "bosque",
+      "parque",
+      "campo abierto"
+    ],
+    "materiales": [
+      "Linternas de colores",
+      "Cuadernos y lápices para registrar observaciones",
+      "Silbato"
+    ],
+    "variaciones": "Se puede jugar en parejas para dar mayor seguridad a los más pequeños de la manada, o bien, los vigilantes móviles pueden portar silbatos que deben hacer sonar cada vez que detecten la silueta de algún scout.",
+    "recomendaciones": "Establecer límites de juego claros y marcados con cintas reflectantes. Es indispensable que cada participante o pareja lleve un silbato de emergencia y calzado adecuado para terreno irregular en la noche.",
+    "descripcion_reescrita": "Este emocionante juego de acecho nocturno comienza con la delimitación rigurosa de una zona boscosa o con suficiente vegetación para ocultarse. Uno de los dirigentes asumirá el papel del Guardia Invisible, quien se equipará con una linterna y diversos objetos extraños (por ejemplo, disfraces extravagantes o utensilios ruidosos), escondiéndose en un punto estratégico. Dos dirigentes adicionales tomarán el rol de patrullas móviles de vigilancia, equipados con linternas de alta potencia para buscar y detectar a los scouts que intenten acercarse.\n\nLos scouts, organizados individualmente o en parejas, deben adentrarse sigilosamente en el perímetro de juego con la doble misión de encontrar al Guardia Invisible y observar sus extravagantes movimientos sin ser detectados. Deberán anotar discretamente en sus libretas cada acción extraña que el Guardia realice o cada objeto que utilice. Si la linterna de un vigilante móvil los enfoca y pronuncia su nombre, quedarán 'congelados' o deberán regresar a la base inicial para recuperar su vida y reingresar al juego. El desafío concluye cuando los scouts logran regresar con su registro de observación completo antes de finalizar el tiempo establecido.",
+    "extracto": "Un desafiante juego nocturno de acecho y observación donde deberás registrar los movimientos de un misterioso guardia sin ser atrapado por los focos de los vigilantes.",
+    "areas": [
+      "corporalidad",
+      "sociabilidad"
+    ],
+    "unidades": [
+      "manada",
+      "tropa",
+      "compañia",
+      "avanzada",
+      "clan"
+    ],
+    "objetivos_generales": [
+      "Estimular la observación",
+      "Perder el miedo a la oscuridad",
+      "Aprender a seguir instrucciones"
+    ],
+    "justificacion_areas": "Este juego estimula la Corporalidad mediante el desplazamiento sigiloso, el control corporal y la agilidad física requeridos para moverse sin hacer ruido en la oscuridad. A nivel de Sociabilidad, promueve el respeto a las reglas del juego, la cooperación silenciosa entre compañeros y la honestidad al regresar a la base cuando son iluminados por la patrulla de vigilancia, consolidando un ambiente seguro y de mutua confianza.",
+    "objetivos_educativos": [
+      {
+        "id": "b76e1d3e-fc1e-4956-806b-f372cd0369bb",
+        "area": "Corporalidad",
+        "texto": "Me preocupo porque mi cuerpo esté limpio.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Desplazándome** con cautela y midiendo los riesgos del terreno boscoso durante la noche, cuidando de no tropezar mientras busco al Guardia Invisible."
+      },
+      {
+        "id": "dff629b3-b399-4eb0-b2d5-c46acd2b8931",
+        "area": "Corporalidad",
+        "texto": "Ando siempre limpio y se nota, por ejemplo, en mi pelo, orejas, dientes y uñas.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Coordinando** el movimiento de mis pies y mis brazos para avanzar con sigilo por el bosque oscuro, logrando observar al Guardia sin revelar mi posición."
+      },
+      {
+        "id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439",
+        "area": "Corporalidad",
+        "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Esforzándome** por mantener el control corporal y caminar en silencio total junto a mi patrulla para esquivar los reflectores de los vigilantes móviles."
+      },
+      {
+        "id": "68add558-4b03-4105-b00d-e7f2ead6ac23",
+        "area": "Corporalidad",
+        "texto": "Sé qué hacer frente a una enfermedad o accidente.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Adaptando** mi postura física y agilidad para arrastrarme por el suelo y resguardar mi salud y seguridad en terrenos irregulares a oscuras."
+      },
+      {
+        "id": "273f60b8-7953-4416-97c3-e8c83615364f",
+        "area": "Corporalidad",
+        "texto": "Participo en actividades que me ayudan a mantener mi cuerpo fuerte y sano.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Esforzándome** por mantener el control corporal y caminar en silencio total junto a mi patrulla para esquivar los reflectores de los vigilantes móviles."
+      },
+      {
+        "id": "57887da4-c70e-45bc-bdfb-f79db513a89c",
+        "area": "Corporalidad",
+        "texto": "Sé qué hacer frente a una enfermedad o accidente.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Adaptando** mi postura física y agilidad para arrastrarme por el suelo y resguardar mi salud y seguridad en terrenos irregulares a oscuras."
+      },
+      {
+        "id": "05f42879-f5f5-40c4-bed6-c577bf61340a",
+        "area": "Corporalidad",
+        "texto": "Cuido mi salud y mantengo hábitos que la protegen.",
+        "unidad": "Avanzada",
+        "como_se_cumple": "**Entrenando** mi cuerpo y mejorando mis capacidades de desplazamiento táctico y acecho nocturno para aproximarme de forma segura al fuerte."
+      },
+      {
+        "id": "bc8f595b-6949-4f2e-9304-86a2306449e1",
+        "area": "Corporalidad",
+        "texto": "Asume la parte de responsabilidad que le corresponde en el desarrollo armónico de su cuerpo.",
+        "unidad": "Clan",
+        "como_se_cumple": "**Liderando** con responsabilidad mi desplazamiento y el de mis compañeros de equipo por la zona boscosa oscura, garantizando el bienestar físico mutuo durante la observación táctica."
+      }
+    ]
+  },
+  {
+    "original_title": "Matamoscas.",
+    "titulo_reescrito": "El Matamoscas Escurridizo",
+    "tipo": "Actividad",
+    "subtipo": "juego",
+    "duracion": "20 min",
+    "cantidad": "15-40",
+    "base_image": "juegos_carrera_base.jpg",
+    "lugares": [
+      "campo abierto",
+      "gimnasio",
+      "patio"
+    ],
+    "materiales": [
+      "Cinta o tiza para delimitar el área de juego",
+      "Pañoletas para marcar a los atrapados"
+    ],
+    "variaciones": "En la variante 'Sin Reversa', el juego se desarrolla en una línea cerrada en el suelo (como una gran circunferencia) en la que los participantes solo pueden desplazarse en sentido horario o antihorario, impidiendo retrocesos y aumentando la velocidad de decisión. Otra opción es que cuando la cadena llegue a cuatro personas, esta se divida en parejas para evitar que sea demasiado larga y peligrosa.",
+    "recomendaciones": "El terreno debe ser plano y libre de obstáculos para evitar tropiezos durante las carreras. Al formar la cadena, se debe insistir en no dar tirones violentos que puedan lesionar los hombros o muñecas de los compañeros.",
+    "descripcion_reescrita": "Este dinámico juego de velocidad y coordinación se realiza en un terreno plano de aproximadamente 20 por 10 metros bien delimitado. Al inicio de la actividad, toda la unidad se sitúa en uno de los extremos del campo, mientras que un participante seleccionado por el dirigente se coloca en el centro del área para asumir el rol de 'matamoscas'. A la señal de partida, todos los jugadores deben correr hacia el extremo opuesto tratando de esquivar al matamoscas central, quien intentará tocarlos para atraparlos.\n\nCada participante atrapado se une de la mano con el matamoscas central, formando una cadena humana que crece progresivamente. Los integrantes de la cadena no deben soltarse de las manos y deben coordinar sus movimientos y giros rápidos para atrapar al resto de las 'moscas' que siguen cruzando el campo. El juego se vuelve cada vez más difícil y divertido a medida que la cadena se alarga, requiriendo un gran trabajo en equipo para coordinar la carrera. El último jugador que logre cruzar de un lado a otro sin ser atrapado es el ganador del juego.",
+    "extracto": "Un clásico juego de persecución grupal donde los jugadores atrapados forman una cadena humana que debe coordinarse para atrapar a las moscas restantes.",
+    "areas": [
+      "corporalidad",
+      "sociabilidad"
+    ],
+    "unidades": [
+      "manada",
+      "tropa",
+      "compañia",
+      "avanzada",
+      "clan"
+    ],
+    "objetivos_generales": [
+      "Desfogue de Energías",
+      "Trabajo en equipo",
+      "Estimular la agilidad"
+    ],
+    "justificacion_areas": "Esta actividad activa la Corporalidad al demandar velocidad, agilidad física, resistencia y reflejos rápidos para esquivar al oponente o coordinar la marcha en la cadena. Desde la perspectiva de la Sociabilidad, requiere una fuerte sincronización y toma de decisiones colectivas dentro de la cadena de perseguidores, donde la comunicación corporal y verbal entre los eslabones es clave para atrapar a los corredores más rápidos.",
+    "objetivos_educativos": [
+      {
+        "id": "b76e1d3e-fc1e-4956-806b-f372cd0369bb",
+        "area": "Corporalidad",
+        "texto": "Me preocupo porque mi cuerpo esté limpio.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Corriendo** y esquivando velozmente al perseguidor central del juego de forma activa para mantener un cuerpo ágil y fuerte."
+      },
+      {
+        "id": "dff629b3-b399-4eb0-b2d5-c46acd2b8931",
+        "area": "Corporalidad",
+        "texto": "Ando siempre limpio y se nota, por ejemplo, en mi pelo, orejas, dientes y uñas.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Coordinando** mis pasos y el agarre de manos con mis compañeros de la cadena para movernos en bloque de manera eficiente sin soltarnos."
+      },
+      {
+        "id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439",
+        "area": "Corporalidad",
+        "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Esquivando** los movimientos bruscos y controlando mi velocidad para evitar tropiezos al correr de un extremo a otro en el campo de 20x10 metros."
+      },
+      {
+        "id": "68add558-4b03-4105-b00d-e7f2ead6ac23",
+        "area": "Corporalidad",
+        "texto": "Sé qué hacer frente a una enfermedad o accidente.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Comunicándome** de manera efectiva con mis compañeros de cadena para coordinar los giros y frenados rápidos, previniendo lesiones en las extremidades."
+      },
+      {
+        "id": "273f60b8-7953-4416-97c3-e8c83615364f",
+        "area": "Corporalidad",
+        "texto": "Participo en actividades que me ayudan a mantener mi cuerpo fuerte y sano.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Esquivando** los movimientos bruscos y controlando mi velocidad para evitar tropiezos al correr de un extremo a otro en el campo de 20x10 metros."
+      },
+      {
+        "id": "57887da4-c70e-45bc-bdfb-f79db513a89c",
+        "area": "Corporalidad",
+        "texto": "Sé qué hacer frente a una enfermedad o accidente.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Comunicándome** de manera efectiva con mis compañeros de cadena para coordinar los giros y frenados rápidos, previniendo lesiones en las extremidades."
+      },
+      {
+        "id": "05f42879-f5f5-40c4-bed6-c577bf61340a",
+        "area": "Corporalidad",
+        "texto": "Cuido mi salud y mantengo hábitos que la protegen.",
+        "unidad": "Avanzada",
+        "como_se_cumple": "**Participando** activamente en las carreras de velocidad y giros cerrados dentro de la cadena, reconociendo mi rendimiento físico y el valor de la resistencia aeróbica."
+      },
+      {
+        "id": "bc8f595b-6949-4f2e-9304-86a2306449e1",
+        "area": "Corporalidad",
+        "texto": "Asume la parte de responsabilidad que le corresponde en el desarrollo armónico de su cuerpo.",
+        "unidad": "Clan",
+        "como_se_cumple": "**Optimizando** el trabajo cooperativo y el ritmo de carrera del equipo perseguidor para alcanzar el objetivo, mientras resguardo la seguridad física de los participantes con menos resistencia."
+      }
+    ]
+  },
+  {
+    "original_title": "Pelea de gallos.",
+    "titulo_reescrito": "Pelea de Gallos Scout",
+    "tipo": "Actividad",
+    "subtipo": "juego",
+    "duracion": "15 min",
+    "cantidad": "8-24",
+    "base_image": "juegos_duelo_base.jpg",
+    "lugares": [
+      "sala",
+      "césped",
+      "playa"
+    ],
+    "materiales": [
+      "Colchonetas (si se realiza bajo techo)",
+      "Cinta para delimitar el área de combate"
+    ],
+    "variaciones": "Se puede jugar en formato de torneo por patrullas, donde los ganadores de cada ronda van sumando puntos para su equipo. Otra variante consiste en la 'pelea de cangrejos', donde los oponentes se sostienen apoyados sobre sus manos y pies boca arriba, intentando desestabilizar al oponente levantando una de sus extremidades.",
+    "recomendaciones": "Es fundamental realizar un calentamiento previo de articulaciones, especialmente de muñecas y tobillos. El juego debe suspenderse inmediatamente si se observa una fuerza desmedida o actitudes agresivas contrarias al espíritu scout. El suelo debe ser blando, preferiblemente césped o colchonetas.",
+    "descripcion_reescrita": "La Pelea de Gallos Scout es un tradicional juego de equilibrio, resistencia y fuerza controlada que enfrenta a dos participantes cara a cara. Ambos contrincantes deben colocarse en cuclillas (con las piernas dobladas, pero sin apoyar las rodillas en el suelo) dentro de un círculo previamente delimitado. Con los brazos flexionados y las palmas de las manos hacia adelante, el objetivo principal consiste en empujar suavemente las palmas del rival o esquivar sus empujes para hacerle perder el equilibrio y obligarle a apoyar las rodillas, glúteos o manos en el suelo.\n\nEn la variante de la 'pelea de cangrejos', los competidores adoptan una posición de cuadrupedia invertida (boca arriba, apoyados en manos y pies). En esta dinámica, el objetivo es tocar o enganchar las extremidades del oponente para forzarlo a tocar el suelo con la espalda o el abdomen. Ambas modalidades exigen una excelente coordinación muscular, rapidez mental para anticipar los movimientos del rival y un estricto sentido del juego limpio, finalizando el duelo en el momento en que uno de los dos toca el suelo con una parte no permitida de su cuerpo.",
+    "extracto": "Un juego clásico de duelo scout en cuclillas o posición de cangrejo que pone a prueba la fuerza controlada, el equilibrio y la agilidad.",
+    "areas": [
+      "corporalidad",
+      "caracter"
+    ],
+    "unidades": [
+      "manada",
+      "tropa",
+      "compañia",
+      "avanzada",
+      "clan"
+    ],
+    "objetivos_generales": [
+      "Conocer las capacidades corporales",
+      "Fomentar la sana competencia",
+      "Estimular la agilidad"
+    ],
+    "justificacion_areas": "El juego incide directamente en la Corporalidad al desarrollar la fuerza muscular de las piernas, el equilibrio dinámico y la coordinación neuromuscular fina. Asimismo, estimula el Carácter, ya que reta a los participantes a competir con honestidad, respetar las limitaciones físicas propias y del rival, y mantener un comportamiento templado frente al triunfo o la derrota.",
+    "objetivos_educativos": [
+      {
+        "id": "eba5dac5-e1aa-498d-8d94-9655162890e5",
+        "area": "Carácter",
+        "texto": "Entiendo que es bueno que tenga metas que me ayuden a ser cada día mejor.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Aceptando** alegremente el resultado de la pelea de gallos en cuclillas sin enfadarme ni pelear si llego a perder el equilibrio."
+      },
+      {
+        "id": "b66418eb-3eee-466e-9836-457b3bb922cc",
+        "area": "Carácter",
+        "texto": "Sé lo que puedo hacer y lo que no puedo hacer.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Arreglando** mis pequeñas disputas de fuerza con mis compañeros de juego de manera respetuosa y sin emplear violencia física desmedida."
+      },
+      {
+        "id": "62876ebe-214f-4caf-b164-664e12fd30ae",
+        "area": "Carácter",
+        "texto": "Me gusta participar en actividades que me ayudan a conocerme.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Esforzándome** por controlar mis impulsos competitivos al empujar al oponente, respetando las reglas de no golpear ni usar fuerza peligrosa."
+      },
+      {
+        "id": "c380e11a-571d-4617-924c-aa933ae30138",
+        "area": "Carácter",
+        "texto": "Soy capaz de criticarme.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Asumiendo** con madurez y honestidad cuando pierdo el equilibrio y toco el suelo con las rodillas, felicitando cordialmente a mi oponente."
+      },
+      {
+        "id": "075c93b1-81d2-4370-8e47-f0a4d086b20e",
+        "area": "Carácter",
+        "texto": "Sé lo que significa ser leal.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Esforzándome** por controlar mis impulsos competitivos al empujar al oponente, respetando las reglas de no golpear ni usar fuerza peligrosa."
+      },
+      {
+        "id": "006c5b09-47cf-4ed8-bf25-212203261a03",
+        "area": "Carácter",
+        "texto": "Sé que soy capaz de hacer cosas y de hacerlas bien.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Asumiendo** con madurez y honestidad cuando pierdo el equilibrio y toco el suelo con las rodillas, felicitando cordialmente a mi oponente."
+      },
+      {
+        "id": "dea08f50-52d5-4d87-ad7f-b7dbbb2702fc",
+        "area": "Carácter",
+        "texto": "Me acepto tal como soy, sin dejar de mirarme críticamente.",
+        "unidad": "Avanzada",
+        "como_se_cumple": "**Superando** la frustración en el combate de cangrejos mediante la autodisciplina, reconociendo el valor de la técnica por sobre la fuerza bruta."
+      },
+      {
+        "id": "8f0eb7d9-c291-44f3-9551-4330c19e0cc2",
+        "area": "Carácter",
+        "texto": "Conoce sus posibilidades y limitaciones, aceptándose con capacidad de autocrítica y manteniendo a la vez una buena imagen de sí mismo.",
+        "unidad": "Clan",
+        "como_se_cumple": "**Promoviendo** activamente el fair play y la superación personal entre mis pares durante el torneo, siendo un referente de honestidad y perseverancia en las dinámicas de duelo."
+      }
+    ]
+  },
+  {
+    "original_title": "Las 4 colinas.",
+    "titulo_reescrito": "Asalto a las Cuatro Colinas",
+    "tipo": "Actividad",
+    "subtipo": "juego nocturno",
+    "duracion": "60 min",
+    "cantidad": "20-50",
+    "base_image": "juegos_nocturno_base.jpg",
+    "lugares": [
+      "bosque",
+      "campo abierto"
+    ],
+    "materiales": [
+      "4 pañoletas para marcar las colinas o esquinas",
+      "Linternas para el equipo defensor",
+      "Silbatos",
+      "Luz química o baliza luminosa para el centro"
+    ],
+    "variaciones": "Se pueden introducir 'mensajes secretos' que los atacantes deban recoger del centro y llevar de vuelta a su base sin ser nombrados. Los defensores también pueden tener limitaciones, como no poder correr y solo poder caminar rápido para buscar a los atacantes.",
+    "recomendaciones": "Inspeccionar el bosque de día para retirar obstáculos peligrosos. Es obligatorio que todos los atacantes jueguen en silencio y con calzado adecuado, y que los monitores estén distribuidos estratégicamente con botiquines de primeros auxilios y luces de seguridad.",
+    "descripcion_reescrita": "Este desafiante juego nocturno de gran envergadura simula el asalto táctico a un fuerte protegido por una guarnición militar. El terreno de juego debe ser boscoso, accidentado y estar delimitado por cuatro hitos o 'colinas' marcadas con pañoletas visibles, con una baliza luminosa o luz química en el centro que representa el núcleo del fuerte. Los participantes se dividen en dos equipos: los atacantes (que componen aproximadamente dos tercios del total de jugadores) y los defensores (que conforman el tercio restante y custodian el perímetro del fuerte).\n\nLos atacantes se dispersan fuera del perímetro e intentan infiltrarse sigilosamente hacia la baliza central sin ser vistos. Los defensores patrullan el borde exterior y, al detectar a un atacante, deben enfocarlo con su linterna e identificarlo por su nombre en voz alta; si la identificación es correcta, el atacante es enviado a la prisión del fuerte. Ningún defensor puede ingresar al perímetro interno del fuerte, el cual es supervisado por monitores o dirigentes. El juego finaliza cuando un número predeterminado de atacantes logra ingresar al núcleo del fuerte sin ser identificado, o cuando se agota el tiempo de juego y la mayoría de los atacantes han sido capturados.",
+    "extracto": "Un gran juego nocturno de estrategia, acecho e infiltración táctica donde los atacantes intentan ingresar a un fuerte custodiado por defensores.",
+    "areas": [
+      "corporalidad",
+      "sociabilidad",
+      "caracter"
+    ],
+    "unidades": [
+      "manada",
+      "tropa",
+      "compañia",
+      "avanzada",
+      "clan"
+    ],
+    "objetivos_generales": [
+      "Estrategia y planificación",
+      "Desfogue de Energías",
+      "Trabajo en equipo"
+    ],
+    "justificacion_areas": "Esta actividad estimula la Corporalidad a través del acecho en la naturaleza, el arrastre, la marcha silenciosa y el control de la respiración. En el ámbito de la Sociabilidad y el Carácter, exige a los atacantes planificar estrategias en equipo, confiar en el sigilo mutuo, y apela a la honestidad individual para aceptar la captura cuando los defensores los descubren e identifican correctamente en la oscuridad.",
+    "objetivos_educativos": [
+      {
+        "id": "cfa10133-c25c-4deb-aebe-a00f8fe3f7ef",
+        "area": "Sociabilidad",
+        "texto": "Comparto lo que tengo con mis compañeros y compañeras.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Aceptando** las normas de seguridad del bosque y las decisiones de los dirigentes dentro del juego del fuerte sin discutir."
+      },
+      {
+        "id": "2394dd5b-87b9-4f3d-9cdd-a42649139782",
+        "area": "Sociabilidad",
+        "texto": "Comprendo y respeto las normas que se han puesto en mi casa y en la escuela, aunque no siempre esté de acuerdo con ellas",
+        "unidad": "Manada",
+        "como_se_cumple": "**Respetando** las directrices tácticas dadas por los scouts más experimentados al intentar infiltrarnos en la base del fuerte."
+      },
+      {
+        "id": "a3d7abdf-ca3b-42b8-92b5-403958fb537c",
+        "area": "Sociabilidad",
+        "texto": "Procuro que respetemos a nuestras compañeros, cualquiera sea su manera de ser.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Colaborando** estrechamente con mi patrulla en la distribución de roles para distraer a los defensores y facilitar la entrada de otros."
+      },
+      {
+        "id": "0d3af46a-d64c-4e59-a765-1f72dc41ba76",
+        "area": "Sociabilidad",
+        "texto": "Ayudo a mi patrulla en los compromisos que tomamos.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Participando** activamente en la toma de decisiones democrática dentro de mi patrulla para trazar la ruta de acecho más segura y efectiva."
+      },
+      {
+        "id": "fce82191-77ea-444b-89d9-e33b62a323a5",
+        "area": "Sociabilidad",
+        "texto": "Procuro que respetemos a nuestras compañeras, cualquiera sea su manera de ser.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Colaborando** estrechamente con mi patrulla en la distribución de roles para distraer a los defensores y facilitar la entrada de otros."
+      },
+      {
+        "id": "944660c8-0093-4181-ba2c-5f95cc74ba47",
+        "area": "Sociabilidad",
+        "texto": "No me gusta cuando no se respetan los derechos humanos y lo digo.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Participando** activamente en la toma de decisiones democrática dentro de mi patrulla para trazar la ruta de acecho más segura y efectiva."
+      },
+      {
+        "id": "5abfbe81-75e4-4444-b52d-38e59e8b6ec7",
+        "area": "Sociabilidad",
+        "texto": "Estoy siempre disponible para ayudar a los demás, incluso cuando se trata de tareas pesadas o poco agradables.",
+        "unidad": "Avanzada",
+        "como_se_cumple": "**Asumiendo** con responsabilidad la planificación táctica colectiva, respetando el aporte y las capacidades físicas de cada integrante del equipo."
+      },
+      {
+        "id": "90b668d6-3e32-4544-ac2a-7f1348b4f37f",
+        "area": "Sociabilidad",
+        "texto": "Reconoce y respeta la autoridad válidamente establecida y la ejerce al servicio de los demás.",
+        "unidad": "Clan",
+        "como_se_cumple": "**Guiando** a los equipos de atacantes con empatía y compañerismo, fomentando el aprendizaje de habilidades de acecho en un marco de autogestión y respeto mutuo."
+      }
+    ]
+  },
+  {
+    "original_title": "Captura de serpientes.",
+    "titulo_reescrito": "Cacería de Serpientes",
+    "tipo": "Actividad",
+    "subtipo": "juego",
+    "duracion": "15 min",
+    "cantidad": "10-30",
+    "base_image": "juegos_duelo_base.jpg",
+    "lugares": [
+      "campo abierto",
+      "gimnasio",
+      "patio"
+    ],
+    "materiales": [
+      "Cuerdas de longitud corta (una menos que el total de participantes)"
+    ],
+    "variaciones": "Se puede jugar formando parejas tomadas de la mano, donde cada pareja debe atrapar una cuerda, promoviendo el trabajo en equipo cooperativo. En otra variante, las cuerdas pueden estar colgadas de ramas bajas o estructuras a diferentes alturas para agregar variabilidad al movimiento.",
+    "recomendaciones": "El área debe estar despejada para evitar colisiones frontales al correr hacia las cuerdas. Los jugadores deben evitar lanzarse de cabeza al suelo para agarrar las cuerdas, insistiendo en que solo se pueden recoger de pie o en cuclillas para resguardar la seguridad.",
+    "descripcion_reescrita": "La Cacería de Serpientes es un juego de alta intensidad y reacción rápida que pone a prueba los reflejos y la velocidad de los scouts. Sobre el terreno de juego se esparcen de manera aleatoria varias cuerdas cortas (denominadas 'serpientes'), habiendo siempre una cuerda menos que el número de participantes activos. Al dar la señal de partida, todos los jugadores corren libremente dentro del área esquivando las cuerdas; a la siguiente señal o silbatazo, cada scout debe reaccionar de inmediato y apoderarse de una de las cuerdas, quedando eliminado quien no consiga ninguna.\n\nEn situaciones donde dos scouts alcancen y aferren una misma cuerda de forma simultánea, se resuelve mediante una prueba rápida de velocidad: el dirigente coloca la cuerda a una distancia específica de los dos contrincantes, quienes se colocan a la misma distancia de salida; al silbato, corren velozmente hacia la cuerda y el primero en atraparla asegura su permanencia. El juego avanza quitando una cuerda en cada ronda hasta que solo quede una cuerda y dos competidores, definiéndose al ganador en el último enfrentamiento.",
+    "extracto": "Un juego dinámico de velocidad y reflejos rápidos donde los participantes compiten por atrapar una cuerda del suelo en rondas eliminatorias.",
+    "areas": [
+      "corporalidad",
+      "caracter"
+    ],
+    "unidades": [
+      "manada",
+      "tropa",
+      "compañia",
+      "avanzada",
+      "clan"
+    ],
+    "objetivos_generales": [
+      "Estimular la capacidad de reacción",
+      "Fomentar la sana competencia",
+      "Estimular la agilidad"
+    ],
+    "justificacion_areas": "Esta dinámica de juego activa de forma directa la Corporalidad mediante el desarrollo de la velocidad de reacción y la aceleración explosiva en distancias cortas. Asimismo, favorece el Carácter al plantear situaciones competitivas directas bajo presión, donde los jóvenes deben autogestionar la frustración de la eliminación y demostrar honestidad al determinar quién tomó la cuerda primero.",
+    "objetivos_educativos": [
+      {
+        "id": "b76e1d3e-fc1e-4956-806b-f372cd0369bb",
+        "area": "Corporalidad",
+        "texto": "Me preocupo porque mi cuerpo esté limpio.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Corriendo** y reaccionando de inmediato al sonido del silbato para tomar una de las cuerdas del suelo de forma ágil y veloz."
+      },
+      {
+        "id": "dff629b3-b399-4eb0-b2d5-c46acd2b8931",
+        "area": "Corporalidad",
+        "texto": "Ando siempre limpio y se nota, por ejemplo, en mi pelo, orejas, dientes y uñas.",
+        "unidad": "Manada",
+        "como_se_cumple": "**Desarrollando** mi coordinación motriz para agacharme y atrapar la cuerda en movimiento rápido sin chocar con mis compañeros."
+      },
+      {
+        "id": "8cae916f-5e67-4697-b3cd-c59b5c7d1439",
+        "area": "Corporalidad",
+        "texto": "Trato de evitar situaciones que puedan dañar mi salud y la de mis compañeros.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Esquivando** activamente las colisiones con otros compañeros al correr a gran velocidad hacia la cuerda elegida, cuidando de no ser agresivo."
+      },
+      {
+        "id": "68add558-4b03-4105-b00d-e7f2ead6ac23",
+        "area": "Corporalidad",
+        "texto": "Sé qué hacer frente a una enfermedad o accidente.",
+        "unidad": "Tropa",
+        "como_se_cumple": "**Controlando** mi cuerpo y fuerza en la prueba de velocidad directa para no lastimar al oponente al disputar la cuerda asignada."
+      },
+      {
+        "id": "273f60b8-7953-4416-97c3-e8c83615364f",
+        "area": "Corporalidad",
+        "texto": "Participo en actividades que me ayudan a mantener mi cuerpo fuerte y sano.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Esquivando** activamente las colisiones con otros compañeros al correr a gran velocidad hacia la cuerda elegida, cuidando de no ser agresivo."
+      },
+      {
+        "id": "57887da4-c70e-45bc-bdfb-f79db513a89c",
+        "area": "Corporalidad",
+        "texto": "Sé qué hacer frente a una enfermedad o accidente.",
+        "unidad": "Compañía",
+        "como_se_cumple": "**Controlando** mi cuerpo y fuerza en la prueba de velocidad directa para no lastimar al oponente al disputar la cuerda asignada."
+      },
+      {
+        "id": "05f42879-f5f5-40c4-bed6-c577bf61340a",
+        "area": "Corporalidad",
+        "texto": "Cuido mi salud y mantengo hábitos que la protegen.",
+        "unidad": "Avanzada",
+        "como_se_cumple": "**Reconociendo** la importancia del calentamiento articular previo y del esfuerzo físico intenso para optimizar mi rendimiento en la prueba de velocidad."
+      },
+      {
+        "id": "bc8f595b-6949-4f2e-9304-86a2306449e1",
+        "area": "Corporalidad",
+        "texto": "Asume la parte de responsabilidad que le corresponde en el desarrollo armónico de su cuerpo.",
+        "unidad": "Clan",
+        "como_se_cumple": "**Cuidando** de manera proactiva la integridad física de todos los competidores en las carreras rápidas, evitando conductas de riesgo al agacharse por la cuerda."
+      }
+    ]
+  }
+]
