@@ -209,20 +209,21 @@ BEGIN
         metadata = EXCLUDED.metadata,
         updated_at = NOW();
 
-    INSERT INTO articulo_categorias (articulo_id, categoria_id) SELECT id, 9 FROM articulos WHERE slug = (SELECT slug FROM articulos WHERE id = '5693326c-0c04-404e-b6a2-c0055287ee79') ON CONFLICT DO NOTHING;
-    INSERT INTO articulo_categorias (articulo_id, categoria_id) SELECT id, 1 FROM articulos WHERE slug = (SELECT slug FROM articulos WHERE id = '5693326c-0c04-404e-b6a2-c0055287ee79') ON CONFLICT DO NOTHING;
-    INSERT INTO articulo_categorias (articulo_id, categoria_id) SELECT id, 7 FROM articulos WHERE slug = (SELECT slug FROM articulos WHERE id = 'ba5d305d-e998-4fc9-8df7-d8b60b4e3354') ON CONFLICT DO NOTHING;
-    INSERT INTO articulo_categorias (articulo_id, categoria_id) SELECT id, 1 FROM articulos WHERE slug = (SELECT slug FROM articulos WHERE id = 'ba5d305d-e998-4fc9-8df7-d8b60b4e3354') ON CONFLICT DO NOTHING;
-    INSERT INTO articulo_categorias (articulo_id, categoria_id) SELECT id, 7 FROM articulos WHERE slug = (SELECT slug FROM articulos WHERE id = 'f5a2b357-79b2-4bcb-8beb-e41996c0668e') ON CONFLICT DO NOTHING;
-    INSERT INTO articulo_categorias (articulo_id, categoria_id) SELECT id, 1 FROM articulos WHERE slug = (SELECT slug FROM articulos WHERE id = 'f5a2b357-79b2-4bcb-8beb-e41996c0668e') ON CONFLICT DO NOTHING;
-    INSERT INTO articulo_categorias (articulo_id, categoria_id) SELECT id, 1 FROM articulos WHERE slug = (SELECT slug FROM articulos WHERE id = 'b50797a4-7cfd-47e8-aaf5-f85627cb7f7c') ON CONFLICT DO NOTHING;
-    INSERT INTO articulo_categorias (articulo_id, categoria_id) SELECT id, 10 FROM articulos WHERE slug = (SELECT slug FROM articulos WHERE id = 'b50797a4-7cfd-47e8-aaf5-f85627cb7f7c') ON CONFLICT DO NOTHING;
-    INSERT INTO articulo_categorias (articulo_id, categoria_id) SELECT id, 10 FROM articulos WHERE slug = (SELECT slug FROM articulos WHERE id = '1eb1be54-afe5-4f94-af87-519b365d3961') ON CONFLICT DO NOTHING;
-    INSERT INTO articulo_categorias (articulo_id, categoria_id) SELECT id, 1 FROM articulos WHERE slug = (SELECT slug FROM articulos WHERE id = '1eb1be54-afe5-4f94-af87-519b365d3961') ON CONFLICT DO NOTHING;
-    INSERT INTO articulo_categorias (articulo_id, categoria_id) SELECT id, 7 FROM articulos WHERE slug = (SELECT slug FROM articulos WHERE id = '6a6e0efc-1034-47f6-89a8-39190903baa3') ON CONFLICT DO NOTHING;
-    INSERT INTO articulo_categorias (articulo_id, categoria_id) SELECT id, 1 FROM articulos WHERE slug = (SELECT slug FROM articulos WHERE id = '6a6e0efc-1034-47f6-89a8-39190903baa3') ON CONFLICT DO NOTHING;
-    INSERT INTO articulo_categorias (articulo_id, categoria_id) SELECT id, 1 FROM articulos WHERE slug = (SELECT slug FROM articulos WHERE id = '239e918e-324d-4302-81d2-611d80e0a62e') ON CONFLICT DO NOTHING;
-    INSERT INTO articulo_categorias (articulo_id, categoria_id) SELECT id, 10 FROM articulos WHERE slug = (SELECT slug FROM articulos WHERE id = '239e918e-324d-4302-81d2-611d80e0a62e') ON CONFLICT DO NOTHING;
+    -- Sincronización de categorías jerárquicas vinculadas por slug
+    INSERT INTO articulo_categorias (articulo_id, categoria_id) SELECT id, 9 FROM articulos WHERE slug = 'la-caceria-del-totem-animal' ON CONFLICT DO NOTHING;
+    INSERT INTO articulo_categorias (articulo_id, categoria_id) SELECT id, 1 FROM articulos WHERE slug = 'la-caceria-del-totem-animal' ON CONFLICT DO NOTHING;
+    INSERT INTO articulo_categorias (articulo_id, categoria_id) SELECT id, 7 FROM articulos WHERE slug = 'el-pincel-colectivo' ON CONFLICT DO NOTHING;
+    INSERT INTO articulo_categorias (articulo_id, categoria_id) SELECT id, 1 FROM articulos WHERE slug = 'el-pincel-colectivo' ON CONFLICT DO NOTHING;
+    INSERT INTO articulo_categorias (articulo_id, categoria_id) SELECT id, 7 FROM articulos WHERE slug = 'pelota-al-vuelo' ON CONFLICT DO NOTHING;
+    INSERT INTO articulo_categorias (articulo_id, categoria_id) SELECT id, 1 FROM articulos WHERE slug = 'pelota-al-vuelo' ON CONFLICT DO NOTHING;
+    INSERT INTO articulo_categorias (articulo_id, categoria_id) SELECT id, 1 FROM articulos WHERE slug = 'mis-nuevos-vecinos' ON CONFLICT DO NOTHING;
+    INSERT INTO articulo_categorias (articulo_id, categoria_id) SELECT id, 10 FROM articulos WHERE slug = 'mis-nuevos-vecinos' ON CONFLICT DO NOTHING;
+    INSERT INTO articulo_categorias (articulo_id, categoria_id) SELECT id, 10 FROM articulos WHERE slug = 'entrevistemonos' ON CONFLICT DO NOTHING;
+    INSERT INTO articulo_categorias (articulo_id, categoria_id) SELECT id, 1 FROM articulos WHERE slug = 'entrevistemonos' ON CONFLICT DO NOTHING;
+    INSERT INTO articulo_categorias (articulo_id, categoria_id) SELECT id, 7 FROM articulos WHERE slug = 'los-magos-de-teis' ON CONFLICT DO NOTHING;
+    INSERT INTO articulo_categorias (articulo_id, categoria_id) SELECT id, 1 FROM articulos WHERE slug = 'los-magos-de-teis' ON CONFLICT DO NOTHING;
+    INSERT INTO articulo_categorias (articulo_id, categoria_id) SELECT id, 1 FROM articulos WHERE slug = 'el-amigo-secreto-scout' ON CONFLICT DO NOTHING;
+    INSERT INTO articulo_categorias (articulo_id, categoria_id) SELECT id, 10 FROM articulos WHERE slug = 'el-amigo-secreto-scout' ON CONFLICT DO NOTHING;
 
     -- Re-inserción de objetivos educativos relacionales vinculados por slug
     DELETE FROM articulo_objetivos_educativos WHERE articulo_id = (SELECT id FROM articulos WHERE slug = 'mis-nuevos-vecinos');
@@ -327,5 +328,5 @@ BEGIN
     INSERT INTO articulo_objetivos_educativos (articulo_id, objetivo_id, como_se_cumple) SELECT id, '6ad49405-62ca-4a55-9d9e-78f1a48337d7', 'Promoviendo el servicio fraterno y la integración activa dentro de la avanzada.' FROM articulos WHERE slug = 'el-amigo-secreto-scout';
     INSERT INTO articulo_objetivos_educativos (articulo_id, objetivo_id, como_se_cumple) SELECT id, 'f47192a7-6d68-4a3a-9847-8d1c29f7ba49', 'Viviendo el servicio scout como un hábito constante de desarrollo comunitario y fraternidad en el Clan.' FROM articulos WHERE slug = 'el-amigo-secreto-scout';
 
-    RAISE NOTICE 'Migración de 7 artículos a producción completada con éxito.';
+    RAISE NOTICE 'Migración de 7 artículos y sus categorías a producción completada con éxito.';
 END $$;
