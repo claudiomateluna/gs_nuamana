@@ -734,8 +734,8 @@ function RegistroContent() {
               <div className="animate-in fade-in duration-500 text-center">
                 <h2 className="text-3xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8">¿Cuál será tu Contraseña?</h2>
                 <div className="space-y-4">
-                  <input type="password" {...register('password')} className="w-full bg-zinc-50 dark:bg-black/20 dark:text-dclr2 border-2 border-transparent focus:border-clr7 rounded-2xl p-5 text-2xl tracking-[0.5em] text-center outline-none transition-all shadow-inner" placeholder="â€¢â€¢â€¢â€¢" />
-                  <input type="password" {...register('confirmPassword')} className="w-full bg-zinc-50 dark:bg-black/20 dark:text-dclr2 border-2 border-transparent focus:border-clr7 rounded-2xl p-5 text-2xl tracking-[0.5em] text-center outline-none transition-all shadow-inner" placeholder="â€¢â€¢â€¢â€¢" />
+                  <input type="password" {...register('password')} className="w-full bg-zinc-50 dark:bg-black/20 dark:text-dclr2 border-2 border-transparent focus:border-clr7 rounded-2xl p-5 text-2xl tracking-[0.5em] text-center outline-none transition-all shadow-inner" placeholder="••••" />
+                  <input type="password" {...register('confirmPassword')} className="w-full bg-zinc-50 dark:bg-black/20 dark:text-dclr2 border-2 border-transparent focus:border-clr7 rounded-2xl p-5 text-2xl tracking-[0.5em] text-center outline-none transition-all shadow-inner" placeholder="••••" />
                   {errors.confirmPassword && <p className="text-clr7 text-[0.8em] font-black uppercase mt-2">{(errors.confirmPassword as any).message}</p>}
                 </div>
                 <p className={infoBoxStyle}>Crea una contraseña segura para tu cuenta.<br></br><br></br> La contraseña debe tener al menos 6 caracteres, no puede ser números consecutivos, y debe tener al menos una mayúscula y un número. <br></br><br></br><span className="font-black text-clr7">* Este campo es obligatorio</span></p>
@@ -744,11 +744,11 @@ function RegistroContent() {
 
             <div className="flex justify-between pt-12 border-t border-zinc-100 dark:border-clr4">
               {currentStep > 1 ? (
-                <button type="button" onClick={prevStep} className="px-8 py-4 text-clr2 font-black uppercase text-[0.8em] tracking-widest hover:text-clr7 transition-colors">â† Atrás</button>
+                <button type="button" onClick={prevStep} className="px-8 py-4 text-clr2 font-black uppercase text-[0.8em] tracking-widest hover:text-clr7 transition-colors">← Atrás</button>
               ) : <div />}
               <div className="ml-auto">
                 {currentStep < 25 ? (
-                  <button type="button" onClick={nextStep} className="px-12 py-4 bg-clr7 text-white font-black uppercase rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest text-[0.8em]">Continuar â†’</button>
+                  <button type="button" onClick={nextStep} className="px-12 py-4 bg-clr7 text-white font-black uppercase rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest text-[0.8em]">Continuar →</button>
                 ) : (
                   <button type="submit" disabled={isSubmitting} className="px-12 py-4 bg-green-600 text-white font-black uppercase rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest text-[0.8em]">Completar Registro</button>
                 )}
@@ -768,4 +768,3 @@ export default function RegistroPage() {
     </Suspense>
   )
 }
-
