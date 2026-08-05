@@ -8,8 +8,8 @@
 
 import { revalidateTag, revalidatePath } from 'next/cache';
 import { createClient } from '@supabase/supabase-js';
-import type { SiteConfigCategory } from '@/lib/site-config.types';
-import { categorySchemaMap } from '@/lib/site-config.validation';
+import type { SchemaId } from '@/lib/admin-zones';
+import { schemaResolver } from '@/lib/site-config.validation';
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || 'http://127.0.0.1:54321';
 const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
@@ -53,11 +53,15 @@ async function verifyAdmin(accessToken: string): Promise<{ userId: string } | nu
 }
 
 /**
- * Saves a category of site configuration.
+ * Saves site configuration for a schema id (a plain category or a per-card
+ * partial subset). Resolves the category + Zod schema via schemaResolver and
+ * upserts ONLY the submitted keys into configuracion_sitio.
+ * @param schemaId - Schema id to save; plain category ids keep the full-category
+ *   behavior, the 4 partial ids validate only the submitted keys of their card.
  * @param accessToken - The user's Supabase access token (passed from client)
  */
 export async function saveSiteConfig(
-  category: SiteConfigCategory,
+  schemaId: SchemaId,
   data: Record<string, unknown>,
   accessToken: string
 ): Promise<SaveSiteConfigResult> {
@@ -67,11 +71,12 @@ export async function saveSiteConfig(
     return { success: false, errors: ['No autorizado: solo administradores pueden cambiar la configuración'] };
   }
 
-  // 2. Validate with the appropriate Zod schema
-  const schema = categorySchemaMap[category];
-  if (!schema) {
+  // 2. Resolve the schema + category for this schema id
+  const resolved = schemaResolver[schemaId];
+  if (!resolved) {
     return { success: false, errors: ['Categoría inválida'] };
   }
+  const { category, schema } = resolved;
 
   const result = schema.safeParse(data);
   if (!result.success) {
@@ -79,7 +84,7 @@ export async function saveSiteConfig(
     return { success: false, errors };
   }
 
-  // 3. Upsert each key into configuracion_sitio using service role (bypasses RLS)
+  // 3. Upsert each submitted key into configuracion_sitio using service role (bypasses RLS)
   const supabase = getSupabaseAdmin();
   const validatedData = result.data as Record<string, unknown>;
   const errors: string[] = [];

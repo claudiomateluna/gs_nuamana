@@ -16,7 +16,20 @@ import {
   IconoAcceso 
 } from './ui/iconos';
 import { useTheme } from '@/contexts/theme-context';
+import { useSiteConfigSafe } from '@/contexts/site-config-context';
 import { supabase } from '@/lib/supabase';
+
+const FALLBACK = {
+  logo_header: '/images/logos/logo-nuamana.webp',
+  pretitulo: 'Guías y Scouts',
+  nombre_corto: 'Nua Mana',
+  slogan: 'una nueva aventura',
+  instagram: 'https://instagram.com/gruponuamana/',
+  facebook: 'https://facebook.com/gruponuamana',
+  whatsapp: 'https://wa.me/56966896001',
+  label_panel: 'Mi Panel',
+  label_login: 'Acceder',
+};
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,6 +37,17 @@ const Header = () => {
   const [user, setUser] = useState<any>(null);
   const router = useRouter();
   const { theme, toggleTheme } = useTheme();
+
+  const config = useSiteConfigSafe();
+  const logoHeader = config?.branding.logo_header ?? FALLBACK.logo_header;
+  const pretitulo = config?.branding.pretitulo ?? FALLBACK.pretitulo;
+  const nombreCorto = config?.branding.nombre_corto ?? FALLBACK.nombre_corto;
+  const slogan = config?.branding.slogan ?? FALLBACK.slogan;
+  const instagram = config?.social.instagram ?? FALLBACK.instagram;
+  const facebook = config?.social.facebook ?? FALLBACK.facebook;
+  const whatsapp = config?.social.whatsapp ?? FALLBACK.whatsapp;
+  const labelPanel = config?.navigation.label_panel ?? FALLBACK.label_panel;
+  const labelLogin = config?.navigation.label_login ?? FALLBACK.label_login;
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
@@ -68,15 +92,15 @@ const Header = () => {
           
           <Link href="/" className="flex items-center group">
             <img
-              src="/images/logos/logo-nuamana.webp"
+              src={logoHeader}
               alt="Logo"
               style={{ height: '60px', width: 'auto' }}
               className="object-contain group-hover:scale-110 transition-transform duration-500"
             />
             <div className="sm:flex flex-col ml-1 md:ml-3 justify-center">
-              <div className="text-[0.7em] md:text-[0.8em] text-clr10 uppercase tracking-widest leading-none mb-[-1px] md:mb-[-3px]">Guías y Scouts</div>
-              <div className="text-[1.2em] md:text-[1.5em] text-clr1 dark:text-clr1 font-black uppercase leading-none tracking-tighter font-inika">Nua Mana</div>
-              <div className="text-[0.7em] md:text-[0.85em] text-clr8 dark:text-dclr8 italic leading-none mt-[-3px] md:mt-[-6px]">una nueva aventura</div>
+              <div className="text-[0.7em] md:text-[0.8em] text-clr10 uppercase tracking-widest leading-none mb-[-1px] md:mb-[-3px]">{pretitulo}</div>
+              <div className="text-[1.2em] md:text-[1.5em] text-clr1 dark:text-clr1 font-black uppercase leading-none tracking-tighter font-inika">{nombreCorto}</div>
+              <div className="text-[0.7em] md:text-[0.85em] text-clr8 dark:text-dclr8 italic leading-none mt-[-3px] md:mt-[-6px]">{slogan}</div>
             </div>
           </Link>
         </div>
@@ -84,21 +108,21 @@ const Header = () => {
         <div className="flex items-center gap-2 md:gap-6">
           {/* Social Links Desktop */}
           <div className="hidden lg:flex items-center gap-3 border-r border-white/10 pr-6">
-            <a href="https://instagram.com/gruponuamana/" target="_blank" className="text-white/70 hover:text-clr8 transition-colors"><IconoRRSSInstagram className="w-5 h-5" /></a>
-            <a href="https://facebook.com/gruponuamana" target="_blank" className="text-white/70 hover:text-clr8 transition-colors"><IconoRRSSFacebook className="w-5 h-5" /></a>
-            <a href="https://wa.me/56966896001" target="_blank" className="text-white/70 hover:text-clr8 transition-colors"><IconoRRSSWhatsApp className="w-5 h-5" /></a>
+            {instagram && <a href={instagram} target="_blank" className="text-white/70 hover:text-clr8 transition-colors"><IconoRRSSInstagram className="w-5 h-5" /></a>}
+            {facebook && <a href={facebook} target="_blank" className="text-white/70 hover:text-clr8 transition-colors"><IconoRRSSFacebook className="w-5 h-5" /></a>}
+            {whatsapp && <a href={whatsapp} target="_blank" className="text-white/70 hover:text-clr8 transition-colors"><IconoRRSSWhatsApp className="w-5 h-5" /></a>}
           </div>
 
           <div className="flex items-center gap-2 md:gap-4">
             {user ? (
               <Link href="/panel" className="hidden sm:flex items-center gap-2 text-clr8 font-black uppercase text-[0.8em] tracking-widest hover:text-white transition-colors">
                 <div className="w-6 h-6 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_panel.svg)', maskImage: 'url(/images/iconos/icono_panel.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
-                <span>Mi Panel</span>
+                <span>{labelPanel}</span>
               </Link>
             ) : (
               <Link href="/login" className="hidden sm:flex items-center gap-2 text-clr8 font-black uppercase text-xs tracking-widest hover:text-white transition-colors">
                 <IconoAcceso className="w-6 h-6" />
-                <span>Acceder</span>
+                <span>{labelLogin}</span>
               </Link>
             )}
 

@@ -1,34 +1,38 @@
 import type { MetadataRoute } from 'next'
+import { loadSiteConfig } from '@/lib/site-config'
 
-export default function manifest(): MetadataRoute.Manifest {
+export default async function manifest(): Promise<MetadataRoute.Manifest> {
+  const config = await loadSiteConfig();
+  const { pwa } = config;
+
   return {
-    name: 'Guías y Scouts Nua Mana',
-    short_name: 'Nua Mana',
-    description: 'Portal oficial del Grupo Guía y Scout Nua Mana. Educación para la vida, empoderamiento juvenil y aventuras al aire libre.',
+    name: pwa.name,
+    short_name: pwa.short_name,
+    description: pwa.description,
     start_url: '/',
     display: 'standalone',
-    background_color: '#ffffff',
-    theme_color: '#cb3327',
+    background_color: pwa.background_color,
+    theme_color: pwa.theme_color,
     icons: [
       {
-        src: '/icon-192x192.png',
+        src: pwa.icon_192,
         sizes: '192x192',
         type: 'image/png',
         purpose: 'maskable'
       },
       {
-        src: '/icon-512x512.png',
+        src: pwa.icon_512,
         sizes: '512x512',
         type: 'image/png'
       },
       {
-        src: '/icon-1024x1024.png',
+        src: pwa.icon_1024,
         sizes: '1024x1024',
         type: 'image/png'
       }
     ],
     orientation: 'portrait',
-    lang: 'es',
+    lang: pwa.lang,
     dir: 'ltr'
   }
 }

@@ -1,6 +1,20 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useSiteConfigSafe } from '@/contexts/site-config-context';
+
+const FALLBACK = {
+  phrases: [
+    "SCOUTS, Educación para la Vida",
+    "Empoderamos a niñas niños y jovenes, Con Habilidades para Crear un Mundo Mejor",
+    "Vivimos en una Aventura, Transformadora y Llena de Crecimiento Personal"
+  ],
+  fondo: '/images/inicio/fondo.webp',
+  intervalo: 5000,
+  allImages: Array.from({ length: 20 }, (_, i) => `/images/fotos/fotos_${String(i + 1).padStart(2, '0')}_.webp`),
+  topCount: 3,
+  bottomCount: 3,
+};
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -10,13 +24,13 @@ const Hero = () => {
   const [screenWidth, setScreenWidth] = useState(1024);
   const [isClient, setIsClient] = useState(false);
 
-  const phrases = [
-    "SCOUTS, Educación para la Vida",
-    "Empoderamos a niñas niños y jovenes, Con Habilidades para Crear un Mundo Mejor",
-    "Vivimos en una Aventura, Transformadora y Llena de Crecimiento Personal"
-  ];
-
-  const allImages = Array.from({ length: 20 }, (_, i) => `/images/fotos/fotos_${String(i + 1).padStart(2, '0')}_.webp`);
+  const config = useSiteConfigSafe();
+  const phrases = config?.hero.frases ?? FALLBACK.phrases;
+  const fondo = config?.hero.fondo ?? FALLBACK.fondo;
+  const intervalo = config?.hero.intervalo ?? FALLBACK.intervalo;
+  const allImages = config?.hero.imagenes_pool ?? FALLBACK.allImages;
+  const topCount = config?.hero.top_count ?? FALLBACK.topCount;
+  const bottomCount = config?.hero.bottom_count ?? FALLBACK.bottomCount;
 
   const colors = [
     'border-red-300', 'border-blue-300', 'border-green-300', 'border-purple-300', 
@@ -33,21 +47,19 @@ const Hero = () => {
 
   useEffect(() => {
     const shuffledImages = [...allImages].sort(() => Math.random() - 0.5);
-    const numImages = screenWidth < 460 ? 1 : (screenWidth < 1024 ? 2 : 3);
-
-    setTopImages(shuffledImages.slice(0, numImages));
-    setBottomImages(shuffledImages.slice(numImages, numImages * 2));
-
     const shuffledColors = [...colors].sort(() => Math.random() - 0.5);
-    setBorderColors(shuffledColors.slice(0, numImages * 2));
-  }, [screenWidth]);
+
+    setTopImages(shuffledImages.slice(0, topCount));
+    setBottomImages(shuffledImages.slice(topCount, topCount + bottomCount));
+    setBorderColors(shuffledColors.slice(0, topCount + bottomCount));
+  }, [allImages, topCount, bottomCount, screenWidth]);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide(prev => (prev + 1) % phrases.length);
-    }, 5000);
+    }, intervalo);
     return () => clearInterval(interval);
-  }, []);
+  }, [phrases.length, intervalo]);
 
   if (!isClient) return null;
 
@@ -56,7 +68,7 @@ const Hero = () => {
       {/* Fondo y Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-bottom bg-no-repeat transition-all duration-1000"
-        style={{ backgroundImage: "url('/images/inicio/fondo.webp')" }}
+        style={{ backgroundImage: `url('${fondo}')` }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-clr5/90 via-clr5/40 to-clr7/70 dark:from-black/80 dark:to-clr4/80" />
 

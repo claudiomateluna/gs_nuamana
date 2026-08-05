@@ -54,8 +54,11 @@ export async function getAllMenuItems(): Promise<MenuItem[]> {
 
 /**
  * Builds a tree from a flat array of menu items.
+ * Items with a parent_id that exists in the array are nested under that parent;
+ * items without a parent (or with a missing one) become roots.
+ * Exported so the get-menu-items action can build a role-filtered tree.
  */
-function buildTree(items: MenuItem[]): MenuItemNode[] {
+export function buildTree(items: MenuItem[]): MenuItemNode[] {
   const map = new Map<string, MenuItemNode>();
   const roots: MenuItemNode[] = [];
 

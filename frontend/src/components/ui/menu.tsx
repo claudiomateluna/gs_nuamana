@@ -3,52 +3,132 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { 
-  IconoInicio, 
-  IconoAcercaDe, 
-  IconoAcercaDeQuienesSomos, 
-  IconoAcercaDeNuestraHistoria, 
-  IconoAcercaDeMisionVision, 
-  IconoAcercaDeNuestroEquipo, 
-  IconoAcercaDeNuestrosApoderados, 
-  IconoAcercaDeInstitucionPatrocinante, 
-  IconoLoQueHacemos, 
-  IconoLoQueHacemosMetodoScout, 
-  IconoLoQueHacemosAireLibre, 
-  IconoLoQueHacemosAprenderHaciendo, 
-  IconoLoQueHacemosHabilidadesTecnicas, 
-  IconoLoQueHacemosProgramasActividades, 
-  IconoLoQueHacemosSistemaEquipos, 
-  IconoLoQueHacemosVidaReflexiva, 
-  ArrowLeftIcon, 
-  IconoRRSSInstagram, 
-  IconoRRSSFacebook, 
-  IconoRRSSYoutube, 
-  IconoRRSSTiktok, 
-  IconoRRSSGoogle, 
-  IconoRRSSEmail, 
-  IconoRRSSWhatsApp, 
-  IconoCerrar 
-} from './iconos';
+import type { ComponentType, SVGProps } from 'react';
 import { supabase } from '@/lib/supabase';
+import { getMenuItems } from '@/app/(admin)/actions/get-menu-items';
+import { HARDCODED_MENU_TREE } from '@/lib/menu-fallback';
+import type { MenuItemNode } from '@/lib/menu-items.types';
+import {
+  IconoInicio,
+  IconoAcercaDe,
+  IconoAcercaDeQuienesSomos,
+  IconoAcercaDeNuestraHistoria,
+  IconoAcercaDeMisionVision,
+  IconoAcercaDeNuestroEquipo,
+  IconoAcercaDeNuestrosApoderados,
+  IconoAcercaDeInstitucionPatrocinante,
+  IconoLoQueHacemos,
+  IconoLoQueHacemosMetodoScout,
+  IconoLoQueHacemosAireLibre,
+  IconoLoQueHacemosAprenderHaciendo,
+  IconoLoQueHacemosHabilidadesTecnicas,
+  IconoLoQueHacemosProgramasActividades,
+  IconoLoQueHacemosSistemaEquipos,
+  IconoLoQueHacemosVidaReflexiva,
+  ArrowLeftIcon,
+  IconoRRSSInstagram,
+  IconoRRSSFacebook,
+  IconoRRSSYoutube,
+  IconoRRSSTiktok,
+  IconoRRSSWhatsApp,
+  IconoCerrar
+} from './iconos';
 
 interface SidebarDrawerProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
+/** Minimal shape of the native beforeinstallprompt event (not in lib.dom). */
+interface BeforeInstallPromptEventLike {
+  prompt: () => Promise<void>;
+  userChoice: Promise<{ outcome: string }>;
+}
+
+/**
+ * Icon resolution contract (spec: menu-public-wiring).
+ * - `icono` is an iconos.tsx export name → ICON_MAP component.
+ * - `icono` is one of the special string values (IconoBlog/IconoUnidades, used by
+ *   the MenuManager options and the DB seed but NOT exported from iconos.tsx)
+ *   → SPECIAL_ICONS component.
+ * - `icono` starts with '/' → rendered as <img> (unit badges).
+ * - anything else / null → DefaultIcon.
+ */
+export const ICON_MAP: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
+  IconoInicio,
+  IconoAcercaDe,
+  IconoAcercaDeQuienesSomos,
+  IconoAcercaDeNuestraHistoria,
+  IconoAcercaDeMisionVision,
+  IconoAcercaDeNuestroEquipo,
+  IconoAcercaDeNuestrosApoderados,
+  IconoAcercaDeInstitucionPatrocinante,
+  IconoLoQueHacemos,
+  IconoLoQueHacemosMetodoScout,
+  IconoLoQueHacemosAireLibre,
+  IconoLoQueHacemosAprenderHaciendo,
+  IconoLoQueHacemosHabilidadesTecnicas,
+  IconoLoQueHacemosProgramasActividades,
+  IconoLoQueHacemosSistemaEquipos,
+  IconoLoQueHacemosVidaReflexiva,
+};
+
+const BlogIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+  </svg>
+);
+
+const UnidadesIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+  </svg>
+);
+
+export const SPECIAL_ICONS: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
+  IconoBlog: BlogIcon,
+  IconoUnidades: UnidadesIcon,
+};
+
+const DefaultIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <circle cx="12" cy="12" r="9" />
+  </svg>
+);
+
+/**
+ * Renders a menu item's icon from its `icono` value per the resolution contract.
+ * The wrapper carries data-icon-name so tests (and tooling) can assert which
+ * icon variant rendered; paths render as <img> with the badge artwork.
+ */
+function MenuIcon({ icono }: { icono: string | null }) {
+  if (icono && icono.startsWith('/')) {
+    return <img src={icono} alt="" className="w-8 h-8 mr-4 object-contain" />;
+  }
+  const Icon = (icono ? SPECIAL_ICONS[icono] ?? ICON_MAP[icono] : null) ?? DefaultIcon;
+  return (
+    <span data-icon-name={icono ?? 'default'} className="w-8 h-8 mr-4 flex items-center justify-center text-clr7">
+      <Icon className="w-8 h-8" />
+    </span>
+  );
+}
+
 const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
   const router = useRouter();
-  const [currentView, setCurrentView] = useState<'main' | 'acerca-de' | 'lo-que-hacemos' | 'unidades'>('main');
-  const [user, setUser] = useState<any>(null);
-  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+  // null = main view; a root node = its sub-view (drawer UX preserved).
+  const [currentView, setCurrentView] = useState<MenuItemNode | null>(null);
+  // Start from today's sidebar; the DB tree replaces it once loaded (if any),
+  // otherwise the fallback stays (empty DB → HARDCODED_MENU_TREE).
+  const [menuItems, setMenuItems] = useState<MenuItemNode[]>(HARDCODED_MENU_TREE);
+  const [user, setUser] = useState<{ id: string } | null>(null);
+  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEventLike | null>(null);
   const [isInstallable, setIsInstallable] = useState(false);
   const [showIOSHelper, setShowIOSHelper] = useState(false);
 
   useEffect(() => {
     const handleBeforeInstallPrompt = (e: Event) => {
       e.preventDefault();
-      setDeferredPrompt(e);
+      setDeferredPrompt(e as unknown as BeforeInstallPromptEventLike);
       setIsInstallable(true);
     };
 
@@ -57,7 +137,7 @@ const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
     // Detectar si es iOS y no está instalado
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
                   (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || (window.navigator as any).standalone;
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || (window.navigator as unknown as { standalone?: boolean }).standalone;
     
     if (isIOS && !isStandalone) {
       setShowIOSHelper(true);
@@ -73,10 +153,20 @@ const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
       document.body.style.overflow = 'hidden';
     }
     
-    // Obtener sesión
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null);
-    });
+    // Obtener sesión y menú filtrado por rol (solo al abrir el drawer)
+    if (isOpen) {
+      supabase.auth.getSession().then(async ({ data: { session } }) => {
+        const sessionUser = session?.user ?? null;
+        setUser(sessionUser);
+        // The action derives the rol server-side from the access token; the
+        // client never sends a role. Fallback to HARDCODED_MENU_TREE ONLY on a
+        // truly empty DB — a DB with rows but nothing visible to this rol must
+        // render an empty menu, never the hardcoded tree.
+        const result = await getMenuItems(session?.access_token ?? null);
+        setMenuItems(result.items.length > 0 ? result.items : result.dbEmpty ? HARDCODED_MENU_TREE : []);
+        setCurrentView(null);
+      });
+    }
 
     return () => {
       document.removeEventListener('keydown', handleEsc);
@@ -88,30 +178,19 @@ const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
   const handleInstallClick = async () => {
     if (!deferredPrompt) return;
     deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
+    await deferredPrompt.userChoice;
     setDeferredPrompt(null);
     setIsInstallable(false);
   };
 
-  const acercaDeItems = [
-    { title: "Quiénes Somos", action: () => router.push('/acerca-de/quienes-somos'), icon: IconoAcercaDeQuienesSomos },
-    { title: "Nuestra Historia", action: () => router.push('/acerca-de/nuestra-historia'), icon: IconoAcercaDeNuestraHistoria },
-    { title: "Misión y Visión", action: () => router.push('/acerca-de/mision-y-vision'), icon: IconoAcercaDeMisionVision },
-    { title: "Nuestro Equipo", action: () => router.push('/acerca-de/nuestro-equipo'), icon: IconoAcercaDeNuestroEquipo },
-    { title: "Nuestros Apoderados", action: () => router.push('/acerca-de/nuestros-apoderados'), icon: IconoAcercaDeNuestrosApoderados },
-    { title: "Institución Patrocinante", action: () => router.push('/acerca-de/institucion-patrocinante'), icon: IconoAcercaDeInstitucionPatrocinante },
-  ];
-
-  const loQueHacemosItems = [
-    { title: "Ley y Promesa", action: () => router.push('/lo-que-hacemos/ley-y-promesa'), icon: IconoLoQueHacemos },
-    { title: "El Método Scout", action: () => router.push('/lo-que-hacemos/el-metodo-scout'), icon: IconoLoQueHacemosMetodoScout },
-    { title: "Aprender Haciendo", action: () => router.push('/lo-que-hacemos/aprender-haciendo'), icon: IconoLoQueHacemosAprenderHaciendo },
-    { title: "Sistema de Equipos", action: () => router.push('/lo-que-hacemos/sistema-de-equipos'), icon: IconoLoQueHacemosSistemaEquipos },
-    { title: "Vida al Aire Libre", action: () => router.push('/lo-que-hacemos/vida-al-aire-libre'), icon: IconoLoQueHacemosAireLibre },
-    { title: "Habilidades y Técnicas", action: () => router.push('/lo-que-hacemos/habilidades-y-tecnicas'), icon: IconoLoQueHacemosHabilidadesTecnicas },
-    { title: "Vida Reflexiva", action: () => router.push('/lo-que-hacemos/vida-reflexiva'), icon: IconoLoQueHacemosVidaReflexiva },
-    { title: "Programa y Actividades", action: () => router.push('/lo-que-hacemos/programa-y-actividades'), icon: IconoLoQueHacemosProgramasActividades },
-  ];
+  const handleRootClick = (item: MenuItemNode) => {
+    if (item.children.length > 0) {
+      setCurrentView(item);
+    } else if (item.href) {
+      router.push(item.href);
+      onClose();
+    }
+  };
 
   if (!isOpen) return null;
 
@@ -124,8 +203,8 @@ const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
           <div className="p-2 border-b border-clr10 dark:border-clr4">
             <div className="flex justify-between items-center">
               <div className="flex items-center">
-                {currentView !== 'main' && (
-                  <button onClick={() => setCurrentView('main')} className="mr-1 p-1 rounded-full hover:bg-clr10/50 transition-colors">
+                {currentView !== null && (
+                  <button onClick={() => setCurrentView(null)} aria-label="Volver al menú principal" className="mr-1 p-1 rounded-full hover:bg-clr10/50 transition-colors">
                     <ArrowLeftIcon className="w-5 h-5 text-clr5 dark:text-clr2" />
                   </button>
                 )}
@@ -151,76 +230,22 @@ const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
           </div>
 
           <div className="flex-1 overflow-y-auto p-4">
-            {currentView === 'main' && (
-              <nav className="space-y-2">
-                <button onClick={() => { router.push('/'); onClose(); }} className="flex items-center w-full p-3 rounded-2xl hover:bg-clr7/5 transition-all group">
-                  <IconoInicio className="w-8 h-8 mr-4 text-clr7" />
-                  <span className="font-bold text-clr5 dark:text-clr1 group-hover:text-clr7">Inicio</span>
-                </button>
-                <button onClick={() => setCurrentView('acerca-de')} className="flex items-center w-full p-3 rounded-2xl hover:bg-clr7/5 transition-all group">
-                  <IconoAcercaDe className="w-8 h-8 mr-4 text-clr7" />
-                  <span className="font-bold text-clr5 dark:text-clr1 group-hover:text-clr7">Acerca de</span>
-                </button>
-                <button onClick={() => setCurrentView('lo-que-hacemos')} className="flex items-center w-full p-3 rounded-2xl hover:bg-clr7/5 transition-all group">
-                  <IconoLoQueHacemos className="w-8 h-8 mr-4 text-clr7" />
-                  <span className="font-bold text-clr5 dark:text-clr1 group-hover:text-clr7">Lo que hacemos</span>
-                </button>
-                <button onClick={() => { router.push('/blog'); onClose(); }} className="flex items-center w-full p-3 rounded-2xl hover:bg-clr7/5 transition-all group">
-                  <div className="w-8 h-8 mr-4 flex items-center justify-center text-clr7">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-                    </svg>
-                  </div>
-                  <span className="font-bold text-clr5 dark:text-clr1 group-hover:text-clr7">Blog</span>
-                </button>
-                <button onClick={() => setCurrentView('unidades')} className="flex items-center w-full p-3 rounded-2xl hover:bg-clr7/5 transition-all group">
-                  <div className="w-8 h-8 mr-4 flex items-center justify-center text-clr7">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                  </div>
-                  <span className="font-bold text-clr5 dark:text-clr1 group-hover:text-clr7">Nuestras Unidades</span>
-                </button>
-              </nav>
-            )}
-
-            {currentView === 'acerca-de' && (
-              <nav className="space-y-1">
-                <h3 className="px-3 mb-4 text-[0.8em] font-black uppercase tracking-widest text-clr2">Acerca de Nua Mana</h3>
-                {acercaDeItems.map((item, i) => (
-                  <button key={i} onClick={() => { item.action(); onClose(); }} className="flex items-center w-full p-3 rounded-2xl hover:bg-clr7/5 transition-all group">
-                    {React.createElement(item.icon, { className: "w-8 h-8 mr-4 text-clr7" })}
-                    <span className="font-bold text-clr5 dark:text-clr1 group-hover:text-clr7">{item.title}</span>
+            {currentView === null ? (
+              <nav className="space-y-2" aria-label="Menú principal">
+                {menuItems.map((item) => (
+                  <button key={item.id} onClick={() => handleRootClick(item)} className="flex items-center w-full p-3 rounded-2xl hover:bg-clr7/5 transition-all group">
+                    <MenuIcon icono={item.icono} />
+                    <span className="font-bold text-clr5 dark:text-clr1 group-hover:text-clr7">{item.titulo}</span>
                   </button>
                 ))}
               </nav>
-            )}
-
-            {currentView === 'lo-que-hacemos' && (
-              <nav className="space-y-1">
-                <h3 className="px-3 mb-4 text-[0.8em] font-black uppercase tracking-widest text-clr2">Nuestra Propuesta</h3>
-                {loQueHacemosItems.map((item, i) => (
-                  <button key={i} onClick={() => { item.action(); onClose(); }} className="flex items-center w-full p-3 rounded-2xl hover:bg-clr7/5 transition-all group">
-                    {React.createElement(item.icon, { className: "w-8 h-8 mr-4 text-clr7" })}
-                    <span className="font-bold text-clr5 dark:text-clr1 group-hover:text-clr7">{item.title}</span>
-                  </button>
-                ))}
-              </nav>
-            )}
-
-            {currentView === 'unidades' && (
-              <nav className="space-y-1">
-                <h3 className="px-3 mb-4 text-[0.8em] font-black uppercase tracking-widest text-clr2">Nuestras Unidades</h3>
-                {[
-                  { title: "Manada (Ahi Niho Vænga)", slug: "manada", icon: "/images/logos/iconos_lobatos.svg" },
-                  { title: "Compañía (Põ Vui Vaikava)", slug: "compania", icon: "/images/logos/iconos_guias.svg" },
-                  { title: "Tropa (A'ata)", slug: "tropa", icon: "/images/logos/iconos_scouts.svg" },
-                  { title: "Avanzada (Rapahango)", slug: "avanzada", icon: "/images/logos/iconos_pioneres.svg" },
-                  { title: "Clan (Ahu Akivi)", slug: "clan", icon: "/images/logos/iconos_caminantes.svg" }
-                ].map((item, i) => (
-                  <button key={i} onClick={() => { router.push(`/unidad/${item.slug}`); onClose(); }} className="flex items-center w-full p-3 rounded-2xl hover:bg-clr7/5 transition-all group">
-                    <img src={item.icon} alt="" className="w-8 h-8 mr-4 object-contain" />
-                    <span className="font-bold text-clr5 dark:text-clr1 group-hover:text-clr7">{item.title}</span>
+            ) : (
+              <nav className="space-y-1" aria-label={currentView.titulo}>
+                <h3 className="px-3 mb-4 text-[0.8em] font-black uppercase tracking-widest text-clr2">{currentView.titulo}</h3>
+                {currentView.children.map((item) => (
+                  <button key={item.id} onClick={() => { router.push(item.href ?? '/'); onClose(); }} className="flex items-center w-full p-3 rounded-2xl hover:bg-clr7/5 transition-all group">
+                    <MenuIcon icono={item.icono} />
+                    <span className="font-bold text-clr5 dark:text-clr1 group-hover:text-clr7">{item.titulo}</span>
                   </button>
                 ))}
               </nav>
@@ -240,7 +265,7 @@ const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
               <div className="w-full p-4 mb-4 bg-white/40 dark:bg-black/20 border border-clr10 dark:border-clr4 rounded-2xl text-[0.85em] text-clr5 dark:text-clr1 flex flex-col gap-2 shadow-inner">
                 <div className="font-black text-clr7 flex items-center gap-1.5 uppercase tracking-wide">📲 Instalar en tu iPhone</div>
                 <p className="text-clr2 dark:text-dclr8 leading-snug">
-                  Presioná el botón de <strong>Compartir</strong> <span className="inline-block px-1.5 py-0.5 bg-zinc-200 dark:bg-zinc-800 rounded">📤</span> en Safari y seleccioná <strong>"Agregar al inicio"</strong> ➕.
+                  Presioná el botón de <strong>Compartir</strong> <span className="inline-block px-1.5 py-0.5 bg-zinc-200 dark:bg-zinc-800 rounded">📤</span> en Safari y seleccioná <strong>&quot;Agregar al inicio&quot;</strong> ➕.
                 </p>
               </div>
             )}

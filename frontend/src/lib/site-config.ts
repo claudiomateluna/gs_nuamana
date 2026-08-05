@@ -143,10 +143,19 @@ export const DEFAULT_SITE_CONFIG: SiteConfigRecord = {
 const CACHE_TAG = 'site-config';
 
 /**
+ * Grouped config rows as a plain nested object (category -> key -> value).
+ * MUST stay JSON-serializable: unstable_cache persists the cached value as
+ * JSON (JSON.stringify on write, JSON.parse on read), so Map/Set instances are
+ * destroyed — a Map comes back as `{}` on cache hits and `grouped.get` blows
+ * up on the second call within a render (metadata -> viewport -> layout).
+ */
+type GroupedConfig = Partial<Record<SiteConfigCategory, Record<string, unknown>>>;
+
+/**
  * Fetches all config entries from the database and groups them by category.
  * Wrapped in unstable_cache for cross-request caching.
  */
-async function fetchAllConfig(): Promise<Map<SiteConfigCategory, Map<string, unknown>>> {
+async function fetchAllConfig(): Promise<GroupedConfig> {
   const supabase = getSupabase();
   const { data, error } = await supabase
     .from('configuracion_sitio')
@@ -155,17 +164,14 @@ async function fetchAllConfig(): Promise<Map<SiteConfigCategory, Map<string, unk
 
   if (error || !data) {
     console.warn('[site-config] Failed to fetch config, using defaults:', error?.message);
-    return new Map();
+    return {};
   }
 
-  const grouped = new Map<SiteConfigCategory, Map<string, unknown>>();
+  const grouped: GroupedConfig = {};
 
   for (const row of data as ConfigEntry[]) {
     const cat = row.categoria;
-    if (!grouped.has(cat)) {
-      grouped.set(cat, new Map());
-    }
-    const catMap = grouped.get(cat)!;
+    const catMap = (grouped[cat] ??= {});
 
     // Parse JSONB value: if it's a JSON string, parse it; otherwise use as-is
     let parsed = row.valor;
@@ -177,19 +183,20 @@ async function fetchAllConfig(): Promise<Map<SiteConfigCategory, Map<string, unk
       }
     }
 
-    catMap.set(row.clave, parsed);
+    catMap[row.clave] = parsed;
   }
 
   return grouped;
 }
 
-// Cached version — invalidates when revalidateTag('site-config') is called
-// NOTE: unstable_cache disabled for debugging — re-enable after confirming flow works
-// const getCachedConfig = unstable_cache(
-//   fetchAllConfig,
-//   ['site-config-all'],
-//   { tags: [CACHE_TAG], revalidate: 60 }
-// );
+// Cached version — invalidates when revalidateTag('site-config') is called.
+// Errors are handled INSIDE fetchAllConfig (defaults fallback), so the cached
+// wrapper never propagates a rejected promise or caches an error state.
+const getCachedConfig = unstable_cache(
+  fetchAllConfig,
+  ['site-config-all'],
+  { tags: [CACHE_TAG], revalidate: 60 }
+);
 
 /**
  * Loads the full site configuration.
@@ -197,18 +204,18 @@ async function fetchAllConfig(): Promise<Map<SiteConfigCategory, Map<string, unk
  * Database values override defaults where present.
  */
 export async function loadSiteConfig(): Promise<SiteConfigRecord> {
-  const grouped = await fetchAllConfig();
+  const grouped = await getCachedConfig();
   const defaults = DEFAULT_SITE_CONFIG;
 
-  // Helper to get a category map, falling back to default keys
+  // Helper to get a category record, falling back to default keys
   function getCat<T extends object>(cat: SiteConfigCategory, defaultObj: T): T {
-    const dbMap = grouped.get(cat);
-    if (!dbMap || dbMap.size === 0) return defaultObj;
+    const dbMap = grouped[cat];
+    if (!dbMap || Object.keys(dbMap).length === 0) return defaultObj;
 
     const result = { ...defaultObj } as T;
     for (const key of Object.keys(defaultObj) as (keyof T)[]) {
-      if (dbMap.has(key as string)) {
-        result[key] = dbMap.get(key as string) as T[keyof T];
+      if (Object.prototype.hasOwnProperty.call(dbMap, key as string)) {
+        result[key] = dbMap[key as string] as T[keyof T];
       }
     }
     return result;
@@ -237,14 +244,14 @@ export async function loadConfigCategory<T extends object>(
   category: SiteConfigCategory,
   defaultObj: T
 ): Promise<T> {
-  const grouped = await fetchAllConfig();
-  const dbMap = grouped.get(category);
-  if (!dbMap || dbMap.size === 0) return defaultObj;
+  const grouped = await getCachedConfig();
+  const dbMap = grouped[category];
+  if (!dbMap || Object.keys(dbMap).length === 0) return defaultObj;
 
   const result = { ...defaultObj } as T;
   for (const key of Object.keys(defaultObj) as (keyof T)[]) {
-    if (dbMap.has(key as string)) {
-      result[key] = dbMap.get(key as string) as T[keyof T];
+    if (Object.prototype.hasOwnProperty.call(dbMap, key as string)) {
+      result[key] = dbMap[key as string] as T[keyof T];
     }
   }
   return result;

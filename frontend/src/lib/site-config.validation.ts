@@ -11,6 +11,17 @@ import { z } from 'zod';
 
 const nonEmpty = z.string().min(1, 'Este campo es obligatorio');
 
+// Shared social field validators (URL/email or explicitly empty)
+const socialUrlOrEmpty = z.string().url('URL inválida').or(z.string().length(0));
+// The social email is stored as a mailto: URI in the seed/DEFAULT_SITE_CONFIG
+// (e.g. "mailto:contacto@nuamana.cl"), so it must accept a plain email, a
+// mailto: URI, or the empty string.
+const socialEmailOrEmpty = z
+  .string()
+  .email('Email inválido')
+  .or(z.string().startsWith('mailto:', 'Email inválido'))
+  .or(z.string().length(0));
+
 // ---------------------------------------------------------------------------
 // Branding
 // ---------------------------------------------------------------------------
@@ -34,13 +45,13 @@ export type BrandingFormData = z.infer<typeof brandingSchema>;
 // ---------------------------------------------------------------------------
 
 export const socialSchema = z.object({
-  instagram: z.string().url('URL inválida').or(z.string().length(0)),
-  facebook: z.string().url('URL inválida').or(z.string().length(0)),
-  youtube: z.string().url('URL inválida').or(z.string().length(0)),
-  tiktok: z.string().url('URL inválida').or(z.string().length(0)),
-  google: z.string().url('URL inválida').or(z.string().length(0)),
-  whatsapp: z.string().min(1, 'WhatsApp es obligatorio'),
-  email: z.string().email('Email inválido').or(z.string().length(0)),
+  instagram: socialUrlOrEmpty,
+  facebook: socialUrlOrEmpty,
+  youtube: socialUrlOrEmpty,
+  tiktok: socialUrlOrEmpty,
+  google: socialUrlOrEmpty,
+  whatsapp: nonEmpty,
+  email: socialEmailOrEmpty,
 });
 
 export type SocialFormData = z.infer<typeof socialSchema>;
@@ -178,6 +189,48 @@ export const navigationSchema = z.object({
 export type NavigationFormData = z.infer<typeof navigationSchema>;
 
 // ---------------------------------------------------------------------------
+// Partial schemas — per-card subsets for the zone admin (PR1b).
+// Each card (Header→Marca, Footer→Marca, Header→Redes, Footer→Redes) validates
+// ONLY its own field subset and accepts partial objects (.partial()).
+// ---------------------------------------------------------------------------
+
+export const brandingHeaderSchema = z
+  .object({
+    logo_header: nonEmpty,
+    pretitulo: nonEmpty,
+    nombre_corto: nonEmpty,
+    slogan: nonEmpty,
+  })
+  .partial();
+
+export const brandingFooterSchema = z
+  .object({
+    logo_footer: nonEmpty,
+    nombre_grupo: nonEmpty,
+    mision: nonEmpty,
+    motto: nonEmpty,
+    copyright: nonEmpty,
+  })
+  .partial();
+
+export const socialHeaderSchema = z
+  .object({
+    instagram: socialUrlOrEmpty,
+    facebook: socialUrlOrEmpty,
+    whatsapp: nonEmpty,
+  })
+  .partial();
+
+export const socialFooterSchema = z
+  .object({
+    youtube: socialUrlOrEmpty,
+    tiktok: socialUrlOrEmpty,
+    google: socialUrlOrEmpty,
+    email: socialEmailOrEmpty,
+  })
+  .partial();
+
+// ---------------------------------------------------------------------------
 // Category-to-schema map (for the server action)
 // ---------------------------------------------------------------------------
 
@@ -195,4 +248,30 @@ export const categorySchemaMap: Record<SiteConfigCategory, z.ZodType> = {
   seo: seoSchema,
   pwa: pwaSchema,
   navigation: navigationSchema,
+};
+
+// ---------------------------------------------------------------------------
+// schemaResolver — resolves a SchemaId to { category, schema } (PR1b).
+// Covers all 15 ids: the 11 plain categories (full schemas, unchanged) plus
+// the 4 per-card partial schemas bound to their base category.
+// ---------------------------------------------------------------------------
+
+import type { SchemaId } from '@/lib/admin-zones';
+
+export const schemaResolver: Record<SchemaId, { category: SiteConfigCategory; schema: z.ZodType }> = {
+  'branding.header': { category: 'branding', schema: brandingHeaderSchema },
+  'branding.footer': { category: 'branding', schema: brandingFooterSchema },
+  'social.header': { category: 'social', schema: socialHeaderSchema },
+  'social.footer': { category: 'social', schema: socialFooterSchema },
+  branding: { category: 'branding', schema: brandingSchema },
+  social: { category: 'social', schema: socialSchema },
+  contact: { category: 'contact', schema: contactSchema },
+  hero: { category: 'hero', schema: heroSchema },
+  features: { category: 'features', schema: featuresSchema },
+  faq: { category: 'faq', schema: faqSchema },
+  testimonials: { category: 'testimonials', schema: testimonialsSchema },
+  visit: { category: 'visit', schema: visitSchema },
+  seo: { category: 'seo', schema: seoSchema },
+  pwa: { category: 'pwa', schema: pwaSchema },
+  navigation: { category: 'navigation', schema: navigationSchema },
 };

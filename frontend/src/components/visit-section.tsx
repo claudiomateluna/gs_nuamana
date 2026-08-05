@@ -2,7 +2,18 @@
 
 import { useState, useEffect } from 'react';
 import { useTheme } from '@/contexts/theme-context';
+import { useSiteConfigSafe } from '@/contexts/site-config-context';
 import { IconoRRSSEmail, IconoMapPin } from './ui/iconos';
+
+const FALLBACK = {
+  titulo: '¡Únete Ahora!',
+  fecha_fundacion: '2005-09-23',
+  email: 'contacto@nuamana.cl',
+  email_href: 'mailto:contacto@nuamana.cl',
+  horario: 'Sábados 3 a 6 PM',
+  cta_texto: 'VEN A VISITARNOS',
+  imagen: '/images/inicio/AndysShow.png',
+};
 
 const VisitSection = () => {
   const [years, setYears] = useState(0);
@@ -11,8 +22,19 @@ const VisitSection = () => {
   const [isClient, setIsClient] = useState(false);
   const { theme } = useTheme();
 
+  const config = useSiteConfigSafe();
+  const titulo = config?.visit.titulo ?? FALLBACK.titulo;
+  const fechaFundacion = config?.visit.fecha_fundacion ?? FALLBACK.fecha_fundacion;
+  const email = config?.visit.email ?? FALLBACK.email;
+  const emailHref = config?.visit.email_href ?? FALLBACK.email_href;
+  const horario = config?.visit.horario ?? FALLBACK.horario;
+  const ctaTexto = config?.visit.cta_texto ?? FALLBACK.cta_texto;
+  const imagen = config?.visit.imagen ?? FALLBACK.imagen;
+
   useEffect(() => {
-    const foundationDate = new Date(2005, 8, 23);
+    // Parse the configured ISO date (YYYY-MM-DD) as LOCAL midnight to match the
+    // previous hardcoded new Date(2005, 8, 23) semantics exactly.
+    const foundationDate = new Date(`${fechaFundacion}T00:00:00`);
     const today = new Date();
     let yearsDiff = today.getFullYear() - foundationDate.getFullYear();
     const monthDiff = today.getMonth() - foundationDate.getMonth();
@@ -62,7 +84,7 @@ const VisitSection = () => {
   return (
     <section className="py-24 bg-white dark:bg-clr4 transition-colors">
       <div className="max-w-[1080px] mx-auto px-6">
-        <h2 className="text-4xl md:text-6xl font-black font-display text-center mb-16 text-clr7 dark:text-clr8 uppercase tracking-tighter">¡Únete Ahora!</h2>
+        <h2 className="text-4xl md:text-6xl font-black font-display text-center mb-16 text-clr7 dark:text-clr8 uppercase tracking-tighter">{titulo}</h2>
 
         <div className="flex flex-col lg:flex-row gap-4 items-stretch">
           {/* Dashboard Left */}
@@ -76,14 +98,14 @@ const VisitSection = () => {
               </div>
               <div className="w-1/2 bg-gradient-to-br from-clr5/50 via-clr5/50 to-clr7/50 p-2 flex flex-col items-center justify-center text-center">
                 <a 
-                  href="mailto:contacto@nuamana.cl"
+                  href={emailHref}
                   className={`p-3 rounded-full transition-all duration-500 mb-2 ${isMailHovered ? 'bg-clr8 scale-110 shadow-lg' : 'bg-white/10'}`}
                   onMouseEnter={() => setIsMailHovered(true)}
                   onMouseLeave={() => setIsMailHovered(false)}
                 >
                   <IconoRRSSEmail className={`w-8 h-8 ${isMailHovered ? 'text-clr5' : 'text-clr4 dark:text-white'}`} />
                 </a>
-                <span className="text-[0.8em] font-black text-clr4 dark:text-white uppercase opacity-80 drop-shadow-lg">contacto@nuamana.cl</span>
+                <span className="text-[0.8em] font-black text-clr4 dark:text-white uppercase opacity-80 drop-shadow-lg">{email}</span>
               </div>
             </div>
 
@@ -91,10 +113,10 @@ const VisitSection = () => {
             <div className="relative aspect-square flex items-center justify-center bg-gradient-to-br from-clr8 dark:from-clr5 via-clr6 dark:via-clr5 to-dclr6 dark:to-clr7 rounded-[2em] shadow-xl group overflow-hidden">
               <div 
                 className="absolute inset-4 bg-contain bg-center bg-no-repeat opacity-60 group-hover:scale-110 transition-transform duration-1000"
-                style={{ backgroundImage: "url('/images/inicio/AndysShow.png')" }}
+                style={{ backgroundImage: `url('${imagen}')` }}
               />
               <div className="relative z-10 text-center p-4">
-                <span className="block text-3xl font-black text-white dark:text-clr8 font-display leading-tight uppercase tracking-tighter drop-shadow-lg">VEN A VISITARNOS</span>
+                <span className="block text-3xl font-black text-white dark:text-clr8 font-display leading-tight uppercase tracking-tighter drop-shadow-lg">{ctaTexto}</span>
               </div>
             </div>
 
@@ -108,7 +130,7 @@ const VisitSection = () => {
                   <div className="absolute top-1/2 left-1/2 w-0.5 h-8 bg-clr10 origin-top -translate-x-1/2" style={{ transform: `rotate(${180 + time.getMinutes() * 6}deg)` }} />
                   <div className="absolute top-1/2 left-1/2 w-px h-8 bg-clr7 origin-top -translate-x-1/2 animate-pulse" style={{ transform: `rotate(${180 + time.getSeconds() * 6}deg)` }} />
                 </div>
-                <div className="text-[0.9em] font-black uppercase text-clr1 text-center leading-tight drop-shadow-lg">Sábados 3 a 6 PM</div>
+                <div className="text-[0.9em] font-black uppercase text-clr1 text-center leading-tight drop-shadow-lg">{horario}</div>
               </div>
               <div className="w-1/2 bg-gradient-to-br from-clr5/50 via-clr5/50 to-clr7/50 p-4 flex flex-col items-center justify-center text-center">
                 <div className="relative mb-2">

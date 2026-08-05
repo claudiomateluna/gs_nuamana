@@ -2,9 +2,12 @@
 
 import * as React from 'react';
 import Link from 'next/link';
+import { useSiteConfigSafe } from '@/contexts/site-config-context';
 
-const FeaturesSection = () => {
-  const features = [
+const FALLBACK = {
+  titulo_seccion: '¿Qué hacemos?',
+  subtitulo: 'Descubre las actividades que realizamos en Nua Mana para el desarrollo integral de las niñas, niños y jóvenes.',
+  items: [
     {
       title: "LOGRAMOS",
       description: "Empoderamiento Juvenil",
@@ -29,15 +32,22 @@ const FeaturesSection = () => {
       image: "/images/inicio/pag_Abrazamos.jpg",
       link: "/lo-que-hacemos/aprender-haciendo"
     }
-  ];
+  ]
+};
+
+const FeaturesSection = () => {
+  const config = useSiteConfigSafe();
+  const tituloSeccion = config?.features.titulo_seccion ?? FALLBACK.titulo_seccion;
+  const subtitulo = config?.features.subtitulo ?? FALLBACK.subtitulo;
+  const features = config?.features.items ?? FALLBACK.items;
 
   return (
     <section className="py-24 bg-white dark:bg-clr4 transition-colors">
       <div className="max-w-[1080px] mx-auto px-6">
         <div className="text-center mb-16 space-y-4">
-          <h2 className="text-4xl md:text-6xl font-black font-display text-clr7 dark:text-clr8 uppercase tracking-tighter">¿Qué hacemos?</h2>
+          <h2 className="text-4xl md:text-6xl font-black font-display text-clr7 dark:text-clr8 uppercase tracking-tighter">{tituloSeccion}</h2>
           <p className="text-xl text-clr5 dark:text-clr2 max-w-3xl mx-auto font-body font-bold italic leading-relaxed">
-            Descubre las actividades que realizamos en Nua Mana para el desarrollo integral de las niñas, niños y jóvenes.
+            {subtitulo}
           </p>
         </div>
 

@@ -3,9 +3,13 @@
 import React, { useState } from 'react';
 import { IconoChevronUp, IconoChevronDown } from './ui/iconos';
 import DOMPurify from 'dompurify';
+import { useSiteConfigSafe } from '@/contexts/site-config-context';
 
-const FAQ_DATA = [
-  {
+const FALLBACK = {
+  titulo_seccion: 'Preguntas Frecuentes',
+  subtitulo: 'Encuentra respuestas a las dudas más comunes',
+  items: [
+    {
     question: "¿PUEDO SER SCOUT?",
     answer: "Sí, <b>todos pueden ser scouts</b>, nuestro grupo es abierto a toda la comunidad, para poder ser parte de los scouts, sólo tienes que ser mayor de 7 años y tener ganas de divertirte y jugar junto a otras personas.",
     image: "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/FAQ-puedoSerScout.png"
@@ -30,7 +34,8 @@ const FAQ_DATA = [
     answer: "La inscripción incluye:<br><br><b>• Seguro scout</b> (es un seguro complementario de salud, que se cobra como reembolso posterior a los gastos médicos y descuentos propios de cada niño, niña o joven)<br><b>• Credencial scout</b><br><b>• Insignia del año</b>",
     image: "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/FAQ-queIncluyeLaInscripcion.png"
   }
-];
+  ]
+};
 
 const FAQItem = ({ question, answer, isOpen, toggleOpen, image }: {
   question: string;
@@ -74,6 +79,10 @@ const FAQItem = ({ question, answer, isOpen, toggleOpen, image }: {
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const config = useSiteConfigSafe();
+  const tituloSeccion = config?.faq.titulo_seccion ?? FALLBACK.titulo_seccion;
+  const subtitulo = config?.faq.subtitulo ?? FALLBACK.subtitulo;
+  const items = config?.faq.items ?? FALLBACK.items;
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -84,15 +93,15 @@ const FAQ = () => {
       <div className="max-w-[1080px] mx-auto px-6">
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl md:text-6xl font-black font-display text-clr5 dark:text-clr8 uppercase tracking-tighter">
-            Preguntas Frecuentes
+            {tituloSeccion}
           </h2>
           <p className="text-xl text-clr2 font-body font-bold italic">
-            Encuentra respuestas a las dudas más comunes
+            {subtitulo}
           </p>
         </div>
 
         <div className="space-y-4 max-w-4xl mx-auto">
-          {FAQ_DATA.map((faq, index) => (
+          {items.map((faq, index) => (
             <FAQItem
               key={index}
               question={faq.question}

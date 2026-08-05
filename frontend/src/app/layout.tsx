@@ -3,6 +3,8 @@ import { Inika, Quicksand, Roboto_Slab } from "next/font/google";
 import { Toaster } from 'sonner';
 import "./globals.css";
 import { ThemeProvider } from "@/contexts/theme-context";
+import { SiteConfigProvider } from "@/contexts/site-config-context";
+import { loadSiteConfig } from "@/lib/site-config";
 import Footer from "@/components/footer";
 
 const inika = Inika({
@@ -51,23 +53,27 @@ export const viewport: Viewport = {
   maximumScale: 1,
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const config = await loadSiteConfig();
+
   return (
     <html lang="es" suppressHydrationWarning>
       <body
         className={`${inika.variable} ${quicksand.variable} ${robotoSlab.variable} antialiased bg-white dark:bg-clr4 text-clr4 dark:text-clr1`}
       >
         <ThemeProvider>
-          <div className="flex flex-col min-h-screen">
-            <main className="flex-grow">
-              {children}
-            </main>
-            <Footer />
-          </div>
+          <SiteConfigProvider config={config}>
+            <div className="flex flex-col min-h-screen">
+              <main className="flex-grow">
+                {children}
+              </main>
+              <Footer />
+            </div>
+          </SiteConfigProvider>
         </ThemeProvider>
         <Toaster position="top-right" richColors closeButton />
       </body>
