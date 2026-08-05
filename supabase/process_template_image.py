@@ -92,7 +92,8 @@ def process_article_image_py(input_img_path, output_img_path, title, category):
 
     # 5. Convert to RGB & Save WebP
     canvas_rgb = canvas.convert("RGB")
-    canvas_rgb.save(output_img_path, "WEBP", quality=80)
+    with open(output_img_path, "wb") as f:
+        canvas_rgb.save(f, "WEBP", quality=80)
     print(f"Processed image with template saved to: {output_img_path}")
 
 if __name__ == "__main__":

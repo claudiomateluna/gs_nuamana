@@ -2,6 +2,7 @@
 .atl/
 sdd/
 _archive/
+docs/registro_extraccion_articulos.md
 
 # dependencies
 node_modules/
