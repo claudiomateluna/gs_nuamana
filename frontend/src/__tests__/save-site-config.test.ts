@@ -68,6 +68,7 @@ import {
   brandingFooterSchema,
   socialHeaderSchema,
   socialFooterSchema,
+  contactVisitSchema,
 } from '@/lib/site-config.validation';
 import { saveSiteConfig } from '@/app/(admin)/actions/save-site-config';
 
@@ -103,12 +104,13 @@ beforeEach(() => {
 // ---------------------------------------------------------------------------
 
 describe('schemaResolver', () => {
-  it('covers exactly the 15 schema ids — 11 plain categories plus 4 partials', () => {
+  it('covers exactly the 16 schema ids — 11 plain categories plus 5 partials', () => {
     expect(Object.keys(schemaResolver).sort()).toEqual([
       'branding',
       'branding.footer',
       'branding.header',
       'contact',
+      'contact.visit',
       'faq',
       'features',
       'hero',
@@ -128,12 +130,15 @@ describe('schemaResolver', () => {
     expect(schemaResolver['branding.footer']).toEqual({ category: 'branding', schema: brandingFooterSchema });
     expect(schemaResolver['social.header']).toEqual({ category: 'social', schema: socialHeaderSchema });
     expect(schemaResolver['social.footer']).toEqual({ category: 'social', schema: socialFooterSchema });
+    expect(schemaResolver['contact.visit']).toEqual({ category: 'contact', schema: contactVisitSchema });
 
     for (const [id, resolved] of Object.entries(schemaResolver)) {
       if (id === 'branding.header' || id === 'branding.footer') {
         expect(resolved.category).toBe('branding');
       } else if (id === 'social.header' || id === 'social.footer') {
         expect(resolved.category).toBe('social');
+      } else if (id === 'contact.visit') {
+        expect(resolved.category).toBe('contact');
       } else {
         expect(resolved.category, `${id} must resolve to itself`).toBe(id);
       }
@@ -186,6 +191,21 @@ describe('partial schemas', () => {
     expect(socialFooterSchema.safeParse(mailtoFooter).success).toBe(true);
     expect(socialFooterSchema.safeParse({ email: '' }).success).toBe(true);
     expect(socialFooterSchema.safeParse({ email: 'no-es-mail' }).success).toBe(false);
+  });
+
+  it('contact.visit accepts a partial subset (direccion only), both fields, and rejects wrong types + unexpected keys', () => {
+    // Partial subset — only direccion
+    expect(contactVisitSchema.safeParse({ direccion: 'Av. 1 #2' }).success).toBe(true);
+    // Both fields
+    expect(
+      contactVisitSchema.safeParse({ direccion: 'Av. 1 #2', maps_embed: 'https://maps.google.com/embed' }).success,
+    ).toBe(true);
+    // Empty object accepted (all keys optional via .partial())
+    expect(contactVisitSchema.safeParse({}).success).toBe(true);
+    // Wrong type for maps_embed rejected
+    expect(contactVisitSchema.safeParse({ maps_embed: 42 }).success).toBe(false);
+    // Unexpected key rejected (sede_nombre is a contact key but NOT a contact.visit key)
+    expect(contactVisitSchema.safeParse({ sede_nombre: 'X' }).success).toBe(false);
   });
 });
 
@@ -273,5 +293,51 @@ describe('saveSiteConfig action', () => {
     // The footer (contact consumer) renders on EVERY route via the root layout
     expect(revalidatePath).toHaveBeenCalledWith('/', 'layout');
     expect(revalidatePath).not.toHaveBeenCalledWith('/');
+  });
+
+  it('contact.visit with only direccion upserts the same contact.direccion row as the contact schemaId (mirror)', async () => {
+    // Save via the contact.visit partial (Inicio → Dirección y Mapa)
+    const partialResult = await saveSiteConfig('contact.visit', { direccion: 'Nueva dirección 99' }, 'token-123');
+
+    expect(partialResult.success).toBe(true);
+    expect(supabaseMocks.upsertCalls).toHaveLength(1);
+    expect(supabaseMocks.upsertCalls[0].payload).toEqual(
+      expect.objectContaining({
+        categoria: 'contact',
+        clave: 'direccion',
+        valor: 'Nueva dirección 99',
+        updated_at: expect.stringMatching(/^\d{4}-\d{2}-\d{2}T/),
+      }),
+    );
+
+    // Triangulation: saving via the contact schemaId (full category) lands on
+    // the SAME (categoria, clave) row identity — the DB key is (contact, direccion).
+    // contactSchema requires all 3 fields, so submit a full valid object.
+    supabaseMocks.upsertCalls.length = 0;
+    const fullResult = await saveSiteConfig(
+      'contact',
+      { sede_nombre: 'Sede Nua Mana', direccion: 'Nueva dirección 99', maps_embed: '' },
+      'token-123',
+    );
+
+    expect(fullResult.success).toBe(true);
+    expect(
+      supabaseMocks.upsertCalls.find((c) => c.payload.clave === 'direccion')?.payload.categoria,
+    ).toBe('contact');
+  });
+
+  it('contact.visit with only maps_embed does NOT modify contact.direccion (partial upsert isolation)', async () => {
+    const result = await saveSiteConfig(
+      'contact.visit',
+      { maps_embed: 'https://maps.google.com/new-embed' },
+      'token-123',
+    );
+
+    expect(result.success).toBe(true);
+    expect(supabaseMocks.upsertCalls).toHaveLength(1);
+    expect(supabaseMocks.upsertCalls[0].payload.clave).toBe('maps_embed');
+    expect(supabaseMocks.upsertCalls[0].payload.categoria).toBe('contact');
+    // direccion row must NOT be touched by a maps_embed-only partial save
+    expect(supabaseMocks.upsertCalls.map((c) => c.payload.clave)).not.toContain('direccion');
   });
 });

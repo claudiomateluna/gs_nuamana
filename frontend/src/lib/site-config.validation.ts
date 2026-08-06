@@ -230,6 +230,18 @@ export const socialFooterSchema = z
   })
   .partial();
 
+// contact.visit — partial mirror of contactSchema, exposes only direccion +
+// maps_embed so Inicio → "Dirección y Mapa" can edit the same
+// configuracion_sitio rows as Footer → Contacto (DB remains single source of truth).
+// strictObject rejects keys outside {direccion, maps_embed} (e.g. sede_nombre);
+// .partial() makes both keys optional to accept non-empty subsets.
+export const contactVisitSchema = z
+  .strictObject({
+    direccion: nonEmpty,
+    maps_embed: z.string().url('URL inválida').or(z.string().length(0)),
+  })
+  .partial();
+
 // ---------------------------------------------------------------------------
 // Category-to-schema map (for the server action)
 // ---------------------------------------------------------------------------
@@ -263,6 +275,7 @@ export const schemaResolver: Record<SchemaId, { category: SiteConfigCategory; sc
   'branding.footer': { category: 'branding', schema: brandingFooterSchema },
   'social.header': { category: 'social', schema: socialHeaderSchema },
   'social.footer': { category: 'social', schema: socialFooterSchema },
+  'contact.visit': { category: 'contact', schema: contactVisitSchema },
   branding: { category: 'branding', schema: brandingSchema },
   social: { category: 'social', schema: socialSchema },
   contact: { category: 'contact', schema: contactSchema },

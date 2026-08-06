@@ -164,12 +164,13 @@ describe('ZoneConfigForm rendering', () => {
   it('renders one card per section of the Inicio zone with its field labels and a Guardar button each', () => {
     render(<ZoneConfigForm config={CONFIG} zone={zone('inicio')} />);
 
-    // Inicio keeps its metadata order: Hero → Features → Testimonios → Visítanos → FAQ
+    // Inicio keeps its metadata order: Hero → Features → Testimonios → Visítanos → Dirección y Mapa → FAQ
     expect(screen.getAllByRole('heading', { level: 3 }).map((h) => h.textContent)).toEqual([
       'Hero',
       'Features',
       'Testimonios',
       'Visítanos',
+      'Dirección y Mapa',
       'FAQ',
     ]);
 
@@ -179,10 +180,12 @@ describe('ZoneConfigForm rendering', () => {
     expect(within(cardOf('Features')).getByLabelText('Título de Sección')).toBeInTheDocument();
     expect(within(cardOf('Testimonios')).getByLabelText('Widget URL')).toBeInTheDocument();
     expect(within(cardOf('Visítanos')).getByLabelText('Texto CTA')).toBeInTheDocument();
+    expect(within(cardOf('Dirección y Mapa')).getByLabelText('Dirección (HTML permitido)')).toBeInTheDocument();
+    expect(within(cardOf('Dirección y Mapa')).getByLabelText('Maps Embed URL')).toBeInTheDocument();
     expect(within(cardOf('FAQ')).getByLabelText('Items (JSON array)')).toBeInTheDocument();
 
-    // One Guardar per card — 5 cards
-    expect(screen.getAllByRole('button', { name: 'Guardar' })).toHaveLength(5);
+    // One Guardar per card — 6 cards
+    expect(screen.getAllByRole('button', { name: 'Guardar' })).toHaveLength(6);
   });
 
   it('drives the rendered sections from the zone prop — footer renders 3 cards, global 2 (not hardcoded)', () => {

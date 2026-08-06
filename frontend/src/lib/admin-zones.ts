@@ -21,7 +21,8 @@ export type SchemaId =
   | 'branding.header'
   | 'branding.footer'
   | 'social.header'
-  | 'social.footer';
+  | 'social.footer'
+  | 'contact.visit';
 
 export interface ZoneSectionField {
   key: string;
@@ -194,6 +195,26 @@ export const ADMIN_ZONES: AdminZone[] = [
             label: 'Imagen',
             type: 'text',
             tooltip: 'Ruta de la imagen del círculo de visita',
+          },
+        ],
+      },
+      {
+        id: 'direccion-mapa',
+        title: 'Dirección y Mapa',
+        category: 'contact',
+        schemaId: 'contact.visit',
+        fields: [
+          {
+            key: 'direccion',
+            label: 'Dirección (HTML permitido)',
+            type: 'textarea',
+            tooltip: 'Dirección física. Se permite HTML como <br/> para saltos de línea. Compartido con Footer → Contacto',
+          },
+          {
+            key: 'maps_embed',
+            label: 'Maps Embed URL',
+            type: 'url',
+            tooltip: 'URL de incrustación de Google Maps. Compartido con Footer → Contacto',
           },
         ],
       },

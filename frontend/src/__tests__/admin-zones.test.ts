@@ -47,6 +47,12 @@ const EXPECTED_FIELDS = {
 
 const FIELD_TYPES = ['text', 'textarea', 'url', 'color', 'number', 'json'] as const;
 
+// Mirrors reserved for content the user wants editable across multiple admin
+// zones. Currently only contact.direccion / contact.maps_embed (Inicio
+// "Dirección y Mapa" mirrors Footer → Contacto). Do NOT add keys here for
+// convenience — each entry is an intentional, documented cross-zone mirror.
+const EXPECTED_DUPLICATES: Set<string> = new Set(['contact.direccion', 'contact.maps_embed']);
+
 // ---------------------------------------------------------------------------
 // Helpers — every helper asserts on real metadata from ADMIN_ZONES
 // ---------------------------------------------------------------------------
@@ -86,7 +92,7 @@ describe('ADMIN_ZONES coverage', () => {
     expect(ADMIN_ZONES.every((z) => z.icon.length > 0)).toBe(true);
   });
 
-  it('covers every field of every category exactly once — none missing, none duplicated, none extra', () => {
+  it('covers every field of every category — none missing, no unintended duplicates, none extra', () => {
     // Flatten metadata into (category, key) placements
     const seen = new Map<string, number>();
     const placements: string[] = [];
@@ -106,25 +112,40 @@ describe('ADMIN_ZONES coverage', () => {
       for (const key of fields) expected.push(`${category}.${key}`);
     }
 
-    // None missing
+    // None missing — mirrors must appear exactly twice, every other key once
     for (const id of expected) {
-      expect(seen.get(id), `expected ${id} to appear exactly once`).toBe(1);
+      const expectedCount = EXPECTED_DUPLICATES.has(id) ? 2 : 1;
+      expect(seen.get(id), `expected ${id} to appear ${expectedCount} time(s)`).toBe(expectedCount);
     }
 
-    // No duplicates
+    // No unintended duplicates — mirrors allowed exactly twice, everything else once
     for (const [id, count] of seen) {
-      expect(count, `${id} must not be duplicated across sections`).toBe(1);
+      const expectedCount = EXPECTED_DUPLICATES.has(id) ? 2 : 1;
+      expect(count, `${id} must appear ${expectedCount} time(s), not ${count}`).toBe(expectedCount);
     }
 
-    // No extra fields beyond the 11 categories (exact set equality)
-    expect(placements.sort()).toEqual([...expected].sort());
-    expect(placements.length).toBe(expected.length);
+    // No extra fields beyond the 11 categories (exact set equality on deduped placements)
+    expect([...new Set(placements)].sort()).toEqual([...expected].sort());
   });
 
-  it('keeps the Inicio section order Hero → Features → Testimonios → Visítanos → FAQ', () => {
+  it('keeps the Inicio section order Hero → Features → Testimonios → Visítanos → Dirección y Mapa → FAQ', () => {
     const inicio = zoneOf('inicio');
-    expect(inicio.sections.map((s) => s.id)).toEqual(['hero', 'features', 'testimonials', 'visit', 'faq']);
-    expect(inicio.sections.map((s) => s.title)).toEqual(['Hero', 'Features', 'Testimonios', 'Visítanos', 'FAQ']);
+    expect(inicio.sections.map((s) => s.id)).toEqual([
+      'hero',
+      'features',
+      'testimonials',
+      'visit',
+      'direccion-mapa',
+      'faq',
+    ]);
+    expect(inicio.sections.map((s) => s.title)).toEqual([
+      'Hero',
+      'Features',
+      'Testimonios',
+      'Visítanos',
+      'Dirección y Mapa',
+      'FAQ',
+    ]);
   });
 
   it('marks the Menú de Navegación zone as tab-only with no field metadata', () => {
@@ -136,7 +157,7 @@ describe('ADMIN_ZONES coverage', () => {
     // Triangulation: every other zone carries real sections
     const otherZones = ADMIN_ZONES.filter((z) => z.id !== 'menu');
     expect(otherZones.every((z) => z.tabOnly !== true)).toBe(true);
-    expect(otherZones.map((z) => z.sections.length)).toEqual([5, 3, 3, 2]);
+    expect(otherZones.map((z) => z.sections.length)).toEqual([6, 3, 3, 2]);
   });
 
   it('maps each zone to its exact sections and categories', () => {
@@ -145,11 +166,20 @@ describe('ADMIN_ZONES coverage', () => {
       'features',
       'testimonials',
       'visit',
+      'contact',
       'faq',
     ]);
     expect(zoneOf('header').sections.map((s) => s.category)).toEqual(['branding', 'social', 'navigation']);
     expect(zoneOf('footer').sections.map((s) => s.category)).toEqual(['branding', 'social', 'contact']);
     expect(zoneOf('global').sections.map((s) => s.category)).toEqual(['seo', 'pwa']);
+  });
+
+  it('Dirección y Mapa section mirrors Footer → Contacto via a contact.visit split card', () => {
+    const section = sectionOf('inicio', 'direccion-mapa');
+    expect(section.title).toBe('Dirección y Mapa');
+    expect(section.category).toBe('contact');
+    expect(section.schemaId).toBe('contact.visit');
+    expect(section.fields.map((f) => f.key)).toEqual(['direccion', 'maps_embed']);
   });
 
   it('uses split schemaIds for header/footer branding+social sections and plain category elsewhere', () => {
@@ -158,7 +188,7 @@ describe('ADMIN_ZONES coverage', () => {
     expect(sectionOf('header', 'redes').schemaId).toBe('social.header');
     expect(sectionOf('footer', 'redes').schemaId).toBe('social.footer');
 
-    const split = new Set(['branding.header', 'branding.footer', 'social.header', 'social.footer']);
+    const split = new Set(['branding.header', 'branding.footer', 'social.header', 'social.footer', 'contact.visit']);
     for (const zone of ADMIN_ZONES) {
       for (const section of zone.sections) {
         if (!split.has(section.schemaId)) {
