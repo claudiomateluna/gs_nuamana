@@ -16,18 +16,20 @@ const VALID = {
   dclr2: '#b0b0b0',
   dclr3: '#1e1e1e',
   dclr4: '#0a0a0a',
-  dclr5: '#1a2a3a',
-  dclr6: '#2d8a3a',
-  dclr7: '#a3281f',
-  dclr8: '#e6b01a',
+  dclr5: '#33506f',
+  dclr6: '#33a345',
+  dclr7: '#ef4b3a',
+  dclr8: '#ffcf33',
+  dclr9: '#26262b',
+  dclr10: '#3c3c3c',
 };
 
 describe('themeColorsSchema', () => {
-  it('accepts all 18 valid #RRGGBB fields', () => {
+  it('accepts all 20 valid #RRGGBB fields', () => {
     const parsed = themeColorsSchema.parse(VALID);
     expect(parsed.clr7).toBe('#cb3327');
-    expect(parsed.dclr8).toBe('#e6b01a');
-    expect(Object.keys(parsed)).toHaveLength(18);
+    expect(parsed.dclr8).toBe('#ffcf33');
+    expect(Object.keys(parsed)).toHaveLength(20);
   });
 
   it('rejects a named color like "red" with Formato: #RRGGBB', () => {

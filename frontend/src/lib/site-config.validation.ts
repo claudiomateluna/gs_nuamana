@@ -189,7 +189,7 @@ export const navigationSchema = z.object({
 export type NavigationFormData = z.infer<typeof navigationSchema>;
 
 // ---------------------------------------------------------------------------
-// Theme Colors (18 hex palette fields overriding globals.css :root vars)
+// Theme Colors (20 hex palette fields overriding globals.css :root vars)
 // ---------------------------------------------------------------------------
 
 const hexColor = z.string().regex(/^#[0-9a-fA-F]{6}$/, 'Formato: #RRGGBB');
@@ -213,6 +213,8 @@ export const themeColorsSchema = z.object({
   dclr6: hexColor,
   dclr7: hexColor,
   dclr8: hexColor,
+  dclr9: hexColor,
+  dclr10: hexColor,
 });
 
 export type ThemeColorsFormData = z.infer<typeof themeColorsSchema>;

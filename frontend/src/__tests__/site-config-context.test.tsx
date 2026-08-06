@@ -62,7 +62,7 @@ const FIXTURE: SiteConfigRecord = {
   navigation: { label_panel: '', label_login: '' },
   theme_colors: {
     clr1: '', clr2: '', clr3: '', clr4: '', clr5: '', clr6: '', clr7: '', clr8: '', clr9: '', clr10: '',
-    dclr1: '', dclr2: '', dclr3: '', dclr4: '', dclr5: '', dclr6: '', dclr7: '', dclr8: '',
+    dclr1: '', dclr2: '', dclr3: '', dclr4: '', dclr5: '', dclr6: '', dclr7: '', dclr8: '', dclr9: '', dclr10: '',
   },
 };
 

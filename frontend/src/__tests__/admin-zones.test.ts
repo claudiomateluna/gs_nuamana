@@ -62,6 +62,8 @@ const EXPECTED_FIELDS = {
     'dclr6',
     'dclr7',
     'dclr8',
+    'dclr9',
+    'dclr10',
   ],
 } as const satisfies CategoryFieldMap;
 
@@ -194,23 +196,23 @@ describe('ADMIN_ZONES coverage', () => {
     expect(zoneOf('global').sections.map((s) => s.category)).toEqual(['seo', 'pwa', 'theme_colors']);
   });
 
-  it('exposes a colores-tema section in Global with 18 color-type fields', () => {
+  it('exposes a colores-tema section in Global with 20 color-type fields', () => {
     const section = sectionOf('global', 'colores-tema');
     expect(section.title).toBe('Colores del Tema');
     expect(section.category).toBe('theme_colors');
     expect(section.schemaId).toBe('theme_colors');
-    expect(section.fields).toHaveLength(18);
+    expect(section.fields).toHaveLength(20);
     // Every field is a color picker with a non-empty label and tooltip
     for (const f of section.fields) {
       expect(f.type, `${f.key} must be color`).toBe('color');
       expect(f.label.length, `label of ${f.key}`).toBeGreaterThan(0);
       expect(f.tooltip?.length ?? 0, `tooltip of ${f.key}`).toBeGreaterThan(0);
     }
-    // All 18 theme_colors keys appear exactly once in this section
+    // All 20 theme_colors keys appear exactly once in this section
     const keys = section.fields.map((f) => f.key).sort();
     const expectedKeys = [
       'clr1', 'clr10', 'clr2', 'clr3', 'clr4', 'clr5', 'clr6', 'clr7', 'clr8', 'clr9',
-      'dclr1', 'dclr2', 'dclr3', 'dclr4', 'dclr5', 'dclr6', 'dclr7', 'dclr8',
+      'dclr1', 'dclr10', 'dclr2', 'dclr3', 'dclr4', 'dclr5', 'dclr6', 'dclr7', 'dclr8', 'dclr9',
     ].sort();
     expect(keys).toEqual(expectedKeys);
   });

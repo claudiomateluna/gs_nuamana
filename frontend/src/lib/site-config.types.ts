@@ -146,6 +146,8 @@ export interface ThemeColorsConfig {
   dclr6: string;
   dclr7: string;
   dclr8: string;
+  dclr9: string;
+  dclr10: string;
 }
 
 // --- Mapped config record ---

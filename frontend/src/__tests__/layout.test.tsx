@@ -62,12 +62,12 @@ describe('RootLayout SSR theme style injection', () => {
     expect(css).not.toContain('--clr7:#cb3327');
     // Other defaults still present
     expect(css).toContain('--clr1:#FFFFFF');
-    expect(css).toContain('--dclr8:#e6b01a');
+    expect(css).toContain('--dclr8:#ffcf33');
 
-    // All 18 palette variables emitted exactly once (declaration form `${var}:`)
+    // All 20 palette variables emitted exactly once (declaration form `${var}:`)
     const vars = [
       ...Array.from({ length: 10 }, (_, i) => `--clr${i + 1}`),
-      ...Array.from({ length: 8 }, (_, i) => `--dclr${i + 1}`),
+      ...Array.from({ length: 10 }, (_, i) => `--dclr${i + 1}`),
     ];
     for (const v of vars) {
       expect(css.split(`${v}:`).length - 1, `${v} declaration should appear once`).toBe(1);
