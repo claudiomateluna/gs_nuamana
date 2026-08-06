@@ -13,6 +13,11 @@ const FALLBACK = {
   horario: 'Sábados 3 a 6 PM',
   cta_texto: 'VEN A VISITARNOS',
   imagen: '/images/inicio/AndysShow.png',
+  // Contact fields — copied VERBATIM from DEFAULT_SITE_CONFIG.contact
+  // (site-config.ts:68-69); the module itself is server-only (unstable_cache /
+  // supabase coupling), so the local-FALLBACK pattern is kept like footer.tsx.
+  direccion: 'San José de la Estrella 1004<br/>La Granja, Santiago, Chile',
+  maps_embed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3324.382796811922!2d-70.6096195!3d-33.569409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d0a6e457520d%3A0xc3892aa7fa7d74b!2sGuias%20y%20Scouts%20Nua%20Mana!5e0!1ses!2scl!4v1763171854990!5m2!1ses!2scl',
 };
 
 const VisitSection = () => {
@@ -30,6 +35,9 @@ const VisitSection = () => {
   const horario = config?.visit.horario ?? FALLBACK.horario;
   const ctaTexto = config?.visit.cta_texto ?? FALLBACK.cta_texto;
   const imagen = config?.visit.imagen ?? FALLBACK.imagen;
+  const direccion = config?.contact.direccion ?? FALLBACK.direccion;
+  const mapsEmbed = config?.contact.maps_embed ?? FALLBACK.maps_embed;
+  const direccionLines = direccion.split(/<br\s*\/?>/i);
 
   useEffect(() => {
     // Parse the configured ISO date (YYYY-MM-DD) as LOCAL midnight to match the
@@ -121,7 +129,7 @@ const VisitSection = () => {
             </div>
 
             {/* Clock & Pin */}
-            <div className="flex h-40 shadow-2xl rounded-[2em] overflow-hidden">
+            <div className="flex min-h-40 shadow-2xl rounded-[2em] overflow-hidden">
               <div className="w-1/2 bg-gradient-to-br from-clr7/50 via-clr5/50 to-clr5/50 p-2 flex flex-col items-center justify-center">
                 <div className="relative w-16 h-16 mb-2 border-4 border-clr10 rounded-full">
                   <div className="absolute top-1/2 left-1/2 w-1.5 h-1.5 bg-clr10 rounded-full -translate-x-1/2 -translate-y-1/2 z-10" />
@@ -137,7 +145,14 @@ const VisitSection = () => {
                   <IconoMapPin className="w-16 h-16 text-white" />
                   <div className="absolute inset-0 bg-white rounded-full animate-ping opacity-20" />
                 </div>
-                <span className="text-[0.8em] font-black text-white uppercase leading-tight">San José de la Estrella<br/>1004, La Granja</span>
+                <span className="text-[0.8em] font-black text-white uppercase leading-tight">
+                  {direccionLines.map((line, i) => (
+                    <span key={i}>
+                      {line}
+                      {i < direccionLines.length - 1 && <br />}
+                    </span>
+                  ))}
+                </span>
               </div>
             </div>
           </div>
@@ -145,7 +160,7 @@ const VisitSection = () => {
           {/* Map Right */}
           <div className="w-full lg:w-2/3 min-h-[500px] rounded-[2rem] overflow-hidden shadow-2xl dark:grayscale hover:grayscale-0 transition-all duration-700">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3324.382796811922!2d-70.6096195!3d-33.569409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d0a6e457520d%3A0xc3892aa7fa7d74b!2sGuias%20y%20Scouts%20Nua%20Mana!5e0!3m2!1ses!2scl!4v1763411447730!5m2!1ses!2scl"
+              src={mapsEmbed}
               width="100%"
               height="100%"
               style={{ border: 0 }}

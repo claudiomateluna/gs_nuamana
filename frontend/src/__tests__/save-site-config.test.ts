@@ -265,11 +265,13 @@ describe('saveSiteConfig action', () => {
     expect(supabaseMocks.upsertCalls).toHaveLength(0);
   });
 
-  it('revalidates the site-config cache and the homepage after a successful save', async () => {
+  it('revalidates the site-config cache and the root layout after a successful save', async () => {
     const result = await saveSiteConfig('social.footer', SOCIAL_FOOTER_SUBSET, 'token-123');
 
     expect(result.success).toBe(true);
     expect(revalidateTag).toHaveBeenCalledWith('site-config', { expire: 60 });
-    expect(revalidatePath).toHaveBeenCalledWith('/');
+    // The footer (contact consumer) renders on EVERY route via the root layout
+    expect(revalidatePath).toHaveBeenCalledWith('/', 'layout');
+    expect(revalidatePath).not.toHaveBeenCalledWith('/');
   });
 });

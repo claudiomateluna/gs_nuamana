@@ -112,9 +112,11 @@ export async function saveSiteConfig(
     return { success: false, errors };
   }
 
-  // 4. Revalidate the site-config cache so all pages see the new values
+  // 4. Revalidate the site-config cache so all pages see the new values.
+  //    revalidatePath('/', 'layout') re-renders the root-layout footer, which
+  //    consumes contact.* on EVERY route (not just '/').
   revalidateTag('site-config', { expire: 60 });
-  revalidatePath('/');
+  revalidatePath('/', 'layout');
 
   return { success: true };
 }

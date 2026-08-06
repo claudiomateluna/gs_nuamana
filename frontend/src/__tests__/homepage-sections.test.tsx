@@ -369,4 +369,81 @@ describe('VisitSection consumes useSiteConfig', () => {
 
     expect(await screen.findByText(DEFAULT_SITE_CONFIG.visit.cta_texto)).toBeInTheDocument();
   });
+
+  // R1-S1 — saved contact values render instead of the hardcoded address/iframe
+  it('renders the saved contact.direccion lines and maps_embed iframe from the provider', async () => {
+    const { container } = renderInProvider(<VisitSection />);
+
+    // isClient-gated — address appears only after client init
+    expect(await screen.findByText('Calle Test 123')).toBeInTheDocument();
+    expect(screen.getByText('Comuna Test')).toBeInTheDocument();
+
+    // The hardcoded address must not render anywhere
+    expect(container.textContent).not.toContain('San José de la Estrella');
+
+    // The iframe src comes from the saved maps_embed, not the hardcoded embed URL
+    const iframe = container.querySelector('iframe');
+    expect(iframe).not.toBeNull();
+    expect(iframe).toHaveAttribute('src', SAVED.contact.maps_embed);
+    expect(iframe?.getAttribute('src') ?? '').not.toContain('4v1763411447730');
+  });
+
+  // R1-S2 — per-field fallback outside the provider renders the DEFAULT literals
+  it('falls back to DEFAULT contact.direccion/maps_embed when rendered outside the provider', async () => {
+    const { container } = render(<VisitSection />);
+
+    const expectedLines = DEFAULT_SITE_CONFIG.contact.direccion.split(/<br\s*\/?>/i);
+    for (const line of expectedLines) {
+      expect(await screen.findByText(line)).toBeInTheDocument();
+    }
+
+    const iframe = container.querySelector('iframe');
+    expect(iframe).not.toBeNull();
+    expect(iframe).toHaveAttribute('src', DEFAULT_SITE_CONFIG.contact.maps_embed);
+  });
+
+  // R1-S3 — XSS-safe: a <script> payload inside direccion renders as TEXT
+  it('renders a <script> inside direccion as plain text (XSS-safe)', async () => {
+    const xssConfig: SiteConfigRecord = {
+      ...SAVED,
+      contact: {
+        ...SAVED.contact,
+        direccion: 'OK<br/><script>alert(1)</script>',
+      },
+    };
+    const { container } = renderInProvider(<VisitSection />, xssConfig);
+
+    expect(await screen.findByText('OK')).toBeInTheDocument();
+
+    // The script payload is TEXT content — no DOM script element is created
+    expect(container.textContent).toContain('<script>alert(1)</script>');
+    expect(container.querySelector('script')).toBeNull();
+  });
+});
+
+// ---------------------------------------------------------------------------
+// R2-S1 — same-source regression: footer + VisitSection render identical values
+// ---------------------------------------------------------------------------
+
+describe('Address & map single source (footer + VisitSection)', () => {
+  it('renders the same config-driven address lines and iframe src in one provider', async () => {
+    const { container } = renderInProvider(
+      <>
+        <NuaManaFooter />
+        <VisitSection />
+      </>,
+    );
+
+    // Footer renders immediately; VisitSection is isClient-gated — wait for both
+    const addressMatches = await screen.findAllByText('Calle Test 123');
+    expect(addressMatches).toHaveLength(2);
+    expect(screen.getAllByText('Comuna Test')).toHaveLength(2);
+
+    // Both iframes carry the SAVED maps_embed src — the same source
+    const iframes = container.querySelectorAll('iframe');
+    expect(iframes).toHaveLength(2);
+    for (const iframe of iframes) {
+      expect(iframe).toHaveAttribute('src', SAVED.contact.maps_embed);
+    }
+  });
 });
