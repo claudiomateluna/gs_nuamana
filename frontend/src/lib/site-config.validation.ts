@@ -193,7 +193,7 @@ export type NavigationFormData = z.infer<typeof navigationSchema>;
 // ---------------------------------------------------------------------------
 
 const hexColor = z.string().regex(/^#[0-9a-fA-F]{6}$/, 'Formato: #RRGGBB');
-const opacity = z.number().int().min(0, 'Mínimo 0').max(100, 'Máximo 100');
+const opacity = z.number().int().min(0, 'Mínimo 0').max(100, 'Máximo 100').default(100);
 
 export const themeColorsSchema = z.object({
   clr1: hexColor,

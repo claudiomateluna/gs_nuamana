@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, within } from '@testing-library/react';
+import { render, screen, within, fireEvent, waitFor } from '@testing-library/react';
 import { ADMIN_ZONES } from '@/lib/admin-zones';
 import type { AdminZone } from '@/lib/admin-zones';
 import type { SiteConfigRecord } from '@/lib/site-config.types';
@@ -258,5 +258,27 @@ describe('ZoneConfigForm grid layout', () => {
     const pwa = screen.getByRole('heading', { name: 'PWA' }).closest('form');
     if (!pwa) throw new Error('expected PWA card');
     expect(within(pwa as HTMLElement).queryByRole('table')).toBeNull();
+  });
+
+  it('regression: empty opacity fields submit as number 100 (no expected-number error)', async () => {
+    render(<ZoneConfigForm config={CONFIG} zone={zone('global')} />);
+
+    const colores = screen.getByRole('heading', { name: 'Colores del Tema' }).closest('form');
+    if (!colores) throw new Error('expected colores-tema card');
+
+    // Clear the light opacity input (Color de Fondo row)
+    const opacityInput = within(colores as HTMLElement).getByLabelText('Transparencia Color de Fondo');
+    fireEvent.change(opacityInput, { target: { value: '' } });
+
+    // Submit the grid card
+    const saveButton = within(colores as HTMLElement).getByRole('button', { name: /guardar/i });
+    fireEvent.click(saveButton);
+
+    await waitFor(() => expect(saveSiteConfigMock).toHaveBeenCalled());
+
+    const [, payload] = saveSiteConfigMock.mock.calls[0];
+    const opacity = (payload as Record<string, unknown>).clr1_opacity;
+    expect(opacity).toBe(100);
+    expect(typeof opacity).toBe('number');
   });
 });

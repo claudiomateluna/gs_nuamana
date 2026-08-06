@@ -62,7 +62,9 @@ function serializeFieldValue(field: ZoneSectionField, raw: unknown): unknown {
       return raw; // leave as string — Zod rejects with its message
     }
   }
-  if (field.type === 'number' && typeof raw === 'string' && raw.trim() !== '') {
+  if (field.type === 'number' && typeof raw === 'string') {
+    // Empty string → undefined so the schema can apply its default (e.g. opacity 100)
+    if (raw.trim() === '') return undefined;
     return Number(raw);
   }
   return raw;
