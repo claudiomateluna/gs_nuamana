@@ -13,6 +13,8 @@ const DEFAULTS: ThemeColorsConfig = {
   clr8: '#ffc41d',
   clr9: '#f8f9fa',
   clr10: '#e9ecef',
+  clr11: '#2c3e50',
+  clr12: '#cb3327',
   dclr1: '#121212',
   dclr2: '#b0b0b0',
   dclr3: '#1e1e1e',
@@ -23,13 +25,39 @@ const DEFAULTS: ThemeColorsConfig = {
   dclr8: '#ffcf33',
   dclr9: '#26262b',
   dclr10: '#3c3c3c',
+  dclr11: '#33506f',
+  dclr12: '#ef4b3a',
+  clr1_opacity: 100,
+  clr2_opacity: 100,
+  clr3_opacity: 100,
+  clr4_opacity: 100,
+  clr5_opacity: 100,
+  clr6_opacity: 100,
+  clr7_opacity: 100,
+  clr8_opacity: 100,
+  clr9_opacity: 100,
+  clr10_opacity: 100,
+  clr11_opacity: 100,
+  clr12_opacity: 100,
+  dclr1_opacity: 100,
+  dclr2_opacity: 100,
+  dclr3_opacity: 100,
+  dclr4_opacity: 100,
+  dclr5_opacity: 100,
+  dclr6_opacity: 100,
+  dclr7_opacity: 100,
+  dclr8_opacity: 100,
+  dclr9_opacity: 100,
+  dclr10_opacity: 100,
+  dclr11_opacity: 100,
+  dclr12_opacity: 100,
 };
 
 describe('generateThemeCSS', () => {
-  it('emits a minified :root block with all 20 default variables in order', () => {
+  it('emits a minified :root block with all 24 default variables in order', () => {
     const css = generateThemeCSS(DEFAULTS);
     expect(css).toBe(
-      ':root{--clr1:#FFFFFF;--clr2:#95a5a6;--clr3:#333333;--clr4:#1d1d1d;--clr5:#2c3e50;--clr6:#3eb34b;--clr7:#cb3327;--clr8:#ffc41d;--clr9:#f8f9fa;--clr10:#e9ecef;--dclr1:#121212;--dclr2:#b0b0b0;--dclr3:#1e1e1e;--dclr4:#0a0a0a;--dclr5:#33506f;--dclr6:#33a345;--dclr7:#ef4b3a;--dclr8:#ffcf33;--dclr9:#26262b;--dclr10:#3c3c3c;}',
+      ':root{--clr1:#FFFFFF;--clr2:#95a5a6;--clr3:#333333;--clr4:#1d1d1d;--clr5:#2c3e50;--clr6:#3eb34b;--clr7:#cb3327;--clr8:#ffc41d;--clr9:#f8f9fa;--clr10:#e9ecef;--clr11:#2c3e50;--clr12:#cb3327;--dclr1:#121212;--dclr2:#b0b0b0;--dclr3:#1e1e1e;--dclr4:#0a0a0a;--dclr5:#33506f;--dclr6:#33a345;--dclr7:#ef4b3a;--dclr8:#ffcf33;--dclr9:#26262b;--dclr10:#3c3c3c;--dclr11:#33506f;--dclr12:#ef4b3a;}',
     );
   });
 
@@ -43,17 +71,52 @@ describe('generateThemeCSS', () => {
     expect(css).toContain('--clr1:#FFFFFF');
   });
 
-  it('always wraps the block in :root{...} and emits each of the 20 variable names exactly once', () => {
+  it('always wraps the block in :root{...} and emits each of the 24 variable names exactly once', () => {
     const css = generateThemeCSS(DEFAULTS);
     expect(css.startsWith(':root{')).toBe(true);
     expect(css.endsWith('}')).toBe(true);
     const vars = [
-      ...Array.from({ length: 10 }, (_, i) => `--clr${i + 1}`),
-      ...Array.from({ length: 10 }, (_, i) => `--dclr${i + 1}`),
+      ...Array.from({ length: 12 }, (_, i) => `--clr${i + 1}`),
+      ...Array.from({ length: 12 }, (_, i) => `--dclr${i + 1}`),
     ];
     for (const v of vars) {
       // Append ':' so '--clr1:' does not match inside '--clr10:'.
       expect(css.split(`${v}:`).length - 1, `${v} should appear exactly once`).toBe(1);
     }
+  });
+
+  // --- R3: opacity → rgba emission ---
+
+  it('emits plain hex when opacity is 100', () => {
+    const theme = { ...DEFAULTS, clr5_opacity: 100 } as ThemeColorsConfig;
+    const css = generateThemeCSS(theme);
+    expect(css).toContain('--clr5:#2c3e50');
+    expect(css).not.toContain('rgba(44, 62, 80, 1)');
+  });
+
+  it('emits rgba(44, 62, 80, 0.9) when clr5_opacity is 90', () => {
+    const theme = { ...DEFAULTS, clr5_opacity: 90 } as ThemeColorsConfig;
+    const css = generateThemeCSS(theme);
+    expect(css).toContain('--clr5:rgba(44, 62, 80, 0.9)');
+  });
+
+  it('emits rgba(44, 62, 80, 0) when clr5_opacity is 0', () => {
+    const theme = { ...DEFAULTS, clr5_opacity: 0 } as ThemeColorsConfig;
+    const css = generateThemeCSS(theme);
+    expect(css).toContain('--clr5:rgba(44, 62, 80, 0)');
+  });
+
+  it('emits plain hex when opacity is undefined (pre-migration rows)', () => {
+    const theme = { ...DEFAULTS } as ThemeColorsConfig;
+    // Delete an opacity key to simulate a row saved before the migration
+    delete (theme as unknown as Record<string, unknown>).clr5_opacity;
+    const css = generateThemeCSS(theme);
+    expect(css).toContain('--clr5:#2c3e50');
+  });
+
+  it('parses lowercase hex correctly for rgba conversion', () => {
+    const theme = { ...DEFAULTS, clr11: '#2c3e50', clr11_opacity: 50 } as ThemeColorsConfig;
+    const css = generateThemeCSS(theme);
+    expect(css).toContain('--clr11:rgba(44, 62, 80, 0.5)');
   });
 });

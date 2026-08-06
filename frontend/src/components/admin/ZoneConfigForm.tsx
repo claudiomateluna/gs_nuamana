@@ -19,6 +19,7 @@ import type { Resolver, FieldErrors } from 'react-hook-form';
 import { toast } from 'sonner';
 import { supabase } from '@/lib/supabase';
 import type { AdminZone, ZoneSection, ZoneSectionField } from '@/lib/admin-zones';
+import { gridRowGroups } from '@/lib/admin-zones';
 import { schemaResolver } from '@/lib/site-config.validation';
 import { saveSiteConfig } from '@/app/(admin)/actions/save-site-config';
 import type { SiteConfigRecord } from '@/lib/site-config.types';
@@ -229,6 +230,104 @@ function SectionCard({ section, config }: SectionCardProps) {
     );
   };
 
+  // -------------------------------------------------------------------------
+  // Grid rendering — 5-column table (Nombre | Claro | Transp. Claro | Oscuro |
+  // Transp. Oscuro). Row-major convention: fields chunked by 4 via
+  // gridRowGroups → [clrN(color), clrN_opacity(number), dclrN(color),
+  // dclrN_opacity(number)] per row.
+  // -------------------------------------------------------------------------
+
+  const renderGridField = (field: ZoneSectionField, rowIndex: number) => {
+    const error = (errors as Record<string, { message?: string } | undefined>)[field.key];
+    const fieldId = `${section.id}-${field.key}`;
+    const inputClass =
+      'w-full bg-zinc-50 dark:bg-black/20 border-2 border-transparent focus:border-clr7 rounded-xl p-2 text-clr4 dark:text-clr1 outline-none transition-all font-bold text-sm shadow-inner';
+
+    if (field.type === 'color') {
+      return (
+        <td key={field.key} className="px-2 py-1 align-middle">
+          <div className="flex items-center gap-2">
+            <input
+              type="color"
+              id={`${fieldId}-swatch`}
+              aria-label={`${field.label} (selector de color)`}
+              {...register(field.key)}
+              className="w-10 h-10 rounded-lg border-2 border-transparent focus:border-clr7 cursor-pointer shrink-0"
+            />
+            <input
+              type="text"
+              id={fieldId}
+              aria-label={field.label}
+              {...register(field.key)}
+              className={inputClass}
+            />
+          </div>
+          {error && <p className="text-clr7 text-[0.7em] ml-2 font-black uppercase tracking-wider">{error.message}</p>}
+        </td>
+      );
+    }
+
+    return (
+      <td key={field.key} className="px-2 py-1 align-middle">
+        <input
+          type="number"
+          id={fieldId}
+          aria-label={field.label}
+          min={0}
+          max={100}
+          {...register(field.key)}
+          className={inputClass}
+        />
+        {error && <p className="text-clr7 text-[0.7em] ml-2 font-black uppercase tracking-wider">{error.message}</p>}
+      </td>
+    );
+  };
+
+  const renderGrid = () => {
+    const rows = gridRowGroups(section.fields);
+    return (
+      <div className="overflow-x-auto p-4">
+        <table className="w-full border-collapse">
+          <thead>
+            <tr>
+              <th scope="col" className="px-2 py-2 text-left text-[0.8em] font-black uppercase tracking-widest text-clr2">
+                Nombre
+              </th>
+              <th scope="col" className="px-2 py-2 text-left text-[0.8em] font-black uppercase tracking-widest text-clr2">
+                Claro
+              </th>
+              <th scope="col" className="px-2 py-2 text-left text-[0.8em] font-black uppercase tracking-widest text-clr2">
+                Transp. Claro
+              </th>
+              <th scope="col" className="px-2 py-2 text-left text-[0.8em] font-black uppercase tracking-widest text-clr2">
+                Oscuro
+              </th>
+              <th scope="col" className="px-2 py-2 text-left text-[0.8em] font-black uppercase tracking-widest text-clr2">
+                Transp. Oscuro
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row, rowIndex) => {
+              const [colorField, lightOpacityField, darkField, darkOpacityField] = row;
+              return (
+                <tr key={colorField.key} className="border-t border-clr10 dark:border-clr4">
+                  <td className="px-2 py-1 text-[0.8em] font-black uppercase tracking-widest text-clr4 dark:text-clr1 align-middle">
+                    {colorField.label}
+                  </td>
+                  {renderGridField(colorField, rowIndex)}
+                  {renderGridField(lightOpacityField, rowIndex)}
+                  {renderGridField(darkField, rowIndex)}
+                  {renderGridField(darkOpacityField, rowIndex)}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    );
+  };
+
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -238,7 +337,11 @@ function SectionCard({ section, config }: SectionCardProps) {
         {section.title}
       </h3>
 
-      <div className="space-y-6 p-4">{section.fields.map(renderField)}</div>
+      {section.layout === 'grid' ? (
+        renderGrid()
+      ) : (
+        <div className="space-y-6 p-4">{section.fields.map(renderField)}</div>
+      )}
 
       <div className="flex gap-3 pt-4 border-t border-zinc-100 dark:border-clr4 px-4 pb-2">
         <button

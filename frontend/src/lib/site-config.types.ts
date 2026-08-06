@@ -128,6 +128,7 @@ export interface NavigationConfig {
 }
 
 export interface ThemeColorsConfig {
+  // 24 hex color fields (clr1..clr12, dclr1..dclr12)
   clr1: string;
   clr2: string;
   clr3: string;
@@ -138,6 +139,8 @@ export interface ThemeColorsConfig {
   clr8: string;
   clr9: string;
   clr10: string;
+  clr11: string;
+  clr12: string;
   dclr1: string;
   dclr2: string;
   dclr3: string;
@@ -148,6 +151,33 @@ export interface ThemeColorsConfig {
   dclr8: string;
   dclr9: string;
   dclr10: string;
+  dclr11: string;
+  dclr12: string;
+  // 24 opacity fields (0-100, default 100)
+  clr1_opacity: number;
+  clr2_opacity: number;
+  clr3_opacity: number;
+  clr4_opacity: number;
+  clr5_opacity: number;
+  clr6_opacity: number;
+  clr7_opacity: number;
+  clr8_opacity: number;
+  clr9_opacity: number;
+  clr10_opacity: number;
+  clr11_opacity: number;
+  clr12_opacity: number;
+  dclr1_opacity: number;
+  dclr2_opacity: number;
+  dclr3_opacity: number;
+  dclr4_opacity: number;
+  dclr5_opacity: number;
+  dclr6_opacity: number;
+  dclr7_opacity: number;
+  dclr8_opacity: number;
+  dclr9_opacity: number;
+  dclr10_opacity: number;
+  dclr11_opacity: number;
+  dclr12_opacity: number;
 }
 
 // --- Mapped config record ---

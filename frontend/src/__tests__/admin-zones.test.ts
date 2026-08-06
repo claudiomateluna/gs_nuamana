@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { ADMIN_ZONES } from '@/lib/admin-zones';
+import { ADMIN_ZONES, gridRowGroups } from '@/lib/admin-zones';
 import type { AdminZone, ZoneSection, ZoneSectionField } from '@/lib/admin-zones';
 import type { SiteConfigCategory, SiteConfigRecord } from '@/lib/site-config.types';
 
@@ -54,6 +54,8 @@ const EXPECTED_FIELDS = {
     'clr8',
     'clr9',
     'clr10',
+    'clr11',
+    'clr12',
     'dclr1',
     'dclr2',
     'dclr3',
@@ -64,6 +66,32 @@ const EXPECTED_FIELDS = {
     'dclr8',
     'dclr9',
     'dclr10',
+    'dclr11',
+    'dclr12',
+    'clr1_opacity',
+    'clr2_opacity',
+    'clr3_opacity',
+    'clr4_opacity',
+    'clr5_opacity',
+    'clr6_opacity',
+    'clr7_opacity',
+    'clr8_opacity',
+    'clr9_opacity',
+    'clr10_opacity',
+    'clr11_opacity',
+    'clr12_opacity',
+    'dclr1_opacity',
+    'dclr2_opacity',
+    'dclr3_opacity',
+    'dclr4_opacity',
+    'dclr5_opacity',
+    'dclr6_opacity',
+    'dclr7_opacity',
+    'dclr8_opacity',
+    'dclr9_opacity',
+    'dclr10_opacity',
+    'dclr11_opacity',
+    'dclr12_opacity',
   ],
 } as const satisfies CategoryFieldMap;
 
@@ -196,25 +224,51 @@ describe('ADMIN_ZONES coverage', () => {
     expect(zoneOf('global').sections.map((s) => s.category)).toEqual(['seo', 'pwa', 'theme_colors']);
   });
 
-  it('exposes a colores-tema section in Global with 20 color-type fields', () => {
+  it('exposes a colores-tema section in Global with 48 fields (24 color + 24 number) and layout=grid', () => {
     const section = sectionOf('global', 'colores-tema');
     expect(section.title).toBe('Colores del Tema');
     expect(section.category).toBe('theme_colors');
     expect(section.schemaId).toBe('theme_colors');
-    expect(section.fields).toHaveLength(20);
-    // Every field is a color picker with a non-empty label and tooltip
+    expect(section.layout).toBe('grid');
+    expect(section.fields).toHaveLength(48);
+
+    // Every field has a non-empty label and tooltip
     for (const f of section.fields) {
-      expect(f.type, `${f.key} must be color`).toBe('color');
       expect(f.label.length, `label of ${f.key}`).toBeGreaterThan(0);
       expect(f.tooltip?.length ?? 0, `tooltip of ${f.key}`).toBeGreaterThan(0);
     }
-    // All 20 theme_colors keys appear exactly once in this section
-    const keys = section.fields.map((f) => f.key).sort();
-    const expectedKeys = [
-      'clr1', 'clr10', 'clr2', 'clr3', 'clr4', 'clr5', 'clr6', 'clr7', 'clr8', 'clr9',
-      'dclr1', 'dclr10', 'dclr2', 'dclr3', 'dclr4', 'dclr5', 'dclr6', 'dclr7', 'dclr8', 'dclr9',
-    ].sort();
-    expect(keys).toEqual(expectedKeys);
+
+    // 24 color-type fields (clr1..clr12, dclr1..dclr12) + 24 number-type fields (*_opacity)
+    const colorFields = section.fields.filter((f) => f.type === 'color');
+    const numberFields = section.fields.filter((f) => f.type === 'number');
+    expect(colorFields).toHaveLength(24);
+    expect(numberFields).toHaveLength(24);
+
+    // Row-major order: clr1, clr1_opacity, dclr1, dclr1_opacity, clr2, ...
+    const orderedKeys = section.fields.map((f) => f.key);
+    const expectedOrder: string[] = [];
+    for (let i = 1; i <= 12; i++) {
+      expectedOrder.push(`clr${i}`, `clr${i}_opacity`, `dclr${i}`, `dclr${i}_opacity`);
+    }
+    expect(orderedKeys).toEqual(expectedOrder);
+  });
+
+  it('gridRowGroups chunks 48 fields into 12 groups of 4 (row-major)', () => {
+    const section = sectionOf('global', 'colores-tema');
+    const groups = gridRowGroups(section.fields);
+    expect(groups).toHaveLength(12);
+    for (const group of groups) {
+      expect(group).toHaveLength(4);
+      // Each group: [clrN (color), clrN_opacity (number), dclrN (color), dclrN_opacity (number)]
+      expect(group[0].type).toBe('color');
+      expect(group[1].type).toBe('number');
+      expect(group[2].type).toBe('color');
+      expect(group[3].type).toBe('number');
+    }
+    // First row → clr1, clr1_opacity, dclr1, dclr1_opacity
+    expect(groups[0].map((f) => f.key)).toEqual(['clr1', 'clr1_opacity', 'dclr1', 'dclr1_opacity']);
+    // Last row → clr12, clr12_opacity, dclr12, dclr12_opacity
+    expect(groups[11].map((f) => f.key)).toEqual(['clr12', 'clr12_opacity', 'dclr12', 'dclr12_opacity']);
   });
 
   it('Dirección y Mapa section mirrors Footer → Contacto via a contact.visit split card', () => {

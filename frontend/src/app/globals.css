@@ -7,11 +7,13 @@
   --clr1: #FFFFFF; --clr2: #95a5a6; --clr3: #333333; --clr4: #1d1d1d; 
   --clr5: #2c3e50; --clr6: #3eb34b; --clr7: #cb3327; --clr8: #ffc41d; 
   --clr9: #f8f9fa; --clr10: #e9ecef;
+  --clr11: #2c3e50; --clr12: #cb3327;
   
   /* Colores oscuros personalizados */
   --dclr1: #121212; --dclr2: #b0b0b0; --dclr3: #1e1e1e; --dclr4: #0a0a0a;
   --dclr5: #33506f; --dclr6: #33a345; --dclr7: #ef4b3a; --dclr8: #ffcf33;
   --dclr9: #26262b; --dclr10: #3c3c3c;
+  --dclr11: #33506f; --dclr12: #ef4b3a;
 
   --background: var(--clr1);
   --foreground: var(--clr4);
@@ -26,8 +28,9 @@
   --color-clr1: var(--clr1); --color-clr2: var(--clr2); --color-clr3: var(--clr3); 
   --color-clr4: var(--clr4); --color-clr5: var(--clr5); --color-clr6: var(--clr6); 
   --color-clr7: var(--clr7); --color-clr8: var(--clr8); --color-clr9: var(--clr9); 
-  --color-clr10: var(--clr10); --color-dclr1: var(--dclr1); --color-dclr2: var(--dclr2); --color-dclr3: var(--dclr3); 
-  --color-dclr4: var(--dclr4); --color-dclr5: var(--dclr5); --color-dclr6: var(--dclr6); --color-dclr7: var(--dclr7); --color-dclr8: var(--dclr8); --color-dclr9: var(--dclr9); --color-dclr10: var(--dclr10);
+  --color-clr10: var(--clr10); --color-clr11: var(--clr11); --color-clr12: var(--clr12);
+  --color-dclr1: var(--dclr1); --color-dclr2: var(--dclr2); --color-dclr3: var(--dclr3); 
+  --color-dclr4: var(--dclr4); --color-dclr5: var(--dclr5); --color-dclr6: var(--dclr6); --color-dclr7: var(--dclr7); --color-dclr8: var(--dclr8); --color-dclr9: var(--dclr9); --color-dclr10: var(--dclr10); --color-dclr11: var(--dclr11); --color-dclr12: var(--dclr12);
   
   /* Vinculación de fuentes para Tailwind v4 */
   --font-display: var(--font-inika);

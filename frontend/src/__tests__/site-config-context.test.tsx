@@ -62,7 +62,15 @@ const FIXTURE: SiteConfigRecord = {
   navigation: { label_panel: '', label_login: '' },
   theme_colors: {
     clr1: '', clr2: '', clr3: '', clr4: '', clr5: '', clr6: '', clr7: '', clr8: '', clr9: '', clr10: '',
+    clr11: '', clr12: '',
     dclr1: '', dclr2: '', dclr3: '', dclr4: '', dclr5: '', dclr6: '', dclr7: '', dclr8: '', dclr9: '', dclr10: '',
+    dclr11: '', dclr12: '',
+    clr1_opacity: 100, clr2_opacity: 100, clr3_opacity: 100, clr4_opacity: 100, clr5_opacity: 100,
+    clr6_opacity: 100, clr7_opacity: 100, clr8_opacity: 100, clr9_opacity: 100, clr10_opacity: 100,
+    clr11_opacity: 100, clr12_opacity: 100,
+    dclr1_opacity: 100, dclr2_opacity: 100, dclr3_opacity: 100, dclr4_opacity: 100, dclr5_opacity: 100,
+    dclr6_opacity: 100, dclr7_opacity: 100, dclr8_opacity: 100, dclr9_opacity: 100, dclr10_opacity: 100,
+    dclr11_opacity: 100, dclr12_opacity: 100,
   },
 };
 

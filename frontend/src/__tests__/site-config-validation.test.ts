@@ -12,6 +12,8 @@ const VALID = {
   clr8: '#ffc41d',
   clr9: '#f8f9fa',
   clr10: '#e9ecef',
+  clr11: '#2c3e50',
+  clr12: '#cb3327',
   dclr1: '#121212',
   dclr2: '#b0b0b0',
   dclr3: '#1e1e1e',
@@ -22,14 +24,46 @@ const VALID = {
   dclr8: '#ffcf33',
   dclr9: '#26262b',
   dclr10: '#3c3c3c',
+  dclr11: '#33506f',
+  dclr12: '#ef4b3a',
+  clr1_opacity: 100,
+  clr2_opacity: 100,
+  clr3_opacity: 100,
+  clr4_opacity: 100,
+  clr5_opacity: 100,
+  clr6_opacity: 100,
+  clr7_opacity: 100,
+  clr8_opacity: 100,
+  clr9_opacity: 100,
+  clr10_opacity: 100,
+  clr11_opacity: 100,
+  clr12_opacity: 100,
+  dclr1_opacity: 100,
+  dclr2_opacity: 100,
+  dclr3_opacity: 100,
+  dclr4_opacity: 100,
+  dclr5_opacity: 100,
+  dclr6_opacity: 100,
+  dclr7_opacity: 100,
+  dclr8_opacity: 100,
+  dclr9_opacity: 100,
+  dclr10_opacity: 100,
+  dclr11_opacity: 100,
+  dclr12_opacity: 100,
 };
 
 describe('themeColorsSchema', () => {
-  it('accepts all 20 valid #RRGGBB fields', () => {
+  it('accepts all 48 fields (24 hex + 24 opacity) and the parsed result has 48 keys', () => {
     const parsed = themeColorsSchema.parse(VALID);
     expect(parsed.clr7).toBe('#cb3327');
     expect(parsed.dclr8).toBe('#ffcf33');
-    expect(Object.keys(parsed)).toHaveLength(20);
+    expect(parsed.clr11).toBe('#2c3e50');
+    expect(parsed.clr12).toBe('#cb3327');
+    expect(parsed.dclr11).toBe('#33506f');
+    expect(parsed.dclr12).toBe('#ef4b3a');
+    expect(parsed.clr5_opacity).toBe(100);
+    expect(parsed.dclr10_opacity).toBe(100);
+    expect(Object.keys(parsed)).toHaveLength(48);
   });
 
   it('rejects a named color like "red" with Formato: #RRGGBB', () => {
@@ -53,6 +87,47 @@ describe('themeColorsSchema', () => {
   it('accepts lowercase hex equally', () => {
     const lower = { ...VALID, clr7: '#cb3327', dclr1: '#121212' };
     expect(themeColorsSchema.safeParse(lower).success).toBe(true);
+  });
+
+  // --- Opacity field tests (R2) ---
+
+  it('accepts opacity 90 and returns the numeric value', () => {
+    const parsed = themeColorsSchema.parse({ ...VALID, clr5_opacity: 90 });
+    expect(parsed.clr5_opacity).toBe(90);
+  });
+
+  it('accepts opacity 0 (minimum valid)', () => {
+    expect(themeColorsSchema.safeParse({ ...VALID, clr5_opacity: 0 }).success).toBe(true);
+  });
+
+  it('accepts opacity 100 (maximum valid)', () => {
+    expect(themeColorsSchema.safeParse({ ...VALID, clr5_opacity: 100 }).success).toBe(true);
+  });
+
+  it('rejects opacity 101 (above max)', () => {
+    const result = themeColorsSchema.safeParse({ ...VALID, clr5_opacity: 101 });
+    expect(result.success).toBe(false);
+  });
+
+  it('rejects opacity -1 (below min)', () => {
+    const result = themeColorsSchema.safeParse({ ...VALID, clr5_opacity: -1 });
+    expect(result.success).toBe(false);
+  });
+
+  it('rejects opacity 12.5 (must be integer)', () => {
+    const result = themeColorsSchema.safeParse({ ...VALID, clr5_opacity: 12.5 });
+    expect(result.success).toBe(false);
+  });
+
+  it('rejects opacity "50" (must be number, not string)', () => {
+    const bad = { ...VALID, clr5_opacity: '50' };
+    const result = themeColorsSchema.safeParse(bad);
+    expect(result.success).toBe(false);
+  });
+
+  it('validates all 24 opacity fields — dclr12_opacity also accepts 50', () => {
+    const parsed = themeColorsSchema.parse({ ...VALID, dclr12_opacity: 50 });
+    expect(parsed.dclr12_opacity).toBe(50);
   });
 });
 

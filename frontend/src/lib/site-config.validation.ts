@@ -189,10 +189,11 @@ export const navigationSchema = z.object({
 export type NavigationFormData = z.infer<typeof navigationSchema>;
 
 // ---------------------------------------------------------------------------
-// Theme Colors (20 hex palette fields overriding globals.css :root vars)
+// Theme Colors (48 fields: 24 hex + 24 opacity)
 // ---------------------------------------------------------------------------
 
 const hexColor = z.string().regex(/^#[0-9a-fA-F]{6}$/, 'Formato: #RRGGBB');
+const opacity = z.number().int().min(0, 'Mínimo 0').max(100, 'Máximo 100');
 
 export const themeColorsSchema = z.object({
   clr1: hexColor,
@@ -205,6 +206,8 @@ export const themeColorsSchema = z.object({
   clr8: hexColor,
   clr9: hexColor,
   clr10: hexColor,
+  clr11: hexColor,
+  clr12: hexColor,
   dclr1: hexColor,
   dclr2: hexColor,
   dclr3: hexColor,
@@ -215,6 +218,32 @@ export const themeColorsSchema = z.object({
   dclr8: hexColor,
   dclr9: hexColor,
   dclr10: hexColor,
+  dclr11: hexColor,
+  dclr12: hexColor,
+  clr1_opacity: opacity,
+  clr2_opacity: opacity,
+  clr3_opacity: opacity,
+  clr4_opacity: opacity,
+  clr5_opacity: opacity,
+  clr6_opacity: opacity,
+  clr7_opacity: opacity,
+  clr8_opacity: opacity,
+  clr9_opacity: opacity,
+  clr10_opacity: opacity,
+  clr11_opacity: opacity,
+  clr12_opacity: opacity,
+  dclr1_opacity: opacity,
+  dclr2_opacity: opacity,
+  dclr3_opacity: opacity,
+  dclr4_opacity: opacity,
+  dclr5_opacity: opacity,
+  dclr6_opacity: opacity,
+  dclr7_opacity: opacity,
+  dclr8_opacity: opacity,
+  dclr9_opacity: opacity,
+  dclr10_opacity: opacity,
+  dclr11_opacity: opacity,
+  dclr12_opacity: opacity,
 });
 
 export type ThemeColorsFormData = z.infer<typeof themeColorsSchema>;
