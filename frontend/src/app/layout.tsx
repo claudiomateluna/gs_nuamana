@@ -5,6 +5,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/contexts/theme-context";
 import { SiteConfigProvider } from "@/contexts/site-config-context";
 import { loadSiteConfig } from "@/lib/site-config";
+import { generateThemeCSS } from "@/lib/theme-css";
 import Footer from "@/components/footer";
 
 const inika = Inika({
@@ -65,6 +66,12 @@ export default async function RootLayout({
       <body
         className={`${inika.variable} ${quicksand.variable} ${robotoSlab.variable} antialiased bg-white dark:bg-clr4 text-clr4 dark:text-clr1`}
       >
+        {/* SSR theme overrides: emitted before ThemeProvider/children so the 18
+            globals.css :root palette vars are overridden on first paint (zero
+            FOUC). Body-level <style> wins over globals.css (::head import) by
+            source order for equal specificity (:root). Re-rendered on save via
+            revalidatePath('/', 'layout') in saveSiteConfig. */}
+        <style dangerouslySetInnerHTML={{ __html: generateThemeCSS(config.theme_colors) }} />
         <ThemeProvider>
           <SiteConfigProvider config={config}>
             <div className="flex flex-col min-h-screen">

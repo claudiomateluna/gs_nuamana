@@ -14,7 +14,8 @@ export type SiteConfigCategory =
   | 'visit'
   | 'seo'
   | 'pwa'
-  | 'navigation';
+  | 'navigation'
+  | 'theme_colors';
 
 export interface ConfigEntry {
   id: string;
@@ -126,6 +127,27 @@ export interface NavigationConfig {
   label_login: string;
 }
 
+export interface ThemeColorsConfig {
+  clr1: string;
+  clr2: string;
+  clr3: string;
+  clr4: string;
+  clr5: string;
+  clr6: string;
+  clr7: string;
+  clr8: string;
+  clr9: string;
+  clr10: string;
+  dclr1: string;
+  dclr2: string;
+  dclr3: string;
+  dclr4: string;
+  dclr5: string;
+  dclr6: string;
+  dclr7: string;
+  dclr8: string;
+}
+
 // --- Mapped config record ---
 
 export interface SiteConfigRecord {
@@ -140,4 +162,5 @@ export interface SiteConfigRecord {
   seo: SeoConfig;
   pwa: PwaConfig;
   navigation: NavigationConfig;
+  theme_colors: ThemeColorsConfig;
 }

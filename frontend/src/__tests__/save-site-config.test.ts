@@ -100,11 +100,11 @@ beforeEach(() => {
 });
 
 // ---------------------------------------------------------------------------
-// schemaResolver — 15 ids (11 plain categories + 4 partials)
+// schemaResolver — 17 ids (11 plain categories + 5 partials + theme_colors)
 // ---------------------------------------------------------------------------
 
 describe('schemaResolver', () => {
-  it('covers exactly the 16 schema ids — 11 plain categories plus 5 partials', () => {
+  it('covers exactly the 17 schema ids — 11 plain categories plus 5 partials plus theme_colors', () => {
     expect(Object.keys(schemaResolver).sort()).toEqual([
       'branding',
       'branding.footer',
@@ -121,6 +121,7 @@ describe('schemaResolver', () => {
       'social.footer',
       'social.header',
       'testimonials',
+      'theme_colors',
       'visit',
     ]);
   });

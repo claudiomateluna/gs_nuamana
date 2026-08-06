@@ -134,6 +134,26 @@ export const DEFAULT_SITE_CONFIG: SiteConfigRecord = {
     label_panel: 'Mi Panel',
     label_login: 'Acceder',
   },
+  theme_colors: {
+    clr1: '#FFFFFF',
+    clr2: '#95a5a6',
+    clr3: '#333333',
+    clr4: '#1d1d1d',
+    clr5: '#2c3e50',
+    clr6: '#3eb34b',
+    clr7: '#cb3327',
+    clr8: '#ffc41d',
+    clr9: '#f8f9fa',
+    clr10: '#e9ecef',
+    dclr1: '#121212',
+    dclr2: '#b0b0b0',
+    dclr3: '#1e1e1e',
+    dclr4: '#0a0a0a',
+    dclr5: '#1a2a3a',
+    dclr6: '#2d8a3a',
+    dclr7: '#a3281f',
+    dclr8: '#e6b01a',
+  },
 };
 
 // ---------------------------------------------------------------------------
@@ -233,6 +253,7 @@ export async function loadSiteConfig(): Promise<SiteConfigRecord> {
     seo: getCat('seo', defaults.seo),
     pwa: getCat('pwa', defaults.pwa),
     navigation: getCat('navigation', defaults.navigation),
+    theme_colors: getCat('theme_colors', defaults.theme_colors),
   };
 }
 

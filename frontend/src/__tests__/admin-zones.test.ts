@@ -43,6 +43,26 @@ const EXPECTED_FIELDS = {
     'icon_1024',
   ],
   navigation: ['label_panel', 'label_login'],
+  theme_colors: [
+    'clr1',
+    'clr2',
+    'clr3',
+    'clr4',
+    'clr5',
+    'clr6',
+    'clr7',
+    'clr8',
+    'clr9',
+    'clr10',
+    'dclr1',
+    'dclr2',
+    'dclr3',
+    'dclr4',
+    'dclr5',
+    'dclr6',
+    'dclr7',
+    'dclr8',
+  ],
 } as const satisfies CategoryFieldMap;
 
 const FIELD_TYPES = ['text', 'textarea', 'url', 'color', 'number', 'json'] as const;
@@ -157,7 +177,7 @@ describe('ADMIN_ZONES coverage', () => {
     // Triangulation: every other zone carries real sections
     const otherZones = ADMIN_ZONES.filter((z) => z.id !== 'menu');
     expect(otherZones.every((z) => z.tabOnly !== true)).toBe(true);
-    expect(otherZones.map((z) => z.sections.length)).toEqual([6, 3, 3, 2]);
+    expect(otherZones.map((z) => z.sections.length)).toEqual([6, 3, 3, 3]);
   });
 
   it('maps each zone to its exact sections and categories', () => {
@@ -171,7 +191,28 @@ describe('ADMIN_ZONES coverage', () => {
     ]);
     expect(zoneOf('header').sections.map((s) => s.category)).toEqual(['branding', 'social', 'navigation']);
     expect(zoneOf('footer').sections.map((s) => s.category)).toEqual(['branding', 'social', 'contact']);
-    expect(zoneOf('global').sections.map((s) => s.category)).toEqual(['seo', 'pwa']);
+    expect(zoneOf('global').sections.map((s) => s.category)).toEqual(['seo', 'pwa', 'theme_colors']);
+  });
+
+  it('exposes a colores-tema section in Global with 18 color-type fields', () => {
+    const section = sectionOf('global', 'colores-tema');
+    expect(section.title).toBe('Colores del Tema');
+    expect(section.category).toBe('theme_colors');
+    expect(section.schemaId).toBe('theme_colors');
+    expect(section.fields).toHaveLength(18);
+    // Every field is a color picker with a non-empty label and tooltip
+    for (const f of section.fields) {
+      expect(f.type, `${f.key} must be color`).toBe('color');
+      expect(f.label.length, `label of ${f.key}`).toBeGreaterThan(0);
+      expect(f.tooltip?.length ?? 0, `tooltip of ${f.key}`).toBeGreaterThan(0);
+    }
+    // All 18 theme_colors keys appear exactly once in this section
+    const keys = section.fields.map((f) => f.key).sort();
+    const expectedKeys = [
+      'clr1', 'clr10', 'clr2', 'clr3', 'clr4', 'clr5', 'clr6', 'clr7', 'clr8', 'clr9',
+      'dclr1', 'dclr2', 'dclr3', 'dclr4', 'dclr5', 'dclr6', 'dclr7', 'dclr8',
+    ].sort();
+    expect(keys).toEqual(expectedKeys);
   });
 
   it('Dirección y Mapa section mirrors Footer → Contacto via a contact.visit split card', () => {

@@ -130,6 +130,26 @@ const CONFIG: SiteConfigRecord = {
     label_panel: 'Mi Panel',
     label_login: 'Acceder',
   },
+  theme_colors: {
+    clr1: '#FFFFFF',
+    clr2: '#95a5a6',
+    clr3: '#333333',
+    clr4: '#1d1d1d',
+    clr5: '#2c3e50',
+    clr6: '#3eb34b',
+    clr7: '#cb3327',
+    clr8: '#ffc41d',
+    clr9: '#f8f9fa',
+    clr10: '#e9ecef',
+    dclr1: '#121212',
+    dclr2: '#b0b0b0',
+    dclr3: '#1e1e1e',
+    dclr4: '#0a0a0a',
+    dclr5: '#1a2a3a',
+    dclr6: '#2d8a3a',
+    dclr7: '#a3281f',
+    dclr8: '#e6b01a',
+  },
 };
 
 // ---------------------------------------------------------------------------
@@ -188,7 +208,7 @@ describe('ZoneConfigForm rendering', () => {
     expect(screen.getAllByRole('button', { name: 'Guardar' })).toHaveLength(6);
   });
 
-  it('drives the rendered sections from the zone prop — footer renders 3 cards, global 2 (not hardcoded)', () => {
+  it('drives the rendered sections from the zone prop — footer renders 3 cards, global 3 (not hardcoded)', () => {
     const { unmount } = render(<ZoneConfigForm config={CONFIG} zone={zone('footer')} />);
     expect(screen.getAllByRole('heading', { level: 3 }).map((h) => h.textContent)).toEqual([
       'Marca',
@@ -199,8 +219,12 @@ describe('ZoneConfigForm rendering', () => {
 
     unmount();
     render(<ZoneConfigForm config={CONFIG} zone={zone('global')} />);
-    expect(screen.getAllByRole('heading', { level: 3 }).map((h) => h.textContent)).toEqual(['SEO', 'PWA']);
-    expect(screen.getAllByRole('button', { name: 'Guardar' })).toHaveLength(2);
+    expect(screen.getAllByRole('heading', { level: 3 }).map((h) => h.textContent)).toEqual([
+      'SEO',
+      'PWA',
+      'Colores del Tema',
+    ]);
+    expect(screen.getAllByRole('button', { name: 'Guardar' })).toHaveLength(3);
   });
 
   it('renders no cards for the tab-only Menú zone (companion to the non-empty cases above)', () => {

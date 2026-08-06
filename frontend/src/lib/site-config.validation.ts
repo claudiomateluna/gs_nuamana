@@ -189,6 +189,35 @@ export const navigationSchema = z.object({
 export type NavigationFormData = z.infer<typeof navigationSchema>;
 
 // ---------------------------------------------------------------------------
+// Theme Colors (18 hex palette fields overriding globals.css :root vars)
+// ---------------------------------------------------------------------------
+
+const hexColor = z.string().regex(/^#[0-9a-fA-F]{6}$/, 'Formato: #RRGGBB');
+
+export const themeColorsSchema = z.object({
+  clr1: hexColor,
+  clr2: hexColor,
+  clr3: hexColor,
+  clr4: hexColor,
+  clr5: hexColor,
+  clr6: hexColor,
+  clr7: hexColor,
+  clr8: hexColor,
+  clr9: hexColor,
+  clr10: hexColor,
+  dclr1: hexColor,
+  dclr2: hexColor,
+  dclr3: hexColor,
+  dclr4: hexColor,
+  dclr5: hexColor,
+  dclr6: hexColor,
+  dclr7: hexColor,
+  dclr8: hexColor,
+});
+
+export type ThemeColorsFormData = z.infer<typeof themeColorsSchema>;
+
+// ---------------------------------------------------------------------------
 // Partial schemas — per-card subsets for the zone admin (PR1b).
 // Each card (Header→Marca, Footer→Marca, Header→Redes, Footer→Redes) validates
 // ONLY its own field subset and accepts partial objects (.partial()).
@@ -260,12 +289,14 @@ export const categorySchemaMap: Record<SiteConfigCategory, z.ZodType> = {
   seo: seoSchema,
   pwa: pwaSchema,
   navigation: navigationSchema,
+  theme_colors: themeColorsSchema,
 };
 
 // ---------------------------------------------------------------------------
 // schemaResolver — resolves a SchemaId to { category, schema } (PR1b).
-// Covers all 15 ids: the 11 plain categories (full schemas, unchanged) plus
-// the 4 per-card partial schemas bound to their base category.
+// Covers all 17 ids: the 11 plain categories (full schemas, unchanged) plus
+// the 4 per-card partial schemas bound to their base category plus the
+// theme_colors palette schema.
 // ---------------------------------------------------------------------------
 
 import type { SchemaId } from '@/lib/admin-zones';
@@ -287,4 +318,5 @@ export const schemaResolver: Record<SchemaId, { category: SiteConfigCategory; sc
   seo: { category: 'seo', schema: seoSchema },
   pwa: { category: 'pwa', schema: pwaSchema },
   navigation: { category: 'navigation', schema: navigationSchema },
+  theme_colors: { category: 'theme_colors', schema: themeColorsSchema },
 };
