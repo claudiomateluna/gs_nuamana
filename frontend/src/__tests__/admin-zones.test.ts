@@ -350,3 +350,75 @@ describe('ADMIN_ZONES field metadata', () => {
     expect(fieldIn('header', 'navegacion', 'label_login').label).toBe('Label Login');
   });
 });
+
+// ---------------------------------------------------------------------------
+// colores-tema semantic role labels (D2 / R2): the admin describes FUNCTION,
+// not index. Mapping pinned by spec/tasks: clr3 'Superficie', clr5 'Superficie
+// Azul', clr9 'Superficie Clara', dclr2 'Texto Principal Oscuro', dclr4
+// 'Superficie Hundida Oscura', dclr10 'Bordes y Inputs Oscuros'.
+// ---------------------------------------------------------------------------
+
+describe('ADMIN_ZONES colores-tema semantic role labels (D2/R2)', () => {
+  it('maps every light clrN label to its semantic role', () => {
+    const expectedLight: Record<string, string> = {
+      clr1: 'Fondo',
+      clr2: 'Texto Secundario',
+      clr3: 'Superficie',
+      clr4: 'Texto Principal',
+      clr5: 'Superficie Azul',
+      clr6: 'Éxito',
+      clr7: 'Acento',
+      clr8: 'Acento Dorado',
+      clr9: 'Superficie Clara',
+      clr10: 'Bordes',
+      clr11: 'Superficie Azul Intermedia',
+      clr12: 'Acento Término',
+    };
+    for (const [key, label] of Object.entries(expectedLight)) {
+      expect(fieldIn('global', 'colores-tema', key).label, `label of ${key}`).toBe(label);
+    }
+  });
+
+  it('maps every dark dclrN label to its semantic role', () => {
+    const expectedDark: Record<string, string> = {
+      dclr1: 'Fondo Oscuro',
+      dclr2: 'Texto Principal Oscuro',
+      dclr3: 'Superficie Oscura',
+      dclr4: 'Superficie Hundida Oscura',
+      dclr5: 'Superficie Azul Oscura',
+      dclr6: 'Éxito Oscuro',
+      dclr7: 'Acento Oscuro',
+      dclr8: 'Acento Dorado Oscuro',
+      dclr9: 'Superficie Elevada Oscura',
+      dclr10: 'Bordes y Inputs Oscuros',
+      dclr11: 'Superficie Azul Oscura Intermedia',
+      dclr12: 'Acento Oscuro Término',
+    };
+    for (const [key, label] of Object.entries(expectedDark)) {
+      expect(fieldIn('global', 'colores-tema', key).label, `label of ${key}`).toBe(label);
+    }
+  });
+
+  it('keeps opacity labels derived from the renamed roles (Transparencia + label)', () => {
+    expect(fieldIn('global', 'colores-tema', 'clr1_opacity').label).toBe('Transparencia Fondo');
+    expect(fieldIn('global', 'colores-tema', 'clr3_opacity').label).toBe('Transparencia Superficie');
+    expect(fieldIn('global', 'colores-tema', 'dclr2_opacity').label).toBe(
+      'Transparencia Texto Principal Oscuro',
+    );
+    expect(fieldIn('global', 'colores-tema', 'dclr10_opacity').label).toBe(
+      'Transparencia Bordes y Inputs Oscuros',
+    );
+  });
+
+  it('updates tooltips to describe the semantic role for the spec-pinned keys', () => {
+    expect(fieldIn('global', 'colores-tema', 'dclr2').tooltip).toBe(
+      'Texto e íconos principales en modo oscuro (var(--dclr2))',
+    );
+    expect(fieldIn('global', 'colores-tema', 'dclr4').tooltip).toBe(
+      'Fondo más oscuro y superficies hundidas del modo oscuro (var(--dclr4))',
+    );
+    expect(fieldIn('global', 'colores-tema', 'dclr10').tooltip).toBe(
+      'Bordes, separadores e inputs en modo oscuro (var(--dclr10))',
+    );
+  });
+});

@@ -67,6 +67,12 @@ describe('RootLayout SSR theme style injection', () => {
     expect(css).toContain('--clr11:#2c3e50');
     expect(css).toContain('--dclr12:#ef4b3a');
 
+    // R1 dark roles: the .dark block of globals.css consumes these exact
+    // defaults as --background (dclr1) and --foreground (dclr2). If a future
+    // change re-bases the SSR values, this pin documents the approved values.
+    expect(css).toContain('--dclr1:#121212');
+    expect(css).toContain('--dclr2:#b0b0b0');
+
     // All 24 palette variables emitted exactly once (declaration form `${var}:`)
     const vars = [
       ...Array.from({ length: 12 }, (_, i) => `--clr${i + 1}`),

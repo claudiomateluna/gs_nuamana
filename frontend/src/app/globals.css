@@ -20,8 +20,8 @@
 }
 
 .dark {
-  --background: var(--clr4);
-  --foreground: var(--clr1);
+  --background: var(--dclr1);
+  --foreground: var(--dclr2);
 }
 
 @theme {

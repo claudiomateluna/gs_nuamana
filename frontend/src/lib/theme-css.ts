@@ -5,6 +5,10 @@
  * emitted as `rgba(r, g, b, opacity/100)`; when opacity is 100 or undefined,
  * the hex value is emitted as-is (backwards-compatible with pre-migration rows).
  *
+ * The 12 `--dclrN` (dark) variables are the dark-mode palette the admin edits
+ * under "Colores del Tema". globals.css consumes two of them as semantic
+ * roots: `.dark { --background: var(--dclr1); --foreground: var(--dclr2); }`.
+ *
  * Rendered server-side via `<style>` as the first child of `<body>` in
  * `RootLayout` so utilities consume the overrides with zero FOUC.
  */

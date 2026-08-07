@@ -217,31 +217,31 @@ describe('ZoneConfigForm grid layout', () => {
     // First row: role label + inputs bound to clr1 / clr1_opacity / dclr1 / dclr1_opacity
     const firstRow = bodyRows[0];
     expect(within(firstRow).getAllByRole('cell')).toHaveLength(5);
-    expect(within(firstRow).getAllByRole('cell')[0]).toHaveTextContent('Color de Fondo');
+    expect(within(firstRow).getAllByRole('cell')[0]).toHaveTextContent('Fondo');
     const firstRowInputs = within(firstRow).getAllByRole('textbox');
     expect(firstRowInputs.length).toBeGreaterThanOrEqual(2); // hex text companion inputs
     expect(within(firstRow).getAllByRole('spinbutton')).toHaveLength(2); // number inputs
 
-    // Last row: Degradado Término
+    // Last row: Acento Término
     const lastRow = bodyRows[11];
-    expect(within(lastRow).getAllByRole('cell')[0]).toHaveTextContent('Degradado Término');
+    expect(within(lastRow).getAllByRole('cell')[0]).toHaveTextContent('Acento Término');
     expect(within(lastRow).getAllByRole('spinbutton')).toHaveLength(2);
 
-    // Role label set — the 12 semantic role labels from the spec
+    // Role label set — the 12 semantic role labels from the spec (D2)
     const roleLabels = bodyRows.map((row) => within(row).getAllByRole('cell')[0].textContent);
     expect(roleLabels).toEqual([
-      'Color de Fondo',
+      'Fondo',
       'Texto Secundario',
-      'Borde 2',
-      'Texto Principal',
-      'Degradado Inicial',
-      'Enlaces (Hover)',
-      'Énfasis',
-      'Énfasis 2 (Dorado)',
       'Superficie',
+      'Texto Principal',
+      'Superficie Azul',
+      'Éxito',
+      'Acento',
+      'Acento Dorado',
+      'Superficie Clara',
       'Bordes',
-      'Degradado Intermedio (Opcional)',
-      'Degradado Término',
+      'Superficie Azul Intermedia',
+      'Acento Término',
     ]);
   });
 
@@ -266,8 +266,8 @@ describe('ZoneConfigForm grid layout', () => {
     const colores = screen.getByRole('heading', { name: 'Colores del Tema' }).closest('form');
     if (!colores) throw new Error('expected colores-tema card');
 
-    // Clear the light opacity input (Color de Fondo row)
-    const opacityInput = within(colores as HTMLElement).getByLabelText('Transparencia Color de Fondo');
+    // Clear the light opacity input (Fondo row)
+    const opacityInput = within(colores as HTMLElement).getByLabelText('Transparencia Fondo');
     fireEvent.change(opacityInput, { target: { value: '' } });
 
     // Submit the grid card

@@ -553,66 +553,66 @@ export const ADMIN_ZONES: AdminZone[] = [
         // Row-major grid: 12 roles × 4 fields (clrN, clrN_opacity, dclrN,
         // dclrN_opacity). gridRowGroups chunks by 4 → one table row per role.
         fields: [
-          // 1. Color de Fondo
-          { key: 'clr1', label: 'Color de Fondo', type: 'color', tooltip: 'Fondo principal del sitio en modo claro (var(--clr1))' },
-          { key: 'clr1_opacity', label: 'Transparencia Color de Fondo', type: 'number', tooltip: 'Opacidad del color claro (0-100). Menos de 100 emite rgba' },
-          { key: 'dclr1', label: 'Color de Fondo Oscuro', type: 'color', tooltip: 'Fondo principal en modo oscuro (var(--dclr1))' },
-          { key: 'dclr1_opacity', label: 'Transparencia Color de Fondo Oscuro', type: 'number', tooltip: 'Opacidad del color oscuro (0-100). Menos de 100 emite rgba' },
+          // 1. Fondo (page_background)
+          { key: 'clr1', label: 'Fondo', type: 'color', tooltip: 'Fondo principal del sitio en modo claro (var(--clr1))' },
+          { key: 'clr1_opacity', label: 'Transparencia Fondo', type: 'number', tooltip: 'Opacidad del color claro (0-100). Menos de 100 emite rgba' },
+          { key: 'dclr1', label: 'Fondo Oscuro', type: 'color', tooltip: 'Fondo principal en modo oscuro (var(--dclr1))' },
+          { key: 'dclr1_opacity', label: 'Transparencia Fondo Oscuro', type: 'number', tooltip: 'Opacidad del color oscuro (0-100). Menos de 100 emite rgba' },
           // 2. Texto Secundario
-          { key: 'clr2', label: 'Texto Secundario', type: 'color', tooltip: 'Gris de acento para bordes y separadores (var(--clr2))' },
+          { key: 'clr2', label: 'Texto Secundario', type: 'color', tooltip: 'Texto de acento y bordes tenues en modo claro (var(--clr2))' },
           { key: 'clr2_opacity', label: 'Transparencia Texto Secundario', type: 'number', tooltip: 'Opacidad del color claro (0-100). Menos de 100 emite rgba' },
-          { key: 'dclr2', label: 'Texto Secundario Oscuro', type: 'color', tooltip: 'Texto e íconos en modo oscuro (var(--dclr2))' },
-          { key: 'dclr2_opacity', label: 'Transparencia Texto Secundario Oscuro', type: 'number', tooltip: 'Opacidad del color oscuro (0-100). Menos de 100 emite rgba' },
-          // 3. Borde 2
-          { key: 'clr3', label: 'Borde 2', type: 'color', tooltip: 'Texto secundario y bordes en modo claro (var(--clr3))' },
-          { key: 'clr3_opacity', label: 'Transparencia Borde 2', type: 'number', tooltip: 'Opacidad del color claro (0-100). Menos de 100 emite rgba' },
-          { key: 'dclr3', label: 'Borde 2 Oscuro', type: 'color', tooltip: 'Superficie de tarjetas en modo oscuro (var(--dclr3))' },
-          { key: 'dclr3_opacity', label: 'Transparencia Borde 2 Oscuro', type: 'number', tooltip: 'Opacidad del color oscuro (0-100). Menos de 100 emite rgba' },
+          { key: 'dclr2', label: 'Texto Principal Oscuro', type: 'color', tooltip: 'Texto e íconos principales en modo oscuro (var(--dclr2))' },
+          { key: 'dclr2_opacity', label: 'Transparencia Texto Principal Oscuro', type: 'number', tooltip: 'Opacidad del color oscuro (0-100). Menos de 100 emite rgba' },
+          // 3. Superficie
+          { key: 'clr3', label: 'Superficie', type: 'color', tooltip: 'Superficie de tarjetas y contenedores pasivos en modo claro (var(--clr3))' },
+          { key: 'clr3_opacity', label: 'Transparencia Superficie', type: 'number', tooltip: 'Opacidad del color claro (0-100). Menos de 100 emite rgba' },
+          { key: 'dclr3', label: 'Superficie Oscura', type: 'color', tooltip: 'Superficie de tarjetas y contenedores pasivos en modo oscuro (var(--dclr3))' },
+          { key: 'dclr3_opacity', label: 'Transparencia Superficie Oscura', type: 'number', tooltip: 'Opacidad del color oscuro (0-100). Menos de 100 emite rgba' },
           // 4. Texto Principal
-          { key: 'clr4', label: 'Texto Principal', type: 'color', tooltip: 'Fondo de header/footer y texto principal en claro (var(--clr4))' },
+          { key: 'clr4', label: 'Texto Principal', type: 'color', tooltip: 'Texto principal y fondo de header/footer en modo claro (var(--clr4))' },
           { key: 'clr4_opacity', label: 'Transparencia Texto Principal', type: 'number', tooltip: 'Opacidad del color claro (0-100). Menos de 100 emite rgba' },
-          { key: 'dclr4', label: 'Texto Principal Oscuro', type: 'color', tooltip: 'Fondo más oscuro del modo oscuro (var(--dclr4))' },
-          { key: 'dclr4_opacity', label: 'Transparencia Texto Principal Oscuro', type: 'number', tooltip: 'Opacidad del color oscuro (0-100). Menos de 100 emite rgba' },
-          // 5. Degradado Inicial
-          { key: 'clr5', label: 'Degradado Inicial', type: 'color', tooltip: 'Azul profundo para encabezados y secciones (var(--clr5))' },
-          { key: 'clr5_opacity', label: 'Transparencia Degradado Inicial', type: 'number', tooltip: 'Opacidad del color claro (0-100). Menos de 100 emite rgba' },
-          { key: 'dclr5', label: 'Degradado Inicial Oscuro', type: 'color', tooltip: 'Encabezados y secciones en modo oscuro (var(--dclr5))' },
-          { key: 'dclr5_opacity', label: 'Transparencia Degradado Inicial Oscuro', type: 'number', tooltip: 'Opacidad del color oscuro (0-100). Menos de 100 emite rgba' },
-          // 6. Enlaces (Hover)
-          { key: 'clr6', label: 'Enlaces (Hover)', type: 'color', tooltip: 'Verde de éxito y acentos positivos (var(--clr6))' },
-          { key: 'clr6_opacity', label: 'Transparencia Enlaces (Hover)', type: 'number', tooltip: 'Opacidad del color claro (0-100). Menos de 100 emite rgba' },
-          { key: 'dclr6', label: 'Enlaces (Hover) Oscuro', type: 'color', tooltip: 'Verde de éxito en modo oscuro (var(--dclr6))' },
-          { key: 'dclr6_opacity', label: 'Transparencia Enlaces (Hover) Oscuro', type: 'number', tooltip: 'Opacidad del color oscuro (0-100). Menos de 100 emite rgba' },
-          // 7. Énfasis
-          { key: 'clr7', label: 'Énfasis', type: 'color', tooltip: 'Color de acento principal (rojo), botones y scrollbars (var(--clr7))' },
-          { key: 'clr7_opacity', label: 'Transparencia Énfasis', type: 'number', tooltip: 'Opacidad del color claro (0-100). Menos de 100 emite rgba' },
-          { key: 'dclr7', label: 'Énfasis Oscuro', type: 'color', tooltip: 'Color de acento principal en modo oscuro (var(--dclr7))' },
-          { key: 'dclr7_opacity', label: 'Transparencia Énfasis Oscuro', type: 'number', tooltip: 'Opacidad del color oscuro (0-100). Menos de 100 emite rgba' },
-          // 8. Énfasis 2 (Dorado)
-          { key: 'clr8', label: 'Énfasis 2 (Dorado)', type: 'color', tooltip: 'Dorado para destacados y badges (var(--clr8))' },
-          { key: 'clr8_opacity', label: 'Transparencia Énfasis 2 (Dorado)', type: 'number', tooltip: 'Opacidad del color claro (0-100). Menos de 100 emite rgba' },
-          { key: 'dclr8', label: 'Énfasis 2 (Dorado) Oscuro', type: 'color', tooltip: 'Dorado para destacados en modo oscuro (var(--dclr8))' },
-          { key: 'dclr8_opacity', label: 'Transparencia Énfasis 2 (Dorado) Oscuro', type: 'number', tooltip: 'Opacidad del color oscuro (0-100). Menos de 100 emite rgba' },
-          // 9. Superficie
-          { key: 'clr9', label: 'Superficie', type: 'color', tooltip: 'Fondo de tarjetas y secciones alternas (var(--clr9))' },
-          { key: 'clr9_opacity', label: 'Transparencia Superficie', type: 'number', tooltip: 'Opacidad del color claro (0-100). Menos de 100 emite rgba' },
-          { key: 'dclr9', label: 'Superficie Oscura', type: 'color', tooltip: 'Superficie de tarjetas elevadas en modo oscuro (var(--dclr9))' },
-          { key: 'dclr9_opacity', label: 'Transparencia Superficie Oscura', type: 'number', tooltip: 'Opacidad del color oscuro (0-100). Menos de 100 emite rgba' },
+          { key: 'dclr4', label: 'Superficie Hundida Oscura', type: 'color', tooltip: 'Fondo más oscuro y superficies hundidas del modo oscuro (var(--dclr4))' },
+          { key: 'dclr4_opacity', label: 'Transparencia Superficie Hundida Oscura', type: 'number', tooltip: 'Opacidad del color oscuro (0-100). Menos de 100 emite rgba' },
+          // 5. Superficie Azul
+          { key: 'clr5', label: 'Superficie Azul', type: 'color', tooltip: 'Azul profundo para modales, cards y barras en modo claro (var(--clr5))' },
+          { key: 'clr5_opacity', label: 'Transparencia Superficie Azul', type: 'number', tooltip: 'Opacidad del color claro (0-100). Menos de 100 emite rgba' },
+          { key: 'dclr5', label: 'Superficie Azul Oscura', type: 'color', tooltip: 'Modales, cards y barras en modo oscuro (var(--dclr5))' },
+          { key: 'dclr5_opacity', label: 'Transparencia Superficie Azul Oscura', type: 'number', tooltip: 'Opacidad del color oscuro (0-100). Menos de 100 emite rgba' },
+          // 6. Éxito
+          { key: 'clr6', label: 'Éxito', type: 'color', tooltip: 'Verde de éxito y acentos positivos (var(--clr6))' },
+          { key: 'clr6_opacity', label: 'Transparencia Éxito', type: 'number', tooltip: 'Opacidad del color claro (0-100). Menos de 100 emite rgba' },
+          { key: 'dclr6', label: 'Éxito Oscuro', type: 'color', tooltip: 'Verde de éxito en modo oscuro (var(--dclr6))' },
+          { key: 'dclr6_opacity', label: 'Transparencia Éxito Oscuro', type: 'number', tooltip: 'Opacidad del color oscuro (0-100). Menos de 100 emite rgba' },
+          // 7. Acento
+          { key: 'clr7', label: 'Acento', type: 'color', tooltip: 'Color de acento principal (rojo), botones y scrollbars (var(--clr7))' },
+          { key: 'clr7_opacity', label: 'Transparencia Acento', type: 'number', tooltip: 'Opacidad del color claro (0-100). Menos de 100 emite rgba' },
+          { key: 'dclr7', label: 'Acento Oscuro', type: 'color', tooltip: 'Color de acento principal en modo oscuro (var(--dclr7))' },
+          { key: 'dclr7_opacity', label: 'Transparencia Acento Oscuro', type: 'number', tooltip: 'Opacidad del color oscuro (0-100). Menos de 100 emite rgba' },
+          // 8. Acento Dorado
+          { key: 'clr8', label: 'Acento Dorado', type: 'color', tooltip: 'Dorado para destacados y badges (var(--clr8))' },
+          { key: 'clr8_opacity', label: 'Transparencia Acento Dorado', type: 'number', tooltip: 'Opacidad del color claro (0-100). Menos de 100 emite rgba' },
+          { key: 'dclr8', label: 'Acento Dorado Oscuro', type: 'color', tooltip: 'Dorado para destacados en modo oscuro (var(--dclr8))' },
+          { key: 'dclr8_opacity', label: 'Transparencia Acento Dorado Oscuro', type: 'number', tooltip: 'Opacidad del color oscuro (0-100). Menos de 100 emite rgba' },
+          // 9. Superficie Clara
+          { key: 'clr9', label: 'Superficie Clara', type: 'color', tooltip: 'Fondo de tarjetas y secciones alternas en modo claro (var(--clr9))' },
+          { key: 'clr9_opacity', label: 'Transparencia Superficie Clara', type: 'number', tooltip: 'Opacidad del color claro (0-100). Menos de 100 emite rgba' },
+          { key: 'dclr9', label: 'Superficie Elevada Oscura', type: 'color', tooltip: 'Superficie de tarjetas elevadas en modo oscuro (var(--dclr9))' },
+          { key: 'dclr9_opacity', label: 'Transparencia Superficie Elevada Oscura', type: 'number', tooltip: 'Opacidad del color oscuro (0-100). Menos de 100 emite rgba' },
           // 10. Bordes
           { key: 'clr10', label: 'Bordes', type: 'color', tooltip: 'Bordes y fondos tenues en modo claro (var(--clr10))' },
           { key: 'clr10_opacity', label: 'Transparencia Bordes', type: 'number', tooltip: 'Opacidad del color claro (0-100). Menos de 100 emite rgba' },
-          { key: 'dclr10', label: 'Bordes Oscuros', type: 'color', tooltip: 'Bordes y separadores en modo oscuro (var(--dclr10))' },
-          { key: 'dclr10_opacity', label: 'Transparencia Bordes Oscuros', type: 'number', tooltip: 'Opacidad del color oscuro (0-100). Menos de 100 emite rgba' },
-          // 11. Degradado Intermedio (Opcional)
-          { key: 'clr11', label: 'Degradado Intermedio (Opcional)', type: 'color', tooltip: 'Punto medio del degradado de 3 paradas en modo claro (var(--clr11))' },
-          { key: 'clr11_opacity', label: 'Transparencia Degradado Intermedio', type: 'number', tooltip: 'Opacidad del color claro (0-100). Menos de 100 emite rgba' },
-          { key: 'dclr11', label: 'Degradado Intermedio Oscuro', type: 'color', tooltip: 'Punto medio del degradado de 3 paradas en modo oscuro (var(--dclr11))' },
-          { key: 'dclr11_opacity', label: 'Transparencia Degradado Intermedio Oscuro', type: 'number', tooltip: 'Opacidad del color oscuro (0-100). Menos de 100 emite rgba' },
-          // 12. Degradado Término
-          { key: 'clr12', label: 'Degradado Término', type: 'color', tooltip: 'Parada final del degradado de 3 paradas en modo claro (var(--clr12))' },
-          { key: 'clr12_opacity', label: 'Transparencia Degradado Término', type: 'number', tooltip: 'Opacidad del color claro (0-100). Menos de 100 emite rgba' },
-          { key: 'dclr12', label: 'Degradado Término Oscuro', type: 'color', tooltip: 'Parada final del degradado de 3 paradas en modo oscuro (var(--dclr12))' },
-          { key: 'dclr12_opacity', label: 'Transparencia Degradado Término Oscuro', type: 'number', tooltip: 'Opacidad del color oscuro (0-100). Menos de 100 emite rgba' },
+          { key: 'dclr10', label: 'Bordes y Inputs Oscuros', type: 'color', tooltip: 'Bordes, separadores e inputs en modo oscuro (var(--dclr10))' },
+          { key: 'dclr10_opacity', label: 'Transparencia Bordes y Inputs Oscuros', type: 'number', tooltip: 'Opacidad del color oscuro (0-100). Menos de 100 emite rgba' },
+          // 11. Superficie Azul Intermedia (degradado de 3 paradas)
+          { key: 'clr11', label: 'Superficie Azul Intermedia', type: 'color', tooltip: 'Punto medio del degradado de 3 paradas en modo claro (var(--clr11))' },
+          { key: 'clr11_opacity', label: 'Transparencia Superficie Azul Intermedia', type: 'number', tooltip: 'Opacidad del color claro (0-100). Menos de 100 emite rgba' },
+          { key: 'dclr11', label: 'Superficie Azul Oscura Intermedia', type: 'color', tooltip: 'Punto medio del degradado de 3 paradas en modo oscuro (var(--dclr11))' },
+          { key: 'dclr11_opacity', label: 'Transparencia Superficie Azul Oscura Intermedia', type: 'number', tooltip: 'Opacidad del color oscuro (0-100). Menos de 100 emite rgba' },
+          // 12. Acento Término (degradado de 3 paradas)
+          { key: 'clr12', label: 'Acento Término', type: 'color', tooltip: 'Parada final del degradado de 3 paradas en modo claro (var(--clr12))' },
+          { key: 'clr12_opacity', label: 'Transparencia Acento Término', type: 'number', tooltip: 'Opacidad del color claro (0-100). Menos de 100 emite rgba' },
+          { key: 'dclr12', label: 'Acento Oscuro Término', type: 'color', tooltip: 'Parada final del degradado de 3 paradas en modo oscuro (var(--dclr12))' },
+          { key: 'dclr12_opacity', label: 'Transparencia Acento Oscuro Término', type: 'number', tooltip: 'Opacidad del color oscuro (0-100). Menos de 100 emite rgba' },
         ],
       },
     ],
