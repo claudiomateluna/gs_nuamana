@@ -44,7 +44,7 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-white dark:bg-clr4 transition-colors">
+    <div className="bg-white dark:bg-dclr1 transition-colors">
       <Header />
       
       <main className="w-full overflow-x-hidden">
@@ -55,7 +55,7 @@ export default function Home() {
         <FeaturesSection />
 
         {/* Banner Publicitario de Categorías Principales con Contador */}
-        <section className="py-8 bg-white dark:bg-clr4 transition-colors">
+        <section className="py-8 bg-white dark:bg-dclr1 transition-colors">
           <div className="max-w-[1080px] mx-auto px-4 sm:px-6">
             <CategoryPromoBanner />
           </div>
@@ -75,7 +75,7 @@ export default function Home() {
 
         {/* CTA Section */}
         <section className="py-32 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-clr1 via-white to-clr2/20 dark:from-clr4 dark:via-black/20 dark:to-clr7/20" />
+          <div className="absolute inset-0 bg-gradient-to-br from-clr1 via-white to-clr2/20 dark:from-dclr1 dark:via-black/20 dark:to-dclr7/20" />
           
           <div className="absolute top-0 right-0 w-96 h-96 bg-clr7/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-clr8/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
@@ -85,12 +85,12 @@ export default function Home() {
               <h2 className="text-4xl md:text-7xl font-black font-display uppercase tracking-tighter leading-none">
                 {user ? (
                   <>
-                    <span className="text-clr5 dark:text-clr1 block italic text-2xl mb-4 font-body">¡Nos alegra verte de nuevo!</span>
+                    <span className="text-clr5 dark:text-dclr2 block italic text-2xl mb-4 font-body">¡Nos alegra verte de nuevo!</span>
                     <span className="text-clr7 block">Explora tu Panel</span>
                   </>
                 ) : (
                   <>
-                    <span className="text-clr5 dark:text-clr1 block">¿Listo para comenzar</span>
+                    <span className="text-clr5 dark:text-dclr2 block">¿Listo para comenzar</span>
                     <span className="text-clr7 block">tu aventura?</span>
                   </>
                 )}
@@ -121,7 +121,7 @@ export default function Home() {
                   </button>
                   <button
                     onClick={() => router.push('/login')}
-                    className="px-12 py-6 border-4 border-clr5 dark:border-clr1 text-clr5 dark:text-clr1 font-black font-display uppercase rounded-[2.5rem] hover:bg-clr5 hover:text-white dark:hover:bg-clr1 dark:hover:text-clr4 transition-all tracking-widest text-lg shadow-xl"
+                    className="px-12 py-6 border-4 border-clr5 dark:border-dclr2 text-clr5 dark:text-dclr2 font-black font-display uppercase rounded-[2.5rem] hover:bg-clr5 hover:text-white dark:hover:bg-dclr2 dark:hover:text-dclr1 transition-all tracking-widest text-lg shadow-xl"
                   >
                     Iniciar Sesión
                   </button>

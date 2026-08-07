@@ -134,18 +134,18 @@ export default function CategoryPromoBanner({ className = '' }: { className?: st
   return (
     <div className={`relative overflow-hidden rounded-[1.5rem] md:rounded-[2rem] bg-gradient-to-br from-zinc-50 via-white to-amber-50/40 dark:from-zinc-950 dark:via-zinc-900 dark:to-black p-2 text-zinc-900 dark:text-white shadow-xl border border-zinc-200/80 dark:border-zinc-800 transition-colors ${className}`}>
       {/* Fondo decorativo con luces tenue */}
-      <div className="absolute top-0 right-0 -mr-16 -mt-16 w-72 h-72 rounded-full bg-clr7/10 dark:bg-clr7/15 blur-[80px] pointer-events-none" />
+      <div className="absolute top-0 right-0 -mr-16 -mt-16 w-72 h-72 rounded-full bg-clr7/10 dark:bg-dclr7/15 blur-[80px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-72 h-72 rounded-full bg-amber-500/10 blur-[80px] pointer-events-none" />
 
       {/* Encabezado publicitario tipo Anuncio */}
       <div className="relative z-10 text-center max-w-2xl mx-auto space-y-2 mb-2 sm:mb-4">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-clr7/10 dark:bg-clr7/20 border border-clr7/30 dark:border-clr7/40 text-clr7 dark:text-clr8 text-[0.75rem] font-black uppercase tracking-widest">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-clr7/10 dark:bg-dclr7/20 border border-clr7/30 dark:border-dclr7/40 text-clr7 dark:text-dclr8 text-[0.75rem] font-black uppercase tracking-widest">
           <span>⚡ RECURSOS PEDAGÓGICOS SCOUTS</span>
         </div>
 
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-black font-display uppercase tracking-tight leading-tight text-zinc-900 dark:text-white">
           ¡TENEMOS MÁS DE{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-clr7 via-amber-500 to-clr6 dark:from-clr7 dark:via-amber-400 dark:to-clr6">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-clr7 via-amber-500 to-clr6 dark:from-dclr7 dark:via-amber-400 dark:to-dclr6">
             {totalArticles > 0 ? `${totalArticles}+` : '100+'}
           </span>{' '}
           RECURSOS!

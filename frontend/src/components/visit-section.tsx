@@ -90,9 +90,9 @@ const VisitSection = () => {
   if (!isClient) return null;
 
   return (
-    <section className="py-24 bg-white dark:bg-clr4 transition-colors">
+    <section className="py-24 bg-white dark:bg-dclr1 transition-colors">
       <div className="max-w-[1080px] mx-auto px-6">
-        <h2 className="text-4xl md:text-6xl font-black font-display text-center mb-16 text-clr7 dark:text-clr8 uppercase tracking-tighter">{titulo}</h2>
+        <h2 className="text-4xl md:text-6xl font-black font-display text-center mb-16 text-clr7 dark:text-dclr8 uppercase tracking-tighter">{titulo}</h2>
 
         <div className="flex flex-col lg:flex-row gap-4 items-stretch">
           {/* Dashboard Left */}
@@ -118,13 +118,13 @@ const VisitSection = () => {
             </div>
 
             {/* Visit Circle */}
-            <div className="relative aspect-square flex items-center justify-center bg-gradient-to-br from-clr8 dark:from-clr5 via-clr6 dark:via-clr5 to-dclr6 dark:to-clr7 rounded-[2em] shadow-xl group overflow-hidden">
+            <div className="relative aspect-square flex items-center justify-center bg-gradient-to-br from-clr8 dark:from-dclr5 via-clr6 dark:via-dclr5 to-dclr6 dark:to-dclr7 rounded-[2em] shadow-xl group overflow-hidden">
               <div 
                 className="absolute inset-4 bg-contain bg-center bg-no-repeat opacity-60 group-hover:scale-110 transition-transform duration-1000"
                 style={{ backgroundImage: `url('${imagen}')` }}
               />
               <div className="relative z-10 text-center p-4">
-                <span className="block text-3xl font-black text-white dark:text-clr8 font-display leading-tight uppercase tracking-tighter drop-shadow-lg">{ctaTexto}</span>
+                <span className="block text-3xl font-black text-white dark:text-dclr8 font-display leading-tight uppercase tracking-tighter drop-shadow-lg">{ctaTexto}</span>
               </div>
             </div>
 

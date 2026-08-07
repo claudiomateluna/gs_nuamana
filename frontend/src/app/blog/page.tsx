@@ -165,7 +165,7 @@ function BlogContent() {
   const hasAnyFilter = search || selCat !== 'todas' || selUnidad || selArea || tagFilter || (metaKey && metaValue) || objEdFilter
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-clr4 font-body transition-colors">
+    <div className="min-h-screen bg-zinc-50 dark:bg-dclr1 font-body transition-colors">
       <SecondaryHeader />
       
       <main className="max-w-[1080px] mx-auto px-2 py-32">
@@ -178,21 +178,21 @@ function BlogContent() {
         <CategoryPromoBanner className="mb-6" />
 
         {/* BARRA DE FILTROS */}
-        <div className="bg-clr9 dark:bg-clr5 rounded-3xl border border-zinc-100 dark:border-clr3 p-2 mb-2 shadow-sm grid grid-cols-1 md:grid-cols-4 gap-2">
+        <div className="bg-clr9 dark:bg-dclr5 rounded-3xl border border-zinc-100 dark:border-dclr10 p-2 mb-2 shadow-sm grid grid-cols-1 md:grid-cols-4 gap-2">
           <input 
             type="text" placeholder="🔍 Buscar..." 
-            className="p-2 rounded-2xl border bg-zinc-50 dark:bg-clr4 text-[1em] focus:outline-clr7 transition-colors border-clr10 dark:border-dclr4 font-bold"
+            className="p-2 rounded-2xl border bg-zinc-50 dark:bg-dclr1 text-[1em] focus:outline-clr7 transition-colors border-clr10 dark:border-dclr4 font-bold"
             defaultValue={search} onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => e.key === 'Enter' && updateURL('q', e.currentTarget.value)}
           />
-          <select className="p-2 rounded-2xl border bg-zinc-50 dark:bg-clr4 text-[0.8em] focus:outline-clr7 transition-colors border-clr10 dark:border-dclr4 font-bold" value={selCat} onChange={(e) => updateURL('category', e.target.value)}>
+          <select className="p-2 rounded-2xl border bg-zinc-50 dark:bg-dclr1 text-[0.8em] focus:outline-clr7 transition-colors border-clr10 dark:border-dclr4 font-bold" value={selCat} onChange={(e) => updateURL('category', e.target.value)}>
             <option value="todas">Todas las Categorías</option>
             {allCategorias.map(c => <option key={c.id} value={c.id.toString()}>{c.nombre} ({c.count})</option>)}
           </select>
-          <select className="p-2 rounded-2xl border bg-zinc-50 dark:bg-clr4 text-[0.8em] focus:outline-clr7 transition-colors border-clr10 dark:border-dclr4 font-bold" value={selUnidad} onChange={(e) => updateURL('unidades', e.target.value)}>
+          <select className="p-2 rounded-2xl border bg-zinc-50 dark:bg-dclr1 text-[0.8em] focus:outline-clr7 transition-colors border-clr10 dark:border-dclr4 font-bold" value={selUnidad} onChange={(e) => updateURL('unidades', e.target.value)}>
             <option value="">Unidad (Todas)</option>
             {UNIDADES.map(u => <option key={u} value={u}>{u === 'compania' ? 'COMPAÑÍA' : u.toUpperCase()}</option>)}
           </select>
-          <select className="p-2 rounded-2xl border bg-zinc-50 dark:bg-clr4 text-[0.8em] focus:outline-clr7 transition-colors border-clr10 dark:border-dclr4 font-bold" value={selArea} onChange={(e) => updateURL('areas', e.target.value)}>
+          <select className="p-2 rounded-2xl border bg-zinc-50 dark:bg-dclr1 text-[0.8em] focus:outline-clr7 transition-colors border-clr10 dark:border-dclr4 font-bold" value={selArea} onChange={(e) => updateURL('areas', e.target.value)}>
             <option value="">Área (Todas)</option>
             {AREAS.map(a => <option key={a} value={a}>{a.toUpperCase()}</option>)}
           </select>
@@ -216,7 +216,7 @@ function BlogContent() {
             const isLast = articulos.length === index + 1
             const mainCatName = post.articulo_categorias?.[0]?.categorias?.nombre || 'General'
             return (
-              <Link key={post.id} href={`/blog/${post.path}`} ref={isLast ? lastPostRef : null} className="group bg-white dark:bg-clr5 rounded-[1em] overflow-hidden shadow-sm hover:shadow-xl transition-all border border-zinc-100 dark:border-clr3 flex flex-col h-full">
+              <Link key={post.id} href={`/blog/${post.path}`} ref={isLast ? lastPostRef : null} className="group bg-white dark:bg-dclr5 rounded-[1em] overflow-hidden shadow-sm hover:shadow-xl transition-all border border-zinc-100 dark:border-dclr10 flex flex-col h-full">
                 <div className="aspect-square relative overflow-hidden block">
                   {post.imagen_destacada ? <img src={post.imagen_destacada} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" alt={post.titulo} /> : <div className="w-full h-full flex items-center justify-center text-zinc-300 opacity-20 text-4xl font-display uppercase italic">Nua Mana</div>}
                 </div>

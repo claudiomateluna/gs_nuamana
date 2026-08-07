@@ -18,7 +18,7 @@ const Testimonials = () => {
   return (
     <section className="py-24 bg-zinc-100 dark:bg-zinc-950 transition-colors">
       <div className="max-w-[1080px] mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-black font-display text-center text-clr5 dark:text-clr1 uppercase tracking-tighter mb-16">
+        <h2 className="text-4xl md:text-5xl font-black font-display text-center text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-16">
           {tituloSeccion}
         </h2>
 

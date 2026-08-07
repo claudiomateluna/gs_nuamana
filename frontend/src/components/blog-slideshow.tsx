@@ -53,7 +53,7 @@ export default function BlogSlideshow() {
     <section className="py-24 bg-zinc-50 dark:bg-black/10 overflow-hidden">
       <div className="max-w-[1080px] mx-auto px-2 mb-12 flex justify-center items-center gap-6 flex-col text-center">
         <div>
-          <h2 className="text-4xl font-black font-display uppercase text-dclr6 dark:text-clr6 leading-none">Últimas Novedades</h2>
+          <h2 className="text-4xl font-black font-display uppercase text-dclr6 dark:text-dclr6 leading-none">Últimas Novedades</h2>
           <p className="text-clr2 font-bold uppercase tracking-widest text-[1em] italic">Explora nuestras aventuras recientes</p>
           <Link href="/blog" className="text-[1em] font-black uppercase tracking-widest text-clr7 hover:underline">Ver Todo el Blog →</Link>
         </div>
@@ -79,7 +79,7 @@ export default function BlogSlideshow() {
             <Link 
               key={post.id}
               href={`/blog/${post.articulo_categorias?.[0]?.categorias?.slug || 'general'}/${post.slug}`}
-              className="group relative rounded-[1rem] overflow-hidden snap-center shadow-2xl border border-clr10 dark:border-clr4 shrink-0"
+              className="group relative rounded-[1rem] overflow-hidden snap-center shadow-2xl border border-clr10 dark:border-dclr10 shrink-0"
             >
               {post.imagen_destacada ? (
                 <img src={post.imagen_destacada} className="w-100 h-100 object-cover transition-all duration-700 group-hover:scale-110" alt={post.titulo} />

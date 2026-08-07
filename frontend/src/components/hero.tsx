@@ -70,7 +70,7 @@ const Hero = () => {
         className="absolute inset-0 bg-cover bg-bottom bg-no-repeat transition-all duration-1000"
         style={{ backgroundImage: `url('${fondo}')` }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-clr5/90 via-clr5/40 to-clr7/70 dark:from-black/80 dark:to-clr4/80" />
+      <div className="absolute inset-0 bg-gradient-to-b from-clr5/90 via-clr5/40 to-clr7/70 dark:from-black/80 dark:to-dclr1/80" />
 
       {/* BLOQUE SUPERIOR: Imágenes fijas arriba */}
       <div className="absolute top-34 left-0 right-0 z-10 flex justify-center gap-4 px-6">
