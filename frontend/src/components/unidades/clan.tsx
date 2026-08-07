@@ -143,7 +143,7 @@ function ClanProyectos() {
         <div className="flex flex-col md:flex-row gap-6 bg-white dark:bg-white/5 border border-zinc-150 dark:border-white/5 rounded-3xl p-6 shadow-md items-center">
           <div className="w-full md:w-1/3 aspect-[4/3] rounded-2xl overflow-hidden relative shadow-inner"><img src="/images/unidades/servicio.webp" alt="Servicio" className="w-full h-full object-cover filter brightness-90 hover:scale-105 transition-transform duration-500" /></div>
           <div className="w-full md:w-2/3 space-y-3">
-            <span className="text-[0.8em] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-clr7 dark:bg-clr7/40 text-white dark:text-red-400 border border-red-200 dark:border-red-900/30 mb-3">Campo de Accion Prioritario</span>
+            <span className="text-[0.8em] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-clr7 dark:bg-dclr7/40 text-white dark:text-dclr7 border border-red-200 dark:border-dclr7/30 mb-3">Campo de Accion Prioritario</span>
             <h4 className="text-[1.35em] font-black uppercase text-zinc-900 dark:text-white leading-tight">Servicio</h4>
             <p className="text-[0.95em] text-zinc-650 dark:text-zinc-400 leading-relaxed">Desde el origen de nuestro movimiento, Baden Powell imprimio el compromiso con los demas.</p>
           </div>
@@ -159,7 +159,7 @@ function ClanProyectos() {
         <div className="flex flex-col md:flex-row gap-6 bg-white dark:bg-white/5 border border-zinc-150 dark:border-white/5 rounded-3xl p-6 shadow-md items-center">
           <div className="w-full md:w-1/3 aspect-[4/3] rounded-2xl overflow-hidden relative shadow-inner"><img src="/images/unidades/viaje.webp" alt="Viaje" className="w-full h-full object-cover filter brightness-90 hover:scale-105 transition-transform duration-500" /></div>
           <div className="w-full md:w-2/3 space-y-3">
-            <span className="text-[0.8em] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-clr8 dark:bg-clr8/40 text-white dark:text-clr8 border border-clr8 dark:border-clr8/30 mb-3">Campo de Accion Prioritario</span>
+            <span className="text-[0.8em] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-clr8 dark:bg-dclr8/40 text-white dark:text-dclr8 border border-clr8 dark:border-dclr8/30 mb-3">Campo de Accion Prioritario</span>
             <h4 className="text-[1.35em] font-black uppercase text-zinc-900 dark:text-white leading-tight">Viaje</h4>
             <p className="text-[0.95em] text-zinc-650 dark:text-zinc-400 leading-relaxed">Un recorrido donde puedas conocer lugares cercanos y enriquecerte como persona.</p>
           </div>
@@ -167,7 +167,7 @@ function ClanProyectos() {
         <div className="flex flex-col md:flex-row-reverse gap-6 bg-white dark:bg-white/5 border border-zinc-150 dark:border-white/5 rounded-3xl p-6 shadow-md items-center">
           <div className="w-full md:w-1/3 aspect-[4/3] rounded-2xl overflow-hidden relative shadow-inner"><img src="/images/unidades/naturaleza.webp" alt="Naturaleza" className="w-full h-full object-cover filter brightness-90 hover:scale-105 transition-transform duration-500" /></div>
           <div className="w-full md:w-2/3 space-y-3 text-right">
-            <span className="text-[0.8em] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-clr6 dark:bg-clr6/40 text-clr1 dark:text-clr6 border border-green-200 dark:border-clr6 mb-3">Campo de Accion Prioritario</span>
+            <span className="text-[0.8em] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-clr6 dark:bg-dclr6/40 text-clr1 dark:text-dclr6 border border-green-200 dark:border-dclr6 mb-3">Campo de Accion Prioritario</span>
             <h4 className="text-[1.35em] font-black uppercase text-zinc-900 dark:text-white leading-tight">Naturaleza</h4>
             <p className="text-[0.95em] text-zinc-650 dark:text-zinc-400 leading-relaxed">La vida en la naturaleza es el campo de accion que esta totalmente impreso en nuestra vivencia scout.</p>
           </div>
