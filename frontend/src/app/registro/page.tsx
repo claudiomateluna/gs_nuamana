@@ -305,14 +305,14 @@ function RegistroContent() {
     }
   }
 
-  const inputStyle = "w-full bg-zinc-50 dark:bg-clr3 dark:text-dclr2 border-2 border-transparent focus:border-clr7 rounded-2xl p-4 font-bold outline-none transition-all shadow-inner";
-  const infoBoxStyle = "mt-6 text-[0.9em] text-zinc-900 dark:text-clr10 bg-zinc-50 dark:bg-clr3 p-4 border border-clr10 dark:border-clr4 rounded-2xl leading-relaxed italic";
+  const inputStyle = "w-full bg-zinc-50 dark:bg-dclr10 dark:text-dclr2 border-2 border-transparent focus:border-clr7 rounded-2xl p-4 font-bold outline-none transition-all shadow-inner";
+  const infoBoxStyle = "mt-6 text-[0.9em] text-zinc-900 dark:text-dclr2 bg-zinc-50 dark:bg-dclr3 p-4 border border-clr10 dark:border-dclr10 rounded-2xl leading-relaxed italic";
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-clr4 font-body transition-colors">
+    <div className="min-h-screen bg-zinc-50 dark:bg-dclr1 font-body transition-colors">
       <SecondaryHeader />
       <main className="max-w-[1080px] mx-auto px-6 py-32 flex justify-center">
-        <div className="w-full max-w-2xl bg-white dark:bg-clr5 rounded-[1rem] p-2 md:p-4 shadow-2xl border border-clr10 dark:border-clr4 animate-in fade-in zoom-in duration-700">
+        <div className="w-full max-w-2xl bg-white dark:bg-dclr5 rounded-[1rem] p-2 md:p-4 shadow-2xl border border-clr10 dark:border-dclr10 animate-in fade-in zoom-in duration-700">
           <div className="mb-12 space-y-4">
             <div className="flex justify-between items-end">
               <h1 className="text-2xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter leading-none">Inscripción Nua Mana</h1>
@@ -340,7 +340,7 @@ function RegistroContent() {
                 <p className="text-clr2 text-[1em] font-bold mb-8">Elige el tipo de usuario que estás registrando en nuestro sitio web.</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {['lobato (a)', 'guia', 'scout', 'pionera (o)', 'caminante', 'dirigente', 'guiadora', 'apoderado'].map(r => (
-                    <label key={r} className={`flex items-center p-4 border-2 rounded-2xl cursor-pointer transition-all ${rol === r ? 'border-clr7 bg-clr7/5' : 'border-zinc-100 dark:border-clr4 hover:border-clr7/30'}`}>
+                    <label key={r} className={`flex items-center p-4 border-2 rounded-2xl cursor-pointer transition-all ${rol === r ? 'border-clr7 bg-clr7/5' : 'border-zinc-100 dark:border-dclr10 hover:border-clr7/30'}`}>
                       <input type="radio" value={r} {...register('rol')} className="hidden" />
                       <span className="font-bold uppercase text-[0.8em] tracking-widest text-clr5 dark:text-dclr2">{r}</span>
                     </label>
@@ -533,7 +533,7 @@ function RegistroContent() {
                 <p className="text-clr2 text-[1em] font-bold mb-8">Indica los nombres de las personas de quien eres apoderada (o)</p>
                 <div className="space-y-4">
                   {pupiloFields.map((f, i) => (
-                    <div key={f.id} className="p-6 bg-zinc-50 dark:bg-black/20 rounded-3xl border border-clr10 dark:border-clr4 space-y-4 shadow-inner">
+                    <div key={f.id} className="p-6 bg-zinc-50 dark:bg-black/20 rounded-3xl border border-clr10 dark:border-dclr10 space-y-4 shadow-inner">
                       <input {...register(`pupilos.${i}.nombre` as const)} placeholder="Nombre completo del niño/a" className={inputStyle} />
                       <div className="grid grid-cols-2 gap-4">
                         <select {...register(`pupilos.${i}.relacion` as const)} className={inputStyle}>{relaciones.map(r => <option key={r} value={r}>{r}</option>)}</select>
@@ -542,7 +542,7 @@ function RegistroContent() {
                       {i > 0 && <button type="button" onClick={() => removePupilo(i)} className="text-clr7 text-[0.8em] font-black uppercase tracking-widest ml-4">Eliminar</button>}
                     </div>
                   ))}
-                  <button type="button" onClick={() => appendPupilo({})} className="w-full py-4 border-2 border-dashed border-clr10 dark:border-clr4 rounded-[2rem] text-zinc-400 font-bold uppercase text-[0.8em] tracking-widest hover:text-clr7 transition-all">+ Agregar Pupilo</button>
+                  <button type="button" onClick={() => appendPupilo({})} className="w-full py-4 border-2 border-dashed border-clr10 dark:border-dclr10 rounded-[2rem] text-zinc-400 font-bold uppercase text-[0.8em] tracking-widest hover:text-clr7 transition-all">+ Agregar Pupilo</button>
                 </div>
                 <p className={infoBoxStyle}>Indica los datos de la pupila (o) tu relación o parentesco con el pupilo, y la unidad a la que pertenece.<br></br><br></br>Seleccione la unidad a la que pertenece la niña, niño o joven de acuerdo a la edad del mismo.<br></br><br></br><b>Manada</b> - niños y niñas entre 7 y 11 años (unidad mixta).<br></br><b>Compañía</b> - niñas y jóvenes mujeres entre 11 y 15 años (unidad femenina).<br></br><b>Tropa</b> - niños y jóvenes entre 11 y 15 años (unidad masculina).<br></br><b>Avanzada</b> - jóvenes entre 15 y 17 años (unidad mixta).<br></br><b>Clan</b> - jóvenes entre 17 y 20 años (unidad mixta).<br></br><br></br><span className="font-black text-clr7">* Estos campos son obligatorios</span></p>
               </div>
@@ -554,7 +554,7 @@ function RegistroContent() {
                 <p className="text-clr2 text-[1em] font-bold mb-8">Indícanos detalles de a quien avisar en caso de una emergencia</p>
                 <div className="space-y-4">
                   {emergencyFields.map((f, i) => (
-                    <div key={f.id} className="p-6 bg-zinc-50 dark:bg-black/20 rounded-3xl border border-clr10 dark:border-clr4 space-y-4 shadow-inner">
+                    <div key={f.id} className="p-6 bg-zinc-50 dark:bg-black/20 rounded-3xl border border-clr10 dark:border-dclr10 space-y-4 shadow-inner">
                       <input {...register(`contactosEmergencia.${i}.nombre` as const)} placeholder="Nombre Contacto" className={inputStyle} />
                       <div className="grid grid-cols-2 gap-4">
                         <select {...register(`contactosEmergencia.${i}.relacion` as const)} className={inputStyle}>{relaciones.map(r => <option key={r} value={r}>{r}</option>)}</select>
@@ -563,7 +563,7 @@ function RegistroContent() {
                       {i > 0 && <button type="button" onClick={() => removeEmergency(i)} className="text-clr7 text-[0.8em] font-black uppercase tracking-widest ml-4">Eliminar</button>}
                     </div>
                   ))}
-                  <button type="button" onClick={() => appendEmergency({})} className="w-full py-4 border-2 border-dashed border-clr10 dark:border-clr4 rounded-[2rem] text-zinc-400 font-bold uppercase text-[0.8em] tracking-widest hover:text-clr7 transition-all">+ Agregar Contacto</button>
+                  <button type="button" onClick={() => appendEmergency({})} className="w-full py-4 border-2 border-dashed border-clr10 dark:border-dclr10 rounded-[2rem] text-zinc-400 font-bold uppercase text-[0.8em] tracking-widest hover:text-clr7 transition-all">+ Agregar Contacto</button>
                 </div>
                 <p className={infoBoxStyle}>Agrega los datos de contactos de emergencia donde podamos dar aviso en caso de alguna situación.<br></br><br></br><span className="font-black text-clr7">* Estos campos son obligatorios</span></p>
               </div>
@@ -589,11 +589,11 @@ function RegistroContent() {
                     </div>
                   )}
 
-                  <div className="p-6 bg-zinc-50 dark:bg-black/10 rounded-3xl border border-clr10 dark:border-clr4">
+                  <div className="p-6 bg-zinc-50 dark:bg-black/10 rounded-3xl border border-clr10 dark:border-dclr10">
                     <label className="text-[0.8em] font-black uppercase text-clr2 tracking-widest ml-2 mb-4 block">¿Tienes Seguro Complementario?</label>
                     <div className="flex gap-4 mb-4">
                       {['si', 'no'].map(o => (
-                        <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.8em] transition-all ${seguroComp === o ? 'border-clr7 bg-clr7/5' : 'border-zinc-200 dark:border-clr4'}`}>
+                        <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.8em] transition-all ${seguroComp === o ? 'border-clr7 bg-clr7/5' : 'border-zinc-200 dark:border-dclr10'}`}>
                           <input type="radio" value={o} {...register('seguroComplementario')} className="hidden" /> {o}
                         </label>
                       ))}
@@ -616,7 +616,7 @@ function RegistroContent() {
                 <p className="text-clr2 text-[1em] font-bold mb-8">Este dato puede salvar tu vida</p>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                   {['A+', 'A-', 'AB+', 'AB-', 'B+', 'B-', 'O+', 'O-', 'No Sabe'].map(s => (
-                    <label key={s} className="p-4 border-2 border-zinc-100 dark:border-clr4 rounded-2xl text-center font-bold cursor-pointer hover:border-clr7 dark:text-dclr2"><input type="radio" value={s} {...register('tipoSangre')} className="mr-2" /> {s}</label>
+                    <label key={s} className="p-4 border-2 border-zinc-100 dark:border-dclr10 rounded-2xl text-center font-bold cursor-pointer hover:border-clr7 dark:text-dclr2"><input type="radio" value={s} {...register('tipoSangre')} className="mr-2" /> {s}</label>
                   ))}
                 </div>
                 <p className={infoBoxStyle}>Indique el tipo de sangre, este es un dato vital en caso de una emergencia médica. <br></br><br></br><span className="font-black text-clr7">* Esto es Obligatorio</span></p>
@@ -629,7 +629,7 @@ function RegistroContent() {
                 <div className="space-y-6">
                   <div className="flex gap-4">
                     {['si', 'no'].map(o => (
-                      <label key={o} className={`flex-1 p-4 border-2 rounded-2xl text-center cursor-pointer font-bold uppercase text-xs tracking-widest transition-all ${tieneAlergias === o ? 'border-clr7 bg-clr7/5' : 'border-zinc-100 dark:border-clr4'}`}>
+                      <label key={o} className={`flex-1 p-4 border-2 rounded-2xl text-center cursor-pointer font-bold uppercase text-xs tracking-widest transition-all ${tieneAlergias === o ? 'border-clr7 bg-clr7/5' : 'border-zinc-100 dark:border-dclr10'}`}>
                         <input type="radio" value={o} {...register('tieneAlergias')} className="hidden" /> {o}
                       </label>
                     ))}
@@ -690,11 +690,11 @@ function RegistroContent() {
                     ))}
                   </div>
 
-                  <div className="p-6 bg-zinc-50 dark:bg-black/10 rounded-3xl border border-clr10 dark:border-clr4">
+                  <div className="p-6 bg-zinc-50 dark:bg-black/10 rounded-3xl border border-clr10 dark:border-dclr10">
                     <label className="text-[0.8em] font-black uppercase text-clr2 tracking-widest ml-2 mb-4 block">¿Tienes Intolerancia Alimentaria?</label>
                     <div className="flex gap-4 mb-4">
                       {['si', 'no'].map(o => (
-                        <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.8em] transition-all ${tieneIntol === o ? 'border-clr7 bg-clr7/5' : 'border-zinc-200 dark:border-clr4'}`}>
+                        <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.8em] transition-all ${tieneIntol === o ? 'border-clr7 bg-clr7/5' : 'border-zinc-200 dark:border-dclr10'}`}>
                           <input type="radio" value={o} {...register('tieneIntolerancia')} className="hidden" /> {o}
                         </label>
                       ))}
@@ -742,7 +742,7 @@ function RegistroContent() {
               </div>
             )}
 
-            <div className="flex justify-between pt-12 border-t border-zinc-100 dark:border-clr4">
+            <div className="flex justify-between pt-12 border-t border-zinc-100 dark:border-dclr10">
               {currentStep > 1 ? (
                 <button type="button" onClick={prevStep} className="px-8 py-4 text-clr2 font-black uppercase text-[0.8em] tracking-widest hover:text-clr7 transition-colors">← Atrás</button>
               ) : <div />}

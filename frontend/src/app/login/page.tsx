@@ -47,11 +47,11 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-clr4 font-body transition-colors">
+    <div className="min-h-screen bg-zinc-50 dark:bg-dclr1 font-body transition-colors">
       <SecondaryHeader />
       
       <main className="max-w-[1080px] mx-auto px-6 py-32 flex justify-center">
-        <div className="w-full max-w-md bg-white dark:bg-zinc-900/50 rounded-[3rem] p-10 shadow-2xl border border-clr10 dark:border-clr4 animate-in fade-in zoom-in duration-700">
+        <div className="w-full max-w-md bg-white dark:bg-zinc-900/50 rounded-[3rem] p-10 shadow-2xl border border-clr10 dark:border-dclr10 animate-in fade-in zoom-in duration-700">
           
           <div className="text-center mb-10">
             <div className="inline-block p-4 bg-clr7/10 rounded-full mb-4">
@@ -59,7 +59,7 @@ export default function LoginPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
             </div>
-            <h1 className="text-3xl font-black font-display text-clr5 dark:text-clr1 uppercase leading-none">Acceso Intranet</h1>
+            <h1 className="text-3xl font-black font-display text-clr5 dark:text-dclr2 uppercase leading-none">Acceso Intranet</h1>
             <p className="text-clr2 text-xs font-bold uppercase tracking-widest mt-3 italic">Ingresa con tu R.U.N.</p>
           </div>
 
@@ -75,7 +75,7 @@ export default function LoginPage() {
                   if (v.length > 1) v = v.slice(0, -1) + '-' + v.slice(-1); 
                   e.currentTarget.value = v;
                 }}
-                className="w-full bg-zinc-50 dark:bg-black/20 border-2 border-transparent focus:border-clr7 rounded-2xl p-4 text-clr4 dark:text-clr1 outline-none transition-all font-bold text-lg text-center tracking-widest shadow-inner" 
+                className="w-full bg-zinc-50 dark:bg-black/20 border-2 border-transparent focus:border-clr7 rounded-2xl p-4 text-clr4 dark:text-dclr2 outline-none transition-all font-bold text-lg text-center tracking-widest shadow-inner" 
               />
               {errors.rut && <p className="text-clr7 text-[0.8em] mt-2 ml-4 font-black uppercase tracking-wider">{errors.rut.message}</p>}
             </div>
@@ -85,7 +85,7 @@ export default function LoginPage() {
               <input 
                 type="password" 
                 {...register('password')} 
-                className="w-full bg-zinc-50 dark:bg-black/20 border-2 border-transparent focus:border-clr7 rounded-2xl p-4 text-clr4 dark:text-clr1 outline-none transition-all font-bold text-sm shadow-inner" 
+                className="w-full bg-zinc-50 dark:bg-black/20 border-2 border-transparent focus:border-clr7 rounded-2xl p-4 text-clr4 dark:text-dclr2 outline-none transition-all font-bold text-sm shadow-inner" 
                 placeholder="••••••••"
               />
               {errors.password && <p className="text-clr7 text-[0.8em] mt-2 ml-4 font-black uppercase tracking-wider">{errors.password.message}</p>}
@@ -105,7 +105,7 @@ export default function LoginPage() {
               {loading ? 'Validando...' : 'Iniciar Sesión'}
             </button>
 
-            <div className="text-center pt-6 border-t border-zinc-100 dark:border-clr4 mt-8">
+            <div className="text-center pt-6 border-t border-zinc-100 dark:border-dclr10 mt-8">
               <p className="text-[0.8em] font-bold text-clr2 uppercase tracking-widest leading-loose">
                 ¿Aún no eres parte?<br />
                 <Link href="/registro" className="text-clr7 font-black hover:underline underline-offset-4">Inicia tu registro aquí</Link>

@@ -254,25 +254,25 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
   if (categoria) {
     const isActividades = currentPath.includes('actividades')
     return (
-      <div className="min-h-screen bg-zinc-50 dark:bg-clr4 font-body">
+      <div className="min-h-screen bg-zinc-50 dark:bg-dclr1 font-body">
         <SecondaryHeader />
         <main className="max-w-[1080px] mx-auto px-2 py-32">
           <Breadcrumbs />
           <header className="mb-12"><h1 className="text-[1em] font-bold font-display uppercase text-clr4 dark:text-dclr2">{categoria.nombre}</h1></header>
 
-          <div className="bg-white dark:bg-clr5 p-2 rounded-3xl shadow-sm mb-12 grid grid-cols-1 md:grid-cols-3 gap-4 border border-zinc-100 dark:border-clr3">
+          <div className="bg-white dark:bg-dclr5 p-2 rounded-3xl shadow-sm mb-12 grid grid-cols-1 md:grid-cols-3 gap-4 border border-zinc-100 dark:border-dclr10">
             <input
               type="text" placeholder="🔍 Buscar en esta sección..."
-              className="p-3 rounded-2xl border bg-zinc-50 dark:bg-clr5 font-bold text-[0.8em]"
+              className="p-3 rounded-2xl border bg-zinc-50 dark:bg-dclr5 font-bold text-[0.8em]"
               value={search} onChange={(e) => setSearch(e.target.value)}
             />
             {isActividades && (
               <>
-                <select className="p-3 rounded-2xl border bg-zinc-50 dark:bg-clr5 font-bold text-[0.8em]" value={selUnidad} onChange={(e) => setSelUnidad(e.target.value)}>
+                <select className="p-3 rounded-2xl border bg-zinc-50 dark:bg-dclr5 font-bold text-[0.8em]" value={selUnidad} onChange={(e) => setSelUnidad(e.target.value)}>
                   <option value="">Unidad (Todas)</option>
                   {UNIDADES.map(u => <option key={u} value={u}>{u.toUpperCase()}</option>)}
                 </select>
-                <select className="p-3 rounded-2xl border bg-zinc-50 dark:bg-clr5 font-bold text-[0.8em]" value={selArea} onChange={(e) => setSelArea(e.target.value)}>
+                <select className="p-3 rounded-2xl border bg-zinc-50 dark:bg-dclr5 font-bold text-[0.8em]" value={selArea} onChange={(e) => setSelArea(e.target.value)}>
                   <option value="">Área (Todas)</option>
                   {AREAS.map(a => <option key={a} value={a}>{a.toUpperCase()}</option>)}
                 </select>
@@ -288,9 +288,9 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
                   key={post.id}
                   href={post.fullPath}
                   ref={isLast ? lastPostRef : null}
-                  className="group bg-white dark:bg-clr5 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-zinc-100 dark:border-clr3 flex flex-col h-full"
+                  className="group bg-white dark:bg-dclr5 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-zinc-100 dark:border-dclr10 flex flex-col h-full"
                 >
-                  <div className="relative h-48 w-full overflow-hidden bg-zinc-100 dark:bg-clr5">
+                  <div className="relative h-48 w-full overflow-hidden bg-zinc-100 dark:bg-dclr5">
                     {post.imagen_destacada ? <img src={post.imagen_destacada} className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" alt={post.titulo} /> : <div className="w-full h-full flex items-center justify-center text-zinc-300 opacity-20"><Icon url={ICON_URLS.categoria} className="w-12 h-12" /></div>}
                   </div>
                   <div className="p-6 flex flex-col flex-1">
@@ -336,7 +336,7 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
     }
 
     return (
-      <div className="min-h-screen bg-white dark:bg-clr4 text-clr4 dark:text-clr1 font-body pb-20">
+      <div className="min-h-screen bg-white dark:bg-dclr1 text-clr4 dark:text-dclr2 font-body pb-20">
         <SecondaryHeader />
         <main className="max-w-[1080px] mx-auto px-6 py-32">
           <Breadcrumbs />
@@ -405,13 +405,13 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
                     <div key={idx} className="flex flex-col gap-2">
                       <div className="p-4 border border-clr3 rounded-[1em]">
                         <h3 className="text-clr7 uppercase mb-[-4px]">🎯 Objetivo Terminal:</h3>
-                        <div className="font-bold text-[1em] text-clr5 dark:text-clr2 leading-relaxed pb-2">
+                        <div className="font-bold text-[1em] text-clr5 dark:text-dclr2 leading-relaxed pb-2">
                           {terminal}
                         </div>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {objs.map((o, i) => (
-                          <div key={i} className="group flex flex-col gap-1 p-3 bg-white dark:bg-black/40 rounded-xl shadow-sm border border-zinc-100 dark:border-clr4 relative overflow-hidden pl-5">
+                          <div key={i} className="group flex flex-col gap-1 p-3 bg-white dark:bg-black/40 rounded-xl shadow-sm border border-zinc-100 dark:border-dclr10 relative overflow-hidden pl-5">
                             <div className="absolute left-0 top-0 bottom-0 w-2" style={{ backgroundColor: o.color || '#ccc' }} />
                             <div className="flex items-center gap-2 flex-wrap">
                               <span className="text-[0.8em] font-black uppercase tracking-widest" style={{ color: o.color || '#ccc' }}>{o.unidad}</span><span>•</span>
@@ -485,7 +485,7 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
             
             {/* SECCIÓN DE RESEÑAS SCOUTS */}
             {articulo.articulo_resenas && articulo.articulo_resenas.length > 0 && (
-              <div className="p-2 bg-zinc-50 dark:bg-black/20 rounded-[2rem] border-2 border-zinc-100 dark:border-clr4 shadow-sm">
+              <div className="p-2 bg-zinc-50 dark:bg-black/20 rounded-[2rem] border-2 border-zinc-100 dark:border-dclr10 shadow-sm">
                 <div className="flex items-center justify-between mb-8">
                   <div className="flex items-center gap-1">
                     <span className="text-3xl">⭐</span>
@@ -548,7 +548,7 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
                           
                           {res.comentario && (
                             <div className="relative mt-2">
-                              <p className="text-[1.05em] italic opacity-95 leading-relaxed dark:text-clr1 font-medium bg-zinc-50/50 dark:bg-black/30 p-6 rounded-[1.5rem] border-l-[8px] shadow-sm" style={{ borderLeftColor: uColor }}>
+                              <p className="text-[1.05em] italic opacity-95 leading-relaxed dark:text-dclr2 font-medium bg-zinc-50/50 dark:bg-black/30 p-6 rounded-[1.5rem] border-l-[8px] shadow-sm" style={{ borderLeftColor: uColor }}>
                                 "{res.comentario}"
                               </p>
                             </div>
@@ -560,7 +560,7 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
                 </div>
               </div>
             )}
-            {articulo.etiquetas && articulo.etiquetas.length > 0 && <footer className="pt-12 border-t border-clr10 dark:border-zinc-800 flex flex-wrap gap-3 items-center"><div className="flex items-center gap-2 mr-4"><Icon url={ICON_URLS.etiquetas} className="w-5 h-5" /><span className="text-[0.8em] font-bold text-clr2 uppercase tracking-widest">Etiquetas:</span></div>{articulo.etiquetas.map((t) => (<Link key={t} href={`/blog?tag=${t}`} className="px-5 py-2 bg-clr10 dark:bg-zinc-800 rounded-full text-sm font-bold text-clr4 dark:text-clr1 hover:bg-clr7 hover:text-white transition-all shadow-sm">#{t}</Link>))}</footer>}
+            {articulo.etiquetas && articulo.etiquetas.length > 0 && <footer className="pt-12 border-t border-clr10 dark:border-zinc-800 flex flex-wrap gap-3 items-center"><div className="flex items-center gap-2 mr-4"><Icon url={ICON_URLS.etiquetas} className="w-5 h-5" /><span className="text-[0.8em] font-bold text-clr2 uppercase tracking-widest">Etiquetas:</span></div>{articulo.etiquetas.map((t) => (<Link key={t} href={`/blog?tag=${t}`} className="px-5 py-2 bg-clr10 dark:bg-zinc-800 rounded-full text-sm font-bold text-clr4 dark:text-dclr2 hover:bg-clr7 hover:text-white transition-all shadow-sm">#{t}</Link>))}</footer>}
           </section>
         </main>
       </div>

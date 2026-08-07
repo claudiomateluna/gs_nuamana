@@ -358,15 +358,15 @@ export default function CrearArticuloPage() {
   const isHistoriaScout = selectedCatIds.some(id => hasAncestor(parseInt(id), 'historia-scout') || hasAncestor(parseInt(id), 'historias-scouts'))
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-clr4 font-body transition-colors">
+    <div className="min-h-screen bg-zinc-50 dark:bg-dclr1 font-body transition-colors">
       <SecondaryHeader />
       <main className="max-w-[1080px] mx-auto px-4 py-32">
-        <div className="bg-white dark:bg-clr5 rounded-[1rem] p-4 shadow-2xl border border-clr10 dark:border-clr4 animate-in fade-in zoom-in duration-700">
-          <h1 className="text-3xl font-black text-clr7 mb-8 uppercase tracking-tighter font-display border-b border-zinc-100 dark:border-clr4 pb-4">Nueva Entrada</h1>
+        <div className="bg-white dark:bg-dclr5 rounded-[1rem] p-4 shadow-2xl border border-clr10 dark:border-dclr10 animate-in fade-in zoom-in duration-700">
+          <h1 className="text-3xl font-black text-clr7 mb-8 uppercase tracking-tighter font-display border-b border-zinc-100 dark:border-dclr10 pb-4">Nueva Entrada</h1>
           
           <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 lg:grid-cols-4 gap-4">
             <div className="lg:col-span-3 space-y-4">
-              <input {...register('titulo')} className="w-full text-3xl font-bold border-b border-zinc-100 dark:border-clr4 focus:border-clr7 outline-none py-2 font-display bg-transparent" placeholder="Título del artículo..." required />
+              <input {...register('titulo')} className="w-full text-3xl font-bold border-b border-zinc-100 dark:border-dclr10 focus:border-clr7 outline-none py-2 font-display bg-transparent" placeholder="Título del artículo..." required />
 
               {isActividad && (
                 <div className="p-4 bg-blue-50/50 dark:bg-black/20 rounded-3xl border border-blue-100 dark:border-blue-900/30 space-y-2">
@@ -475,7 +475,7 @@ export default function CrearArticuloPage() {
                             }, {})
                         ).map(([terminal, objs], idx) => (
                           <div key={idx} className="col-span-1 md:col-span-2 flex flex-col gap-3 mt-4 first:mt-0">
-                            <h4 className="font-bold text-[0.9em] text-clr5 dark:text-clr2 leading-relaxed border-b border-zinc-200 dark:border-zinc-800 pb-2 uppercase tracking-widest">
+                            <h4 className="font-bold text-[0.9em] text-clr5 dark:text-dclr2 leading-relaxed border-b border-zinc-200 dark:border-zinc-800 pb-2 uppercase tracking-widest">
                               🎯 {terminal}
                             </h4>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -487,7 +487,7 @@ export default function CrearArticuloPage() {
                                     key={obj.id}
                                     onClick={() => toggleObjEd(obj)}
                                     style={{ borderLeftColor: unitColor }}
-                                    className={`p-4 rounded-2xl border-2 border-l-4 cursor-pointer transition-all hover:scale-[1.02] active:scale-95 flex flex-col gap-2 ${isSelected ? 'bg-zinc-50 dark:bg-clr4 border-clr7' : 'bg-white dark:bg-black/10 border-zinc-100 dark:border-clr4 opacity-80 hover:opacity-100'}`}
+                                    className={`p-4 rounded-2xl border-2 border-l-4 cursor-pointer transition-all hover:scale-[1.02] active:scale-95 flex flex-col gap-2 ${isSelected ? 'bg-zinc-50 dark:bg-dclr1 border-clr7' : 'bg-white dark:bg-black/10 border-zinc-100 dark:border-dclr10 opacity-80 hover:opacity-100'}`}
                                   >
                                     <div className="flex justify-between items-center relative">
                                       <span className="text-[0.9em] font-black uppercase px-2 py-0.5 rounded-md text-white shadow-sm" style={{ backgroundColor: unitColor }}>{obj.unidad?.nombre}</span>
@@ -507,9 +507,9 @@ export default function CrearArticuloPage() {
                                       </div>
                                     </div>
                                     <div className="text-center space-y-2 mt-2">
-                                      <p className="text-[1em] leading-relaxed font-bold dark:text-clr1 italic">"{obj.texto_infantil}"</p>
+                                      <p className="text-[1em] leading-relaxed font-bold dark:text-dclr2 italic">"{obj.texto_infantil}"</p>
                                       {obj.rango_edad && (
-                                        <span className="inline-block px-3 py-1 rounded-full text-[0.8em] font-black uppercase tracking-widest bg-zinc-100 dark:bg-black/30 text-zinc-500 dark:text-zinc-400 border border-zinc-200 dark:border-clr4">
+                                        <span className="inline-block px-3 py-1 rounded-full text-[0.8em] font-black uppercase tracking-widest bg-zinc-100 dark:bg-black/30 text-zinc-500 dark:text-zinc-400 border border-zinc-200 dark:border-dclr10">
                                           {obj.rango_edad}
                                         </span>
                                       )}
@@ -534,7 +534,7 @@ export default function CrearArticuloPage() {
                         </h4>
                         <div className="grid grid-cols-1 gap-4">
                           {selectedObjsEd.map(o => (
-                            <div key={o.id} className="p-4 bg-zinc-50 dark:bg-black/20 rounded-2xl border border-zinc-200 dark:border-clr4 flex flex-col gap-3 relative">
+                            <div key={o.id} className="p-4 bg-zinc-50 dark:bg-black/20 rounded-2xl border border-zinc-200 dark:border-dclr10 flex flex-col gap-3 relative">
                               <button 
                                 type="button" 
                                 onClick={() => toggleObjEd(o)} 
@@ -551,7 +551,7 @@ export default function CrearArticuloPage() {
                                   {o.area?.nombre}
                                 </span>
                               </div>
-                              <p className="font-bold text-[1em] italic leading-relaxed text-zinc-800 dark:text-clr1">
+                              <p className="font-bold text-[1em] italic leading-relaxed text-zinc-800 dark:text-dclr2">
                                 "{o.texto_infantil}"
                               </p>
                               <div className="space-y-1">
@@ -596,7 +596,7 @@ export default function CrearArticuloPage() {
 
               <SunEditor setContents={contenido} onChange={(val) => setValue('contenido', val, { shouldDirty: true })} setOptions={{ height: '600', buttonList: [['undo', 'redo'], ['formatBlock', 'font', 'fontSize'], ['bold', 'underline', 'italic', 'strike'], ['fontColor', 'hiliteColor'], ['outdent', 'indent'], ['align', 'list', 'lineHeight'], ['table', 'link', 'image'], ['fullScreen', 'codeView'], ['preview']], defaultStyle: "font-family: var(--font-body); font-size: 1.1rem; line-height: 2;" }} />
 
-              <div className="p-6 bg-zinc-50 dark:bg-black/20 rounded-[1.5rem] border border-zinc-200 dark:border-clr4 space-y-4">
+              <div className="p-6 bg-zinc-50 dark:bg-black/20 rounded-[1.5rem] border border-zinc-200 dark:border-dclr10 space-y-4">
                 <div className="flex justify-between items-center">
                   <h3 className="text-lg font-display font-bold text-clr5 dark:text-white uppercase my-0 flex items-center gap-2">📥 Documentos Adjuntos / Descargas</h3>
                   <button
@@ -651,9 +651,9 @@ export default function CrearArticuloPage() {
             </div>
 
             <div className="space-y-4">
-              <div className="p-2 bg-zinc-50 dark:bg-black/20 rounded-2xl border border-zinc-100 dark:border-clr4">
+              <div className="p-2 bg-zinc-50 dark:bg-black/20 rounded-2xl border border-zinc-100 dark:border-dclr10">
                 <h3 className="text-[0.9em] font-black text-zinc-400 uppercase mb-4 tracking-widest font-display">Imagen Destacada</h3>
-                <div className="flex bg-white dark:bg-black/40 p-1 rounded-xl mb-4 border dark:border-clr4">
+                <div className="flex bg-white dark:bg-black/40 p-1 rounded-xl mb-4 border dark:border-dclr10">
                   <button type="button" onClick={() => setImageMode('url')} className={`flex-1 py-2 text-[1em] font-black uppercase rounded-lg transition-all ${imageMode === 'url' ? 'bg-clr7 text-white shadow-md' : 'opacity-40'}`}>🔗 URL</button>
                   <button type="button" onClick={() => setImageMode('upload')} className={`flex-1 py-2 text-[1em] font-black uppercase rounded-lg transition-all ${imageMode === 'upload' ? 'bg-clr7 text-white shadow-md' : 'opacity-40'}`}>📸 Subir</button>
                 </div>
@@ -672,23 +672,23 @@ export default function CrearArticuloPage() {
                   </div>
                 )}
                 {currentImage && (
-                  <div className="relative rounded-2x1 overflow-hidden shadow-lg border-2 border-white dark:border-clr4 animate-in fade-in zoom-in duration-300">
+                  <div className="relative rounded-2x1 overflow-hidden shadow-lg border-2 border-white dark:border-dclr10 animate-in fade-in zoom-in duration-300">
                     <img src={currentImage} className="w-full h-auto object-cover max-h-48" alt="Preview" />
                   </div>
                 )}
               </div>
 
-              <div className="p-2 bg-zinc-50 dark:bg-black/20 rounded-2xl border border-zinc-100 dark:border-clr4">
+              <div className="p-2 bg-zinc-50 dark:bg-black/20 rounded-2xl border border-zinc-100 dark:border-dclr10">
                 <h3 className="text-[1em] font-black text-zinc-400 uppercase mb-6 tracking-widest font-display">Categorías</h3>
                 <div className="space-y-4">
                   {categorias.filter(c => !c.parent_id && !['áreas de desarrollo', 'unidades', 'lugar de la actividad', 'duración de la actividad', 'cantidad de participantes'].includes(c.nombre.toLowerCase())).map(parent => (
                     <div key={parent.id} className="space-y-2">
-                      <label className="flex items-center gap-2 cursor-pointer font-bold text-[0.9em] dark:text-clr1"><input type="checkbox" checked={selectedCatIds.includes(parent.id.toString())} onChange={(e) => handleCatChange(parent.id, e.target.checked)} className="w-4 h-4 rounded text-clr7" /> {parent.nombre}</label>
-                      <div className="ml-2 space-y-2 border-l-2 border-zinc-200 dark:border-clr4 pl-4">
+                      <label className="flex items-center gap-2 cursor-pointer font-bold text-[0.9em] dark:text-dclr2"><input type="checkbox" checked={selectedCatIds.includes(parent.id.toString())} onChange={(e) => handleCatChange(parent.id, e.target.checked)} className="w-4 h-4 rounded text-clr7" /> {parent.nombre}</label>
+                      <div className="ml-2 space-y-2 border-l-2 border-zinc-200 dark:border-dclr10 pl-4">
                         {categorias.filter(c => c.parent_id === parent.id).map(child => (
                           <div key={child.id} className="space-y-2">
-                            <label className="flex items-center gap-2 cursor-pointer text-[0.9em] text-zinc-600 dark:text-clr2 hover:text-black dark:hover:text-white font-bold transition-colors"><input type="checkbox" checked={selectedCatIds.includes(child.id.toString())} onChange={(e) => handleCatChange(child.id, e.target.checked)} className="w-3.5 h-3.5 rounded text-clr7" /> {child.nombre}</label>
-                            <div className="ml-2 space-y-1 border-l border-zinc-100 dark:border-clr4 pl-3">
+                            <label className="flex items-center gap-2 cursor-pointer text-[0.9em] text-zinc-600 dark:text-dclr2 hover:text-black dark:hover:text-white font-bold transition-colors"><input type="checkbox" checked={selectedCatIds.includes(child.id.toString())} onChange={(e) => handleCatChange(child.id, e.target.checked)} className="w-3.5 h-3.5 rounded text-clr7" /> {child.nombre}</label>
+                            <div className="ml-2 space-y-1 border-l border-zinc-100 dark:border-dclr10 pl-3">
                               {categorias.filter(c => c.parent_id === child.id).map(grandChild => (
                                 <label key={grandChild.id} className="flex items-center gap-2 cursor-pointer text-[0.9em] text-zinc-400 hover:text-black transition-colors italic"><input type="checkbox" checked={selectedCatIds.includes(grandChild.id.toString())} onChange={(e) => handleCatChange(grandChild.id, e.target.checked)} className="w-3.5 h-3.5 rounded text-clr7" /> {grandChild.nombre}</label>
                               ))}
@@ -701,7 +701,7 @@ export default function CrearArticuloPage() {
                 </div>
               </div>
 
-              <div className="p-2 bg-zinc-50 dark:bg-black/20 rounded-2xl border border-zinc-100 dark:border-clr4">
+              <div className="p-2 bg-zinc-50 dark:bg-black/20 rounded-2xl border border-zinc-100 dark:border-dclr10">
                 <h3 className="text-[1em] font-black text-zinc-400 uppercase mb-2 tracking-widest font-display">Etiquetas</h3>
                 <input {...register('etiquetas_input')} list="tags-list" className="w-full p-3 rounded-xl border text-sm bg-white dark:bg-black/20" />
               </div>

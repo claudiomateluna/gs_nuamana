@@ -31,7 +31,7 @@ export default async function LoQueHacemosPage() {
       <section className="space-y-12">
         <MarkdownRenderer content={content} />
 
-        <div className="pt-12 border-t border-clr10 dark:border-clr4">
+        <div className="pt-12 border-t border-clr10 dark:border-dclr10">
           <h2 className="text-3xl font-black font-display text-clr7 uppercase tracking-tighter mb-8">Nuestra Metodología</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {subPages.map((item) => (
@@ -40,7 +40,7 @@ export default async function LoQueHacemosPage() {
                   <Image src={item.image} alt={item.title} width={100} height={100} className="w-full h-full object-contain" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-black font-display text-clr5 dark:text-clr1 uppercase group-hover:text-clr7 transition-colors leading-none mb-2">{item.title}</h3>
+                  <h3 className="text-lg font-black font-display text-clr5 dark:text-dclr2 uppercase group-hover:text-clr7 transition-colors leading-none mb-2">{item.title}</h3>
                   <p className="text-xs text-clr2 line-clamp-2 font-bold">{item.description}</p>
                 </div>
               </Link>

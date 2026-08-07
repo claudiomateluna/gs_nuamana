@@ -28,7 +28,7 @@ export default async function AcercaDeSubPage({ params }: { params: Promise<{ sl
           {/* Cabecera Refinada: Imagen + Texto */}
           <header className="flex flex-col md:flex-row gap-6 md:items-center">
             {metadata.image && (
-              <div className="shrink-0 w-full md:w-[350px] lg:w-[450px] aspect-square rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white dark:border-clr4">
+              <div className="shrink-0 w-full md:w-[350px] lg:w-[450px] aspect-square rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white dark:border-dclr10">
                 <img 
                   src={metadata.image} 
                   alt={metadata.title} 
@@ -38,7 +38,7 @@ export default async function AcercaDeSubPage({ params }: { params: Promise<{ sl
             )}
             
             <div className="space-y-6">
-              <h1 className="text-4xl lg:text-7xl font-black font-display text-clr5 dark:text-clr1 uppercase tracking-tighter leading-none">
+              <h1 className="text-4xl lg:text-7xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter leading-none">
                 {metadata.title}
               </h1>
               {metadata.description && (
@@ -50,7 +50,7 @@ export default async function AcercaDeSubPage({ params }: { params: Promise<{ sl
             </div>
           </header>
 
-          <div className="max-w-none pt-6 border-t border-clr10 dark:border-clr4">
+          <div className="max-w-none pt-6 border-t border-clr10 dark:border-dclr10">
             <MarkdownRenderer content={content} />
           </div>
         </article>

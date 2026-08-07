@@ -55,21 +55,21 @@ export default function DashboardPage() {
   if (!d.perfil) return null
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-clr4 font-body transition-colors">
+    <div className="min-h-screen bg-zinc-50 dark:bg-dclr1 font-body transition-colors">
       <SecondaryHeader />
       <main className="max-w-[1080px] mx-auto px-2 py-32">
-        <div className="bg-gradient-to-br from-white/30 via-clr5/20 to-clr7/40 dark:from-clr4 dark:via-clr5 dark:to-clr7/20 rounded-[1rem] p-2 md:p-4 shadow-2xl border border-clr10 dark:border-clr4 animate-in fade-in slide-in-from-bottom-8 duration-700">
+        <div className="bg-gradient-to-br from-white/30 via-clr5/20 to-clr7/40 dark:from-dclr1 dark:via-dclr5 dark:to-dclr7/20 rounded-[1rem] p-2 md:p-4 shadow-2xl border border-clr10 dark:border-dclr10 animate-in fade-in slide-in-from-bottom-8 duration-700">
           
-          <header className="flex flex-col md:flex-row justify-between items-center gap-4 mb-4 border-b border-zinc-100 dark:border-clr4 pb-4">
+          <header className="flex flex-col md:flex-row justify-between items-center gap-4 mb-4 border-b border-zinc-100 dark:border-dclr10 pb-4">
             <div className="text-center md:text-left">
-              <h1 className="text-3xl md:text-4xl font-black font-display text-clr5 dark:text-clr1 uppercase tracking-tighter leading-none font-bold">{d.perfil.nombres} {d.perfil.apellidos}</h1>
-              <p className="text-sm md:text-xl text-[#cb3327] font-bold uppercase tracking-[0.2em] mt-2">{d.perfil.roles?.name} • {d.perfil.unidades?.nombre || 'Grupo Nua Mana'}</p>
+              <h1 className="text-3xl md:text-4xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter leading-none font-bold">{d.perfil.nombres} {d.perfil.apellidos}</h1>
+              <p className="text-sm md:text-xl text-clr7 dark:text-dclr7 font-bold uppercase tracking-[0.2em] mt-2">{d.perfil.roles?.name} • {d.perfil.unidades?.nombre || 'Grupo Nua Mana'}</p>
             </div>
             <div className="shrink-0 w-24 h-24 bg-clr6 rounded-full flex items-center justify-center shadow-xl overflow-hidden"><img src="/images/logos/LogoColor.svg" alt="Logo" className="w-28 h-28" /></div>
           </header>
 
           {/* ACCIONES RAPIDAS */}
-          <div className="flex flex-col md:flex-row gap-2 border-b border-zinc-100 dark:border-clr4 pb-4 flex-wrap">
+          <div className="flex flex-col md:flex-row gap-2 border-b border-zinc-100 dark:border-dclr10 pb-4 flex-wrap">
             {d.directivo && (
               <>
                 <button onClick={() => d.setIsModActividadOpen(true)} className="flex items-center justify-between gap-2 p-2 bg-zinc-900 text-white font-bold uppercase rounded-[1rem] shadow-xl hover:brightness-125 transition-all tracking-widest text-[0.9em] font-inika text-right leading-none">
@@ -101,7 +101,7 @@ export default function DashboardPage() {
               <div className="w-6 h-6 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_autorizacion.svg)', maskImage: 'url(/images/iconos/icono_autorizacion.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
               Autorizacion
             </button>
-            <button onClick={() => d.setShowPassModal(true)} className="flex items-center justify-between gap-2 p-2 bg-clr10 dark:bg-clr4 text-clr4 dark:text-clr1 font-bold uppercase rounded-[1rem] hover:bg-clr6 transition-all tracking-widest text-[0.9em] font-inika text-right leading-none">
+            <button onClick={() => d.setShowPassModal(true)} className="flex items-center justify-between gap-2 p-2 bg-clr10 dark:bg-dclr1 text-clr4 dark:text-dclr2 font-bold uppercase rounded-[1rem] hover:bg-clr6 transition-all tracking-widest text-[0.9em] font-inika text-right leading-none">
               <div className="w-6 h-6 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_cambiar_contrasena.svg)', maskImage: 'url(/images/iconos/icono_cambiar_contrasena.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
               Cambiar Contrasena
             </button>
@@ -111,7 +111,7 @@ export default function DashboardPage() {
             </button>
           </div>
 
-          <div className="flex border-b border-zinc-100 dark:border-clr4 mb-5 mt-2 overflow-x-auto scrollbar-hide text-[1em]">
+          <div className="flex border-b border-zinc-100 dark:border-dclr10 mb-5 mt-2 overflow-x-auto scrollbar-hide text-[1em]">
             <button onClick={() => d.setActiveTab('inicio')} className={`flex flex-col items-center justify-center px-4 py-2 uppercase font-slab border-b-2 gap-1 ${d.activeTab === 'inicio' ? 'border-clr7 text-clr7 font-bold' : 'border-transparent text-clr2 hover:text-black dark:hover:text-white'}`}>
               <div className="w-8 h-8 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_ficha.svg)', maskImage: 'url(/images/iconos/icono_ficha.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
               <span className="text-[0.8em] sm:text-xs leading-none">Ficha</span>
@@ -185,7 +185,7 @@ export default function DashboardPage() {
                     <button 
                       key={m.id} 
                       onClick={() => d.setSelectedProgresionPerfil(m)}
-                      className={`px-4 py-2 rounded-xl text-[0.8em] font-black uppercase transition-all ${d.selectedProgresionPerfil?.id === m.id ? 'bg-clr7 text-white shadow-md' : 'bg-white dark:bg-clr4 text-clr2'}`}
+                      className={`px-4 py-2 rounded-xl text-[0.8em] font-black uppercase transition-all ${d.selectedProgresionPerfil?.id === m.id ? 'bg-clr7 text-white shadow-md' : 'bg-white dark:bg-dclr1 text-clr2'}`}
                     >
                       {m.nombres}
                     </button>
@@ -193,7 +193,7 @@ export default function DashboardPage() {
                   {d.nnj && (
                     <button 
                       onClick={() => d.setSelectedProgresionPerfil(d.perfil)}
-                      className={`px-4 py-2 rounded-xl text-[0.8em] font-black uppercase transition-all ${d.selectedProgresionPerfil?.id === d.perfil!.id ? 'bg-clr7 text-white shadow-md' : 'bg-white dark:bg-clr4 text-clr2'}`}
+                      className={`px-4 py-2 rounded-xl text-[0.8em] font-black uppercase transition-all ${d.selectedProgresionPerfil?.id === d.perfil!.id ? 'bg-clr7 text-white shadow-md' : 'bg-white dark:bg-dclr1 text-clr2'}`}
                     >
                       Mi Progresion
                     </button>
@@ -218,9 +218,9 @@ export default function DashboardPage() {
           {d.activeTab === 'tesoreria' && (
             <div className="space-y-6">
               <div className="flex bg-zinc-100 dark:bg-black/20 p-1 rounded-2xl w-fit">
-                <button onClick={() => d.setSubTabTeso('libro')} className={`px-6 py-2 rounded-xl text-[0.8em] font-black uppercase ${d.subTabTeso === 'libro' ? 'bg-white dark:bg-clr5 shadow-md text-clr6' : 'opacity-40'}`}>Libro</button>
-                <button onClick={() => d.setSubTabTeso('rendiciones')} className={`px-6 py-2 rounded-xl text-[0.8em] font-black uppercase ${d.subTabTeso === 'rendiciones' ? 'bg-white dark:bg-clr5 shadow-md text-clr6' : 'opacity-40'}`}>Rendiciones</button>
-                <button onClick={() => d.setSubTabTeso('recaudaciones')} className={`px-6 py-2 rounded-xl text-[0.8em] font-black uppercase ${d.subTabTeso === 'recaudaciones' ? 'bg-white dark:bg-clr5 shadow-md text-clr6' : 'opacity-40'}`}>Recaudaciones</button>
+                <button onClick={() => d.setSubTabTeso('libro')} className={`px-6 py-2 rounded-xl text-[0.8em] font-black uppercase ${d.subTabTeso === 'libro' ? 'bg-white dark:bg-dclr5 shadow-md text-clr6' : 'opacity-40'}`}>Libro</button>
+                <button onClick={() => d.setSubTabTeso('rendiciones')} className={`px-6 py-2 rounded-xl text-[0.8em] font-black uppercase ${d.subTabTeso === 'rendiciones' ? 'bg-white dark:bg-dclr5 shadow-md text-clr6' : 'opacity-40'}`}>Rendiciones</button>
+                <button onClick={() => d.setSubTabTeso('recaudaciones')} className={`px-6 py-2 rounded-xl text-[0.8em] font-black uppercase ${d.subTabTeso === 'recaudaciones' ? 'bg-white dark:bg-dclr5 shadow-md text-clr6' : 'opacity-40'}`}>Recaudaciones</button>
               </div>
               {d.subTabTeso === 'libro' && <DashTesoreria movimientos={d.tesoreria} unidades={d.unidades} isAdmin={true} canAction={d.canActionTeso} onNuevoMovimiento={() => { d.setEditingMov(null); d.setIsModTesoreriaOpen(true); }} onEditMovimiento={(m) => { d.setEditingMov(m); d.setIsModTesoreriaOpen(true); }} onDeleteMovimiento={d.handleDeleteMov} onEmitirVale={() => d.setIsModValeOpen(true)} onVerMovimiento={(m) => { d.setViewingMov(m); d.setIsModTesoreriaVerOpen(true); }} />}
               {d.subTabTeso === 'rendiciones' && <DashRendiciones rendiciones={d.rendiciones} isAdmin={d.canActionTeso} onNueva={() => d.setIsModRendicionOpen(true)} onVer={(r) => { d.setViewingRendicion(r); d.setIsModRendicionVerOpen(true); }} onDelete={d.handleDeleteRendicion} />}
@@ -230,10 +230,10 @@ export default function DashboardPage() {
           {d.activeTab === 'ciclo' && (
             <div className="space-y-6">
               <div className="flex bg-zinc-100 dark:bg-black/20 p-1 rounded-2xl w-fit">
-                <button onClick={() => d.setSubTabCiclo('activo')} className={`px-6 py-2 rounded-xl text-[0.8em] font-black uppercase ${d.subTabCiclo === 'activo' ? 'bg-white dark:bg-clr5 shadow-md text-clr6' : 'opacity-40'}`}>Ciclo Activo</button>
-                <button onClick={() => d.setSubTabCiclo('historial')} className={`px-6 py-2 rounded-xl text-[0.8em] font-black uppercase ${d.subTabCiclo === 'historial' ? 'bg-white dark:bg-clr5 shadow-md text-clr6' : 'opacity-40'}`}>Historial</button>
+                <button onClick={() => d.setSubTabCiclo('activo')} className={`px-6 py-2 rounded-xl text-[0.8em] font-black uppercase ${d.subTabCiclo === 'activo' ? 'bg-white dark:bg-dclr5 shadow-md text-clr6' : 'opacity-40'}`}>Ciclo Activo</button>
+                <button onClick={() => d.setSubTabCiclo('historial')} className={`px-6 py-2 rounded-xl text-[0.8em] font-black uppercase ${d.subTabCiclo === 'historial' ? 'bg-white dark:bg-dclr5 shadow-md text-clr6' : 'opacity-40'}`}>Historial</button>
                 {d.directivo && (
-                  <button onClick={() => d.setSubTabCiclo('otras_unidades')} className={`px-6 py-2 rounded-xl text-[0.8em] font-black uppercase ${d.subTabCiclo === 'otras_unidades' ? 'bg-white dark:bg-clr5 shadow-md text-clr6' : 'opacity-40'}`}>Otras Unidades</button>
+                  <button onClick={() => d.setSubTabCiclo('otras_unidades')} className={`px-6 py-2 rounded-xl text-[0.8em] font-black uppercase ${d.subTabCiclo === 'otras_unidades' ? 'bg-white dark:bg-dclr5 shadow-md text-clr6' : 'opacity-40'}`}>Otras Unidades</button>
                 )}
               </div>
               {d.subTabCiclo === 'activo' && <DashCiclo perfil={d.perfil} />}
@@ -296,8 +296,8 @@ export default function DashboardPage() {
 
       {d.showPassModal && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center p-6 animate-in fade-in duration-300">
-          <div className="bg-white dark:bg-clr5 w-full max-w-md rounded-[3rem] p-10 shadow-2xl">
-            <h2 className="text-2xl font-black font-display uppercase text-[#cb3327] mb-8 border-b pb-4 tracking-tighter font-bold">Seguridad</h2>
+          <div className="bg-white dark:bg-dclr5 w-full max-w-md rounded-[3rem] p-10 shadow-2xl">
+            <h2 className="text-2xl font-black font-display uppercase text-clr7 dark:text-dclr7 mb-8 border-b pb-4 tracking-tighter font-bold">Seguridad</h2>
             <form onSubmit={async (e) => { e.preventDefault(); const { error } = await supabase.auth.updateUser({ password: d.newPass }); if (!error) { toast.success('Contraseña actualizada correctamente.'); d.setShowPassModal(false); } else toast.error(error.message); }} className="space-y-6">
               <input type="password" value={d.newPass} onChange={(e) => d.setNewPass(e.target.value)} className="w-full p-4 rounded-2xl border bg-zinc-50 font-bold text-center" autoFocus placeholder="Nueva Contrasena" />
               <div className="flex gap-2 pt-4"><button type="submit" className="flex-1 py-4 bg-clr7 text-white font-black uppercase rounded-2xl shadow-xl font-inika text-[0.8em] tracking-widest">Actualizar</button><button type="button" onClick={() => d.setShowPassModal(false)} className="flex-1 py-4 bg-zinc-100 rounded-2xl font-inika text-[0.8em] tracking-widest">Cancelar</button></div>
@@ -355,7 +355,7 @@ export default function DashboardPage() {
       )}
       {d.isSyncing && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[110] flex items-center justify-center p-6 animate-in fade-in duration-300">
-          <div className="bg-white dark:bg-clr5 w-full max-w-md rounded-[3rem] p-10 shadow-2xl flex flex-col items-center text-center space-y-6">
+          <div className="bg-white dark:bg-dclr5 w-full max-w-md rounded-[3rem] p-10 shadow-2xl flex flex-col items-center text-center space-y-6">
             <div className="relative w-20 h-20 flex items-center justify-center bg-amber-100 dark:bg-amber-950 text-amber-600 dark:text-amber-300 rounded-full animate-bounce">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -363,7 +363,7 @@ export default function DashboardPage() {
             </div>
             
             <div className="space-y-2">
-              <h3 className="text-2xl font-black font-display uppercase tracking-tight text-clr5 dark:text-clr1">Preparando Campamento</h3>
+              <h3 className="text-2xl font-black font-display uppercase tracking-tight text-clr5 dark:text-dclr2">Preparando Campamento</h3>
               <p className="text-sm font-medium opacity-65 font-body leading-tight">
                 Estamos descargando los datos de tu unidad a la base de datos local para que puedas acceder sin senal.
               </p>

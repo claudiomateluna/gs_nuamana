@@ -134,7 +134,7 @@ export default async function UnidadPage({ params }: PageProps) {
   }
 
   return (
-    <div className="bg-zinc-50 dark:bg-clr4 text-zinc-900 dark:text-zinc-100 min-h-screen flex flex-col transition-colors duration-300">
+    <div className="bg-zinc-50 dark:bg-dclr1 text-zinc-900 dark:text-zinc-100 min-h-screen flex flex-col transition-colors duration-300">
       <Header />
       
       {/* Sección Hero / Bandera Full-Screen */}
@@ -153,7 +153,7 @@ export default async function UnidadPage({ params }: PageProps) {
         />
 
         {/* Gradiente y Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/30 via-zinc-950/50 to-zinc-50/90 dark:to-clr4 transition-colors duration-300 z-2" />
+        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/30 via-zinc-950/50 to-zinc-50/90 dark:to-dclr1 transition-colors duration-300 z-2" />
 
         {/* Contenido centrado absolutamente */}
         <div className="absolute inset-0 flex items-center justify-center z-10">
@@ -201,7 +201,7 @@ export default async function UnidadPage({ params }: PageProps) {
       </section>
 
       {/* Sección Fuera del Full-Screen */}
-      <section className="py-20 relative z-10 border-t border-zinc-200 dark:border-white/5 bg-zinc-50 dark:bg-clr4 transition-colors duration-300">
+      <section className="py-20 relative z-10 border-t border-zinc-200 dark:border-white/5 bg-zinc-50 dark:bg-dclr1 transition-colors duration-300">
         <div className="max-w-5xl mx-auto px-6 space-y-20">
           {/* Descripción Detallada */}
           <div className="space-y-6">
