@@ -47,7 +47,7 @@ export default function DashModCicloCrear({ isOpen, onClose, perfil, onSuccess }
 
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-md z-[130] flex items-center justify-center p-4 animate-in fade-in duration-300">
-      <div className="bg-white dark:bg-clr5 w-full max-w-2xl rounded-[2rem] p-2 md:p-4 shadow-2xl overflow-y-auto max-h-[90vh]">
+      <div className="bg-white dark:bg-dclr5 w-full max-w-2xl rounded-[2rem] p-2 md:p-4 shadow-2xl overflow-y-auto max-h-[90vh]">
         <h2 className="text-3xl font-black font-display uppercase text-clr6 tracking-tighter mb-8 border-b pb-4">
           ✨ Iniciar Nuevo Ciclo
         </h2>
@@ -61,7 +61,7 @@ export default function DashModCicloCrear({ isOpen, onClose, perfil, onSuccess }
               value={formData.nombre}
               onChange={e => setFormData({...formData, nombre: e.target.value})}
               placeholder="Ej: Ciclo de Aventura Otoño 2026"
-              className="w-full p-4 rounded-2xl border dark:border-clr4 bg-zinc-50 dark:bg-clr3 font-bold text-lg"
+              className="w-full p-4 rounded-2xl border dark:border-dclr10 bg-zinc-50 dark:bg-dclr10 font-bold text-lg"
             />
           </div>
 
@@ -84,7 +84,7 @@ export default function DashModCicloCrear({ isOpen, onClose, perfil, onSuccess }
               value={formData.diagnostico}
               onChange={e => setFormData({...formData, diagnostico: e.target.value})}
               placeholder="¿Cómo está la unidad hoy? ¿Qué desafíos técnicos o espirituales tenemos?"
-              className="w-full p-6 rounded-[2rem] border dark:border-clr4 bg-zinc-50 dark:bg-clr3 font-bold min-h-[150px] leading-relaxed italic"
+              className="w-full p-6 rounded-[2rem] border dark:border-dclr10 bg-zinc-50 dark:bg-dclr10 font-bold min-h-[150px] leading-relaxed italic"
             />
           </div>
 
@@ -94,7 +94,7 @@ export default function DashModCicloCrear({ isOpen, onClose, perfil, onSuccess }
               type="date" 
               value={formData.fecha_fin}
               onChange={e => setFormData({...formData, fecha_fin: e.target.value})}
-              className="w-full p-4 rounded-2xl border dark:border-clr4 bg-zinc-50 dark:bg-clr3 font-bold"
+              className="w-full p-4 rounded-2xl border dark:border-dclr10 bg-zinc-50 dark:bg-dclr10 font-bold"
             />
           </div>
 
@@ -109,7 +109,7 @@ export default function DashModCicloCrear({ isOpen, onClose, perfil, onSuccess }
             <button 
               type="button" 
               onClick={onClose}
-              className="px-8 py-5 bg-zinc-100 dark:bg-clr4 text-clr2 rounded-[1.5rem] font-bold uppercase tracking-widest"
+              className="px-8 py-5 bg-zinc-100 dark:bg-dclr1 text-clr2 rounded-[1.5rem] font-bold uppercase tracking-widest"
             >
               Cancelar
             </button>

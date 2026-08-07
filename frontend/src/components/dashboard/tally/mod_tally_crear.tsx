@@ -154,7 +154,7 @@ export default function DashModBitacoraCrear({ isOpen, onClose, perfil, onSucces
 
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-md z-[110] flex items-center justify-center p-4 animate-in fade-in duration-300">
-      <div className="bg-white dark:bg-clr5 w-full max-w-2xl rounded-l-[1rem] p-4 shadow-2xl max-h-[90vh] overflow-y-auto">
+      <div className="bg-white dark:bg-dclr5 w-full max-w-2xl rounded-l-[1rem] p-4 shadow-2xl max-h-[90vh] overflow-y-auto">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl font-black font-display uppercase text-clr7 tracking-tighter leading-none">
             {editingBitacora ? 'Editar Historia' : `Escribir en el ${unitName}`}
@@ -171,7 +171,7 @@ export default function DashModBitacoraCrear({ isOpen, onClose, perfil, onSucces
               value={formData.titulo}
               onChange={e => setFormData({...formData, titulo: e.target.value})}
               placeholder="Ej: Nuestra primera fogata..."
-              className="w-full p-4 rounded-2xl border dark:border-clr4 bg-zinc-50 dark:bg-clr3 font-bold text-lg"
+              className="w-full p-4 rounded-2xl border dark:border-dclr10 bg-zinc-50 dark:bg-dclr10 font-bold text-lg"
             />
           </div>
 
@@ -183,16 +183,16 @@ export default function DashModBitacoraCrear({ isOpen, onClose, perfil, onSucces
                 type="date" 
                 value={formData.fecha_suceso}
                 onChange={e => setFormData({...formData, fecha_suceso: e.target.value})}
-                className="w-full p-4 rounded-2xl border dark:border-clr4 bg-zinc-50 dark:bg-clr3 font-bold"
+                className="w-full p-4 rounded-2xl border dark:border-dclr10 bg-zinc-50 dark:bg-dclr10 font-bold"
               />
             </div>
             {/* PRIVACIDAD */}
-            <div className="flex flex-col justify-center items-center p-2 bg-zinc-50 dark:bg-clr3 rounded-2xl border dark:border-clr4 relative overflow-hidden group">
+            <div className="flex flex-col justify-center items-center p-2 bg-zinc-50 dark:bg-dclr3 rounded-2xl border dark:border-dclr10 relative overflow-hidden group">
               {formData.excluir_dirigentes && <div className="absolute inset-0 bg-clr7/5 animate-pulse" />}
               <label className="text-[0.8em] font-black uppercase opacity-60 text-center mb-2 z-10">¿Quien lo puede ver?</label>
               <div 
                 onClick={() => setFormData({...formData, excluir_dirigentes: !formData.excluir_dirigentes})}
-                className={`w-14 h-8 rounded-full p-1 cursor-pointer transition-colors z-10 ${formData.excluir_dirigentes ? 'bg-clr7 shadow-lg shadow-clr7/40' : 'bg-zinc-300 dark:bg-clr4'}`}
+                className={`w-14 h-8 rounded-full p-1 cursor-pointer transition-colors z-10 ${formData.excluir_dirigentes ? 'bg-clr7 shadow-lg shadow-clr7/40' : 'bg-zinc-300 dark:bg-dclr1'}`}
               >
                 <div className={`w-6 h-6 bg-white rounded-full transition-transform duration-300 ${formData.excluir_dirigentes ? 'translate-x-6' : ''}`} />
               </div>
@@ -209,7 +209,7 @@ export default function DashModBitacoraCrear({ isOpen, onClose, perfil, onSucces
               value={formData.historia}
               onChange={e => setFormData({...formData, historia: e.target.value})}
               placeholder="Cuéntanos qué pasó, qué aprendieron y qué fue lo más divertido..."
-              className="w-full p-6 rounded-[2rem] border dark:border-clr4 bg-zinc-50 dark:bg-clr3 font-bold min-h-[180px] leading-relaxed italic text-lg"
+              className="w-full p-6 rounded-[2rem] border dark:border-dclr10 bg-zinc-50 dark:bg-dclr10 font-bold min-h-[180px] leading-relaxed italic text-lg"
             />
           </div>
 
@@ -237,7 +237,7 @@ export default function DashModBitacoraCrear({ isOpen, onClose, perfil, onSucces
                 type="button"
                 disabled={uploading}
                 onClick={() => fileInputRef.current?.click()}
-                className={`aspect-square rounded-2xl border-2 border-dashed border-clr2 flex flex-col items-center justify-center gap-2 hover:bg-zinc-50 dark:hover:bg-clr4 transition-all ${uploading ? 'animate-pulse opacity-50' : ''}`}
+                className={`aspect-square rounded-2xl border-2 border-dashed border-clr2 flex flex-col items-center justify-center gap-2 hover:bg-zinc-50 dark:hover:bg-dclr4 transition-all ${uploading ? 'animate-pulse opacity-50' : ''}`}
               >
                 <span className="text-3xl">{uploading ? '⏳' : '📸'}</span>
                 <span className="text-[0.9em] font-black uppercase text-clr2 tracking-tighter">
@@ -272,7 +272,7 @@ export default function DashModBitacoraCrear({ isOpen, onClose, perfil, onSucces
             <button 
               type="button" 
               onClick={onClose}
-              className="px-8 py-5 bg-zinc-100 dark:bg-clr4 text-clr2 rounded-[1.5rem] font-bold uppercase tracking-widest hover:bg-zinc-200 transition-all"
+              className="px-8 py-5 bg-zinc-100 dark:bg-dclr1 text-clr2 rounded-[1.5rem] font-bold uppercase tracking-widest hover:bg-zinc-200 transition-all"
             >
               Cancelar
             </button>

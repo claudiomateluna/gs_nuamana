@@ -182,7 +182,7 @@ function SectionCard({ section, config }: SectionCardProps) {
     );
 
     const inputClass =
-      'w-full bg-zinc-50 dark:bg-black/20 border-2 border-transparent focus:border-clr7 rounded-2xl p-4 text-clr4 dark:text-clr1 outline-none transition-all font-bold text-sm shadow-inner';
+      'w-full bg-zinc-50 dark:bg-black/20 border-2 border-transparent focus:border-clr7 rounded-2xl p-4 text-clr4 dark:text-dclr2 outline-none transition-all font-bold text-sm shadow-inner';
 
     // JSON array fields render as textareas (pretty-printed strings)
     if (field.type === 'json' || field.type === 'textarea') {
@@ -243,7 +243,7 @@ function SectionCard({ section, config }: SectionCardProps) {
     const error = (errors as Record<string, { message?: string } | undefined>)[field.key];
     const fieldId = `${section.id}-${field.key}`;
     const inputClass =
-      'w-full bg-zinc-50 dark:bg-black/20 border-2 border-transparent focus:border-clr7 rounded-xl p-2 text-clr4 dark:text-clr1 outline-none transition-all font-bold text-sm shadow-inner';
+      'w-full bg-zinc-50 dark:bg-black/20 border-2 border-transparent focus:border-clr7 rounded-xl p-2 text-clr4 dark:text-dclr2 outline-none transition-all font-bold text-sm shadow-inner';
 
     if (field.type === 'color') {
       return (
@@ -313,8 +313,8 @@ function SectionCard({ section, config }: SectionCardProps) {
             {rows.map((row, rowIndex) => {
               const [colorField, lightOpacityField, darkField, darkOpacityField] = row;
               return (
-                <tr key={colorField.key} className="border-t border-clr10 dark:border-clr4">
-                  <td className="px-2 py-1 text-[0.8em] font-black uppercase tracking-widest text-clr4 dark:text-clr1 align-middle">
+                <tr key={colorField.key} className="border-t border-clr10 dark:border-dclr10">
+                  <td className="px-2 py-1 text-[0.8em] font-black uppercase tracking-widest text-clr4 dark:text-dclr2 align-middle">
                     {colorField.label}
                   </td>
                   {renderGridField(colorField, rowIndex)}
@@ -333,9 +333,9 @@ function SectionCard({ section, config }: SectionCardProps) {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="bg-gradient-to-br from-white/30 via-clr5/20 to-clr7/40 dark:from-clr4 dark:via-clr5 dark:to-clr7/20 rounded-[1rem] p-2 md:p-4 shadow-2xl border border-clr10 dark:border-clr4"
+      className="bg-gradient-to-br from-white/30 via-clr5/20 to-clr7/40 dark:from-dclr1 dark:via-dclr5 dark:to-dclr7/20 rounded-[1rem] p-2 md:p-4 shadow-2xl border border-clr10 dark:border-dclr10"
     >
-      <h3 className="text-lg font-black font-display text-clr5 dark:text-clr1 uppercase tracking-tighter px-4 pt-2">
+      <h3 className="text-lg font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter px-4 pt-2">
         {section.title}
       </h3>
 
@@ -345,7 +345,7 @@ function SectionCard({ section, config }: SectionCardProps) {
         <div className="space-y-6 p-4">{section.fields.map(renderField)}</div>
       )}
 
-      <div className="flex gap-3 pt-4 border-t border-zinc-100 dark:border-clr4 px-4 pb-2">
+      <div className="flex gap-3 pt-4 border-t border-zinc-100 dark:border-dclr10 px-4 pb-2">
         <button
           type="submit"
           disabled={saving}

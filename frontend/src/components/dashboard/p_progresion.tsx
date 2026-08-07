@@ -2414,9 +2414,9 @@ const fetchInitialData = useCallback(async () => {
 
         return (
           <div className="fixed inset-0 z-[999] flex items-center justify-center p-2 bg-black/60 backdrop-blur-md animate-in fade-in duration-300">
-            <div className="bg-white dark:bg-clr3 w-full max-w-2xl rounded-[1rem] shadow-2xl overflow-hidden border-4 border-white dark:border-clr4 animate-in zoom-in duration-300 flex flex-col max-h-[90vh]">
+            <div className="bg-white dark:bg-dclr3 w-full max-w-2xl rounded-[1rem] shadow-2xl overflow-hidden border-4 border-white dark:border-dclr10 animate-in zoom-in duration-300 flex flex-col max-h-[90vh]">
               
-              <div className="p-4 pb-3 space-y-2 border-b border-zinc-100 dark:border-clr4">
+              <div className="p-4 pb-3 space-y-2 border-b border-zinc-100 dark:border-dclr10">
                 <span className="text-[0.8em] font-black uppercase tracking-wider text-clr7 block">
                   {isOwner ? 'Autoevaluación de Objetivo' : isParent ? 'Evaluación de Apoderado' : `Evaluando a ${perfil.nombres}`}
                 </span>
@@ -2464,7 +2464,7 @@ const fetchInitialData = useCallback(async () => {
                 </div>
               </div>
 
-              <div className="p-4 border-t border-zinc-100 dark:border-clr4 flex gap-3 bg-zinc-50/50 dark:bg-black/10 shrink-0">
+              <div className="p-4 border-t border-zinc-100 dark:border-dclr10 flex gap-3 bg-zinc-50/50 dark:bg-black/10 shrink-0">
                 <button 
                   type="button"
                   onClick={() => {
@@ -2513,7 +2513,7 @@ const fetchInitialData = useCallback(async () => {
                   <select
                     value={cer.cNombreHito}
                     onChange={(e) => cer.setCNombreHito(e.target.value)}
-                    className="w-full bg-zinc-50 dark:bg-clr3 border dark:border-white/10 p-3 rounded-xl font-bold uppercase tracking-tight text-zinc-800 dark:text-white cursor-pointer"
+                    className="w-full bg-zinc-50 dark:bg-dclr10 border dark:border-white/10 p-3 rounded-xl font-bold uppercase tracking-tight text-zinc-800 dark:text-white cursor-pointer"
                   >
                     <option value="">Selecciona etapa...</option>
                     {cer.getStageOptionsForDropdown().map(opt => (

@@ -64,7 +64,7 @@ export default function DashCiclosOtros({ perfil }: DashCiclosOtrosProps) {
 
   if (ciclos.length === 0) {
     return (
-      <div className="py-20 text-center border-4 border-dashed border-zinc-100 dark:border-clr4 rounded-[2rem] space-y-4 opacity-40">
+      <div className="py-20 text-center border-4 border-dashed border-zinc-100 dark:border-dclr10 rounded-[2rem] space-y-4 opacity-40">
         <span className="text-6xl block">🏕️</span>
         <h3 className="text-xl font-black uppercase tracking-widest">No hay otros ciclos activos</h3>
         <p className="font-medium italic">Las demás unidades aún no han iniciado su aventura.</p>
@@ -80,7 +80,7 @@ export default function DashCiclosOtros({ perfil }: DashCiclosOtrosProps) {
           <div 
             key={ciclo.id}
             onClick={() => setSelectedCicloId(ciclo.id)}
-            className="group cursor-pointer p-6 rounded-[2rem] bg-white dark:bg-black/20 border-2 border-zinc-100 dark:border-clr4 shadow-sm hover:shadow-xl hover:border-transparent transition-all overflow-hidden relative flex flex-col justify-between min-h-[220px]"
+            className="group cursor-pointer p-6 rounded-[2rem] bg-white dark:bg-black/20 border-2 border-zinc-100 dark:border-dclr10 shadow-sm hover:shadow-xl hover:border-transparent transition-all overflow-hidden relative flex flex-col justify-between min-h-[220px]"
           >
             <div className="absolute top-0 right-0 w-32 h-32 opacity-10 rounded-bl-[100%] transition-all group-hover:scale-110" style={{ backgroundColor: unitColor }} />
             
@@ -91,7 +91,7 @@ export default function DashCiclosOtros({ perfil }: DashCiclosOtrosProps) {
               >
                 {ciclo.unidades?.nombre} • Fase {ciclo.fase_actual}
               </span>
-              <h4 className="text-2xl font-black font-display uppercase tracking-tight text-clr5 dark:text-clr1 group-hover:text-clr7 transition-colors">
+              <h4 className="text-2xl font-black font-display uppercase tracking-tight text-clr5 dark:text-dclr2 group-hover:text-clr7 transition-colors">
                 {ciclo.nombre}
               </h4>
               <p className="text-normal opacity-60 italic font-medium line-clamp-3">
@@ -99,7 +99,7 @@ export default function DashCiclosOtros({ perfil }: DashCiclosOtrosProps) {
               </p>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-zinc-50 dark:border-clr4 flex justify-between items-center relative z-10">
+            <div className="mt-6 pt-4 border-t border-zinc-50 dark:border-dclr10 flex justify-between items-center relative z-10">
               <span className="text-[0.9em] font-bold uppercase tracking-widest opacity-40">
                 Iniciado en {format(new Date(ciclo.created_at), 'MMMM yyyy', { locale: es })}
               </span>

@@ -37,7 +37,7 @@ export default function DashUnidad({
     <div className="space-y-8 animate-in fade-in duration-500">
       <div className="flex flex-col md:flex-row justify-between items-end border-b pb-6 gap-4 text-[1em]">
         <div>
-          <h2 className="text-2xl font-bold font-display uppercase text-clr5 dark:text-clr1">Nómina {perfil?.unidades?.nombre}</h2>
+          <h2 className="text-2xl font-bold font-display uppercase text-clr5 dark:text-dclr2">Nómina {perfil?.unidades?.nombre}</h2>
           <p className="text-[0.8em] text-clr7 uppercase font-bold tracking-wider">Total: {miembros.length} Miembros</p>
         </div>
         
@@ -47,7 +47,7 @@ export default function DashUnidad({
           <select 
             value={selectedActId} 
             onChange={(e) => setSelectedActId(e.target.value)}
-            className="p-2 bg-zinc-100 dark:bg-clr4 border rounded-xl text-[0.8em] font-bold uppercase outline-none"
+            className="p-2 bg-zinc-100 dark:bg-dclr1 border rounded-xl text-[0.8em] font-bold uppercase outline-none"
           >
             <option value="">-- Seleccionar Actividad --</option>
             {actividades.map(act => (
@@ -84,7 +84,7 @@ export default function DashUnidad({
                 <div className={`absolute top-0 left-0 w-2 h-full ${yaFirmo ? 'bg-green-500' : 'bg-red-500'}`} title={yaFirmo ? 'Autorizado' : 'Pendiente'}></div>
               )}
 
-              <p className="font-bold text-clr5 dark:text-clr1 uppercase text-[0.9em] mb-1">{m.nombres} {m.apellidos}</p>
+              <p className="font-bold text-clr5 dark:text-dclr2 uppercase text-[0.9em] mb-1">{m.nombres} {m.apellidos}</p>
               <span className={`px-2 py-0.5 rounded-full text-[0.7em] font-bold uppercase ${
                 m.estado === 'activo' ? 'bg-green-100 text-green-700' :
                 m.estado === 'inactivo' ? 'bg-red-100 text-red-700' :
@@ -124,7 +124,7 @@ export default function DashUnidad({
               <div className="flex gap-2">
                 <button 
                   onClick={() => onVerFicha(m)}
-                  className="flex-1 py-3 bg-white dark:bg-clr4 text-clr2 font-bold uppercase text-[0.8em] rounded-xl shadow-sm border border-zinc-100 dark:border-zinc-800 hover:bg-zinc-100 transition-all tracking-widest"
+                  className="flex-1 py-3 bg-white dark:bg-dclr1 text-clr2 font-bold uppercase text-[0.8em] rounded-xl shadow-sm border border-zinc-100 dark:border-zinc-800 hover:bg-zinc-100 transition-all tracking-widest"
                 >
                   🔍 Ver Ficha
                 </button>

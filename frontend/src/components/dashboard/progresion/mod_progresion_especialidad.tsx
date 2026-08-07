@@ -1174,7 +1174,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                   {acts.map((act: EspecialidadActividad) => (
                     <div 
                       key={act.id} 
-                      className="p-4 rounded-2xl border border-zinc-150 dark:border-clr1/10 bg-white dark:bg-dclr1 flex justify-between items-center"
+                      className="p-4 rounded-2xl border border-zinc-150 dark:border-dclr2/10 bg-white dark:bg-dclr1 flex justify-between items-center"
                     >
                       <div className="space-y-1">
                         <p className="font-bold text-zinc-900 dark:text-white text-[0.95em]">{act.descripcion}</p>
@@ -1424,8 +1424,8 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
               
               {/* Resumen Planificación */}
               <div className="p-4 rounded-3xl bg-zinc-50 dark:bg-zinc-800/40 border border-zinc-150 dark:border-white/5 space-y-3 text-[0.95em]">
-                <p className="text-zinc-700 dark:text-clr1"><span className="font-extrabold text-zinc-400 block uppercase text-[0.8em] tracking-wide">Meta General</span>{ep.meta_general || 'Ninguna meta descrita'}</p>
-                <p className="text-zinc-700 dark:text-clr1"><span className="font-extrabold text-zinc-400 block uppercase text-[0.8em] tracking-wide">Monitor / Acompañante</span>{ep.monitor_nombre || 'No asignado'}</p>
+                <p className="text-zinc-700 dark:text-dclr2"><span className="font-extrabold text-zinc-400 block uppercase text-[0.8em] tracking-wide">Meta General</span>{ep.meta_general || 'Ninguna meta descrita'}</p>
+                <p className="text-zinc-700 dark:text-dclr2"><span className="font-extrabold text-zinc-400 block uppercase text-[0.8em] tracking-wide">Monitor / Acompañante</span>{ep.monitor_nombre || 'No asignado'}</p>
               </div>
 
               {/* LISTA DE TAREAS EN DESARROLLO */}
@@ -1482,7 +1482,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                                     .update({ fecha_limite: newDate || null, updated_at: new Date().toISOString() })
                                     .eq('id', act.id)
                                 }}
-                                className="text-[0.75em] border rounded-lg px-2 py-1 dark:bg-clr3 dark:border-clr4 font-bold cursor-pointer"
+                                className="text-[0.75em] border rounded-lg px-2 py-1 dark:bg-dclr10 dark:border-dclr10 font-bold cursor-pointer"
                                 title="Reprogramar fecha límite"
                               />
                             )}
@@ -2015,7 +2015,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
       {/* Modal de Captura de Firma Digital (Especialidades) */}
       {showSignatureModal && (
         <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-black/60 backdrop-blur-md animate-in fade-in duration-200">
-          <div className="bg-white dark:bg-zinc-950 p-6 rounded-[2.5rem] border border-zinc-150 dark:border-clr4 w-full max-w-md shadow-2xl relative">
+          <div className="bg-white dark:bg-zinc-950 p-6 rounded-[2.5rem] border border-zinc-150 dark:border-dclr10 w-full max-w-md shadow-2xl relative">
             <button 
               onClick={() => { setShowSignatureModal(false); setSigModalType(null); }}
               className="absolute top-4 right-4 text-zinc-400 hover:text-zinc-650 dark:hover:text-white font-extrabold text-[1.1em] cursor-pointer"

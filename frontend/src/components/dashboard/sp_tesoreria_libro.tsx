@@ -77,14 +77,14 @@ export default function DashTesoreria({
     <div className="space-y-6 animate-in fade-in duration-500 text-[1em]">
       <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
         <div>
-          <h2 className="text-2xl font-black font-display uppercase font-bold text-clr5 dark:text-clr1">Libro de Control Financiero</h2>
+          <h2 className="text-2xl font-black font-display uppercase font-bold text-clr5 dark:text-dclr2">Libro de Control Financiero</h2>
           <p className="text-[0.8em] font-bold opacity-40 uppercase tracking-widest mt-1">
             {selectedMes === 0 ? `Balance Anual ${selectedAnio}` : `Periodo: ${MESES[selectedMes-1]} ${selectedAnio}`}
           </p>
         </div>
         {canAction && (
           <div className="flex flex-wrap gap-2">
-            <button onClick={onEmitirVale} className="px-4 py-2 bg-clr5 dark:bg-clr3 text-white uppercase rounded-xl text-[0.9em] tracking-widest shadow-lg hover:brightness-110 transition-all">
+            <button onClick={onEmitirVale} className="px-4 py-2 bg-clr5 dark:bg-dclr10 text-white uppercase rounded-xl text-[0.9em] tracking-widest shadow-lg hover:brightness-110 transition-all">
               🖨️ Emitir Vale Por
             </button>
             <button onClick={onNuevoMovimiento} className="px-4 py-2 bg-clr6 text-white uppercase rounded-xl text-[0.9em] tracking-widest shadow-lg hover:brightness-110 transition-all">
@@ -116,12 +116,12 @@ export default function DashTesoreria({
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-2 items-center bg-white dark:bg-clr5 p-2 rounded-2xl border border-zinc-50 dark:border-clr4">
+      <div className="flex flex-wrap gap-2 items-center bg-white dark:bg-dclr5 p-2 rounded-2xl border border-zinc-50 dark:border-dclr10">
         <div className="flex items-center gap-2 border-r pr-4">
-          <select value={selectedAnio} onChange={e => setSelectedAnio(parseInt(e.target.value))} className="bg-transparent dark:bg-clr5 font-black text-clr6 text-[1em] outline-none">
+          <select value={selectedAnio} onChange={e => setSelectedAnio(parseInt(e.target.value))} className="bg-transparent dark:bg-dclr5 font-black text-clr6 text-[1em] outline-none">
             {añosDisponibles.map(y => <option key={y} value={y}>{y}</option>)}
           </select>
-          <select value={selectedMes} onChange={e => setSelectedMonth(parseInt(e.target.value))} className="bg-transparent dark:bg-clr5 font-bold uppercase text-[0.8em] outline-none">
+          <select value={selectedMes} onChange={e => setSelectedMonth(parseInt(e.target.value))} className="bg-transparent dark:bg-dclr5 font-bold uppercase text-[0.8em] outline-none">
             <option value={0}>Todo el Año</option>
             {MESES.map((m, i) => <option key={m} value={i + 1}>{m.toUpperCase()}</option>)}
           </select>
@@ -136,11 +136,11 @@ export default function DashTesoreria({
         </div>
       </div>
 
-      <div className="bg-white dark:bg-black/10 rounded-[2rem] border border-zinc-100 dark:border-clr4 overflow-hidden shadow-sm">
+      <div className="bg-white dark:bg-black/10 rounded-[2rem] border border-zinc-100 dark:border-dclr10 overflow-hidden shadow-sm">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-zinc-50 dark:bg-clr3 text-[0.8em] font-black uppercase tracking-widest text-clr2">
+              <tr className="bg-zinc-50 dark:bg-dclr3 text-[0.8em] font-black uppercase tracking-widest text-clr2">
                 <th className="p-4 w-16">Fecha</th>
                 <th className="p-4 w-32">Comprobante</th>
                 <th className="p-4">Descripción Detallada</th>
@@ -153,7 +153,7 @@ export default function DashTesoreria({
             </thead>
             <tbody className="text-[0.9em]">
               {filteredMovs.map(mov => (
-                <tr key={mov.id} className="border-t border-zinc-50 dark:border-clr4 hover:bg-zinc-50/50 dark:hover:bg-white/5 transition-colors group">
+                <tr key={mov.id} className="border-t border-zinc-50 dark:border-dclr10 hover:bg-zinc-50/50 dark:hover:bg-white/5 transition-colors group">
                   <td className="p-4 font-black opacity-40 leading-tight">
                     {mov.dia}<br/>
                     <span className="text-[0.8em] uppercase">{MESES[mov.mes-1].slice(0,3)}</span>
@@ -182,8 +182,8 @@ export default function DashTesoreria({
                   {canAction && (
                     <td className="p-4 text-center">
                       <div className="flex gap-2 justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                        <button onClick={() => onEditMovimiento(mov)} className="p-2 bg-zinc-100 dark:bg-clr4 rounded-lg hover:bg-clr6 hover:text-white transition-all">✏️</button>
-                        <button onClick={() => { if (window.confirm('¿Eliminar este registro financiero?')) onDeleteMovimiento(mov.id); }} className="p-2 bg-zinc-100 dark:bg-clr4 rounded-lg hover:bg-red-500 hover:text-white transition-all">🗑️</button>
+                        <button onClick={() => onEditMovimiento(mov)} className="p-2 bg-zinc-100 dark:bg-dclr1 rounded-lg hover:bg-clr6 hover:text-white transition-all">✏️</button>
+                        <button onClick={() => { if (window.confirm('¿Eliminar este registro financiero?')) onDeleteMovimiento(mov.id); }} className="p-2 bg-zinc-100 dark:bg-dclr1 rounded-lg hover:bg-red-500 hover:text-white transition-all">🗑️</button>
                       </div>
                     </td>
                   )}

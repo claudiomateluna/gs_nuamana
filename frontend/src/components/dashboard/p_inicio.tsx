@@ -56,7 +56,7 @@ export default function DashInicio({
               <div key={p.id} className="p-6 bg-zinc-50 dark:bg-black/20 rounded-3xl border border-transparent hover:border-clr7/30 transition-all group">
                 <div className="flex justify-between items-start mb-4">
                   <div>
-                    <p className="font-black text-clr5 dark:text-clr1 uppercase text-sm leading-tight font-bold">{p.nombres} {p.apellidos}</p>
+                    <p className="font-black text-clr5 dark:text-dclr2 uppercase text-sm leading-tight font-bold">{p.nombres} {p.apellidos}</p>
                     <span className={`px-2 py-0.5 rounded-full text-[0.7em] font-bold uppercase ${
                       p.estado === 'activo' ? 'bg-green-100 text-green-700' :
                       p.estado === 'inactivo' ? 'bg-red-100 text-red-700' :
@@ -64,7 +64,7 @@ export default function DashInicio({
                     }`}>{p.estado}</span>
                     <p className="text-[0.8em] font-bold text-clr7 uppercase tracking-wider">{calcularEdad(p.fecha_nacimiento)} • {p.roles?.name} • {p.unidades?.nombre || 'Sin Unidad'}</p>
                   </div>
-                  <button onClick={() => onEdit(p)} className="p-2 bg-white dark:bg-clr4 rounded-xl shadow-sm hover:scale-110 transition-all">✏️</button>
+                  <button onClick={() => onEdit(p)} className="p-2 bg-white dark:bg-dclr1 rounded-xl shadow-sm hover:scale-110 transition-all">✏️</button>
                 </div>
                 <div className="space-y-1">
                   <p className="text-[0.8em] font-black uppercase opacity-40 font-bold">RUT: {p.rut}</p>
@@ -73,7 +73,7 @@ export default function DashInicio({
               </div>
             ))}
             {pupilos.length === 0 && (
-              <div className="col-span-full p-8 bg-zinc-50 dark:bg-black/10 rounded-3xl text-center border-2 border-dashed border-zinc-200 dark:border-clr4">
+              <div className="col-span-full p-8 bg-zinc-50 dark:bg-black/10 rounded-3xl text-center border-2 border-dashed border-zinc-200 dark:border-dclr10">
                 <p className="text-lg italic opacity-40">No tienes pupilos registrados bajo tu RUT.</p>
               </div>
             )}
@@ -88,7 +88,7 @@ export default function DashInicio({
           <div className="p-6 bg-blue-50/30 dark:bg-black/20 rounded-3xl flex items-center gap-6 max-w-xl">
             <div className="w-12 h-12 rounded-full bg-clr7/10 flex items-center justify-center text-xl shadow-inner">👤</div>
             <div>
-              <p className="font-black text-clr5 dark:text-clr1 uppercase text-sm font-bold">{apoderado.nombres} {apoderado.apellidos}</p>
+              <p className="font-black text-clr5 dark:text-dclr2 uppercase text-sm font-bold">{apoderado.nombres} {apoderado.apellidos}</p>
               <p className="text-[0.8em] opacity-60 uppercase mb-2 font-bold">Contacto Directo</p>
               <div className="flex gap-4">
                 <p className="text-xs font-bold">📞 {cleanPhone(apoderado.telefono)}</p>
@@ -103,22 +103,22 @@ export default function DashInicio({
       <div className="block md:hidden space-y-2">
         <div className="p-2 bg-zinc-50 dark:bg-black/20 rounded-[0.6rem] border border-transparent">
           <h3 className="text-[0.8em] font-black uppercase text-clr2 tracking-widest font-bold">R.U.T.</h3>
-          <p className="font-bold text-clr5 dark:text-clr1 uppercase text-[1em] text-right">{perfil?.rut}</p>
+          <p className="font-bold text-clr5 dark:text-dclr2 uppercase text-[1em] text-right">{perfil?.rut}</p>
         </div>
         <div className="p-2 bg-zinc-50 dark:bg-black/20 rounded-[0.6rem] border border-transparent">
           <h3 className="text-[0.8em] font-black uppercase text-clr2 tracking-widest font-bold">Nacimiento</h3>
-          <p className="font-bold text-clr5 dark:text-clr1 uppercase text-[1em] text-right">
+          <p className="font-bold text-clr5 dark:text-dclr2 uppercase text-[1em] text-right">
             {perfil.fecha_nacimiento ? `${perfil.fecha_nacimiento.split('-')[2]}/${perfil.fecha_nacimiento.split('-')[1]}/${perfil.fecha_nacimiento.split('-')[0]}` : ''}
           </p>
         </div>
         <div className="p-2 bg-zinc-50 dark:bg-black/20 rounded-[0.6rem] border border-transparent">
           <h3 className="text-[0.8em] font-black uppercase text-clr2 tracking-widest font-bold">Email Registrado</h3>
-          <p className="font-bold text-clr5 dark:text-clr1 text-[0.9em] truncate text-right">{perfil?.email}</p>
+          <p className="font-bold text-clr5 dark:text-dclr2 text-[0.9em] truncate text-right">{perfil?.email}</p>
         </div>
         <div className="p-2 bg-zinc-50 dark:bg-black/20 rounded-[0.6rem] border border-transparent">
           <h3 className="text-[0.8em] font-black uppercase text-clr2 tracking-widest font-bold">Estado Cuenta</h3>
           <div className="flex items-center justify-end gap-3">
-            <span className="font-bold text-clr5 dark:text-clr1 uppercase text-[1em] text-right">{perfil?.estado}</span>
+            <span className="font-bold text-clr5 dark:text-dclr2 uppercase text-[1em] text-right">{perfil?.estado}</span>
             <div className={`w-2.5 h-2.5 rounded-full ${perfil?.estado === 'activo' ? 'bg-green-500' : perfil?.estado === 'inactivo' ? 'bg-red-500' : 'bg-amber-500'} animate-pulse`} />
           </div>
         </div>
@@ -128,23 +128,23 @@ export default function DashInicio({
       <div className="hidden md:grid grid-cols-5 gap-2">
         <div className="p-2 bg-zinc-50 dark:bg-black/20 rounded-[0.6rem] border border-transparent hover:border-clr7 transition-all relative">
           <h3 className="text-[0.8em] font-black uppercase text-clr2 tracking-widest font-bold">R.U.T.</h3>
-          <p className="font-bold text-clr5 dark:text-clr1 uppercase text-[1em]">{perfil?.rut}</p>
+          <p className="font-bold text-clr5 dark:text-dclr2 uppercase text-[1em]">{perfil?.rut}</p>
         </div>
         <div className="p-2 bg-zinc-50 dark:bg-black/20 rounded-[0.6rem] border border-transparent hover:border-clr7 transition-all relative">
           <h3 className="text-[0.8em] font-black uppercase text-clr2 tracking-widest font-bold">Nacimiento</h3>
-          <p className="font-bold text-clr5 dark:text-clr1 uppercase text-[1em] absolute bottom-2 right-3">
+          <p className="font-bold text-clr5 dark:text-dclr2 uppercase text-[1em] absolute bottom-2 right-3">
             {perfil.fecha_nacimiento ? `${perfil.fecha_nacimiento.split('-')[2]}/${perfil.fecha_nacimiento.split('-')[1]}/${perfil.fecha_nacimiento.split('-')[0]}` : ''}
           </p>
         </div>
         <div className="p-2 bg-zinc-50 dark:bg-black/20 rounded-[0.6rem] border border-transparent hover:border-clr7 transition-all relative col-span-2">
           <h3 className="text-[0.8em] font-black uppercase text-clr2 tracking-widest font-bold">Email Registrado</h3>
-          <p className="font-bold text-clr5 dark:text-clr1 text-[0.9em] truncate absolute bottom-2 right-3">{perfil?.email}</p>
+          <p className="font-bold text-clr5 dark:text-dclr2 text-[0.9em] truncate absolute bottom-2 right-3">{perfil?.email}</p>
         </div>
         <div className="p-2 bg-zinc-50 dark:bg-black/20 rounded-[0.6rem] border border-transparent hover:border-clr7 transition-all relative">
           <h3 className="text-[0.8em] font-black uppercase text-clr2 tracking-widest font-bold">Estado Cuenta</h3>
           <div className="flex items-center gap-3 absolute bottom-2 right-3">
             <div className={`w-2.5 h-2.5 rounded-full ${perfil?.estado === 'activo' ? 'bg-green-500' : perfil?.estado === 'inactivo' ? 'bg-red-500' : 'bg-amber-500'} animate-pulse`} />
-            <span className="font-bold text-clr5 dark:text-clr1 uppercase text-[1em]">{perfil?.estado}</span>
+            <span className="font-bold text-clr5 dark:text-dclr2 uppercase text-[1em]">{perfil?.estado}</span>
           </div>
         </div>
       </div>
@@ -153,54 +153,54 @@ export default function DashInicio({
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <div className="lg:col-span-2 space-y-8">
           <section className="space-y-6">
-            <h2 className="text-lg font-black font-display uppercase text-clr5 dark:text-clr1 border-l-4 border-clr7 pl-4 font-bold">Información Personal y Contacto</h2>
+            <h2 className="text-lg font-black font-display uppercase text-clr5 dark:text-dclr2 border-l-4 border-clr7 pl-4 font-bold">Información Personal y Contacto</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-[1em]">
               <div className="p-2 bg-zinc-50 dark:bg-black/10 rounded-[0.6rem]">
                 <p className="text-[0.8em] font-bold uppercase opacity-40 font-slab">Dirección</p>
-                <p className="text-[0.9em] text-clr5 dark:text-clr9 font-bold">{perfil?.direccion}, {perfil?.comuna}</p>
+                <p className="text-[0.9em] text-clr5 dark:text-dclr2 font-bold">{perfil?.direccion}, {perfil?.comuna}</p>
               </div>
               <div className="p-2 bg-zinc-50 dark:bg-black/10 rounded-[0.6rem]">
                 <p className="text-[0.8em] font-bold uppercase opacity-40 font-slab">Teléfono Personal</p>
-                <p className="text-[0.9em] text-clr5 dark:text-clr9 font-bold">{cleanPhone(perfil?.telefono)}</p>
+                <p className="text-[0.9em] text-clr5 dark:text-dclr2 font-bold">{cleanPhone(perfil?.telefono)}</p>
               </div>
               <div className="p-2 bg-zinc-50 dark:bg-black/10 rounded-[0.6rem]">
                 <p className="text-[0.8em] font-bold uppercase opacity-40 font-slab">Institución Educacional</p>
-                <p className="text-[0.9em] text-clr5 dark:text-clr9 font-bold">{perfil?.colegio || 'No registrado'} ({perfil?.nivel_educacional || 'S/I'})</p>
+                <p className="text-[0.9em] text-clr5 dark:text-dclr2 font-bold">{perfil?.colegio || 'No registrado'} ({perfil?.nivel_educacional || 'S/I'})</p>
               </div>
               <div className="p-2 bg-zinc-50 dark:bg-black/10 rounded-[0.6rem]">
                 <p className="text-[0.8em] font-bold uppercase opacity-40 font-slab">Asignación / Confesión</p>
-                <p className="text-[0.9em] text-clr5 dark:text-clr9 capitalize font-bold">{perfil?.sexo} • {perfil?.religion}</p>
+                <p className="text-[0.9em] text-clr5 dark:text-dclr2 capitalize font-bold">{perfil?.sexo} • {perfil?.religion}</p>
               </div>
             </div>
           </section>
 
           <section className="space-y-6">
-            <h2 className="text-lg font-black font-display uppercase text-clr5 dark:text-clr1 border-l-4 border-clr7 pl-4 font-bold">Salud y Dietas</h2>
+            <h2 className="text-lg font-black font-display uppercase text-clr5 dark:text-dclr2 border-l-4 border-clr7 pl-4 font-bold">Salud y Dietas</h2>
             {/* Mobile */}
             <div className="block md:hidden space-y-2">
               <div className="p-2 bg-zinc-50 dark:bg-black/10 rounded-[0.6rem]">
                 <p className="text-[0.8em] font-bold uppercase opacity-40 font-slab">Sistema Salud</p>
-                <p className="text-[0.9em] text-clr5 dark:text-clr9 font-bold text-right">{perfil?.sistema_salud} {perfil?.detalle_sistema_salud ? `(${perfil?.detalle_sistema_salud})` : ''}</p>
+                <p className="text-[0.9em] text-clr5 dark:text-dclr2 font-bold text-right">{perfil?.sistema_salud} {perfil?.detalle_sistema_salud ? `(${perfil?.detalle_sistema_salud})` : ''}</p>
               </div>
               <div className="p-2 bg-zinc-50 dark:bg-black/10 rounded-[0.6rem]">
                 <p className="text-[0.8em] font-bold uppercase opacity-40 font-slab">Tipo Sangre</p>
-                <p className="text-[0.9em] font-bold text-clr5 dark:text-clr2 text-right">{perfil?.tipo_sangre || 'S/I'}</p>
+                <p className="text-[0.9em] font-bold text-clr5 dark:text-dclr2 text-right">{perfil?.tipo_sangre || 'S/I'}</p>
               </div>
               <div className="p-2 bg-zinc-50 dark:bg-black/10 rounded-[0.6rem] border-l-4 border-red-500">
                 <p className="text-[0.8em] font-bold uppercase opacity-40 font-slab">Alergias</p>
-                <p className="text-[0.9em] text-clr5 dark:text-clr9 font-bold text-right">{perfil?.alergias || 'Ninguna'}</p>
+                <p className="text-[0.9em] text-clr5 dark:text-dclr2 font-bold text-right">{perfil?.alergias || 'Ninguna'}</p>
               </div>
               <div className="p-2 bg-zinc-50 dark:bg-black/10 rounded-2xl">
                 <p className="text-[0.8em] font-bold uppercase opacity-40 font-slab">Antecedentes Medicos</p>
-                <p className="text-[0.9em] text-clr5 dark:text-clr9 font-bold text-right">{perfil?.antecedentes_medicos || 'Sin antecedentes'}</p>
+                <p className="text-[0.9em] text-clr5 dark:text-dclr2 font-bold text-right">{perfil?.antecedentes_medicos || 'Sin antecedentes'}</p>
               </div>
               <div className="p-2 bg-zinc-50 dark:bg-black/10 rounded-2xl">
                 <p className="text-[0.8em] font-bold uppercase opacity-40 font-slab">Tratamientos Medicos</p>
-                <p className="text-[0.9em] text-clr5 dark:text-clr9 font-bold text-right">{perfil?.tratamientos_medicos || 'Sin tratamiento'}</p>
+                <p className="text-[0.9em] text-clr5 dark:text-dclr2 font-bold text-right">{perfil?.tratamientos_medicos || 'Sin tratamiento'}</p>
               </div>
               <div className="p-2 bg-zinc-50 dark:bg-black/10 rounded-2xl">
                 <p className="text-[0.8em] font-bold uppercase opacity-40 font-slab">Consumo de Medicamentos</p>
-                <p className="text-[0.9em] text-clr5 dark:text-clr9 font-bold text-right">{perfil?.medicamentos || 'Ninguno'}</p>
+                <p className="text-[0.9em] text-clr5 dark:text-dclr2 font-bold text-right">{perfil?.medicamentos || 'Ninguno'}</p>
               </div>
               <div className="p-2 bg-zinc-50 dark:bg-black/10 rounded-2xl">
                 <p className="text-[0.8em] font-bold uppercase opacity-40 font-slab">Dieta Alimentaria</p>
@@ -213,27 +213,27 @@ export default function DashInicio({
             <div className="hidden md:grid grid-cols-4 gap-2 text-[1em]">
               <div className="p-2 bg-zinc-50 dark:bg-black/10 rounded-2xl">
                 <p className="text-[0.8em] font-bold uppercase opacity-40 font-slab">Sistema Salud</p>
-                <p className="text-[0.9em] text-clr5 dark:text-clr9 font-bold">{perfil?.sistema_salud} {perfil?.detalle_sistema_salud ? `(${perfil?.detalle_sistema_salud})` : ''}</p>
+                <p className="text-[0.9em] text-clr5 dark:text-dclr2 font-bold">{perfil?.sistema_salud} {perfil?.detalle_sistema_salud ? `(${perfil?.detalle_sistema_salud})` : ''}</p>
               </div>
               <div className="p-2 bg-zinc-50 dark:bg-black/10 rounded-2xl">
                 <p className="text-[0.8em] font-bold uppercase opacity-40 font-slab">Tipo Sangre</p>
-                <p className="text-[0.9em] font-bold text-clr5 dark:text-clr2">{perfil?.tipo_sangre || 'S/I'}</p>
+                <p className="text-[0.9em] font-bold text-clr5 dark:text-dclr2">{perfil?.tipo_sangre || 'S/I'}</p>
               </div>
               <div className="p-2 bg-zinc-50 dark:bg-black/10 rounded-2xl border-l-4 border-red-500 col-span-2">
                 <p className="text-[0.8em] font-bold uppercase opacity-40 font-slab">Alergias</p>
-                <p className="text-[0.9em] text-clr5 dark:text-clr9 font-bold">{perfil?.alergias || 'Ninguna'}</p>
+                <p className="text-[0.9em] text-clr5 dark:text-dclr2 font-bold">{perfil?.alergias || 'Ninguna'}</p>
               </div>
               <div className="col-span-full p-2 bg-zinc-50 dark:bg-black/10 rounded-2xl">
                 <p className="text-[0.8em] font-bold uppercase opacity-40 font-slab">Antecedentes Medicos</p>
-                <p className="text-[0.9em] text-clr5 dark:text-clr9 font-bold">{perfil?.antecedentes_medicos || 'Sin antecedentes'}</p>
+                <p className="text-[0.9em] text-clr5 dark:text-dclr2 font-bold">{perfil?.antecedentes_medicos || 'Sin antecedentes'}</p>
               </div>
               <div className="col-span-full p-2 bg-zinc-50 dark:bg-black/10 rounded-2xl">
                 <p className="text-[0.8em] font-bold uppercase opacity-40 font-slab">Tratamientos Medicos</p>
-                <p className="text-[0.9em] text-clr5 dark:text-clr9 font-bold">{perfil?.tratamientos_medicos || 'Sin tratamiento'}</p>
+                <p className="text-[0.9em] text-clr5 dark:text-dclr2 font-bold">{perfil?.tratamientos_medicos || 'Sin tratamiento'}</p>
               </div>
               <div className="col-span-full p-2 bg-zinc-50 dark:bg-black/10 rounded-2xl">
                 <p className="text-[0.8em] font-bold uppercase opacity-40 font-slab">Consumo de Medicamentos</p>
-                <p className="text-[0.9em] text-clr5 dark:text-clr9 font-bold">{perfil?.medicamentos || 'Ninguno'}</p>
+                <p className="text-[0.9em] text-clr5 dark:text-dclr2 font-bold">{perfil?.medicamentos || 'Ninguno'}</p>
               </div>
               <div className="col-span-full p-2 bg-zinc-50 dark:bg-black/10 rounded-2xl">
                 <p className="text-[0.8em] font-bold uppercase opacity-40 font-slab">Dieta Alimentaria</p>
@@ -247,13 +247,13 @@ export default function DashInicio({
 
         <div className="space-y-8">
           <section className="space-y-6">
-            <h2 className="text-lg font-black font-display uppercase text-clr5 dark:text-clr1 border-l-4 border-clr7 pl-4 font-bold">Contactos de Emergencia</h2>
+            <h2 className="text-lg font-black font-display uppercase text-clr5 dark:text-dclr2 border-l-4 border-clr7 pl-4 font-bold">Contactos de Emergencia</h2>
             <div className="space-y-3">
               {(perfil?.contactos_emergencia || []).map((c: ContactoEmergencia) => (
                 <div key={c.id} className="p-2 bg-clr7/5 rounded-2xl border border-clr7/10">
                   <p className="text-[0.8em] font-bold text-clr7 uppercase">{c.nombre}</p>
                   <p className="text-[0.8em] font-bold opacity-60 mt-[-5px]">{c.parentesco}</p>
-                  <p className="text-[0.9em] text-clr5 dark:text-clr1 text-right font-bold font-inika"><a href={`tel:${cleanPhone(c.telefono)}`} className="text-clr5 dark:text-clr1">{cleanPhone(c.telefono)}</a></p>
+                  <p className="text-[0.9em] text-clr5 dark:text-dclr2 text-right font-bold font-inika"><a href={`tel:${cleanPhone(c.telefono)}`} className="text-clr5 dark:text-dclr2">{cleanPhone(c.telefono)}</a></p>
                 </div>
               ))}
               {(!perfil?.contactos_emergencia || perfil.contactos_emergencia.length === 0) && <p className="text-xs italic opacity-40 p-4">No hay contactos registrados.</p>}
@@ -261,7 +261,7 @@ export default function DashInicio({
           </section>
 
           <section className="space-y-6">
-            <h2 className="text-lg font-black font-display uppercase text-clr5 dark:text-clr1 border-l-4 border-clr7 pl-4 font-bold">Autorizaciones</h2>
+            <h2 className="text-lg font-black font-display uppercase text-clr5 dark:text-dclr2 border-l-4 border-clr7 pl-4 font-bold">Autorizaciones</h2>
             <div className="space-y-3">
               <div className="flex items-center justify-between p-4 bg-zinc-50 dark:bg-black/10 rounded-2xl">
                 <span className="text-[0.8em] font-bold uppercase opacity-60">Uso de Imagen</span>
@@ -280,7 +280,7 @@ export default function DashInicio({
                 <button 
                   key={auth.id} 
                   onClick={() => onVerAutorizacion(auth)}
-                  className="w-full flex justify-between items-center p-4 bg-white dark:bg-clr4 border border-zinc-100 dark:border-zinc-800 rounded-2xl hover:border-clr6 transition-all group"
+                  className="w-full flex justify-between items-center p-4 bg-white dark:bg-dclr1 border border-zinc-100 dark:border-zinc-800 rounded-2xl hover:border-clr6 transition-all group"
                 >
                   <div className="text-left">
                     <p className="text-[0.85em] font-black uppercase leading-tight group-hover:text-clr6">{auth.actividad_titulo}</p>
@@ -300,7 +300,7 @@ export default function DashInicio({
       </div>
 
       {/* ACCIONES RÁPIDAS */}
-      <div className="flex flex-wrap gap-4 pt-8 border-t border-zinc-100 dark:border-clr4">
+      <div className="flex flex-wrap gap-4 pt-8 border-t border-zinc-100 dark:border-dclr10">
         <button onClick={() => onEdit(perfil)} className="flex-1 min-w-[200px] py-4 bg-clr6 text-white font-black uppercase rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest text-xs font-inika">✏️ Actualizar Mi Ficha</button>
         
         {isApoderado(perfil) && pupilos.length > 0 && (

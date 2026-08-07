@@ -42,7 +42,7 @@ export default function DashModAgendar({ isOpen, onClose, propuesta, onSuccess }
 
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-md z-[130] flex items-center justify-center p-4 animate-in fade-in duration-300">
-      <div className="bg-white dark:bg-clr5 w-full max-w-lg rounded-[3rem] p-8 shadow-2xl">
+      <div className="bg-white dark:bg-dclr5 w-full max-w-lg rounded-[3rem] p-8 shadow-2xl">
         <h2 className="text-2xl font-black font-display uppercase text-clr7 tracking-tighter mb-2">
           📅 Agendar Actividad
         </h2>
@@ -58,7 +58,7 @@ export default function DashModAgendar({ isOpen, onClose, propuesta, onSuccess }
               type="date" 
               value={fecha}
               onChange={e => setFecha(e.target.value)}
-              className="w-full p-4 rounded-2xl border dark:border-clr4 bg-zinc-50 dark:bg-clr3 font-bold"
+              className="w-full p-4 rounded-2xl border dark:border-dclr10 bg-zinc-50 dark:bg-dclr10 font-bold"
             />
           </div>
 
@@ -73,7 +73,7 @@ export default function DashModAgendar({ isOpen, onClose, propuesta, onSuccess }
             <button 
               type="button" 
               onClick={onClose}
-              className="px-6 py-4 bg-zinc-100 dark:bg-clr4 text-clr2 rounded-2xl font-bold uppercase"
+              className="px-6 py-4 bg-zinc-100 dark:bg-dclr1 text-clr2 rounded-2xl font-bold uppercase"
             >
               Cancelar
             </button>

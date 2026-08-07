@@ -170,7 +170,7 @@ const ProgresionCeremonias = React.memo(function ProgresionCeremonias({
                                 ? "Escribe tu despedida al NNJ..."
                                 : "Escribe un mensaje de celebración..."
                         }
-                        className="flex-1 bg-white dark:bg-clr3 border border-zinc-200 dark:border-white/5 p-2 rounded-xl text-[0.85em] font-bold text-zinc-805 dark:text-white"
+                        className="flex-1 bg-white dark:bg-dclr3 border border-zinc-200 dark:border-white/5 p-2 rounded-xl text-[0.85em] font-bold text-zinc-805 dark:text-white"
                       />
                       <button
                         onClick={() => handleSaveInlineMessage(c.id)}

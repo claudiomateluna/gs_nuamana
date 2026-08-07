@@ -74,7 +74,7 @@ export default function DashModActividadCrear({ isOpen, onClose, perfil, unidade
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[150] flex items-center justify-center p-2 animate-in fade-in duration-300">
-      <div className="bg-white dark:bg-clr5 w-full max-w-lg rounded-[2rem] p-8 shadow-2xl overflow-y-auto max-h-[90vh]">
+      <div className="bg-white dark:bg-dclr5 w-full max-w-lg rounded-[2rem] p-8 shadow-2xl overflow-y-auto max-h-[90vh]">
         <h2 className="text-2xl font-black font-display uppercase text-clr6 mb-6 border-b pb-2 tracking-tighter">{isEditing ? 'Editar Actividad' : 'Programar Salida / Campamento'}</h2>
         
         <form onSubmit={handleSave} className="space-y-4 text-[1em]">
@@ -82,14 +82,14 @@ export default function DashModActividadCrear({ isOpen, onClose, perfil, unidade
             {editingActividad?.tipo === 'Especialidad' ? (
               <div className="space-y-1">
                 <label className="text-[0.8em] font-black uppercase opacity-40">Tipo</label>
-                <div className="w-full p-3 dark:bg-clr5 rounded-xl border font-bold uppercase bg-zinc-50 text-clr6">
+                <div className="w-full p-3 dark:bg-dclr5 rounded-xl border font-bold uppercase bg-zinc-50 text-clr6">
                   🎓 Especialidad
                 </div>
               </div>
             ) : (
               <div className="space-y-1">
                 <label className="text-[0.8em] font-black uppercase opacity-40">Tipo</label>
-                <select value={form.tipo} onChange={e => setForm({...form, tipo: e.target.value})} className="w-full p-3 dark:bg-clr5 rounded-xl border font-bold uppercase">
+                <select value={form.tipo} onChange={e => setForm({...form, tipo: e.target.value})} className="w-full p-3 dark:bg-dclr5 rounded-xl border font-bold uppercase">
                   <option value="Salida">🚶 Salida</option>
                   <option value="Campamento">⛺ Campamento</option>
                   <option value="Especialidad">🎓 Especialidad</option>
@@ -99,7 +99,7 @@ export default function DashModActividadCrear({ isOpen, onClose, perfil, unidade
             {!isEditing && (
               <div className="space-y-1">
                 <label className="text-[0.8em] font-black uppercase opacity-40">Nivel</label>
-                <select value={form.nivel} onChange={e => setForm({...form, nivel: e.target.value})} className="w-full p-3 dark:bg-clr5 rounded-xl border font-bold uppercase">
+                <select value={form.nivel} onChange={e => setForm({...form, nivel: e.target.value})} className="w-full p-3 dark:bg-dclr5 rounded-xl border font-bold uppercase">
                   <option value="unidad">🛡️ Solo Mi Unidad</option>
                   <option value="grupo">⚜️ Todo el Grupo</option>
                 </select>

@@ -34,7 +34,7 @@ export default function DashInventario({ items, isAdmin, onEdit, onDelete, onNue
   return (
     <div className="space-y-6 animate-in fade-in duration-500 text-[1em]">
       <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
-        <h2 className="text-2xl font-black font-display uppercase font-bold text-clr5 dark:text-clr1">Inventario de Materiales</h2>
+        <h2 className="text-2xl font-black font-display uppercase font-bold text-clr5 dark:text-dclr2">Inventario de Materiales</h2>
         {isAdmin && (
           <button onClick={onNuevo} className="px-6 py-3 bg-clr6 text-white uppercase rounded-xl text-[0.8em] font-inika font-bold tracking-widest shadow-lg hover:brightness-110 transition-all">
             ➕ Nuevo Artículo
@@ -43,7 +43,7 @@ export default function DashInventario({ items, isAdmin, onEdit, onDelete, onNue
       </div>
 
       <div className="flex flex-wrap gap-2 overflow-x-auto pb-2 scrollbar-hide">
-        <select value={catFilter} onChange={e => setCatFilter(e.target.value)} className="px-4 py-2 rounded-xl bg-zinc-100 dark:bg-clr3 border dark:border-clr4 text-clr2 font-bold uppercase text-[0.8em] outline-none">
+        <select value={catFilter} onChange={e => setCatFilter(e.target.value)} className="px-4 py-2 rounded-xl bg-zinc-100 dark:bg-dclr10 border dark:border-dclr10 text-clr2 font-bold uppercase text-[0.8em] outline-none">
           <option value="todas">Todas las Categorías</option>
           {['Camping', 'Cocina', 'Material Didáctico', 'Herramientas', 'Uniformes/Mística', 'Alimentos', 'Otros'].map(c => <option key={c} value={c}>{c}</option>)}
         </select>
@@ -60,10 +60,10 @@ export default function DashInventario({ items, isAdmin, onEdit, onDelete, onNue
         {filtered.map(item => {
           const images = item.imagenes || []
           return (
-            <div key={item.id} className="bg-white dark:bg-black/20 rounded-[2.5rem] border border-zinc-100 dark:border-clr4 shadow-sm hover:shadow-2xl transition-all relative group overflow-hidden flex flex-col">
+            <div key={item.id} className="bg-white dark:bg-black/20 rounded-[2.5rem] border border-zinc-100 dark:border-dclr10 shadow-sm hover:shadow-2xl transition-all relative group overflow-hidden flex flex-col">
               
               {/* Imagen de Cabecera */}
-              <div className="relative h-48 bg-zinc-100 dark:bg-clr4 overflow-hidden">
+              <div className="relative h-48 bg-zinc-100 dark:bg-dclr1 overflow-hidden">
                 {images.length > 0 ? (
                   <img 
                     src={images[0]} 
@@ -92,14 +92,14 @@ export default function DashInventario({ items, isAdmin, onEdit, onDelete, onNue
                   <div className="flex justify-between items-start">
                     <div>
                       <p className="text-[0.8em] font-black text-clr6 uppercase tracking-tighter mb-1">{item.categoria} {item.unidad_id ? `• ${item.unidades?.nombre}` : '• ⚜️ GRUPAL'}</p>
-                      <h3 className="text-xl font-bold uppercase leading-tight text-clr5 dark:text-clr1">{item.nombre}</h3>
+                      <h3 className="text-xl font-bold uppercase leading-tight text-clr5 dark:text-dclr2">{item.nombre}</h3>
                     </div>
                     <span className="text-2xl font-black opacity-20">x{item.cantidad}</span>
                   </div>
 
                   <div className="text-[0.8em] space-y-2">
                     <div className="flex flex-wrap gap-2">
-                      <span className="px-3 py-1 bg-zinc-100 dark:bg-clr3 rounded-full font-bold uppercase text-[0.8em] opacity-70 border dark:border-clr4">✨ {item.condicion}</span>
+                      <span className="px-3 py-1 bg-zinc-100 dark:bg-dclr10 rounded-full font-bold uppercase text-[0.8em] opacity-70 border dark:border-dclr10">✨ {item.condicion}</span>
                       {item.tiene_garantia && <span className="px-3 py-1 bg-clr6/10 text-clr6 border border-clr6/20 rounded-full font-bold uppercase text-[0.8em]">🛡️ Garantía</span>}
                     </div>
                     <div className="space-y-1 pl-1">
@@ -117,9 +117,9 @@ export default function DashInventario({ items, isAdmin, onEdit, onDelete, onNue
                 </div>
 
                 {isAdmin && (
-                  <div className="flex gap-2 pt-4 border-t border-zinc-50 dark:border-clr4/50">
-                    <button onClick={() => onEdit(item)} className="flex-1 py-3 bg-zinc-50 dark:bg-clr4 rounded-xl text-[0.8em] font-black uppercase hover:bg-clr6 hover:text-white transition-all shadow-sm">Editar</button>
-                    <button onClick={() => { if (window.confirm('¿Eliminar este item del inventario?')) onDelete(item.id); }} className="px-4 py-3 bg-zinc-50 dark:bg-clr4 rounded-xl text-[0.8em] hover:bg-red-500 hover:text-white transition-all shadow-sm">🗑️</button>
+                  <div className="flex gap-2 pt-4 border-t border-zinc-50 dark:border-dclr10/50">
+                    <button onClick={() => onEdit(item)} className="flex-1 py-3 bg-zinc-50 dark:bg-dclr1 rounded-xl text-[0.8em] font-black uppercase hover:bg-clr6 hover:text-white transition-all shadow-sm">Editar</button>
+                    <button onClick={() => { if (window.confirm('¿Eliminar este item del inventario?')) onDelete(item.id); }} className="px-4 py-3 bg-zinc-50 dark:bg-dclr1 rounded-xl text-[0.8em] hover:bg-red-500 hover:text-white transition-all shadow-sm">🗑️</button>
                   </div>
                 )}
               </div>
@@ -142,7 +142,7 @@ export default function DashInventario({ items, isAdmin, onEdit, onDelete, onNue
       )}
 
       {filtered.length === 0 && (
-        <div className="py-32 text-center border-4 border-dashed border-zinc-100 dark:border-clr4 rounded-[3rem] opacity-30">
+        <div className="py-32 text-center border-4 border-dashed border-zinc-100 dark:border-dclr10 rounded-[3rem] opacity-30">
           <span className="text-6xl block mb-4">📦</span>
           <p className="text-2xl font-black font-display uppercase tracking-widest italic">No hay materiales encontrados</p>
         </div>

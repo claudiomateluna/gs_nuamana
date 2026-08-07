@@ -33,7 +33,7 @@ export default function DashActas({ actas, perfil, onNuevaActa, onEditActa, onSi
   return (
     <div className="space-y-2 animate-in fade-in duration-500 text-[1em]">
       <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-black font-display uppercase font-bold text-clr5 dark:text-clr1">Libro de Actas</h2>
+        <h2 className="text-2xl font-black font-display uppercase font-bold text-clr5 dark:text-dclr2">Libro de Actas</h2>
         {canCreate && (
           <button 
             onClick={onNuevaActa} 
@@ -67,7 +67,7 @@ export default function DashActas({ actas, perfil, onNuevaActa, onEditActa, onSi
                 {a.acta_temas && a.acta_temas.length > 0 && (
                   <div className="flex flex-wrap gap-2 mt-2">
                     {a.acta_temas.map((t: any, idx: number) => (
-                      <span key={idx} className="text-[0.8em] bg-zinc-100 dark:bg-black/20 px-2 py-0.5 rounded-md border border-zinc-200 dark:border-clr4 font-bold uppercase opacity-70">
+                      <span key={idx} className="text-[0.8em] bg-zinc-100 dark:bg-black/20 px-2 py-0.5 rounded-md border border-zinc-200 dark:border-dclr10 font-bold uppercase opacity-70">
                         {t.titulo}
                       </span>
                     ))}
@@ -98,14 +98,14 @@ export default function DashActas({ actas, perfil, onNuevaActa, onEditActa, onSi
                   )}
                   <button 
                     onClick={() => onVerActa(a)} 
-                    className="px-4 py-2 bg-white dark:bg-clr4 rounded-xl shadow-sm border text-[0.8em] uppercase font-bold tracking-widest hover:bg-zinc-100 hover:text-clr4 transition-all"
+                    className="px-4 py-2 bg-white dark:bg-dclr1 rounded-xl shadow-sm border text-[0.8em] uppercase font-bold tracking-widest hover:bg-zinc-100 hover:text-clr4 transition-all"
                   >
                     📂 Abrir
                   </button>
                   {canEdit(a) && (
                     <button 
                       onClick={() => onEditActa(a)} 
-                      className="p-2 bg-white dark:bg-clr4 rounded-xl shadow-sm border border-clr6 text-clr6 hover:bg-clr6 hover:text-white transition-all"
+                      className="p-2 bg-white dark:bg-dclr1 rounded-xl shadow-sm border border-clr6 text-clr6 hover:bg-clr6 hover:text-white transition-all"
                       title="Editar Planificación/Desarrollo"
                     >
                       ✏️
@@ -114,7 +114,7 @@ export default function DashActas({ actas, perfil, onNuevaActa, onEditActa, onSi
                   {canDelete(a) && (
                     <button 
                       onClick={() => { if (window.confirm('¿Eliminar esta acta? Esta acción no se puede deshacer.')) onDelete(a.id); }}
-                      className="p-2 bg-white dark:bg-clr4 rounded-xl shadow-sm border border-red-100 text-red-500 hover:bg-red-500 hover:text-white transition-all"
+                      className="p-2 bg-white dark:bg-dclr1 rounded-xl shadow-sm border border-red-100 text-red-500 hover:bg-red-500 hover:text-white transition-all"
                       title="Eliminar Acta"
                     >
                       🗑️

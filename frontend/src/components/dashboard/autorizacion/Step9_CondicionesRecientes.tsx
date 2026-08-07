@@ -7,7 +7,7 @@ export default function Step9_CondicionesRecientes({ formData, setFormData, perf
   const titleStyle = "text-[1.2em] font-black text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8 border-b-2 border-clr7 pb-2";
   const labelContainerStyle = "flex items-center gap-2 mb-1";
   const labelStyle = "text-[0.9em] font-black uppercase text-clr2 tracking-widest block";
-  const inputStyle = "w-full bg-zinc-50 dark:bg-clr3 dark:text-dclr2 border-2 border-transparent focus:border-clr7 rounded-xl p-3 text-[1em] font-bold outline-none transition-all shadow-inner";
+  const inputStyle = "w-full bg-zinc-50 dark:bg-dclr10 dark:text-dclr2 border-2 border-transparent focus:border-clr7 rounded-xl p-3 text-[1em] font-bold outline-none transition-all shadow-inner";
   
   const infoIconContainerStyle = "inline-block";
   const infoIconStyle = "text-clr7 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
@@ -50,7 +50,7 @@ export default function Step9_CondicionesRecientes({ formData, setFormData, perf
             {['Si', 'No'].map(o => {
               const isChecked = (o === 'Si' && hasMalestares) || (o === 'No' && !hasMalestares);
               return (
-                <label key={o} className={`flex-1 p-2 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] tracking-widest transition-all ${isChecked ? 'border-clr7 bg-clr7 text-white shadow-lg' : 'border-zinc-100 dark:border-clr4 dark:text-dclr2'}`}>
+                <label key={o} className={`flex-1 p-2 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] tracking-widest transition-all ${isChecked ? 'border-clr7 bg-clr7 text-white shadow-lg' : 'border-zinc-100 dark:border-dclr10 dark:text-dclr2'}`}>
                   <input type="radio" name="malestar_radio" checked={isChecked} onChange={() => setFormData({ ...formData, malestares_recientes_radio: o, malestares_recientes_bool: o === 'Si' })} className="hidden" /> {o}
                 </label>
               );
@@ -87,7 +87,7 @@ export default function Step9_CondicionesRecientes({ formData, setFormData, perf
                 {['Si', 'No'].map(o => {
                   const isChecked = (o === 'Si' && isEnTratamientoReciente) || (o === 'No' && !isEnTratamientoReciente);
                   return (
-                    <label key={o} className={`flex-1 p-2 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] tracking-widest transition-all ${isChecked ? 'border-clr7 bg-clr7 text-white shadow-lg' : 'border-zinc-100 dark:border-clr4 dark:text-dclr2'}`}>
+                    <label key={o} className={`flex-1 p-2 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] tracking-widest transition-all ${isChecked ? 'border-clr7 bg-clr7 text-white shadow-lg' : 'border-zinc-100 dark:border-dclr10 dark:text-dclr2'}`}>
                       <input type="radio" name="tratamiento_radio" checked={isChecked} onChange={() => setFormData({ ...formData, tratamiento_reciente_radio: o, tratamiento_reciente_bool: o === 'Si' })} className="hidden" /> {o}
                     </label>
                   );

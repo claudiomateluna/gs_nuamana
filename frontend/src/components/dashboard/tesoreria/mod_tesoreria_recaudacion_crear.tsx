@@ -56,7 +56,7 @@ export default function DashModRecaudacionCrear({ isOpen, onClose, onSuccess, pe
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[110] flex items-center justify-center p-2 md:p-4 animate-in fade-in duration-300">
-      <div className="bg-white dark:bg-clr5 w-full max-w-lg rounded-[2.5rem] p-6 md:p-10 shadow-2xl border-4 border-clr10 dark:border-clr4 overflow-y-auto max-h-[95vh]">
+      <div className="bg-white dark:bg-dclr5 w-full max-w-lg rounded-[2.5rem] p-6 md:p-10 shadow-2xl border-4 border-clr10 dark:border-dclr10 overflow-y-auto max-h-[95vh]">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl font-black font-display uppercase text-clr6 tracking-tighter">
             Crear Nueva Recaudación
@@ -72,7 +72,7 @@ export default function DashModRecaudacionCrear({ isOpen, onClose, onSuccess, pe
               required
               value={nombre}
               onChange={e => setNombre(e.target.value)}
-              className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-clr3 font-bold"
+              className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-dclr10 font-bold"
               placeholder="Ej: Rifa Pro-Campamento, Entradas Bingo..."
             />
           </div>
@@ -85,7 +85,7 @@ export default function DashModRecaudacionCrear({ isOpen, onClose, onSuccess, pe
                 required
                 value={fechaInicio}
                 onChange={e => setFechaInicio(e.target.value)}
-                className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-clr3 font-bold text-center"
+                className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-dclr10 font-bold text-center"
               />
             </div>
             <div className="space-y-1">
@@ -95,7 +95,7 @@ export default function DashModRecaudacionCrear({ isOpen, onClose, onSuccess, pe
                 required
                 value={plazoMaximo}
                 onChange={e => setPlazoMaximo(e.target.value)}
-                className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-clr3 font-bold text-center"
+                className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-dclr10 font-bold text-center"
               />
             </div>
           </div>
@@ -105,7 +105,7 @@ export default function DashModRecaudacionCrear({ isOpen, onClose, onSuccess, pe
             <select
               value={unidad}
               onChange={e => setUnidad(e.target.value)}
-              className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-clr3 font-bold uppercase"
+              className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-dclr10 font-bold uppercase"
             >
               <option value="Grupal">⚜️ Grupal (Todo el Grupo)</option>
               <option value="Manada">🐾 Manada</option>
@@ -119,7 +119,7 @@ export default function DashModRecaudacionCrear({ isOpen, onClose, onSuccess, pe
             </p>
           </div>
 
-          <div className="flex justify-end gap-3 pt-4 border-t dark:border-clr4">
+          <div className="flex justify-end gap-3 pt-4 border-t dark:border-dclr10">
             <button
               type="button"
               onClick={onClose}

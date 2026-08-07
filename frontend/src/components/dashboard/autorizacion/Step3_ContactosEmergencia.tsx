@@ -10,7 +10,7 @@ export default function Step3_ContactosEmergencia({ formData, setFormData, perfi
   const titleStyle = "text-[1.2em] font-black text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8 border-b-2 border-clr7 pb-2";
   const labelContainerStyle = "flex items-center gap-2 mb-1";
   const labelStyle = "text-[0.9em] font-black uppercase text-clr2 tracking-widest block";
-  const inputStyle = "w-full bg-zinc-50 dark:bg-clr3 dark:text-dclr2 border-2 border-transparent focus:border-clr7 rounded-xl p-3 text-[1em] font-bold outline-none transition-all shadow-inner";
+  const inputStyle = "w-full bg-zinc-50 dark:bg-dclr10 dark:text-dclr2 border-2 border-transparent focus:border-clr7 rounded-xl p-3 text-[1em] font-bold outline-none transition-all shadow-inner";
   const infoIconContainerStyle = "inline-block";
   const infoIconStyle = "text-clr7 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
   const tooltipStyle = "fixed z-[300] left-1/2 -translate-x-1/2 top-1/4 w-[90%] max-w-lg p-6 bg-zinc-800 dark:bg-zinc-900 text-white text-[1em] font-medium leading-relaxed rounded-[2rem] shadow-2xl opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 border-2 border-clr7/50 backdrop-blur-md";
@@ -99,8 +99,8 @@ export default function Step3_ContactosEmergencia({ formData, setFormData, perfi
       ) : (
         <div className="space-y-2">
           {(formData.contactos_emergencia || []).map((c, i) => (
-            <div key={i} className="p-4 bg-zinc-50 dark:bg-clr4 rounded-[1em] border border-clr10 dark:border-clr4 space-y-4 relative shadow-sm">
-              <div className="flex justify-between items-center border-b border-clr10 dark:border-clr5 pb-2 mb-4">
+            <div key={i} className="p-4 bg-zinc-50 dark:bg-dclr1 rounded-[1em] border border-clr10 dark:border-dclr10 space-y-4 relative shadow-sm">
+              <div className="flex justify-between items-center border-b border-clr10 dark:border-dclr5 pb-2 mb-4">
                 <span className="text-[0.8em] font-black uppercase tracking-[0.2em] text-clr7">Contacto #{i + 1}</span>
                 {i > 0 && (
                   <button type="button" onClick={() => removeContact(i)} className="text-[0.8em] font-black uppercase text-red-500 hover:underline">Eliminar</button>
@@ -128,7 +128,7 @@ export default function Step3_ContactosEmergencia({ formData, setFormData, perfi
             </div>
           ))}
           
-          <button type="button" onClick={addContact} className="w-full py-6 border-2 border-dashed border-clr10 dark:border-clr4 rounded-[2.5rem] text-[0.9em] font-black uppercase text-clr2 tracking-widest hover:text-clr7 hover:border-clr7 transition-all bg-white/50 dark:bg-black/5">
+          <button type="button" onClick={addContact} className="w-full py-6 border-2 border-dashed border-clr10 dark:border-dclr10 rounded-[2.5rem] text-[0.9em] font-black uppercase text-clr2 tracking-widest hover:text-clr7 hover:border-clr7 transition-all bg-white/50 dark:bg-black/5">
             + AGREGAR OTRO CONTACTO DE EMERGENCIA
           </button>
         </div>

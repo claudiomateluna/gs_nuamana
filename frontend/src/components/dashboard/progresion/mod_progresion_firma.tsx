@@ -40,7 +40,7 @@ export default function DashModFirmaDigital({
 
   return (
     <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-black/60 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="bg-white dark:bg-zinc-950 p-6 rounded-[2.5rem] border border-zinc-150 dark:border-clr4 w-full max-w-md shadow-2xl relative font-body">
+      <div className="bg-white dark:bg-zinc-950 p-6 rounded-[2.5rem] border border-zinc-150 dark:border-dclr10 w-full max-w-md shadow-2xl relative font-body">
         <button 
           onClick={onClose}
           className="absolute top-4 right-4 text-zinc-400 hover:text-zinc-650 dark:hover:text-white font-extrabold text-[1.1em] cursor-pointer border-none bg-transparent"

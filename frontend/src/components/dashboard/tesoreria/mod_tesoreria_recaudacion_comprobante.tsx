@@ -207,7 +207,7 @@ export default function DashModRecaudacionComprobante({
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[110] flex items-center justify-center p-2 md:p-4 animate-in fade-in duration-300">
-      <div className="bg-white dark:bg-clr5 w-full max-w-2xl rounded-[2.5rem] p-6 md:p-10 shadow-2xl border-4 border-clr10 dark:border-clr4 overflow-y-auto max-h-[95vh]">
+      <div className="bg-white dark:bg-dclr5 w-full max-w-2xl rounded-[2.5rem] p-6 md:p-10 shadow-2xl border-4 border-clr10 dark:border-dclr10 overflow-y-auto max-h-[95vh]">
         
         <div className="flex justify-between items-center mb-6">
           <div>
@@ -235,7 +235,7 @@ export default function DashModRecaudacionComprobante({
               placeholder="🔍 Buscar participante por nombre..."
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
-              className="w-full p-2.5 rounded-xl border bg-zinc-50 dark:bg-clr3 font-semibold text-[0.9em]"
+              className="w-full p-2.5 rounded-xl border bg-zinc-50 dark:bg-dclr10 font-semibold text-[0.9em]"
             />
 
             <div className="border rounded-2xl overflow-hidden max-h-[220px] overflow-y-auto bg-zinc-50 dark:bg-black/10">
@@ -273,7 +273,7 @@ export default function DashModRecaudacionComprobante({
                             {u.nombres} {u.apellidos}
                           </span>
                         </div>
-                        <span className="text-[0.75em] bg-zinc-200 dark:bg-clr3 text-zinc-700 dark:text-zinc-300 px-2 py-0.5 rounded-full font-black uppercase">
+                        <span className="text-[0.75em] bg-zinc-200 dark:bg-dclr10 text-zinc-700 dark:text-zinc-300 px-2 py-0.5 rounded-full font-black uppercase">
                           {badge}
                         </span>
                       </label>
@@ -292,7 +292,7 @@ export default function DashModRecaudacionComprobante({
                 type="text"
                 disabled
                 value={new Date().toLocaleDateString('es-CL')}
-                className="w-full p-3 rounded-xl border bg-zinc-100 dark:bg-clr3 font-black text-center opacity-70 cursor-not-allowed"
+                className="w-full p-3 rounded-xl border bg-zinc-100 dark:bg-dclr10 font-black text-center opacity-70 cursor-not-allowed"
               />
             </div>
 
@@ -306,7 +306,7 @@ export default function DashModRecaudacionComprobante({
                 placeholder="Ej: 15000"
                 value={monto}
                 onChange={e => setMonto(e.target.value === '' ? '' : parseInt(e.target.value))}
-                className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-clr3 font-black text-center text-[1.1em] text-clr6"
+                className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-dclr10 font-black text-center text-[1.1em] text-clr6"
               />
             </div>
           </div>
@@ -319,7 +319,7 @@ export default function DashModRecaudacionComprobante({
               required
               accept="image/*,application/pdf"
               onChange={handleFileChange}
-              className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-clr3 font-bold"
+              className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-dclr10 font-bold"
             />
             {previewUrl && (
               <div className="mt-3 border rounded-2xl overflow-hidden max-h-[160px] flex items-center justify-center bg-zinc-100 dark:bg-black/25">
@@ -328,7 +328,7 @@ export default function DashModRecaudacionComprobante({
             )}
           </div>
 
-          <div className="flex justify-end gap-3 pt-4 border-t dark:border-clr4">
+          <div className="flex justify-end gap-3 pt-4 border-t dark:border-dclr10">
             <button
               type="button"
               onClick={onClose}

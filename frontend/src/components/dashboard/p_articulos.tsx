@@ -44,7 +44,7 @@ export default function DashBitacoras({ articulos, filter, setFilter, onDelete, 
         {filtered.map(art => (
           <div key={art.id} className="p-2 sm:p-4 bg-zinc-50 dark:bg-black/10 rounded-2xl flex justify-between items-center group hover:bg-zinc-100 dark:hover:bg-black/20 transition-all border border-transparent hover:border-clr7/20">
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-lg bg-white dark:bg-clr4 flex items-center justify-center shrink-0 shadow-sm">
+              <div className="w-10 h-10 rounded-lg bg-white dark:bg-dclr1 flex items-center justify-center shrink-0 shadow-sm">
                 {art.imagen_destacada ? (
                   <img src={art.imagen_destacada} className="w-full h-full object-cover rounded-lg" alt="thumb" />
                 ) : (
@@ -52,7 +52,7 @@ export default function DashBitacoras({ articulos, filter, setFilter, onDelete, 
                 )}
               </div>
               <div>
-                <p className="font-bold text-[0.9em] text-clr5 dark:text-clr1 uppercase truncate max-w-[200px] md:max-w-md">
+                <p className="font-bold text-[0.9em] text-clr5 dark:text-dclr2 uppercase truncate max-w-[200px] md:max-w-md">
                   {art.titulo}
                 </p>
                 <div className="flex flex-wrap items-center gap-2 mt-1">
@@ -84,14 +84,14 @@ export default function DashBitacoras({ articulos, filter, setFilter, onDelete, 
                 <>
                   <Link 
                     href={`/blog/editar/${art.id}`} 
-                    className="p-2 bg-white dark:bg-clr4 rounded-lg shadow-sm border hover:bg-clr7 hover:text-white transition-all"
+                    className="p-2 bg-white dark:bg-dclr1 rounded-lg shadow-sm border hover:bg-clr7 hover:text-white transition-all"
                     title="Editar"
                   >
                     ✏️
                   </Link>
                   <button 
                     onClick={() => onDelete(art.id)}
-                    className="p-2 bg-white dark:bg-clr4 rounded-lg shadow-sm border hover:bg-red-500 hover:text-white transition-all"
+                    className="p-2 bg-white dark:bg-dclr1 rounded-lg shadow-sm border hover:bg-red-500 hover:text-white transition-all"
                     title="Eliminar"
                   >
                     🗑️

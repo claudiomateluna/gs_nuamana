@@ -116,7 +116,7 @@ export default function DashModResena({ isOpen, onClose, propuesta, perfil, onSu
 
   return (
     <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-300">
-      <div className="bg-white dark:bg-clr3 w-full max-w-lg rounded-[2.5rem] shadow-2xl overflow-hidden border-4 border-white dark:border-clr4 animate-in zoom-in duration-300">
+      <div className="bg-white dark:bg-dclr3 w-full max-w-lg rounded-[2.5rem] shadow-2xl overflow-hidden border-4 border-white dark:border-dclr10 animate-in zoom-in duration-300">
         <div className="p-8 space-y-6">
           <div className="text-center space-y-2">
             <span className="text-5xl block mb-2">⭐</span>
@@ -157,7 +157,7 @@ export default function DashModResena({ isOpen, onClose, propuesta, perfil, onSu
               />
             </div>
 
-            <label className="flex items-center gap-3 cursor-pointer group p-2 bg-zinc-50 dark:bg-black/20 rounded-xl border border-zinc-100 dark:border-clr4">
+            <label className="flex items-center gap-3 cursor-pointer group p-2 bg-zinc-50 dark:bg-black/20 rounded-xl border border-zinc-100 dark:border-dclr10">
               <input 
                 type="checkbox" 
                 checked={esAnonimo} 
@@ -168,7 +168,7 @@ export default function DashModResena({ isOpen, onClose, propuesta, perfil, onSu
             </label>
           </div>
 
-          <div className="flex gap-4 pt-4 border-t border-zinc-100 dark:border-clr4">
+          <div className="flex gap-4 pt-4 border-t border-zinc-100 dark:border-dclr10">
             <button
               type="button"
               onClick={onClose}

@@ -32,7 +32,7 @@ export default function DashUsuarios({ userPerfil, usuarios = [], onEdit, onVer,
   return (
     <div className="space-y-8 animate-in fade-in duration-500">
       <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-        <h2 className="text-[1.8em] font-black text-clr5 dark:text-clr1 uppercase tracking-tighter">Gestión de Grupo</h2>
+        <h2 className="text-[1.8em] font-black text-clr5 dark:text-dclr2 uppercase tracking-tighter">Gestión de Grupo</h2>
         <input 
           type="text" 
           placeholder="🔍 Buscar por nombre o RUT..." 
@@ -51,7 +51,7 @@ export default function DashUsuarios({ userPerfil, usuarios = [], onEdit, onVer,
           return (
             <div 
               key={u.id} 
-              className="p-2 bg-white dark:bg-clr5 rounded-[1.5rem] border-2 shadow-sm hover:shadow-xl transition-all group flex flex-col relative overflow-hidden"
+              className="p-2 bg-white dark:bg-dclr5 rounded-[1.5rem] border-2 shadow-sm hover:shadow-xl transition-all group flex flex-col relative overflow-hidden"
               style={{ borderColor: unitColor2 ? `${unitColor2}50` : 'rgba(244, 244, 245, 0.5)', backgroundColor: unitColor, color: unitColor2 }}
             >
               {logoUrl && (
@@ -77,10 +77,10 @@ export default function DashUsuarios({ userPerfil, usuarios = [], onEdit, onVer,
                   }}
                 />
                 <div className="flex-1 overflow-hidden">
-                  <h3 className="font-black text-[1.1em] py-[0.5px] px-1 rounded-xl text-clr5 dark:text-clr1 truncate uppercase leading-tight mb-[-4px]" style={{ backgroundColor: unitColor2, color: unitColor }}>
+                  <h3 className="font-black text-[1.1em] py-[0.5px] px-1 rounded-xl text-clr5 dark:text-dclr2 truncate uppercase leading-tight mb-[-4px]" style={{ backgroundColor: unitColor2, color: unitColor }}>
                     {u.nombres}
                   </h3>
-                  <p className="font-bold text-[0.9em] text-clr4 dark:text-clr1 truncate uppercase tracking-tight ml-1" style={{ color: unitColor2 }}>{u.apellidos}</p>
+                  <p className="font-bold text-[0.9em] text-clr4 dark:text-dclr2 truncate uppercase tracking-tight ml-1" style={{ color: unitColor2 }}>{u.apellidos}</p>
                 </div>
               </div>
 
@@ -108,11 +108,11 @@ export default function DashUsuarios({ userPerfil, usuarios = [], onEdit, onVer,
                 </div>
                 <div className="flex justify-between items-center p-2 rounded-xl" style={{ backgroundColor: unitColor2 }}>
                   <span className="text-[0.8em] uppercase" style={{ color: unitColor }}>Rol</span>
-                  <span className="text-[0.9em] font-bold text-clr5 dark:text-clr2 uppercase" style={{ color: unitColor }}>{u.roles?.name}</span>
+                  <span className="text-[0.9em] font-bold text-clr5 dark:text-dclr2 uppercase" style={{ color: unitColor }}>{u.roles?.name}</span>
                 </div>
                 <div className="flex justify-between items-center p-2 rounded-xl" style={{ backgroundColor: unitColor2 }}>
                   <span className="text-[0.8em] uppercase" style={{ color: unitColor }}>Edad</span>
-                  <span className="text-[0.9em] font-bold text-clr5 dark:text-clr2 uppercase" style={{ color: unitColor }}>{calcularEdad(u.fecha_nacimiento)} Años</span>
+                  <span className="text-[0.9em] font-bold text-clr5 dark:text-dclr2 uppercase" style={{ color: unitColor }}>{calcularEdad(u.fecha_nacimiento)} Años</span>
                 </div>
               </div>
 

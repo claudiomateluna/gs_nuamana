@@ -8,7 +8,7 @@ export default function Step8_HistorialClinico({ formData, setFormData, perfil }
   const titleStyle = "text-[1.2em] font-black text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8 border-b-2 border-clr7 pb-2";
   const labelContainerStyle = "flex items-center gap-2 mb-1";
   const labelStyle = "text-[0.9em] font-black uppercase text-clr2 tracking-widest block";
-  const inputStyle = "w-full bg-zinc-50 dark:bg-clr3 dark:text-dclr2 border-2 border-transparent focus:border-clr7 rounded-xl p-3 text-[1em] font-bold outline-none transition-all shadow-inner";
+  const inputStyle = "w-full bg-zinc-50 dark:bg-dclr10 dark:text-dclr2 border-2 border-transparent focus:border-clr7 rounded-xl p-3 text-[1em] font-bold outline-none transition-all shadow-inner";
   
   const infoIconContainerStyle = "inline-block";
   const infoIconStyle = "text-clr7 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
@@ -91,7 +91,7 @@ export default function Step8_HistorialClinico({ formData, setFormData, perfil }
             />
             <div className="flex gap-4">
               {['Si', 'No'].map(o => (
-                <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] tracking-widest transition-all ${formData.has_hospitalizaciones === o ? 'border-clr7 bg-clr7 text-white shadow-lg' : 'border-zinc-100 dark:border-clr4 dark:text-dclr2'}`}>
+                <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] tracking-widest transition-all ${formData.has_hospitalizaciones === o ? 'border-clr7 bg-clr7 text-white shadow-lg' : 'border-zinc-100 dark:border-dclr10 dark:text-dclr2'}`}>
                   <input type="radio" checked={formData.has_hospitalizaciones === o} onChange={() => setFormData({ ...formData, has_hospitalizaciones: o })} className="hidden" /> {o}
                 </label>
               ))}
@@ -99,9 +99,9 @@ export default function Step8_HistorialClinico({ formData, setFormData, perfil }
           </div>
 
           {formData.has_hospitalizaciones === 'Si' && (
-            <div className="space-y-6 animate-in slide-in-from-top-4 duration-500 bg-zinc-50 dark:bg-black/10 p-6 rounded-[2rem] border border-clr10 dark:border-clr4">
+            <div className="space-y-6 animate-in slide-in-from-top-4 duration-500 bg-zinc-50 dark:bg-black/10 p-6 rounded-[2rem] border border-clr10 dark:border-dclr10">
               {(formData.hospitalizaciones || []).map((h, i) => (
-                <div key={i} className="space-y-4 pb-6 border-b border-clr10 dark:border-clr4 last:border-0 last:pb-0">
+                <div key={i} className="space-y-4 pb-6 border-b border-clr10 dark:border-dclr10 last:border-0 last:pb-0">
                   <div className="flex justify-between items-center">
                     <span className="text-[0.8em] font-black uppercase tracking-widest text-clr7">Registro #{i + 1}</span>
                     {i > 0 && <button onClick={() => removeHospitalizacion(i)} className="text-[0.8em] font-black uppercase text-red-500">Eliminar</button>}
@@ -132,7 +132,7 @@ export default function Step8_HistorialClinico({ formData, setFormData, perfil }
             />
             <div className="flex gap-4">
               {['Si', 'No'].map(o => (
-                <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] tracking-widest transition-all ${formData.has_cirugias === o ? 'border-clr7 bg-clr7 text-white shadow-lg' : 'border-zinc-100 dark:border-clr4 dark:text-dclr2'}`}>
+                <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] tracking-widest transition-all ${formData.has_cirugias === o ? 'border-clr7 bg-clr7 text-white shadow-lg' : 'border-zinc-100 dark:border-dclr10 dark:text-dclr2'}`}>
                   <input type="radio" checked={formData.has_cirugias === o} onChange={() => setFormData({ ...formData, has_cirugias: o })} className="hidden" /> {o}
                 </label>
               ))}
@@ -140,9 +140,9 @@ export default function Step8_HistorialClinico({ formData, setFormData, perfil }
           </div>
 
           {formData.has_cirugias === 'Si' && (
-            <div className="space-y-6 animate-in slide-in-from-top-4 duration-500 bg-zinc-50 dark:bg-black/10 p-6 rounded-[2rem] border border-clr10 dark:border-clr4">
+            <div className="space-y-6 animate-in slide-in-from-top-4 duration-500 bg-zinc-50 dark:bg-black/10 p-6 rounded-[2rem] border border-clr10 dark:border-dclr10">
               {(formData.cirugias || []).map((c, i) => (
-                <div key={i} className="space-y-4 pb-6 border-b border-clr10 dark:border-clr4 last:border-0 last:pb-0">
+                <div key={i} className="space-y-4 pb-6 border-b border-clr10 dark:border-dclr10 last:border-0 last:pb-0">
                   <div className="flex justify-between items-center">
                     <span className="text-[0.8em] font-black uppercase tracking-widest text-clr7">Cirugía #{i + 1}</span>
                     {i > 0 && <button onClick={() => removeCirugia(i)} className="text-[0.8em] font-black uppercase text-red-500">Eliminar</button>}

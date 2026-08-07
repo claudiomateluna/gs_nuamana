@@ -70,7 +70,7 @@ export default function DashModActaVer({ isOpen, onClose, acta }: DashModActaVer
 
   return (
     <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-[100] flex items-center justify-center p-2 xs:p-1 sm:p-2 md:p-3 lg:p-4 animate-in zoom-in-95 duration-300 text-[1em]">
-      <div className="bg-white dark:bg-clr5 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg rounded-[1em] p-3 shadow-2xl overflow-y-auto max-h-[90vh]">
+      <div className="bg-white dark:bg-dclr5 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg rounded-[1em] p-3 shadow-2xl overflow-y-auto max-h-[90vh]">
         <button onClick={onClose} className="absolute top-8 right-8 text-2xl opacity-60 hover:opacity-100 font-bold">✕</button>
         
         <header className="mb-4 border-b pb-2 flex flex-col md:flex-row md:items-center gap-3">
@@ -87,7 +87,7 @@ export default function DashModActaVer({ isOpen, onClose, acta }: DashModActaVer
                 🔒 {acta.confidencialidad}
               </span>
             </div>
-            <h2 className="text-3xl font-black font-display uppercase tracking-tighter text-clr5 dark:text-clr1">{acta.tipo}</h2>
+            <h2 className="text-3xl font-black font-display uppercase tracking-tighter text-clr5 dark:text-dclr2">{acta.tipo}</h2>
             <p className="text-[0.8em] opacity-40 font-bold uppercase">{acta.unidades?.nombre || 'General'}</p>
           </div>
         </header>
@@ -106,7 +106,7 @@ export default function DashModActaVer({ isOpen, onClose, acta }: DashModActaVer
 
         <div className="space-y-4">
           {/* RESUMEN AGENDA */}
-          <section className="bg-zinc-50 dark:bg-clr3 p-2 rounded-[0.5em] border border-zinc-100 dark:border-clr4">
+          <section className="bg-zinc-50 dark:bg-dclr3 p-2 rounded-[0.5em] border border-zinc-100 dark:border-dclr10">
             <h3 className="font-bold uppercase text-[0.8em] opacity-60 border-b pb-2 mb-2 tracking-widest">Resumen de Agenda</h3>
             <p className="italic text-[1em] leading-relaxed">{acta.resumen || 'Sin resumen registrado.'}</p>
           </section>
@@ -121,7 +121,7 @@ export default function DashModActaVer({ isOpen, onClose, acta }: DashModActaVer
                     <div key={i} className="pl-4 border-l-4 border-clr6/20 relative">
                       <div className="absolute -left-2 top-0 w-3 h-3 rounded-full bg-clr6 shadow-sm" />
                       <div className="flex justify-between items-start mb-2">
-                        <h4 className="font-black text-clr5 dark:text-clr1 uppercase text-[1em] tracking-tight">{t.titulo}</h4>
+                        <h4 className="font-black text-clr5 dark:text-dclr2 uppercase text-[1em] tracking-tight">{t.titulo}</h4>
                         <span className="text-[0.8em] opacity-40 uppercase">⏱️ {t.duracion_real || t.duracion_estimada} min</span>
                       </div>
                       <div className="space-y-4 text-[1em]">
@@ -144,7 +144,7 @@ export default function DashModActaVer({ isOpen, onClose, acta }: DashModActaVer
                 <h3 className="font-bold uppercase text-[0.8em] opacity-40 border-b pb-2 tracking-widest font-slab text-blue-600 dark:text-blue-200">Acuerdos y Compromisos</h3>
                 <div className="grid gap-2 text-[1em]">
                   {acta.acuerdos?.map((a: any, i: number) => (
-                    <div key={i} className="p-2 bg-blue-50/30 dark:bg-clr3/40 rounded-[0.5rem] border border-blue-100 dark:border-clr4 relative group shadow-sm">
+                    <div key={i} className="p-2 bg-blue-50/30 dark:bg-dclr3/40 rounded-[0.5rem] border border-blue-100 dark:border-dclr10 relative group shadow-sm">
                       <div className="flex justify-between items-start mb-3">
                         <h4 className="font-bold uppercase text-blue-700 dark:text-blue-300">{a.titulo}</h4>
                         <span className={`px-2 py-0.5 rounded-full text-[1em] ${
@@ -183,7 +183,7 @@ export default function DashModActaVer({ isOpen, onClose, acta }: DashModActaVer
 
                       {/* Selector inline — cuando está editando este acuerdo */}
                       {editingAcuerdoIdx === i && (
-                        <div className="mt-3 p-3 bg-white dark:bg-clr3 rounded-xl border-2 border-clr6">
+                        <div className="mt-3 p-3 bg-white dark:bg-dclr3 rounded-xl border-2 border-clr6">
                           <SelectorFichasActividad
                             selectedIds={tempSelectedIds}
                             onChange={setTempSelectedIds}
@@ -198,7 +198,7 @@ export default function DashModActaVer({ isOpen, onClose, acta }: DashModActaVer
                             </button>
                             <button 
                               onClick={() => setEditingAcuerdoIdx(null)}
-                              className="px-4 py-2 bg-zinc-200 dark:bg-clr4 rounded-xl text-xs font-bold"
+                              className="px-4 py-2 bg-zinc-200 dark:bg-dclr1 rounded-xl text-xs font-bold"
                             >
                               Cancelar
                             </button>
@@ -237,7 +237,7 @@ export default function DashModActaVer({ isOpen, onClose, acta }: DashModActaVer
                 </div>
               </section>
 
-              <section className="space-y-4 bg-zinc-50 dark:bg-black/10 p-2 rounded-[1rem] border dark:border-clr4">
+              <section className="space-y-4 bg-zinc-50 dark:bg-black/10 p-2 rounded-[1rem] border dark:border-dclr10">
                 <h3 className="font-bold uppercase text-[0.8em] opacity-60 border-b pb-2 tracking-widest">Cierre de Sesión</h3>
                 <div className="space-y-4 text-[0.9em]">
                   {acta.proxima_reunion && (

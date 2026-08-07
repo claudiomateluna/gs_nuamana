@@ -92,7 +92,7 @@ export default function Step18_FirmaDigital({ formData, setFormData, perfil, apo
     <div className="animate-in fade-in duration-500 p-4 pb-10">
       <h3 className={titleStyle}>18. Firma Digital del Responsable</h3>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 p-6 bg-zinc-50 dark:bg-black/10 rounded-3xl border border-clr10 dark:border-clr4 text-center md:text-left">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 p-6 bg-zinc-50 dark:bg-black/10 rounded-3xl border border-clr10 dark:border-dclr10 text-center md:text-left">
         <div>
           <span className={labelStyle}>Firmante Responsable</span>
           <p className="text-[1.2em] font-black text-clr5 dark:text-dclr2 uppercase tracking-tight">{nombreFirmante}</p>
@@ -108,7 +108,7 @@ export default function Step18_FirmaDigital({ formData, setFormData, perfil, apo
         info="Esta firma es la aceptación legal de todo el documento de autorización (Ficha médica, Participación e Imagen)."
       >
         <div className="relative mt-2">
-          <div className="border-4 border-dashed border-clr10 dark:border-clr4 rounded-[2rem] bg-white overflow-hidden shadow-inner touch-none">
+          <div className="border-4 border-dashed border-clr10 dark:border-dclr10 rounded-[2rem] bg-white overflow-hidden shadow-inner touch-none">
             <SignatureCanvas 
               ref={sigCanvas}
               penColor='#1b1b1b'

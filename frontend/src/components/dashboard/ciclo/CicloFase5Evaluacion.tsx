@@ -70,7 +70,7 @@ export default function CicloFase5Evaluacion({
       {!isDirectivo && !readOnlyOverride && (
         <div className="space-y-4">
           <div className="space-y-1">
-            <h3 className="text-2xl font-black font-display uppercase tracking-tight text-clr5 dark:text-clr1">Mi Progresión Personal</h3>
+            <h3 className="text-2xl font-black font-display uppercase tracking-tight text-clr5 dark:text-dclr2">Mi Progresión Personal</h3>
             <p className="text-[1em] opacity-80 font-medium italic">
               Evalúa tu desarrollo en las actividades a las que fuiste en este ciclo.
             </p>
@@ -78,12 +78,12 @@ export default function CicloFase5Evaluacion({
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
             {actividadesAsistidas.map(act => (
-              <div key={act.id} className="p-2 bg-white dark:bg-black/20 rounded-[1rem] border-2 border-zinc-100 dark:border-clr4 flex items-center justify-between gap-4 group hover:border-clr7 transition-all">
+              <div key={act.id} className="p-2 bg-white dark:bg-black/20 rounded-[1rem] border-2 border-zinc-100 dark:border-dclr10 flex items-center justify-between gap-4 group hover:border-clr7 transition-all">
                 <div className="flex-1">
                   <span className="text-[0.8em] font-black uppercase opacity-40 tracking-widest leading-none block mb-[-4px]">
                     {act.fecha_programada && parseLocalDate(act.fecha_programada) && format(parseLocalDate(act.fecha_programada)!, 'dd MMMM', { locale: es })}
                   </span>
-                  <h4 className="font-bold uppercase text-clr5 dark:text-clr1 line-clamp-1">{act.titulo}</h4>
+                  <h4 className="font-bold uppercase text-clr5 dark:text-dclr2 line-clamp-1">{act.titulo}</h4>
                 </div>
                 {cicloActivo.fase_actual === 5 && (
                   <button 
@@ -115,13 +115,13 @@ export default function CicloFase5Evaluacion({
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
             {nnjEvaluables.map(nnj => (
-              <div key={nnj.id} className="p-2 bg-white dark:bg-black/20 rounded-[1rem] border-2 border-zinc-100 dark:border-clr4 shadow-sm space-y-4">
+              <div key={nnj.id} className="p-2 bg-white dark:bg-black/20 rounded-[1rem] border-2 border-zinc-100 dark:border-dclr10 shadow-sm space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-zinc-100 dark:bg-clr4 flex items-center justify-center font-black text-xs">
+                  <div className="w-10 h-10 rounded-full bg-zinc-100 dark:bg-dclr1 flex items-center justify-center font-black text-xs">
                     {nnj.nombres[0]}{nnj.apellidos[0]}
                   </div>
                   <div className="flex-1">
-                    <h5 className="text-[1em] font-bold uppercase text-clr5 dark:text-clr1 leading-none" style={{ color: unitColor }}>{nnj.nombres}</h5>
+                    <h5 className="text-[1em] font-bold uppercase text-clr5 dark:text-dclr2 leading-none" style={{ color: unitColor }}>{nnj.nombres}</h5>
                     <p className="text-[0.9em] leading-none">{nnj.apellidos}</p>
                     <p className="text-[0.8em] opacity-80">
                       {nnj.actividades.length} Actividades asistidas
@@ -144,7 +144,7 @@ export default function CicloFase5Evaluacion({
                         }}
                         className={`px-2 py-2 rounded-xl text-[0.9em] font-bold transition-all border ${
                           cicloActivo.fase_actual === 5 
-                            ? 'bg-zinc-50 dark:bg-clr4 hover:bg-clr7 hover:text-white border-zinc-100 dark:border-transparent' 
+                            ? 'bg-zinc-50 dark:bg-dclr1 hover:bg-clr7 hover:text-white border-zinc-100 dark:border-transparent' 
                             : 'bg-zinc-100 opacity-50 cursor-not-allowed border-transparent'
                         }`}
                         title={cicloActivo.fase_actual === 5 ? `Evaluar ${act.titulo}` : 'Solo disponible en Fase 5'}
@@ -175,7 +175,7 @@ export default function CicloFase5Evaluacion({
 
       {/* VISTA NNJ: Mi Radar */}
       {!isDirectivo && !readOnlyOverride && actividadesAsistidas.length > 0 && (
-        <div className="space-y-4 bg-white dark:bg-black/20 p-2 rounded-[1rem] border border-zinc-100 dark:border-clr4 shadow-sm">
+        <div className="space-y-4 bg-white dark:bg-black/20 p-2 rounded-[1rem] border border-zinc-100 dark:border-dclr10 shadow-sm">
           <h4 className="font-bold uppercase tracking-widest text-center" style={{ color: unitColor }}>Mi Radar de Desarrollo 360º</h4>
           <RadarProgresion perfilId={perfil.id} unidadColor={unitColor} />
         </div>
@@ -183,9 +183,9 @@ export default function CicloFase5Evaluacion({
 
       {/* VISTA DIRIGENTE: Evaluación del Ciclo */}
       {canManage && (
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 pt-8 border-t border-zinc-50 dark:border-clr4">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 pt-8 border-t border-zinc-50 dark:border-dclr10">
           <div className="space-y-1">
-            <h3 className="text-2xl font-black font-display uppercase tracking-tight text-clr5 dark:text-clr1" style={{ color: unitColor }}>Evaluación del Ciclo</h3>
+            <h3 className="text-2xl font-black font-display uppercase tracking-tight text-clr5 dark:text-dclr2" style={{ color: unitColor }}>Evaluación del Ciclo</h3>
             <p className="text-[1em] opacity-60 font-medium italic">
               Revisión de los objetivos alcanzados y cierre pedagógico.
             </p>
@@ -202,13 +202,13 @@ export default function CicloFase5Evaluacion({
       )}
 
       {/* SECCIÓN DE EVALUACIONES POR ACTIVIDAD (INSUMO) */}
-      <div className="space-y-2 bg-white dark:bg-clr3/20 p-2 rounded-[1rem]">
+      <div className="space-y-2 bg-white dark:bg-dclr3/20 p-2 rounded-[1rem]">
         <h4 className="text-[1em] font-bold uppercase text-shadow-lg" style={{ color: unitColor }}>Evaluaciones de Actividades Ejecutadas</h4>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
           {propuestas.filter(p => p.seleccionada && !p.es_actividad_programada).map(p => (
-            <div key={p.id} className="p-2 rounded-[0.6rem] bg-zinc-50 dark:bg-black/20 border-2 border-dashed border-zinc-100 dark:border-clr4">
+            <div key={p.id} className="p-2 rounded-[0.6rem] bg-zinc-50 dark:bg-black/20 border-2 border-dashed border-zinc-100 dark:border-dclr10">
               <div className="flex justify-between items-start mb-2">
-                <h5 className="text-[1em] font-bold uppercase text-clr5 dark:text-clr1">{p.titulo}</h5>
+                <h5 className="text-[1em] font-bold uppercase text-clr5 dark:text-dclr2">{p.titulo}</h5>
                 {p.evaluacion ? (
                   <span className="text-[16px]">✅</span>
                 ) : (
@@ -224,7 +224,7 @@ export default function CicloFase5Evaluacion({
       </div>
 
       {/* SECCIÓN DE EVALUACIÓN CUALITATIVA */}
-      <div className="bg-white dark:bg-black/20 p-2 rounded-[1rem] border border-zinc-100 dark:border-clr4 shadow-sm space-y-6">
+      <div className="bg-white dark:bg-black/20 p-2 rounded-[1rem] border border-zinc-100 dark:border-dclr10 shadow-sm space-y-6">
         <h4 className="text-[1em] font-black uppercase tracking-widest text-shadow-lg" style={{ color: unitColor }}>Evaluación Cualitativa</h4>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
@@ -240,10 +240,10 @@ export default function CicloFase5Evaluacion({
                 value={evaluacionEnfasis}
                 onChange={e => setEvaluacionEnfasis(e.target.value)}
                 placeholder="Redacta cómo el énfasis se vivió en las actividades..."
-                className="w-full p-4 rounded-2xl border dark:border-clr4 bg-zinc-50 dark:bg-clr3 font-body text-sm min-h-[150px]"
+                className="w-full p-4 rounded-2xl border dark:border-dclr10 bg-zinc-50 dark:bg-dclr10 font-body text-sm min-h-[150px]"
               />
             ) : (
-              <p className="p-4 rounded-2xl border dark:border-clr4 bg-zinc-50 dark:bg-clr3 font-body text-sm min-h-[150px] italic opacity-80 whitespace-pre-wrap">
+              <p className="p-4 rounded-2xl border dark:border-dclr10 bg-zinc-50 dark:bg-dclr10 font-body text-sm min-h-[150px] italic opacity-80 whitespace-pre-wrap">
                 {evaluacionEnfasis || 'Los dirigentes aún no redactan esta evaluación.'}
               </p>
             )}
@@ -261,10 +261,10 @@ export default function CicloFase5Evaluacion({
                 value={evaluacionGeneral}
                 onChange={e => setEvaluacionGeneral(e.target.value)}
                 placeholder="Redacta el consenso del Consejo de Unidad..."
-                className="w-full p-4 rounded-2xl border dark:border-clr4 bg-zinc-50 dark:bg-clr3 font-body text-sm min-h-[150px]"
+                className="w-full p-4 rounded-2xl border dark:border-dclr10 bg-zinc-50 dark:bg-dclr10 font-body text-sm min-h-[150px]"
               />
             ) : (
-              <p className="p-4 rounded-2xl border dark:border-clr4 bg-zinc-50 dark:bg-clr3 font-body text-sm min-h-[150px] italic opacity-80 whitespace-pre-wrap">
+              <p className="p-4 rounded-2xl border dark:border-dclr10 bg-zinc-50 dark:bg-dclr10 font-body text-sm min-h-[150px] italic opacity-80 whitespace-pre-wrap">
                 {evaluacionGeneral || 'Los dirigentes aún no redactan esta evaluación.'}
               </p>
             )}
@@ -285,27 +285,27 @@ export default function CicloFase5Evaluacion({
       </div>
 
       {/* SECCIÓN DE RESUMEN ESTADÍSTICO Y OBJETIVOS */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-8 border-t border-zinc-50 dark:border-clr4">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-8 border-t border-zinc-50 dark:border-dclr10">
         {/* Resumen de Actividades */}
-        <div className="lg:col-span-1 space-y-2 bg-white dark:bg-black/20 p-2 rounded-[1rem] border border-zinc-100 dark:border-clr4 shadow-sm">
+        <div className="lg:col-span-1 space-y-2 bg-white dark:bg-black/20 p-2 rounded-[1rem] border border-zinc-100 dark:border-dclr10 shadow-sm">
           <h4 className="font-bold uppercase text-shadow-lg" style={{ color: unitColor }}>Resumen Estadístico</h4>
           
           <div className="space-y-4">
-            <div className="flex justify-between items-center p-4 bg-zinc-50 dark:bg-clr4 rounded-2xl">
+            <div className="flex justify-between items-center p-4 bg-zinc-50 dark:bg-dclr1 rounded-2xl">
               <span className="text-sm font-bold uppercase opacity-60">Ideas Propuestas</span>
               <span className="text-2xl font-black" style={{ color: unitColor }}>{propuestas.filter(p => !p.es_actividad_programada).length}</span>
             </div>
-            <div className="flex justify-between items-center p-4 bg-zinc-50 dark:bg-clr4 rounded-2xl">
+            <div className="flex justify-between items-center p-4 bg-zinc-50 dark:bg-dclr1 rounded-2xl">
               <span className="text-sm font-bold uppercase opacity-60">Votos Emitidos</span>
               <span className="text-2xl font-black" style={{ color: unitColor }}>{votos.length}</span>
             </div>
-            <div className="flex justify-between items-center p-4 bg-zinc-50 dark:bg-clr4 rounded-2xl">
+            <div className="flex justify-between items-center p-4 bg-zinc-50 dark:bg-dclr1 rounded-2xl">
               <span className="text-sm font-bold uppercase opacity-60">Actividades Ejecutadas</span>
               <span className="text-2xl font-black" style={{ color: unitColor }}>{propuestas.filter(p => p.seleccionada && !p.es_actividad_programada).length}</span>
             </div>
           </div>
 
-          <div className="pt-6 border-t border-zinc-100 dark:border-clr4">
+          <div className="pt-6 border-t border-zinc-100 dark:border-dclr10">
             <p className="text-[1em] font-black uppercase opacity-40 mb-2">Diagnóstico Inicial:</p>
             <p className="text-[0.9em] italic leading-relaxed">"{cicloActivo.diagnostico}"</p>
           </div>
@@ -313,7 +313,7 @@ export default function CicloFase5Evaluacion({
 
         {/* Objetivos Educativos Trabajados */}
         <div className="lg:col-span-2 space-y-6">
-          <div className="p-2 bg-white dark:bg-clr3/20 rounded-[1rem]">
+          <div className="p-2 bg-white dark:bg-dclr3/20 rounded-[1rem]">
             <h4 className="font-bold uppercase text-shadow-lg" style={{ color: unitColor }}>Objetivos Educativos Trabajados</h4>
           </div>
 
@@ -326,10 +326,10 @@ export default function CicloFase5Evaluacion({
                   return acc
                 }, {})
               ).map(([area, objs]: [string, ObjetivoMetadata[]]) => (
-                <div key={area} className="p-2 rounded-[1rem] bg-white dark:bg-black/20 border-2 border-zinc-100 dark:border-clr4 shadow-sm space-y-4 font-body">
-                  <div className="flex justify-between items-center border-b border-zinc-50 dark:border-clr4 pb-2">
+                <div key={area} className="p-2 rounded-[1rem] bg-white dark:bg-black/20 border-2 border-zinc-100 dark:border-dclr10 shadow-sm space-y-4 font-body">
+                  <div className="flex justify-between items-center border-b border-zinc-50 dark:border-dclr10 pb-2">
                     <span className="text-sm font-black uppercase tracking-widest" style={{ color: unitColor }}>{area}</span>
-                    <span className="w-10 h-10 rounded-full bg-zinc-100 dark:bg-clr4 flex items-center justify-center text-sm font-black">{objs.length}</span>
+                    <span className="w-10 h-10 rounded-full bg-zinc-100 dark:bg-dclr1 flex items-center justify-center text-sm font-black">{objs.length}</span>
                   </div>
                   <div className="space-y-3">
                     {Array.from(new Set(objs.map((o: ObjetivoMetadata) => o.texto))).map((textoStr: string, idx) => (
@@ -342,7 +342,7 @@ export default function CicloFase5Evaluacion({
               ))}
             </div>
           ) : (
-            <div className="py-20 text-center border-4 border-dashed border-zinc-100 dark:border-clr4 rounded-[3rem] opacity-30 bg-zinc-50 dark:bg-black/10">
+            <div className="py-20 text-center border-4 border-dashed border-zinc-100 dark:border-dclr10 rounded-[3rem] opacity-30 bg-zinc-50 dark:bg-black/10">
               <span className="text-5xl block mb-4">📊</span>
               <p className="text-xl font-black uppercase">Sin objetivos registrados</p>
               <p className="font-medium italic">No se vincularon fichas técnicas a las actividades de este ciclo.</p>

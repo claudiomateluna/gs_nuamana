@@ -7,7 +7,7 @@ export default function Step14_NecesidadesEspeciales({ formData, setFormData, pe
   const titleStyle = "text-[1.2em] font-black text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8 border-b-2 border-clr7 pb-2";
   const labelContainerStyle = "flex items-center gap-2 mb-1";
   const labelStyle = "text-[0.9em] font-black uppercase text-clr2 tracking-widest block";
-  const inputStyle = "w-full bg-zinc-50 dark:bg-clr3 dark:text-dclr2 border-2 border-transparent focus:border-clr7 rounded-xl p-3 text-[1em] font-bold outline-none transition-all shadow-inner";
+  const inputStyle = "w-full bg-zinc-50 dark:bg-dclr10 dark:text-dclr2 border-2 border-transparent focus:border-clr7 rounded-xl p-3 text-[1em] font-bold outline-none transition-all shadow-inner";
   
   const infoIconContainerStyle = "inline-block";
   const infoIconStyle = "text-clr7 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";

@@ -153,7 +153,7 @@ export default function DashModRecaudacionCerrar({
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[110] flex items-center justify-center p-2 md:p-4 animate-in fade-in duration-300">
-      <div className="bg-white dark:bg-clr5 w-full max-w-lg rounded-[2.5rem] p-6 md:p-10 shadow-2xl border-4 border-clr10 dark:border-clr4 overflow-y-auto max-h-[95vh]">
+      <div className="bg-white dark:bg-dclr5 w-full max-w-lg rounded-[2.5rem] p-6 md:p-10 shadow-2xl border-4 border-clr10 dark:border-dclr10 overflow-y-auto max-h-[95vh]">
         
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-black font-display uppercase text-clr7 tracking-tighter">
@@ -178,7 +178,7 @@ export default function DashModRecaudacionCerrar({
               required
               value={itemIdIngreso}
               onChange={e => setItemIdIngreso(e.target.value)}
-              className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-clr3 font-bold uppercase text-[0.8em]"
+              className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-dclr10 font-bold uppercase text-[0.8em]"
             >
               <option value="">Seleccionar ítem...</option>
               {ingresosItems.map(i => (
@@ -196,7 +196,7 @@ export default function DashModRecaudacionCerrar({
               placeholder="Indicar cuánto se gastó (dejar vacío si es $0)"
               value={montoGasto}
               onChange={e => setMontoGasto(e.target.value === '' ? '' : parseInt(e.target.value))}
-              className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-clr3 font-black text-center text-[1.1em] text-clr7"
+              className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-dclr10 font-black text-center text-[1.1em] text-clr7"
             />
           </div>
 
@@ -208,7 +208,7 @@ export default function DashModRecaudacionCerrar({
                 required
                 value={itemIdEgreso}
                 onChange={e => setItemIdEgreso(e.target.value)}
-                className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-clr3 font-bold uppercase text-[0.8em]"
+                className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-dclr10 font-bold uppercase text-[0.8em]"
               >
                 <option value="">Seleccionar ítem...</option>
                 {egresosItems.map(i => (
@@ -218,7 +218,7 @@ export default function DashModRecaudacionCerrar({
             </div>
           )}
 
-          <div className="flex justify-end gap-3 pt-4 border-t dark:border-clr4">
+          <div className="flex justify-end gap-3 pt-4 border-t dark:border-dclr10">
             <button
               type="button"
               onClick={onClose}

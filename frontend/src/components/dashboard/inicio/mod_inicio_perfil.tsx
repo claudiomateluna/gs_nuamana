@@ -216,7 +216,7 @@ export default function DashModPerfil({
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center p-4 animate-in fade-in duration-300">
-      <div className="bg-white dark:bg-clr5 w-full max-w-5xl rounded-[1rem] p-4 shadow-2xl overflow-y-auto max-h-[90vh]">
+      <div className="bg-white dark:bg-dclr5 w-full max-w-5xl rounded-[1rem] p-4 shadow-2xl overflow-y-auto max-h-[90vh]">
         <h2 className="text-2xl font-bold font-display uppercase text-clr6 mb-8 border-b pb-1">
           {editingPupilo ? `Ficha de Socio: ${editingPupilo.nombres}` : 'Actualizar Mis Datos'}
         </h2>
@@ -226,7 +226,7 @@ export default function DashModPerfil({
             
             {/* 1. IDENTIDAD Y CARGOS */}
             <div className="space-y-4">
-              <h3 className="text-[0.9em] font-black uppercase text-clr3 dark:text-clr9 tracking-widest border-b border-clr3 dark:border-clr10 pb-2">Identidad y Cargos</h3>
+              <h3 className="text-[0.9em] font-black uppercase text-clr3 dark:text-dclr2 tracking-widest border-b border-clr3 dark:border-dclr10 pb-2">Identidad y Cargos</h3>
               <div className="grid grid-cols-2 gap-2">
                 <div className="space-y-1"><label className="text-[0.8em] uppercase opacity-40 font-black">R.U.T.</label><input type="text" value={editData.rut || ''} disabled className="w-full p-3 rounded-xl border bg-zinc-100 dark:bg-black/40 text-[0.9em] opacity-60 cursor-not-allowed" /></div>
                 <div className="space-y-1"><label className="text-[0.8em] uppercase opacity-40 font-black">Email</label><input type="email" value={editData.email || ''} onChange={(e) => setEditData({...editData, email: e.target.value})} className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-black/20 text-[0.9em]" /></div>
@@ -243,7 +243,7 @@ export default function DashModPerfil({
                     value={editData.rol_id || ''} 
                     onChange={(e) => setEditData({...editData, rol_id: parseInt(e.target.value)})} 
                     disabled={editData.rol_id === RolId.Admin && !isAdminUser}
-                    className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-clr5 text-[0.9em] disabled:opacity-50"
+                    className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-dclr5 text-[0.9em] disabled:opacity-50"
                   >
                     {roles.map(r => {
                       const isOptionAdmin = r.id === RolId.Admin;
@@ -261,7 +261,7 @@ export default function DashModPerfil({
                   <select 
                     value={editData.unidad_id || ''} 
                     onChange={(e) => setEditData({...editData, unidad_id: e.target.value ? parseInt(e.target.value) : null})}
-                    className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-clr5 text-[0.9em]"
+                    className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-dclr5 text-[0.9em]"
                   >
                     <option value="">SIN UNIDAD / GRUPO GENERAL</option>
                     {unidades?.map(u => (
@@ -275,7 +275,7 @@ export default function DashModPerfil({
                     <select 
                       value={editData.estado || 'activo'} 
                       onChange={(e) => setEditData({...editData, estado: e.target.value})} 
-                      className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-clr5 text-[0.9em] font-bold"
+                      className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-dclr5 text-[0.9em] font-bold"
                     >
                       <option value="activo">ACTIVO</option>
                       <option value="pendiente">PENDIENTE</option>
@@ -334,10 +334,10 @@ export default function DashModPerfil({
 
               {/* VÍNCULO FORMAL DE APODERADO (Solo para NNJ y Clan) */}
               {isNNJ(editData as Perfil) && (
-                <div className="space-y-2 p-1 bg-clr7/5 dark:bg-clr7/10 rounded-xl border border-clr7/30 shadow-sm animate-in zoom-in-95 duration-300 mt-4 relative">
+                <div className="space-y-2 p-1 bg-clr7/5 dark:bg-dclr7/10 rounded-xl border border-clr7/30 shadow-sm animate-in zoom-in-95 duration-300 mt-4 relative">
                   <div className="flex justify-between items-center mb-1">
                     <div className="flex items-center gap-2">
-                      <label className="text-[0.9em] font-black uppercase text-clr7 dark:text-clr1 tracking-wider">Apoderado</label>
+                      <label className="text-[0.9em] font-black uppercase text-clr7 dark:text-dclr2 tracking-wider">Apoderado</label>
                     </div>
                     <Link 
                       href="/registro" 
@@ -359,7 +359,7 @@ export default function DashModPerfil({
                     />
                     
                     {showDropdown && searchTerm.length > 0 && (
-                      <div className="absolute z-[110] left-0 right-0 top-full mt-1 bg-white dark:bg-clr5 border border-zinc-200 dark:border-clr3 rounded-xl shadow-2xl max-h-48 overflow-y-auto custom-scrollbar">
+                      <div className="absolute z-[110] left-0 right-0 top-full mt-1 bg-white dark:bg-dclr5 border border-zinc-200 dark:border-dclr10 rounded-xl shadow-2xl max-h-48 overflow-y-auto custom-scrollbar">
                         {adultosFiltrados.length > 0 ? (
                           adultosFiltrados.map(a => (
                             <button

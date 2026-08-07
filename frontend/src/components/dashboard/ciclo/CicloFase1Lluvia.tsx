@@ -31,7 +31,7 @@ export default function CicloFase1Lluvia({
     <div className="space-y-8 animate-in slide-in-from-bottom-4 duration-500">
       <div className="flex justify-between items-end">
         <div className="space-y-1">
-          <h3 className="text-2xl font-black font-display uppercase tracking-tight text-clr5 dark:text-clr1">Lluvia de Ideas</h3>
+          <h3 className="text-2xl font-black font-display uppercase tracking-tight text-clr5 dark:text-dclr2">Lluvia de Ideas</h3>
           <p className="text-[1rem] opacity-60 font-medium italic">¡Todos pueden proponer actividades para este ciclo!</p>
         </div>
         {cicloActivo.fase_actual === 1 && !readOnlyOverride && (
@@ -50,7 +50,7 @@ export default function CicloFase1Lluvia({
           <div 
             key={p.id} 
             className={`p-4 rounded-[1.5rem] bg-white dark:bg-black/20 border-2 transition-all shadow-sm flex flex-col justify-between gap-4 relative overflow-hidden ${
-              p.preseleccionada || p.es_grupal_global ? "shadow-lg border-opacity-100" : "opacity-90 border-zinc-100 dark:border-clr4"
+              p.preseleccionada || p.es_grupal_global ? "shadow-lg border-opacity-100" : "opacity-90 border-zinc-100 dark:border-dclr10"
             }`} 
             style={{ 
               borderColor: (p.preseleccionada || p.es_grupal_global) ? unitColor : undefined, 
@@ -77,12 +77,12 @@ export default function CicloFase1Lluvia({
                   </span>
                 )}
               </div>
-              <h4 className="text-xl font-bold uppercase leading-tight text-clr5 dark:text-clr1">{p.titulo}</h4>
+              <h4 className="text-xl font-bold uppercase leading-tight text-clr5 dark:text-dclr2">{p.titulo}</h4>
               <p className="text-[0.98em] italic opacity-80 line-clamp-3">{p.descripcion}</p>
             </div>
             
             {canManage && cicloActivo.fase_actual === 1 && !p.es_grupal_global && (
-              <div className="pt-4 border-t border-zinc-50 dark:border-clr4 flex justify-between items-center">
+              <div className="pt-4 border-t border-zinc-50 dark:border-dclr10 flex justify-between items-center">
                 <span className="text-[0.9em] font-black uppercase text-clr2">Gestión Admin</span>
                 <div className="flex gap-2">
                   <button 

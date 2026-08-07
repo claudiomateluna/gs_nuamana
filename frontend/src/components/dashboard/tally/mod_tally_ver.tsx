@@ -20,7 +20,7 @@ export default function DashModBitacoraVer({ isOpen, onClose, bitacora }: DashMo
 
   return (
     <div className="fixed inset-0 bg-black/90 backdrop-blur-xl z-[120] flex items-center justify-center p-0 md:p-10 animate-in fade-in zoom-in duration-500">
-      <div className="bg-white dark:bg-clr5 w-full max-w-6xl h-full md:h-auto md:max-h-[90vh] rounded-none md:rounded-[3rem] shadow-2xl overflow-hidden flex flex-col md:flex-row">
+      <div className="bg-white dark:bg-dclr5 w-full max-w-6xl h-full md:h-auto md:max-h-[90vh] rounded-none md:rounded-[3rem] shadow-2xl overflow-hidden flex flex-col md:flex-row">
         
         {/* Galería de Imágenes (Lado Izquierdo o Arriba) */}
         <div className="w-full md:w-3/5 h-[40vh] md:h-auto bg-black relative flex items-center justify-center group">
@@ -71,7 +71,7 @@ export default function DashModBitacoraVer({ isOpen, onClose, bitacora }: DashMo
         </div>
 
         {/* Contenido (Lado Derecho) */}
-        <div className="w-full md:w-2/5 p-8 md:p-12 flex flex-col overflow-y-auto bg-white dark:bg-clr5">
+        <div className="w-full md:w-2/5 p-8 md:p-12 flex flex-col overflow-y-auto bg-white dark:bg-dclr5">
           <div className="flex justify-between items-start mb-6">
             <div className="space-y-1">
               <span className="px-4 py-1 bg-clr7/10 text-clr7 rounded-full text-[0.8em] font-black uppercase tracking-widest border border-clr7/20">
@@ -84,23 +84,23 @@ export default function DashModBitacoraVer({ isOpen, onClose, bitacora }: DashMo
             <button onClick={onClose} className="hidden md:block text-2xl opacity-20 hover:opacity-100 transition-all">✕</button>
           </div>
 
-          <h2 className="text-3xl md:text-5xl font-black font-display uppercase tracking-tighter text-clr5 dark:text-clr1 leading-tight mb-8">
+          <h2 className="text-3xl md:text-5xl font-black font-display uppercase tracking-tighter text-clr5 dark:text-dclr2 leading-tight mb-8">
             {bitacora.titulo}
           </h2>
 
           <div className="flex-1">
-            <p className="text-lg md:text-xl font-body leading-relaxed text-clr2 dark:text-clr8 italic whitespace-pre-wrap">
+            <p className="text-lg md:text-xl font-body leading-relaxed text-clr2 dark:text-dclr8 italic whitespace-pre-wrap">
               "{bitacora.historia}"
             </p>
           </div>
 
-          <div className="mt-10 pt-6 border-t border-zinc-100 dark:border-clr4 flex items-center gap-4">
-            <div className="w-12 h-12 bg-zinc-100 dark:bg-clr4 rounded-full flex items-center justify-center text-lg font-black uppercase shadow-inner">
+          <div className="mt-10 pt-6 border-t border-zinc-100 dark:border-dclr10 flex items-center gap-4">
+            <div className="w-12 h-12 bg-zinc-100 dark:bg-dclr1 rounded-full flex items-center justify-center text-lg font-black uppercase shadow-inner">
               {bitacora.autor?.nombres?.[0]}{bitacora.autor?.apellidos?.[0]}
             </div>
             <div>
               <p className="text-[0.8em] font-black uppercase opacity-40 tracking-widest leading-none mb-1">Relatado por</p>
-              <p className="text-md font-bold text-clr5 dark:text-clr1 uppercase leading-none">
+              <p className="text-md font-bold text-clr5 dark:text-dclr2 uppercase leading-none">
                 {bitacora.autor?.nombres} {bitacora.autor?.apellidos}
               </p>
             </div>

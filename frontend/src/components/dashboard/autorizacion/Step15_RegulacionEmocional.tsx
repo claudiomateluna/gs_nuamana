@@ -7,7 +7,7 @@ export default function Step15_RegulacionEmocional({ formData, setFormData, perf
   const titleStyle = "text-[1.2em] font-black text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8 border-b-2 border-clr7 pb-2";
   const labelContainerStyle = "flex items-center gap-2 mb-1";
   const labelStyle = "text-[0.9em] font-black uppercase text-clr2 tracking-widest block";
-  const inputStyle = "w-full bg-zinc-50 dark:bg-clr3 dark:text-dclr2 border-2 dark:border-clr4 border-transparent focus:border-clr7 rounded-xl p-3 text-[1em] font-bold outline-none transition-all shadow-inner";
+  const inputStyle = "w-full bg-zinc-50 dark:bg-dclr10 dark:text-dclr2 border-2 dark:border-dclr10 border-transparent focus:border-clr7 rounded-xl p-3 text-[1em] font-bold outline-none transition-all shadow-inner";
   
   const infoIconContainerStyle = "inline-block";
   const infoIconStyle = "text-clr7 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
@@ -38,7 +38,7 @@ export default function Step15_RegulacionEmocional({ formData, setFormData, perf
       <FieldInfo label={label} info={info} />
       <div className="flex gap-4">
         {['Si', 'No'].map(o => (
-          <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] transition-all ${value === o ? 'border-clr7 bg-clr7 text-white' : 'border-zinc-100 dark:border-clr4 dark:text-dclr2'}`}>
+          <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] transition-all ${value === o ? 'border-clr7 bg-clr7 text-white' : 'border-zinc-100 dark:border-dclr10 dark:text-dclr2'}`}>
             <input type="radio" checked={value === o} onChange={() => onChange(o)} className="hidden" /> {o}
           </label>
         ))}
@@ -82,7 +82,7 @@ export default function Step15_RegulacionEmocional({ formData, setFormData, perf
             </div>
 
             {/* Sub-sección: Necesidades Específicas */}
-            <div className="p-4 bg-zinc-50 dark:bg-clr4/50 rounded-[1em] border border-clr10 dark:border-clr4 space-y-4">
+            <div className="p-4 bg-zinc-50 dark:bg-dclr1/50 rounded-[1em] border border-clr10 dark:border-dclr10 space-y-4">
               <h4 className="text-[1em] font-black uppercase text-clr7 tracking-widest border-b border-clr7/20 pb-2">Necesidades Específicas</h4>
               
               {/* Comunicación */}

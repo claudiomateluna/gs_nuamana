@@ -6,8 +6,8 @@ export default function Step5_AlergiasIntolerancias({ formData, setFormData, per
   const titleStyle = "text-[1.2em] font-black text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8 border-b-2 border-clr7 pb-2";
   const labelContainerStyle = "flex items-center gap-2 mb-1";
   const labelStyle = "text-[0.9em] font-black uppercase text-clr2 tracking-widest block";
-  const inputStyle = "w-full bg-zinc-50 dark:bg-clr3 dark:text-dclr2 border-2 border-transparent focus:border-clr7 rounded-xl p-3 text-[1em] font-bold outline-none transition-all shadow-inner";
-  const disabledInputStyle = "w-full bg-zinc-100 dark:bg-clr3/50 p-3 rounded-xl font-bold text-[1em] dark:text-dclr2 border border-zinc-200 dark:border-clr4 opacity-50 cursor-not-allowed outline-none";
+  const inputStyle = "w-full bg-zinc-50 dark:bg-dclr10 dark:text-dclr2 border-2 border-transparent focus:border-clr7 rounded-xl p-3 text-[1em] font-bold outline-none transition-all shadow-inner";
+  const disabledInputStyle = "w-full bg-zinc-100 dark:bg-dclr10/50 p-3 rounded-xl font-bold text-[1em] dark:text-dclr2 border border-zinc-200 dark:border-dclr10 opacity-50 cursor-not-allowed outline-none";
   
   const infoIconContainerStyle = "inline-block";
   const infoIconStyle = "text-clr7 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
@@ -75,7 +75,7 @@ export default function Step5_AlergiasIntolerancias({ formData, setFormData, per
             {['Si', 'No'].map(o => {
               const isChecked = (o === 'Si' && isAlergiasSi) || (o === 'No' && !isAlergiasSi);
               return (
-                <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] tracking-widest transition-all ${isChecked ? 'border-clr7 bg-clr7 text-white shadow-lg' : 'border-zinc-200 dark:border-clr4 dark:text-dclr2'}`}>
+                <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] tracking-widest transition-all ${isChecked ? 'border-clr7 bg-clr7 text-white shadow-lg' : 'border-zinc-200 dark:border-dclr10 dark:text-dclr2'}`}>
                   <input type="radio" name="alergia_radio" checked={isChecked} onChange={() => setFormData({ ...formData, tiene_alergias_radio: o, tiene_alergias: o === 'Si' })} className="hidden" /> {o}
                 </label>
               );
@@ -108,7 +108,7 @@ export default function Step5_AlergiasIntolerancias({ formData, setFormData, per
             {['Si', 'No'].map(o => {
               const isChecked = (o === 'Si' && isIntoleranciaSi) || (o === 'No' && !isIntoleranciaSi);
               return (
-                <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] tracking-widest transition-all ${isChecked ? 'border-clr7 bg-clr7 text-white shadow-lg' : 'border-zinc-200 dark:border-clr4 dark:text-dclr2'}`}>
+                <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] tracking-widest transition-all ${isChecked ? 'border-clr7 bg-clr7 text-white shadow-lg' : 'border-zinc-200 dark:border-dclr10 dark:text-dclr2'}`}>
                   <input type="radio" name="intol_radio" checked={isChecked} onChange={() => setFormData({ ...formData, tiene_intolerancia_radio: o, tiene_intolerancia: o === 'Si' })} className="hidden" /> {o}
                 </label>
               );
@@ -143,7 +143,7 @@ export default function Step5_AlergiasIntolerancias({ formData, setFormData, per
               const list = formData.dieta_alimentaria || perfil.dieta_alimentaria || [];
               const isChecked = list.includes(opt);
               return (
-                <label key={opt} className={`p-3 border-2 rounded-xl text-center cursor-pointer font-bold text-[0.8em] uppercase transition-all ${isChecked ? 'border-clr7 bg-clr7/10 text-clr7' : 'border-zinc-100 dark:border-clr4 dark:text-dclr2'}`}>
+                <label key={opt} className={`p-3 border-2 rounded-xl text-center cursor-pointer font-bold text-[0.8em] uppercase transition-all ${isChecked ? 'border-clr7 bg-clr7/10 text-clr7' : 'border-zinc-100 dark:border-dclr10 dark:text-dclr2'}`}>
                   <input type="checkbox" checked={isChecked} onChange={() => toggleMenu(opt)} className="hidden" /> {opt}
                 </label>
               );

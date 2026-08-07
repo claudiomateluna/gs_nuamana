@@ -83,19 +83,19 @@ export default function DashTally({ perfil, refreshKey = 0, onNuevaEntrada, onEd
       {loading ? (
         <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {[1, 2, 3].map(i => (
-            <div key={i} className="h-96 bg-zinc-100 dark:bg-clr3 animate-pulse rounded-[2rem]" />
+            <div key={i} className="h-96 bg-zinc-100 dark:bg-dclr3 animate-pulse rounded-[2rem]" />
           ))}
         </div>
       ) : (
         <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {bitacoras.map((entry) => (
-            <div key={entry.id} className="bg-white dark:bg-clr3 rounded-[2.5rem] overflow-hidden shadow-lg border border-zinc-100 dark:border-clr4 flex flex-col group hover:shadow-2xl transition-all duration-500">
+            <div key={entry.id} className="bg-white dark:bg-dclr3 rounded-[2.5rem] overflow-hidden shadow-lg border border-zinc-100 dark:border-dclr10 flex flex-col group hover:shadow-2xl transition-all duration-500">
               {/* Imagen Destacada o Placeholder */}
               <div className="relative h-56 overflow-hidden cursor-pointer" onClick={() => onVerEntrada(entry)}>
                 {entry.imagenes && entry.imagenes.length > 0 ? (
                   <img src={entry.imagenes[0]} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt={entry.titulo} />
                 ) : (
-                  <div className="w-full h-full bg-zinc-100 dark:bg-clr4 flex items-center justify-center opacity-40">
+                  <div className="w-full h-full bg-zinc-100 dark:bg-dclr1 flex items-center justify-center opacity-40">
                     <span className="text-6xl">📖</span>
                   </div>
                 )}
@@ -116,17 +116,17 @@ export default function DashTally({ perfil, refreshKey = 0, onNuevaEntrada, onEd
               {/* Contenido */}
               <div className="p-6 flex-1 flex flex-col justify-between">
                 <div className="space-y-3">
-                  <h3 className="text-xl font-black font-display uppercase tracking-tight line-clamp-2 leading-tight dark:text-clr1 group-hover:text-clr7 transition-colors">
+                  <h3 className="text-xl font-black font-display uppercase tracking-tight line-clamp-2 leading-tight dark:text-dclr2 group-hover:text-clr7 transition-colors">
                     {entry.titulo}
                   </h3>
-                  <p className="text-sm text-clr2 dark:text-clr8 line-clamp-3 leading-relaxed font-body italic">
+                  <p className="text-sm text-clr2 dark:text-dclr8 line-clamp-3 leading-relaxed font-body italic">
                     {entry.historia}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-zinc-50 dark:border-clr4 flex justify-between items-center">
+                <div className="mt-6 pt-4 border-t border-zinc-50 dark:border-dclr10 flex justify-between items-center">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 bg-zinc-200 dark:bg-clr4 rounded-full flex items-center justify-center text-[0.8em] font-black uppercase">
+                    <div className="w-8 h-8 bg-zinc-200 dark:bg-dclr1 rounded-full flex items-center justify-center text-[0.8em] font-black uppercase">
                       {entry.autor?.nombres?.[0]}{entry.autor?.apellidos?.[0]}
                     </div>
                     <span className="text-[0.8em] font-bold opacity-60 uppercase truncate max-w-[100px]">
@@ -135,15 +135,15 @@ export default function DashTally({ perfil, refreshKey = 0, onNuevaEntrada, onEd
                   </div>
 
                   <div className="flex gap-2">
-                    <button onClick={() => onVerEntrada(entry)} className="p-2.5 bg-zinc-50 dark:bg-clr4 rounded-xl hover:bg-clr7 hover:text-white transition-all text-sm shadow-sm" title="Leer más">
+                    <button onClick={() => onVerEntrada(entry)} className="p-2.5 bg-zinc-50 dark:bg-dclr1 rounded-xl hover:bg-clr7 hover:text-white transition-all text-sm shadow-sm" title="Leer más">
                       📖
                     </button>
                     {canManage(entry) && !inactive && (
                       <>
-                        <button onClick={() => onEditEntrada(entry)} className="p-2.5 bg-zinc-50 dark:bg-clr4 rounded-xl hover:bg-clr6 hover:text-white transition-all text-sm shadow-sm" title="Editar">
+                        <button onClick={() => onEditEntrada(entry)} className="p-2.5 bg-zinc-50 dark:bg-dclr1 rounded-xl hover:bg-clr6 hover:text-white transition-all text-sm shadow-sm" title="Editar">
                           ✏️
                         </button>
-                        <button onClick={() => onDelete(entry.id)} className="p-2.5 bg-zinc-50 dark:bg-clr4 rounded-xl hover:bg-red-500 hover:text-white transition-all text-sm shadow-sm" title="Eliminar">
+                        <button onClick={() => onDelete(entry.id)} className="p-2.5 bg-zinc-50 dark:bg-dclr1 rounded-xl hover:bg-red-500 hover:text-white transition-all text-sm shadow-sm" title="Eliminar">
                           🗑️
                         </button>
                       </>
@@ -155,7 +155,7 @@ export default function DashTally({ perfil, refreshKey = 0, onNuevaEntrada, onEd
           ))}
 
           {bitacoras.length === 0 && (
-            <div className="col-span-full py-32 text-center border-4 border-dashed border-zinc-100 dark:border-clr4 rounded-[2rem] opacity-30">
+            <div className="col-span-full py-32 text-center border-4 border-dashed border-zinc-100 dark:border-dclr10 rounded-[2rem] opacity-30">
               <span className="text-6xl block mb-4">🖋️</span>
               <p className="text-2xl font-black font-display uppercase tracking-widest italic">
                 Aún no hay historias en el {unitName}

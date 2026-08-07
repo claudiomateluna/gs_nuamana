@@ -182,9 +182,9 @@ export default function DashModEvaluarObjetivo({ isOpen, onClose, perfil, propue
 
   return (
     <div className="fixed inset-0 z-[999] flex items-center justify-center p-2 bg-black/60 backdrop-blur-md animate-in fade-in duration-300">
-      <div className="bg-white dark:bg-clr3 w-full max-w-2xl rounded-[1rem] shadow-2xl overflow-hidden border-4 border-white dark:border-clr4 animate-in zoom-in duration-300 flex flex-col max-h-[90vh]">
+      <div className="bg-white dark:bg-dclr3 w-full max-w-2xl rounded-[1rem] shadow-2xl overflow-hidden border-4 border-white dark:border-dclr10 animate-in zoom-in duration-300 flex flex-col max-h-[90vh]">
         
-        <div className="p-2 pb-2 space-y-2 border-b border-zinc-50 dark:border-clr4">
+        <div className="p-2 pb-2 space-y-2 border-b border-zinc-50 dark:border-dclr10">
           <span className="text-[1em] font-bold uppercase text-clr7">
             {perfil.id === targetNNJ.id ? 'Autoevaluación' : `Evaluando a ${targetNNJ.nombres}`}
           </span>
@@ -206,9 +206,9 @@ export default function DashModEvaluarObjetivo({ isOpen, onClose, perfil, propue
           ) : (
             <>
               {objetivos.map((obj, idx) => (
-                <div key={idx} className="space-y-2 p-2 bg-zinc-50 dark:bg-black/20 rounded-[1rem] border border-zinc-100 dark:border-clr4">
+                <div key={idx} className="space-y-2 p-2 bg-zinc-50 dark:bg-black/20 rounded-[1rem] border border-zinc-100 dark:border-dclr10">
                   <div className="flex justify-between items-start gap-4">
-                    <span className="px-2 py-1 bg-white dark:bg-clr4 rounded-full text-[1.2em] font-bold uppercase border border-zinc-100 dark:border-white/10 text-clr7">
+                    <span className="px-2 py-1 bg-white dark:bg-dclr1 rounded-full text-[1.2em] font-bold uppercase border border-zinc-100 dark:border-white/10 text-clr7">
                       {obj.area}
                     </span>
                   </div>
@@ -228,11 +228,11 @@ export default function DashModEvaluarObjetivo({ isOpen, onClose, perfil, propue
                           className={`p-2 text-left text-[1em] rounded-xl border-2 transition-all flex items-center gap-2 ${
                             isSelected 
                               ? 'bg-clr7 border-clr7 text-white shadow-lg scale-[1.02]' 
-                              : 'bg-white dark:bg-clr4 border-zinc-100 dark:border-transparent opacity-70 hover:opacity-100 hover:border-clr7/30'
+                              : 'bg-white dark:bg-dclr1 border-zinc-100 dark:border-transparent opacity-70 hover:opacity-100 hover:border-clr7/30'
                           }`}
                         >
                           <span className={`w-6 h-6 rounded-full flex items-center justify-center font-black ${
-                            isSelected ? 'bg-white text-clr7' : 'bg-zinc-100 dark:bg-clr3'
+                            isSelected ? 'bg-white text-clr7' : 'bg-zinc-100 dark:bg-dclr10'
                           }`}>
                             {step.value}
                           </span>
@@ -252,7 +252,7 @@ export default function DashModEvaluarObjetivo({ isOpen, onClose, perfil, propue
           )}
         </div>
 
-        <div className="p-8 pt-4 border-t border-zinc-50 dark:border-clr4 flex gap-4 bg-zinc-50/50 dark:bg-black/10">
+        <div className="p-8 pt-4 border-t border-zinc-50 dark:border-dclr10 flex gap-4 bg-zinc-50/50 dark:bg-black/10">
           <button 
             onClick={onClose}
             className="flex-1 py-4 text-xs font-black uppercase tracking-widest text-zinc-400 hover:text-red-500 transition-all"

@@ -58,7 +58,7 @@ export default function CicloFase2Votacion({
   return (
     <div className="space-y-8 animate-in slide-in-from-bottom-4 duration-500">
       {canManage && cicloActivo.fase_actual === 2 && (
-        <div className="p-6 bg-zinc-50 dark:bg-black/20 rounded-[2rem] border-2 border-dashed border-zinc-200 dark:border-clr4 space-y-4">
+        <div className="p-6 bg-zinc-50 dark:bg-black/20 rounded-[2rem] border-2 border-dashed border-zinc-200 dark:border-dclr10 space-y-4">
           <div className="flex items-center gap-3">
             <span className="text-2xl">⚙️</span>
             <h4 className="text-sm font-black uppercase tracking-widest text-clr2">Configurar Reglas de Votación</h4>
@@ -71,7 +71,7 @@ export default function CicloFase2Votacion({
                 min="1"
                 value={votosTotales}
                 onChange={(e) => setVotosTotales(parseInt(e.target.value) || 0)}
-                className="w-full p-3 rounded-xl border bg-white dark:bg-clr3 font-black text-sm"
+                className="w-full p-3 rounded-xl border bg-white dark:bg-dclr10 font-black text-sm"
               />
             </div>
             <div className="space-y-1">
@@ -81,11 +81,11 @@ export default function CicloFase2Votacion({
                 min="1"
                 value={votosMax}
                 onChange={(e) => setVotosMax(parseInt(e.target.value) || 0)}
-                className="w-full p-3 rounded-xl border bg-white dark:bg-clr3 font-black text-sm"
+                className="w-full p-3 rounded-xl border bg-white dark:bg-dclr10 font-black text-sm"
               />
             </div>
             <div>
-              <label className="flex items-center gap-3 cursor-pointer p-3 bg-white dark:bg-clr3 rounded-xl border w-full">
+              <label className="flex items-center gap-3 cursor-pointer p-3 bg-white dark:bg-dclr10 rounded-xl border w-full">
                 <input 
                   type="checkbox" 
                   checked={votosIlimitados}
@@ -109,7 +109,7 @@ export default function CicloFase2Votacion({
 
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
         <div className="space-y-1">
-          <h3 className="text-2xl font-black font-display uppercase tracking-tight text-clr5 dark:text-clr1">Juego Democrático</h3>
+          <h3 className="text-2xl font-black font-display uppercase tracking-tight text-clr5 dark:text-dclr2">Juego Democrático</h3>
           <p className="text-sm opacity-60 font-medium italic font-body">
             Es momento de decidir. Vota por tus actividades favoritas.
           </p>
@@ -174,7 +174,7 @@ export default function CicloFase2Votacion({
             <div 
               key={p.id} 
               className={`p-2 rounded-[1rem] bg-white dark:bg-black/20 border-2 transition-all shadow-sm flex flex-col justify-between gap-2 relative overflow-hidden ${
-                userQty > 0 ? "shadow-xl border-opacity-100" : "border-zinc-100 dark:border-clr4"
+                userQty > 0 ? "shadow-xl border-opacity-100" : "border-zinc-100 dark:border-dclr10"
               }`} 
               style={{ 
                 borderColor: userQty > 0 ? unitColor : undefined, 
@@ -194,23 +194,23 @@ export default function CicloFase2Votacion({
               
               <div className="space-y-2 relative z-10 font-body">
                 <span className="text-[0.8em] font-black uppercase opacity-35 tracking-widest">Idea de {p.autor?.nombres}</span>
-                <h4 className="text-xl font-bold uppercase leading-tight text-clr5 dark:text-clr1">{p.titulo}</h4>
+                <h4 className="text-xl font-bold uppercase leading-tight text-clr5 dark:text-dclr2">{p.titulo}</h4>
                 <p className="text-sm italic opacity-60 line-clamp-3">{p.descripcion}</p>
               </div>
               
-              <div className="pt-4 border-t border-zinc-50 dark:border-clr4 flex justify-between items-center relative z-10">
+              <div className="pt-4 border-t border-zinc-50 dark:border-dclr10 flex justify-between items-center relative z-10">
                 <div className="flex items-center gap-2">
                   <span className="text-2xl font-black" style={{ color: unitColor }}>{totalVotos}</span>
                   <span className="text-[9px] font-black uppercase opacity-40 leading-tight">Votos<br/>Totales</span>
                 </div>
                 
                 {cicloActivo.fase_actual === 2 && !readOnlyOverride && (
-                  <div className="flex items-center gap-2 bg-zinc-100 dark:bg-black/40 p-1 rounded-2xl border border-zinc-200 dark:border-clr4">
+                  <div className="flex items-center gap-2 bg-zinc-100 dark:bg-black/40 p-1 rounded-2xl border border-zinc-200 dark:border-dclr10">
                     <button 
                       disabled={!canSub || userQty === 0}
                       onClick={() => onVoteClick(p.id, userQty, -1)}
                       style={{ color: unitColor, borderColor: unitColor }} 
-                      className="w-10 h-10 flex items-center justify-center bg-white dark:bg-clr3 rounded-xl shadow-sm hover:brightness-110 disabled:opacity-20 transition-all font-black border-2"
+                      className="w-10 h-10 flex items-center justify-center bg-white dark:bg-dclr10 rounded-xl shadow-sm hover:brightness-110 disabled:opacity-20 transition-all font-black border-2"
                     >
                       -
                     </button>
@@ -219,7 +219,7 @@ export default function CicloFase2Votacion({
                       disabled={!canAdd}
                       onClick={() => onVoteClick(p.id, userQty, 1)}
                       style={{ color: unitColor, borderColor: unitColor }} 
-                      className="w-10 h-10 flex items-center justify-center bg-white dark:bg-clr3 rounded-xl shadow-sm hover:brightness-90 disabled:opacity-20 transition-all font-black text-lg border-2"
+                      className="w-10 h-10 flex items-center justify-center bg-white dark:bg-dclr10 rounded-xl shadow-sm hover:brightness-90 disabled:opacity-20 transition-all font-black text-lg border-2"
                     >
                       +
                     </button>

@@ -71,7 +71,7 @@ export default function AdministracionPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-zinc-50 dark:bg-clr4 font-body transition-colors">
+      <div className="min-h-screen bg-zinc-50 dark:bg-dclr1 font-body transition-colors">
         <SecondaryHeader />
         <div className="max-w-[1080px] mx-auto px-4 pt-32 pb-16 text-center font-body text-clr2 italic tracking-widest uppercase text-[0.8em]">
           Cargando administración...
@@ -83,11 +83,11 @@ export default function AdministracionPage() {
   if (!authorized) return null;
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-clr4 font-body transition-colors">
+    <div className="min-h-screen bg-zinc-50 dark:bg-dclr1 font-body transition-colors">
       <SecondaryHeader />
       <main className="max-w-[1080px] mx-auto px-4 pt-32 pb-16 animate-in fade-in slide-in-from-bottom-8 duration-700">
         <div className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-black font-display text-clr5 dark:text-clr1 uppercase tracking-tighter">
+          <h1 className="text-3xl md:text-4xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter">
             Administración del Sitio
           </h1>
           <p className="text-sm text-clr2 font-bold uppercase tracking-widest mt-2">
@@ -114,8 +114,8 @@ export default function AdministracionPage() {
 
         {/* Tab content */}
         {activeZone.tabOnly ? (
-          <div className="bg-gradient-to-br from-white/30 via-clr5/20 to-clr7/40 dark:from-clr4 dark:via-clr5 dark:to-clr7/20 rounded-[1rem] p-4 md:p-6 shadow-2xl border border-clr10 dark:border-clr4">
-            <h2 className="text-xl font-black font-display text-clr5 dark:text-clr1 uppercase tracking-tighter mb-4">
+          <div className="bg-gradient-to-br from-white/30 via-clr5/20 to-clr7/40 dark:from-dclr1 dark:via-dclr5 dark:to-dclr7/20 rounded-[1rem] p-4 md:p-6 shadow-2xl border border-clr10 dark:border-dclr10">
+            <h2 className="text-xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-4">
               Menú de Navegación
             </h2>
             <p className="text-xs text-clr2 mb-6">

@@ -25,8 +25,8 @@ export default function Step16_AutorizacionParticipacion({ formData, setFormData
   const titleStyle = "text-[1.2em] font-black text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8 border-b-2 border-clr7 pb-2";
   const labelContainerStyle = "flex items-center gap-2 mb-1";
   const labelStyle = "text-[0.9em] font-black uppercase text-clr2 tracking-widest block";
-  const inputStyle = (isValid: boolean) => `w-full bg-zinc-50 dark:bg-clr3 dark:text-dclr2 border-2 ${!isValid ? 'border-red-500 bg-red-50' : 'border-transparent focus:border-clr7'} rounded-xl p-3 text-[1em] font-bold outline-none transition-colors duration-200 shadow-inner`;
-  const disabledInputStyle = "w-full bg-zinc-100 dark:bg-clr3/50 p-3 rounded-xl font-bold text-[1em] dark:text-dclr2 border border-zinc-200 dark:border-clr4 opacity-70 cursor-not-allowed outline-none";
+  const inputStyle = (isValid: boolean) => `w-full bg-zinc-50 dark:bg-dclr10 dark:text-dclr2 border-2 ${!isValid ? 'border-red-500 bg-red-50' : 'border-transparent focus:border-clr7'} rounded-xl p-3 text-[1em] font-bold outline-none transition-colors duration-200 shadow-inner`;
+  const disabledInputStyle = "w-full bg-zinc-100 dark:bg-dclr10/50 p-3 rounded-xl font-bold text-[1em] dark:text-dclr2 border border-zinc-200 dark:border-dclr10 opacity-70 cursor-not-allowed outline-none";
   
   const infoIconContainerStyle = "inline-block";
   const infoIconStyle = "text-clr7 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
@@ -93,7 +93,7 @@ export default function Step16_AutorizacionParticipacion({ formData, setFormData
       <h3 className={titleStyle}>16. Autorización de Participación en Actividades</h3>
       
       {/* Datos de la Actividad (Solo Lectura) */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 p-4 bg-zinc-50 dark:bg-black/10 rounded-2xl border border-clr10 dark:border-clr4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 p-4 bg-zinc-50 dark:bg-black/10 rounded-2xl border border-clr10 dark:border-dclr10">
         <div>
           <span className="text-[0.8em] font-black uppercase text-clr2 tracking-widest block">Nombre de la Actividad</span>
           <p className="font-bold dark:text-dclr2">{actividad?.nombre || '---'}</p>
@@ -111,7 +111,7 @@ export default function Step16_AutorizacionParticipacion({ formData, setFormData
       </div>
 
       {/* Bloque 1: Declaración de Salud */}
-      <div className="p-6 bg-zinc-50 dark:bg-black/20 rounded-3xl border border-clr10 dark:border-clr4 mb-6">
+      <div className="p-6 bg-zinc-50 dark:bg-black/20 rounded-3xl border border-clr10 dark:border-dclr10 mb-6">
         <div className="text-[0.95em] leading-relaxed italic dark:text-dclr2 text-zinc-700 font-medium">
           {isAdult ? legalTextAdult : legalTextMinor}
         </div>
@@ -136,7 +136,7 @@ export default function Step16_AutorizacionParticipacion({ formData, setFormData
             {['SI', 'NO'].map(o => {
               const isChecked = formData.autoriza_participacion === o;
               return (
-                <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] tracking-widest transition-all ${isChecked ? 'border-clr7 bg-clr7 text-white shadow-lg scale-105' : 'border-zinc-200 dark:border-clr4 dark:text-dclr2'}`}>
+                <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] tracking-widest transition-all ${isChecked ? 'border-clr7 bg-clr7 text-white shadow-lg scale-105' : 'border-zinc-200 dark:border-dclr10 dark:text-dclr2'}`}>
                   <input type="radio" checked={isChecked} onChange={() => setFormData({ ...formData, autoriza_participacion: o })} className="hidden" /> {o}
                 </label>
               );

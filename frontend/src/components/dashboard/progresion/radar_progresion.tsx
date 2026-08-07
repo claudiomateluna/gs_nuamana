@@ -85,7 +85,7 @@ export default function RadarProgresion({ perfilId, unidadColor = '#cb3327' }: R
   if (loading) return <div className="h-64 flex items-center justify-center animate-pulse text-[1em] font-bold uppercase opacity-40">Generando Radar...</div>
 
   return (
-    <div className="w-full h-[400px] bg-white dark:bg-black/20 rounded-[1rem] p-6 border border-zinc-100 dark:border-clr4">
+    <div className="w-full h-[400px] bg-white dark:bg-black/20 rounded-[1rem] p-6 border border-zinc-100 dark:border-dclr10">
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
           <PolarGrid stroke="#e5e7eb" />

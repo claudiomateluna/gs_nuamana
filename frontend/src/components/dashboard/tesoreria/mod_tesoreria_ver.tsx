@@ -106,7 +106,7 @@ export default function DashModTesoreriaVer({ isOpen, onClose, data }: DashModTe
             {/* TABLA DE DETALLES */}
             <table className="w-full border-collapse border-[1.5px] border-black dark:border-dclr2 mb-4 text-[0.9em] print:border-black">
               <thead>
-                <tr className="bg-zinc-100 dark:bg-clr3 uppercase font-bold print:bg-zinc-100">
+                <tr className="bg-zinc-100 dark:bg-dclr3 uppercase font-bold print:bg-zinc-100">
                   <th className="border-[1.5px] border-black dark:border-dclr2 p-1 w-20 print:border-black">ITEM</th>
                   <th className="border-[1.5px] border-black dark:border-dclr2 p-1 print:border-black">POR CONCEPTO DE:</th>
                   <th className="border-[1.5px] border-black dark:border-dclr2 p-1 w-32 text-right print:border-black">VALOR</th>

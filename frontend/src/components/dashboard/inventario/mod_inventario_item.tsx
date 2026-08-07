@@ -167,7 +167,7 @@ export default function DashModInventarioItem({ isOpen, onClose, onSuccess, edit
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[110] flex items-center justify-center p-2 md:p-4 animate-in fade-in duration-300">
-      <div className="bg-white dark:bg-clr5 w-full max-w-3xl rounded-[2.5rem] p-6 md:p-10 shadow-2xl border-4 border-clr10 dark:border-clr4 overflow-y-auto max-h-[95vh]">
+      <div className="bg-white dark:bg-dclr5 w-full max-w-3xl rounded-[2.5rem] p-6 md:p-10 shadow-2xl border-4 border-clr10 dark:border-dclr10 overflow-y-auto max-h-[95vh]">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl md:text-3xl font-black font-display uppercase text-clr6 tracking-tighter">
             {editingItem ? 'Actualizar Recurso' : 'Nuevo Recurso Inventario'}
@@ -180,18 +180,18 @@ export default function DashModInventarioItem({ isOpen, onClose, onSuccess, edit
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-1">
               <label className="text-[0.8em] font-bold uppercase opacity-40 ml-2">Nombre del Objeto</label>
-              <input required value={formData.nombre || ''} onChange={e => setFormData({...formData, nombre: e.target.value})} className="w-full p-4 rounded-2xl border bg-zinc-50 dark:bg-clr3 font-bold" placeholder="Ej: Carpa técnica 4p..." />
+              <input required value={formData.nombre || ''} onChange={e => setFormData({...formData, nombre: e.target.value})} className="w-full p-4 rounded-2xl border bg-zinc-50 dark:bg-dclr10 font-bold" placeholder="Ej: Carpa técnica 4p..." />
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-1">
                 <label className="text-[0.8em] font-bold uppercase opacity-40 ml-2">Categoría</label>
-                <select value={formData.categoria || 'Otros'} onChange={e => setFormData({...formData, categoria: e.target.value})} className="w-full p-4 rounded-2xl border bg-zinc-50 dark:bg-clr3 font-bold uppercase text-[0.9em]">
+                <select value={formData.categoria || 'Otros'} onChange={e => setFormData({...formData, categoria: e.target.value})} className="w-full p-4 rounded-2xl border bg-zinc-50 dark:bg-dclr10 font-bold uppercase text-[0.9em]">
                   {CATEGORIAS.map(c => <option key={c} value={c}>{c}</option>)}
                 </select>
               </div>
               <div className="space-y-1">
                 <label className="text-[0.8em] font-bold uppercase opacity-40 ml-2">Cantidad</label>
-                <input type="number" min="1" value={formData.cantidad || 1} onChange={e => setFormData({...formData, cantidad: parseInt(e.target.value)})} className="w-full p-4 rounded-2xl border bg-zinc-50 dark:bg-clr3 font-bold" />
+                <input type="number" min="1" value={formData.cantidad || 1} onChange={e => setFormData({...formData, cantidad: parseInt(e.target.value)})} className="w-full p-4 rounded-2xl border bg-zinc-50 dark:bg-dclr10 font-bold" />
               </div>
             </div>
           </div>
@@ -200,19 +200,19 @@ export default function DashModInventarioItem({ isOpen, onClose, onSuccess, edit
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="space-y-1">
               <label className="text-[0.8em] font-bold uppercase opacity-40 ml-2">Estado Logístico</label>
-              <select value={formData.estado || 'Disponible'} onChange={e => setFormData({...formData, estado: e.target.value})} className="w-full p-4 rounded-2xl border bg-zinc-50 dark:bg-clr3 font-bold uppercase text-[0.9em]">
+              <select value={formData.estado || 'Disponible'} onChange={e => setFormData({...formData, estado: e.target.value})} className="w-full p-4 rounded-2xl border bg-zinc-50 dark:bg-dclr10 font-bold uppercase text-[0.9em]">
                 {ESTADOS.map(s => <option key={s} value={s}>{s}</option>)}
               </select>
             </div>
             <div className="space-y-1">
               <label className="text-[0.8em] font-bold uppercase opacity-40 ml-2">Condición Física</label>
-              <select value={formData.condicion || 'Funcional'} onChange={e => setFormData({...formData, condicion: e.target.value})} className="w-full p-4 rounded-2xl border bg-zinc-50 dark:bg-clr3 font-bold uppercase text-[0.9em]">
+              <select value={formData.condicion || 'Funcional'} onChange={e => setFormData({...formData, condicion: e.target.value})} className="w-full p-4 rounded-2xl border bg-zinc-50 dark:bg-dclr10 font-bold uppercase text-[0.9em]">
                 {CONDICIONES.map(c => <option key={c} value={c}>{c}</option>)}
               </select>
             </div>
             <div className="space-y-1">
               <label className="text-[0.8em] font-bold uppercase opacity-40 ml-2">Asignación</label>
-              <select value={formData.unidad_id || 'grupal'} onChange={e => setFormData({...formData, unidad_id: e.target.value})} className="w-full p-4 rounded-2xl border bg-zinc-50 dark:bg-clr3 font-bold uppercase text-[0.9em]">
+              <select value={formData.unidad_id || 'grupal'} onChange={e => setFormData({...formData, unidad_id: e.target.value})} className="w-full p-4 rounded-2xl border bg-zinc-50 dark:bg-dclr10 font-bold uppercase text-[0.9em]">
                 <option value="grupal">⚜️ GRUPAL</option>
                 {unidades.map(u => <option key={u.id} value={u.id}>{u.nombre.toUpperCase()}</option>)}
               </select>
@@ -250,18 +250,18 @@ export default function DashModInventarioItem({ isOpen, onClose, onSuccess, edit
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 bg-zinc-50 dark:bg-black/10 rounded-2xl">
             <div className="space-y-1">
               <label className="text-[0.8em] font-bold uppercase opacity-40">Origen</label>
-              <select value={formData.origen || ''} onChange={e => setFormData({...formData, origen: e.target.value})} className="w-full p-3 rounded-xl border bg-white dark:bg-clr3 font-bold uppercase text-[0.9em]">
+              <select value={formData.origen || ''} onChange={e => setFormData({...formData, origen: e.target.value})} className="w-full p-3 rounded-xl border bg-white dark:bg-dclr10 font-bold uppercase text-[0.9em]">
                 <option value="">Seleccionar...</option>
                 {ORIGENES.map(o => <option key={o} value={o}>{o}</option>)}
               </select>
             </div>
             <div className="space-y-1">
               <label className="text-[0.8em] font-bold uppercase opacity-40">Fecha Adquisición</label>
-              <input type="date" value={formData.fecha_adquisicion || ''} onChange={e => setFormData({...formData, fecha_adquisicion: e.target.value})} className="w-full p-3 rounded-xl border bg-white dark:bg-clr3 font-bold" />
+              <input type="date" value={formData.fecha_adquisicion || ''} onChange={e => setFormData({...formData, fecha_adquisicion: e.target.value})} className="w-full p-3 rounded-xl border bg-white dark:bg-dclr10 font-bold" />
             </div>
             <div className="space-y-1">
               <label className="text-[0.8em] font-bold uppercase opacity-40">Caducidad (Alimentos)</label>
-              <input type="date" value={formData.fecha_caducidad || ''} onChange={e => setFormData({...formData, fecha_caducidad: e.target.value})} className="w-full p-3 rounded-xl border bg-white dark:bg-clr3 font-bold" />
+              <input type="date" value={formData.fecha_caducidad || ''} onChange={e => setFormData({...formData, fecha_caducidad: e.target.value})} className="w-full p-3 rounded-xl border bg-white dark:bg-dclr10 font-bold" />
             </div>
           </div>
 
@@ -274,21 +274,21 @@ export default function DashModInventarioItem({ isOpen, onClose, onSuccess, edit
             {formData.tiene_garantia && (
               <div className="space-y-1 md:col-span-2 animate-in slide-in-from-left duration-300">
                 <label className="text-[0.8em] font-bold uppercase opacity-40 text-clr6">Fecha Límite de Garantía</label>
-                <input type="date" required={formData.tiene_garantia} value={formData.fecha_garantia || ''} onChange={e => setFormData({...formData, fecha_garantia: e.target.value})} className="w-full p-3 rounded-xl border border-clr6 bg-white dark:bg-clr3 font-bold" />
+                <input type="date" required={formData.tiene_garantia} value={formData.fecha_garantia || ''} onChange={e => setFormData({...formData, fecha_garantia: e.target.value})} className="w-full p-3 rounded-xl border border-clr6 bg-white dark:bg-dclr10 font-bold" />
               </div>
             )}
           </div>
 
           <div className="space-y-1">
             <label className="text-[0.8em] font-bold uppercase opacity-40">Descripción / Ubicación Específica</label>
-            <textarea value={formData.descripcion || ''} onChange={e => setFormData({...formData, descripcion: e.target.value})} className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-clr3 h-20 font-bold" placeholder="Escribe detalles adicionales..." />
+            <textarea value={formData.descripcion || ''} onChange={e => setFormData({...formData, descripcion: e.target.value})} className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-dclr10 h-20 font-bold" placeholder="Escribe detalles adicionales..." />
           </div>
 
           <div className="flex gap-3 pt-4">
             <button type="submit" disabled={saving || uploading} className="flex-1 py-5 bg-clr6 text-white font-black uppercase rounded-[1.5rem] shadow-xl hover:brightness-110 tracking-widest transition-all disabled:opacity-50">
               {saving ? '⌛ Guardando...' : editingItem ? '💾 Actualizar Recurso' : '💾 Crear Recurso'}
             </button>
-            <button type="button" onClick={onClose} className="px-8 py-5 bg-zinc-100 dark:bg-clr4 text-clr2 font-bold uppercase rounded-[1.5rem] tracking-widest">
+            <button type="button" onClick={onClose} className="px-8 py-5 bg-zinc-100 dark:bg-dclr1 text-clr2 font-bold uppercase rounded-[1.5rem] tracking-widest">
               Cancelar
             </button>
           </div>

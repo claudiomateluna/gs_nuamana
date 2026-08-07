@@ -289,7 +289,7 @@ export default function DashModAutorizacionWizard({ isOpen, onClose, perfil, act
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm">
-      <div className="w-full max-w-3xl bg-white dark:bg-clr5 rounded-[1em] shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+      <div className="w-full max-w-3xl bg-white dark:bg-dclr5 rounded-[1em] shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
         <div className="p-3 bg-clr7 text-white flex justify-between items-center">
           <div>
             <h2 className="text-[1.5em] font-bold uppercase">Autorización</h2>
@@ -302,13 +302,13 @@ export default function DashModAutorizacionWizard({ isOpen, onClose, perfil, act
           {renderStep()}
         </div>
 
-        <div className="p-4 bg-zinc-50 dark:bg-black/20 border-t border-zinc-100 dark:border-clr4 flex justify-between items-center">
+        <div className="p-4 bg-zinc-50 dark:bg-black/20 border-t border-zinc-100 dark:border-dclr10 flex justify-between items-center">
           <button onClick={handleBack} disabled={step === 0 || saving} className={`px-2 py-2 font-black uppercase text-[1em] tracking-widest transition-all ${step === 0 ? 'opacity-0' : 'text-clr2 hover:text-clr7'}`}>← Atrás</button>
           
           {step > 0 && (
             <div className="flex gap-1.5">
               {[...Array(18)].map((_, i) => (
-                <div key={i} className={`h-1 w-2.5 rounded-full transition-all ${step === i + 1 ? 'bg-clr7 w-5' : 'bg-zinc-200 dark:bg-clr4'}`} />
+                <div key={i} className={`h-1 w-2.5 rounded-full transition-all ${step === i + 1 ? 'bg-clr7 w-5' : 'bg-zinc-200 dark:bg-dclr1'}`} />
               ))}
             </div>
           )}

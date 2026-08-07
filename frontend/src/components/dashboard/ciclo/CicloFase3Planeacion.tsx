@@ -75,12 +75,12 @@ export default function CicloFase3Planeacion({
     const days = eachDayOfInterval({ start: startDate, end: endDate })
 
     return (
-      <div className="bg-white dark:bg-black/20 rounded-3xl p-6 border border-zinc-100 dark:border-clr4 shadow-sm mb-6">
+      <div className="bg-white dark:bg-black/20 rounded-3xl p-6 border border-zinc-100 dark:border-dclr10 shadow-sm mb-6">
         <div className="flex justify-between items-center mb-6">
           <button 
             type="button"
             onClick={() => setCurrentMonth(subMonths(currentMonth, 1))} 
-            className="w-8 h-8 flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-clr4 rounded-full transition-colors font-black"
+            className="w-8 h-8 flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-dclr4 rounded-full transition-colors font-black"
           >
             ❮
           </button>
@@ -90,7 +90,7 @@ export default function CicloFase3Planeacion({
           <button 
             type="button"
             onClick={() => setCurrentMonth(addMonths(currentMonth, 1))} 
-            className="w-8 h-8 flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-clr4 rounded-full transition-colors font-black"
+            className="w-8 h-8 flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-dclr4 rounded-full transition-colors font-black"
           >
             ❯
           </button>
@@ -116,7 +116,7 @@ export default function CicloFase3Planeacion({
                 className={`aspect-square flex flex-col items-center justify-center rounded-2xl text-[0.8em] relative group transition-all ${
                   !isCurrentMonth ? 'text-zinc-300 dark:text-zinc-600' : 'font-bold'
                 } ${
-                  isToday ? 'bg-zinc-100 dark:bg-clr4 border-2 border-zinc-200 dark:border-clr3' : 'border-2 border-transparent hover:border-zinc-100 dark:hover:border-clr4'
+                  isToday ? 'bg-zinc-100 dark:bg-dclr1 border-2 border-zinc-200 dark:border-dclr10' : 'border-2 border-transparent hover:border-zinc-100 dark:hover:border-dclr4'
                 } ${
                   allActivities.length > 0 ? 'cursor-pointer hover:scale-110 shadow-sm' : ''
                 } ${hasGrupal ? 'ring-2 ring-red-500/50 bg-red-50/30' : ''}`}
@@ -147,7 +147,7 @@ export default function CicloFase3Planeacion({
   return (
     <div className="space-y-12 animate-in slide-in-from-bottom-4 duration-500">
       <div className="space-y-1 text-center md:text-left">
-        <h3 className="text-2xl font-black font-display uppercase tracking-tight text-clr5 dark:text-clr1">Organización y Diseño</h3>
+        <h3 className="text-2xl font-black font-display uppercase tracking-tight text-clr5 dark:text-dclr2">Organización y Diseño</h3>
         <p className="text-sm opacity-80 font-medium italic font-body">
           Las actividades más votadas deben ser planificadas y agendadas en el calendario.
         </p>
@@ -168,13 +168,13 @@ export default function CicloFase3Planeacion({
               .map((p, index) => {
                 const totalVotos = votos.filter(v => v.propuesta_id === p.id).reduce((acc, v) => acc + (v.cantidad || 0), 0)
                 return (
-                  <div key={p.id} className="p-2 rounded-3xl bg-white dark:bg-black/20 border border-zinc-100 dark:border-clr4 shadow-sm flex items-center justify-between gap-4 font-body">
+                  <div key={p.id} className="p-2 rounded-3xl bg-white dark:bg-black/20 border border-zinc-100 dark:border-dclr10 shadow-sm flex items-center justify-between gap-4 font-body">
                     <div className="flex items-center gap-4">
                       <div className="w-12 h-12 rounded-2xl flex items-center justify-center font-black text-xl text-white shadow-inner shrink-0" style={{ backgroundColor: unitColor }}>
                         {index + 1}º
                       </div>
                       <div>
-                        <h5 className="font-bold text-[1em] uppercase leading-tight text-clr5 dark:text-clr1">{p.titulo}</h5>
+                        <h5 className="font-bold text-[1em] uppercase leading-tight text-clr5 dark:text-dclr2">{p.titulo}</h5>
                         <p className="text-[0.8em] opacity-60 font-black mt-1">{totalVotos} Voto{totalVotos !== 1 && 's'}</p>
                       </div>
                     </div>
@@ -225,7 +225,7 @@ export default function CicloFase3Planeacion({
                       <span className={`text-[0.9em] font-bold uppercase ${p.es_grupal_global ? 'opacity-80' : 'text-clr2'}`}>
                         {parseLocalDate(p.fecha_programada)?.toLocaleDateString('es-CL', { weekday: 'long', day: 'numeric', month: 'long' }) || '—'}
                       </span>
-                      <h5 className={`font-bold text-lg uppercase leading-none mt-1 ${p.es_grupal_global ? '' : 'text-clr5 dark:text-clr1'}`}>{p.titulo}</h5>
+                      <h5 className={`font-bold text-lg uppercase leading-none mt-1 ${p.es_grupal_global ? '' : 'text-clr5 dark:text-dclr2'}`}>{p.titulo}</h5>
                       {p.fichas_vinculadas && p.fichas_vinculadas.length > 0 && (
                         <div className="flex flex-wrap gap-1 mt-1">
                           {p.fichas_vinculadas.map((f: any) => (

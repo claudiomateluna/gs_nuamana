@@ -77,7 +77,7 @@ export default function DashModVincularPupilo({ isOpen, onClose, perfil, onSucce
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[110] flex items-center justify-center p-6 animate-in fade-in duration-300">
-      <div className="bg-white dark:bg-clr5 w-full max-w-md rounded-[2rem] p-4 shadow-2xl">
+      <div className="bg-white dark:bg-dclr5 w-full max-w-md rounded-[2rem] p-4 shadow-2xl">
         <div className="flex justify-between items-center mb-8 border-b pb-4">
           <h2 className="text-2xl font-black font-display uppercase text-clr7 tracking-tighter">Vincular Pupilo Existente</h2>
           <button onClick={onClose} className="text-clr2 hover:text-clr7 transition-colors font-bold text-xl">✕</button>
@@ -100,7 +100,7 @@ export default function DashModVincularPupilo({ isOpen, onClose, perfil, onSucce
             {loading && <p className="text-center italic opacity-40 py-4">Buscando rastros...</p>}
             
             {!loading && resultados.map(r => (
-              <div key={r.id} className="p-4 bg-zinc-50 dark:bg-black/10 rounded-2xl border border-zinc-100 dark:border-clr4 flex justify-between items-center group hover:border-clr7/50 transition-all">
+              <div key={r.id} className="p-4 bg-zinc-50 dark:bg-black/10 rounded-2xl border border-zinc-100 dark:border-dclr10 flex justify-between items-center group hover:border-clr7/50 transition-all">
                 <div>
                   <p className="text-[1em] font-black uppercase">{r.nombres} {r.apellidos}</p>
                   <p className="text-[0.9em] opacity-70 font-bold uppercase tracking-wider mt-1">{(Array.isArray(r.unidades) ? r.unidades[0]?.nombre : r.unidades?.nombre) || 'Sin Unidad'} • {(Array.isArray(r.roles) ? r.roles[0]?.name : r.roles?.name)}</p>
@@ -126,7 +126,7 @@ export default function DashModVincularPupilo({ isOpen, onClose, perfil, onSucce
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-zinc-100 dark:border-clr4">
+        <div className="mt-8 pt-6 border-t border-zinc-100 dark:border-dclr10">
           <button 
             onClick={onClose}
             className="w-full py-4 bg-zinc-100 dark:bg-black/20 text-clr2 font-black uppercase rounded-2xl tracking-widest text-[0.9em] hover:bg-clr7 hover:text-clr1 transition-all"

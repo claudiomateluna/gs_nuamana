@@ -106,7 +106,7 @@ export default function DashModComprobante({ isOpen, onClose, onSuccess, perfil,
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[120] flex items-center justify-center p-2 md:p-4 animate-in fade-in duration-300">
-      <div className="bg-white dark:bg-clr5 w-full max-w-4xl rounded-[3rem] p-6 md:p-10 shadow-2xl border-4 border-clr10 dark:border-clr4 overflow-y-auto max-h-[95vh]">
+      <div className="bg-white dark:bg-dclr5 w-full max-w-4xl rounded-[3rem] p-6 md:p-10 shadow-2xl border-4 border-clr10 dark:border-dclr10 overflow-y-auto max-h-[95vh]">
         
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl md:text-3xl font-black font-display uppercase text-clr6 tracking-tighter">Emitir Vale Institucional</h2>
@@ -120,16 +120,16 @@ export default function DashModComprobante({ isOpen, onClose, onSuccess, perfil,
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-1">
               <label className="text-[0.8em] font-bold uppercase opacity-40">{tipo === 'Egreso' ? 'PAGADO A:' : 'RECIBIDO DE:'}</label>
-              <input required value={form.nombre} onChange={e => setForm({...form, nombre: e.target.value})} className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-clr3 font-bold" />
+              <input required value={form.nombre} onChange={e => setForm({...form, nombre: e.target.value})} className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-dclr10 font-bold" />
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-1">
                 <label className="text-[0.8em] font-bold uppercase opacity-40">FECHA:</label>
-                <input type="date" required value={form.fecha} onChange={e => setForm({...form, fecha: e.target.value})} className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-clr3 font-bold" />
+                <input type="date" required value={form.fecha} onChange={e => setForm({...form, fecha: e.target.value})} className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-dclr10 font-bold" />
               </div>
               <div className="space-y-1">
                 <label className="text-[0.8em] font-bold uppercase opacity-40">FORMA PAGO:</label>
-                <select value={form.forma_pago} onChange={e => setForm({...form, forma_pago: e.target.value})} className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-clr3 font-bold uppercase">
+                <select value={form.forma_pago} onChange={e => setForm({...form, forma_pago: e.target.value})} className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-dclr10 font-bold uppercase">
                   <option value="Efectivo">Efectivo</option>
                   <option value="Transferencia">Transferencia</option>
                   <option value="Depósito">Depósito</option>
@@ -142,17 +142,17 @@ export default function DashModComprobante({ isOpen, onClose, onSuccess, perfil,
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="md:col-span-1 space-y-1">
               <label className="text-[0.8em] font-bold uppercase opacity-40">Nº TRANSACCIÓN / DOC:</label>
-              <input value={form.numero_documento} onChange={e => setForm({...form, numero_documento: e.target.value})} className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-clr3 font-bold" placeholder="Opcional..." />
+              <input value={form.numero_documento} onChange={e => setForm({...form, numero_documento: e.target.value})} className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-dclr10 font-bold" placeholder="Opcional..." />
             </div>
             <div className="md:col-span-1 space-y-1">
               <label className="text-[0.8em] font-bold uppercase opacity-40">REGISTRADO POR:</label>
-              <div className="p-3 rounded-xl bg-zinc-100 dark:bg-clr4 font-bold text-xs uppercase opacity-60 truncate">
+              <div className="p-3 rounded-xl bg-zinc-100 dark:bg-dclr1 font-bold text-xs uppercase opacity-60 truncate">
                 {perfil?.nombres} {perfil?.apellidos} ({perfil?.rut})
               </div>
             </div>
             <div className="md:col-span-1 space-y-1">
               <label className="text-[0.8em] font-bold uppercase opacity-40">UNIDAD ASOCIADA:</label>
-              <select value={form.unidad_id} onChange={e => setForm({...form, unidad_id: e.target.value})} className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-clr3 font-bold uppercase text-[0.8em]">
+              <select value={form.unidad_id} onChange={e => setForm({...form, unidad_id: e.target.value})} className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-dclr10 font-bold uppercase text-[0.8em]">
                 <option value="">⚜️ GRUPO</option>
                 {unidades.map(u => <option key={u.id} value={u.id}>{u.nombre}</option>)}
               </select>
@@ -166,7 +166,7 @@ export default function DashModComprobante({ isOpen, onClose, onSuccess, perfil,
                 <div className="md:col-span-3">
                   <select value={det.item_id} onChange={e => {
                     const newD = [...form.detalles]; newD[idx].item_id = e.target.value; setForm({...form, detalles: newD})
-                  }} className="w-full p-2 rounded-lg border bg-zinc-50 dark:bg-clr3 text-[0.8em] font-bold uppercase">
+                  }} className="w-full p-2 rounded-lg border bg-zinc-50 dark:bg-dclr10 text-[0.8em] font-bold uppercase">
                     <option value="">Ítem...</option>
                     {items.filter(i => i.tipo === tipo).map(i => <option key={i.id} value={i.id}>{i.codigo} {i.nombre}</option>)}
                   </select>
@@ -174,25 +174,25 @@ export default function DashModComprobante({ isOpen, onClose, onSuccess, perfil,
                 <div className="md:col-span-6">
                   <input value={det.descripcion} onChange={e => {
                     const newD = [...form.detalles]; newD[idx].descripcion = e.target.value; setForm({...form, detalles: newD})
-                  }} className="w-full p-2 rounded-lg border bg-zinc-50 dark:bg-clr3 text-[0.8em] uppercase" placeholder="Descripción del concepto..." />
+                  }} className="w-full p-2 rounded-lg border bg-zinc-50 dark:bg-dclr10 text-[0.8em] uppercase" placeholder="Descripción del concepto..." />
                 </div>
                 <div className="md:col-span-3">
                   <input type="number" value={det.valor} onChange={e => {
                     const newD = [...form.detalles]; newD[idx].valor = e.target.value; setForm({...form, detalles: newD})
-                  }} className="w-full p-2 rounded-lg border bg-zinc-50 dark:bg-clr3 text-[0.8em] font-black text-right" placeholder="$ 0" />
+                  }} className="w-full p-2 rounded-lg border bg-zinc-50 dark:bg-dclr10 text-[0.8em] font-black text-right" placeholder="$ 0" />
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="bg-zinc-100 dark:bg-black/30 p-6 rounded-[2rem] flex justify-between items-center gap-4 border-2 border-clr10 dark:border-clr4">
+          <div className="bg-zinc-100 dark:bg-black/30 p-6 rounded-[2rem] flex justify-between items-center gap-4 border-2 border-clr10 dark:border-dclr10">
             <div className="flex-1">
               <p className="text-[0.8em] font-black uppercase opacity-40">Suma en palabras (Auto):</p>
               <p className="text-[0.9em] font-bold text-clr6 italic">{numeroALetras(total)}</p>
             </div>
             <div className="text-right">
               <p className="text-[0.8em] font-black uppercase opacity-40">Monto Total</p>
-              <p className="text-3xl font-black text-clr5 dark:text-clr1">${total.toLocaleString('es-CL')}</p>
+              <p className="text-3xl font-black text-clr5 dark:text-dclr2">${total.toLocaleString('es-CL')}</p>
             </div>
           </div>
 
@@ -200,7 +200,7 @@ export default function DashModComprobante({ isOpen, onClose, onSuccess, perfil,
             <button type="submit" disabled={loading} className="flex-1 py-4 bg-clr6 text-white font-black uppercase rounded-2xl shadow-xl hover:brightness-110 tracking-widest transition-all">
               {loading ? 'EMITIENDO...' : '💾 Emitir y Registrar en Libro'}
             </button>
-            <button type="button" onClick={onClose} className="px-8 py-4 bg-zinc-100 dark:bg-clr4 text-clr2 font-bold uppercase rounded-2xl tracking-widest">CANCELAR</button>
+            <button type="button" onClick={onClose} className="px-8 py-4 bg-zinc-100 dark:bg-dclr1 text-clr2 font-bold uppercase rounded-2xl tracking-widest">CANCELAR</button>
           </div>
         </form>
       </div>

@@ -138,7 +138,7 @@ export default function DashCicloHistorial({ perfil }: DashCicloHistorialProps) 
             <div 
               key={c.id} 
               onClick={() => setCicloSeleccionado(c)}
-              className="group cursor-pointer bg-white dark:bg-black/20 rounded-[2.5rem] border-2 border-zinc-100 dark:border-clr4 p-8 shadow-sm hover:shadow-2xl transition-all relative overflow-hidden flex flex-col justify-between min-h-[250px]"
+              className="group cursor-pointer bg-white dark:bg-black/20 rounded-[2.5rem] border-2 border-zinc-100 dark:border-dclr10 p-8 shadow-sm hover:shadow-2xl transition-all relative overflow-hidden flex flex-col justify-between min-h-[250px]"
               style={{ borderColor: 'transparent' }} // Let hover handle it or keep it subtle
             >
               <div className="absolute -right-4 -bottom-4 opacity-5 group-hover:scale-110 group-hover:rotate-12 transition-all">
@@ -160,7 +160,7 @@ export default function DashCicloHistorial({ perfil }: DashCicloHistorialProps) 
                 </div>
               </div>
 
-              <div className="pt-6 border-t border-zinc-100 dark:border-clr4 flex justify-between items-center relative z-10 mt-4">
+              <div className="pt-6 border-t border-zinc-100 dark:border-dclr10 flex justify-between items-center relative z-10 mt-4">
                 <span className="text-[0.8em] font-bold uppercase text-clr6">Finalizado</span>
                 <div className="flex items-center gap-3">
                   {canDelete && (

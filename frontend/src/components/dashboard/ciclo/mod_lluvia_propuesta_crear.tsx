@@ -49,7 +49,7 @@ export default function DashModPropuestaCrear({ isOpen, onClose, perfil, cicloId
 
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-md z-[130] flex items-center justify-center p-2 animate-in fade-in duration-300">
-      <div className="bg-white dark:bg-clr5 w-full max-w-lg rounded-[2rem] p-4 shadow-2xl">
+      <div className="bg-white dark:bg-dclr5 w-full max-w-lg rounded-[2rem] p-4 shadow-2xl">
         <h2 className="text-2xl font-black font-display uppercase text-clr7 tracking-tighter mb-6">
           💡 Proponer Actividad
         </h2>
@@ -63,7 +63,7 @@ export default function DashModPropuestaCrear({ isOpen, onClose, perfil, cicloId
               value={formData.titulo}
               onChange={e => setFormData({...formData, titulo: e.target.value})}
               placeholder="Ej: Gran Juego de Rastreo..."
-              className="w-full p-4 rounded-2xl border dark:border-clr4 bg-zinc-50 dark:bg-clr3 font-bold"
+              className="w-full p-4 rounded-2xl border dark:border-dclr10 bg-zinc-50 dark:bg-dclr10 font-bold"
             />
           </div>
 
@@ -73,7 +73,7 @@ export default function DashModPropuestaCrear({ isOpen, onClose, perfil, cicloId
               value={formData.descripcion}
               onChange={e => setFormData({...formData, descripcion: e.target.value})}
               placeholder="Cuéntanos un poco más de tu idea..."
-              className="w-full p-4 rounded-2xl border dark:border-clr4 bg-zinc-50 dark:bg-clr3 font-bold h-32"
+              className="w-full p-4 rounded-2xl border dark:border-dclr10 bg-zinc-50 dark:bg-dclr10 font-bold h-32"
             />
           </div>
 
@@ -88,7 +88,7 @@ export default function DashModPropuestaCrear({ isOpen, onClose, perfil, cicloId
             <button 
               type="button" 
               onClick={onClose}
-              className="px-6 py-4 bg-zinc-100 dark:bg-clr4 text-clr2 rounded-2xl font-bold uppercase"
+              className="px-6 py-4 bg-zinc-100 dark:bg-dclr1 text-clr2 rounded-2xl font-bold uppercase"
             >
               Cancelar
             </button>

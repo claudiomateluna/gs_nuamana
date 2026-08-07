@@ -133,7 +133,7 @@ export default function CicloFase4Ejecucion({
       <div className="space-y-1 text-center md:text-left">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
-            <h3 className="text-2xl font-black font-display uppercase tracking-tight text-clr5 dark:text-clr1">Ejecución de Actividades</h3>
+            <h3 className="text-2xl font-black font-display uppercase tracking-tight text-clr5 dark:text-dclr2">Ejecución de Actividades</h3>
             <p className="text-sm opacity-60 font-medium italic font-body">
               Es hora de vivir la aventura. Registra la historia de cada actividad a medida que ocurre.
             </p>
@@ -164,7 +164,7 @@ export default function CicloFase4Ejecucion({
                   <span className="text-[0.8em] font-bold uppercase leading-none mt-0.5">{monthYear.split(' ')[0]}</span>
                 </div>
                 <div>
-                  <p className="text-lg font-black font-display uppercase text-clr5 dark:text-clr1 capitalize">{dayName}</p>
+                  <p className="text-lg font-black font-display uppercase text-clr5 dark:text-dclr2 capitalize">{dayName}</p>
                   <p className="text-sm opacity-50 font-medium">{monthYear}</p>
                 </div>
                 <div className="flex-1 border-b-2 border-dashed ml-2" style={{ borderColor: unitColor + '30' }} />
@@ -174,12 +174,12 @@ export default function CicloFase4Ejecucion({
                 {items.map(p => (
                   <div 
                     key={p.id} 
-                    className="p-4 rounded-[1.5rem] bg-white dark:bg-black/20 border-2 border-zinc-100 dark:border-clr4 shadow-sm flex flex-col gap-4 relative overflow-hidden group hover:shadow-xl transition-all"
+                    className="p-4 rounded-[1.5rem] bg-white dark:bg-black/20 border-2 border-zinc-100 dark:border-dclr10 shadow-sm flex flex-col gap-4 relative overflow-hidden group hover:shadow-xl transition-all"
                   >
                     <div className="flex flex-col justify-between space-y-4 font-body">
                       <div className="space-y-2">
                         <div className="flex items-start justify-between gap-3">
-                          <h4 className="text-xl font-bold uppercase leading-tight text-clr5 dark:text-clr1">{p.titulo}</h4>
+                          <h4 className="text-xl font-bold uppercase leading-tight text-clr5 dark:text-dclr2">{p.titulo}</h4>
                           {canManage && cicloActivo.fase_actual === 4 && !inactive && (
                             <button 
                               onClick={() => onMover(p)}
@@ -329,7 +329,7 @@ export default function CicloFase4Ejecucion({
         })}
 
         {filteredPropuestas.length === 0 && (
-          <div className="py-20 text-center border-4 border-dashed border-zinc-100 dark:border-clr4 rounded-[3rem] opacity-30">
+          <div className="py-20 text-center border-4 border-dashed border-zinc-100 dark:border-dclr10 rounded-[3rem] opacity-30">
             <span className="text-5xl block mb-4">🏕️</span>
             <p className="text-xl font-black uppercase">No hay actividades agendadas</p>
             <p className="font-medium italic">Debes planificar actividades en la Fase 3 primero.</p>

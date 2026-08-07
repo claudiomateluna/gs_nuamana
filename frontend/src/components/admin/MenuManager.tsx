@@ -267,7 +267,7 @@ export default function MenuManager({ items, onUpdate }: MenuManagerProps) {
     const hasRoles = item.roles_permitidos && item.roles_permitidos.length > 0;
 
     return (
-      <div key={item.id} className={`${depth > 0 ? 'ml-6 border-l-2 border-clr10 dark:border-clr4 pl-3' : ''}`}>
+      <div key={item.id} className={`${depth > 0 ? 'ml-6 border-l-2 border-clr10 dark:border-dclr10 pl-3' : ''}`}>
         <div className={`flex items-center gap-2 p-2 rounded-xl mb-1 group transition-all ${!item.visible ? 'opacity-40' : ''} ${isEditing ? 'bg-clr7/5 ring-1 ring-clr7' : 'hover:bg-zinc-50 dark:hover:bg-white/5'}`}>
           {/* Reorder buttons */}
           <div className="flex flex-col gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -290,7 +290,7 @@ export default function MenuManager({ items, onUpdate }: MenuManagerProps) {
 
           {/* Title + meta */}
           <div className="flex-1 min-w-0">
-            <span className={`font-bold text-sm ${depth === 0 ? 'text-clr5 dark:text-clr1 uppercase' : 'text-clr4 dark:text-clr2'}`}>
+            <span className={`font-bold text-sm ${depth === 0 ? 'text-clr5 dark:text-dclr2 uppercase' : 'text-clr4 dark:text-dclr2'}`}>
               {item.titulo}
             </span>
             <div className="flex items-center gap-2 mt-0.5">
@@ -353,14 +353,14 @@ export default function MenuManager({ items, onUpdate }: MenuManagerProps) {
   };
 
   const renderForm = (mode: 'add' | 'update') => (
-    <div className="ml-8 mb-3 p-4 bg-zinc-50 dark:bg-black/20 rounded-2xl border border-clr10 dark:border-clr4 space-y-3">
+    <div className="ml-8 mb-3 p-4 bg-zinc-50 dark:bg-black/20 rounded-2xl border border-clr10 dark:border-dclr10 space-y-3">
       {/* Title */}
       <input
         type="text"
         placeholder="Título *"
         value={formTitulo}
         onChange={e => setFormTitulo(e.target.value)}
-        className="w-full bg-white dark:bg-zinc-800 border border-clr10 dark:border-clr4 rounded-xl px-3 py-2 text-sm font-bold outline-none focus:border-clr7"
+        className="w-full bg-white dark:bg-zinc-800 border border-clr10 dark:border-dclr10 rounded-xl px-3 py-2 text-sm font-bold outline-none focus:border-clr7"
       />
 
       {/* Href */}
@@ -369,7 +369,7 @@ export default function MenuManager({ items, onUpdate }: MenuManagerProps) {
         placeholder="Ruta (href) — ej: /acerca-de/nueva-pagina"
         value={formHref}
         onChange={e => setFormHref(e.target.value)}
-        className="w-full bg-white dark:bg-zinc-800 border border-clr10 dark:border-clr4 rounded-xl px-3 py-2 text-sm outline-none focus:border-clr7"
+        className="w-full bg-white dark:bg-zinc-800 border border-clr10 dark:border-dclr10 rounded-xl px-3 py-2 text-sm outline-none focus:border-clr7"
       />
 
       {/* Icon selector */}
@@ -382,7 +382,7 @@ export default function MenuManager({ items, onUpdate }: MenuManagerProps) {
               setFormIcono(e.target.value);
             }
           }}
-          className="w-full bg-white dark:bg-zinc-800 border border-clr10 dark:border-clr4 rounded-xl px-3 py-2 text-sm outline-none focus:border-clr7"
+          className="w-full bg-white dark:bg-zinc-800 border border-clr10 dark:border-dclr10 rounded-xl px-3 py-2 text-sm outline-none focus:border-clr7"
         >
           <option value="">Sin ícono</option>
           <optgroup label="Íconos SVG">
@@ -402,7 +402,7 @@ export default function MenuManager({ items, onUpdate }: MenuManagerProps) {
 
         {/* SVG Upload */}
         <div className="flex items-center gap-2">
-          <label className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-white dark:bg-zinc-800 border border-dashed border-clr10 dark:border-clr4 rounded-xl text-xs font-bold text-clr2 hover:border-clr7 hover:text-clr7 cursor-pointer transition-all">
+          <label className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-white dark:bg-zinc-800 border border-dashed border-clr10 dark:border-dclr10 rounded-xl text-xs font-bold text-clr2 hover:border-clr7 hover:text-clr7 cursor-pointer transition-all">
             <input
               ref={fileInputRef}
               type="file"
@@ -439,7 +439,7 @@ export default function MenuManager({ items, onUpdate }: MenuManagerProps) {
         <label className="text-xs font-black uppercase tracking-widest text-clr2">
           Restricción por rol {formRoles.length === 0 && <span className="font-normal">(vacío = visible para todos)</span>}
         </label>
-        <div className="bg-white dark:bg-zinc-800 border border-clr10 dark:border-clr4 rounded-xl p-3 space-y-3 max-h-48 overflow-y-auto">
+        <div className="bg-white dark:bg-zinc-800 border border-clr10 dark:border-dclr10 rounded-xl p-3 space-y-3 max-h-48 overflow-y-auto">
           {Object.entries(groupedRoles).map(([group, options]) => (
             <div key={group}>
               <div className="text-[0.65em] font-black uppercase tracking-widest text-clr2/60 mb-1">{group}</div>
@@ -479,7 +479,7 @@ export default function MenuManager({ items, onUpdate }: MenuManagerProps) {
         </button>
         <button
           onClick={resetForm}
-          className="px-4 py-2 bg-zinc-200 dark:bg-zinc-700 text-clr5 dark:text-clr1 font-bold text-xs uppercase rounded-xl hover:bg-zinc-300 transition-all"
+          className="px-4 py-2 bg-zinc-200 dark:bg-zinc-700 text-clr5 dark:text-dclr2 font-bold text-xs uppercase rounded-xl hover:bg-zinc-300 transition-all"
         >
           Cancelar
         </button>
@@ -505,7 +505,7 @@ export default function MenuManager({ items, onUpdate }: MenuManagerProps) {
       {showAddForm === 'root' && renderForm('add')}
 
       {/* Menu tree */}
-      <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-clr10 dark:border-clr4 p-4">
+      <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-clr10 dark:border-dclr10 p-4">
         {roots.map(item => renderItem(item))}
       </div>
 
