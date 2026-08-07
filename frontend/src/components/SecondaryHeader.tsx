@@ -136,8 +136,8 @@ const SecondaryHeader = () => {
       <header
         className={`fixed top-0 left-0 right-0 w-full z-[90] transition-all duration-500 ${
           isScrolled
-            ? 'bg-gradient-to-br from-white/30 via-clr5/20 to-clr7/40 dark:from-clr4 dark:via-clr5 dark:to-clr7/20 backdrop-blur-lg shadow-xl py-1'
-            : 'bg-white/60 dark:bg-clr4 py-4'
+            ? 'bg-gradient-to-br from-white/30 via-clr5/20 to-clr7/40 dark:from-dclr1 dark:via-dclr5 dark:to-dclr7/20 backdrop-blur-lg shadow-xl py-1'
+            : 'bg-white/60 dark:bg-dclr1 py-4'
         }`}
       >
         <div className="max-w-[1080px] mx-auto px-2 flex justify-between items-center">
@@ -168,15 +168,15 @@ const SecondaryHeader = () => {
 
           <div className="flex items-center gap-2 md:gap-6">
             <div className="hidden lg:block text-right">
-              <h2 className="text-lg font-black font-display text-clr5 dark:text-clr1 uppercase tracking-widest leading-none">{title}</h2>
+              <h2 className="text-lg font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-widest leading-none">{title}</h2>
             </div>
 
-            <div className="flex items-center gap-1 md:gap-4 border-l border-clr10 dark:border-clr4 pl-2 md:pl-6">
+            <div className="flex items-center gap-1 md:gap-4 border-l border-clr10 dark:border-dclr10 pl-2 md:pl-6">
               
               {user && (
                 <button
                   onClick={() => setIsNotificationsOpen(true)}
-                  className="relative p-1 bg-clr7/30 dark:bg-clr3 rounded-2xl text-clr5 dark:text-clr8 hover:bg-clr7 hover:text-white transition-all shadow-md group"
+                  className="relative p-1 bg-clr7/30 dark:bg-dclr10 rounded-2xl text-clr5 dark:text-dclr8 hover:bg-clr7 hover:text-white transition-all shadow-md group"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
@@ -190,12 +190,12 @@ const SecondaryHeader = () => {
               )}
 
               {user ? (
-                <Link href="/panel" className="hidden sm:flex items-center gap-2 text-clr5 dark:text-clr8 font-black uppercase text-[0.8em] tracking-widest hover:text-clr7 transition-colors">
+                <Link href="/panel" className="hidden sm:flex items-center gap-2 text-clr5 dark:text-dclr8 font-black uppercase text-[0.8em] tracking-widest hover:text-clr7 transition-colors">
                   <div className="w-6 h-6 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_panel.svg)', maskImage: 'url(/images/iconos/icono_panel.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
                   <span>Mi Panel</span>
                 </Link>
               ) : (
-                <Link href="/login" className="hidden sm:flex items-center gap-2 text-clr5 dark:text-clr8 font-black uppercase text-xs tracking-widest hover:text-clr7 transition-colors">
+                <Link href="/login" className="hidden sm:flex items-center gap-2 text-clr5 dark:text-dclr8 font-black uppercase text-xs tracking-widest hover:text-clr7 transition-colors">
                   <IconoAcceso className="w-5 h-5" />
                   <span>Acceder</span>
                 </Link>
@@ -203,7 +203,7 @@ const SecondaryHeader = () => {
 
               <button
                 onClick={toggleTheme}
-                className="p-1 bg-clr7/30 dark:bg-clr3 rounded-2xl text-clr5 dark:text-clr8 hover:bg-clr7 hover:text-white transition-all shadow-md"
+                className="p-1 bg-clr7/30 dark:bg-dclr10 rounded-2xl text-clr5 dark:text-dclr8 hover:bg-clr7 hover:text-white transition-all shadow-md"
               >
                 {theme === 'dark' ? (
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -232,8 +232,8 @@ const SecondaryHeader = () => {
           ></div>
 
           {/* Panel */}
-          <div className="relative w-full max-w-sm bg-zinc-50 dark:bg-clr4 h-full shadow-2xl flex flex-col animate-in slide-in-from-right duration-300">
-            <div className="p-6 border-b border-zinc-200 dark:border-white/10 flex justify-between items-center bg-white dark:bg-clr5">
+          <div className="relative w-full max-w-sm bg-zinc-50 dark:bg-dclr1 h-full shadow-2xl flex flex-col animate-in slide-in-from-right duration-300">
+            <div className="p-6 border-b border-zinc-200 dark:border-white/10 flex justify-between items-center bg-white dark:bg-dclr5">
               <div className="flex items-center gap-3">
                 <span className="text-2xl">🔔</span>
                 <h2 className="text-[1.2em] font-black uppercase text-clr5 dark:text-white tracking-widest">Notificaciones</h2>

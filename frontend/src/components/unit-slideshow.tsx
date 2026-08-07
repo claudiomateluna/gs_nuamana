@@ -64,7 +64,7 @@ const UnitSlideShow = () => {
             />
             <div className="text-center">
               <p className="font-display font-black text-clr1 uppercase tracking-tighter text-[2em] leading-none">{unit.name}</p>
-              <p className="font-display text-clr5 dark:text-clr8 font-bold text-lg">{unit.displayName}</p>
+              <p className="font-display text-clr5 dark:text-dclr8 font-bold text-lg">{unit.displayName}</p>
             </div>
           </div>
         ))}

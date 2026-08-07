@@ -99,7 +99,7 @@ const Header = () => {
             />
             <div className="sm:flex flex-col ml-1 md:ml-3 justify-center">
               <div className="text-[0.7em] md:text-[0.8em] text-clr10 uppercase tracking-widest leading-none mb-[-1px] md:mb-[-3px]">{pretitulo}</div>
-              <div className="text-[1.2em] md:text-[1.5em] text-clr1 dark:text-clr1 font-black uppercase leading-none tracking-tighter font-inika">{nombreCorto}</div>
+              <div className="text-[1.2em] md:text-[1.5em] text-clr1 dark:text-dclr2 font-black uppercase leading-none tracking-tighter font-inika">{nombreCorto}</div>
               <div className="text-[0.7em] md:text-[0.85em] text-clr8 dark:text-dclr8 italic leading-none mt-[-3px] md:mt-[-6px]">{slogan}</div>
             </div>
           </Link>
@@ -128,7 +128,7 @@ const Header = () => {
 
             <button
               onClick={toggleTheme}
-              className="p-1 bg-white/10 dark:bg-clr4 rounded-2xl text-clr8 hover:bg-clr7 hover:text-white transition-all shadow-lg"
+              className="p-1 bg-white/10 dark:bg-dclr1 rounded-2xl text-clr8 hover:bg-clr7 hover:text-white transition-all shadow-lg"
               aria-label="Cambiar tema"
             >
               {theme === 'dark' ? (

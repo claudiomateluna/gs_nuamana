@@ -64,7 +64,7 @@ export default async function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <body
-        className={`${inika.variable} ${quicksand.variable} ${robotoSlab.variable} antialiased bg-white dark:bg-clr4 text-clr4 dark:text-clr1`}
+        className={`${inika.variable} ${quicksand.variable} ${robotoSlab.variable} antialiased bg-white dark:bg-dclr1 text-clr4 dark:text-dclr2`}
       >
         {/* SSR theme overrides: emitted before ThemeProvider/children so the 18
             globals.css :root palette vars are overridden on first paint (zero

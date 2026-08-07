@@ -59,7 +59,7 @@ const NuaManaFooter = () => {
   const direccionLines = direccion.split(/<br\s*\/?>/i);
 
   return (
-    <footer className="bg-gradient-to-br from-white/30 via-clr5/20 to-clr7/40 dark:from-clr4 dark:via-clr5 dark:to-clr7/20 text-clr5 dark:text-clr1 py-16 px-6">
+    <footer className="bg-gradient-to-br from-white/30 via-clr5/20 to-clr7/40 dark:from-dclr1 dark:via-dclr5 dark:to-dclr7/20 text-clr5 dark:text-dclr2 py-16 px-6">
       <div className="max-w-[1080px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
           
@@ -73,15 +73,15 @@ const NuaManaFooter = () => {
               />
             </div>
             <div className="text-center md:text-left">
-              <h4 className="text-xl text-center font-black uppercase font-(--inika) leading-none text-clr5 dark:text-clr1">{nombreGrupo}</h4>
-              <h5 className="text-lg text-center italic font-body text-clr7 dark:text-clr8 font-bold mt-1">{slogan}</h5>
+              <h4 className="text-xl text-center font-black uppercase font-(--inika) leading-none text-clr5 dark:text-dclr2">{nombreGrupo}</h4>
+              <h5 className="text-lg text-center italic font-body text-clr7 dark:text-dclr8 font-bold mt-1">{slogan}</h5>
             </div>
-            <p className="text-sm text-clr4/70 dark:text-clr2 text-justify leading-relaxed font-body">
+            <p className="text-sm text-clr4/70 dark:text-dclr2 text-justify leading-relaxed font-body">
               {mision}
             </p>
             <div className="flex flex-wrap gap-3 justify-center md:justify-cenmter pt-4">
               {socialLinks.map((social, idx) => (
-                <a key={idx} href={social.href} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-clr5 dark:bg-clr4 text-white rounded-full hover:bg-clr7 hover:scale-110 transition-all shadow-md">
+                <a key={idx} href={social.href} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-clr5 dark:bg-dclr1 text-white rounded-full hover:bg-clr7 hover:scale-110 transition-all shadow-md">
                   <social.icon className="w-5 h-5" />
                 </a>
               ))}
@@ -97,7 +97,7 @@ const NuaManaFooter = () => {
                 </Link>
               </div>
               <div className="text-center sm:text-left">
-                <Link href="#" className="block text-clr5 dark:text-clr8 font-black font-display uppercase text-sm hover:text-clr7 transition-colors">
+                <Link href="#" className="block text-clr5 dark:text-dclr8 font-black font-display uppercase text-sm hover:text-clr7 transition-colors">
                   {sedeNombre}
                 </Link>
                 <p className="text-sm font-body mt-1 leading-relaxed">
@@ -133,10 +133,10 @@ const NuaManaFooter = () => {
         </div>
 
         <div className="pt-8 border-t border-clr5/10 text-center space-y-2">
-          <p className="text-xs font-black uppercase tracking-[0.2em] text-clr5 dark:text-clr2">
+          <p className="text-xs font-black uppercase tracking-[0.2em] text-clr5 dark:text-dclr2">
             🅮 {new Date().getFullYear()} {copyright}
           </p>
-          <p className="text-[0.8em] font-body dark:text-clr8 uppercase tracking-widest">
+          <p className="text-[0.8em] font-body dark:text-dclr8 uppercase tracking-widest">
             {motto}
           </p>
         </div>

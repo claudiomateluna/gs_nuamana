@@ -198,14 +198,14 @@ const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
     <div className="sidebar-overlay fixed inset-0 z-[9999]">
       <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" onClick={onClose} />
 
-      <div className={`bg-gradient-to-b from-clr1 dark:from-clr5 to-clr2/80 dark:to-clr7/80 fixed top-0 left-0 h-screen w-[280px] sm:w-[320px] z-[10000] shadow-2xl transition-transform duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+      <div className={`bg-gradient-to-b from-clr1 dark:from-dclr5 to-clr2/80 dark:to-dclr7/80 fixed top-0 left-0 h-screen w-[280px] sm:w-[320px] z-[10000] shadow-2xl transition-transform duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="flex flex-col h-full">
-          <div className="p-2 border-b border-clr10 dark:border-clr4">
+          <div className="p-2 border-b border-clr10 dark:border-dclr10">
             <div className="flex justify-between items-center">
               <div className="flex items-center">
                 {currentView !== null && (
                   <button onClick={() => setCurrentView(null)} aria-label="Volver al menú principal" className="mr-1 p-1 rounded-full hover:bg-clr10/50 transition-colors">
-                    <ArrowLeftIcon className="w-5 h-5 text-clr5 dark:text-clr2" />
+                    <ArrowLeftIcon className="w-5 h-5 text-clr5 dark:text-dclr2" />
                   </button>
                 )}
                 <div className="flex items-center">
@@ -216,8 +216,8 @@ const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
                       style={{ height: '60px', width: 'auto' }}
                       className="h-10 w-auto mr-2" />
                     <div>
-                      <div className="text-clr4 dark:text-clr2 text-[0.85em] uppercase leading-none mb-[-2px]">Guías y Scouts</div>
-                      <div className="text-clr7 dark:text-clr7 text-[1.25em] font-black uppercase leading-none font-inika">Nua Mana</div>
+                      <div className="text-clr4 dark:text-dclr2 text-[0.85em] uppercase leading-none mb-[-2px]">Guías y Scouts</div>
+                      <div className="text-clr7 dark:text-dclr7 text-[1.25em] font-black uppercase leading-none font-inika">Nua Mana</div>
                       <div className="text-clr4 dark:text-dclr8 italic text-[0.8em] leading-none mt-[-4px]">una nueva aventura</div>
                     </div>
                   </Link>
@@ -235,7 +235,7 @@ const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
                 {menuItems.map((item) => (
                   <button key={item.id} onClick={() => handleRootClick(item)} className="flex items-center w-full p-3 rounded-2xl hover:bg-clr7/5 transition-all group">
                     <MenuIcon icono={item.icono} />
-                    <span className="font-bold text-clr5 dark:text-clr1 group-hover:text-clr7">{item.titulo}</span>
+                    <span className="font-bold text-clr5 dark:text-dclr2 group-hover:text-clr7">{item.titulo}</span>
                   </button>
                 ))}
               </nav>
@@ -245,14 +245,14 @@ const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
                 {currentView.children.map((item) => (
                   <button key={item.id} onClick={() => { router.push(item.href ?? '/'); onClose(); }} className="flex items-center w-full p-3 rounded-2xl hover:bg-clr7/5 transition-all group">
                     <MenuIcon icono={item.icono} />
-                    <span className="font-bold text-clr5 dark:text-clr1 group-hover:text-clr7">{item.titulo}</span>
+                    <span className="font-bold text-clr5 dark:text-dclr2 group-hover:text-clr7">{item.titulo}</span>
                   </button>
                 ))}
               </nav>
             )}
           </div>
 
-          <div className="p-6 border-t border-clr10 dark:border-clr4 bg-white/50 dark:bg-black/20">
+          <div className="p-6 border-t border-clr10 dark:border-dclr10 bg-white/50 dark:bg-black/20">
             {isInstallable && (
               <button 
                 onClick={handleInstallClick} 
@@ -262,7 +262,7 @@ const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
               </button>
             )}
             {showIOSHelper && (
-              <div className="w-full p-4 mb-4 bg-white/40 dark:bg-black/20 border border-clr10 dark:border-clr4 rounded-2xl text-[0.85em] text-clr5 dark:text-clr1 flex flex-col gap-2 shadow-inner">
+              <div className="w-full p-4 mb-4 bg-white/40 dark:bg-black/20 border border-clr10 dark:border-dclr10 rounded-2xl text-[0.85em] text-clr5 dark:text-dclr2 flex flex-col gap-2 shadow-inner">
                 <div className="font-black text-clr7 flex items-center gap-1.5 uppercase tracking-wide">📲 Instalar en tu iPhone</div>
                 <p className="text-clr2 dark:text-dclr8 leading-snug">
                   Presioná el botón de <strong>Compartir</strong> <span className="inline-block px-1.5 py-0.5 bg-zinc-200 dark:bg-zinc-800 rounded">📤</span> en Safari y seleccioná <strong>&quot;Agregar al inicio&quot;</strong> ➕.
@@ -280,11 +280,11 @@ const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
               </button>
             )}
             <div className="flex justify-between px-2">
-              <a href="https://instagram.com/gruponuamana" className="text-clr5 dark:text-clr2 hover:text-clr7 transition-colors"><IconoRRSSInstagram className="w-5 h-5" /></a>
-              <a href="https://facebook.com/gruponuamana" className="text-clr5 dark:text-clr2 hover:text-clr7 transition-colors"><IconoRRSSFacebook className="w-5 h-5" /></a>
-              <a href="https://youtube.com/@gruponuamana" className="text-clr5 dark:text-clr2 hover:text-clr7 transition-colors"><IconoRRSSYoutube className="w-5 h-5" /></a>
-              <a href="https://tiktok.com/@gruponuamana" className="text-clr5 dark:text-clr2 hover:text-clr7 transition-colors"><IconoRRSSTiktok className="w-5 h-5" /></a>
-              <a href="https://wa.me/+56966896001" className="text-clr5 dark:text-clr2 hover:text-clr7 transition-colors"><IconoRRSSWhatsApp className="w-5 h-5" /></a>
+              <a href="https://instagram.com/gruponuamana" className="text-clr5 dark:text-dclr2 hover:text-clr7 transition-colors"><IconoRRSSInstagram className="w-5 h-5" /></a>
+              <a href="https://facebook.com/gruponuamana" className="text-clr5 dark:text-dclr2 hover:text-clr7 transition-colors"><IconoRRSSFacebook className="w-5 h-5" /></a>
+              <a href="https://youtube.com/@gruponuamana" className="text-clr5 dark:text-dclr2 hover:text-clr7 transition-colors"><IconoRRSSYoutube className="w-5 h-5" /></a>
+              <a href="https://tiktok.com/@gruponuamana" className="text-clr5 dark:text-dclr2 hover:text-clr7 transition-colors"><IconoRRSSTiktok className="w-5 h-5" /></a>
+              <a href="https://wa.me/+56966896001" className="text-clr5 dark:text-dclr2 hover:text-clr7 transition-colors"><IconoRRSSWhatsApp className="w-5 h-5" /></a>
             </div>
           </div>
         </div>
