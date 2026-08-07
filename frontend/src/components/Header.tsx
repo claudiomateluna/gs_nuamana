@@ -74,7 +74,7 @@ const Header = () => {
       aria-label="Encabezado de Sitio"
       className={`fixed top-0 left-0 right-0 w-full z-[100] transition-all duration-500 ${
         isScrolled
-          ? 'bg-gradient-to-r from-clr7 via-clr7/90 to-clr5 backdrop-blur-lg shadow-2xl py-2'
+          ? 'bg-gradient-to-r from-clr5 via-clr11 to-clr12 backdrop-blur-lg shadow-2xl py-2'
           : 'bg-transparent py-4'
       }`}
     >
