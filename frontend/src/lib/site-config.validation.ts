@@ -154,7 +154,6 @@ export type VisitFormData = z.infer<typeof visitSchema>;
 export const seoSchema = z.object({
   title: nonEmpty,
   description: nonEmpty,
-  theme_color: z.string().regex(/^#[0-9a-fA-F]{6}$/, 'Formato: #RRGGBB'),
 });
 
 export type SeoFormData = z.infer<typeof seoSchema>;
@@ -167,8 +166,6 @@ export const pwaSchema = z.object({
   name: nonEmpty,
   short_name: nonEmpty,
   description: nonEmpty,
-  background_color: z.string().regex(/^#[0-9a-fA-F]{6}$/, 'Formato: #RRGGBB'),
-  theme_color: z.string().regex(/^#[0-9a-fA-F]{6}$/, 'Formato: #RRGGBB'),
   lang: nonEmpty,
   icon_192: nonEmpty,
   icon_512: nonEmpty,

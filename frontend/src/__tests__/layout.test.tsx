@@ -38,7 +38,7 @@ vi.mock('@/lib/site-config', async () => {
   };
 });
 
-import RootLayout from '@/app/layout';
+import RootLayout, { generateViewport } from '@/app/layout';
 
 describe('RootLayout SSR theme style injection', () => {
   it('renders a <style> tag as the first child of <body> containing config theme vars', async () => {
@@ -81,5 +81,12 @@ describe('RootLayout SSR theme style injection', () => {
     for (const v of vars) {
       expect(css.split(`${v}:`).length - 1, `${v} declaration should appear once`).toBe(1);
     }
+  });
+
+  it('derives the viewport themeColor from config.theme_colors.clr7 (no loose hardcoded color)', async () => {
+    const vp = await generateViewport();
+
+    expect(vp.themeColor).toBe('#ff0000');
+    expect(vp.width).toBe('device-width');
   });
 });

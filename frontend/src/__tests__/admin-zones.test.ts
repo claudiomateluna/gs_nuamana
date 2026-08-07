@@ -30,13 +30,11 @@ const EXPECTED_FIELDS = {
   faq: ['titulo_seccion', 'subtitulo', 'items'],
   testimonials: ['titulo_seccion', 'widget_url'],
   visit: ['titulo', 'fecha_fundacion', 'email', 'email_href', 'horario', 'cta_texto', 'imagen'],
-  seo: ['title', 'description', 'theme_color'],
+  seo: ['title', 'description'],
   pwa: [
     'name',
     'short_name',
     'description',
-    'background_color',
-    'theme_color',
     'lang',
     'icon_192',
     'icon_512',
@@ -332,8 +330,6 @@ describe('ADMIN_ZONES field metadata', () => {
     expect(fieldIn('header', 'redes', 'instagram').type).toBe('url');
     expect(fieldIn('header', 'redes', 'whatsapp').type).toBe('text');
     expect(fieldIn('footer', 'redes', 'email').type).toBe('url');
-    expect(fieldIn('global', 'seo', 'theme_color').type).toBe('color');
-    expect(fieldIn('global', 'pwa', 'background_color').type).toBe('color');
     expect(fieldIn('global', 'seo', 'description').type).toBe('textarea');
     expect(fieldIn('global', 'pwa', 'description').type).toBe('textarea');
     expect(fieldIn('footer', 'contacto', 'direccion').type).toBe('textarea');

@@ -117,14 +117,11 @@ export const DEFAULT_SITE_CONFIG: SiteConfigRecord = {
   seo: {
     title: 'Guías y Scouts Nua Mana - Una Nueva Aventura',
     description: 'Portal oficial del Grupo Guía y Scout Nua Mana. Educación para la vida, empoderamiento juvenil y aventuras al aire libre.',
-    theme_color: '#cb3327',
   },
   pwa: {
     name: 'Guías y Scouts Nua Mana',
     short_name: 'Nua Mana',
     description: 'Portal oficial del Grupo Guía y Scout Nua Mana. Educación para la vida, empoderamiento juvenil y aventuras al aire libre.',
-    background_color: '#ffffff',
-    theme_color: '#cb3327',
     lang: 'es',
     icon_192: '/icon-192x192.png',
     icon_512: '/icon-512x512.png',

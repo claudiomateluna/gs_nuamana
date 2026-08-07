@@ -136,7 +136,7 @@ const SecondaryHeader = () => {
       <header
         className={`fixed top-0 left-0 right-0 w-full z-[90] transition-all duration-500 ${
           isScrolled
-            ? 'bg-gradient-to-br from-white/30 via-clr5/20 to-clr7/40 dark:from-dclr1 dark:via-dclr5 dark:to-dclr7/20 backdrop-blur-lg shadow-xl py-1'
+            ? 'bg-gradient-to-r from-clr5 via-clr11 to-clr12 backdrop-blur-lg shadow-xl py-1'
             : 'bg-white/60 dark:bg-dclr1 py-4'
         }`}
       >

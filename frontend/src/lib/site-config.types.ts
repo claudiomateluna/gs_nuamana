@@ -107,15 +107,12 @@ export interface VisitConfig {
 export interface SeoConfig {
   title: string;
   description: string;
-  theme_color: string;
 }
 
 export interface PwaConfig {
   name: string;
   short_name: string;
   description: string;
-  background_color: string;
-  theme_color: string;
   lang: string;
   icon_192: string;
   icon_512: string;

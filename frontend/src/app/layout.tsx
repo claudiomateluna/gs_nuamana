@@ -47,12 +47,15 @@ export const metadata: Metadata = {
   },
 };
 
-export const viewport: Viewport = {
-  themeColor: "#cb3327",
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1,
-};
+export async function generateViewport(): Promise<Viewport> {
+  const config = await loadSiteConfig();
+  return {
+    themeColor: config.theme_colors.clr7,
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  };
+}
 
 export default async function RootLayout({
   children,

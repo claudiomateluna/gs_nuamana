@@ -3,7 +3,7 @@ import { loadSiteConfig } from '@/lib/site-config'
 
 export default async function manifest(): Promise<MetadataRoute.Manifest> {
   const config = await loadSiteConfig();
-  const { pwa } = config;
+  const { pwa, theme_colors } = config;
 
   return {
     name: pwa.name,
@@ -11,8 +11,8 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
     description: pwa.description,
     start_url: '/',
     display: 'standalone',
-    background_color: pwa.background_color,
-    theme_color: pwa.theme_color,
+    background_color: theme_colors.clr1,
+    theme_color: theme_colors.clr7,
     icons: [
       {
         src: pwa.icon_192,

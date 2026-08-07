@@ -113,14 +113,11 @@ const CONFIG: SiteConfigRecord = {
   seo: {
     title: 'Nua Mana',
     description: 'Portal oficial',
-    theme_color: '#cb3327',
   },
   pwa: {
     name: 'Guías y Scouts Nua Mana',
     short_name: 'Nua Mana',
     description: 'Portal oficial',
-    background_color: '#ffffff',
-    theme_color: '#cb3327',
     lang: 'es',
     icon_192: '/icon-192x192.png',
     icon_512: '/icon-512x512.png',

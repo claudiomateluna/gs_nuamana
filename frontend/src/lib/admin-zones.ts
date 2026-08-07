@@ -474,12 +474,6 @@ export const ADMIN_ZONES: AdminZone[] = [
             type: 'textarea',
             tooltip: 'Descripción SEO. Aparece en los resultados de Google (max ~160 caracteres)',
           },
-          {
-            key: 'theme_color',
-            label: 'Theme Color',
-            type: 'color',
-            tooltip: 'Color de tema del navegador móvil. Formato: #RRGGBB',
-          },
         ],
       },
       {
@@ -505,18 +499,6 @@ export const ADMIN_ZONES: AdminZone[] = [
             label: 'Description',
             type: 'textarea',
             tooltip: 'Descripción de la app PWA para stores y metadata',
-          },
-          {
-            key: 'background_color',
-            label: 'Background Color',
-            type: 'color',
-            tooltip: 'Color de fondo de la splash screen de la PWA',
-          },
-          {
-            key: 'theme_color',
-            label: 'Theme Color',
-            type: 'color',
-            tooltip: 'Color de la barra del navegador en la PWA',
           },
           {
             key: 'lang',
