@@ -2,21 +2,8 @@
 
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
+import { validarRut, parseFechaLocal } from '@/lib/validation-utils'
 import type { StepWithActividadProps } from '@/types/autorizacion'
-
-const validarRut = (rut: string) => {
-  if (!rut) return true; // No validar si está vacío aquí (se maneja con obligatorio en el submit)
-  if (!/^[0-9]+[-|‐]{1}[0-9kK]{1}$/.test(rut)) return false
-  const [numero, dv] = rut.split('-')
-  let sum = 0, mul = 2
-  for (let i = numero.length - 1; i >= 0; i--) {
-    sum += parseInt(numero[i]) * mul
-    mul = mul === 7 ? 2 : mul + 1
-  }
-  const res = 11 - (sum % 11)
-  let expectedDv = res === 11 ? '0' : res === 10 ? 'k' : res.toString()
-  return expectedDv === dv.toLowerCase()
-}
 
 export default function Step16_AutorizacionParticipacion({ formData, setFormData, perfil, actividad, apoderadoData }: StepWithActividadProps) {
   const isAdult = (perfil.edad ?? 0) >= 18;
@@ -83,8 +70,8 @@ export default function Step16_AutorizacionParticipacion({ formData, setFormData
     return d;
   };
 
-  const currentRutA = formData.rut_apoderado || apoderadoData?.rut || '';
-  const currentRutU = formData.rut_usuario || perfil.rut;
+  const currentRutA = (formData.rut_apoderado || apoderadoData?.rut || '').trim();
+  const currentRutU = (formData.rut_usuario || perfil.rut || '').trim();
   const isRutAValid = validarRut(currentRutA);
   const isRutUValid = validarRut(currentRutU);
 
@@ -101,7 +88,7 @@ export default function Step16_AutorizacionParticipacion({ formData, setFormData
         <div>
           <span className="text-[0.8em] font-black uppercase text-clr3 tracking-widest block">Fechas de la Actividad</span>
           <p className="font-bold dark:text-dclr2">
-            {actividad?.fecha_inicio ? format(new Date(actividad.fecha_inicio), "dd/MM/yyyy", { locale: es }) : '---'}
+            {actividad?.fecha_inicio && parseFechaLocal(actividad.fecha_inicio) ? format(parseFechaLocal(actividad.fecha_inicio)!, "dd/MM/yyyy", { locale: es }) : '---'}
           </p>
         </div>
         <div>

@@ -2,21 +2,8 @@
 
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
+import { validarRut } from '@/lib/validation-utils'
 import type { StepWithActividadProps } from '@/types/autorizacion'
-
-const validarRut = (rut: string) => {
-  if (!rut) return true;
-  if (!/^[0-9]+[-|‐]{1}[0-9kK]{1}$/.test(rut)) return false
-  const [numero, dv] = rut.split('-')
-  let sum = 0, mul = 2
-  for (let i = numero.length - 1; i >= 0; i--) {
-    sum += parseInt(numero[i]) * mul
-    mul = mul === 7 ? 2 : mul + 1
-  }
-  const res = 11 - (sum % 11)
-  let expectedDv = res === 11 ? '0' : res === 10 ? 'k' : res.toString()
-  return expectedDv === dv.toLowerCase()
-}
 
 export default function Step17_AutorizacionImagen({ formData, setFormData, perfil, apoderadoData }: StepWithActividadProps) {
   const isAdult = (perfil.edad ?? 0) >= 18;
@@ -86,12 +73,12 @@ export default function Step17_AutorizacionImagen({ formData, setFormData, perfi
     );
   };
 
-  const valNombreU = formData.nombres_usuario_img || perfil.nombres;
-  const valApellidosU = formData.apellidos_usuario_img || perfil.apellidos;
-  const valRutU = formData.rut_usuario_img || perfil.rut;
-  const valNombreA = formData.nombre_apoderado_img || apoderadoData?.nombres || perfil.nombre_apoderado_contacto || '';
-  const valApellidosA = formData.apellidos_apoderado_img || apoderadoData?.apellidos || '';
-  const valRutA = formData.rut_apoderado_img || apoderadoData?.rut || '';
+  const valNombreU = (formData.nombres_usuario_img || perfil.nombres || '').trim();
+  const valApellidosU = (formData.apellidos_usuario_img || perfil.apellidos || '').trim();
+  const valRutU = (formData.rut_usuario_img || perfil.rut || '').trim();
+  const valNombreA = (formData.nombre_apoderado_img || apoderadoData?.nombres || perfil.nombre_apoderado_contacto || '').trim();
+  const valApellidosA = (formData.apellidos_apoderado_img || apoderadoData?.apellidos || '').trim();
+  const valRutA = (formData.rut_apoderado_img || apoderadoData?.rut || '').trim();
 
   const isRutUValid = validarRut(valRutU);
   const isRutAValid = validarRut(valRutA);

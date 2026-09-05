@@ -5,6 +5,18 @@
  * @param rut string con formato 12345678-9 o 12345678-K
  * @returns boolean indicando si el RUT es válido
  */
+export const parseFechaLocal = (fechaStr?: string | null): Date | null => {
+  if (!fechaStr) return null;
+  const clean = fechaStr.trim();
+  if (!clean) return null;
+  const match = clean.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (match) {
+    const [, year, month, day] = match;
+    return new Date(parseInt(year, 10), parseInt(month, 10) - 1, parseInt(day, 10));
+  }
+  return new Date(clean);
+};
+
 export const validarRut = (rut: string): boolean => {
   if (!rut) return false
   // Acepta números seguidos de guion y dígito verificador (número o k/K)
@@ -15,7 +27,7 @@ export const validarRut = (rut: string): boolean => {
   let sum = 0
   let mul = 2
   for (let i = numero.length - 1; i >= 0; i--) {
-    sum += parseInt(numero[i]) * mul
+    sum += parseInt(numero[i], 10) * mul
     mul = mul === 7 ? 2 : mul + 1
   }
   const res = 11 - (sum % 11)

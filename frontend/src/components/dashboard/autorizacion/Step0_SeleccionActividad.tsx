@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
+import { parseFechaLocal } from '@/lib/validation-utils'
 import type { Step0Props, ActividadData } from '@/types/autorizacion'
 
 export default function Step0_SeleccionActividad({ perfil, setActividadSelected, actividadSelected }: Step0Props) {
@@ -64,7 +65,7 @@ export default function Step0_SeleccionActividad({ perfil, setActividadSelected,
                 </div>
                 <div className="text-[1.2em] font-bold uppercase tracking-tight leading-tight">{act.nombre}</div>
                 <div className={`text-[0.95em] font-bold ${actividadSelected?.id === act.id ? 'text-clr1' : 'text-clr3'}`}>
-                  {act.fecha_inicio ? format(new Date(act.fecha_inicio), "eeee dd 'de' MMMM", { locale: es }) : 'Fecha pendiente'} • {act.lugar || 'Lugar por definir'}
+                  {act.fecha_inicio && parseFechaLocal(act.fecha_inicio) ? format(parseFechaLocal(act.fecha_inicio)!, "eeee dd 'de' MMMM", { locale: es }) : 'Fecha pendiente'} • {act.lugar || 'Lugar por definir'}
                 </div>
               </div>
               <div className={`w-12 h-12 rounded-full flex items-center justify-center border-2 transition-all ${actividadSelected?.id === act.id ? 'bg-clr1 border-clr1 text-clr4' : 'border-clr7 dark:border-dclr7 group-hover:border-clr4 group-hover:text-clr4'}`}>
