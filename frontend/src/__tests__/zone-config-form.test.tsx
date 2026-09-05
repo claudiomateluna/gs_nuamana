@@ -191,6 +191,7 @@ const CONFIG: SiteConfigRecord = {
   faq_colors: {},
   secondary_header_colors: {},
   footer_colors: {},
+  panel_colors: {},
   section_visibility: {
     hero: true,
     features: true,
