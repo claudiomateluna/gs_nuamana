@@ -11,31 +11,23 @@ export interface ParentCategoryPromo {
   count: number
   description: string
   badgeText: string
-  gradient: string
-  borderColor: string
   icon: string
 }
 
-const CATEGORY_META: Record<string, { description: string; badgeText: string; gradient: string; borderColor: string; icon: string }> = {
+const CATEGORY_META: Record<string, { description: string; badgeText: string; icon: string }> = {
   actividades: {
     description: 'Juegos cooperativos, dinámicas de grupo, veladas nocturnas y desafíos al aire libre.',
     badgeText: 'Juegos y Dinámicas',
-    gradient: 'from-amber-500/10 via-orange-500/5 to-red-500/10 dark:from-amber-600/20 dark:to-red-700/20',
-    borderColor: 'border-amber-500/20 dark:border-amber-400/30',
     icon: '🎲'
   },
   tecnicas: {
     description: 'Cabuyería, campismo, pionerismo, cocina de marcha, señales y primeros auxilios.',
     badgeText: 'Habilidades Scouts',
-    gradient: 'from-emerald-500/10 via-teal-500/5 to-cyan-500/10 dark:from-emerald-600/20 dark:to-cyan-700/20',
-    borderColor: 'border-emerald-500/20 dark:border-emerald-400/30',
     icon: '⚜️'
   },
   historia: {
     description: 'Biografías inspiradoras, tradiciones del escultismo mundial y la historia de Nua Mana.',
     badgeText: 'Tradición e Historia',
-    gradient: 'from-rose-500/10 via-red-500/5 to-purple-500/10 dark:from-rose-600/20 dark:to-purple-700/20',
-    borderColor: 'border-rose-500/20 dark:border-rose-400/30',
     icon: '📜'
   }
 }
@@ -105,8 +97,6 @@ export default function CategoryPromoBanner({ className = '' }: { className?: st
           const defaultInfo = CATEGORY_META[meta.slug] || {
             description: 'Explora nuestros contenidos de ' + meta.nombre,
             badgeText: meta.nombre,
-            gradient: 'from-clr7/10 via-clr1/5 to-clr6/10',
-            borderColor: 'border-clr7/20',
             icon: '🏕️'
           }
 
@@ -132,63 +122,69 @@ export default function CategoryPromoBanner({ className = '' }: { className?: st
   if (loading || parentCategories.length === 0) return null
 
   return (
-    <div className={`relative overflow-hidden rounded-[1.5rem] md:rounded-[2rem] bg-gradient-to-br from-zinc-50 via-white to-amber-50/40 dark:from-zinc-950 dark:via-zinc-900 dark:to-black p-2 text-zinc-900 dark:text-white shadow-xl border border-zinc-200/80 dark:border-zinc-800 transition-colors ${className}`}>
-      {/* Fondo decorativo con luces tenue */}
-      <div className="absolute top-0 right-0 -mr-16 -mt-16 w-72 h-72 rounded-full bg-clr7/10 dark:bg-dclr7/15 blur-[80px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-72 h-72 rounded-full bg-amber-500/10 blur-[80px] pointer-events-none" />
+    <section className="py-8 bg-cbclr9 dark:bg-cbdclr9 transition-colors">
+      <div className="max-w-[1080px] mx-auto px-4 sm:px-6">
+        <div
+          className={`relative overflow-hidden rounded-[1.5rem] md:rounded-[2rem] p-2 shadow-xl border border-cbclr8 dark:border-cbdclr8 bg-gradient-to-br from-cbclr2 to-cbclr3 dark:from-cbdclr2 dark:to-cbdclr3 text-cbclr5 dark:text-cbdclr5 transition-colors ${className}`}
+        >
+          {/* Fondo decorativo con luces tenue */}
+          <div className="absolute top-0 right-0 -mr-16 -mt-16 w-72 h-72 rounded-full bg-cbclr4 dark:bg-cbdclr4 blur-[80px] pointer-events-none" />
+          <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-72 h-72 rounded-full bg-cbclr5 dark:bg-cbdclr5 blur-[80px] pointer-events-none" />
 
-      {/* Encabezado publicitario tipo Anuncio */}
-      <div className="relative z-10 text-center max-w-2xl mx-auto space-y-2 mb-2 sm:mb-4">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-clr7/10 dark:bg-dclr7/20 border border-clr7/30 dark:border-dclr7/40 text-clr7 dark:text-dclr8 text-[0.75rem] font-black uppercase tracking-widest">
-          <span>⚡ RECURSOS PEDAGÓGICOS SCOUTS</span>
-        </div>
+          {/* Encabezado publicitario tipo Anuncio */}
+          <div className="relative z-10 text-center max-w-2xl mx-auto space-y-2 mb-2 sm:mb-4">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cbclr3 dark:bg-cbdclr3 border border-cbclr8 dark:border-cbdclr8 text-cbclr4 dark:text-cbdclr4 text-[0.75rem] font-black uppercase tracking-widest">
+              <span>⚡ RECURSOS PEDAGÓGICOS SCOUTS</span>
+            </div>
 
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-black font-display uppercase tracking-tight leading-tight text-zinc-900 dark:text-white">
-          ¡TENEMOS MÁS DE{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-clr7 via-amber-500 to-clr6 dark:from-dclr7 dark:via-amber-400 dark:to-dclr6">
-            {totalArticles > 0 ? `${totalArticles}+` : '100+'}
-          </span>{' '}
-          RECURSOS!
-        </h2>
-      </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black font-display uppercase tracking-tight leading-tight text-cbclr4 dark:text-cbdclr4">
+              ¡TENEMOS MÁS DE{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cbclr6 to-cbclr7 dark:from-cbdclr6 dark:to-cbdclr7">
+                {totalArticles > 0 ? `${totalArticles}+` : '100+'}
+              </span>{' '}
+              RECURSOS!
+            </h2>
+          </div>
 
-      {/* Tarjetas de Categorías Padre */}
-      <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-2">
-        {parentCategories.map((cat) => (
-          <Link
-            key={cat.id}
-            href={`/blog/${cat.slug}`}
-            className={`group relative flex flex-col justify-between p-4 rounded-[1.25rem] md:rounded-[1.5rem] bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md bg-gradient-to-br ${cat.gradient} border ${cat.borderColor} hover:-translate-y-1 transition-all duration-300 shadow-md hover:shadow-xl`}
-          >
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-2xl sm:text-3xl">{cat.icon}</span>
-                <span className="px-2.5 py-0.5 rounded-full text-[0.7rem] font-black uppercase tracking-wider bg-zinc-100 dark:bg-white/10 text-zinc-700 dark:text-white border border-zinc-200 dark:border-white/20">
-                  {cat.badgeText}
-                </span>
-              </div>
+          {/* Tarjetas de Categorías Padre */}
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-2">
+            {parentCategories.map((cat) => (
+              <Link
+                key={cat.id}
+                href={`/blog/${cat.slug}`}
+                className="group relative flex flex-col justify-between p-4 rounded-[1.25rem] md:rounded-[1.5rem] bg-cbclr1 dark:bg-cbdclr1 backdrop-blur-md bg-gradient-to-br hover:-translate-y-1 transition-all duration-300 shadow-md hover:shadow-xl"
+              >
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-2xl sm:text-3xl">{cat.icon}</span>
+                    <span className="px-2.5 py-0.5 rounded-full text-[0.7rem] font-black uppercase tracking-wider bg-cbclr8 dark:bg-cbdclr8 text-cbclr5 dark:text-cbdclr5 border border-cbclr8 dark:border-cbdclr8">
+                      {cat.badgeText}
+                    </span>
+                  </div>
 
-              <div>
-                <div className="text-3xl md:text-4xl font-black font-display text-clr7 dark:text-amber-400 tracking-tighter mb-0.5">
-                  +{cat.count}
+                  <div>
+                    <div className="text-3xl md:text-4xl font-black font-display tracking-tighter mb-0.5 text-cbclr6 dark:text-cbdclr6">
+                      +{cat.count}
+                    </div>
+                    <h3 className="text-lg md:text-xl font-black font-display uppercase tracking-tight text-cbclr4 dark:text-cbdclr4 group-hover:text-cbclr6 dark:group-hover:text-cbdclr6 transition-colors">
+                      {cat.nombre}
+                    </h3>
+                  </div>
+
+                  <p className="text-[0.9em] font-body leading-relaxed line-clamp-2 text-cbclr5 dark:text-cbdclr5">
+                    {cat.description}
+                  </p>
                 </div>
-                <h3 className="text-lg md:text-xl font-black font-display text-zinc-900 dark:text-white uppercase tracking-tight group-hover:text-clr7 dark:group-hover:text-amber-300 transition-colors">
-                  {cat.nombre}
-                </h3>
-              </div>
 
-              <p className="text-zinc-600 dark:text-zinc-400 text-[0.9em] font-body leading-relaxed line-clamp-2">
-                {cat.description}
-              </p>
-            </div>
-
-            <div className="mt-5 pt-3 border-t border-zinc-200/80 dark:border-white/10 flex items-center justify-between text-[0.75rem] font-black uppercase tracking-wider text-clr7 dark:text-amber-300 group-hover:translate-x-1 transition-transform">
-              <span>Explorar {cat.nombre} ({cat.count})</span>
-              <span className="text-base">→</span>
-            </div>
-          </Link>
-        ))}
+                <div className="mt-5 pt-3 border-t border-cbclr8 dark:border-cbdclr8 flex items-center justify-between text-[0.75rem] font-black uppercase tracking-wider text-cbclr7 dark:text-cbdclr7 group-hover:translate-x-1 transition-transform">
+                  <span>Explorar {cat.nombre} ({cat.count})</span>
+                  <span className="text-base">→</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   )
 }

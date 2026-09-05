@@ -90,13 +90,13 @@ export default function DashModAutorizacionVer({ isOpen, onClose, auth, perfil: 
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black/90 backdrop-blur-xl z-[200] flex items-center justify-center p-0 md:p-4 overflow-hidden">
-      <div className="bg-zinc-900 text-white w-full h-full max-w-6xl flex flex-col shadow-2xl relative rounded-none md:rounded-3xl overflow-hidden border border-white/10">
+    <div className="fixed inset-0 bg-clr2 backdrop-blur-xl z-[200] flex items-center justify-center p-0 md:p-4 overflow-hidden">
+      <div className="bg-clr2 text-clr1 w-full h-full max-w-6xl flex flex-col shadow-2xl relative rounded-none md:rounded-3xl overflow-hidden border border-clr1">
         
         {/* HEADER */}
-        <div className="p-4 border-b border-white/10 flex justify-between items-center bg-zinc-900/50 backdrop-blur-md">
+        <div className="p-4 border-b border-clr1 flex justify-between items-center bg-clr2 backdrop-blur-md">
           <div className="flex flex-col">
-            <h2 className="text-sm font-black uppercase tracking-widest text-clr7">Expediente Oficial Digital</h2>
+            <h2 className="text-sm font-black uppercase tracking-widest text-clr4">Expediente Oficial Digital</h2>
             <p className="text-[0.8em] opacity-40 font-mono">{(auth as any)?.actividad_nombre || 'Actividad'} • {perfil.nombres} {perfil.apellidos}</p>
           </div>
           
@@ -104,19 +104,19 @@ export default function DashModAutorizacionVer({ isOpen, onClose, auth, perfil: 
             <button 
               onClick={handleDelete} 
               disabled={isDeleting}
-              className="px-4 py-2 bg-red-950/30 text-red-500 rounded-xl font-bold uppercase text-[0.8em] border border-red-500/20 hover:bg-red-500 hover:text-white transition-all"
+              className="px-4 py-2 bg-clr4 text-clr4 rounded-xl font-bold uppercase text-[0.8em] border border-clr4 hover:bg-clr4 hover:text-clr1 transition-all"
             >
               {isDeleting ? '...' : '🗑️ Eliminar'}
             </button>
             <button 
               onClick={() => generateOfficialPDF(auth as any, perfil as any, fichaMedica, true)} 
-              className="px-4 py-2 bg-clr7 text-white rounded-xl font-bold uppercase text-[0.8em] hover:brightness-110 shadow-lg shadow-clr7/20"
+              className="px-4 py-2 bg-clr4 text-clr1 rounded-xl font-bold uppercase text-[0.8em] hover:brightness-110 shadow-lg shadow-clr4"
             >
               📥 Descargar
             </button>
             <button 
               onClick={onClose} 
-              className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-white/10 transition-all border border-white/10"
+              className="w-10 h-10 bg-clr1 rounded-full flex items-center justify-center hover:bg-clr1 transition-all border border-clr1"
             >
               ✕
             </button>
@@ -124,10 +124,10 @@ export default function DashModAutorizacionVer({ isOpen, onClose, auth, perfil: 
         </div>
 
         {/* CONTENIDO: VISOR DE PDF */}
-        <div className="flex-1 bg-zinc-800 relative">
+        <div className="flex-1 bg-clr2 relative">
           {loading ? (
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-              <div className="w-10 h-10 border-4 border-clr7 border-t-transparent rounded-full animate-spin"></div>
+              <div className="w-10 h-10 border-4 border-clr4 border-t-transparent rounded-full animate-spin"></div>
               <p className="text-xs font-bold uppercase tracking-widest opacity-40">Generando documento oficial...</p>
             </div>
           ) : pdfUrl ? (
@@ -137,7 +137,7 @@ export default function DashModAutorizacionVer({ isOpen, onClose, auth, perfil: 
               title="Previsualización de Autorización"
             />
           ) : (
-            <div className="absolute inset-0 flex items-center justify-center text-red-400 font-bold uppercase text-xs">
+            <div className="absolute inset-0 flex items-center justify-center text-clr4 font-bold uppercase text-xs">
               Error al cargar la previsualización del PDF.
             </div>
           )}

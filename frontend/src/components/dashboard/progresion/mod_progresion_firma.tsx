@@ -39,24 +39,24 @@ export default function DashModFirmaDigital({
   }
 
   return (
-    <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-black/60 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="bg-white dark:bg-zinc-950 p-6 rounded-[2.5rem] border border-zinc-150 dark:border-dclr10 w-full max-w-md shadow-2xl relative font-body">
+    <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-clr2 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="bg-clr1 dark:bg-dclr1 p-6 rounded-[2.5rem] border border-clr7 dark:border-dclr7 w-full max-w-md shadow-2xl relative font-body">
         <button 
           onClick={onClose}
-          className="absolute top-4 right-4 text-zinc-400 hover:text-zinc-650 dark:hover:text-white font-extrabold text-[1.1em] cursor-pointer border-none bg-transparent"
+          className="absolute top-4 right-4 text-clr3 hover:text-clr2 dark:hover:text-clr1 font-extrabold text-[1.1em] cursor-pointer border-none bg-transparent"
         >
           ✕
         </button>
         
-        <h3 className="text-[1.25em] font-black text-zinc-850 dark:text-dclr2 uppercase tracking-tighter mb-4 text-center border-b pb-2 font-display">
+        <h3 className="text-[1.25em] font-black text-clr2 dark:text-dclr2 uppercase tracking-tighter mb-4 text-center border-b pb-2 font-display">
           {title}
         </h3>
         
-        <p className="text-[0.85em] text-zinc-400 mb-4 text-center">
+        <p className="text-[0.85em] text-clr3 mb-4 text-center">
           {description}
         </p>
 
-        <div className="border-4 border-dashed border-zinc-200 dark:border-zinc-800 rounded-[1.5rem] bg-white overflow-hidden shadow-inner touch-none relative">
+        <div className="border-4 border-dashed border-clr7 dark:border-dclr7 rounded-[1.5rem] bg-clr1 overflow-hidden shadow-inner touch-none relative">
           <SignatureCanvas 
             ref={sigCanvasRef}
             penColor='#1b1b1b'
@@ -77,7 +77,7 @@ export default function DashModFirmaDigital({
           <button
             type="button"
             onClick={handleClear}
-            className="px-4 py-2 text-[0.8em] font-black uppercase text-red-650 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-xl transition-colors border border-red-200 cursor-pointer bg-transparent"
+            className="px-4 py-2 text-[0.8em] font-black uppercase text-clr4 hover:bg-clr4 dark:hover:bg-dclr4 rounded-xl transition-colors border border-clr4 cursor-pointer bg-transparent"
           >
             Limpiar
           </button>
@@ -85,7 +85,7 @@ export default function DashModFirmaDigital({
           <button
             type="button"
             onClick={handleConfirm}
-            className="px-6 py-2.5 bg-green-600 hover:brightness-110 text-white rounded-xl text-[0.8em] font-black uppercase tracking-wider transition-all shadow-md cursor-pointer border-none"
+            className="px-6 py-2.5 bg-clr6 hover:brightness-110 text-clr1 rounded-xl text-[0.8em] font-black uppercase tracking-wider transition-all shadow-md cursor-pointer border-none"
           >
             Confirmar Firma
           </button>

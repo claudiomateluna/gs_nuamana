@@ -70,7 +70,7 @@ const SecondaryHeader = () => {
       const currentUser = session?.user ?? null;
       setUser(currentUser);
       if (currentUser) fetchNotifications(currentUser.id);
-    });
+    }).catch(() => {}); // Silenciar errores de red durante cold start
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       const currentUser = session?.user ?? null;
@@ -136,16 +136,16 @@ const SecondaryHeader = () => {
       <header
         className={`fixed top-0 left-0 right-0 w-full z-[90] transition-all duration-500 ${
           isScrolled
-            ? 'bg-gradient-to-r from-clr5 via-clr11 to-clr12 backdrop-blur-lg shadow-xl py-1'
-            : 'bg-white/60 dark:bg-dclr1 py-4'
+            ? 'bg-gradient-to-br from-shclr12 dark:from-shdclr12 via-shclr13 dark:via-shdclr13 to-shclr14 dark:to-shdclr14 backdrop-blur-lg shadow-xl py-1'
+            : 'bg-transparent py-4'
         }`}
       >
         <div className="max-w-[1080px] mx-auto px-2 flex justify-between items-center">
           <div className="flex items-center gap-2 md:gap-4">
-            <div className="border-r-2 border-clr7/30 pr-2 md:pr-4">
+            <div className="border-r-2 border-shclr2 dark:border-shdclr2 pr-2 md:pr-4">
               <button
                 onClick={() => setIsMenuOpen(true)}
-                className="p-2 text-clr7 dark:text-white hover:bg-clr7/10 rounded-xl transition-colors focus:outline-none"
+                className="p-2 text-shclr1 dark:text-shdclr1 hover:bg-shclr6 rounded-xl transition-colors focus:outline-none"
               >
                 <IconoMenu className="h-7 w-7" />
               </button>
@@ -159,30 +159,30 @@ const SecondaryHeader = () => {
                 className="object-contain group-hover:scale-110 transition-transform duration-500"
               />
               <div className="sm:flex flex-col justify-center">
-                <div className="text-[0.7em] md:text-[0.8em] text-clr2 uppercase tracking-widest leading-none mb-[-1px] md:mb-[-3px]">Guías y Scouts</div>
-                <div className="text-[1.2em] md:text-[1.5em] text-clr7 dark:text-dclr7 font-black uppercase leading-none tracking-tighter font-inika">Nua Mana</div>
-                <div className="text-[0.7em] md:text-[0.85em] text-clr4 dark:text-dclr8 italic leading-none mt-[-3px] md:mt-[-6px]">una nueva aventura</div>
+                <div className="text-[0.7em] md:text-[0.85em] text-shclr3 dark:text-shdclr3 uppercase tracking-widest leading-none mb-[-1px] md:mb-[-3px]">Guías y Scouts</div>
+                <div className="text-[1.2em] md:text-[1.5em] text-shclr4 dark:text-shdclr4 font-black uppercase leading-none tracking-tighter font-inika">Nua Mana</div>
+                <div className="text-[0.7em] md:text-[0.87em] text-shclr5 dark:text-shdclr5 italic leading-none mt-[-3px] md:mt-[-6px]">una nueva aventura</div>
               </div>
             </Link>
           </div>
 
           <div className="flex items-center gap-2 md:gap-6">
             <div className="hidden lg:block text-right">
-              <h2 className="text-lg font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-widest leading-none">{title}</h2>
+              <h2 className="text-lg font-black font-display text-shclr10 dark:text-shdclr10 uppercase tracking-widest leading-none">{title}</h2>
             </div>
 
-            <div className="flex items-center gap-1 md:gap-4 border-l border-clr10 dark:border-dclr10 pl-2 md:pl-6">
+            <div className="flex items-center gap-1 md:gap-4 border-l border-clr7 dark:border-dclr7 pl-2 md:pl-6">
               
               {user && (
                 <button
                   onClick={() => setIsNotificationsOpen(true)}
-                  className="relative p-1 bg-clr7/30 dark:bg-dclr10 rounded-2xl text-clr5 dark:text-dclr8 hover:bg-clr7 hover:text-white transition-all shadow-md group"
+                  className="relative p-1 bg-shclr6 dark:bg-shdclr6 rounded-2xl text-shclr8 dark:text-shdclr8 hover:bg-shclr7 dark:hover:bg-shdclr7 hover:text-shclr9 dark:hover:text-shdclr9 transition-all shadow-md group"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                   </svg>
                   {unreadCount > 0 && (
-                    <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[9px] font-bold text-white shadow-lg animate-pulse">
+                    <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-shclr4 text-[9px] font-bold text-clr1 shadow-lg animate-pulse">
                       {unreadCount}
                     </span>
                   )}
@@ -190,12 +190,12 @@ const SecondaryHeader = () => {
               )}
 
               {user ? (
-                <Link href="/panel" className="hidden sm:flex items-center gap-2 text-clr5 dark:text-dclr8 font-black uppercase text-[0.8em] tracking-widest hover:text-clr7 transition-colors">
+                <Link href="/panel" className="hidden sm:flex items-center gap-2 text-shclr10 dark:text-shdclr10 font-black uppercase text-[0.8em] tracking-widest hover:text-shclr11 dark:hover:text-shdclr11 transition-colors">
                   <div className="w-6 h-6 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_panel.svg)', maskImage: 'url(/images/iconos/icono_panel.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
                   <span>Mi Panel</span>
                 </Link>
               ) : (
-                <Link href="/login" className="hidden sm:flex items-center gap-2 text-clr5 dark:text-dclr8 font-black uppercase text-xs tracking-widest hover:text-clr7 transition-colors">
+                <Link href="/login" className="hidden sm:flex items-center gap-2 text-shclr10 dark:text-shdclr10 font-black uppercase text-xs tracking-widest hover:text-shclr11 dark:hover:text-shdclr11 transition-colors">
                   <IconoAcceso className="w-5 h-5" />
                   <span>Acceder</span>
                 </Link>
@@ -203,7 +203,7 @@ const SecondaryHeader = () => {
 
               <button
                 onClick={toggleTheme}
-                className="p-1 bg-clr7/30 dark:bg-dclr10 rounded-2xl text-clr5 dark:text-dclr8 hover:bg-clr7 hover:text-white transition-all shadow-md"
+                className="p-1 bg-shclr6 dark:bg-shdclr6 rounded-2xl text-shclr8 dark:text-shdclr8 hover:bg-shclr7 dark:hover:bg-shdclr7 hover:text-shclr9 dark:hover:text-shdclr9 transition-all shadow-md"
               >
                 {theme === 'dark' ? (
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -227,20 +227,20 @@ const SecondaryHeader = () => {
         <div className="fixed inset-0 z-[100] flex justify-end">
           {/* Overlay */}
           <div 
-            className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity"
+            className="absolute inset-0 bg-clr2 backdrop-blur-sm transition-opacity"
             onClick={() => setIsNotificationsOpen(false)}
           ></div>
 
           {/* Panel */}
-          <div className="relative w-full max-w-sm bg-zinc-50 dark:bg-dclr1 h-full shadow-2xl flex flex-col animate-in slide-in-from-right duration-300">
-            <div className="p-6 border-b border-zinc-200 dark:border-white/10 flex justify-between items-center bg-white dark:bg-dclr5">
+          <div className="relative w-full max-w-sm bg-clr7 dark:bg-dclr7 h-full shadow-2xl flex flex-col animate-in slide-in-from-right duration-300">
+            <div className="p-6 border-b border-clr7 dark:border-dclr7 flex justify-between items-center bg-clr1 dark:bg-dclr1">
               <div className="flex items-center gap-3">
                 <span className="text-2xl">🔔</span>
-                <h2 className="text-[1.2em] font-black uppercase text-clr5 dark:text-white tracking-widest">Notificaciones</h2>
+                <h2 className="text-[1.2em] font-black uppercase text-clr4 dark:text-dclr4 tracking-widest">Notificaciones</h2>
               </div>
               <button 
                 onClick={() => setIsNotificationsOpen(false)}
-                className="w-8 h-8 flex items-center justify-center rounded-full bg-zinc-100 dark:bg-black/20 text-clr5 dark:text-white hover:bg-clr7 hover:text-white transition-all font-bold"
+                className="w-8 h-8 flex items-center justify-center rounded-full bg-clr7 dark:bg-dclr1 text-clr4 dark:text-dclr4 hover:bg-clr4 hover:text-clr1 transition-all font-bold"
               >
                 ✕
               </button>
@@ -257,19 +257,19 @@ const SecondaryHeader = () => {
                   <div 
                     key={notif.id} 
                     onClick={() => handleNotifClick(notif)}
-                    className={`p-4 rounded-2xl border-l-4 transition-all cursor-pointer hover:bg-zinc-100 dark:hover:bg-black/20 hover:scale-[1.01] ${
+                    className={`p-4 rounded-2xl border-l-4 transition-all cursor-pointer hover:bg-clr7 dark:hover:bg-dclr7 hover:scale-[1.01] ${
                       notif.leido 
-                        ? 'bg-white/50 dark:bg-black/10 border-zinc-300 dark:border-white/10 opacity-70' 
-                        : 'bg-white dark:bg-black/30 border-clr7 shadow-md'
+                        ? 'bg-clr1 dark:bg-dclr1 border-clr3 dark:border-dclr3 opacity-70' 
+                        : 'bg-clr1 dark:bg-dclr1 border-clr4 shadow-md'
                     }`}
                   >
                     <div className="flex justify-between items-start mb-2">
                       <div className="flex items-center gap-2">
                         <span className="text-xl">{getTipoEmoji(notif.tipo)}</span>
-                        <h4 className="font-black text-[0.9em] text-clr5 dark:text-white leading-tight">{notif.titulo}</h4>
+                        <h4 className="font-black text-[0.9em] text-clr4 dark:text-dclr4 leading-tight">{notif.titulo}</h4>
                       </div>
                     </div>
-                    <p className="text-[0.85em] text-clr2 dark:text-zinc-300 mb-3 leading-snug">{notif.mensaje}</p>
+                    <p className="text-[0.85em] text-clr3 dark:text-dclr3 mb-3 leading-snug">{notif.mensaje}</p>
                     
                     <div className="flex justify-between items-center">
                       <span className="text-[0.8em] font-bold uppercase opacity-50">
@@ -282,7 +282,7 @@ const SecondaryHeader = () => {
                               e.stopPropagation();
                               markAsRead(notif.id);
                             }}
-                            className="p-1.5 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors"
+                            className="p-1.5 bg-clr4 text-clr4 rounded-lg hover:bg-clr4 transition-colors"
                             title="Marcar como leída"
                           >
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -293,7 +293,7 @@ const SecondaryHeader = () => {
                             e.stopPropagation();
                             deleteNotification(notif.id);
                           }}
-                          className="p-1.5 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-colors"
+                          className="p-1.5 bg-clr4 text-clr4 rounded-lg hover:bg-clr4 transition-colors"
                           title="Eliminar"
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>

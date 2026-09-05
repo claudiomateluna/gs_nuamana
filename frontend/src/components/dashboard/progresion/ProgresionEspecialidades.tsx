@@ -170,22 +170,22 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
         )}
 
         <div className="space-y-4">
-          <div className="border-b pb-4 border-zinc-200 dark:border-white/10 flex justify-between items-center">
+          <div className="border-b pb-4 border-clr7 dark:border-dclr7 flex justify-between items-center">
             <div>
-              <h3 className="font-bold uppercase text-[1.5em] text-zinc-900 dark:text-white flex items-center gap-2">
+              <h3 className="font-bold uppercase text-[1.5em] text-clr2 dark:text-dclr2 flex items-center gap-2">
                 🎓 Panel de Tutorías y Supervisiones
               </h3>
-              <p className="text-[0.9em] font-bold text-zinc-400">
+              <p className="text-[0.9em] font-bold text-clr3">
                 Especialidades de otros miembros del grupo que estás guiando y supervisando como monitor o tutor.
               </p>
             </div>
           </div>
 
           {supervisedSpecialtyProgress.length === 0 ? (
-            <div className="p-8 rounded-[2rem] bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/5 text-center">
+            <div className="p-8 rounded-[2rem] bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7 text-center">
               <span className="text-4xl mb-2 block">🎓</span>
-              <h4 className="font-bold text-[1.1em] text-zinc-800 dark:text-zinc-200">No tienes especialidades asignadas para supervisar</h4>
-              <p className="text-[0.9em] text-zinc-500 dark:text-zinc-450 mt-1 max-w-md mx-auto">
+              <h4 className="font-bold text-[1.1em] text-clr2 dark:text-dclr2">No tienes especialidades asignadas para supervisar</h4>
+              <p className="text-[0.9em] text-clr3 dark:text-dclr3 mt-1 max-w-md mx-auto">
                 Cuando los beneficiarios te seleccionen como monitor en sus especialidades, aparecerán aquí para que puedas revisar y aprobar sus tareas.
               </p>
             </div>
@@ -199,7 +199,7 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                   <div
                     key={ep.id}
                     onClick={() => setActiveEspecialidad(ep)}
-                    className="p-6 rounded-[2rem] bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/5 hover:border-zinc-350 dark:hover:border-zinc-700 shadow-lg cursor-pointer hover:shadow-xl transition-all relative overflow-hidden group border-l-[6px]"
+                    className="p-6 rounded-[2rem] bg-clr1 dark:bg-dclr1 border border-clr7 dark:border-dclr7 hover:border-clr3 dark:hover:border-dclr7 shadow-lg cursor-pointer hover:shadow-xl transition-all relative overflow-hidden group border-l-[6px]"
                     style={{ borderLeftColor: color }}
                   >
                     <div className="flex gap-4 items-start mb-3">
@@ -209,7 +209,7 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                         onError={(e) => {
                           (e.target as HTMLImageElement).src = '/images/especialidades/generico.svg'
                         }}
-                        className="w-16 h-16 object-contain shadow-md rounded-2xl bg-zinc-50 dark:bg-zinc-800 p-1.5 border dark:border-white/10 shrink-0"
+                        className="w-16 h-16 object-contain shadow-md rounded-2xl bg-clr7 dark:bg-dclr7 p-1.5 border dark:border-clr1 shrink-0"
                         loading="lazy"
                         decoding="async"
                         style={{ contentVisibility: 'auto' }}
@@ -227,14 +227,14 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                             <img src={getFieldLogoPath(ep.campo_interes)} alt="" className="w-3.5 h-3.5 object-contain" loading="lazy" decoding="async" />
                             {getFieldLabel(ep.campo_interes)}
                           </span>
-                          <span className="text-[0.8em] font-bold text-zinc-500 uppercase bg-zinc-100 dark:bg-zinc-850 px-2 py-0.5 rounded-full">
+                          <span className="text-[0.8em] font-bold text-clr3 uppercase bg-clr7 dark:bg-dclr7 px-2 py-0.5 rounded-full">
                             {getPhaseLabel(ep.fase)}
                           </span>
                         </div>
-                        <h4 className="font-bold text-[1.2em] text-zinc-900 dark:text-white uppercase leading-tight group-hover:text-zinc-650 dark:group-hover:text-zinc-300 truncate">
+                        <h4 className="font-bold text-[1.2em] text-clr2 dark:text-dclr2 uppercase leading-tight group-hover:text-clr2 dark:group-hover:text-clr3 truncate">
                           {name}
                         </h4>
-                        <p className="text-[0.8em] font-bold text-zinc-550 dark:text-zinc-400 mt-1">
+                        <p className="text-[0.8em] font-bold text-clr3 dark:text-dclr3 mt-1">
                           👤 {specialistName}
                         </p>
                       </div>
@@ -243,10 +243,10 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                     {/* Progress Bar */}
                     <div className="space-y-2">
                       <div className="flex justify-between text-[0.8em] font-bold">
-                        <span className="text-zinc-400">Progreso Actividades</span>
+                        <span className="text-clr3">Progreso Actividades</span>
                         <span style={{ color }}>{completedCount}/{totalCount} ({pct}%)</span>
                       </div>
-                      <div className="w-full bg-zinc-100 dark:bg-zinc-800 rounded-full h-2.5 overflow-hidden">
+                      <div className="w-full bg-clr7 dark:bg-dclr7 rounded-full h-2.5 overflow-hidden">
                         <div
                           className="h-full rounded-full transition-all duration-500"
                           style={{ width: `${pct}%`, backgroundColor: color }}
@@ -255,13 +255,13 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                     </div>
 
                     {/* Quick status badges */}
-                    <div className="mt-4 pt-3 border-t border-zinc-150 dark:border-zinc-850 flex justify-between items-center text-[0.8em] font-bold text-zinc-400">
+                    <div className="mt-4 pt-3 border-t border-clr7 dark:border-dclr7 flex justify-between items-center text-[0.8em] font-bold text-clr3">
                       <span>Iniciada {ep.fecha_inicio}</span>
                       {ep.estado === 'completado' ? (
-                        <span className="text-green-500 uppercase">Completada 🎉</span>
+                        <span className="text-clr6 uppercase">Completada 🎉</span>
                       ) : (
                         (ep.especialidades_actividades || []).some((a: EspecialidadActividad) => !a.completada && a.evidencia_texto) && (
-                          <span className="text-blue-500 animate-pulse uppercase font-extrabold">Pendiente Aprobación 🔔</span>
+                          <span className="text-clr4 animate-pulse uppercase font-extrabold">Pendiente Aprobación 🔔</span>
                         )
                       )}
                     </div>
@@ -280,12 +280,12 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
       {/* Sección Tutorías y Supervisiones (si soy monitor de alguna especialidad) */}
       {especialidadesSupervisadas.length > 0 && (
         <div className="space-y-4">
-          <div className="border-b pb-4 border-zinc-200 dark:border-white/10 flex justify-between items-center">
+          <div className="border-b pb-4 border-clr7 dark:border-dclr7 flex justify-between items-center">
             <div>
-              <h3 className="font-bold uppercase text-[1.5em] text-zinc-900 dark:text-white flex items-center gap-2">
+              <h3 className="font-bold uppercase text-[1.5em] text-clr2 dark:text-dclr2 flex items-center gap-2">
                 🎓 Tutorías y Supervisiones
               </h3>
-              <p className="text-[0.9em] font-bold text-zinc-400">
+              <p className="text-[0.9em] font-bold text-clr3">
                 Especialidades de otros miembros del grupo que estás guiando y supervisando.
               </p>
             </div>
@@ -300,7 +300,7 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                 <div
                   key={ep.id}
                   onClick={() => setActiveEspecialidad(ep)}
-                  className="p-6 rounded-[2rem] bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/5 hover:border-zinc-350 dark:hover:border-zinc-700 shadow-lg cursor-pointer hover:shadow-xl transition-all relative overflow-hidden group border-l-[6px]"
+                  className="p-6 rounded-[2rem] bg-clr1 dark:bg-dclr1 border border-clr7 dark:border-dclr7 hover:border-clr3 dark:hover:border-dclr7 shadow-lg cursor-pointer hover:shadow-xl transition-all relative overflow-hidden group border-l-[6px]"
                   style={{ borderLeftColor: color }}
                 >
                   <div className="flex gap-4 items-start mb-3">
@@ -310,7 +310,7 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                       onError={(e) => {
                         (e.target as HTMLImageElement).src = '/images/especialidades/generico.svg'
                       }}
-                      className="w-16 h-16 object-contain shadow-md rounded-2xl bg-zinc-50 dark:bg-zinc-800 p-1.5 border dark:border-white/10 shrink-0"
+                      className="w-16 h-16 object-contain shadow-md rounded-2xl bg-clr7 dark:bg-dclr7 p-1.5 border dark:border-clr1 shrink-0"
                       loading="lazy"
                       decoding="async"
                       style={{ contentVisibility: 'auto' }}
@@ -328,14 +328,14 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                           <img src={getFieldLogoPath(ep.campo_interes)} alt="" className="w-3.5 h-3.5 object-contain" loading="lazy" decoding="async" />
                           {getFieldLabel(ep.campo_interes)}
                         </span>
-                        <span className="text-[0.8em] font-bold text-zinc-500 uppercase bg-zinc-100 dark:bg-zinc-850 px-2 py-0.5 rounded-full">
+                        <span className="text-[0.8em] font-bold text-clr3 uppercase bg-clr7 dark:bg-dclr7 px-2 py-0.5 rounded-full">
                           {getPhaseLabel(ep.fase)}
                         </span>
                       </div>
-                      <h4 className="font-bold text-[1.2em] text-zinc-900 dark:text-white uppercase leading-tight group-hover:text-zinc-650 dark:group-hover:text-zinc-300 truncate">
+                      <h4 className="font-bold text-[1.2em] text-clr2 dark:text-dclr2 uppercase leading-tight group-hover:text-clr2 dark:group-hover:text-clr3 truncate">
                         {name}
                       </h4>
-                      <p className="text-[0.8em] font-bold text-zinc-550 dark:text-zinc-400 mt-1">
+                      <p className="text-[0.8em] font-bold text-clr3 dark:text-dclr3 mt-1">
                         👤 {specialistName}
                       </p>
                     </div>
@@ -344,10 +344,10 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                   {/* Progress Bar */}
                   <div className="space-y-2">
                     <div className="flex justify-between text-[0.8em] font-bold">
-                      <span className="text-zinc-400">Progreso Actividades</span>
+                      <span className="text-clr3">Progreso Actividades</span>
                       <span style={{ color }}>{completedCount}/{totalCount} ({pct}%)</span>
                     </div>
-                    <div className="w-full bg-zinc-100 dark:bg-zinc-800 rounded-full h-2.5 overflow-hidden">
+                    <div className="w-full bg-clr7 dark:bg-dclr7 rounded-full h-2.5 overflow-hidden">
                       <div
                         className="h-full rounded-full transition-all duration-500"
                         style={{ width: `${pct}%`, backgroundColor: color }}
@@ -356,13 +356,13 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                   </div>
 
                   {/* Quick status badges */}
-                  <div className="mt-4 pt-3 border-t border-zinc-150 dark:border-zinc-850 flex justify-between items-center text-[0.8em] font-bold text-zinc-400">
+                  <div className="mt-4 pt-3 border-t border-clr7 dark:border-dclr7 flex justify-between items-center text-[0.8em] font-bold text-clr3">
                     <span>Iniciada {ep.fecha_inicio}</span>
                     {ep.estado === 'completado' ? (
-                      <span className="text-green-500 uppercase">Completada 🎉</span>
+                      <span className="text-clr6 uppercase">Completada 🎉</span>
                     ) : (
                       (ep.especialidades_actividades || []).some((a: EspecialidadActividad) => !a.completada && a.evidencia_texto) && (
-                        <span className="text-blue-500 animate-pulse uppercase font-extrabold">Pendiente Aprobación 🔔</span>
+                        <span className="text-clr4 animate-pulse uppercase font-extrabold">Pendiente Aprobación 🔔</span>
                       )
                     )}
                   </div>
@@ -375,10 +375,10 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
 
       {/* Sección Especialidades Activas / En Desarrollo */}
       <div className="space-y-4">
-        <div className="flex justify-between items-center border-b pb-4 border-zinc-200 dark:border-white/10">
+        <div className="flex justify-between items-center border-b pb-4 border-clr7 dark:border-dclr7">
           <div>
-            <h3 className="font-bold uppercase text-[1.5em] text-zinc-900 dark:text-white">Especialidades en Desarrollo</h3>
-            <p className="text-[0.9em] font-bold text-zinc-400">Tus proyectos personales y especialidades activas.</p>
+            <h3 className="font-bold uppercase text-[1.5em] text-clr2 dark:text-dclr2">Especialidades en Desarrollo</h3>
+            <p className="text-[0.9em] font-bold text-clr3">Tus proyectos personales y especialidades activas.</p>
           </div>
           {isOwner && canSeeAllTabs(perfil) && !isNNJConAgenda(perfil) && !inactive && (
             <button
@@ -387,7 +387,7 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                 setShowSpecialtyWizard(true)
                 setWizardStep(1)
               }}
-              className="px-4 py-2.5 rounded-2xl text-[0.8em] font-bold uppercase tracking-wider text-white shadow-xl hover:scale-102 transition-all"
+              className="px-4 py-2.5 rounded-2xl text-[0.8em] font-bold uppercase tracking-wider text-clr1 shadow-xl hover:scale-102 transition-all"
               style={{ backgroundColor: themePrimary, color: themeSecondary }}
             >
               🎖️ Nueva Especialidad
@@ -400,10 +400,10 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
             <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2" style={{ borderColor: themePrimary }}></div>
           </div>
         ) : personalSpecialtyProgress.length === 0 ? (
-          <div className="p-2 rounded-[1rem] bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/5 text-center">
+          <div className="p-2 rounded-[1rem] bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7 text-center">
             <span className="text-4xl mb-2 block">✨</span>
-            <h4 className="font-bold text-[1.1em] text-zinc-800 dark:text-zinc-200">¡Aún no tienes especialidades activas!</h4>
-            <p className="text-[0.9em] text-zinc-500 dark:text-zinc-450 mt-1 max-w-md mx-auto">
+            <h4 className="font-bold text-[1.1em] text-clr2 dark:text-dclr2">¡Aún no tienes especialidades activas!</h4>
+            <p className="text-[0.9em] text-clr3 dark:text-dclr3 mt-1 max-w-md mx-auto">
               Explora el catálogo abajo para elegir un campo de interés y proponer tu primera especialidad.
             </p>
           </div>
@@ -417,7 +417,7 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                 <div
                   key={ep.id}
                   onClick={() => setActiveEspecialidad(ep)}
-                  className="p-6 rounded-[2rem] bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/5 hover:border-zinc-350 dark:hover:border-zinc-700 shadow-lg cursor-pointer hover:shadow-xl transition-all relative overflow-hidden group border-l-[6px]"
+                  className="p-6 rounded-[2rem] bg-clr1 dark:bg-dclr1 border border-clr7 dark:border-dclr7 hover:border-clr3 dark:hover:border-dclr7 shadow-lg cursor-pointer hover:shadow-xl transition-all relative overflow-hidden group border-l-[6px]"
                   style={{ borderLeftColor: color, contentVisibility: 'auto' } as React.CSSProperties}
                 >
                   <div className="flex gap-4 items-start mb-3">
@@ -427,7 +427,7 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                       onError={(e) => {
                         (e.target as HTMLImageElement).src = '/images/especialidades/generico.svg'
                       }}
-                      className="w-16 h-16 object-contain shadow-md rounded-2xl bg-zinc-50 dark:bg-zinc-800 p-1.5 border dark:border-white/10 shrink-0"
+                      className="w-16 h-16 object-contain shadow-md rounded-2xl bg-clr7 dark:bg-dclr7 p-1.5 border dark:border-clr1 shrink-0"
                       loading="lazy"
                       decoding="async"
                     />
@@ -444,20 +444,20 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                           <img src={getFieldLogoPath(ep.campo_interes)} alt="" className="w-3.5 h-3.5 object-contain" loading="lazy" decoding="async" />
                           {getFieldLabel(ep.campo_interes)}
                         </span>
-                        <span className="text-[0.8em] font-bold text-zinc-500 uppercase bg-zinc-100 dark:bg-zinc-850 px-2 py-0.5 rounded-full">
+                        <span className="text-[0.8em] font-bold text-clr3 uppercase bg-clr7 dark:bg-dclr7 px-2 py-0.5 rounded-full">
                           {getPhaseLabel(ep.fase)}
                         </span>
                         {ep.estado === 'pausado' && (
-                          <span className="text-[0.8em] font-extrabold text-amber-500 bg-amber-100/50 dark:bg-amber-900/20 px-2 py-0.5 rounded-full border border-amber-300/30">
+                          <span className="text-[0.8em] font-extrabold text-clr5 bg-clr5 dark:bg-dclr5 px-2 py-0.5 rounded-full border border-clr5">
                             Pausada ⏸️
                           </span>
                         )}
                       </div>
-                      <h4 className="font-bold text-[1.2em] text-zinc-900 dark:text-white uppercase leading-tight group-hover:text-zinc-650 dark:group-hover:text-zinc-300 truncate">
+                      <h4 className="font-bold text-[1.2em] text-clr2 dark:text-dclr2 uppercase leading-tight group-hover:text-clr2 dark:group-hover:text-clr3 truncate">
                         {name}
                       </h4>
                       {ep.monitor_nombre && (
-                        <p className="text-[0.8em] font-semibold text-zinc-500 dark:text-zinc-400 mt-1">
+                        <p className="text-[0.8em] font-semibold text-clr3 dark:text-dclr3 mt-1">
                           Monitor: {ep.monitor_nombre}
                         </p>
                       )}
@@ -467,10 +467,10 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                   {/* Progress Bar */}
                   <div className="space-y-2">
                     <div className="flex justify-between text-[0.8em] font-bold">
-                      <span className="text-zinc-400">Progreso Actividades</span>
+                      <span className="text-clr3">Progreso Actividades</span>
                       <span style={{ color }}>{completedCount}/{totalCount} ({pct}%)</span>
                     </div>
-                    <div className="w-full bg-zinc-100 dark:bg-zinc-800 rounded-full h-2.5 overflow-hidden">
+                    <div className="w-full bg-clr7 dark:bg-dclr7 rounded-full h-2.5 overflow-hidden">
                       <div
                         className="h-full rounded-full transition-all duration-500"
                         style={{ width: `${pct}%`, backgroundColor: color }}
@@ -479,10 +479,10 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                   </div>
 
                   {/* Quick status badges */}
-                  <div className="mt-4 pt-3 border-t border-zinc-150 dark:border-zinc-850 flex justify-between items-center text-[0.8em] font-bold text-zinc-400">
+                  <div className="mt-4 pt-3 border-t border-clr7 dark:border-dclr7 flex justify-between items-center text-[0.8em] font-bold text-clr3">
                     <span>Iniciada {ep.fecha_inicio}</span>
                     {ep.estado === 'completado' && (
-                      <span className="text-green-500 uppercase">Completada 🎉</span>
+                      <span className="text-clr6 uppercase">Completada 🎉</span>
                     )}
                   </div>
                 </div>
@@ -495,9 +495,9 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
       {/* Catálogo de Especialidades */}
       {canSeeAllTabs(perfil) && (
         <div className="space-y-6 pt-6">
-          <div className="border-b pb-4 border-zinc-200 dark:border-white/10">
-            <h3 className="font-bold uppercase text-[1.5em] text-zinc-900 dark:text-white">Catálogo de Especialidades</h3>
-            <p className="text-[0.9em] font-bold text-zinc-400">Explora las especialidades sugeridas oficiales para tu unidad.</p>
+          <div className="border-b pb-4 border-clr7 dark:border-dclr7">
+            <h3 className="font-bold uppercase text-[1.5em] text-clr2 dark:text-dclr2">Catálogo de Especialidades</h3>
+            <p className="text-[0.9em] font-bold text-clr3">Explora las especialidades sugeridas oficiales para tu unidad.</p>
           </div>
 
           {/* Buscador y Filtros */}
@@ -508,15 +508,15 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                 value={searchCatQuery}
                 onChange={e => setSearchCatQuery(e.target.value)}
                 placeholder="Buscar especialidad..."
-                className="w-full p-4 pl-12 rounded-2xl border dark:border-white/10 bg-zinc-50 dark:bg-zinc-800 text-[0.9em] font-bold"
+                className="w-full p-4 pl-12 rounded-2xl border dark:border-clr1 bg-clr7 dark:bg-dclr7 text-[0.9em] font-bold"
               />
-              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-xl text-zinc-400">🔍</span>
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-xl text-clr3">🔍</span>
             </div>
 
             <select
               value={selectedFieldFilter}
               onChange={e => setSelectedFieldFilter(e.target.value)}
-              className="p-4 rounded-2xl border dark:border-white/10 bg-zinc-50 dark:bg-zinc-800 text-[0.9em] font-bold min-w-[200px]"
+              className="p-4 rounded-2xl border dark:border-clr1 bg-clr7 dark:bg-dclr7 text-[0.9em] font-bold min-w-[200px]"
             >
               <option value="todos">Todos los campos</option>
               <option value="arte_expresion">🎨 Arte y Expresión</option>
@@ -530,7 +530,7 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
 
           {/* Grid de Catálogo */}
           {filteredCatalog.length === 0 ? (
-            <p className="text-center py-10 text-zinc-400 font-bold italic">No se encontraron especialidades que coincidan con los filtros.</p>
+            <p className="text-center py-10 text-clr3 font-bold italic">No se encontraron especialidades que coincidan con los filtros.</p>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredCatalog.map(def => {
@@ -539,7 +539,7 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                 return (
                   <div
                     key={def.id}
-                    className="p-2 rounded-[1rem] bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/5 hover:border-zinc-350 dark:hover:border-zinc-700 shadow-md hover:shadow-xl hover:scale-[1.01] transition-all cursor-pointer flex flex-col justify-between group border-l-[6px]"
+                    className="p-2 rounded-[1rem] bg-clr1 dark:bg-dclr1 border border-clr7 dark:border-dclr7 hover:border-clr3 dark:hover:border-dclr7 shadow-md hover:shadow-xl hover:scale-[1.01] transition-all cursor-pointer flex flex-col justify-between group border-l-[6px]"
                     style={{ borderLeftColor: color, contentVisibility: 'auto' } as React.CSSProperties}
                     onClick={() => handleCatalogClick(def)}
                   >
@@ -573,10 +573,10 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                           decoding="async"
                         />
                         <div className="flex-1 min-w-0">
-                          <h4 className="font-bold text-[1.25em] text-zinc-900 dark:text-white uppercase leading-tight mb-2 group-hover:text-zinc-650 dark:group-hover:text-zinc-300 truncate">
+                          <h4 className="font-bold text-[1.25em] text-clr2 dark:text-dclr2 uppercase leading-tight mb-2 group-hover:text-clr2 dark:group-hover:text-clr3 truncate">
                             {def.nombre}
                           </h4>
-                          <p className="text-[0.9em] font-medium text-zinc-550 dark:text-zinc-400 line-clamp-3 leading-relaxed">
+                          <p className="text-[0.9em] font-medium text-clr3 dark:text-dclr3 line-clamp-3 leading-relaxed">
                             {def.descripcion}
                           </p>
                         </div>
@@ -584,7 +584,7 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                     </div>
 
                     {isOwner && !isNNJConAgenda(perfil) && (
-                      <div className="mt-4 pt-3 border-t border-zinc-150 dark:border-zinc-850 flex justify-end">
+                      <div className="mt-4 pt-3 border-t border-clr7 dark:border-dclr7 flex justify-end">
                         <span
                           className="text-[0.8em] font-bold uppercase tracking-wider transition-all group-hover:translate-x-1"
                           style={{ color }}

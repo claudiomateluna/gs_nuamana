@@ -11,12 +11,12 @@ export default function Step18_FirmaDigital({ formData, setFormData, perfil, apo
   const [firmaCapturada, setFirmaCapturada] = useState(false);
   const isAdult = (perfil.edad ?? 0) >= 18;
 
-  const titleStyle = "text-[1.2em] font-black text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8 border-b-2 border-clr7 pb-2 text-center";
-  const labelStyle = "text-[0.9em] font-black uppercase text-clr2 tracking-widest block opacity-70 mb-1";
+  const titleStyle = "text-[1.2em] font-black text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8 border-b-2 border-clr4 pb-2 text-center";
+  const labelStyle = "text-[0.9em] font-black uppercase text-clr3 tracking-widest block opacity-70 mb-1";
   
   const infoIconContainerStyle = "inline-block";
-  const infoIconStyle = "text-clr7 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
-  const tooltipStyle = "fixed z-[300] left-1/2 -translate-x-1/2 top-1/4 w-[90%] max-w-lg p-6 bg-zinc-800 dark:bg-zinc-900 text-white text-[1em] font-medium leading-relaxed rounded-[2rem] shadow-2xl opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 border-2 border-clr7/50 backdrop-blur-md";
+  const infoIconStyle = "text-clr4 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
+  const tooltipStyle = "fixed z-[300] left-1/2 -translate-x-1/2 top-1/4 w-[90%] max-w-lg p-6 bg-clr2 dark:bg-dclr2 text-clr1 text-[1em] font-medium leading-relaxed rounded-[2rem] shadow-2xl opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 border-2 border-clr4 backdrop-blur-md";
 
   // Solo sincronizar el ref al padre cuando el usuario hace click en "Borrar" o al montar
   useEffect(() => {
@@ -78,7 +78,7 @@ export default function Step18_FirmaDigital({ formData, setFormData, perfil, apo
               </span>
             </div>
             <div className={tooltipStyle}>
-              <div className="text-clr7 font-black uppercase text-[0.8em] tracking-tight mb-3 border-b border-clr7/30 pb-2 leading-tight">{label}</div>
+              <div className="text-clr4 font-black uppercase text-[0.8em] tracking-tight mb-3 border-b border-clr4 pb-2 leading-tight">{label}</div>
               <div className="text-[0.95em]">{info}</div>
             </div>
           </div>
@@ -92,14 +92,14 @@ export default function Step18_FirmaDigital({ formData, setFormData, perfil, apo
     <div className="animate-in fade-in duration-500 p-4 pb-10">
       <h3 className={titleStyle}>18. Firma Digital del Responsable</h3>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 p-6 bg-zinc-50 dark:bg-black/10 rounded-3xl border border-clr10 dark:border-dclr10 text-center md:text-left">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 p-6 bg-clr7 dark:bg-dclr7 rounded-3xl border border-clr7 dark:border-dclr7 text-center md:text-left">
         <div>
           <span className={labelStyle}>Firmante Responsable</span>
-          <p className="text-[1.2em] font-black text-clr5 dark:text-dclr2 uppercase tracking-tight">{nombreFirmante}</p>
+          <p className="text-[1.2em] font-black text-clr4 dark:text-dclr4 uppercase tracking-tight">{nombreFirmante}</p>
         </div>
         <div>
           <span className={labelStyle}>R.U.N. del Firmante</span>
-          <p className="text-[1.2em] font-black text-clr5 dark:text-dclr2">{rutFirmante}</p>
+          <p className="text-[1.2em] font-black text-clr4 dark:text-dclr4">{rutFirmante}</p>
         </div>
       </div>
 
@@ -108,7 +108,7 @@ export default function Step18_FirmaDigital({ formData, setFormData, perfil, apo
         info="Esta firma es la aceptación legal de todo el documento de autorización (Ficha médica, Participación e Imagen)."
       >
         <div className="relative mt-2">
-          <div className="border-4 border-dashed border-clr10 dark:border-dclr10 rounded-[2rem] bg-white overflow-hidden shadow-inner touch-none">
+          <div className="border-4 border-dashed border-clr7 dark:border-dclr7 rounded-[2rem] bg-clr1 overflow-hidden shadow-inner touch-none">
             <SignatureCanvas 
               ref={sigCanvas}
               penColor='#1b1b1b'
@@ -125,7 +125,7 @@ export default function Step18_FirmaDigital({ formData, setFormData, perfil, apo
             <button 
               type="button"
               onClick={clear}
-              className="px-6 py-2 text-[0.8em] font-black uppercase text-red-600 hover:bg-red-50 rounded-xl transition-colors border-2 border-red-100"
+              className="px-6 py-2 text-[0.8em] font-black uppercase text-clr4 hover:bg-clr4 rounded-xl transition-colors border-2 border-clr4"
             >
               ✕ Borrar Firma
             </button>
@@ -136,8 +136,8 @@ export default function Step18_FirmaDigital({ formData, setFormData, perfil, apo
               disabled={firmaCapturada}
               className={`px-6 py-2 text-[0.8em] font-black uppercase rounded-xl transition-all border-2 ${
                 !firmaCapturada
-                  ? 'bg-clr7 text-white border-clr7 hover:brightness-110 active:scale-95 shadow-lg'
-                  : 'bg-green-100 text-green-700 border-green-300 cursor-default'
+                  ? 'bg-clr4 text-clr1 border-clr4 hover:brightness-110 active:scale-95 shadow-lg'
+                  : 'bg-clr6 text-clr6 border-clr6 cursor-default'
               }`}
             >
               {firmaCapturada ? '✓ Firma Confirmada' : '✍ Confirmar Firma'}
@@ -146,8 +146,8 @@ export default function Step18_FirmaDigital({ formData, setFormData, perfil, apo
         </div>
       </Field>
 
-      <div className="mt-10 p-6 bg-amber-50 dark:bg-amber-950/20 rounded-3xl border border-amber-200 dark:border-amber-900/30">
-        <p className="text-[0.85em] text-amber-800 dark:text-amber-200 leading-relaxed font-medium italic text-center">
+      <div className="mt-10 p-6 bg-clr5 dark:bg-dclr5 rounded-3xl border border-clr5 dark:border-dclr5">
+        <p className="text-[0.85em] text-clr5 dark:text-dclr5 leading-relaxed font-medium italic text-center">
           "Al estampar mi firma digital, certifico que la información proporcionada es verdadera y completa, y acepto íntegramente los términos de participación y uso de imagen descritos en los pasos anteriores."
         </p>
       </div>

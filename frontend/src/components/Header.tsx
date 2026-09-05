@@ -19,14 +19,21 @@ import { useTheme } from '@/contexts/theme-context';
 import { useSiteConfigSafe } from '@/contexts/site-config-context';
 import { supabase } from '@/lib/supabase';
 
+const SOCIAL_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+  instagram: IconoRRSSInstagram,
+  facebook: IconoRRSSFacebook,
+  whatsapp: IconoRRSSWhatsApp,
+  youtube: IconoRRSSYoutube,
+  tiktok: IconoRRSSTiktok,
+  google: IconoRRSSGoogle,
+  email: IconoRRSSEmail,
+};
+
 const FALLBACK = {
   logo_header: '/images/logos/logo-nuamana.webp',
   pretitulo: 'Guías y Scouts',
   nombre_corto: 'Nua Mana',
   slogan: 'una nueva aventura',
-  instagram: 'https://instagram.com/gruponuamana/',
-  facebook: 'https://facebook.com/gruponuamana',
-  whatsapp: 'https://wa.me/56966896001',
   label_panel: 'Mi Panel',
   label_login: 'Acceder',
 };
@@ -43,11 +50,17 @@ const Header = () => {
   const pretitulo = config?.branding.pretitulo ?? FALLBACK.pretitulo;
   const nombreCorto = config?.branding.nombre_corto ?? FALLBACK.nombre_corto;
   const slogan = config?.branding.slogan ?? FALLBACK.slogan;
-  const instagram = config?.social.instagram ?? FALLBACK.instagram;
-  const facebook = config?.social.facebook ?? FALLBACK.facebook;
-  const whatsapp = config?.social.whatsapp ?? FALLBACK.whatsapp;
   const labelPanel = config?.navigation.label_panel ?? FALLBACK.label_panel;
   const labelLogin = config?.navigation.label_login ?? FALLBACK.label_login;
+
+  const socialLinks = (config?.social_list?.items ?? [])
+    .filter(item => item.enabled && (item.placement || '').split(',').includes('header'))
+    .sort((a, b) => a.order - b.order)
+    .map(item => ({
+      href: item.url,
+      icon: SOCIAL_ICONS[item.icon],
+    }))
+    .filter(item => item.icon) as { href: string; icon: React.ComponentType<{ className?: string }> }[];
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
@@ -55,7 +68,7 @@ const Header = () => {
     // Obtener sesión inicial
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null);
-    });
+    }).catch(() => {}); // Silenciar errores de red durante cold start
 
     // Escuchar cambios en auth
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
@@ -74,16 +87,16 @@ const Header = () => {
       aria-label="Encabezado de Sitio"
       className={`fixed top-0 left-0 right-0 w-full z-[100] transition-all duration-500 ${
         isScrolled
-          ? 'bg-gradient-to-r from-clr5 via-clr11 to-clr12 backdrop-blur-lg shadow-2xl py-2'
+          ? 'bg-gradient-to-r from-hclr12 dark:from-hdclr12 to-hclr13 dark:to-hdclr13 backdrop-blur-lg shadow-2xl py-2'
           : 'bg-transparent py-4'
       }`}
     >
       <div className="max-w-[1080px] mx-auto px-6 flex justify-between items-center">
         <div className="flex items-center gap-4">
-          <div className="border-r-2 border-clr8/30 pr-2 md:pr-4">
+          <div className="border-r-2 border-hclr2 dark:border-hdclr2 pr-2 md:pr-4">
             <button
               onClick={() => setIsMenuOpen(true)}
-              className="p-2 text-white hover:text-clr8 transition-colors focus:outline-none"
+              className="p-2 text-hclr1 hover:text-hclr1 dark:text-hdclr1 transition-colors focus:outline-none"
               aria-label="Abrir menú"
             >
               <IconoMenu className="h-7 w-7" />
@@ -98,29 +111,31 @@ const Header = () => {
               className="object-contain group-hover:scale-110 transition-transform duration-500"
             />
             <div className="sm:flex flex-col ml-1 md:ml-3 justify-center">
-              <div className="text-[0.7em] md:text-[0.8em] text-clr10 uppercase tracking-widest leading-none mb-[-1px] md:mb-[-3px]">{pretitulo}</div>
-              <div className="text-[1.2em] md:text-[1.5em] text-clr1 dark:text-dclr2 font-black uppercase leading-none tracking-tighter font-inika">{nombreCorto}</div>
-              <div className="text-[0.7em] md:text-[0.85em] text-clr8 dark:text-dclr8 italic leading-none mt-[-3px] md:mt-[-6px]">{slogan}</div>
+              <div className="text-[0.7em] md:text-[0.8em] text-hclr3 dark:text-hdclr3 uppercase tracking-widest leading-none mb-[-1px] md:mb-[-3px]">{pretitulo}</div>
+              <div className="text-[1.2em] md:text-[1.5em] text-hclr4 dark:text-hdclr4 font-black uppercase leading-none tracking-tighter font-inika">{nombreCorto}</div>
+              <div className="text-[0.7em] md:text-[0.85em] text-hclr5 dark:text-hdclr5 italic leading-none mt-[-3px] md:mt-[-6px]">{slogan}</div>
             </div>
           </Link>
         </div>
 
         <div className="flex items-center gap-2 md:gap-6">
           {/* Social Links Desktop */}
-          <div className="hidden lg:flex items-center gap-3 border-r border-white/10 pr-6">
-            {instagram && <a href={instagram} target="_blank" className="text-white/70 hover:text-clr8 transition-colors"><IconoRRSSInstagram className="w-5 h-5" /></a>}
-            {facebook && <a href={facebook} target="_blank" className="text-white/70 hover:text-clr8 transition-colors"><IconoRRSSFacebook className="w-5 h-5" /></a>}
-            {whatsapp && <a href={whatsapp} target="_blank" className="text-white/70 hover:text-clr8 transition-colors"><IconoRRSSWhatsApp className="w-5 h-5" /></a>}
+          <div className="hidden lg:flex items-center gap-3 border-r border-hclr2 pr-6">
+            {socialLinks.map((social, idx) => (
+              <a key={idx} href={social.href} target="_blank" className="text-hclr10 dark:text-hdclr10 hover:text-hclr11 dark:hover:text-hdclr11 transition-colors">
+                <social.icon className="w-5 h-5" />
+              </a>
+            ))}
           </div>
 
           <div className="flex items-center gap-2 md:gap-4">
             {user ? (
-              <Link href="/panel" className="hidden sm:flex items-center gap-2 text-clr8 font-black uppercase text-[0.8em] tracking-widest hover:text-white transition-colors">
+              <Link href="/panel" className="hidden sm:flex items-center gap-2 bg-hclr6 dark:bg-hdclr6 text-hclr8 dark:text-hdclr8 font-black uppercase text-[0.8em] tracking-widest rounded-2xl px-3 py-1 hover:bg-hclr7 dark:hover:bg-hdclr7 hover:text-hclr9 dark:hover:text-hdclr9 transition-all">
                 <div className="w-6 h-6 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_panel.svg)', maskImage: 'url(/images/iconos/icono_panel.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
                 <span>{labelPanel}</span>
               </Link>
             ) : (
-              <Link href="/login" className="hidden sm:flex items-center gap-2 text-clr8 font-black uppercase text-xs tracking-widest hover:text-white transition-colors">
+              <Link href="/login" className="hidden sm:flex items-center gap-2 bg-hclr6 dark:bg-hdclr6 text-hclr8 dark:text-hdclr8 font-black uppercase text-xs tracking-widest rounded-2xl px-3 py-1 hover:bg-hclr7 dark:hover:bg-hdclr7 hover:text-hclr9 dark:hover:text-hdclr9 transition-all">
                 <IconoAcceso className="w-6 h-6" />
                 <span>{labelLogin}</span>
               </Link>
@@ -128,7 +143,7 @@ const Header = () => {
 
             <button
               onClick={toggleTheme}
-              className="p-1 bg-white/10 dark:bg-dclr1 rounded-2xl text-clr8 hover:bg-clr7 hover:text-white transition-all shadow-lg"
+              className="p-1 bg-hclr6 dark:bg-hdclr6 rounded-2xl text-hclr8 dark:text-hdclr8 hover:bg-hclr7 dark:hover:bg-hdclr7 hover:text-hclr9 dark:hover:text-hdclr9 transition-all shadow-lg"
               aria-label="Cambiar tema"
             >
               {theme === 'dark' ? (

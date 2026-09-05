@@ -86,6 +86,22 @@ const CONFIG: SiteConfigRecord = {
     imagenes_pool: ['/images/fotos/fotos_01_.webp'],
     top_count: 3,
     bottom_count: 3,
+    heclr1: '#cb3327', heclr2: '#cb3327', heclr3: '#cb3327',
+    hedclr1: '#121212', hedclr2: '#1e1e1e', hedclr3: '#121212',
+    heclr4: '#ffd700', heclr5: '#ffffff',
+    hedclr4: '#ffd700', hedclr5: '#ffffff',
+    heclr6: '#fca5a5', heclr7: '#93c5fd', heclr8: '#86efac', heclr9: '#d8b4fe',
+    heclr10: '#fde047', heclr11: '#fdba74', heclr12: '#a5b4fc', heclr13: '#f9a8d4',
+    heclr1_opacity: 100, heclr2_opacity: 100, heclr3_opacity: 100,
+    hedclr1_opacity: 100, hedclr2_opacity: 100, hedclr3_opacity: 100,
+    heclr4_opacity: 100, heclr5_opacity: 100,
+    hedclr4_opacity: 100, hedclr5_opacity: 100,
+    heclr6_opacity: 100, heclr7_opacity: 100, heclr8_opacity: 100, heclr9_opacity: 100,
+    heclr10_opacity: 100, heclr11_opacity: 100, heclr12_opacity: 100, heclr13_opacity: 100,
+    hedclr6: '#fca5a5', hedclr7: '#93c5fd', hedclr8: '#86efac', hedclr9: '#d8b4fe',
+    hedclr10: '#fde047', hedclr11: '#fdba74', hedclr12: '#a5b4fc', hedclr13: '#f9a8d4',
+    hedclr6_opacity: 100, hedclr7_opacity: 100, hedclr8_opacity: 100, hedclr9_opacity: 100,
+    hedclr10_opacity: 100, hedclr11_opacity: 100, hedclr12_opacity: 100, hedclr13_opacity: 100,
   },
   features: {
     titulo_seccion: '¿Qué hacemos?',
@@ -128,55 +144,63 @@ const CONFIG: SiteConfigRecord = {
     label_login: 'Acceder',
   },
   theme_colors: {
-    clr1: '#FFFFFF',
-    clr2: '#95a5a6',
-    clr3: '#333333',
-    clr4: '#1d1d1d',
-    clr5: '#2c3e50',
-    clr6: '#3eb34b',
-    clr7: '#cb3327',
-    clr8: '#ffc41d',
-    clr9: '#f8f9fa',
-    clr10: '#e9ecef',
-    clr11: '#2c3e50',
-    clr12: '#cb3327',
-    dclr1: '#121212',
-    dclr2: '#b0b0b0',
-    dclr3: '#1e1e1e',
-    dclr4: '#0a0a0a',
-    dclr5: '#33506f',
-    dclr6: '#33a345',
-    dclr7: '#ef4b3a',
-    dclr8: '#ffcf33',
-    dclr9: '#26262b',
-    dclr10: '#3c3c3c',
-    dclr11: '#33506f',
-    dclr12: '#ef4b3a',
-    clr1_opacity: 100,
-    clr2_opacity: 100,
-    clr3_opacity: 100,
-    clr4_opacity: 100,
-    clr5_opacity: 100,
-    clr6_opacity: 100,
-    clr7_opacity: 100,
-    clr8_opacity: 100,
-    clr9_opacity: 100,
-    clr10_opacity: 100,
-    clr11_opacity: 100,
-    clr12_opacity: 100,
-    dclr1_opacity: 100,
-    dclr2_opacity: 100,
-    dclr3_opacity: 100,
-    dclr4_opacity: 100,
-    dclr5_opacity: 100,
-    dclr6_opacity: 100,
-    dclr7_opacity: 100,
-    dclr8_opacity: 100,
-    dclr9_opacity: 100,
-    dclr10_opacity: 100,
-    dclr11_opacity: 100,
-    dclr12_opacity: 100,
+    clr1: '#FFFFFF', clr2: '#1d1d1d', clr3: '#95a5a6', clr4: '#cb3327',
+    clr5: '#ffc41d', clr6: '#3eb34b', clr7: '#e9ecef', clr8: '#d4d4d8',
+    clr9: '#FFFFFF', clr10: '#cb3327',
+    dclr1: '#121212', dclr2: '#b0b0b0', dclr3: '#8a8a8a', dclr4: '#ef4b3a',
+    dclr5: '#ffcf33', dclr6: '#33a345', dclr7: '#3c3c3c', dclr8: '#2a2a2a',
+    dclr9: '#121212', dclr10: '#ef4b3a',
+    tclr1: '#FFFFFF', tclr2: '#f8f9fa', tclr3: '#2c3e50', tclr4: '#cb3327', tclr5: '#2c3e50', tclr6: '#333333',
+    tdclr1: '#1e1e1e', tdclr2: '#26262b', tdclr3: '#d0d0d0', tdclr4: '#ef4b3a', tdclr5: '#33506f', tdclr6: '#b0b0b0',
+    hclr1: '#cb3327', hclr2: '#ffc41d', hclr3: '#95a5a6', hclr4: '#cb3327', hclr5: '#1d1d1d', hclr6: '#f8f9fa',
+    hclr7: '#cb3327', hclr8: '#333333', hclr9: '#2c3e50', hclr10: '#cb3327',
+    hclr11: '#2c3e50', hclr12: '#cb3327',
+    hdclr1: '#FFFFFF', hdclr2: '#ffcf33', hdclr3: '#8a8a8a', hdclr4: '#ef4b3a', hdclr5: '#ffcf33', hdclr6: '#26262b',
+    hdclr7: '#ffcf33', hdclr8: '#b0b0b0', hdclr9: '#33506f', hdclr10: '#ef4b3a',
+    hdclr11: '#33506f', hdclr12: '#ef4b3a',
+    mclr1: '#FFFFFF', mclr2: '#95a5a6', mclr3: '#2c3e50', mclr4: '#cb3327', mclr5: '#cb3327', mclr6: '#cb3327',
+    mclr7: '#1d1d1d', mclr8: '#cb3327', mclr9: '#1d1d1d',
+    mdclr1: '#33506f', mdclr2: '#ef4b3a', mdclr3: '#b0b0b0', mdclr4: '#ef4b3a', mdclr5: '#ef4b3a', mdclr6: '#ef4b3a',
+    mdclr7: '#b0b0b0', mdclr8: '#ef4b3a', mdclr9: '#ffcf33',
+    // Opacities (todas 100)
+    clr1_opacity: 100, clr2_opacity: 100, clr3_opacity: 100, clr4_opacity: 100,
+    clr5_opacity: 100, clr6_opacity: 100, clr7_opacity: 100, clr8_opacity: 100,
+    clr9_opacity: 100, clr10_opacity: 100,
+    dclr1_opacity: 100, dclr2_opacity: 100, dclr3_opacity: 100, dclr4_opacity: 100,
+    dclr5_opacity: 100, dclr6_opacity: 100, dclr7_opacity: 100, dclr8_opacity: 100,
+    dclr9_opacity: 100, dclr10_opacity: 100,
+    tclr1_opacity: 100, tclr2_opacity: 100, tclr3_opacity: 100, tclr4_opacity: 100, tclr5_opacity: 100, tclr6_opacity: 100,
+    tdclr1_opacity: 100, tdclr2_opacity: 100, tdclr3_opacity: 100, tdclr4_opacity: 100, tdclr5_opacity: 100, tdclr6_opacity: 100,
+    hclr1_opacity: 100, hclr2_opacity: 100, hclr3_opacity: 100, hclr4_opacity: 100, hclr5_opacity: 100, hclr6_opacity: 100,
+    hclr7_opacity: 100, hclr8_opacity: 100, hclr9_opacity: 100, hclr10_opacity: 100,
+    hclr11_opacity: 100, hclr12_opacity: 100,
+    hdclr1_opacity: 100, hdclr2_opacity: 100, hdclr3_opacity: 100, hdclr4_opacity: 100, hdclr5_opacity: 100, hdclr6_opacity: 100,
+    hdclr7_opacity: 100, hdclr8_opacity: 100, hdclr9_opacity: 100, hdclr10_opacity: 100,
+    hdclr11_opacity: 100, hdclr12_opacity: 100,
+    mclr1_opacity: 100, mclr2_opacity: 100, mclr3_opacity: 100, mclr4_opacity: 100, mclr5_opacity: 100, mclr6_opacity: 100,
+    mclr7_opacity: 100, mclr8_opacity: 100, mclr9_opacity: 100,
+    mdclr1_opacity: 100, mdclr2_opacity: 100, mdclr3_opacity: 100, mdclr4_opacity: 100, mdclr5_opacity: 100, mdclr6_opacity: 100,
+    mdclr7_opacity: 100, mdclr8_opacity: 100, mdclr9_opacity: 100,
   },
+  header_colors: {} as any,
+  menu_colors: {} as any,
+  promo_colors: {},
+  slideshow_colors: {},
+  testimonials_colors: {},
+  visit_colors: {},
+  faq_colors: {},
+  secondary_header_colors: {},
+  footer_colors: {},
+  section_visibility: {
+    hero: true,
+    features: true,
+    promo: true,
+    slideshow: true,
+    testimonials: true,
+    visit: true,
+    faq: true,
+  },
+  social_list: { items: [] },
 };
 
 // ---------------------------------------------------------------------------
@@ -211,14 +235,21 @@ describe('ZoneConfigForm rendering', () => {
   it('renders one card per section of the Inicio zone with its field labels and a Guardar button each', () => {
     render(<ZoneConfigForm config={CONFIG} zone={zone('inicio')} />);
 
-    // Inicio keeps its metadata order: Hero → Features → Testimonios → Visítanos → Dirección y Mapa → FAQ
+    // Inicio keeps its metadata order: Hero → Colores del Hero → Features → Colores de Features → Colores del Promo → Colores del Slideshow → Testimonios → Colores de Testimonios → Visítanos → Colores de Visítanos → Dirección y Mapa → FAQ → Colores de FAQ
     expect(screen.getAllByRole('heading', { level: 3 }).map((h) => h.textContent)).toEqual([
       'Hero',
+      'Colores del Hero',
       'Features',
+      'Colores de Features',
+      'Colores del Promo',
+      'Colores del Slideshow',
       'Testimonios',
+      'Colores de Testimonios',
       'Visítanos',
+      'Colores de Visítanos',
       'Dirección y Mapa',
       'FAQ',
+      'Colores de FAQ',
     ]);
 
     // Field labels land inside their own section card
@@ -231,16 +262,16 @@ describe('ZoneConfigForm rendering', () => {
     expect(within(cardOf('Dirección y Mapa')).getByLabelText('Maps Embed URL')).toBeInTheDocument();
     expect(within(cardOf('FAQ')).getByLabelText('Items (JSON array)')).toBeInTheDocument();
 
-    // One Guardar per card — 6 cards
-    expect(screen.getAllByRole('button', { name: 'Guardar' })).toHaveLength(6);
+    // One Guardar per card — 13 cards
+    expect(screen.getAllByRole('button', { name: 'Guardar' })).toHaveLength(13);
   });
 
   it('drives the rendered sections from the zone prop — footer renders 3 cards, global 3 (not hardcoded)', () => {
     const { unmount } = render(<ZoneConfigForm config={CONFIG} zone={zone('footer')} />);
     expect(screen.getAllByRole('heading', { level: 3 }).map((h) => h.textContent)).toEqual([
       'Marca',
-      'Redes',
       'Contacto',
+      'Colores del Footer',
     ]);
     expect(screen.getAllByRole('button', { name: 'Guardar' })).toHaveLength(3);
 
@@ -315,34 +346,6 @@ describe('ZoneConfigForm submit', () => {
     expect(payload).toMatchObject({ frases: ['Una frase', 'Otra frase'], intervalo: 7500 });
     expect(Array.isArray(payload.frases)).toBe(true);
     expect(typeof payload.intervalo).toBe('number');
-  });
-
-  it('Footer→Redes submits when the seed mailto: email is present (whole-card validation accepts it)', async () => {
-    const user = userEvent.setup();
-    render(<ZoneConfigForm config={CONFIG} zone={zone('footer')} />);
-
-    // The card's default email is the seed format "mailto:contacto@nuamana.cl".
-    // Editing ANY field of the card triggers whole-card validation; the mailto:
-    // value must pass (previously it failed with "Email inválido" and
-    // saveSiteConfig was never called).
-    const redes = cardOf('Redes');
-    const youtube = within(redes).getByLabelText('YouTube URL');
-    await user.clear(youtube);
-    await user.type(youtube, 'https://youtube.com/@nuevocanal');
-
-    await user.click(within(redes).getByRole('button', { name: 'Guardar' }));
-
-    await waitFor(() => expect(saveSiteConfigMock).toHaveBeenCalledTimes(1));
-    const [schemaId, payload, token] = saveSiteConfigMock.mock.calls[0] as [
-      string,
-      Record<string, unknown>,
-      string,
-    ];
-    expect(schemaId).toBe('social.footer');
-    expect(token).toBe('token-123');
-    // Only the edited field is submitted (partial card), after the mailto:
-    // email passed validation.
-    expect(payload).toEqual({ youtube: 'https://youtube.com/@nuevocanal' });
   });
 
   it('shows an expired-session error and never calls the action when there is no session', async () => {

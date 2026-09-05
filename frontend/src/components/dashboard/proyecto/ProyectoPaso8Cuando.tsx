@@ -32,22 +32,22 @@ export default function ProyectoPaso8Cuando({
     const days = eachDayOfInterval({ start: startDate, end: endDate })
 
     return (
-      <div className="bg-white dark:bg-zinc-950/20 rounded-3xl p-4 border border-zinc-150 dark:border-white/5 shadow-inner w-full">
+      <div className="bg-clr1 dark:bg-dclr1 rounded-3xl p-4 border border-clr7 dark:border-dclr7 shadow-inner w-full">
         <div className="flex justify-between items-center mb-4">
           <button 
             type="button"
             onClick={() => setCalendarMonth(subMonths(calendarMonth, 1))} 
-            className="w-7 h-7 flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-full transition-colors text-[0.9em] font-bold text-zinc-500 border-none bg-transparent"
+            className="w-7 h-7 flex items-center justify-center hover:bg-clr7 dark:hover:bg-dclr7 rounded-full transition-colors text-[0.9em] font-bold text-clr3 border-none bg-transparent"
           >
             ❮
           </button>
-          <h5 className="font-black uppercase tracking-wider text-[0.8em] text-zinc-700 dark:text-zinc-300 capitalize">
+          <h5 className="font-black uppercase tracking-wider text-[0.8em] text-clr2 dark:text-dclr2 capitalize">
             {format(calendarMonth, 'MMMM yyyy', { locale: es })}
           </h5>
           <button 
             type="button"
             onClick={() => setCalendarMonth(addMonths(calendarMonth, 1))} 
-            className="w-7 h-7 flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-full transition-colors text-[0.9em] font-bold text-zinc-500 border-none bg-transparent"
+            className="w-7 h-7 flex items-center justify-center hover:bg-clr7 dark:hover:bg-dclr7 rounded-full transition-colors text-[0.9em] font-bold text-clr3 border-none bg-transparent"
           >
             ❯
           </button>
@@ -55,7 +55,7 @@ export default function ProyectoPaso8Cuando({
         
         <div className="grid grid-cols-7 gap-1.5 mb-1.5">
           {['Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá', 'Do'].map(d => (
-            <div key={d} className="text-center text-[0.8em] font-black uppercase opacity-40 text-zinc-500">{d}</div>
+            <div key={d} className="text-center text-[0.8em] font-black uppercase opacity-40 text-clr3">{d}</div>
           ))}
         </div>
         
@@ -101,14 +101,14 @@ export default function ProyectoPaso8Cuando({
               const hasOtro = otherProjActs.length > 0
               
               if (hasActual) {
-                bgClass = 'bg-red-500/10 dark:bg-red-500/5'
-                borderClass = 'border-red-500/30 dark:border-red-500/20'
+                bgClass = 'bg-clr4 dark:bg-dclr4'
+                borderClass = 'border-clr4 dark:border-dclr4'
               } else if (hasCiclo) {
-                bgClass = 'bg-green-500/10 dark:bg-green-500/5'
-                borderClass = 'border-green-500/30 dark:border-green-500/20'
+                bgClass = 'bg-clr6 dark:bg-dclr6'
+                borderClass = 'border-clr6 dark:border-dclr6'
               } else if (hasOtro) {
-                bgClass = 'bg-indigo-500/10 dark:bg-indigo-500/5'
-                borderClass = 'border-indigo-500/30 dark:border-indigo-500/20'
+                bgClass = 'bg-clr4 dark:bg-dclr4'
+                borderClass = 'border-clr4 dark:border-dclr4'
               }
             }
             
@@ -116,8 +116,8 @@ export default function ProyectoPaso8Cuando({
               <div 
                 key={day.toString()} 
                 className={`aspect-square flex flex-col items-center justify-center rounded-xl text-[0.8em] relative group transition-all ${
-                  !isCurrentMonth ? 'text-zinc-300 dark:text-zinc-600' : 'font-bold text-zinc-800 dark:text-zinc-200'
-                } ${isToday ? 'bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-white/10' : `border ${borderClass} hover:border-zinc-100 dark:hover:border-white/5`} ${bgClass}`}
+                  !isCurrentMonth ? 'text-clr3 dark:text-dclr3' : 'font-bold text-clr2 dark:text-dclr2'
+                } ${isToday ? 'bg-clr7 dark:bg-dclr7 border border-clr3 dark:border-dclr3' : `border ${borderClass} hover:border-clr7 dark:hover:border-dclr7`} ${bgClass}`}
               >
                 <span>{format(day, 'd')}</span>
                 {allDayItems.length > 0 && (
@@ -132,14 +132,14 @@ export default function ProyectoPaso8Cuando({
                   </div>
                 )}
                 {allDayItems.length > 0 && (
-                  <div className="absolute bottom-full mb-2 hidden group-hover:block w-48 p-2 bg-zinc-950 text-white text-[0.8em] rounded-xl shadow-xl z-[100] animate-in fade-in zoom-in duration-200 pointer-events-none text-left">
-                    <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-zinc-950 rotate-45" />
+                  <div className="absolute bottom-full mb-2 hidden group-hover:block w-48 p-2 bg-clr2 text-clr1 text-[0.8em] rounded-xl shadow-xl z-[100] animate-in fade-in zoom-in duration-200 pointer-events-none text-left">
+                    <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-clr2 rotate-45" />
                     {allDayItems.map((a, idx) => (
                       <div key={idx} className="mb-1.5 last:mb-0 border-l-2 pl-1.5" style={{ borderColor: a.color }}>
                         <span className="text-[0.8em] font-black uppercase tracking-wider block opacity-70">
                           {a.tipoItem === 'actual' ? 'Este Proyecto' : a.tipoItem === 'ciclo' ? 'Ciclo / Acta' : 'Otro Proyecto'}
                         </span>
-                        <strong className="block leading-tight text-white">
+                        <strong className="block leading-tight text-clr1">
                           {a.label}
                         </strong>
                       </div>
@@ -152,17 +152,17 @@ export default function ProyectoPaso8Cuando({
         </div>
 
         {/* Leyenda */}
-        <div className="mt-4 pt-3 border-t border-zinc-150 dark:border-white/5 flex flex-wrap gap-x-4 gap-y-1.5 justify-center text-[0.8em] font-black uppercase tracking-wider text-zinc-500">
+        <div className="mt-4 pt-3 border-t border-clr7 dark:border-dclr7 flex flex-wrap gap-x-4 gap-y-1.5 justify-center text-[0.8em] font-black uppercase tracking-wider text-clr3">
           <div className="flex items-center gap-1.5">
             <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: themePrimary }} />
             <span>Este Proyecto</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <div className="w-2.5 h-2.5 rounded-full bg-green-600" />
+            <div className="w-2.5 h-2.5 rounded-full bg-clr6" />
             <span>Ciclo / Acta Grupal</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <div className="w-2.5 h-2.5 rounded-full bg-indigo-600" />
+            <div className="w-2.5 h-2.5 rounded-full bg-clr4" />
             <span>Otros Proyectos</span>
           </div>
         </div>
@@ -173,8 +173,8 @@ export default function ProyectoPaso8Cuando({
   return (
     <div className="space-y-2">
       <div className="flex items-center gap-1 p-2 opacity-60 rounded-[0.8rem]" style={{ backgroundColor: themePrimary }}>
-        <span className="w-8 h-8 rounded-full flex items-center justify-center text-white text-[0.9em] font-bold" style={{ color: themeSecondary }}>8</span>
-        <h3 className="text-xl font-black uppercase tracking-tight text-zinc-900 dark:text-white" style={{ color: themeSecondary }}>¿Cuándo?</h3>
+        <span className="w-8 h-8 rounded-full flex items-center justify-center text-clr1 text-[0.9em] font-bold" style={{ color: themeSecondary }}>8</span>
+        <h3 className="text-xl font-black uppercase tracking-tight text-clr2 dark:text-dclr2" style={{ color: themeSecondary }}>¿Cuándo?</h3>
       </div>
 
       <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 min-h-[420px] p-1 font-body">
@@ -193,19 +193,19 @@ export default function ProyectoPaso8Cuando({
         </div>
 
         {/* Right Column (Desktop) / Bottom Row (Mobile) */}
-        <div className="w-full space-y-2 bg-zinc-50/30 dark:bg-zinc-900/30 p-1 rounded-[1rem] border border-zinc-150 dark:border-white/5 backdrop-blur-xs shadow-md">
+        <div className="w-full space-y-2 bg-clr7 dark:bg-dclr7 p-1 rounded-[1rem] border border-clr7 dark:border-dclr7 backdrop-blur-xs shadow-md">
           {renderProyectoCalendar()}
 
-          <p className="text-[0.8em] text-zinc-500 font-bold p-1 leading-tight mt-2">
+          <p className="text-[0.8em] text-clr3 font-bold p-1 leading-tight mt-2">
             Calendariza las actividades. Se reflejarán en el calendario de la unidad.
           </p>
 
           <div className="space-y-2 max-h-[300px] overflow-y-auto pr-1">
             {actividades.map((act, index) => (
-              <div key={act.id} className="p-2 bg-white dark:bg-zinc-800 border dark:border-white/10 rounded-xl flex flex-col gap-2">
+              <div key={act.id} className="p-2 bg-clr1 dark:bg-dclr1 border dark:border-clr1 rounded-xl flex flex-col gap-2">
                 <div>
-                  <span className="text-[0.8em] font-black uppercase text-zinc-400">Actividad #{index + 1}</span>
-                  <h5 className="font-bold text-[0.85em] text-zinc-850 dark:text-white uppercase leading-none">{act.nombre || '(Sin Nombre)'}</h5>
+                  <span className="text-[0.8em] font-black uppercase text-clr3">Actividad #{index + 1}</span>
+                  <h5 className="font-bold text-[0.85em] text-clr2 dark:text-dclr2 uppercase leading-none">{act.nombre || '(Sin Nombre)'}</h5>
                 </div>
                 
                 <div className="flex items-center gap-2">
@@ -214,14 +214,14 @@ export default function ProyectoPaso8Cuando({
                     type="date" 
                     value={act.fecha || ''}
                     onChange={e => updateActividad(act.id, 'fecha', e.target.value)}
-                    className="flex-1 p-2 bg-zinc-50 dark:bg-zinc-900 rounded-xl border dark:border-white/10 text-[0.85em] font-bold text-center"
+                    className="flex-1 p-2 bg-clr7 dark:bg-dclr7 rounded-xl border dark:border-clr1 text-[0.85em] font-bold text-center"
                   />
                 </div>
               </div>
             ))}
 
             {actividades.length === 0 && (
-              <p className="text-center py-6 text-zinc-400 font-bold italic text-[0.85em]">Debes agregar actividades en el Paso 7 antes de calendarizar.</p>
+              <p className="text-center py-6 text-clr3 font-bold italic text-[0.85em]">Debes agregar actividades en el Paso 7 antes de calendarizar.</p>
             )}
           </div>
         </div>

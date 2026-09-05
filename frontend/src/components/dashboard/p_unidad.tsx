@@ -37,8 +37,8 @@ export default function DashUnidad({
     <div className="space-y-8 animate-in fade-in duration-500">
       <div className="flex flex-col md:flex-row justify-between items-end border-b pb-6 gap-4 text-[1em]">
         <div>
-          <h2 className="text-2xl font-bold font-display uppercase text-clr5 dark:text-dclr2">Nómina {perfil?.unidades?.nombre}</h2>
-          <p className="text-[0.8em] text-clr7 uppercase font-bold tracking-wider">Total: {miembros.length} Miembros</p>
+          <h2 className="text-2xl font-bold font-display uppercase text-clr4 dark:text-dclr4">Nómina {perfil?.unidades?.nombre}</h2>
+          <p className="text-[0.8em] text-clr4 uppercase font-bold tracking-wider">Total: {miembros.length} Miembros</p>
         </div>
         
         {/* CONTROL DE SALIDAS */}
@@ -47,7 +47,7 @@ export default function DashUnidad({
           <select 
             value={selectedActId} 
             onChange={(e) => setSelectedActId(e.target.value)}
-            className="p-2 bg-zinc-100 dark:bg-dclr1 border rounded-xl text-[0.8em] font-bold uppercase outline-none"
+            className="p-2 bg-clr7 dark:bg-dclr7 border rounded-xl text-[0.8em] font-bold uppercase outline-none"
           >
             <option value="">-- Seleccionar Actividad --</option>
             {actividades.map(act => (
@@ -58,13 +58,13 @@ export default function DashUnidad({
       </div>
 
       {selectedActId && (
-        <div className="bg-clr6/5 p-4 rounded-3xl border border-clr6/20 flex justify-between items-center">
+        <div className="bg-clr6 p-4 rounded-3xl border border-clr6 flex justify-between items-center">
           <p className="text-[0.8em] font-black uppercase text-clr6">
             Estado de Firmas: {idsFirmados.size} de {miembros.length} completadas
           </p>
           <div className="flex gap-2">
-             <div className="flex items-center gap-1"><div className="w-3 h-3 bg-green-500 rounded-full"></div><span className="text-[0.8em] font-bold opacity-60">FIRMADO</span></div>
-             <div className="flex items-center gap-1"><div className="w-3 h-3 bg-red-500 rounded-full"></div><span className="text-[0.8em] font-bold opacity-60">PENDIENTE</span></div>
+             <div className="flex items-center gap-1"><div className="w-3 h-3 bg-clr6 rounded-full"></div><span className="text-[0.8em] font-bold opacity-60">FIRMADO</span></div>
+             <div className="flex items-center gap-1"><div className="w-3 h-3 bg-clr4 rounded-full"></div><span className="text-[0.8em] font-bold opacity-60">PENDIENTE</span></div>
           </div>
         </div>
       )}
@@ -75,27 +75,27 @@ export default function DashUnidad({
           const authRecord = authsDeActividad.find(a => a.perfil_id === m.id)
 
           return (
-            <div key={m.id} className="p-2 bg-zinc-50 dark:bg-black/20 rounded-[1rem] border border-transparent hover:border-clr7/20 transition-all relative overflow-hidden group shadow-sm hover:shadow-md">
+            <div key={m.id} className="p-2 bg-clr7 dark:bg-dclr7 rounded-[1rem] border border-transparent hover:border-clr4 transition-all relative overflow-hidden group shadow-sm hover:shadow-md">
               {m.alergias && (
-                <div className="absolute top-0 right-0 bg-red-500 text-white text-[0.8em] font-bold px-3 py-1 uppercase rounded-bl-xl tracking-tighter shadow-md">⚠️ Salud</div>
+                <div className="absolute top-0 right-0 bg-clr4 text-clr1 text-[0.8em] font-bold px-3 py-1 uppercase rounded-bl-xl tracking-tighter shadow-md">⚠️ Salud</div>
               )}
               
               {selectedActId && (
-                <div className={`absolute top-0 left-0 w-2 h-full ${yaFirmo ? 'bg-green-500' : 'bg-red-500'}`} title={yaFirmo ? 'Autorizado' : 'Pendiente'}></div>
+                <div className={`absolute top-0 left-0 w-2 h-full ${yaFirmo ? 'bg-clr6' : 'bg-clr4'}`} title={yaFirmo ? 'Autorizado' : 'Pendiente'}></div>
               )}
 
-              <p className="font-bold text-clr5 dark:text-dclr2 uppercase text-[0.9em] mb-1">{m.nombres} {m.apellidos}</p>
+              <p className="font-bold text-clr4 dark:text-dclr4 uppercase text-[0.9em] mb-1">{m.nombres} {m.apellidos}</p>
               <span className={`px-2 py-0.5 rounded-full text-[0.7em] font-bold uppercase ${
-                m.estado === 'activo' ? 'bg-green-100 text-green-700' :
-                m.estado === 'inactivo' ? 'bg-red-100 text-red-700' :
-                'bg-orange-100 text-orange-700'
+                m.estado === 'activo' ? 'bg-clr6 text-clr6' :
+                m.estado === 'inactivo' ? 'bg-clr4 text-clr4' :
+                'bg-clr5 text-clr5'
               }`}>{m.estado}</span>
               <div className="flex justify-between items-center mb-4">
-                <p className="text-[0.8em] font-bold text-clr7 uppercase tracking-wider opacity-60">{m.roles?.name}</p>
+                <p className="text-[0.8em] font-bold text-clr4 uppercase tracking-wider opacity-60">{m.roles?.name}</p>
                 {yaFirmo && (
                   <button 
                     onClick={() => onVerAutorizacion(authRecord!, m)}
-                    className="text-[0.8em] font-black text-green-600 hover:underline uppercase"
+                    className="text-[0.8em] font-black text-clr6 hover:underline uppercase"
                   >
                     Ver Autorización 📋
                   </button>
@@ -124,13 +124,13 @@ export default function DashUnidad({
               <div className="flex gap-2">
                 <button 
                   onClick={() => onVerFicha(m)}
-                  className="flex-1 py-3 bg-white dark:bg-dclr1 text-clr2 font-bold uppercase text-[0.8em] rounded-xl shadow-sm border border-zinc-100 dark:border-zinc-800 hover:bg-zinc-100 transition-all tracking-widest"
+                  className="flex-1 py-3 bg-clr1 dark:bg-dclr1 text-clr3 font-bold uppercase text-[0.8em] rounded-xl shadow-sm border border-clr7 dark:border-dclr7 hover:bg-clr7 transition-all tracking-widest"
                 >
                   🔍 Ver Ficha
                 </button>
                 <button 
                   onClick={() => onEdit(m)}
-                  className="flex-1 py-2 bg-clr6 text-white font-bold uppercase text-[0.8em] rounded-xl shadow-sm hover:brightness-110 transition-all tracking-widest"
+                  className="flex-1 py-2 bg-clr6 text-clr1 font-bold uppercase text-[0.8em] rounded-xl shadow-sm hover:brightness-110 transition-all tracking-widest"
                 >
                   ✏️ Editar
                 </button>

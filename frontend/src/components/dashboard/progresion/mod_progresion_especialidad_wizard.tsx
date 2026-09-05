@@ -103,20 +103,20 @@ export default function DashmodProgresionEspecialidadWizard({
   }
 
   return (
-    <div className="fixed inset-0 bg-black/75 backdrop-blur-md z-[150] flex items-center justify-center p-1 overflow-y-auto">
-      <div className="bg-white dark:bg-zinc-900 w-full max-w-2xl rounded-[1rem] p-2 shadow-2xl border-2 border-zinc-150 dark:border-white/5 space-y-6 max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 bg-clr2 backdrop-blur-md z-[150] flex items-center justify-center p-1 overflow-y-auto">
+      <div className="bg-clr1 dark:bg-dclr1 w-full max-w-2xl rounded-[1rem] p-2 shadow-2xl border-2 border-clr7 dark:border-dclr7 space-y-6 max-h-[90vh] overflow-y-auto">
         
         {/* Header */}
-        <div className="flex justify-between items-center border-b pb-4 border-zinc-100 dark:border-zinc-800">
+        <div className="flex justify-between items-center border-b pb-4 border-clr7 dark:border-dclr7">
           <div>
-            <span className="text-[0.8em] font-extrabold uppercase tracking-widest text-zinc-400">Fase 1: Exploración • Paso {wizardStep} de 2</span>
-            <h3 className="text-xl font-bold uppercase tracking-tight text-zinc-900 dark:text-white mt-1">
+            <span className="text-[0.8em] font-extrabold uppercase tracking-widest text-clr3">Fase 1: Exploración • Paso {wizardStep} de 2</span>
+            <h3 className="text-xl font-bold uppercase tracking-tight text-clr2 dark:text-dclr2 mt-1">
               🎖️ Postulación de Especialidad
             </h3>
           </div>
           <button 
             onClick={onClose}
-            className="text-zinc-400 hover:text-zinc-650 dark:hover:text-zinc-300 text-2xl font-bold p-1"
+            className="text-clr3 hover:text-clr2 dark:hover:text-dclr2 text-2xl font-bold p-1"
           >
             ✕
           </button>
@@ -126,7 +126,7 @@ export default function DashmodProgresionEspecialidadWizard({
         {wizardStep === 1 && (
           <div className="space-y-5">
             <div className="space-y-2">
-              <label className="text-[1em] font-bold uppercase tracking-wider text-zinc-400 block">1. Selecciona el Campo de Interés</label>
+              <label className="text-[1em] font-bold uppercase tracking-wider text-clr3 block">1. Selecciona el Campo de Interés</label>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                 {[
                   { id: 'arte_expresion', label: 'Arte y Cultura' },
@@ -163,14 +163,14 @@ export default function DashmodProgresionEspecialidadWizard({
             </div>
 
             <div className="space-y-2">
-              <label className="text-[1em] font-bold uppercase tracking-wider text-zinc-400 block">2. Selecciona del Catálogo o Propón una Especialidad</label>
+              <label className="text-[1em] font-bold uppercase tracking-wider text-clr3 block">2. Selecciona del Catálogo o Propón una Especialidad</label>
               <select
                 value={wSelectedDefId}
                 onChange={e => {
                   setWSelectedDefId(e.target.value);
                   if (e.target.value) setWCustomName('');
                 }}
-                className="w-full p-2 rounded-2xl border dark:border-white/10 bg-zinc-50 dark:bg-zinc-800 text-[0.9em] font-bold"
+                className="w-full p-2 rounded-2xl border dark:border-clr1 bg-clr7 dark:bg-dclr7 text-[0.9em] font-bold"
               >
                 <option value="">-- Proponer Especialidad Personalizada (Escribe abajo) --</option>
                 {fieldDefs.map(d => (
@@ -181,20 +181,20 @@ export default function DashmodProgresionEspecialidadWizard({
 
             {!wSelectedDefId && (
               <div className="space-y-1 animate-in slide-in-from-top-2 duration-200">
-                <label className="text-[0.8em] font-bold uppercase tracking-wider text-zinc-400 block ml-1">Nombre de la Especialidad Personalizada</label>
+                <label className="text-[0.8em] font-bold uppercase tracking-wider text-clr3 block ml-1">Nombre de la Especialidad Personalizada</label>
                 <DebouncedInput 
                   type="text"
                   value={wCustomName}
                   onChange={val => setWCustomName(val)}
                   placeholder="Ej: Apicultura, Astronomía Avanzada, Malabarismo..."
-                  className="w-full p-4 rounded-2xl border dark:border-white/10 bg-zinc-50 dark:bg-zinc-800 text-[0.9em] font-bold"
+                  className="w-full p-4 rounded-2xl border dark:border-clr1 bg-clr7 dark:bg-dclr7 text-[0.9em] font-bold"
                 />
               </div>
             )}
 
             {/* Muestra Insignia */}
             {defName && (
-              <div className="flex items-center gap-4 p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-800/40 border border-zinc-150 dark:border-white/5">
+              <div className="flex items-center gap-4 p-4 rounded-2xl bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7">
                 <img
                   src={getSpecialtyInsigniaPath(defName)}
                   alt={defName}
@@ -204,8 +204,8 @@ export default function DashmodProgresionEspecialidadWizard({
                   className="w-16 h-16 object-contain"
                 />
                 <div>
-                  <span className="text-[0.8em] font-bold text-zinc-400 block">Previsualización de Insignia</span>
-                  <span className="text-[1.1em] font-bold text-zinc-800 dark:text-zinc-200">{defName}</span>
+                  <span className="text-[0.8em] font-bold text-clr3 block">Previsualización de Insignia</span>
+                  <span className="text-[1.1em] font-bold text-clr2 dark:text-dclr2">{defName}</span>
                 </div>
               </div>
             )}
@@ -219,7 +219,7 @@ export default function DashmodProgresionEspecialidadWizard({
                   }
                   setWizardStep(2);
                 }}
-                className="px-6 py-3 text-[0.9em] font-bold uppercase tracking-wider text-white rounded-2xl shadow-xl hover:brightness-110"
+                className="px-6 py-3 text-[0.9em] font-bold uppercase tracking-wider text-clr1 rounded-2xl shadow-xl hover:brightness-110"
                 style={{ backgroundColor: getFieldColor(wSelectedField) }}
               >
                 Siguiente →
@@ -232,37 +232,37 @@ export default function DashmodProgresionEspecialidadWizard({
         {wizardStep === 2 && (
           <div className="space-y-5">
             <div className="space-y-1">
-              <label className="text-[0.8em] font-bold uppercase tracking-wider text-zinc-400 block ml-1">
+              <label className="text-[0.8em] font-bold uppercase tracking-wider text-clr3 block ml-1">
                 Exploración de la especialidad
               </label>
-              <p className="text-[0.85em] text-zinc-500 mb-2">
+              <p className="text-[0.85em] text-clr3 mb-2">
                 Explica qué significa para ti esta especialidad, en qué consiste, si tienes algún conocimiento previo o por qué te llama la atención realizarla.
               </p>
               <DebouncedTextarea 
                 value={wDiagnostico}
                 onChange={val => setWDiagnostico(val)}
                 placeholder="Escribe aquí tu exploración..."
-                className="w-full p-4 rounded-2xl border dark:border-white/10 bg-zinc-50 dark:bg-zinc-800 text-[0.9em] font-medium h-40 text-zinc-800 dark:text-zinc-200"
+                className="w-full p-4 rounded-2xl border dark:border-clr1 bg-clr7 dark:bg-dclr7 text-[0.9em] font-medium h-40 text-clr2 dark:text-dclr2"
               />
             </div>
 
             <div className="flex flex-col md:flex-row gap-4 pt-4">
               <button
                 onClick={() => setWizardStep(1)}
-                className="px-6 py-3 text-[0.9em] font-bold uppercase tracking-wider text-zinc-500 hover:text-zinc-700 bg-zinc-100 dark:bg-zinc-800 rounded-2xl"
+                className="px-6 py-3 text-[0.9em] font-bold uppercase tracking-wider text-clr3 hover:text-clr2 bg-clr7 dark:bg-dclr7 rounded-2xl"
               >
                 ← Atrás
               </button>
               <div className="flex-1 flex flex-col md:flex-row gap-3 justify-end">
                 <button
                   onClick={() => handleSave('exploracion')}
-                  className="px-6 py-3 text-[0.9em] font-bold uppercase tracking-wider text-zinc-700 dark:text-zinc-200 bg-zinc-150 dark:bg-zinc-850 hover:brightness-110 rounded-2xl"
+                  className="px-6 py-3 text-[0.9em] font-bold uppercase tracking-wider text-clr2 dark:text-dclr2 bg-clr7 dark:bg-dclr7 hover:brightness-110 rounded-2xl"
                 >
                   Guardar para más adelante 📂
                 </button>
                 <button
                   onClick={() => handleSave('planificacion')}
-                  className="px-6 py-3 text-[0.9em] font-bold uppercase tracking-wider text-white rounded-2xl shadow-xl hover:brightness-110"
+                  className="px-6 py-3 text-[0.9em] font-bold uppercase tracking-wider text-clr1 rounded-2xl shadow-xl hover:brightness-110"
                   style={{ backgroundColor: getFieldColor(wSelectedField) }}
                 >
                   Avanzar a Planificación 🚀

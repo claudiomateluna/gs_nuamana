@@ -288,27 +288,27 @@ export default function DashModAutorizacionWizard({ isOpen, onClose, perfil, act
   }
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm">
-      <div className="w-full max-w-3xl bg-white dark:bg-dclr5 rounded-[1em] shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
-        <div className="p-3 bg-clr7 text-white flex justify-between items-center">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-clr2 backdrop-blur-sm">
+      <div className="w-full max-w-3xl bg-clr1 dark:bg-dclr1 rounded-[1em] shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+        <div className="p-3 bg-clr4 text-clr1 flex justify-between items-center">
           <div>
             <h2 className="text-[1.5em] font-bold uppercase">Autorización</h2>
             <p className="text-[0.9em] opacity-80 uppercase">Paso {step === 0 ? 'Inicial' : step} de 18 • {actividadSelected?.nombre || 'Seleccione Actividad'}</p>
           </div>
-          <button onClick={onClose} className="text-white/50 hover:text-white font-bold text-2xl pr-2">×</button>
+          <button onClick={onClose} className="text-clr1 hover:text-clr1 font-bold text-2xl pr-2">×</button>
         </div>
 
         <div className="flex-1 overflow-y-auto custom-scrollbar overflow-x-hidden">
           {renderStep()}
         </div>
 
-        <div className="p-4 bg-zinc-50 dark:bg-black/20 border-t border-zinc-100 dark:border-dclr10 flex justify-between items-center">
-          <button onClick={handleBack} disabled={step === 0 || saving} className={`px-2 py-2 font-black uppercase text-[1em] tracking-widest transition-all ${step === 0 ? 'opacity-0' : 'text-clr2 hover:text-clr7'}`}>← Atrás</button>
+        <div className="p-4 bg-clr7 dark:bg-dclr7 border-t border-clr7 dark:border-dclr7 flex justify-between items-center">
+          <button onClick={handleBack} disabled={step === 0 || saving} className={`px-2 py-2 font-black uppercase text-[1em] tracking-widest transition-all ${step === 0 ? 'opacity-0' : 'text-clr3 hover:text-clr4'}`}>← Atrás</button>
           
           {step > 0 && (
             <div className="flex gap-1.5">
               {[...Array(18)].map((_, i) => (
-                <div key={i} className={`h-1 w-2.5 rounded-full transition-all ${step === i + 1 ? 'bg-clr7 w-5' : 'bg-zinc-200 dark:bg-dclr1'}`} />
+                <div key={i} className={`h-1 w-2.5 rounded-full transition-all ${step === i + 1 ? 'bg-clr4 w-5' : 'bg-clr7 dark:bg-dclr1'}`} />
               ))}
             </div>
           )}
@@ -317,12 +317,12 @@ export default function DashModAutorizacionWizard({ isOpen, onClose, perfil, act
             <button 
               onClick={handleNext} 
               disabled={!canAdvance}
-              className={`p-2 bg-clr7 text-white font-black uppercase rounded-xl shadow-lg text-[1em] tracking-widest ${!canAdvance ? 'opacity-50 cursor-not-allowed' : 'hover:brightness-110 active:scale-95'}`}
+              className={`p-2 bg-clr4 text-clr1 font-black uppercase rounded-xl shadow-lg text-[1em] tracking-widest ${!canAdvance ? 'opacity-50 cursor-not-allowed' : 'hover:brightness-110 active:scale-95'}`}
             >
               Siguiente →
             </button>
           ) : (
-            <button onClick={handleFinalSave} disabled={saving || !formData.firma} className="p-2 bg-green-600 text-white font-black uppercase rounded-xl shadow-lg text-[1em] tracking-widest">✍️ FINALIZAR</button>
+            <button onClick={handleFinalSave} disabled={saving || !formData.firma} className="p-2 bg-clr6 text-clr1 font-black uppercase rounded-xl shadow-lg text-[1em] tracking-widest">✍️ FINALIZAR</button>
           )}
         </div>
       </div>

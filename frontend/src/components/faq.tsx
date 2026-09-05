@@ -45,21 +45,21 @@ const FAQItem = ({ question, answer, isOpen, toggleOpen, image }: {
   image: string;
 }) => {
   return (
-    <div className="border border-clr10 dark:border-dclr10 rounded-3xl overflow-hidden mb-4 shadow-md bg-white dark:bg-zinc-900 transition-all hover:shadow-xl">
+    <div className="border border-fclr7 dark:border-fdclr7 rounded-3xl overflow-hidden mb-4 shadow-md bg-fclr4 dark:bg-fdclr4 transition-all hover:shadow-xl">
       <button
-        className="w-full flex justify-between items-center p-6 text-left hover:bg-zinc-50 dark:hover:bg-dclr5/10 transition-colors group"
+        className="w-full flex justify-between items-center p-6 text-left hover:bg-fclr3 dark:hover:bg-fdclr3 transition-colors group"
         onClick={toggleOpen}
         aria-expanded={isOpen}
       >
-        <h3 className="text-lg font-black font-display text-clr5 dark:text-dclr2 group-hover:text-clr7 transition-colors uppercase tracking-tight">{question}</h3>
-        <div className={`p-2 rounded-full transition-all duration-500 ${isOpen ? 'bg-clr7 text-white rotate-180' : 'bg-clr10 dark:bg-dclr1 text-clr7'}`}>
+        <h3 className="text-lg font-black font-display text-fclr8 dark:text-fdclr8 group-hover:text-fclr8 transition-colors uppercase tracking-tight">{question}</h3>
+        <div className={`p-2 rounded-full transition-all duration-500 ${isOpen ? 'bg-fclr8 text-fclr4 dark:bg-fdclr8 dark:text-fdclr4 rotate-180' : 'bg-fclr1 dark:bg-fdclr4 text-fclr5'}`}>
           <IconoChevronDown className="h-5 w-5" />
         </div>
       </button>
       {isOpen && (
         <div className="p-8 pt-0 animate-in fade-in slide-in-from-top-4 duration-500">
-          <div className="flex flex-col md:flex-row gap-8 items-center border-t border-clr10 dark:border-dclr10 pt-8">
-            <div className="shrink-0 w-48 h-48 overflow-hidden rounded-[2.5rem] shadow-2xl border-4 border-white dark:border-dclr10">
+          <div className="flex flex-col md:flex-row gap-8 items-center border-t border-fclr7 dark:border-fdclr7 pt-8">
+            <div className="shrink-0 w-48 h-48 overflow-hidden rounded-[2.5rem] shadow-2xl border-4 border-fclr4 dark:border-fdclr4">
               <img
                 src={image}
                 alt={question}
@@ -67,7 +67,7 @@ const FAQItem = ({ question, answer, isOpen, toggleOpen, image }: {
               />
             </div>
             <div
-              className="text-clr4/80 dark:text-dclr2 flex-grow font-body text-base leading-relaxed"
+              className="text-fclr6 dark:text-fdclr6 flex-grow font-body text-base leading-relaxed"
               dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(answer) }}
             />
           </div>
@@ -89,13 +89,13 @@ const FAQ = () => {
   };
 
   return (
-    <section className="py-24 bg-zinc-50 dark:bg-black transition-colors">
+    <section className="py-24 bg-fclr1 dark:bg-fdclr1 transition-colors">
       <div className="max-w-[1080px] mx-auto px-6">
         <div className="text-center mb-16 space-y-4">
-          <h2 className="text-4xl md:text-6xl font-black font-display text-clr5 dark:text-dclr8 uppercase tracking-tighter">
+          <h2 className="text-4xl md:text-6xl font-black font-display text-fclr2 dark:text-fdclr2 uppercase tracking-tighter">
             {tituloSeccion}
           </h2>
-          <p className="text-xl text-clr2 font-body font-bold italic">
+          <p className="text-xl text-fclr3 dark:text-fdclr3 font-body font-bold italic">
             {subtitulo}
           </p>
         </div>

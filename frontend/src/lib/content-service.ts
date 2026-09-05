@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { supabase } from './supabase';
 
 export interface ContentMetadata {
   title?: string;
@@ -11,6 +12,7 @@ export interface ContentMetadata {
 export interface ContentFile {
   content: string;
   metadata: ContentMetadata;
+  format?: 'markdown' | 'html';
 }
 
 export interface ContentItem {
@@ -20,7 +22,36 @@ export interface ContentItem {
 
 const CONTENT_DIR = path.join(process.cwd(), 'content');
 
+/**
+ * Read a single content page.
+ * Tries DB first; falls back to filesystem if no DB row exists.
+ */
 export async function readContentFile(folder: string, slug: string): Promise<ContentFile> {
+  // --- DB first ---
+  try {
+    const { data, error } = await supabase
+      .from('paginas_contenido')
+      .select('contenido, titulo, descripcion, imagen, formato')
+      .eq('categoria', folder)
+      .eq('slug', slug)
+      .single();
+
+    if (!error && data) {
+      return {
+        content: data.contenido || '',
+        metadata: {
+          title: data.titulo,
+          description: data.descripcion,
+          image: data.imagen,
+        },
+        format: data.formato || 'markdown',
+      };
+    }
+  } catch {
+    // DB not available or table doesn't exist — fall through
+  }
+
+  // --- Filesystem fallback ---
   const filePath = path.join(CONTENT_DIR, folder, `${slug}.md`);
   const resolved = path.resolve(filePath);
   if (!resolved.startsWith(path.resolve(CONTENT_DIR))) {
@@ -42,7 +73,36 @@ export async function readContentFile(folder: string, slug: string): Promise<Con
   }
 }
 
+/**
+ * List all content pages for a category (for card grids).
+ * Tries DB first; falls back to filesystem.
+ */
 export async function getAllContentMetadata(folder: string): Promise<ContentItem[]> {
+  // --- DB first ---
+  try {
+    const { data, error } = await supabase
+      .from('paginas_contenido')
+      .select('slug, titulo, descripcion, imagen')
+      .eq('categoria', folder)
+      .eq('visible', true)
+      .neq('es_padre', true)
+      .order('orden');
+
+    if (!error && data && data.length > 0) {
+      return data.map(row => ({
+        slug: row.slug,
+        metadata: {
+          title: row.titulo,
+          description: row.descripcion,
+          image: row.imagen,
+        },
+      }));
+    }
+  } catch {
+    // DB not available — fall through
+  }
+
+  // --- Filesystem fallback ---
   const folderPath = path.join(CONTENT_DIR, folder);
   try {
     const fileNames = fs.readdirSync(folderPath);
@@ -50,6 +110,8 @@ export async function getAllContentMetadata(folder: string): Promise<ContentItem
     for (const fileName of fileNames) {
       if (path.extname(fileName) === '.md') {
         const slug = path.parse(fileName).name;
+        // Skip parent pages from listing
+        if (slug === folder) continue;
         try {
           const fileContents = fs.readFileSync(path.join(folderPath, fileName), 'utf8');
           let metadata: ContentMetadata = {};
@@ -59,13 +121,13 @@ export async function getAllContentMetadata(folder: string): Promise<ContentItem
             metadata = parseFrontmatter(frontmatterMatch[1]);
           }
           contentItems.push({ slug, metadata });
-        } catch (error) {
+        } catch {
           contentItems.push({ slug, metadata: {} });
         }
       }
     }
     return contentItems;
-  } catch (error) {
+  } catch {
     return [];
   }
 }

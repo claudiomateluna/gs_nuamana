@@ -13,6 +13,16 @@ import {
 import UnitSlideShow from './unit-slideshow';
 import { useSiteConfigSafe } from '@/contexts/site-config-context';
 
+const SOCIAL_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+  instagram: IconoRRSSInstagram,
+  facebook: IconoRRSSFacebook,
+  whatsapp: IconoRRSSWhatsApp,
+  youtube: IconoRRSSYoutube,
+  tiktok: IconoRRSSTiktok,
+  google: IconoRRSSGoogle,
+  email: IconoRRSSEmail,
+};
+
 const FALLBACK = {
   logo_footer: '/images/logos/Iconos-logo.svg',
   nombre_grupo: 'Guías y Scouts Nua Mana',
@@ -31,7 +41,7 @@ const FALLBACK = {
   ] as const,
   sede_nombre: 'Sede San José',
   direccion: 'San José de la Estrella 1004<br/>La Granja, Santiago, Chile',
-  maps_embed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3324.382796811922!2d-70.6096195!3d-33.569409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d0a6e457520d%3A0xc3892aa7fa7d74b!2sGuias%20y%20Scouts%20Nua%20Mana!5e0!3m2!1ses!2scl!4v1763171854990!5m2!1ses!2scl',
+  maps_embed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3324.382796811922!2d-70.6096195!3d-33.569409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d0a6e457520d%3A0xc3892aa7fa7d74b!2sGuias%20y%20Scouts%20Nua%20Mana!5e0%3m2!1ses!2scl!4v1763171854990!5m2!1ses!2scl',
 };
 
 const NuaManaFooter = () => {
@@ -46,20 +56,19 @@ const NuaManaFooter = () => {
   const direccion = config?.contact.direccion ?? FALLBACK.direccion;
   const mapsEmbed = config?.contact.maps_embed ?? FALLBACK.maps_embed;
 
-  const socialLinks = [
-    config?.social.instagram && { href: config.social.instagram, icon: IconoRRSSInstagram },
-    config?.social.facebook && { href: config.social.facebook, icon: IconoRRSSFacebook },
-    config?.social.youtube && { href: config.social.youtube, icon: IconoRRSSYoutube },
-    config?.social.tiktok && { href: config.social.tiktok, icon: IconoRRSSTiktok },
-    config?.social.google && { href: config.social.google, icon: IconoRRSSGoogle },
-    config?.social.email && { href: config.social.email, icon: IconoRRSSEmail },
-    config?.social.whatsapp && { href: config.social.whatsapp, icon: IconoRRSSWhatsApp },
-  ].filter(Boolean) as { href: string; icon: React.ComponentType<{ className?: string }> }[];
+  const socialLinks = (config?.social_list?.items ?? [])
+    .filter(item => item.enabled && (item.placement || '').split(',').includes('footer'))
+    .sort((a, b) => a.order - b.order)
+    .map(item => ({
+      href: item.url,
+      icon: SOCIAL_ICONS[item.icon],
+    }))
+    .filter(item => item.icon) as { href: string; icon: React.ComponentType<{ className?: string }> }[];
 
   const direccionLines = direccion.split(/<br\s*\/?>/i);
 
   return (
-    <footer className="bg-gradient-to-br from-white/30 via-clr5/20 to-clr7/40 dark:from-dclr1 dark:via-dclr5 dark:to-dclr7/20 text-clr5 dark:text-dclr2 py-16 px-6">
+    <footer className="bg-gradient-to-br from-foclr1 via-foclr2 to-foclr3 dark:from-fodclr1 dark:via-fodclr2 dark:to-fodclr3 text-foclr4 dark:text-fodclr4 py-16 px-6">
       <div className="max-w-[1080px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
           
@@ -73,15 +82,15 @@ const NuaManaFooter = () => {
               />
             </div>
             <div className="text-center md:text-left">
-              <h4 className="text-xl text-center font-black uppercase font-(--inika) leading-none text-clr5 dark:text-dclr2">{nombreGrupo}</h4>
-              <h5 className="text-lg text-center italic font-body text-clr7 dark:text-dclr8 font-bold mt-1">{slogan}</h5>
+              <h4 className="text-xl text-center font-black uppercase font-(--inika) leading-none text-foclr4 dark:text-fodclr4">{nombreGrupo}</h4>
+              <h5 className="text-lg text-center italic font-body text-foclr5 dark:text-fodclr5 font-bold mt-1">{slogan}</h5>
             </div>
-            <p className="text-sm text-clr4/70 dark:text-dclr2 text-justify leading-relaxed font-body">
+            <p className="text-sm text-foclr6 dark:text-fodclr6 text-justify leading-relaxed font-body">
               {mision}
             </p>
             <div className="flex flex-wrap gap-3 justify-center md:justify-cenmter pt-4">
               {socialLinks.map((social, idx) => (
-                <a key={idx} href={social.href} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-clr5 dark:bg-dclr1 text-white rounded-full hover:bg-clr7 hover:scale-110 transition-all shadow-md">
+                <a key={idx} href={social.href} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-foclr7 dark:bg-fodclr7 text-foclr8 dark:text-fodclr8 rounded-full hover:bg-foclr7 hover:scale-110 transition-all shadow-md">
                   <social.icon className="w-5 h-5" />
                 </a>
               ))}
@@ -90,14 +99,14 @@ const NuaManaFooter = () => {
 
           {/* Contact Section */}
           <div className="space-y-6 text-center md:text-left">
-            <h4 className="text-lg font-black uppercase font-display tracking-widest text-clr7">Encuéntranos</h4>
+            <h4 className="text-lg font-black uppercase font-display tracking-widest text-foclr9 dark:text-fodclr9">Encuéntranos</h4>
             <div className="flex flex-col sm:flex-row items-center md:items-start">
               <div className="shrink-0">
                 <Link href="#">
                 </Link>
               </div>
               <div className="text-center sm:text-left">
-                <Link href="#" className="block text-clr5 dark:text-dclr8 font-black font-display uppercase text-sm hover:text-clr7 transition-colors">
+                <Link href="#" className="block text-foclr4 dark:text-fodclr5 font-black font-display uppercase text-sm hover:text-foclr9 dark:hover:text-fodclr9 transition-colors">
                   {sedeNombre}
                 </Link>
                 <p className="text-sm font-body mt-1 leading-relaxed">
@@ -125,18 +134,18 @@ const NuaManaFooter = () => {
 
           {/* Units Section */}
           <div className="hidden lg:block space-y-6">
-            <h4 className="text-lg font-black uppercase font-display tracking-widest text-clr7 text-center">Nuestras Unidades</h4>
+            <h4 className="text-lg font-black uppercase font-display tracking-widest text-foclr9 dark:text-fodclr9 text-center">Nuestras Unidades</h4>
             <div className="p-1">
               <UnitSlideShow />
             </div>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-clr5/10 text-center space-y-2">
-          <p className="text-xs font-black uppercase tracking-[0.2em] text-clr5 dark:text-dclr2">
+        <div className="pt-8 border-t border-foclr10 dark:border-fodclr10 text-center space-y-2">
+          <p className="text-xs font-black uppercase tracking-[0.2em] text-foclr4 dark:text-fodclr4">
             🅮 {new Date().getFullYear()} {copyright}
           </p>
-          <p className="text-[0.8em] font-body dark:text-dclr8 uppercase tracking-widest">
+          <p className="text-[0.8em] font-body dark:text-fodclr5 uppercase tracking-widest">
             {motto}
           </p>
         </div>

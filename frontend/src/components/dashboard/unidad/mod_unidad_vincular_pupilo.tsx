@@ -76,20 +76,20 @@ export default function DashModVincularPupilo({ isOpen, onClose, perfil, onSucce
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[110] flex items-center justify-center p-6 animate-in fade-in duration-300">
-      <div className="bg-white dark:bg-dclr5 w-full max-w-md rounded-[2rem] p-4 shadow-2xl">
+    <div className="fixed inset-0 bg-clr2 backdrop-blur-sm z-[110] flex items-center justify-center p-6 animate-in fade-in duration-300">
+      <div className="bg-clr1 dark:bg-dclr1 w-full max-w-md rounded-[2rem] p-4 shadow-2xl">
         <div className="flex justify-between items-center mb-8 border-b pb-4">
-          <h2 className="text-2xl font-black font-display uppercase text-clr7 tracking-tighter">Vincular Pupilo Existente</h2>
-          <button onClick={onClose} className="text-clr2 hover:text-clr7 transition-colors font-bold text-xl">✕</button>
+          <h2 className="text-2xl font-black font-display uppercase text-clr4 tracking-tighter">Vincular Pupilo Existente</h2>
+          <button onClick={onClose} className="text-clr3 hover:text-clr4 transition-colors font-bold text-xl">✕</button>
         </div>
 
         <div className="space-y-6">
           <div className="space-y-2">
-            <label className="text-[1em] font-black uppercase text-clr2 tracking-widest ml-4">Buscar por Nombre o RUT</label>
+            <label className="text-[1em] font-black uppercase text-clr3 tracking-widest ml-4">Buscar por Nombre o RUT</label>
             <input 
               type="text" 
               placeholder="Ej: Juan Perez o 12.345.678-9"
-              className="w-full p-4 rounded-2xl border bg-zinc-50 dark:bg-black/20 font-bold outline-none focus:border-clr7 transition-all"
+              className="w-full p-4 rounded-2xl border bg-clr7 dark:bg-dclr7 font-bold outline-none focus:border-clr4 transition-all"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               autoFocus
@@ -100,7 +100,7 @@ export default function DashModVincularPupilo({ isOpen, onClose, perfil, onSucce
             {loading && <p className="text-center italic opacity-40 py-4">Buscando rastros...</p>}
             
             {!loading && resultados.map(r => (
-              <div key={r.id} className="p-4 bg-zinc-50 dark:bg-black/10 rounded-2xl border border-zinc-100 dark:border-dclr10 flex justify-between items-center group hover:border-clr7/50 transition-all">
+              <div key={r.id} className="p-4 bg-clr7 dark:bg-dclr7 rounded-2xl border border-clr7 dark:border-dclr7 flex justify-between items-center group hover:border-clr4 transition-all">
                 <div>
                   <p className="text-[1em] font-black uppercase">{r.nombres} {r.apellidos}</p>
                   <p className="text-[0.9em] opacity-70 font-bold uppercase tracking-wider mt-1">{(Array.isArray(r.unidades) ? r.unidades[0]?.nombre : r.unidades?.nombre) || 'Sin Unidad'} • {(Array.isArray(r.roles) ? r.roles[0]?.name : r.roles?.name)}</p>
@@ -109,7 +109,7 @@ export default function DashModVincularPupilo({ isOpen, onClose, perfil, onSucce
                 <button 
                   onClick={() => handleVincular(r.id)}
                   disabled={vinculando !== null}
-                  className="px-4 py-2 bg-clr7 text-white text-[1em] font-black uppercase rounded-xl shadow-lg hover:scale-110 active:scale-95 transition-all disabled:opacity-50"
+                  className="px-4 py-2 bg-clr4 text-clr1 text-[1em] font-black uppercase rounded-xl shadow-lg hover:scale-110 active:scale-95 transition-all disabled:opacity-50"
                 >
                   {vinculando === r.id ? '⌛' : 'Vincular'}
                 </button>
@@ -126,10 +126,10 @@ export default function DashModVincularPupilo({ isOpen, onClose, perfil, onSucce
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-zinc-100 dark:border-dclr10">
+        <div className="mt-8 pt-6 border-t border-clr7 dark:border-dclr7">
           <button 
             onClick={onClose}
-            className="w-full py-4 bg-zinc-100 dark:bg-black/20 text-clr2 font-black uppercase rounded-2xl tracking-widest text-[0.9em] hover:bg-clr7 hover:text-clr1 transition-all"
+            className="w-full py-4 bg-clr7 dark:bg-dclr1 text-clr3 font-black uppercase rounded-2xl tracking-widest text-[0.9em] hover:bg-clr4 hover:text-clr1 transition-all"
           >
             Cerrar
           </button>

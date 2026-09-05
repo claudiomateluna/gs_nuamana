@@ -19,6 +19,8 @@
 import { createClient } from '@supabase/supabase-js';
 import { buildTree } from '@/lib/menu-items';
 import { canSeeItem } from '@/lib/menu-permissions';
+import { enhanceMenuTitles, buildUnitNameMap } from '@/lib/unit-title';
+import type { UnitNameRow } from '@/lib/unit-title';
 import type { MenuItem, MenuItemNode } from '@/lib/menu-items.types';
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || 'http://127.0.0.1:54321';
@@ -86,6 +88,20 @@ export async function getMenuItems(accessToken: string | null): Promise<GetMenuI
   const visibleItems = (data as MenuItem[]).filter(
     (item) => item.visible && canSeeItem(item.roles_permitidos, rolId),
   );
+  const menuTree = buildTree(visibleItems);
 
-  return { items: buildTree(visibleItems), dbEmpty };
+  // Enriquecer los títulos de las unidades con unidades.nombre_unidad
+  // (fuente única de verdad). Lectura pública y de solo 5 filas.
+  const { data: unidades, error: unidadesError } = await supabase
+    .from('unidades')
+    .select('id, nombre, nombre_unidad')
+    .order('id');
+
+  if (unidadesError) {
+    console.warn('[get-menu-items] Failed to fetch unidades:', unidadesError.message);
+    return { items: menuTree, dbEmpty };
+  }
+
+  const unidadesMap = buildUnitNameMap((unidades || []) as UnitNameRow[]);
+  return { items: enhanceMenuTitles(menuTree, unidadesMap), dbEmpty };
 }

@@ -922,17 +922,17 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
   }
 
   return (
-    <div className="fixed inset-0 bg-black/75 backdrop-blur-md z-[140] flex items-center justify-center p-4 overflow-y-auto">
+    <div className="fixed inset-0 bg-clr2 backdrop-blur-md z-[140] flex items-center justify-center p-4 overflow-y-auto">
       <div 
-        className="bg-white dark:bg-zinc-900 w-full max-w-2xl rounded-l-[1rem] p-2 shadow-2xl border-2 space-y-6 max-h-[90vh] overflow-y-auto"
+        className="bg-clr1 dark:bg-dclr1 w-full max-w-2xl rounded-l-[1rem] p-2 shadow-2xl border-2 space-y-6 max-h-[90vh] overflow-y-auto"
         style={{ borderColor: color }}
       >
         
         {/* Header */}
-        <div className="flex flex-col items-center md:flex-row gap-6 pb-6 border-b border-zinc-100 dark:border-zinc-800">
+        <div className="flex flex-col items-center md:flex-row gap-6 pb-6 border-b border-clr7 dark:border-dclr7">
           <div className="relative shrink-0">
             <div 
-              className="w-20 h-20 rounded-2xl flex items-center justify-center border-4 border-white dark:border-zinc-800 shadow-md relative"
+              className="w-20 h-20 rounded-2xl flex items-center justify-center border-4 border-clr1 dark:border-dclr1 shadow-md relative"
               style={{ backgroundColor: `${color}15` }}
             >
               <img 
@@ -947,30 +947,30 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
           </div>
           <div className="flex-1 text-center md:text-left">
             <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-2 items-center">
-              <span className="px-3 py-0.5 rounded-full text-[0.75em] font-extrabold uppercase text-white tracking-wider" style={{ backgroundColor: color }}>
+              <span className="px-3 py-0.5 rounded-full text-[0.75em] font-extrabold uppercase text-clr1 tracking-wider" style={{ backgroundColor: color }}>
                 {getFieldLabel(ep.campo_interes || '')}
               </span>
-              <span className="px-3 py-0.5 rounded-full text-[0.75em] font-extrabold uppercase bg-zinc-100 dark:bg-zinc-850 text-zinc-700 dark:text-zinc-350 tracking-wider">
+              <span className="px-3 py-0.5 rounded-full text-[0.75em] font-extrabold uppercase bg-clr7 dark:bg-dclr7 text-clr2 dark:text-dclr2 tracking-wider">
                 {getPhaseBadge(ep.fase || '')}
               </span>
               {ep.estado === 'pausado' && (
-                <span className="px-3 py-1 rounded-full text-[0.8em] font-extrabold uppercase text-amber-500 bg-amber-100/50 dark:bg-amber-900/20 border border-amber-300">
+                <span className="px-3 py-1 rounded-full text-[0.8em] font-extrabold uppercase text-clr5 bg-clr5 dark:bg-dclr5 border border-clr5">
                   Pausada ⏸️
                 </span>
               )}
             </div>
-            <h3 className="text-2xl font-bold uppercase tracking-tight text-zinc-900 dark:text-white">
+            <h3 className="text-2xl font-bold uppercase tracking-tight text-clr2 dark:text-dclr2">
               {name}
             </h3>
             {!isSpecOwner && ep.perfil && (
-              <p className="text-[0.9em] font-semibold text-zinc-550 dark:text-zinc-400">
+              <p className="text-[0.9em] font-semibold text-clr3 dark:text-dclr3">
                 Especialista: {ep.perfil.nombres} {ep.perfil.apellidos}
               </p>
             )}
           </div>
           <button 
             onClick={onClose}
-            className="text-zinc-400 hover:text-zinc-650 dark:hover:text-zinc-300 text-2xl font-bold p-1 self-start md:self-auto"
+            className="text-clr3 hover:text-clr2 dark:hover:text-dclr2 text-2xl font-bold p-1 self-start md:self-auto"
           >
             ✕
           </button>
@@ -983,7 +983,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
           {ep.fase === 'exploracion' && (
             <div className="space-y-4">
               <div className="space-y-2">
-                <label className="text-[0.8em] font-extrabold uppercase tracking-wider text-zinc-400 block ml-1">
+                <label className="text-[0.8em] font-extrabold uppercase tracking-wider text-clr3 block ml-1">
                   Mi Exploración de la Especialidad
                 </label>
                 {isSpecOwner && ep.estado === 'activo' ? (
@@ -992,18 +992,18 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                       value={wDiagnostico}
                       onChange={val => setWDiagnostico(val)}
                       placeholder="Explica qué significa para ti esta especialidad, en qué consiste, por qué te gusta y si ya tienes algún conocimiento previo..."
-                      className="w-full p-4 rounded-2xl border border-zinc-300 dark:border-white/10 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white text-[1em] font-medium h-40"
+                      className="w-full p-4 rounded-2xl border border-clr3 dark:border-dclr3 bg-clr1 dark:bg-dclr1 text-clr2 dark:text-dclr2 text-[1em] font-medium h-40"
                     />
                     <div className="flex gap-3 flex-wrap">
                       <button
                         onClick={handleSaveExploracionChanges}
-                        className="px-4 py-2 text-[0.85em] font-bold uppercase text-white bg-zinc-600 rounded-xl"
+                        className="px-4 py-2 text-[0.85em] font-bold uppercase text-clr1 bg-clr2 rounded-xl"
                       >
                         Guardar Cambios 📂
                       </button>
                       <button
                         onClick={() => handleAdvanceSpecialtyPhase('planificacion')}
-                        className="px-5 py-2 text-[0.85em] font-bold uppercase text-white rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition-all"
+                        className="px-5 py-2 text-[0.85em] font-bold uppercase text-clr1 rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition-all"
                         style={{ backgroundColor: color }}
                       >
                         Avanzar a la Planificación 🚀
@@ -1011,14 +1011,14 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                     </div>
                   </div>
                 ) : (
-                  <p className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-800/40 border border-zinc-150 dark:border-white/5 text-[1em] text-zinc-700 dark:text-zinc-350 italic">
+                  <p className="p-4 rounded-2xl bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7 text-[1em] text-clr2 dark:text-dclr2 italic">
                     "{ep.diagnostico_previo || 'Sin exploración registrada'}"
                   </p>
                 )}
               </div>
 
               {!isSpecOwner && (
-                <p className="text-[0.9em] font-bold text-zinc-450 italic">
+                <p className="text-[0.9em] font-bold text-clr3 italic">
                   Esta especialidad está en fase de Exploración. El participante aún no ha iniciado su planificación.
                 </p>
               )}
@@ -1031,22 +1031,22 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
               {isSpecOwner && ep.estado === 'activo' ? (
                 <>
                   <div className="space-y-2">
-                    <label className="text-[1em] font-bold uppercase tracking-wider text-zinc-400 block ml-1">Mi Meta General (¿Qué quiero lograr?)</label>
+                    <label className="text-[1em] font-bold uppercase tracking-wider text-clr3 block ml-1">Mi Meta General (¿Qué quiero lograr?)</label>
                     <DebouncedTextarea 
                       value={wMetaGeneral}
                       onChange={val => setWMetaGeneral(val)}
                       placeholder="Describe de forma general el objetivo de tu especialidad..."
-                      className="w-full p-4 rounded-2xl border border-zinc-300 dark:border-white/10 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white text-[1em] font-medium h-24"
+                      className="w-full p-4 rounded-2xl border border-clr3 dark:border-dclr3 bg-clr1 dark:bg-dclr1 text-clr2 dark:text-dclr2 text-[1em] font-medium h-24"
                     />
                   </div>
 
                   <div className="space-y-3">
-                    <label className="text-[0.8em] font-extrabold uppercase tracking-wider text-zinc-400 block ml-1">
+                    <label className="text-[0.8em] font-extrabold uppercase tracking-wider text-clr3 block ml-1">
                       Monitor / Acompañante (Persona experta que te guiará)
                     </label>
 
                     <div className="flex gap-4 mb-2">
-                      <label className="flex items-center gap-2 text-[0.85em] font-bold cursor-pointer text-zinc-700 dark:text-zinc-300">
+                      <label className="flex items-center gap-2 text-[0.85em] font-bold cursor-pointer text-clr2 dark:text-dclr2">
                         <input 
                           type="radio" 
                           name="monitorType" 
@@ -1060,7 +1060,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                         />
                         Miembro del Grupo 📱
                       </label>
-                      <label className="flex items-center gap-2 text-[0.85em] font-bold cursor-pointer text-zinc-700 dark:text-zinc-300">
+                      <label className="flex items-center gap-2 text-[0.85em] font-bold cursor-pointer text-clr2 dark:text-dclr2">
                         <input 
                           type="radio" 
                           name="monitorType" 
@@ -1095,10 +1095,10 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                             onFetchAvailableMonitors?.();
                           }}
                           placeholder="Escribe el nombre del monitor para buscar..."
-                          className="w-full p-4 rounded-2xl border border-zinc-300 dark:border-white/10 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white text-[1em] font-medium"
+                          className="w-full p-4 rounded-2xl border border-clr3 dark:border-dclr3 bg-clr1 dark:bg-dclr1 text-clr2 dark:text-dclr2 text-[1em] font-medium"
                         />
                         {wMonitorPerfilId && (
-                          <span className="absolute right-12 top-1/2 -translate-y-1/2 text-green-500 text-sm font-bold">
+                          <span className="absolute right-12 top-1/2 -translate-y-1/2 text-clr6 text-sm font-bold">
                             ✓ Seleccionado
                           </span>
                         )}
@@ -1111,7 +1111,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                               setWMonitorName('');
                               setShowMonitorDropdown(false);
                             }}
-                            className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-650 dark:hover:text-zinc-300 font-bold"
+                            className="absolute right-4 top-1/2 -translate-y-1/2 text-clr3 hover:text-clr2 dark:hover:text-dclr2 font-bold"
                           >
                             ✕
                           </button>
@@ -1123,7 +1123,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                               className="fixed inset-0 z-[155]" 
                               onClick={() => setShowMonitorDropdown(false)} 
                             />
-                            <div className="absolute z-[160] left-0 right-0 mt-1 max-h-56 overflow-y-auto bg-white dark:bg-zinc-900 border-2 border-zinc-150 dark:border-white/10 rounded-2xl shadow-xl divide-y divide-zinc-100 dark:divide-zinc-800">
+                            <div className="absolute z-[160] left-0 right-0 mt-1 max-h-56 overflow-y-auto bg-clr1 dark:bg-dclr1 border-2 border-clr7 dark:border-dclr7 rounded-2xl shadow-xl divide-y divide-clr7 dark:divide-dclr7">
                               {filteredMonitors
                                 .map(m => (
                                   <button
@@ -1135,14 +1135,14 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                                       setWMonitorSearchText(`${m.nombres} ${m.apellidos}`);
                                       setShowMonitorDropdown(false);
                                     }}
-                                    className="w-full text-left px-4 py-3 hover:bg-zinc-50 dark:hover:bg-zinc-800 text-[0.9em] font-bold text-zinc-800 dark:text-zinc-200"
+                                    className="w-full text-left px-4 py-3 hover:bg-clr7 dark:hover:bg-dclr7 text-[0.9em] font-bold text-clr2 dark:text-dclr2"
                                   >
                                     {m.nombres} {m.apellidos}
                                   </button>
                                 ))
                               }
                               {filteredMonitors.length === 0 && (
-                                <p className="px-4 py-3 text-zinc-450 italic text-[0.9em]">No se encontraron perfiles...</p>
+                                <p className="px-4 py-3 text-clr3 italic text-[0.9em]">No se encontraron perfiles...</p>
                               )}
                             </div>
                           </>
@@ -1154,46 +1154,46 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                         value={wMonitorName}
                         onChange={val => setWMonitorName(val)}
                         placeholder="Ej: Juan Pérez (Profesor de Música / Tío / Experto)"
-                        className="w-full p-4 rounded-2xl border border-zinc-300 dark:border-white/10 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white text-[1em] font-medium"
+                        className="w-full p-4 rounded-2xl border border-clr3 dark:border-dclr3 bg-clr1 dark:bg-dclr1 text-clr2 dark:text-dclr2 text-[1em] font-medium"
                       />
                     )}
                   </div>
                 </>
               ) : (
-                <div className="p-4 rounded-3xl bg-zinc-50 dark:bg-zinc-800/40 border space-y-3 text-[0.95em]">
-                  <p className="text-zinc-700 dark:text-zinc-300"><span className="font-extrabold text-zinc-400 block uppercase text-[0.8em]">Meta General</span>{ep.meta_general || 'Ninguna meta descrita'}</p>
-                  <p className="text-zinc-700 dark:text-zinc-300"><span className="font-extrabold text-zinc-400 block uppercase text-[0.8em]">Monitor Acompañante</span>{ep.monitor_nombre || 'No asignado'}</p>
+                <div className="p-4 rounded-3xl bg-clr7 dark:bg-dclr7 border space-y-3 text-[0.95em]">
+                  <p className="text-clr2 dark:text-dclr2"><span className="font-extrabold text-clr3 block uppercase text-[0.8em]">Meta General</span>{ep.meta_general || 'Ninguna meta descrita'}</p>
+                  <p className="text-clr2 dark:text-dclr2"><span className="font-extrabold text-clr3 block uppercase text-[0.8em]">Monitor Acompañante</span>{ep.monitor_nombre || 'No asignado'}</p>
                 </div>
               )}
 
               {/* TAREAS PLANIFICADAS */}
               <div className="space-y-4">
-                <span className="text-[0.8em] font-extrabold uppercase tracking-wider text-zinc-400 block ml-1">Tareas en conjunto</span>
+                <span className="text-[0.8em] font-extrabold uppercase tracking-wider text-clr3 block ml-1">Tareas en conjunto</span>
                 
                 <div className="space-y-3">
                   {acts.map((act: EspecialidadActividad) => (
                     <div 
                       key={act.id} 
-                      className="p-4 rounded-2xl border border-zinc-150 dark:border-dclr2/10 bg-white dark:bg-dclr1 flex justify-between items-center"
+                      className="p-4 rounded-2xl border border-clr7 dark:border-dclr7 bg-clr1 dark:bg-dclr1 flex justify-between items-center"
                     >
                       <div className="space-y-1">
-                        <p className="font-bold text-zinc-900 dark:text-white text-[0.95em]">{act.descripcion}</p>
-                        {act.detalles && <p className="text-zinc-500 dark:text-zinc-400 text-[0.85em] font-medium">{act.detalles}</p>}
+                        <p className="font-bold text-clr2 dark:text-dclr2 text-[0.95em]">{act.descripcion}</p>
+                        {act.detalles && <p className="text-clr3 dark:text-dclr3 text-[0.85em] font-medium">{act.detalles}</p>}
                         
                         {/* Task date selector */}
                         {isSpecOwner && ep.estado === 'activo' ? (
                           <div className="flex items-center gap-2 mt-1">
-                            <span className="text-[0.75em] font-extrabold uppercase text-zinc-400">Fecha límite:</span>
+                            <span className="text-[0.75em] font-extrabold uppercase text-clr3">Fecha límite:</span>
                             <input 
                               type="date"
                               value={taskDates[act.id] || ''}
                               onChange={e => setTaskDates(prev => ({ ...prev, [act.id]: e.target.value }))}
-                              className="p-1 px-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 text-[0.85em] text-zinc-800 dark:text-zinc-200 font-bold"
+                              className="p-1 px-2 rounded-lg border border-clr7 dark:border-dclr7 bg-clr7 dark:bg-dclr7 text-[0.85em] text-clr2 dark:text-dclr2 font-bold"
                             />
                           </div>
                         ) : (
                           act.fecha_limite && (
-                            <span className="inline-block px-2.5 py-0.5 mt-1 rounded bg-red-100 dark:bg-red-950/20 text-red-650 text-[0.8em] font-extrabold">
+                            <span className="inline-block px-2.5 py-0.5 mt-1 rounded bg-clr4 dark:bg-dclr4 text-clr4 text-[0.8em] font-extrabold">
                               Límite: {new Date(act.fecha_limite + 'T00:00:00').toLocaleDateString('es-CL')}
                             </span>
                           )
@@ -1201,19 +1201,19 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
 
                         {/* Calendar activity & article detail rendering */}
                         {act.actividades_programadas && (
-                          <div className="mt-1 flex items-center gap-1.5 text-[0.8em] font-semibold text-blue-500">
+                          <div className="mt-1 flex items-center gap-1.5 text-[0.8em] font-semibold text-clr4">
                             <span>📅 Actividad: {act.actividades_programadas.nombre}</span>
                             <span className="opacity-75">({new Date(act.actividades_programadas.fecha_inicio + 'T00:00:00').toLocaleDateString('es-CL')})</span>
                           </div>
                         )}
                         {act.articulos && (
-                          <div className="mt-0.5 flex items-center gap-1.5 text-[0.8em] font-semibold text-teal-600 dark:text-teal-400">
+                          <div className="mt-0.5 flex items-center gap-1.5 text-[0.8em] font-semibold text-clr6 dark:text-dclr6">
                             <span>📰 Artículo:</span>
                             <a 
                               href={`/blog/actividades/${act.articulos.slug}`} 
                               target="_blank" 
                               rel="noreferrer" 
-                              className="underline hover:text-teal-800"
+                              className="underline hover:text-clr6"
                             >
                               {act.articulos.titulo}
                             </a>
@@ -1224,7 +1224,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                       {isSpecOwner && ep.estado === 'activo' && (
                         <button
                           onClick={() => handleDeleteActivity(act.id)}
-                          className="text-red-500 hover:text-red-700 font-bold p-1 text-[0.9em]"
+                          className="text-clr4 hover:text-clr4 font-bold p-1 text-[0.9em]"
                         >
                           ✕
                         </button>
@@ -1232,48 +1232,48 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                     </div>
                   ))}
                   {acts.length === 0 && (
-                    <p className="text-center py-6 text-zinc-400 font-bold italic text-[0.85em]">Aún no has agregado ninguna tarea.</p>
+                    <p className="text-center py-6 text-clr3 font-bold italic text-[0.85em]">Aún no has agregado ninguna tarea.</p>
                   )}
                 </div>
 
                 {/* Add task form */}
                 {isSpecOwner && ep.estado === 'activo' && (
-                  <div className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-800/40 border border-zinc-150 dark:border-white/5 space-y-4">
-                    <span className="text-[0.8em] font-extrabold uppercase tracking-wider text-zinc-550 block">Agregar Tarea Planificada</span>
+                  <div className="p-4 rounded-2xl bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7 space-y-4">
+                    <span className="text-[0.8em] font-extrabold uppercase tracking-wider text-clr3 block">Agregar Tarea Planificada</span>
                     <div className="space-y-1">
-                      <label className="text-[0.8em] font-bold uppercase tracking-wider text-zinc-400">Título / Nombre</label>
+                      <label className="text-[0.8em] font-bold uppercase tracking-wider text-clr3">Título / Nombre</label>
                       <DebouncedInput 
                         type="text"
                         value={newDetailActText}
                         onChange={val => setNewDetailActText(val)}
                         placeholder="Ej: Hacer un herbario..."
-                        className="w-full p-3 rounded-xl border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white text-[1em] font-medium"
+                        className="w-full p-3 rounded-xl border border-clr3 dark:border-dclr3 bg-clr1 dark:bg-dclr1 text-clr2 dark:text-dclr2 text-[1em] font-medium"
                       />
                     </div>
                     <div className="space-y-1">
-                      <label className="text-[0.8em] font-bold uppercase tracking-wider text-zinc-400">Especificaciones / Detalles</label>
+                      <label className="text-[0.8em] font-bold uppercase tracking-wider text-clr3">Especificaciones / Detalles</label>
                       <DebouncedTextarea 
                         value={newDetailActDetalles}
                         onChange={val => setNewDetailActDetalles(val)}
                         placeholder="Ej: Buscar 10 tipos de hojas..."
-                        className="w-full p-3 rounded-xl border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white text-[1em] font-medium h-16"
+                        className="w-full p-3 rounded-xl border border-clr3 dark:border-dclr3 bg-clr1 dark:bg-dclr1 text-clr2 dark:text-dclr2 text-[1em] font-medium h-16"
                       />
                     </div>
 
                     {/* Fecha de Cumplimiento */}
                     <div className="space-y-1">
-                      <label className="text-[0.8em] font-bold uppercase tracking-wider text-zinc-400">Fecha de Cumplimiento (Límite)</label>
+                      <label className="text-[0.8em] font-bold uppercase tracking-wider text-clr3">Fecha de Cumplimiento (Límite)</label>
                       <input 
                         type="date"
                         value={wNewActivityFechaLimite}
                         onChange={e => setWNewActivityFechaLimite(e.target.value)}
-                        className="w-full p-3 rounded-xl border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white text-[1em] font-medium"
+                        className="w-full p-3 rounded-xl border border-clr3 dark:border-dclr3 bg-clr1 dark:bg-dclr1 text-clr2 dark:text-dclr2 text-[1em] font-medium"
                       />
                     </div>
 
                     {/* Calendar Event & Article integration */}
-                    <div className="p-3 bg-white dark:bg-zinc-900 border rounded-xl space-y-3">
-                      <label className="flex items-center gap-2 text-[0.85em] font-bold text-zinc-700 dark:text-zinc-350 cursor-pointer">
+                    <div className="p-3 bg-clr1 dark:bg-dclr1 border rounded-xl space-y-3">
+                      <label className="flex items-center gap-2 text-[0.85em] font-bold text-clr2 dark:text-dclr2 cursor-pointer">
                         <input 
                           type="checkbox"
                           checked={wNewActivityRequiresCalendar}
@@ -1283,33 +1283,33 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                       </label>
 
                       {wNewActivityRequiresCalendar && (
-                        <div className="pl-6 space-y-3 border-l-2 border-blue-500 animate-in slide-in-from-top-1">
+                        <div className="pl-6 space-y-3 border-l-2 border-clr4 animate-in slide-in-from-top-1">
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                             <div className="space-y-1">
-                              <label className="text-[0.8em] font-bold uppercase text-zinc-400">Fecha de la Actividad</label>
+                              <label className="text-[0.8em] font-bold uppercase text-clr3">Fecha de la Actividad</label>
                               <input 
                                 type="date"
                                 value={wNewActivityFechaActividad}
                                 onChange={e => setWNewActivityFechaActividad(e.target.value)}
-                                className="w-full p-2 border rounded-lg bg-zinc-50 dark:bg-zinc-900 text-sm font-semibold"
+                                className="w-full p-2 border rounded-lg bg-clr7 dark:bg-dclr7 text-sm font-semibold"
                               />
                             </div>
                             <div className="space-y-1">
-                              <label className="text-[0.8em] font-bold uppercase text-zinc-400">Lugar</label>
+                              <label className="text-[0.8em] font-bold uppercase text-clr3">Lugar</label>
                               <input 
                                 type="text"
                                 value={wNewActivityLugar}
                                 onChange={e => setWNewActivityLugar(e.target.value)}
-                                className="w-full p-2 border rounded-lg bg-zinc-50 dark:bg-zinc-900 text-sm font-semibold"
+                                className="w-full p-2 border rounded-lg bg-clr7 dark:bg-dclr7 text-sm font-semibold"
                               />
                             </div>
                           </div>
 
-                          <div className="p-3 bg-zinc-50 dark:bg-zinc-850/50 rounded-xl space-y-2 border">
-                            <span className="text-[0.75em] font-black uppercase text-zinc-400 tracking-wider">Artículo del Blog Asociado</span>
+                          <div className="p-3 bg-clr7 dark:bg-dclr7 rounded-xl space-y-2 border">
+                            <span className="text-[0.75em] font-black uppercase text-clr3 tracking-wider">Artículo del Blog Asociado</span>
                             <div className="space-y-2">
                               <div className="space-y-1">
-                                <label className="text-[0.75em] font-bold text-zinc-500 block">Opción A: Crear Nuevo Artículo de Ficha Técnica</label>
+                                <label className="text-[0.75em] font-bold text-clr3 block">Opción A: Crear Nuevo Artículo de Ficha Técnica</label>
                                 <input 
                                   type="text"
                                   value={newActivityArticleTitle}
@@ -1318,12 +1318,12 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                                     if (e.target.value) setWNewActivityArticleId('');
                                   }}
                                   placeholder="Ej: Ficha de herbario scout"
-                                  className="w-full p-2 border rounded-lg bg-white dark:bg-zinc-900 text-sm font-semibold"
+                                  className="w-full p-2 border rounded-lg bg-clr1 dark:bg-dclr1 text-sm font-semibold"
                                 />
                               </div>
                               
                               <div className="space-y-1">
-                                <label className="text-[0.75em] font-bold text-zinc-500 block">Opción B: Vincular con Ficha/Artículo Existente</label>
+                                <label className="text-[0.75em] font-bold text-clr3 block">Opción B: Vincular con Ficha/Artículo Existente</label>
                                 <div className="space-y-2">
                                   <input
                                     type="text"
@@ -1333,12 +1333,12 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                                       setActivitySearchQuery(e.target.value)
                                       if (e.target.value) setWNewActivityArticleId('')
                                     }}
-                                    className="w-full p-2 border rounded-lg bg-white dark:bg-zinc-900 text-sm font-semibold"
+                                    className="w-full p-2 border rounded-lg bg-clr1 dark:bg-dclr1 text-sm font-semibold"
                                   />
                                   {activitySearchQuery && (
                                     <div className="max-h-48 overflow-y-auto border rounded-xl">
                                       {filteredArticles.length === 0 ? (
-                                        <p className="p-3 text-sm text-zinc-400">No se encontraron actividades</p>
+                                        <p className="p-3 text-sm text-clr3">No se encontraron actividades</p>
                                       ) : (
                                         filteredArticles.map(art => (
                                           <button
@@ -1349,8 +1349,8 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                                               setNewActivityArticleTitle(art.titulo)
                                               setActivitySearchQuery('')
                                             }}
-                                            className={`w-full p-3 text-left text-sm hover:bg-zinc-50 border-b last:border-b-0 ${
-                                              wNewActivityArticleId === art.id ? 'bg-blue-50 border-blue-200' : ''
+                                            className={`w-full p-3 text-left text-sm hover:bg-clr7 border-b last:border-b-0 ${
+                                              wNewActivityArticleId === art.id ? 'bg-clr4 border-clr4' : ''
                                             }`}
                                           >
                                             {art.titulo}
@@ -1360,7 +1360,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                                     </div>
                                   )}
                                   {wNewActivityArticleId && newActivityArticleTitle && !activitySearchQuery && (
-                                    <p className="text-sm text-blue-600">Vinculada: {newActivityArticleTitle}</p>
+                                    <p className="text-sm text-clr4">Vinculada: {newActivityArticleTitle}</p>
                                   )}
                                 </div>
                               </div>
@@ -1372,7 +1372,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
 
                     <button
                       onClick={handleAddActivityToExisting}
-                      className="w-full py-2.5 bg-zinc-650 hover:brightness-110 text-white rounded-xl text-[0.8em] font-bold uppercase tracking-wider shadow"
+                      className="w-full py-2.5 bg-clr2 hover:brightness-110 text-clr1 rounded-xl text-[0.8em] font-bold uppercase tracking-wider shadow"
                     >
                       Añadir Tarea ➕
                     </button>
@@ -1382,16 +1382,16 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
 
               {/* Botón Iniciar Desarrollo */}
               {isSpecOwner && ep.estado === 'activo' && (
-                <div className="flex justify-end gap-3 pt-4 border-t border-zinc-150 dark:border-white/5">
+                <div className="flex justify-end gap-3 pt-4 border-t border-clr7 dark:border-dclr7">
                   <button
                     onClick={handleUpdateSpecialtyInfo}
-                    className="px-5 py-3 text-[0.85em] font-bold uppercase text-zinc-700 bg-zinc-100 rounded-xl"
+                    className="px-5 py-3 text-[0.85em] font-bold uppercase text-clr2 bg-clr7 rounded-xl"
                   >
                     Guardar Planificación 📂
                   </button>
                   <button
                     onClick={handleStartDevelopment}
-                    className="px-6 py-3 text-[0.85em] font-bold uppercase text-white rounded-xl shadow-lg hover:brightness-110"
+                    className="px-6 py-3 text-[0.85em] font-bold uppercase text-clr1 rounded-xl shadow-lg hover:brightness-110"
                     style={{ backgroundColor: color }}
                   >
                     Iniciar Desarrollo 🚀
@@ -1401,14 +1401,14 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
 
               {/* Aprobación del Monitor en Planificación */}
               {!isSpecOwner && isMonitor && ep.estado === 'activo' && (
-                <div className="p-4 rounded-3xl bg-amber-50 dark:bg-amber-950/20 border border-amber-200 space-y-4">
-                  <p className="text-[0.9em] font-semibold text-amber-800 dark:text-amber-300">
+                <div className="p-4 rounded-3xl bg-clr5 dark:bg-dclr5 border border-clr5 space-y-4">
+                  <p className="text-[0.9em] font-semibold text-clr5 dark:text-dclr5">
                     Aprobación de Planificación: El especialista ha definido su meta y tareas en conjunto. Como monitor, revisa y aprueba su planificación para comenzar el desarrollo técnico.
                   </p>
                   <div className="flex gap-2">
                     <button
                       onClick={handleApproveSpecialtyPlanning}
-                      className="px-4 py-2 bg-amber-600 text-white font-bold rounded-xl text-[0.8em] uppercase tracking-wider"
+                      className="px-4 py-2 bg-clr5 text-clr1 font-bold rounded-xl text-[0.8em] uppercase tracking-wider"
                     >
                       Aprobar Planificación e Iniciar Desarrollo ✓
                     </button>
@@ -1423,17 +1423,17 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
             <div className="space-y-6">
               
               {/* Resumen Planificación */}
-              <div className="p-4 rounded-3xl bg-zinc-50 dark:bg-zinc-800/40 border border-zinc-150 dark:border-white/5 space-y-3 text-[0.95em]">
-                <p className="text-zinc-700 dark:text-dclr2"><span className="font-extrabold text-zinc-400 block uppercase text-[0.8em] tracking-wide">Meta General</span>{ep.meta_general || 'Ninguna meta descrita'}</p>
-                <p className="text-zinc-700 dark:text-dclr2"><span className="font-extrabold text-zinc-400 block uppercase text-[0.8em] tracking-wide">Monitor / Acompañante</span>{ep.monitor_nombre || 'No asignado'}</p>
+              <div className="p-4 rounded-3xl bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7 space-y-3 text-[0.95em]">
+                <p className="text-clr2 dark:text-dclr2"><span className="font-extrabold text-clr3 block uppercase text-[0.8em] tracking-wide">Meta General</span>{ep.meta_general || 'Ninguna meta descrita'}</p>
+                <p className="text-clr2 dark:text-dclr2"><span className="font-extrabold text-clr3 block uppercase text-[0.8em] tracking-wide">Monitor / Acompañante</span>{ep.monitor_nombre || 'No asignado'}</p>
               </div>
 
               {/* LISTA DE TAREAS EN DESARROLLO */}
               <div className="space-y-4">
-                <span className="text-[0.8em] font-extrabold uppercase tracking-wider text-zinc-400 block ml-1">Desarrollo de Tareas ({completedCount} de {totalCount} completadas)</span>
+                <span className="text-[0.8em] font-extrabold uppercase tracking-wider text-clr3 block ml-1">Desarrollo de Tareas ({completedCount} de {totalCount} completadas)</span>
                 
                 {/* Progress bar */}
-                <div className="w-full bg-zinc-100 dark:bg-dclr1 h-3 rounded-full overflow-hidden border dark:border-zinc-800">
+                <div className="w-full bg-clr7 dark:bg-dclr7 h-3 rounded-full overflow-hidden border dark:border-dclr7">
                   <div className="h-full rounded-full transition-all duration-300" style={{ width: `${pct}%`, backgroundColor: color }} />
                 </div>
 
@@ -1443,27 +1443,27 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                       key={act.id} 
                       className={`p-4 rounded-3xl border transition-all ${
                         act.completada 
-                          ? 'border-green-300 bg-green-50/20 dark:bg-green-950/5' 
-                          : 'border-zinc-150 dark:border-white/5 bg-white dark:bg-dclr1'
+                          ? 'border-clr6 bg-clr6 dark:bg-dclr6' 
+                          : 'border-clr7 dark:border-dclr7 bg-clr1 dark:bg-dclr1'
                       }`}
                     >
                       <div className="flex justify-between items-start">
                         <div className="space-y-1">
                           <div className="flex items-center gap-2 flex-wrap">
-                            <p className={`font-bold text-[0.95em] ${act.completada ? 'line-through text-zinc-450 dark:text-zinc-500' : 'text-zinc-900 dark:text-white'}`}>
+                            <p className={`font-bold text-[0.95em] ${act.completada ? 'line-through text-clr3 dark:text-dclr2' : 'text-clr2 dark:text-dclr3'}`}>
                               {act.descripcion}
                             </p>
                             {act.completada ? (
-                              <span className="px-2 py-0.5 rounded-full text-[0.7em] font-extrabold uppercase bg-green-100 dark:bg-green-900/30 text-green-600">Completada ✓</span>
+                              <span className="px-2 py-0.5 rounded-full text-[0.7em] font-extrabold uppercase bg-clr6 dark:bg-dclr6 text-clr6">Completada ✓</span>
                             ) : (
-                              <span className="px-2 py-0.5 rounded-full text-[0.7em] font-extrabold uppercase bg-zinc-100 dark:bg-zinc-800 text-zinc-450 dark:text-zinc-500">Pendiente</span>
+                              <span className="px-2 py-0.5 rounded-full text-[0.7em] font-extrabold uppercase bg-clr7 dark:bg-dclr7 text-clr3 dark:text-dclr3">Pendiente</span>
                             )}
                           </div>
-                          {act.detalles && <p className="text-zinc-500 dark:text-zinc-400 text-[0.85em] font-medium">{act.detalles}</p>}
+                          {act.detalles && <p className="text-clr3 dark:text-dclr3 text-[0.85em] font-medium">{act.detalles}</p>}
                           
                           <div className="flex items-center gap-2 flex-wrap">
                             {act.fecha_limite && (
-                              <span className="inline-block px-2.5 py-0.5 rounded bg-clr7 text-clr1 text-[0.9em] font-extrabold">
+                              <span className="inline-block px-2.5 py-0.5 rounded bg-clr4 text-clr1 text-[0.9em] font-extrabold">
                                 Fecha Límite: {new Date(act.fecha_limite + 'T00:00:00').toLocaleDateString('es-CL')}
                               </span>
                             )}
@@ -1482,7 +1482,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                                     .update({ fecha_limite: newDate || null, updated_at: new Date().toISOString() })
                                     .eq('id', act.id)
                                 }}
-                                className="text-[0.75em] border rounded-lg px-2 py-1 dark:bg-dclr10 dark:border-dclr10 font-bold cursor-pointer"
+                                className="text-[0.75em] border rounded-lg px-2 py-1 dark:bg-dclr7 dark:border-dclr7 font-bold cursor-pointer"
                                 title="Reprogramar fecha límite"
                               />
                             )}
@@ -1490,13 +1490,13 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
 
                           {/* Calendar activity & article detail rendering */}
                           {act.actividades_programadas ? (
-                            <div className="mt-1 flex items-center gap-2 text-[0.9em] font-semibold text-blue-500 flex-wrap">
+                            <div className="mt-1 flex items-center gap-2 text-[0.9em] font-semibold text-clr4 flex-wrap">
                               <span>
                                 📅 Actividad: {act.actividades_programadas.nombre}
                               </span>
                               <span className="opacity-75">({new Date(act.actividades_programadas.fecha_inicio + 'T00:00:00').toLocaleDateString('es-CL')})</span>
                               {act.actividades_programadas.estado === 'borrador' && (
-                                <span className="px-2 py-0.5 rounded-full text-[0.8em] font-extrabold uppercase bg-amber-100 text-amber-700">Borrador</span>
+                                <span className="px-2 py-0.5 rounded-full text-[0.8em] font-extrabold uppercase bg-clr5 text-clr5">Borrador</span>
                               )}
 
                               {/* Dirigentes pueden editar siempre */}
@@ -1513,7 +1513,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                                     })
                                     setIsModActividadOpen(true)
                                   }}
-                                  className="text-[0.8em] text-zinc-500 hover:text-zinc-700"
+                                  className="text-[0.8em] text-clr3 hover:text-clr2"
                                 >
                                   ✏️
                                 </button>
@@ -1552,31 +1552,31 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                                 toast.success('Artículo creado como borrador. Edítalo para agregar los detalles.')
                                 await refreshLocalSpecialty()
                               }}
-                              className="mt-1 text-[0.9em] text-blue-500 hover:text-blue-700 font-semibold"
+                              className="mt-1 text-[0.9em] text-clr4 hover:text-clr4 font-semibold"
                             >
                               📰 Crear Ficha para esta tarea
                             </button>
                           ) : null}
                           {act.articulos && (
-                            <div className="mt-0.5 flex items-center gap-1.5 text-[0.9em] font-semibold text-teal-600 dark:text-teal-400 flex-wrap">
+                            <div className="mt-0.5 flex items-center gap-1.5 text-[0.9em] font-semibold text-clr6 dark:text-dclr6 flex-wrap">
                               <span>📰 Artículo:</span>
                               <a 
                                 href={`/blog/actividades/${act.articulos.slug}`} 
                                 target="_blank" 
                                 rel="noreferrer" 
-                                className="underline hover:text-teal-800"
+                                className="underline hover:text-clr6"
                               >
                                 {act.articulos.titulo}
                               </a>
                               {act.articulos.estado === 'borrador' && (
-                                <span className="px-2 py-0.5 rounded-full text-[0.8em] font-extrabold uppercase bg-amber-100 text-amber-700">Borrador</span>
+                                <span className="px-2 py-0.5 rounded-full text-[0.8em] font-extrabold uppercase bg-clr5 text-clr5">Borrador</span>
                               )}
                               {isSpecOwner && act.articulos.estado === 'borrador' && (
                                 <a
                                   href={`/blog/editar/${act.articulo_id}`}
                                   target="_blank"
                                   rel="noreferrer"
-                                  className="text-amber-600 hover:text-amber-800 font-bold underline"
+                                  className="text-clr5 hover:text-clr5 font-bold underline"
                                 >
                                   ✏️ Editar
                                 </a>
@@ -1586,30 +1586,30 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
 
                           {/* Evidencia registrada */}
                           {act.evidencia_texto && (
-                            <div className="mt-3 p-3 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border text-[0.85em] space-y-1">
-                              <span className="font-extrabold text-zinc-400 uppercase text-[0.75em] block">Evidencia del Especialista:</span>
-                              <p className="text-zinc-700 dark:text-zinc-300 font-medium italic">"{act.evidencia_texto}"</p>
+                            <div className="mt-3 p-3 rounded-2xl bg-clr7 dark:bg-dclr7 border text-[0.85em] space-y-1">
+                              <span className="font-extrabold text-clr3 uppercase text-[0.75em] block">Evidencia del Especialista:</span>
+                              <p className="text-clr2 dark:text-dclr2 font-medium italic">"{act.evidencia_texto}"</p>
                               {act.evidencia_url && (
                                 <a 
                                   href={act.evidencia_url} 
                                   target="_blank" 
                                   rel="noopener noreferrer" 
-                                  className="text-blue-500 underline font-bold block mt-1 hover:text-blue-700"
+                                  className="text-clr4 underline font-bold block mt-1 hover:text-clr4"
                                 >
                                   🔗 Ver adjunto o enlace de evidencia
                                 </a>
                               )}
                               {act.autoevaluacion && (
-                                <p className="text-zinc-700 dark:text-zinc-350 font-medium mt-1"><span className="font-extrabold text-zinc-400 uppercase text-[0.75em]">Autoevaluación:</span> {act.autoevaluacion}</p>
+                                <p className="text-clr2 dark:text-dclr2 font-medium mt-1"><span className="font-extrabold text-clr3 uppercase text-[0.75em]">Autoevaluación:</span> {act.autoevaluacion}</p>
                               )}
                             </div>
                           )}
 
                           {/* Comentario / Corrección del monitor */}
                           {act.comentario_monitor && (
-                            <div className="mt-2 p-3 rounded-2xl bg-red-50 dark:bg-red-950/20 border border-red-200 text-[0.85em] space-y-1">
-                              <span className="font-extrabold text-red-500 uppercase text-[0.75em] block">⚠️ Observación de Mejora (Monitor):</span>
-                              <p className="text-red-700 dark:text-red-300 font-semibold">"{act.comentario_monitor}"</p>
+                            <div className="mt-2 p-3 rounded-2xl bg-clr4 dark:bg-dclr4 border border-clr4 text-[0.85em] space-y-1">
+                              <span className="font-extrabold text-clr4 uppercase text-[0.75em] block">⚠️ Observación de Mejora (Monitor):</span>
+                              <p className="text-clr4 dark:text-dclr4 font-semibold">"{act.comentario_monitor}"</p>
                             </div>
                           )}
                         </div>
@@ -1625,7 +1625,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                               setActEvidenceUrl(act.evidencia_url || '');
                               setActAutoevaluacionText(act.autoevaluacion || '');
                             }}
-                            className="px-4 py-2 bg-zinc-750 text-white rounded-xl text-[0.8em] font-bold uppercase hover:brightness-110"
+                            className="px-4 py-2 bg-clr2 text-clr1 rounded-xl text-[0.8em] font-bold uppercase hover:brightness-110"
                           >
                             {act.evidencia_texto ? 'Actualizar Evidencia 📂' : 'Subir Evidencia 📤'}
                           </button>
@@ -1636,7 +1636,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                           <div className="flex gap-2">
                             <button
                               onClick={() => handleApproveActivity(act.id)}
-                              className="px-4 py-2 bg-green-600 hover:brightness-110 text-white font-bold rounded-xl text-[0.8em] uppercase tracking-wider"
+                              className="px-4 py-2 bg-clr6 hover:brightness-110 text-clr1 font-bold rounded-xl text-[0.8em] uppercase tracking-wider"
                             >
                               Aprobar Tarea ✓
                             </button>
@@ -1645,7 +1645,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                                 setReviewingActId(act.id);
                                 setActReviewComment(act.comentario_monitor || '');
                               }}
-                              className="px-4 py-2 border border-red-200 text-red-650 hover:bg-red-50 dark:hover:bg-red-950/20 font-bold rounded-xl text-[0.8em] uppercase tracking-wider"
+                              className="px-4 py-2 border border-clr4 text-clr4 hover:bg-clr4 dark:hover:bg-dclr4 font-bold rounded-xl text-[0.8em] uppercase tracking-wider"
                             >
                               Corregir / Observar 📝
                             </button>
@@ -1655,10 +1655,10 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
 
                       {/* Modal de subir evidencia */}
                       {submittingEvidenceActId === act.id && (
-                        <div className="mt-4 p-4 border rounded-2xl bg-zinc-55 dark:bg-zinc-800 space-y-3">
-                          <span className="text-[0.8em] font-extrabold uppercase text-zinc-400 block">Registrar Evidencia de Tarea</span>
+                        <div className="mt-4 p-4 border rounded-2xl bg-clr7 dark:bg-dclr7 space-y-3">
+                          <span className="text-[0.8em] font-extrabold uppercase text-clr3 block">Registrar Evidencia de Tarea</span>
                           <div className="space-y-1">
-                            <label className="text-[0.75em] font-bold text-zinc-500 block">Descripción del Trabajo Realizado</label>
+                            <label className="text-[0.75em] font-bold text-clr3 block">Descripción del Trabajo Realizado</label>
                             <DebouncedTextarea 
                               value={actEvidenceText}
                               onChange={val => setActEvidenceText(val)}
@@ -1667,7 +1667,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                             />
                           </div>
                           <div className="space-y-1">
-                            <label className="text-[0.75em] font-bold text-zinc-500 block">Enlace de Evidencia (Google Drive / Foto / Documento Opcional)</label>
+                            <label className="text-[0.75em] font-bold text-clr3 block">Enlace de Evidencia (Google Drive / Foto / Documento Opcional)</label>
                             <DebouncedInput 
                               type="text"
                               value={actEvidenceUrl}
@@ -1677,7 +1677,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                             />
                           </div>
                           <div className="space-y-1">
-                            <label className="text-[0.75em] font-bold text-zinc-500 block">Autoevaluación (¿Qué aprendiste de esta tarea?)</label>
+                            <label className="text-[0.75em] font-bold text-clr3 block">Autoevaluación (¿Qué aprendiste de esta tarea?)</label>
                             <DebouncedTextarea 
                               value={actAutoevaluacionText}
                               onChange={val => setActAutoevaluacionText(val)}
@@ -1688,13 +1688,13 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                           <div className="flex gap-2 justify-end pt-2">
                             <button
                               onClick={() => setSubmittingEvidenceActId(null)}
-                              className="px-4 py-2 text-zinc-400 text-xs uppercase font-extrabold"
+                              className="px-4 py-2 text-clr3 text-xs uppercase font-extrabold"
                             >
                               Cancelar
                             </button>
                             <button
                               onClick={() => handleSubmitActivityEvidence(act.id)}
-                              className="px-5 py-2.5 bg-green-600 text-white text-xs uppercase font-extrabold rounded-lg hover:brightness-110"
+                              className="px-5 py-2.5 bg-clr6 text-clr1 text-xs uppercase font-extrabold rounded-lg hover:brightness-110"
                             >
                               Enviar Evidencia 📤
                             </button>
@@ -1704,10 +1704,10 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
 
                       {/* Modal de ingresar corrección */}
                       {reviewingActId === act.id && (
-                        <div className="mt-4 p-4 border rounded-2xl bg-red-50/50 dark:bg-red-950/10 border-red-200 space-y-3">
-                          <span className="text-[0.8em] font-extrabold uppercase text-red-500 block">Indicar Comentario de Mejora</span>
+                        <div className="mt-4 p-4 border rounded-2xl bg-clr4 dark:bg-dclr4 border-clr4 space-y-3">
+                          <span className="text-[0.8em] font-extrabold uppercase text-clr4 block">Indicar Comentario de Mejora</span>
                           <div className="space-y-1">
-                            <label className="text-[0.75em] font-bold text-red-700 dark:text-red-400 block">¿Qué debe mejorar o completar el participante?</label>
+                            <label className="text-[0.75em] font-bold text-clr4 dark:text-dclr4 block">¿Qué debe mejorar o completar el participante?</label>
                             <DebouncedTextarea 
                               value={actReviewComment}
                               onChange={val => setActReviewComment(val)}
@@ -1718,13 +1718,13 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                           <div className="flex gap-2 justify-end pt-2">
                             <button
                               onClick={() => setReviewingActId(null)}
-                              className="px-4 py-2 text-zinc-400 text-xs uppercase font-extrabold"
+                              className="px-4 py-2 text-clr3 text-xs uppercase font-extrabold"
                             >
                               Cancelar
                             </button>
                             <button
                               onClick={() => handleReviewActivity(act.id)}
-                              className="px-5 py-2.5 bg-red-600 text-white text-xs uppercase font-extrabold rounded-lg hover:brightness-110"
+                              className="px-5 py-2.5 bg-clr4 text-clr1 text-xs uppercase font-extrabold rounded-lg hover:brightness-110"
                             >
                               Enviar Corrección
                             </button>
@@ -1738,22 +1738,22 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
 
               {/* Botón Solicitar Reconocimiento */}
               {isSpecOwner && ep.estado === 'activo' && completedCount === totalCount && totalCount > 0 && (
-                <div className="p-4 rounded-3xl bg-green-50 dark:bg-green-950/20 border border-green-200 space-y-4">
-                  <p className="text-[0.9em] font-bold text-green-700 dark:text-green-300">
+                <div className="p-4 rounded-3xl bg-clr6 dark:bg-dclr6 border border-clr6 space-y-4">
+                  <p className="text-[0.9em] font-bold text-clr6 dark:text-dclr6">
                     ¡Has completado todas tus tareas planificadas! A continuación evalúa tu experiencia para solicitar tu insignia de especialidad.
                   </p>
                   
                   <div className="space-y-2">
-                    <label className="text-[0.8em] font-bold uppercase tracking-wider text-zinc-400 block">Evaluación Final del Especialista</label>
+                    <label className="text-[0.8em] font-bold uppercase tracking-wider text-clr3 block">Evaluación Final del Especialista</label>
                     <DebouncedTextarea 
                       value={finalSpecEvaluation}
                       onChange={val => setFinalSpecEvaluation(val)}
                       placeholder="Describe qué fue lo que más te gustó, qué dificultades tuviste y cómo este conocimiento te ayuda en tu vida diaria..."
-                      className="w-full p-4 border rounded-2xl bg-white dark:bg-zinc-900 text-sm font-medium h-24"
+                      className="w-full p-4 border rounded-2xl bg-clr1 dark:bg-dclr1 text-sm font-medium h-24"
                     />
                   </div>
 
-                  <label className="flex items-center gap-2 text-[0.9em] font-bold cursor-pointer text-zinc-800 dark:text-zinc-200 select-none">
+                  <label className="flex items-center gap-2 text-[0.9em] font-bold cursor-pointer text-clr2 dark:text-dclr2 select-none">
                     <input 
                       type="checkbox"
                       checked={goalChecked}
@@ -1765,7 +1765,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                   <div className="flex justify-end pt-2">
                     <button
                       onClick={handleRequestRecognition}
-                      className="px-6 py-3 bg-green-600 text-white font-extrabold rounded-xl text-[0.85em] uppercase tracking-wider hover:brightness-110 shadow-lg"
+                      className="px-6 py-3 bg-clr6 text-clr1 font-extrabold rounded-xl text-[0.85em] uppercase tracking-wider hover:brightness-110 shadow-lg"
                     >
                       Enviar Solicitud de Reconocimiento 🎖️
                     </button>
@@ -1775,36 +1775,36 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
 
               {/* Aprobación del Monitor al finalizar Desarrollo */}
               {!isSpecOwner && isMonitor && ep.estado === 'activo' && completedCount === totalCount && totalCount > 0 && !ep.aprobado_monitor && (
-                <div className="p-5 rounded-3xl bg-amber-50 dark:bg-amber-950/20 border border-amber-200 space-y-4">
-                  <p className="text-[0.95em] font-bold text-amber-800 dark:text-amber-300">
+                <div className="p-5 rounded-3xl bg-clr5 dark:bg-dclr5 border border-clr5 space-y-4">
+                  <p className="text-[0.95em] font-bold text-clr5 dark:text-dclr5">
                     Aprobación Técnica del Monitor: Todas las tareas técnicas han sido validadas. Revisa la evaluación final del participante y firma para autorizar la entrega de su insignia.
                   </p>
 
                   {ep.evaluacion_final && (
-                    <div className="p-3 bg-white dark:bg-zinc-900 rounded-2xl border text-sm">
-                      <span className="font-extrabold text-zinc-400 uppercase text-[0.75em] block">Evaluación Final del Especialista:</span>
-                      <p className="italic text-zinc-700 dark:text-zinc-300">"{ep.evaluacion_final}"</p>
+                    <div className="p-3 bg-clr1 dark:bg-dclr1 rounded-2xl border text-sm">
+                      <span className="font-extrabold text-clr3 uppercase text-[0.75em] block">Evaluación Final del Especialista:</span>
+                      <p className="italic text-clr2 dark:text-dclr2">"{ep.evaluacion_final}"</p>
                     </div>
                   )}
 
                   <div className="flex gap-3 flex-wrap">
                     <button
                       onClick={() => handleMonitorApproveSpecialty()}
-                      className="px-5 py-3 bg-green-600 text-white font-bold rounded-xl text-[0.8em] uppercase tracking-wider hover:brightness-110 shadow-md"
+                      className="px-5 py-3 bg-clr6 text-clr1 font-bold rounded-xl text-[0.8em] uppercase tracking-wider hover:brightness-110 shadow-md"
                     >
                       Aprobar Especialidad y Firmar ✍️
                     </button>
                     <button
                       onClick={() => setShowFeedbackInput(true)}
-                      className="px-5 py-3 border border-red-200 text-red-650 hover:bg-red-50 dark:hover:bg-red-950/20 font-bold rounded-xl text-[0.8em] uppercase tracking-wider"
+                      className="px-5 py-3 border border-clr4 text-clr4 hover:bg-clr4 dark:hover:bg-dclr4 font-bold rounded-xl text-[0.8em] uppercase tracking-wider"
                     >
                       Solicitar Mejoras / Retroalimentar 📝
                     </button>
                   </div>
 
                   {showFeedbackInput && (
-                    <div className="mt-4 p-4 border rounded-2xl bg-white dark:bg-zinc-900 space-y-3">
-                      <label className="text-[0.8em] font-bold uppercase text-zinc-450 block">Retroalimentación / Comentarios de Mejora</label>
+                    <div className="mt-4 p-4 border rounded-2xl bg-clr1 dark:bg-dclr1 space-y-3">
+                      <label className="text-[0.8em] font-bold uppercase text-clr3 block">Retroalimentación / Comentarios de Mejora</label>
                       <DebouncedTextarea 
                         value={feedbackComment}
                         onChange={val => setFeedbackComment(val)}
@@ -1814,13 +1814,13 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                       <div className="flex justify-end gap-2">
                         <button
                           onClick={() => setShowFeedbackInput(false)}
-                          className="px-4 py-2 text-zinc-400 text-xs uppercase font-extrabold"
+                          className="px-4 py-2 text-clr3 text-xs uppercase font-extrabold"
                         >
                           Cancelar
                         </button>
                         <button
                           onClick={handleMonitorFeedbackSpecialty}
-                          className="px-5 py-2 bg-red-600 text-white text-xs uppercase font-extrabold rounded-lg hover:brightness-110"
+                          className="px-5 py-2 bg-clr4 text-clr1 text-xs uppercase font-extrabold rounded-lg hover:brightness-110"
                         >
                           Enviar Comentarios
                         </button>
@@ -1835,44 +1835,44 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
           {/* FASE 4: RECONOCIMIENTO */}
           {ep.fase === 'reconocimiento' && (
             <div className="space-y-6">
-              <div className="p-4 rounded-3xl bg-zinc-50 dark:bg-zinc-800/40 border border-zinc-150 dark:border-white/5 space-y-4 text-[0.95em]">
-                <p className="text-zinc-700 dark:text-zinc-350"><span className="font-extrabold text-zinc-400 block uppercase text-[0.8em] tracking-wide">Meta General</span>{ep.meta_general || 'Ninguna meta descrita'}</p>
-                <p className="text-zinc-700 dark:text-zinc-350"><span className="font-extrabold text-zinc-400 block uppercase text-[0.8em] tracking-wide">Monitor / Acompañante</span>{ep.monitor_nombre || 'No asignado'}</p>
-                <p className="text-zinc-700 dark:text-zinc-350"><span className="font-extrabold text-zinc-400 block uppercase text-[0.8em] tracking-wide">Evaluación Final</span>{ep.evaluacion_final || 'Sin evaluación registrada'}</p>
+              <div className="p-4 rounded-3xl bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7 space-y-4 text-[0.95em]">
+                <p className="text-clr2 dark:text-dclr2"><span className="font-extrabold text-clr3 block uppercase text-[0.8em] tracking-wide">Meta General</span>{ep.meta_general || 'Ninguna meta descrita'}</p>
+                <p className="text-clr2 dark:text-dclr2"><span className="font-extrabold text-clr3 block uppercase text-[0.8em] tracking-wide">Monitor / Acompañante</span>{ep.monitor_nombre || 'No asignado'}</p>
+                <p className="text-clr2 dark:text-dclr2"><span className="font-extrabold text-clr3 block uppercase text-[0.8em] tracking-wide">Evaluación Final</span>{ep.evaluacion_final || 'Sin evaluación registrada'}</p>
               </div>
 
               {/* Aprobación del Monitor en fase de Reconocimiento */}
               {!isSpecOwner && isMonitor && ep.estado === 'activo' && !ep.aprobado_monitor && (
-                <div className="p-5 rounded-3xl bg-amber-50 dark:bg-amber-950/20 border border-amber-200 space-y-4">
-                  <p className="text-[0.95em] font-bold text-amber-800 dark:text-amber-300">
+                <div className="p-5 rounded-3xl bg-clr5 dark:bg-dclr5 border border-clr5 space-y-4">
+                  <p className="text-[0.95em] font-bold text-clr5 dark:text-dclr5">
                     Aprobación del Monitor: El especialista ha solicitado el reconocimiento. Revisa su evaluación final y firma para autorizar la entrega de la insignia.
                   </p>
 
                   {ep.evaluacion_final && (
-                    <div className="p-3 bg-white dark:bg-zinc-900 rounded-2xl border text-sm">
-                      <span className="font-extrabold text-zinc-400 uppercase text-[0.75em] block">Evaluación Final del Especialista:</span>
-                      <p className="italic text-zinc-700 dark:text-zinc-300">"{ep.evaluacion_final}"</p>
+                    <div className="p-3 bg-clr1 dark:bg-dclr1 rounded-2xl border text-sm">
+                      <span className="font-extrabold text-clr3 uppercase text-[0.75em] block">Evaluación Final del Especialista:</span>
+                      <p className="italic text-clr2 dark:text-dclr2">"{ep.evaluacion_final}"</p>
                     </div>
                   )}
 
                   <div className="flex gap-3 flex-wrap">
                     <button
                       onClick={() => handleMonitorApproveSpecialty()}
-                      className="px-5 py-3 bg-green-600 text-white font-bold rounded-xl text-[0.8em] uppercase tracking-wider hover:brightness-110 shadow-md"
+                      className="px-5 py-3 bg-clr6 text-clr1 font-bold rounded-xl text-[0.8em] uppercase tracking-wider hover:brightness-110 shadow-md"
                     >
                       Aprobar y Firmar ✍️
                     </button>
                     <button
                       onClick={() => setShowFeedbackInput(true)}
-                      className="px-5 py-3 border border-red-200 text-red-650 hover:bg-red-50 dark:hover:bg-red-950/20 font-bold rounded-xl text-[0.8em] uppercase tracking-wider"
+                      className="px-5 py-3 border border-clr4 text-clr4 hover:bg-clr4 dark:hover:bg-dclr4 font-bold rounded-xl text-[0.8em] uppercase tracking-wider"
                     >
                       Solicitar Mejoras 📝
                     </button>
                   </div>
 
                   {showFeedbackInput && (
-                    <div className="mt-4 p-4 border rounded-2xl bg-white dark:bg-zinc-900 space-y-3">
-                      <label className="text-[0.8em] font-bold uppercase text-zinc-450 block">Retroalimentación</label>
+                    <div className="mt-4 p-4 border rounded-2xl bg-clr1 dark:bg-dclr1 space-y-3">
+                      <label className="text-[0.8em] font-bold uppercase text-clr3 block">Retroalimentación</label>
                       <DebouncedTextarea 
                         value={feedbackComment}
                         onChange={val => setFeedbackComment(val)}
@@ -1882,13 +1882,13 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                       <div className="flex justify-end gap-2">
                         <button
                           onClick={() => setShowFeedbackInput(false)}
-                          className="px-4 py-2 text-zinc-400 text-xs uppercase font-extrabold"
+                          className="px-4 py-2 text-clr3 text-xs uppercase font-extrabold"
                         >
                           Cancelar
                         </button>
                         <button
                           onClick={handleMonitorFeedbackSpecialty}
-                          className="px-5 py-2 bg-red-600 text-white text-xs uppercase font-extrabold rounded-lg hover:brightness-110"
+                          className="px-5 py-2 bg-clr4 text-clr1 text-xs uppercase font-extrabold rounded-lg hover:brightness-110"
                         >
                           Enviar
                         </button>
@@ -1900,25 +1900,25 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
 
               {/* Aprobación del Dirigente y Entrega */}
               {isLeader && ep.estado === 'activo' && ep.aprobado_monitor && (
-                <div className="p-5 rounded-3xl bg-green-50 dark:bg-green-950/20 border border-green-200 space-y-4">
-                  <p className="text-[0.95em] font-bold text-green-800 dark:text-green-300">
+                <div className="p-5 rounded-3xl bg-clr6 dark:bg-dclr6 border border-clr6 space-y-4">
+                  <p className="text-[0.95em] font-bold text-clr6 dark:text-dclr6">
                     Aprobación de Ceremonia (Dirigente / Guiadora): El monitor ha aprobado la especialidad técnica. Ingresa la fecha en la que se entregará la insignia y firma para expedir el certificado oficial del grupo.
                   </p>
 
                   <div className="space-y-2">
-                    <label className="text-[0.8em] font-bold uppercase tracking-wider text-zinc-400 block">Fecha de Entrega de la Insignia (Ceremonia)</label>
+                    <label className="text-[0.8em] font-bold uppercase tracking-wider text-clr3 block">Fecha de Entrega de la Insignia (Ceremonia)</label>
                     <input 
                       type="date"
                       value={deliveryDate}
                       onChange={e => setDeliveryDate(e.target.value)}
-                      className="p-3 border rounded-xl bg-white dark:bg-zinc-900 text-sm font-semibold w-full"
+                      className="p-3 border rounded-xl bg-clr1 dark:bg-dclr1 text-sm font-semibold w-full"
                     />
                   </div>
 
                   <div className="flex justify-end pt-2">
                     <button
                       onClick={() => handleFinalizeSpecialty()}
-                      className="px-6 py-3 bg-green-600 text-white font-extrabold rounded-xl text-[0.85em] uppercase tracking-wider hover:brightness-110 shadow-lg"
+                      className="px-6 py-3 bg-clr6 text-clr1 font-extrabold rounded-xl text-[0.85em] uppercase tracking-wider hover:brightness-110 shadow-lg"
                     >
                       Aprobar e Imprimir Certificado 🏆
                     </button>
@@ -1928,11 +1928,11 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
 
               {/* Estado de finalización para el NNJ */}
               {ep.estado === 'completado' && (
-                <div className="p-5 rounded-3xl bg-green-50 dark:bg-green-950/20 border border-green-200 text-center space-y-4">
-                  <p className="text-[1.1em] font-black text-green-700 dark:text-green-300 uppercase">
+                <div className="p-5 rounded-3xl bg-clr6 dark:bg-dclr6 border border-clr6 text-center space-y-4">
+                  <p className="text-[1.1em] font-black text-clr6 dark:text-dclr6 uppercase">
                     🏆 ¡Especialidad Completada con Éxito!
                   </p>
-                  <p className="text-[0.9em] text-zinc-650 dark:text-zinc-350">
+                  <p className="text-[0.9em] text-clr2 dark:text-dclr2">
                     Esta especialidad ha sido completada y avalada tanto por tu monitor como por la directiva de tu unidad.
                     {ep.fecha_entrega && ` La insignia se agendó para entregarse el ${new Date(ep.fecha_entrega + 'T00:00:00').toLocaleDateString('es-CL')}.`}
                   </p>
@@ -1948,7 +1948,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                         fecha_entrega: ep.fecha_entrega ?? undefined,
                         fecha_fin: ep.fecha_fin ?? undefined
                       })}
-                      className="px-6 py-3 bg-zinc-800 hover:brightness-110 text-white text-[0.85em] font-extrabold uppercase rounded-xl tracking-wider shadow-md transition-all active:scale-95 cursor-pointer"
+                      className="px-6 py-3 bg-clr2 hover:brightness-110 text-clr1 text-[0.85em] font-extrabold uppercase rounded-xl tracking-wider shadow-md transition-all active:scale-95 cursor-pointer"
                     >
                       Descargar Certificado Oficial 📜
                     </button>
@@ -1957,8 +1957,8 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
               )}
 
               {ep.estado === 'activo' && !ep.aprobado_monitor && (
-                <div className="p-4 rounded-3xl bg-zinc-50 dark:bg-zinc-800/40 border border-zinc-150 dark:border-white/5 text-center">
-                  <p className="text-[0.9em] font-bold text-zinc-550 italic">
+                <div className="p-4 rounded-3xl bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7 text-center">
+                  <p className="text-[0.9em] font-bold text-clr3 italic">
                     Esperando aprobación final y firma digital de tu monitor/acompañante...
                   </p>
                 </div>
@@ -1970,18 +1970,18 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
 
         {/* Modal footer / Delete specialty */}
         {isSpecOwner && ep.estado === 'activo' && (
-          <div className="pt-4 border-t border-zinc-150 dark:border-white/5 flex justify-between gap-3">
+          <div className="pt-4 border-t border-clr7 dark:border-dclr7 flex justify-between gap-3">
             {ep.estado === 'activo' ? (
               <button
                 onClick={handlePauseSpecialty}
-                className="px-4 py-2 text-[0.8em] font-bold uppercase text-amber-600 bg-amber-50 dark:bg-amber-950/20 hover:brightness-110 rounded-xl"
+                className="px-4 py-2 text-[0.8em] font-bold uppercase text-clr5 bg-clr5 dark:bg-dclr5 hover:brightness-110 rounded-xl"
               >
                 Pausar Especialidad ⏸️
               </button>
             ) : (
               <button
                 onClick={handleResumeSpecialty}
-                className="px-4 py-2 text-[0.8em] font-bold uppercase text-green-600 bg-green-50 dark:bg-green-950/20 hover:brightness-110 rounded-xl"
+                className="px-4 py-2 text-[0.8em] font-bold uppercase text-clr6 bg-clr6 dark:bg-dclr6 hover:brightness-110 rounded-xl"
               >
                 Retomar Especialidad ▶️
               </button>
@@ -1989,7 +1989,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
             
             <button
               onClick={handleDeleteSpecialty}
-              className="px-4 py-2 text-[0.8em] font-bold uppercase text-red-650 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-xl"
+              className="px-4 py-2 text-[0.8em] font-bold uppercase text-clr4 hover:bg-clr4 dark:hover:bg-dclr4 rounded-xl"
             >
               Eliminar Especialidad ✕
             </button>
@@ -2014,26 +2014,26 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
 
       {/* Modal de Captura de Firma Digital (Especialidades) */}
       {showSignatureModal && (
-        <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-black/60 backdrop-blur-md animate-in fade-in duration-200">
-          <div className="bg-white dark:bg-zinc-950 p-6 rounded-[2.5rem] border border-zinc-150 dark:border-dclr10 w-full max-w-md shadow-2xl relative">
+        <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-clr2 backdrop-blur-md animate-in fade-in duration-200">
+          <div className="bg-clr1 dark:bg-dclr1 p-6 rounded-[2.5rem] border border-clr7 dark:border-dclr7 w-full max-w-md shadow-2xl relative">
             <button 
               onClick={() => { setShowSignatureModal(false); setSigModalType(null); }}
-              className="absolute top-4 right-4 text-zinc-400 hover:text-zinc-650 dark:hover:text-white font-extrabold text-[1.1em] cursor-pointer"
+              className="absolute top-4 right-4 text-clr3 hover:text-clr2 dark:hover:text-clr1 font-extrabold text-[1.1em] cursor-pointer"
             >
               ✕
             </button>
             
-            <h3 className="text-[1.25em] font-black text-zinc-850 dark:text-dclr2 uppercase tracking-tighter mb-4 text-center border-b pb-2 font-display">
+            <h3 className="text-[1.25em] font-black text-clr2 dark:text-dclr2 uppercase tracking-tighter mb-4 text-center border-b pb-2 font-display">
               {sigModalType === 'monitor' ? '✍️ Firma del Monitor' : '✍️ Firma del Dirigente'}
             </h3>
             
-            <p className="text-[0.85em] text-zinc-400 mb-4 text-center">
+            <p className="text-[0.85em] text-clr3 mb-4 text-center">
               {sigModalType === 'monitor' 
                 ? 'Dibuja tu firma a continuación para autorizar la aprobación técnica de esta especialidad.' 
                 : 'Dibuja tu firma a continuación para confirmar la finalización y agendamiento de esta especialidad.'}
             </p>
 
-            <div className="border-4 border-dashed border-zinc-200 dark:border-zinc-800 rounded-[1.5rem] bg-white overflow-hidden shadow-inner touch-none relative">
+            <div className="border-4 border-dashed border-clr7 dark:border-dclr7 rounded-[1.5rem] bg-clr1 overflow-hidden shadow-inner touch-none relative">
               <SignatureCanvas 
                 ref={sigCanvasRef}
                 penColor='#1b1b1b'
@@ -2057,7 +2057,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                   sigCanvasRef.current?.clear();
                   setTempSignature(null);
                 }}
-                className="px-4 py-2 text-[0.8em] font-black uppercase text-red-650 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-xl transition-colors border border-red-200 cursor-pointer"
+                className="px-4 py-2 text-[0.8em] font-black uppercase text-clr4 hover:bg-clr4 dark:hover:bg-dclr4 rounded-xl transition-colors border border-clr4 cursor-pointer"
               >
                 Limpiar
               </button>
@@ -2082,7 +2082,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                     await handleFinalizeSpecialty(signature);
                   }
                 }}
-                className="px-6 py-2.5 bg-green-600 hover:brightness-110 text-white rounded-xl text-[0.8em] font-black uppercase tracking-wider transition-all shadow-md cursor-pointer"
+                className="px-6 py-2.5 bg-clr6 hover:brightness-110 text-clr1 rounded-xl text-[0.8em] font-black uppercase tracking-wider transition-all shadow-md cursor-pointer"
               >
                 Confirmar Firma
               </button>

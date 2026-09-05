@@ -90,9 +90,9 @@ const VisitSection = () => {
   if (!isClient) return null;
 
   return (
-    <section className="py-24 bg-white dark:bg-dclr1 transition-colors">
+    <section className="py-24 bg-vsclr1 dark:bg-vsdclr1 transition-colors">
       <div className="max-w-[1080px] mx-auto px-6">
-        <h2 className="text-4xl md:text-6xl font-black font-display text-center mb-16 text-clr7 dark:text-dclr8 uppercase tracking-tighter">{titulo}</h2>
+        <h2 className="text-4xl md:text-6xl font-black font-display text-center mb-16 text-vsclr2 dark:text-vsdclr2 uppercase tracking-tighter">{titulo}</h2>
 
         <div className="flex flex-col lg:flex-row gap-4 items-stretch">
           {/* Dashboard Left */}
@@ -100,52 +100,52 @@ const VisitSection = () => {
             
             {/* Years & Mail */}
             <div className="flex h-40 shadow-2xl rounded-[2rem] overflow-hidden">
-              <div className="w-1/2 bg-gradient-to-br from-clr6/50 via-clr5/50 to-clr5/50 p-2 flex flex-col items-center justify-center text-center">
-                <span className="text-5xl font-black text-dclr6 dark:text-dclr2 leading-none">+{years}</span>
-                <span className="text-[0.8em] font-black uppercase text-clr4 dark:text-white mt-2 animate-bounce drop-shadow-lg">Años de Historias</span>
+              <div className="w-1/2 bg-gradient-to-br from-vsclr3 to-vsclr4 dark:from-vsdclr3 dark:to-vsdclr4 p-2 flex flex-col items-center justify-center text-center">
+                <span className="text-5xl font-black text-vsclr5 dark:text-vsdclr5 leading-none">+{years}</span>
+                <span className="text-[0.8em] font-black uppercase text-vsclr6 dark:text-vsdclr6 mt-2 animate-bounce drop-shadow-lg">Años de Historias</span>
               </div>
-              <div className="w-1/2 bg-gradient-to-br from-clr5/50 via-clr5/50 to-clr7/50 p-2 flex flex-col items-center justify-center text-center">
+              <div className="w-1/2 bg-gradient-to-br from-vsclr3 to-vsclr4 dark:from-vsdclr3 dark:to-vsdclr4 p-2 flex flex-col items-center justify-center text-center">
                 <a 
                   href={emailHref}
-                  className={`p-3 rounded-full transition-all duration-500 mb-2 ${isMailHovered ? 'bg-clr8 scale-110 shadow-lg' : 'bg-white/10'}`}
+                  className={`p-3 rounded-full transition-all duration-500 mb-2 ${isMailHovered ? 'bg-vsclr9 dark:bg-vsdclr9 scale-110 shadow-lg' : 'bg-vsclr1 dark:bg-vsdclr1'}`}
                   onMouseEnter={() => setIsMailHovered(true)}
                   onMouseLeave={() => setIsMailHovered(false)}
                 >
-                  <IconoRRSSEmail className={`w-8 h-8 ${isMailHovered ? 'text-clr5' : 'text-clr4 dark:text-white'}`} />
+                  <IconoRRSSEmail className={`w-8 h-8 ${isMailHovered ? 'text-vsclr9 dark:text-vsdclr9' : 'text-vsclr6 dark:text-vsdclr6'}`} />
                 </a>
-                <span className="text-[0.8em] font-black text-clr4 dark:text-white uppercase opacity-80 drop-shadow-lg">{email}</span>
+                <span className="text-[0.8em] font-black text-vsclr6 dark:text-vsdclr6 uppercase opacity-80 drop-shadow-lg">{email}</span>
               </div>
             </div>
 
             {/* Visit Circle */}
-            <div className="relative aspect-square flex items-center justify-center bg-gradient-to-br from-clr8 dark:from-dclr5 via-clr6 dark:via-dclr5 to-dclr6 dark:to-dclr7 rounded-[2em] shadow-xl group overflow-hidden">
+            <div className="relative aspect-square flex items-center justify-center bg-gradient-to-br from-vsclr3 dark:from-vsdclr3 to-vsclr4 dark:to-vsdclr4 rounded-[2em] shadow-xl group overflow-hidden">
               <div 
                 className="absolute inset-4 bg-contain bg-center bg-no-repeat opacity-60 group-hover:scale-110 transition-transform duration-1000"
                 style={{ backgroundImage: `url('${imagen}')` }}
               />
               <div className="relative z-10 text-center p-4">
-                <span className="block text-3xl font-black text-white dark:text-dclr8 font-display leading-tight uppercase tracking-tighter drop-shadow-lg">{ctaTexto}</span>
+                <span className="block text-3xl font-black text-vsclr7 dark:text-vsdclr7 font-display leading-tight uppercase tracking-tighter drop-shadow-lg">{ctaTexto}</span>
               </div>
             </div>
 
             {/* Clock & Pin */}
             <div className="flex min-h-40 shadow-2xl rounded-[2em] overflow-hidden">
-              <div className="w-1/2 bg-gradient-to-br from-clr7/50 via-clr5/50 to-clr5/50 p-2 flex flex-col items-center justify-center">
-                <div className="relative w-16 h-16 mb-2 border-4 border-clr10 rounded-full">
-                  <div className="absolute top-1/2 left-1/2 w-1.5 h-1.5 bg-clr10 rounded-full -translate-x-1/2 -translate-y-1/2 z-10" />
+              <div className="w-1/2 bg-gradient-to-br from-vsclr3 to-vsclr4 dark:from-vsdclr3 dark:to-vsdclr4 p-2 flex flex-col items-center justify-center">
+                <div className="relative w-16 h-16 mb-2 border-4 border-vsclr8 dark:border-vsdclr8 rounded-full">
+                  <div className="absolute top-1/2 left-1/2 w-1.5 h-1.5 bg-vsclr8 dark:bg-vsdclr8 rounded-full -translate-x-1/2 -translate-y-1/2 z-10" />
                   {/* Hands */}
-                  <div className="absolute top-1/2 left-1/2 w-0.5 h-6 bg-clr10 origin-top -translate-x-1/2" style={{ transform: `rotate(${180 + (time.getHours() % 12) * 30 + time.getMinutes() * 0.5}deg)` }} />
-                  <div className="absolute top-1/2 left-1/2 w-0.5 h-8 bg-clr10 origin-top -translate-x-1/2" style={{ transform: `rotate(${180 + time.getMinutes() * 6}deg)` }} />
-                  <div className="absolute top-1/2 left-1/2 w-px h-8 bg-clr7 origin-top -translate-x-1/2 animate-pulse" style={{ transform: `rotate(${180 + time.getSeconds() * 6}deg)` }} />
+                  <div className="absolute top-1/2 left-1/2 w-0.5 h-6 bg-vsclr8 dark:bg-vsdclr8 origin-top -translate-x-1/2" style={{ transform: `rotate(${180 + (time.getHours() % 12) * 30 + time.getMinutes() * 0.5}deg)` }} />
+                  <div className="absolute top-1/2 left-1/2 w-0.5 h-8 bg-vsclr8 dark:bg-vsdclr8 origin-top -translate-x-1/2" style={{ transform: `rotate(${180 + time.getMinutes() * 6}deg)` }} />
+                  <div className="absolute top-1/2 left-1/2 w-px h-8 bg-vsclr5 dark:bg-vsdclr5 origin-top -translate-x-1/2 animate-pulse" style={{ transform: `rotate(${180 + time.getSeconds() * 6}deg)` }} />
                 </div>
-                <div className="text-[0.9em] font-black uppercase text-clr1 text-center leading-tight drop-shadow-lg">{horario}</div>
+                <div className="text-[0.9em] font-black uppercase text-vsclr6 dark:text-vsdclr6 text-center leading-tight drop-shadow-lg">{horario}</div>
               </div>
-              <div className="w-1/2 bg-gradient-to-br from-clr5/50 via-clr5/50 to-clr7/50 p-4 flex flex-col items-center justify-center text-center">
+              <div className="w-1/2 bg-gradient-to-br from-vsclr3 to-vsclr4 dark:from-vsdclr3 dark:to-vsdclr4 p-4 flex flex-col items-center justify-center text-center">
                 <div className="relative mb-2">
-                  <IconoMapPin className="w-16 h-16 text-white" />
-                  <div className="absolute inset-0 bg-white rounded-full animate-ping opacity-20" />
+                  <IconoMapPin className="w-16 h-16 text-vsclr6 dark:text-vsdclr6" />
+                  <div className="absolute inset-0 bg-vsclr1 dark:bg-vsdclr1 rounded-full animate-ping opacity-20" />
                 </div>
-                <span className="text-[0.8em] font-black text-white uppercase leading-tight">
+                <span className="text-[0.8em] font-black text-vsclr6 dark:text-vsdclr6 uppercase leading-tight">
                   {direccionLines.map((line, i) => (
                     <span key={i}>
                       {line}

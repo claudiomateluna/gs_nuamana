@@ -22,8 +22,11 @@ import { getSiteConfig } from '@/app/(admin)/actions/get-site-config';
 import SecondaryHeader from '@/components/SecondaryHeader';
 import ZoneConfigForm from '@/components/admin/ZoneConfigForm';
 import MenuManager from '@/components/admin/MenuManager';
+import SocialEditor from '@/components/admin/SocialEditor';
+import ContentManager from '@/components/admin/ContentManager';
 import type { SiteConfigRecord } from '@/lib/site-config.types';
 import type { MenuItem } from '@/lib/menu-items.types';
+import type { PaginaContenido } from '@/lib/paginas-contenido.types';
 
 export default function AdministracionPage() {
   const router = useRouter();
@@ -32,6 +35,7 @@ export default function AdministracionPage() {
   const [config, setConfig] = useState<SiteConfigRecord>(DEFAULT_SITE_CONFIG);
   const [activeZoneId, setActiveZoneId] = useState<string>(ADMIN_ZONES[0].id);
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
+  const [pages, setPages] = useState<PaginaContenido[]>([]);
 
   const fetchMenuItems = async () => {
     const { data } = await supabase
@@ -39,6 +43,14 @@ export default function AdministracionPage() {
       .select('*')
       .order('orden');
     if (data) setMenuItems(data as MenuItem[]);
+  };
+
+  const fetchPages = async () => {
+    const { data } = await supabase
+      .from('paginas_contenido')
+      .select('*')
+      .order('orden');
+    if (data) setPages(data as PaginaContenido[]);
   };
 
   useEffect(() => {
@@ -60,6 +72,7 @@ export default function AdministracionPage() {
       } catch { setConfig(DEFAULT_SITE_CONFIG); }
 
       await fetchMenuItems();
+      await fetchPages();
       setAuthorized(true);
       setLoading(false);
     }
@@ -71,9 +84,9 @@ export default function AdministracionPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-zinc-50 dark:bg-dclr1 font-body transition-colors">
+      <div className="min-h-screen bg-clr1 dark:bg-dclr1 font-body transition-colors">
         <SecondaryHeader />
-        <div className="max-w-[1080px] mx-auto px-4 pt-32 pb-16 text-center font-body text-clr2 italic tracking-widest uppercase text-[0.8em]">
+        <div className="max-w-[1080px] mx-auto px-4 pt-32 pb-16 text-center font-body text-clr3 italic tracking-widest uppercase text-[0.8em]">
           Cargando administración...
         </div>
       </div>
@@ -83,14 +96,14 @@ export default function AdministracionPage() {
   if (!authorized) return null;
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-dclr1 font-body transition-colors">
+    <div className="min-h-screen bg-clr1 dark:bg-dclr1 font-body transition-colors">
       <SecondaryHeader />
       <main className="max-w-[1080px] mx-auto px-4 pt-32 pb-16 animate-in fade-in slide-in-from-bottom-8 duration-700">
         <div className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter">
+          <h1 className="text-3xl md:text-4xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter">
             Administración del Sitio
           </h1>
-          <p className="text-sm text-clr2 font-bold uppercase tracking-widest mt-2">
+          <p className="text-sm text-clr3 font-bold uppercase tracking-widest mt-2">
             Configuración general de la plataforma
           </p>
         </div>
@@ -103,8 +116,8 @@ export default function AdministracionPage() {
               onClick={() => setActiveZoneId(zone.id)}
               className={`px-5 py-2.5 rounded-2xl font-black text-sm uppercase tracking-widest transition-all ${
                 activeZoneId === zone.id
-                  ? 'bg-clr7 text-white shadow-lg'
-                  : 'bg-zinc-100 dark:bg-zinc-800 text-clr2 hover:text-clr5'
+                  ? 'bg-clr4 text-clr1 shadow-lg'
+                  : 'bg-clr1 dark:bg-dclr1 text-clr3 hover:text-clr4'
               }`}
             >
               <span>{zone.icon}</span> {zone.label}
@@ -113,15 +126,35 @@ export default function AdministracionPage() {
         </div>
 
         {/* Tab content */}
-        {activeZone.tabOnly ? (
-          <div className="bg-gradient-to-br from-white/30 via-clr5/20 to-clr7/40 dark:from-dclr1 dark:via-dclr5 dark:to-dclr7/20 rounded-[1rem] p-4 md:p-6 shadow-2xl border border-clr10 dark:border-dclr10">
-            <h2 className="text-xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-4">
+        {activeZone.id === 'social' ? (
+          <div className="bg-gradient-to-br from-tclr1 to-tclr2 dark:from-tdclr1 dark:to-tdclr2 rounded-[1rem] p-4 md:p-6 shadow-2xl border border-clr7 dark:border-dclr7">
+            <h2 className="text-xl font-black font-display text-tclr3 dark:text-tdclr3 uppercase tracking-tighter mb-4">
+              Redes Sociales
+            </h2>
+            <p className="text-xs text-tclr6 dark:text-tdclr6 mb-6">
+              Administra las redes sociales del sitio. Los cambios se reflejan inmediatamente.
+            </p>
+            <SocialEditor />
+          </div>
+        ) : activeZone.id === 'menu' ? (
+          <div className="bg-gradient-to-br from-tclr1 to-tclr2 dark:from-tdclr1 dark:to-tdclr2 rounded-[1rem] p-4 md:p-6 shadow-2xl border border-clr7 dark:border-dclr7">
+            <h2 className="text-xl font-black font-display text-tclr3 dark:text-tdclr3 uppercase tracking-tighter mb-4">
               Menú de Navegación
             </h2>
-            <p className="text-xs text-clr2 mb-6">
+            <p className="text-xs text-tclr6 dark:text-tdclr6 mb-6">
               Administra los ítems del menú lateral. Los cambios se reflejan inmediatamente en el sitio.
             </p>
             <MenuManager items={menuItems} onUpdate={fetchMenuItems} />
+          </div>
+        ) : activeZone.id === 'contenido' ? (
+          <div className="bg-gradient-to-br from-tclr1 to-tclr2 dark:from-tdclr1 dark:to-tdclr2 rounded-[1rem] p-4 md:p-6 shadow-2xl border border-clr7 dark:border-dclr7">
+            <h2 className="text-xl font-black font-display text-tclr3 dark:text-tdclr3 uppercase tracking-tighter mb-4">
+              Contenido de Páginas
+            </h2>
+            <p className="text-xs text-tclr6 dark:text-tdclr6 mb-6">
+              Administra el contenido de las páginas estáticas (Acerca De / Lo Que Hacemos). Los cambios se reflejan al recargar.
+            </p>
+            <ContentManager pages={pages} onUpdate={fetchPages} />
           </div>
         ) : (
           <ZoneConfigForm key={activeZone.id} zone={activeZone} config={config} />

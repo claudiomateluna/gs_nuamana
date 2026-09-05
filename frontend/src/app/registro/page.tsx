@@ -305,166 +305,166 @@ function RegistroContent() {
     }
   }
 
-  const inputStyle = "w-full bg-zinc-50 dark:bg-dclr10 dark:text-dclr2 border-2 border-transparent focus:border-clr7 rounded-2xl p-4 font-bold outline-none transition-all shadow-inner";
-  const infoBoxStyle = "mt-6 text-[0.9em] text-zinc-900 dark:text-dclr2 bg-zinc-50 dark:bg-dclr3 p-4 border border-clr10 dark:border-dclr10 rounded-2xl leading-relaxed italic";
+  const inputStyle = "w-full bg-clr7 dark:bg-dclr7 dark:text-dclr2 border-2 border-transparent focus:border-clr4 rounded-2xl p-4 font-bold outline-none transition-all shadow-inner";
+  const infoBoxStyle = "mt-6 text-[0.9em] text-clr2 dark:text-dclr2 bg-clr7 dark:bg-dclr7 p-4 border border-clr7 dark:border-dclr7 rounded-2xl leading-relaxed italic";
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-dclr1 font-body transition-colors">
+    <div className="min-h-screen bg-clr7 dark:bg-dclr7 font-body transition-colors">
       <SecondaryHeader />
       <main className="max-w-[1080px] mx-auto px-6 py-32 flex justify-center">
-        <div className="w-full max-w-2xl bg-white dark:bg-dclr5 rounded-[1rem] p-2 md:p-4 shadow-2xl border border-clr10 dark:border-dclr10 animate-in fade-in zoom-in duration-700">
+        <div className="w-full max-w-2xl bg-clr1 dark:bg-dclr1 rounded-[1rem] p-2 md:p-4 shadow-2xl border border-clr7 dark:border-dclr7 animate-in fade-in zoom-in duration-700">
           <div className="mb-12 space-y-4">
             <div className="flex justify-between items-end">
-              <h1 className="text-2xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter leading-none">Inscripción Nua Mana</h1>
-              <span className="text-[0.8em] font-black text-clr2 uppercase tracking-widest">Paso {currentStep} de 25</span>
+              <h1 className="text-2xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter leading-none">Inscripción Nua Mana</h1>
+              <span className="text-[0.8em] font-black text-clr3 uppercase tracking-widest">Paso {currentStep} de 25</span>
             </div>
-            <div className="h-2 w-full bg-zinc-100 dark:bg-black/20 rounded-full overflow-hidden">
-              <div className="h-full bg-clr7 transition-all duration-700 ease-out" style={{ width: `${(currentStep / 25) * 100}%` }} />
+            <div className="h-2 w-full bg-clr7 dark:bg-dclr7 rounded-full overflow-hidden">
+              <div className="h-full bg-clr4 transition-all duration-700 ease-out" style={{ width: `${(currentStep / 25) * 100}%` }} />
             </div>
           </div>
 
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 text-[#1b1b1b]">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 text-clr2">
             {currentStep === 1 && (
               <div className="animate-in fade-in duration-500">
-                <h2 className="text-3xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-4">Bienvenido al Registro</h2>
-                <p className="text-clr2 text-[1em] font-bold mb-8">Para comenzar, necesitamos la contraseña de registro que fue compartida con el grupo de apoderados.</p>
-                <input type="password" {...register('claveAutorizacion')} className="w-full bg-zinc-50 dark:bg-black/20 dark:text-dclr2 border-2 border-transparent focus:border-clr7 rounded-2xl p-5 text-2xl tracking-[0.5em] text-center outline-none transition-all shadow-inner" />
-                {errors.claveAutorizacion && <p className="mt-4 text-clr7 text-[1em] font-black uppercase text-center">{(errors.claveAutorizacion as any).message}</p>}
+                <h2 className="text-3xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-4">Bienvenido al Registro</h2>
+                <p className="text-clr3 text-[1em] font-bold mb-8">Para comenzar, necesitamos la contraseña de registro que fue compartida con el grupo de apoderados.</p>
+                <input type="password" {...register('claveAutorizacion')} className="w-full bg-clr7 dark:bg-dclr7 dark:text-dclr2 border-2 border-transparent focus:border-clr4 rounded-2xl p-5 text-2xl tracking-[0.5em] text-center outline-none transition-all shadow-inner" />
+                {errors.claveAutorizacion && <p className="mt-4 text-clr4 text-[1em] font-black uppercase text-center">{(errors.claveAutorizacion as any).message}</p>}
                 <p className={infoBoxStyle}>La clave de autorización de registro o clave de autorización para registrarse fue compartida al grupo de apoderados en Whatsapp si tiene dudas consulte con el dirigente a cargo de la unidad de la niña, niño o joven.</p>
               </div>
             )}
 
             {currentStep === 2 && (
               <div className="animate-in fade-in duration-500">
-                <h2 className="text-3xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8">¿Qué tipo de usuario eres?</h2>
-                <p className="text-clr2 text-[1em] font-bold mb-8">Elige el tipo de usuario que estás registrando en nuestro sitio web.</p>
+                <h2 className="text-3xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8">¿Qué tipo de usuario eres?</h2>
+                <p className="text-clr3 text-[1em] font-bold mb-8">Elige el tipo de usuario que estás registrando en nuestro sitio web.</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {['lobato (a)', 'guia', 'scout', 'pionera (o)', 'caminante', 'dirigente', 'guiadora', 'apoderado'].map(r => (
-                    <label key={r} className={`flex items-center p-4 border-2 rounded-2xl cursor-pointer transition-all ${rol === r ? 'border-clr7 bg-clr7/5' : 'border-zinc-100 dark:border-dclr10 hover:border-clr7/30'}`}>
+                    <label key={r} className={`flex items-center p-4 border-2 rounded-2xl cursor-pointer transition-all ${rol === r ? 'border-clr4 bg-clr4' : 'border-clr7 dark:border-dclr7 hover:border-clr4'}`}>
                       <input type="radio" value={r} {...register('rol')} className="hidden" />
-                      <span className="font-bold uppercase text-[0.8em] tracking-widest text-clr5 dark:text-dclr2">{r}</span>
+                      <span className="font-bold uppercase text-[0.8em] tracking-widest text-clr4 dark:text-dclr4">{r}</span>
                     </label>
                   ))}
                 </div>
 
-                <p className={infoBoxStyle}>Selecciona un tipo de usuario de la lista. <br></br><br></br>De acuerdo a la opción seleccionada los campos de más adelante serán diferentes, por esto es fundamental que elijas adecuadamente. <br></br><br></br><span className="font-black text-clr7">* Este campo es obligatorio</span></p>
+                <p className={infoBoxStyle}>Selecciona un tipo de usuario de la lista. <br></br><br></br>De acuerdo a la opción seleccionada los campos de más adelante serán diferentes, por esto es fundamental que elijas adecuadamente. <br></br><br></br><span className="font-black text-clr4">* Este campo es obligatorio</span></p>
                 {(rol === 'dirigente' || rol === 'guiadora') && (
-                  <p className="mt-6 p-4 bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-200 text-xs font-bold rounded-2xl border border-amber-100 dark:border-amber-900/40">Nota: El registro como {rol} será validado manualmente por la directiva.</p>
+                  <p className="mt-6 p-4 bg-clr5 dark:bg-dclr5 text-clr5 dark:text-dclr5 text-xs font-bold rounded-2xl border border-clr5 dark:border-dclr5">Nota: El registro como {rol} será validado manualmente por la directiva.</p>
                 )}
               </div>
             )}
 
             {currentStep === 3 && (
               <div className="animate-in fade-in duration-500">
-                <h2 className="text-3xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8">¿Cuál es tú Nombre?</h2>
-                <p className="text-clr2 text-[1em] font-bold mb-8">Cuéntanos cuál es tu nombre.</p>
+                <h2 className="text-3xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8">¿Cuál es tú Nombre?</h2>
+                <p className="text-clr3 text-[1em] font-bold mb-8">Cuéntanos cuál es tu nombre.</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
                   <div className="space-y-2">
-                    <label className="text-[0.8em] font-black uppercase text-clr2 tracking-widest ml-4">Nombres</label>
+                    <label className="text-[0.8em] font-black uppercase text-clr3 tracking-widest ml-4">Nombres</label>
                     <input {...register('nombres')} placeholder="Nombres" className={inputStyle} />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[0.8em] font-black uppercase text-clr2 tracking-widest ml-4">Apellidos</label>
+                    <label className="text-[0.8em] font-black uppercase text-clr3 tracking-widest ml-4">Apellidos</label>
                     <input {...register('apellidos')} placeholder="Apellidos" className={inputStyle} />
                   </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-[0.8em] font-black uppercase text-clr2 tracking-widest ml-4">¿Cómo te dicen? (Nombre Social)</label>
+                    <label className="text-[0.8em] font-black uppercase text-clr3 tracking-widest ml-4">¿Cómo te dicen? (Nombre Social)</label>
                     <input {...register('nombreSocial')} placeholder="Ej: Nacho, Maite..." className={inputStyle} />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[0.8em] font-black uppercase text-clr2 tracking-widest ml-4">Nacionalidad</label>
+                    <label className="text-[0.8em] font-black uppercase text-clr3 tracking-widest ml-4">Nacionalidad</label>
                     <select {...register('nacionalidad')} className={inputStyle}>
                       {nacionalidades.map(n => <option key={n} value={n}>{n}</option>)}
                     </select>
                   </div>
                 </div>
-                <p className={infoBoxStyle}>Escribe el nombre completo de la persona que se está registrando. Si tienes un nombre social o un apodo por el cual prefieres que te llamen, indícalo también. <br></br><br></br><span className="font-black text-clr7">* Los campos de Nombre y Apellido son obligatorios</span></p>
+                <p className={infoBoxStyle}>Escribe el nombre completo de la persona que se está registrando. Si tienes un nombre social o un apodo por el cual prefieres que te llamen, indícalo también. <br></br><br></br><span className="font-black text-clr4">* Los campos de Nombre y Apellido son obligatorios</span></p>
               </div>
             )}
 
             {currentStep === 4 && (
               <div className="animate-in fade-in duration-500">
-                <h2 className="text-3xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8">¿Cuál es tú R.U.N.?</h2>
-                <p className="text-clr2 text-[1em] font-bold mb-8">Cuéntanos cuál es tu R.U.N. o R.U.T.</p>
+                <h2 className="text-3xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8">¿Cuál es tú R.U.N.?</h2>
+                <p className="text-clr3 text-[1em] font-bold mb-8">Cuéntanos cuál es tu R.U.N. o R.U.T.</p>
                 <input {...register('rut')} placeholder="12345678-9" onInput={(e: React.FormEvent<HTMLInputElement>) => {
                   let v = e.currentTarget.value.toUpperCase().replace(/[^0-9K]/g, ''); if (v.length > 1) v = v.slice(0, -1) + '-' + v.slice(-1); e.currentTarget.value = v
-                }} className="w-full bg-zinc-50 dark:bg-black/20 dark:text-dclr2 border-2 border-transparent focus:border-clr7 rounded-2xl p-5 text-2xl tracking-[0.2em] font-bold text-center outline-none transition-all shadow-inner" />
-                {errors.rut && <p className="mt-4 text-clr7 text-[0.8em] font-black uppercase text-center">{(errors.rut as any).message}</p>}
-                <p className={infoBoxStyle}>Escribe el R.U.T. o R.U.N., de la persona que se esta registrando, sin puntos y con guión y dígito verificador, por ejemplo, 12345678-9. <br></br><br></br><span className="font-black text-clr7">* Este campo es obligatorio</span></p>
+                }} className="w-full bg-clr7 dark:bg-dclr7 dark:text-dclr2 border-2 border-transparent focus:border-clr4 rounded-2xl p-5 text-2xl tracking-[0.2em] font-bold text-center outline-none transition-all shadow-inner" />
+                {errors.rut && <p className="mt-4 text-clr4 text-[0.8em] font-black uppercase text-center">{(errors.rut as any).message}</p>}
+                <p className={infoBoxStyle}>Escribe el R.U.T. o R.U.N., de la persona que se esta registrando, sin puntos y con guión y dígito verificador, por ejemplo, 12345678-9. <br></br><br></br><span className="font-black text-clr4">* Este campo es obligatorio</span></p>
               </div>
             )}
 
             {currentStep === 5 && (
               <div className="animate-in fade-in duration-500">
-                <h2 className="text-3xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8">¿Cuál es tu teléfono?</h2>
-                <p className="text-clr2 text-[1em] font-bold mb-8">Escribe el número de teléfono de la persona que estás registrando, NO del apoderado</p>
+                <h2 className="text-3xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8">¿Cuál es tu teléfono?</h2>
+                <p className="text-clr3 text-[1em] font-bold mb-8">Escribe el número de teléfono de la persona que estás registrando, NO del apoderado</p>
                 <input type="tel" {...register('telefono')} placeholder="+56 9..." onInput={(e: React.FormEvent<HTMLInputElement>) => e.currentTarget.value = aplicarMascaraTelefono(e.currentTarget.value)} className={inputStyle} />
-                <p className={infoBoxStyle}>Si la persona que esta registrando es un niño o niña y no tiene teléfono móvil, o usted como adulta o adulto no quiere entregar esta información, <span className="font-black text-clr7">NO coloque el teléfono del apoderado aquí</span> para esa información hay un espacio más adelante. <br></br><br></br><span className="font-black text-clr7">* Este campo es opcional</span></p>
+                <p className={infoBoxStyle}>Si la persona que esta registrando es un niño o niña y no tiene teléfono móvil, o usted como adulta o adulto no quiere entregar esta información, <span className="font-black text-clr4">NO coloque el teléfono del apoderado aquí</span> para esa información hay un espacio más adelante. <br></br><br></br><span className="font-black text-clr4">* Este campo es opcional</span></p>
               </div>
             )}
 
             {currentStep === 6 && (
               <div className="animate-in fade-in duration-500">
-                <h2 className="text-3xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8">¿Cuándo Naciste?</h2>
-                <p className="text-clr2 text-[1em] font-bold mb-8">Selecciona en el cuadro tu fecha de nacimiento</p>
+                <h2 className="text-3xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8">¿Cuándo Naciste?</h2>
+                <p className="text-clr3 text-[1em] font-bold mb-8">Selecciona en el cuadro tu fecha de nacimiento</p>
                 <input type="date" {...register('fechaNacimiento')} className={inputStyle} />
-                <p className={infoBoxStyle}>Ingrese la fecha de nacimiento de la persona que está registrando <br></br><br></br><span className="font-black text-clr7">* Este campo es obligatorio</span></p>
+                <p className={infoBoxStyle}>Ingrese la fecha de nacimiento de la persona que está registrando <br></br><br></br><span className="font-black text-clr4">* Este campo es obligatorio</span></p>
               </div>
             )}
 
             {currentStep === 7 && (
               <div className="animate-in fade-in duration-500">
-                <h2 className="text-3xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8">¿Cuál es tu Correo?</h2>
-                <p className="text-clr2 text-[1em] font-bold mb-8">Escribe tu correo electrónico, con este correo podrás luego restablecer tu contraseña y/o iniciar sesión en la página.</p>
+                <h2 className="text-3xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8">¿Cuál es tu Correo?</h2>
+                <p className="text-clr3 text-[1em] font-bold mb-8">Escribe tu correo electrónico, con este correo podrás luego restablecer tu contraseña y/o iniciar sesión en la página.</p>
                 <input type="email" {...register('email')} placeholder="email@dominio.com" className={inputStyle} />
-                <p className={infoBoxStyle}>Ingrese el correo electrónico de la persona que esta registrando<br></br><br></br>El correo electrónico es obligatorio ya que es necesario en caso de necesitar restablecer la contraseña de la página o donde se enviaran las copias de formulario y autorizaciones que complete, el correo tiene un formato nombre@dominio.extensión. <br></br><br></br>En caso de ser menor de edad y no tener un correo electrónico puede completar este campo con el RUT y el dominio del grupo, Ejemplo: 12345678-9@nuamana.cl <br></br><br></br><span className="font-black text-clr7">* Este campo es obligatorio</span></p>
+                <p className={infoBoxStyle}>Ingrese el correo electrónico de la persona que esta registrando<br></br><br></br>El correo electrónico es obligatorio ya que es necesario en caso de necesitar restablecer la contraseña de la página o donde se enviaran las copias de formulario y autorizaciones que complete, el correo tiene un formato nombre@dominio.extensión. <br></br><br></br>En caso de ser menor de edad y no tener un correo electrónico puede completar este campo con el RUT y el dominio del grupo, Ejemplo: 12345678-9@nuamana.cl <br></br><br></br><span className="font-black text-clr4">* Este campo es obligatorio</span></p>
               </div>
             )}
 
             {currentStep === 8 && (
               <div className="animate-in fade-in duration-500">
-                <h2 className="text-3xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8">¿Dónde vives?</h2>
-                <p className="text-clr2 text-[1em] font-bold mb-8">Escribe la dirección y comuna donde vive de la persona que estas registrando.</p>
+                <h2 className="text-3xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8">¿Dónde vives?</h2>
+                <p className="text-clr3 text-[1em] font-bold mb-8">Escribe la dirección y comuna donde vive de la persona que estas registrando.</p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="md:col-span-2"><input {...register('direccion')} placeholder="Dirección" className={inputStyle} /></div>
                   <select {...register('comuna')} className={inputStyle}>{comunas.map(c => <option key={c} value={c}>{c}</option>)}</select>
                 </div>
-                <p className={infoBoxStyle}>Escribe la Dirección y selecciona la Comuna de la persona que se está registrando en nuestro grupo, esta información es necesaria para poder hacer el registro y ambos campos son obligatorios. <br></br><br></br><span className="font-black text-clr7">* Este campo es obligatorio</span></p>
+                <p className={infoBoxStyle}>Escribe la Dirección y selecciona la Comuna de la persona que se está registrando en nuestro grupo, esta información es necesaria para poder hacer el registro y ambos campos son obligatorios. <br></br><br></br><span className="font-black text-clr4">* Este campo es obligatorio</span></p>
               </div>
             )}
 
             {currentStep === 9 && (
               <div className="animate-in fade-in duration-500">
-                <h2 className="text-3xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8">¿Cuál es la asignación Femenina/Masculina entregada al nacer?</h2>
-                <p className="text-clr2 text-[1em] font-bold mb-8">selecciona de la lista la asignación que se te entrego al nacer.</p>
+                <h2 className="text-3xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8">¿Cuál es la asignación Femenina/Masculina entregada al nacer?</h2>
+                <p className="text-clr3 text-[1em] font-bold mb-8">selecciona de la lista la asignación que se te entrego al nacer.</p>
                 <div className="flex gap-4">
                   {['femenina', 'masculina'].map(s => (
-                    <label key={s} className="flex-1 p-4 border rounded-2xl text-center cursor-pointer font-bold uppercase text-xs tracking-widest hover:border-clr7 dark:text-dclr2"><input type="radio" value={s} {...register('sexo')} className="mr-2" /> {s}</label>
+                    <label key={s} className="flex-1 p-4 border rounded-2xl text-center cursor-pointer font-bold uppercase text-xs tracking-widest hover:border-clr4 dark:text-dclr2"><input type="radio" value={s} {...register('sexo')} className="mr-2" /> {s}</label>
                   ))}
                 </div>
-                <p className={infoBoxStyle}>Selecciona la asignación femenina/masculina entregada al nacer de la persona que estás registrando. <br></br><br></br><span className="font-black text-clr7">* Este campo es obligatorio</span></p>
+                <p className={infoBoxStyle}>Selecciona la asignación femenina/masculina entregada al nacer de la persona que estás registrando. <br></br><br></br><span className="font-black text-clr4">* Este campo es obligatorio</span></p>
               </div>
             )}
 
             {currentStep === 10 && (
               <div className="animate-in fade-in duration-500">
-                <h2 className="text-3xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8">¿Cúal es tu Condición Religiosa?</h2>
-                <p className="text-clr2 text-[1em] font-bold mb-8">Selecciona de la lista tu religión o creencia espiritual.</p>
+                <h2 className="text-3xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8">¿Cúal es tu Condición Religiosa?</h2>
+                <p className="text-clr3 text-[1em] font-bold mb-8">Selecciona de la lista tu religión o creencia espiritual.</p>
                 <select {...register('religion')} className={inputStyle}>
                   {religiones.map(r => <option key={r} value={r}>{r}</option>)}
                 </select>
-                <p className={infoBoxStyle}>Seleccione la creencia espiritual de la persona que está registrando. <br></br><br></br><span className="font-black text-clr7">* Este campo es obligatorio</span></p>
+                <p className={infoBoxStyle}>Seleccione la creencia espiritual de la persona que está registrando. <br></br><br></br><span className="font-black text-clr4">* Este campo es obligatorio</span></p>
               </div>
             )}
 
             {currentStep === 11 && (
               <div className="animate-in fade-in duration-500">
-                <h2 className="text-3xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8">¿Cuál es tu información Scout?</h2>
+                <h2 className="text-3xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8">¿Cuál es tu información Scout?</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <div className="space-y-4">
-                    <label className="text-[0.8em] font-black uppercase text-clr2 tracking-widest ml-4">Grupo</label>
+                    <label className="text-[0.8em] font-black uppercase text-clr3 tracking-widest ml-4">Grupo</label>
                     <div className="flex flex-col gap-2">
                       {['Guías y Scouts Nua Mana', 'Otro'].map(g => (
                         <label key={g} className="flex items-center gap-2 font-bold dark:text-dclr2 text-[1em]">
@@ -474,48 +474,48 @@ function RegistroContent() {
                     </div>
                   </div>
                   <div className="space-y-4">
-                    <label className="text-[0.8em] font-black uppercase text-clr2 tracking-widest ml-4">Unidad</label>
+                    <label className="text-[0.8em] font-black uppercase text-clr3 tracking-widest ml-4">Unidad</label>
                     <select {...register('unidad')} className={inputStyle}>{unidades.map(u => <option key={u} value={u}>{u}</option>)}</select>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                   <div className="space-y-2">
-                    <label className="text-[0.8em] font-black uppercase text-clr2 tracking-widest ml-4">Zona Administrativa</label>
+                    <label className="text-[0.8em] font-black uppercase text-clr3 tracking-widest ml-4">Zona Administrativa</label>
                     <select {...register('zona')} className={inputStyle}>
                       {Object.keys(zonasDistritos).map(z => <option key={z} value={z}>{z}</option>)}
                     </select>
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[0.8em] font-black uppercase text-clr2 tracking-widest ml-4">Distrito</label>
+                    <label className="text-[0.8em] font-black uppercase text-clr3 tracking-widest ml-4">Distrito</label>
                     <select {...register('distrito')} className={inputStyle}>
                       {zonasDistritos[zonaSeleccionada || 'Santiago Sur']?.map(d => <option key={d} value={d}>{d}</option>)}
                     </select>
                   </div>
                 </div>
 
-                <p className={infoBoxStyle}>Indica la Zona y Distrito administrativo de la Asociación de Guías y Scouts de Chile a la que pertenece tu grupo. Normalmente es Zona "La Florida" y Distrito "Mapurayen". <br></br><br></br><span className="font-black text-clr7">* Estos campos son obligatorios</span></p>
+                <p className={infoBoxStyle}>Indica la Zona y Distrito administrativo de la Asociación de Guías y Scouts de Chile a la que pertenece tu grupo. Normalmente es Zona "La Florida" y Distrito "Mapurayen". <br></br><br></br><span className="font-black text-clr4">* Estos campos son obligatorios</span></p>
               </div>
             )}
 
             {currentStep === 12 && (
               <div className="animate-in fade-in duration-500">
-                <h2 className="text-3xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8">¿Cuál es tu información Escolar?</h2>
-                <p className="text-clr2 text-[1em] font-bold mb-8">Seleccione un colegio de la lista para fines estadísticos del grupo, y además seleccione el nivel educacional en el que está actualmente la niña, niño o joven que se esta registrando.</p>
+                <h2 className="text-3xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8">¿Cuál es tu información Escolar?</h2>
+                <p className="text-clr3 text-[1em] font-bold mb-8">Seleccione un colegio de la lista para fines estadísticos del grupo, y además seleccione el nivel educacional en el que está actualmente la niña, niño o joven que se esta registrando.</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <select {...register('colegio')} className={inputStyle}>{colegios.map(c => <option key={c} value={c}>{c}</option>)}</select>
                   <select {...register('nivelEducacional')} className={inputStyle}>
                     {['Educación Básica', 'Educación Media', 'Educación Superior', 'Egresado'].map(n => <option key={n} value={n}>{n}</option>)}
                   </select>
                 </div>
-                <p className={infoBoxStyle}>Seleccione el colegio al que asiste el niño, niña o joven, e indique el nivel educacional en el que se encuentra el curso que actualmente está cursando.<br></br><br></br><span className="font-black text-clr7">* Estos campos son obligatorios</span></p>
+                <p className={infoBoxStyle}>Seleccione el colegio al que asiste el niño, niña o joven, e indique el nivel educacional en el que se encuentra el curso que actualmente está cursando.<br></br><br></br><span className="font-black text-clr4">* Estos campos son obligatorios</span></p>
               </div>
             )}
 
             {currentStep === 13 && (
               <div className="animate-in fade-in duration-500">
-                <h2 className="text-3xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8">¿Cuál es la información de la apoderada (o)?</h2>
-                <p className="text-clr2 text-[1em] font-bold mb-8">Complete la información sobre la o el apoderado (a).</p>
+                <h2 className="text-3xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8">¿Cuál es la información de la apoderada (o)?</h2>
+                <p className="text-clr3 text-[1em] font-bold mb-8">Complete la información sobre la o el apoderado (a).</p>
                 <div className="space-y-4">
                   <input {...register('nombreApoderado')} placeholder="Nombre Apoderado" className={inputStyle} />
                   <div className="grid grid-cols-2 gap-4">
@@ -523,59 +523,59 @@ function RegistroContent() {
                     <input type="tel" {...register('telefonoApoderado')} placeholder="+56 9..." onInput={(e: React.FormEvent<HTMLInputElement>) => e.currentTarget.value = aplicarMascaraTelefono(e.currentTarget.value)} className={inputStyle} />
                   </div>
                 </div>
-                <p className={infoBoxStyle}>Indica los datos de tu apoderada (o), un teléfono donde ubicarla y selecciona la relación o parentesco que tiene contigo. estos datos serán agregados a los grupos de whatsapp del grupo.<br></br><br></br><span className="font-black text-clr7">* Estos campos son obligatorios</span></p>
+                <p className={infoBoxStyle}>Indica los datos de tu apoderada (o), un teléfono donde ubicarla y selecciona la relación o parentesco que tiene contigo. estos datos serán agregados a los grupos de whatsapp del grupo.<br></br><br></br><span className="font-black text-clr4">* Estos campos son obligatorios</span></p>
               </div>
             )}
 
             {currentStep === 14 && (
               <div className="animate-in fade-in duration-500">
-                <h2 className="text-3xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8">¿Quiénes son tus pupilos?</h2>
-                <p className="text-clr2 text-[1em] font-bold mb-8">Indica los nombres de las personas de quien eres apoderada (o)</p>
+                <h2 className="text-3xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8">¿Quiénes son tus pupilos?</h2>
+                <p className="text-clr3 text-[1em] font-bold mb-8">Indica los nombres de las personas de quien eres apoderada (o)</p>
                 <div className="space-y-4">
                   {pupiloFields.map((f, i) => (
-                    <div key={f.id} className="p-6 bg-zinc-50 dark:bg-black/20 rounded-3xl border border-clr10 dark:border-dclr10 space-y-4 shadow-inner">
+                    <div key={f.id} className="p-6 bg-clr7 dark:bg-dclr7 rounded-3xl border border-clr7 dark:border-dclr7 space-y-4 shadow-inner">
                       <input {...register(`pupilos.${i}.nombre` as const)} placeholder="Nombre completo del niño/a" className={inputStyle} />
                       <div className="grid grid-cols-2 gap-4">
                         <select {...register(`pupilos.${i}.relacion` as const)} className={inputStyle}>{relaciones.map(r => <option key={r} value={r}>{r}</option>)}</select>
                         <select {...register(`pupilos.${i}.unidad` as const)} className={inputStyle}>{unidades.map(u => <option key={u} value={u}>{u}</option>)}</select>
                       </div>
-                      {i > 0 && <button type="button" onClick={() => removePupilo(i)} className="text-clr7 text-[0.8em] font-black uppercase tracking-widest ml-4">Eliminar</button>}
+                      {i > 0 && <button type="button" onClick={() => removePupilo(i)} className="text-clr4 text-[0.8em] font-black uppercase tracking-widest ml-4">Eliminar</button>}
                     </div>
                   ))}
-                  <button type="button" onClick={() => appendPupilo({})} className="w-full py-4 border-2 border-dashed border-clr10 dark:border-dclr10 rounded-[2rem] text-zinc-400 font-bold uppercase text-[0.8em] tracking-widest hover:text-clr7 transition-all">+ Agregar Pupilo</button>
+                  <button type="button" onClick={() => appendPupilo({})} className="w-full py-4 border-2 border-dashed border-clr7 dark:border-dclr7 rounded-[2rem] text-clr3 font-bold uppercase text-[0.8em] tracking-widest hover:text-clr4 transition-all">+ Agregar Pupilo</button>
                 </div>
-                <p className={infoBoxStyle}>Indica los datos de la pupila (o) tu relación o parentesco con el pupilo, y la unidad a la que pertenece.<br></br><br></br>Seleccione la unidad a la que pertenece la niña, niño o joven de acuerdo a la edad del mismo.<br></br><br></br><b>Manada</b> - niños y niñas entre 7 y 11 años (unidad mixta).<br></br><b>Compañía</b> - niñas y jóvenes mujeres entre 11 y 15 años (unidad femenina).<br></br><b>Tropa</b> - niños y jóvenes entre 11 y 15 años (unidad masculina).<br></br><b>Avanzada</b> - jóvenes entre 15 y 17 años (unidad mixta).<br></br><b>Clan</b> - jóvenes entre 17 y 20 años (unidad mixta).<br></br><br></br><span className="font-black text-clr7">* Estos campos son obligatorios</span></p>
+                <p className={infoBoxStyle}>Indica los datos de la pupila (o) tu relación o parentesco con el pupilo, y la unidad a la que pertenece.<br></br><br></br>Seleccione la unidad a la que pertenece la niña, niño o joven de acuerdo a la edad del mismo.<br></br><br></br><b>Manada</b> - niños y niñas entre 7 y 11 años (unidad mixta).<br></br><b>Compañía</b> - niñas y jóvenes mujeres entre 11 y 15 años (unidad femenina).<br></br><b>Tropa</b> - niños y jóvenes entre 11 y 15 años (unidad masculina).<br></br><b>Avanzada</b> - jóvenes entre 15 y 17 años (unidad mixta).<br></br><b>Clan</b> - jóvenes entre 17 y 20 años (unidad mixta).<br></br><br></br><span className="font-black text-clr4">* Estos campos son obligatorios</span></p>
               </div>
             )}
 
             {currentStep === 15 && (
               <div className="animate-in fade-in duration-500">
-                <h2 className="text-3xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8">¿A quien llamamos en Caso de Emergencia?</h2>
-                <p className="text-clr2 text-[1em] font-bold mb-8">Indícanos detalles de a quien avisar en caso de una emergencia</p>
+                <h2 className="text-3xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8">¿A quien llamamos en Caso de Emergencia?</h2>
+                <p className="text-clr3 text-[1em] font-bold mb-8">Indícanos detalles de a quien avisar en caso de una emergencia</p>
                 <div className="space-y-4">
                   {emergencyFields.map((f, i) => (
-                    <div key={f.id} className="p-6 bg-zinc-50 dark:bg-black/20 rounded-3xl border border-clr10 dark:border-dclr10 space-y-4 shadow-inner">
+                    <div key={f.id} className="p-6 bg-clr7 dark:bg-dclr7 rounded-3xl border border-clr7 dark:border-dclr7 space-y-4 shadow-inner">
                       <input {...register(`contactosEmergencia.${i}.nombre` as const)} placeholder="Nombre Contacto" className={inputStyle} />
                       <div className="grid grid-cols-2 gap-4">
                         <select {...register(`contactosEmergencia.${i}.relacion` as const)} className={inputStyle}>{relaciones.map(r => <option key={r} value={r}>{r}</option>)}</select>
                         <input type="tel" {...register(`contactosEmergencia.${i}.telefono` as const)} placeholder="+56 9..." onInput={(e: React.FormEvent<HTMLInputElement>) => e.currentTarget.value = aplicarMascaraTelefono(e.currentTarget.value)} className={inputStyle} />
                       </div>
-                      {i > 0 && <button type="button" onClick={() => removeEmergency(i)} className="text-clr7 text-[0.8em] font-black uppercase tracking-widest ml-4">Eliminar</button>}
+                      {i > 0 && <button type="button" onClick={() => removeEmergency(i)} className="text-clr4 text-[0.8em] font-black uppercase tracking-widest ml-4">Eliminar</button>}
                     </div>
                   ))}
-                  <button type="button" onClick={() => appendEmergency({})} className="w-full py-4 border-2 border-dashed border-clr10 dark:border-dclr10 rounded-[2rem] text-zinc-400 font-bold uppercase text-[0.8em] tracking-widest hover:text-clr7 transition-all">+ Agregar Contacto</button>
+                  <button type="button" onClick={() => appendEmergency({})} className="w-full py-4 border-2 border-dashed border-clr7 dark:border-dclr7 rounded-[2rem] text-clr3 font-bold uppercase text-[0.8em] tracking-widest hover:text-clr4 transition-all">+ Agregar Contacto</button>
                 </div>
-                <p className={infoBoxStyle}>Agrega los datos de contactos de emergencia donde podamos dar aviso en caso de alguna situación.<br></br><br></br><span className="font-black text-clr7">* Estos campos son obligatorios</span></p>
+                <p className={infoBoxStyle}>Agrega los datos de contactos de emergencia donde podamos dar aviso en caso de alguna situación.<br></br><br></br><span className="font-black text-clr4">* Estos campos son obligatorios</span></p>
               </div>
             )}
 
             {currentStep === 16 && (
               <div className="animate-in fade-in duration-500">
-                <h2 className="text-3xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8">¿Cuál es tu Sistema de Salud?</h2>
-                <p className="text-clr2 text-[1em] font-bold mb-8">Indícanos detalles de tu sistema de salud.</p>
+                <h2 className="text-3xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8">¿Cuál es tu Sistema de Salud?</h2>
+                <p className="text-clr3 text-[1em] font-bold mb-8">Indícanos detalles de tu sistema de salud.</p>
                 <div className="space-y-6">
                   <div className="space-y-2">
-                    <label className="text-[0.8em] font-black uppercase text-clr2 tracking-widest ml-4">Previsión</label>
+                    <label className="text-[0.8em] font-black uppercase text-clr3 tracking-widest ml-4">Previsión</label>
                     <select {...register('sistemaSalud')} className={inputStyle}>
                       <option value="">Selecciona...</option>
                       {['FONASA', 'Isapre', 'Particular', 'Fuerzas Armadas'].map(s => <option key={s} value={s}>{s}</option>)}
@@ -584,16 +584,16 @@ function RegistroContent() {
                   
                   {(sistemaSalud === 'Isapre' || sistemaSalud === 'Particular') && (
                     <div className="space-y-2 animate-in slide-in-from-top-2 duration-300">
-                      <label className="text-[0.8em] font-black uppercase text-clr2 tracking-widest ml-4">Nombre de la Isapre u Otro</label>
+                      <label className="text-[0.8em] font-black uppercase text-clr3 tracking-widest ml-4">Nombre de la Isapre u Otro</label>
                       <input {...register('detalleSalud')} placeholder="Ej: Colmena, Banmédica..." className={inputStyle} />
                     </div>
                   )}
 
-                  <div className="p-6 bg-zinc-50 dark:bg-black/10 rounded-3xl border border-clr10 dark:border-dclr10">
-                    <label className="text-[0.8em] font-black uppercase text-clr2 tracking-widest ml-2 mb-4 block">¿Tienes Seguro Complementario?</label>
+                  <div className="p-6 bg-clr7 dark:bg-dclr7 rounded-3xl border border-clr7 dark:border-dclr7">
+                    <label className="text-[0.8em] font-black uppercase text-clr3 tracking-widest ml-2 mb-4 block">¿Tienes Seguro Complementario?</label>
                     <div className="flex gap-4 mb-4">
                       {['si', 'no'].map(o => (
-                        <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.8em] transition-all ${seguroComp === o ? 'border-clr7 bg-clr7/5' : 'border-zinc-200 dark:border-dclr10'}`}>
+                        <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.8em] transition-all ${seguroComp === o ? 'border-clr4 bg-clr4' : 'border-clr7 dark:border-dclr7'}`}>
                           <input type="radio" value={o} {...register('seguroComplementario')} className="hidden" /> {o}
                         </label>
                       ))}
@@ -601,35 +601,35 @@ function RegistroContent() {
                     {seguroComp === 'si' && (
                       <div className="space-y-2 animate-in slide-in-from-top-2 duration-300">
                         <input {...register('nombreSeguroComplementario')} placeholder="Nombre del Seguro" className={inputStyle} />
-                        <p className="text-[0.8em] text-clr7 font-bold italic ml-2">* Debe adjuntar documentación del seguro complementario</p>
+                        <p className="text-[0.8em] text-clr4 font-bold italic ml-2">* Debe adjuntar documentación del seguro complementario</p>
                       </div>
                     )}
                   </div>
                 </div>
-                <p className={infoBoxStyle}>Esta información es necesaria para que en caso de emergencia podamos dirigirnos rápidamente al centro de urgencia adecuado.<br></br><br></br><span className="font-black text-clr7">* Estos campos son obligatorios.</span></p>
+                <p className={infoBoxStyle}>Esta información es necesaria para que en caso de emergencia podamos dirigirnos rápidamente al centro de urgencia adecuado.<br></br><br></br><span className="font-black text-clr4">* Estos campos son obligatorios.</span></p>
               </div>
             )}
 
             {currentStep === 17 && (
               <div className="animate-in fade-in duration-500">
-                <h2 className="text-3xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8 text-center">¿Cuál es tu tipo de sangre?</h2>
-                <p className="text-clr2 text-[1em] font-bold mb-8">Este dato puede salvar tu vida</p>
+                <h2 className="text-3xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8 text-center">¿Cuál es tu tipo de sangre?</h2>
+                <p className="text-clr3 text-[1em] font-bold mb-8">Este dato puede salvar tu vida</p>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                   {['A+', 'A-', 'AB+', 'AB-', 'B+', 'B-', 'O+', 'O-', 'No Sabe'].map(s => (
-                    <label key={s} className="p-4 border-2 border-zinc-100 dark:border-dclr10 rounded-2xl text-center font-bold cursor-pointer hover:border-clr7 dark:text-dclr2"><input type="radio" value={s} {...register('tipoSangre')} className="mr-2" /> {s}</label>
+                    <label key={s} className="p-4 border-2 border-clr7 dark:border-dclr7 rounded-2xl text-center font-bold cursor-pointer hover:border-clr4 dark:text-dclr2"><input type="radio" value={s} {...register('tipoSangre')} className="mr-2" /> {s}</label>
                   ))}
                 </div>
-                <p className={infoBoxStyle}>Indique el tipo de sangre, este es un dato vital en caso de una emergencia médica. <br></br><br></br><span className="font-black text-clr7">* Esto es Obligatorio</span></p>
+                <p className={infoBoxStyle}>Indique el tipo de sangre, este es un dato vital en caso de una emergencia médica. <br></br><br></br><span className="font-black text-clr4">* Esto es Obligatorio</span></p>
               </div>
             )}
 
             {currentStep === 18 && (
               <div className="animate-in fade-in duration-500">
-                <h2 className="text-3xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8">¿Tienes alguna Alergia?</h2>
+                <h2 className="text-3xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8">¿Tienes alguna Alergia?</h2>
                 <div className="space-y-6">
                   <div className="flex gap-4">
                     {['si', 'no'].map(o => (
-                      <label key={o} className={`flex-1 p-4 border-2 rounded-2xl text-center cursor-pointer font-bold uppercase text-xs tracking-widest transition-all ${tieneAlergias === o ? 'border-clr7 bg-clr7/5' : 'border-zinc-100 dark:border-dclr10'}`}>
+                      <label key={o} className={`flex-1 p-4 border-2 rounded-2xl text-center cursor-pointer font-bold uppercase text-xs tracking-widest transition-all ${tieneAlergias === o ? 'border-clr4 bg-clr4' : 'border-clr7 dark:border-dclr7'}`}>
                         <input type="radio" value={o} {...register('tieneAlergias')} className="hidden" /> {o}
                       </label>
                     ))}
@@ -640,61 +640,61 @@ function RegistroContent() {
                     </div>
                   )}
                 </div>
-                <p className={infoBoxStyle}>Indique si posee alguna alergia relevante. Si marcó "NO" y luego tiene un cambio, podrá actualizarlo en su perfil.<br></br><br></br><span className="font-black text-clr7">* Este campo es obligatorio</span></p>
+                <p className={infoBoxStyle}>Indique si posee alguna alergia relevante. Si marcó "NO" y luego tiene un cambio, podrá actualizarlo en su perfil.<br></br><br></br><span className="font-black text-clr4">* Este campo es obligatorio</span></p>
               </div>
             )}
 
             {currentStep === 19 && (
               <div className="animate-in fade-in duration-500">
-                <h2 className="text-3xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8">Enfermedades Crónicas</h2>
-                <p className="text-clr2 text-[1em] font-bold mb-8">Selecciona si tienes enfermedades crónicas o importantes.</p>
+                <h2 className="text-3xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8">Enfermedades Crónicas</h2>
+                <p className="text-clr3 text-[1em] font-bold mb-8">Selecciona si tienes enfermedades crónicas o importantes.</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
                   {enfermedadesOpciones.map(e => (
-                    <label key={e} className="flex items-center p-3 border rounded-xl cursor-pointer hover:bg-zinc-50 dark:text-dclr2 text-[12px] font-bold">
+                    <label key={e} className="flex items-center p-3 border rounded-xl cursor-pointer hover:bg-clr7 dark:text-dclr2 text-[12px] font-bold">
                       <input type="checkbox" value={e} {...register('enfermedadesCronicas')} className="mr-2" /> {e}
                     </label>
                   ))}
                 </div>
                 <textarea {...register('antecedentesMedicos')} className={inputStyle + " h-32 resize-none"} placeholder="Detalle adicional o cirugías de relevancia..." />
-                <p className={infoBoxStyle}>Si no presenta ninguna enfermedad ni cirugía, por favor marque "Ninguna" y escriba "NO TIENE" en el cuadro.<br></br><br></br><span className="font-black text-clr7">* Este campo es obligatorio</span>.</p>
+                <p className={infoBoxStyle}>Si no presenta ninguna enfermedad ni cirugía, por favor marque "Ninguna" y escriba "NO TIENE" en el cuadro.<br></br><br></br><span className="font-black text-clr4">* Este campo es obligatorio</span>.</p>
               </div>
             )}
 
             {currentStep === 20 && (
               <div className="animate-in fade-in duration-500">
-                <h2 className="text-3xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8">¿Está haciendo algún Tratamiento Médico?</h2>
-                <p className="text-clr2 text-[1em] font-bold mb-8">Dinos si tienes alguna información medica relevante, si tienes algún tratamiento especial</p>
+                <h2 className="text-3xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8">¿Está haciendo algún Tratamiento Médico?</h2>
+                <p className="text-clr3 text-[1em] font-bold mb-8">Dinos si tienes alguna información medica relevante, si tienes algún tratamiento especial</p>
                 <textarea {...register('tratamientosMedicos')} className={inputStyle + " h-40 resize-none"} placeholder="¿Realiza algún tratamiento médico actualmente?" />
-                <p className={infoBoxStyle}>Descripción de cuidados médicos necesarios. Si no tiene cuidados médicos especiales, por favor escriba <b>NINGUNO</b>.<br></br><br></br><span className="font-black text-clr7">* Este campo es obligatorio</span></p>
+                <p className={infoBoxStyle}>Descripción de cuidados médicos necesarios. Si no tiene cuidados médicos especiales, por favor escriba <b>NINGUNO</b>.<br></br><br></br><span className="font-black text-clr4">* Este campo es obligatorio</span></p>
               </div>
             )}
 
             {currentStep === 21 && (
               <div className="animate-in fade-in duration-500">
-                <h2 className="text-3xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8">¿Está consumiendo algún medicamento?</h2>
-                <p className="text-clr2 text-[1em] font-bold mb-8">Dinos si consumes algún medicamento con regularidad, dinos los horarios y/o frecuencias</p>
+                <h2 className="text-3xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8">¿Está consumiendo algún medicamento?</h2>
+                <p className="text-clr3 text-[1em] font-bold mb-8">Dinos si consumes algún medicamento con regularidad, dinos los horarios y/o frecuencias</p>
                 <textarea {...register('medicamentos')} className={inputStyle + " h-40 resize-none"} placeholder="¿Consume algún fármaco regularmente? Indique horarios." />
-                <p className={infoBoxStyle}>Indique si está consumiendo algún Tipo de medicamento <br></br><br></br>(**indique cual y su horario**) <br></br><br></br>Si no consume, por favor escriba <b>No Consume</b>.<br></br><br></br><span className="font-black text-clr7">* Este campo es obligatorio</span></p>
+                <p className={infoBoxStyle}>Indique si está consumiendo algún Tipo de medicamento <br></br><br></br>(**indique cual y su horario**) <br></br><br></br>Si no consume, por favor escriba <b>No Consume</b>.<br></br><br></br><span className="font-black text-clr4">* Este campo es obligatorio</span></p>
               </div>
             )}
 
             {currentStep === 22 && (
               <div className="animate-in fade-in duration-500">
-                <h2 className="text-3xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8 text-center">Dieta e Intolerancias</h2>
+                <h2 className="text-3xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8 text-center">Dieta e Intolerancias</h2>
                 <div className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {['Menú General', 'Menú Vegetariano', 'Menú Vegano', 'Celiaco', 'Intolerante Lactosa'].map(d => (
-                      <label key={d} className="p-3 border rounded-xl font-bold cursor-pointer hover:bg-zinc-50 dark:text-dclr2 text-[12px]">
+                      <label key={d} className="p-3 border rounded-xl font-bold cursor-pointer hover:bg-clr7 dark:text-dclr2 text-[12px]">
                         <input type="checkbox" value={d} {...register('dietaAlimentaria')} className="mr-2" /> {d}
                       </label>
                     ))}
                   </div>
 
-                  <div className="p-6 bg-zinc-50 dark:bg-black/10 rounded-3xl border border-clr10 dark:border-dclr10">
-                    <label className="text-[0.8em] font-black uppercase text-clr2 tracking-widest ml-2 mb-4 block">¿Tienes Intolerancia Alimentaria?</label>
+                  <div className="p-6 bg-clr7 dark:bg-dclr7 rounded-3xl border border-clr7 dark:border-dclr7">
+                    <label className="text-[0.8em] font-black uppercase text-clr3 tracking-widest ml-2 mb-4 block">¿Tienes Intolerancia Alimentaria?</label>
                     <div className="flex gap-4 mb-4">
                       {['si', 'no'].map(o => (
-                        <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.8em] transition-all ${tieneIntol === o ? 'border-clr7 bg-clr7/5' : 'border-zinc-200 dark:border-dclr10'}`}>
+                        <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.8em] transition-all ${tieneIntol === o ? 'border-clr4 bg-clr4' : 'border-clr7 dark:border-dclr7'}`}>
                           <input type="radio" value={o} {...register('tieneIntolerancia')} className="hidden" /> {o}
                         </label>
                       ))}
@@ -704,13 +704,13 @@ function RegistroContent() {
                     )}
                   </div>
                 </div>
-                <p className={infoBoxStyle}>Selecciona el tipo de comida que consumes. Esta respuesta es fundamental para establecer el menú de campamento. <br></br><br></br><span className="font-black text-clr7">* Este campo es obligatorio</span></p>
+                <p className={infoBoxStyle}>Selecciona el tipo de comida que consumes. Esta respuesta es fundamental para establecer el menú de campamento. <br></br><br></br><span className="font-black text-clr4">* Este campo es obligatorio</span></p>
               </div>
             )}
 
             {currentStep === 23 && (
               <div className="animate-in fade-in duration-500">
-                <h2 className="text-3xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8 text-center">Uso de Imagen</h2>
+                <h2 className="text-3xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8 text-center">Uso de Imagen</h2>
                 <p className={infoBoxStyle}>Esto incluye el uso de la imagen y la voz de la persona registrada para promover, difundir y documentar las actividades, eventos y programas de <b>Guías y Scouts Nua Mana</b>. La imagen y voz podrán ser utilizadas en materiales informativos, educativos, promocionales, comerciales o para cualquier otro fin que <b>Guías y Scouts Nua Mana</b> estime conveniente, sin limitación de tiempo o de territorios. Esto incluye, pero no se limita a, impresiones, publicaciones digitales, sitios web, redes sociales y otros medios o plataformas, actuales o futuros.<br></br><br></br>Declaro que la persona registrada ha sido informado sobre esta autorización, que asiente y se encuentra de acuerdo con la utilización de su imagen y voz.<br></br><br></br>Reconozco y acepto que <b>Guías y Scouts Nua Mana</b> tiene el derecho de editar, modificar, adaptar y alterar el material audiovisual y gráfico de acuerdo con sus necesidades, respetando siempre los principios de moral y buenas costumbres. Entiendo que <b>Guías y Scouts Nua Mana</b> puede optar por no utilizar el material capturado o utilizar solo una parte de este, y que no tengo derecho a recibir compensación económica alguna por el uso de dicho material. Aunque la autorización es amplia, tengo el derecho de solicitar la eliminación de la imagen y voz de la persona registrada de futuros materiales mediante notificación escrita a quien corresponda en <b>Guías y Scouts Nua Mana</b> (Nivel Grupal, Distrital, Zonal o Nacional), quien procederá a efectuar la eliminación en un plazo razonable.<br></br><br></br>Declaro que he leído y comprendido en su totalidad el contenido de este documento y confirmo que soy la tutora o el tutor legal, de la persona registrada mencionada, con la capacidad legal para otorgar esta autorización.</p>
                 <div className="flex justify-center gap-10 mt-10">
                   <label className="flex items-center gap-2 font-black dark:text-dclr2"><input type="radio" value="si" {...register('autorizaFotos')} /> AUTORIZO</label>
@@ -721,8 +721,8 @@ function RegistroContent() {
 
             {currentStep === 24 && (
               <div className="animate-in fade-in duration-500 text-center">
-                <h2 className="text-3xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8">Fé Pública</h2>
-                <p className="text-lg font-bold text-clr2 mb-8 italic">Doy fe que los datos contenidos en esta Ficha son verdaderos y no he omitido ninguna información importante.</p>
+                <h2 className="text-3xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8">Fé Pública</h2>
+                <p className="text-lg font-bold text-clr3 mb-8 italic">Doy fe que los datos contenidos en esta Ficha son verdaderos y no he omitido ninguna información importante.</p>
                 <div className="flex justify-center gap-10">
                   <label className="flex items-center gap-2 font-black dark:text-dclr2"><input type="radio" value="si" {...register('fePublica')} /> SÍ</label>
                   <label className="flex items-center gap-2 font-black dark:text-dclr2"><input type="radio" value="no" {...register('fePublica')} /> NO</label>
@@ -732,25 +732,25 @@ function RegistroContent() {
 
             {currentStep === 25 && (
               <div className="animate-in fade-in duration-500 text-center">
-                <h2 className="text-3xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8">¿Cuál será tu Contraseña?</h2>
+                <h2 className="text-3xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8">¿Cuál será tu Contraseña?</h2>
                 <div className="space-y-4">
-                  <input type="password" {...register('password')} className="w-full bg-zinc-50 dark:bg-black/20 dark:text-dclr2 border-2 border-transparent focus:border-clr7 rounded-2xl p-5 text-2xl tracking-[0.5em] text-center outline-none transition-all shadow-inner" placeholder="••••" />
-                  <input type="password" {...register('confirmPassword')} className="w-full bg-zinc-50 dark:bg-black/20 dark:text-dclr2 border-2 border-transparent focus:border-clr7 rounded-2xl p-5 text-2xl tracking-[0.5em] text-center outline-none transition-all shadow-inner" placeholder="••••" />
-                  {errors.confirmPassword && <p className="text-clr7 text-[0.8em] font-black uppercase mt-2">{(errors.confirmPassword as any).message}</p>}
+                  <input type="password" {...register('password')} className="w-full bg-clr7 dark:bg-dclr7 dark:text-dclr2 border-2 border-transparent focus:border-clr4 rounded-2xl p-5 text-2xl tracking-[0.5em] text-center outline-none transition-all shadow-inner" placeholder="••••" />
+                  <input type="password" {...register('confirmPassword')} className="w-full bg-clr7 dark:bg-dclr7 dark:text-dclr2 border-2 border-transparent focus:border-clr4 rounded-2xl p-5 text-2xl tracking-[0.5em] text-center outline-none transition-all shadow-inner" placeholder="••••" />
+                  {errors.confirmPassword && <p className="text-clr4 text-[0.8em] font-black uppercase mt-2">{(errors.confirmPassword as any).message}</p>}
                 </div>
-                <p className={infoBoxStyle}>Crea una contraseña segura para tu cuenta.<br></br><br></br> La contraseña debe tener al menos 6 caracteres, no puede ser números consecutivos, y debe tener al menos una mayúscula y un número. <br></br><br></br><span className="font-black text-clr7">* Este campo es obligatorio</span></p>
+                <p className={infoBoxStyle}>Crea una contraseña segura para tu cuenta.<br></br><br></br> La contraseña debe tener al menos 6 caracteres, no puede ser números consecutivos, y debe tener al menos una mayúscula y un número. <br></br><br></br><span className="font-black text-clr4">* Este campo es obligatorio</span></p>
               </div>
             )}
 
-            <div className="flex justify-between pt-12 border-t border-zinc-100 dark:border-dclr10">
+            <div className="flex justify-between pt-12 border-t border-clr7 dark:border-dclr7">
               {currentStep > 1 ? (
-                <button type="button" onClick={prevStep} className="px-8 py-4 text-clr2 font-black uppercase text-[0.8em] tracking-widest hover:text-clr7 transition-colors">← Atrás</button>
+                <button type="button" onClick={prevStep} className="px-8 py-4 text-clr3 font-black uppercase text-[0.8em] tracking-widest hover:text-clr4 transition-colors">← Atrás</button>
               ) : <div />}
               <div className="ml-auto">
                 {currentStep < 25 ? (
-                  <button type="button" onClick={nextStep} className="px-12 py-4 bg-clr7 text-white font-black uppercase rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest text-[0.8em]">Continuar →</button>
+                  <button type="button" onClick={nextStep} className="px-12 py-4 bg-clr4 text-clr1 font-black uppercase rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest text-[0.8em]">Continuar →</button>
                 ) : (
-                  <button type="submit" disabled={isSubmitting} className="px-12 py-4 bg-green-600 text-white font-black uppercase rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest text-[0.8em]">Completar Registro</button>
+                  <button type="submit" disabled={isSubmitting} className="px-12 py-4 bg-clr6 text-clr1 font-black uppercase rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest text-[0.8em]">Completar Registro</button>
                 )}
               </div>
             </div>
@@ -763,7 +763,7 @@ function RegistroContent() {
 
 export default function RegistroPage() {
   return (
-    <Suspense fallback={<div className="p-20 text-center font-display uppercase italic text-clr2">Cargando formulario...</div>}>
+    <Suspense fallback={<div className="p-20 text-center font-display uppercase italic text-clr3">Cargando formulario...</div>}>
       <RegistroContent />
     </Suspense>
   )

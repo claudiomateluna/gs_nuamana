@@ -152,20 +152,20 @@ export default function DashModRecaudacionCerrar({
   if (!isOpen || !recaudacion) return null
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[110] flex items-center justify-center p-2 md:p-4 animate-in fade-in duration-300">
-      <div className="bg-white dark:bg-dclr5 w-full max-w-lg rounded-[2.5rem] p-6 md:p-10 shadow-2xl border-4 border-clr10 dark:border-dclr10 overflow-y-auto max-h-[95vh]">
+    <div className="fixed inset-0 bg-clr2 backdrop-blur-sm z-[110] flex items-center justify-center p-2 md:p-4 animate-in fade-in duration-300">
+      <div className="bg-clr1 dark:bg-dclr1 w-full max-w-lg rounded-[2.5rem] p-6 md:p-10 shadow-2xl border-4 border-clr7 dark:border-dclr7 overflow-y-auto max-h-[95vh]">
         
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-black font-display uppercase text-clr7 tracking-tighter">
+          <h2 className="text-2xl font-black font-display uppercase text-clr4 tracking-tighter">
             Completar Recaudación
           </h2>
-          <button onClick={onClose} className="text-clr2 hover:text-black dark:text-white/60 dark:hover:text-white font-bold text-[1.2em]">✕</button>
+          <button onClick={onClose} className="text-clr3 hover:text-clr2 dark:text-dclr3 dark:hover:text-clr1 font-bold text-[1.2em]">✕</button>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6 text-[1em]">
-          <div className="bg-zinc-50 dark:bg-black/10 p-5 rounded-2xl border text-center space-y-2">
+          <div className="bg-clr7 dark:bg-dclr7 p-5 rounded-2xl border text-center space-y-2">
             <p className="text-[0.8em] font-bold uppercase opacity-60">Total Validado Recaudado</p>
-            <p className="text-3xl font-black text-green-600">${totalRecaudado.toLocaleString('es-CL')}</p>
+            <p className="text-3xl font-black text-clr6">${totalRecaudado.toLocaleString('es-CL')}</p>
             <p className="text-[0.75em] opacity-40 font-semibold uppercase">
               Sumatoria de comprobantes con estado validado.
             </p>
@@ -178,7 +178,7 @@ export default function DashModRecaudacionCerrar({
               required
               value={itemIdIngreso}
               onChange={e => setItemIdIngreso(e.target.value)}
-              className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-dclr10 font-bold uppercase text-[0.8em]"
+              className="w-full p-3 rounded-xl border bg-clr7 dark:bg-dclr7 font-bold uppercase text-[0.8em]"
             >
               <option value="">Seleccionar ítem...</option>
               {ingresosItems.map(i => (
@@ -196,7 +196,7 @@ export default function DashModRecaudacionCerrar({
               placeholder="Indicar cuánto se gastó (dejar vacío si es $0)"
               value={montoGasto}
               onChange={e => setMontoGasto(e.target.value === '' ? '' : parseInt(e.target.value))}
-              className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-dclr10 font-black text-center text-[1.1em] text-clr7"
+              className="w-full p-3 rounded-xl border bg-clr7 dark:bg-dclr7 font-black text-center text-[1.1em] text-clr4"
             />
           </div>
 
@@ -208,7 +208,7 @@ export default function DashModRecaudacionCerrar({
                 required
                 value={itemIdEgreso}
                 onChange={e => setItemIdEgreso(e.target.value)}
-                className="w-full p-3 rounded-xl border bg-zinc-50 dark:bg-dclr10 font-bold uppercase text-[0.8em]"
+                className="w-full p-3 rounded-xl border bg-clr7 dark:bg-dclr7 font-bold uppercase text-[0.8em]"
               >
                 <option value="">Seleccionar ítem...</option>
                 {egresosItems.map(i => (
@@ -218,18 +218,18 @@ export default function DashModRecaudacionCerrar({
             </div>
           )}
 
-          <div className="flex justify-end gap-3 pt-4 border-t dark:border-dclr10">
+          <div className="flex justify-end gap-3 pt-4 border-t dark:border-dclr7">
             <button
               type="button"
               onClick={onClose}
-              className="px-6 py-3 border-2 border-clr2 text-clr2 rounded-xl text-[0.85em] font-bold uppercase hover:bg-zinc-50 dark:hover:bg-white/5 transition-all"
+              className="px-6 py-3 border-2 border-clr3 text-clr3 rounded-xl text-[0.85em] font-bold uppercase hover:bg-clr7 dark:hover:bg-dclr7 transition-all"
             >
               Cancelar
             </button>
             <button
               type="submit"
               disabled={saving}
-              className="px-6 py-3 bg-clr7 text-white rounded-xl text-[0.85em] font-bold uppercase hover:brightness-110 shadow-lg transition-all disabled:opacity-50"
+              className="px-6 py-3 bg-clr4 text-clr1 rounded-xl text-[0.85em] font-bold uppercase hover:brightness-110 shadow-lg transition-all disabled:opacity-50"
             >
               {saving ? 'Procesando...' : 'Completar y Registrar'}
             </button>

@@ -56,7 +56,7 @@ export const HARDCODED_MENU_TREE: MenuItemNode[] = [
   node('menu-blog', null, 'Blog', '/blog', 'IconoBlog', 4),
   node('menu-nuestras-unidades', null, 'Nuestras Unidades', null, 'IconoUnidades', 5, [
     node('menu-unidades-manada', 'menu-nuestras-unidades', 'Manada (Ahi Niho Vænga)', '/unidad/manada', '/images/logos/iconos_lobatos.svg', 1),
-    node('menu-unidades-compania', 'menu-nuestras-unidades', 'Compañía (Põ Vui Vaikava)', '/unidad/compania', '/images/logos/iconos_guias.svg', 2),
+    node('menu-unidades-compania', 'menu-nuestras-unidades', 'Compañía (Põ Nui Vaikava)', '/unidad/compania', '/images/logos/iconos_guias.svg', 2),
     node('menu-unidades-tropa', 'menu-nuestras-unidades', "Tropa (A'ata)", '/unidad/tropa', '/images/logos/iconos_scouts.svg', 3),
     node('menu-unidades-avanzada', 'menu-nuestras-unidades', 'Avanzada (Rapahango)', '/unidad/avanzada', '/images/logos/iconos_pioneres.svg', 4),
     node('menu-unidades-clan', 'menu-nuestras-unidades', 'Clan (Ahu Akivi)', '/unidad/clan', '/images/logos/iconos_caminantes.svg', 5),

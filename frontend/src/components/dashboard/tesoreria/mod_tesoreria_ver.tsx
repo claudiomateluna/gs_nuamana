@@ -55,19 +55,19 @@ export default function DashModTesoreriaVer({ isOpen, onClose, data }: DashModTe
   if (!isOpen || !data) return null
 
   return (
-    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[130] flex items-center justify-center p-2 md:p-4 overflow-y-auto font-quicksand">
-      <div className="font-quicksand bg-white dark:bg-zinc-900 text-black dark:text-white w-full max-w-4xl p-4 md:p-8 shadow-2xl font-sans border-[1px] border-black dark:border-zinc-700 my-auto print:bg-white print:text-black print:border-black print:p-0">
+    <div className="fixed inset-0 bg-clr2 backdrop-blur-sm z-[130] flex items-center justify-center p-2 md:p-4 overflow-y-auto font-quicksand">
+      <div className="font-quicksand bg-clr1 dark:bg-dclr1 text-clr2 dark:text-dclr2 w-full max-w-4xl p-4 md:p-8 shadow-2xl font-sans border-[1px] border-clr2 dark:border-dclr2 my-auto print:bg-clr1 print:text-clr2 print:border-clr2 print:p-0">
 
         {loading ? (
           <div className="py-20 text-center animate-pulse font-bold uppercase tracking-widest">Cargando Documento Institucional...</div>
         ) : comprobante ? (
           /* VISTA DE VALE INSTITUCIONAL (DAF-FOR-05/06) */
-          <div className="font-quicksand space-y-0 border-[1.5px] border-black dark:border-dclr2 p-4 print:border-black rounded-[1rem]">
+          <div className="font-quicksand space-y-0 border-[1.5px] border-clr2 dark:border-dclr2 p-4 print:border-clr2 rounded-[1rem]">
             {/* CABECERA OFICIAL NUA MANA */}
-            <div className="flex justify-between items-start border-b-[1.5px] border-black dark:border-dclr2 pb-4 mb-4 print:border-black">
+            <div className="flex justify-between items-start border-b-[1.5px] border-clr2 dark:border-dclr2 pb-4 mb-4 print:border-clr2">
               <div className="flex items-center gap-4">
                 <img src="/images/logos/LogoColor.svg" alt="Logo" className="w-16 h-16 object-contain" /> 
-                <div className="text-[0.8em] leading-tight font-bold uppercase dark:text-dclr2 print:text-black">
+                <div className="text-[0.8em] leading-tight font-bold uppercase dark:text-dclr2 print:text-clr2">
                   <p>CENTRO JUVENIL CULTURAL DE OUTDOOR NUA MANA</p>
                   <p>R.U.T.: 65.015.731-1</p>
                   <p>Dirección: Bahía Catalina 11781</p>
@@ -75,20 +75,20 @@ export default function DashModTesoreriaVer({ isOpen, onClose, data }: DashModTe
                 </div>
               </div>
               <div className="text-right">
-                <div className="border-[1.5px] border-black dark:border-dclr2 p-2 min-w-[200px] text-center mb-1 rounded-[0.5em] print:border-black">
-                  <p className="text-[1em] font-bold uppercase text-dclr2 print:text-black">COMPROBANTE DE {comprobante.tipo.toUpperCase()}</p>
+                <div className="border-[1.5px] border-clr2 dark:border-dclr2 p-2 min-w-[200px] text-center mb-1 rounded-[0.5em] print:border-clr2">
+                  <p className="text-[1em] font-bold uppercase text-dclr2 print:text-clr2">COMPROBANTE DE {comprobante.tipo.toUpperCase()}</p>
                 </div>
-                <div className="text-[0.8em] font-bold uppercase flex justify-end gap-4 mr-2 dark:text-dclr2 print:text-black">
+                <div className="text-[0.8em] font-bold uppercase flex justify-end gap-4 mr-2 dark:text-dclr2 print:text-clr2">
                   <span>Rev 3</span>
                   <span>03-11-2021</span>
-                  <span className="border-l border-black dark:border-dclr2 pl-2 print:border-black">FOLIO: {comprobante.folio}</span>
+                  <span className="border-l border-clr2 dark:border-dclr2 pl-2 print:border-clr2">FOLIO: {comprobante.folio}</span>
                 </div>
               </div>
             </div>
 
             {/* CUERPO DEL VALE */}
-            <div className="grid grid-cols-12 border-b-[1.5px] border-black dark:border-dclr2 mt-[-14px] mb-4 print:border-black dark:text-dclr2 print:text-black">
-              <div className="col-span-9 p-2 border-r-[1.5px] border-black dark:border-dclr2 print:border-black">
+            <div className="grid grid-cols-12 border-b-[1.5px] border-clr2 dark:border-dclr2 mt-[-14px] mb-4 print:border-clr2 dark:text-dclr2 print:text-clr2">
+              <div className="col-span-9 p-2 border-r-[1.5px] border-clr2 dark:border-dclr2 print:border-clr2">
                 <p className="text-[0.8em] font-bold uppercase mb-1">{comprobante.tipo === 'Egreso' ? 'PAGADO A:' : 'RECIBIDO DE:'}</p>
                 <p className="text-[0.9em] font-bold uppercase">{comprobante.pagado_recibido_nombre}</p> 
               </div>
@@ -98,18 +98,18 @@ export default function DashModTesoreriaVer({ isOpen, onClose, data }: DashModTe
               </div>
             </div>
 
-            <div className="p-2 mt-[-10px] border-b-[1.5px] border-black dark:border-dclr2 mb-4 print:border-black dark:text-dclr2 print:text-black">
+            <div className="p-2 mt-[-10px] border-b-[1.5px] border-clr2 dark:border-dclr2 mb-4 print:border-clr2 dark:text-dclr2 print:text-clr2">
               <p className="text-[0.8em] font-bold uppercase mb-1">LA SUMA DE:</p>
               <p className="text-[0.9em] font-bold italic uppercase pb-1">{comprobante.suma_palabras}</p> 
             </div>
 
             {/* TABLA DE DETALLES */}
-            <table className="w-full border-collapse border-[1.5px] border-black dark:border-dclr2 mb-4 text-[0.9em] print:border-black">
+            <table className="w-full border-collapse border-[1.5px] border-clr2 dark:border-dclr2 mb-4 text-[0.9em] print:border-clr2">
               <thead>
-                <tr className="bg-zinc-100 dark:bg-dclr3 uppercase font-bold print:bg-zinc-100">
-                  <th className="border-[1.5px] border-black dark:border-dclr2 p-1 w-20 print:border-black">ITEM</th>
-                  <th className="border-[1.5px] border-black dark:border-dclr2 p-1 print:border-black">POR CONCEPTO DE:</th>
-                  <th className="border-[1.5px] border-black dark:border-dclr2 p-1 w-32 text-right print:border-black">VALOR</th>
+                <tr className="bg-clr7 dark:bg-dclr7 uppercase font-bold print:bg-clr7">
+                  <th className="border-[1.5px] border-clr2 dark:border-dclr2 p-1 w-20 print:border-clr2">ITEM</th>
+                  <th className="border-[1.5px] border-clr2 dark:border-dclr2 p-1 print:border-clr2">POR CONCEPTO DE:</th>
+                  <th className="border-[1.5px] border-clr2 dark:border-dclr2 p-1 w-32 text-right print:border-clr2">VALOR</th>
                 </tr>
               </thead>
               <tbody>
@@ -117,15 +117,15 @@ export default function DashModTesoreriaVer({ isOpen, onClose, data }: DashModTe
                   const det = comprobante.tesoreria_comprobante_detalles?.[idx]
                   return (
                     <tr key={idx} className="h-8 uppercase font-bold">
-                      <td className="border-[1.5px] border-black dark:border-dclr2 p-1 text-center print:border-black">{det?.tesoreria_items?.codigo || ''}</td>
-                      <td className="border-[1.5px] border-black dark:border-dclr2 p-1 print:border-black">{det?.descripcion || ''}</td>
-                      <td className="border-[1.5px] border-black dark:border-dclr2 p-1 text-right print:border-black">{det ? `$${det.valor.toLocaleString('es-CL')}` : ''}</td>
+                      <td className="border-[1.5px] border-clr2 dark:border-dclr2 p-1 text-center print:border-clr2">{det?.tesoreria_items?.codigo || ''}</td>
+                      <td className="border-[1.5px] border-clr2 dark:border-dclr2 p-1 print:border-clr2">{det?.descripcion || ''}</td>
+                      <td className="border-[1.5px] border-clr2 dark:border-dclr2 p-1 text-right print:border-clr2">{det ? `$${det.valor.toLocaleString('es-CL')}` : ''}</td>
                     </tr>
                   )
                 })}
-                <tr className="h-10 bg-zinc-50 dark:bg-white/5 font-bold print:bg-zinc-50">
-                  <td colSpan={2} className="border-[1.5px] border-black dark:border-dclr2 p-2 text-right uppercase print:border-black">Nombre de la Estructura: NUA MANA • TOTAL</td>
-                  <td className="border-[1.5px] border-black dark:border-dclr2 p-2 text-right text-lg print:border-black">
+                <tr className="h-10 bg-clr7 dark:bg-dclr7 font-bold print:bg-clr7">
+                  <td colSpan={2} className="border-[1.5px] border-clr2 dark:border-dclr2 p-2 text-right uppercase print:border-clr2">Nombre de la Estructura: NUA MANA • TOTAL</td>
+                  <td className="border-[1.5px] border-clr2 dark:border-dclr2 p-2 text-right text-lg print:border-clr2">
                     ${(data.monto_ingreso || data.monto_egreso).toLocaleString('es-CL')}
                   </td>
                 </tr>
@@ -133,51 +133,51 @@ export default function DashModTesoreriaVer({ isOpen, onClose, data }: DashModTe
             </table>
 
             {/* FIRMAS Y FORMA DE PAGO */}
-            <div className="grid grid-cols-12 border-[1.5px] border-black dark:border-dclr2 print:border-black">
-              <div className="col-span-4 p-2 border-r-[1.5px] border-black dark:border-dclr2 border-b-[1.5px] print:border-black">
+            <div className="grid grid-cols-12 border-[1.5px] border-clr2 dark:border-dclr2 print:border-clr2">
+              <div className="col-span-4 p-2 border-r-[1.5px] border-clr2 dark:border-dclr2 border-b-[1.5px] print:border-clr2">
                 <p className="text-[0.8em] font-bold uppercase mb-2">FORMA DE PAGO</p>
                 <div className="grid grid-cols-2 gap-1 text-[0.8em] font-bold">
                   <div className="flex items-center gap-1">
-                    <div className={`w-3 h-3 border border-black dark:border-white print:border-black ${comprobante.forma_pago === 'Transferencia' ? 'bg-black dark:bg-white print:bg-black' : ''}`}></div>
+                    <div className={`w-3 h-3 border border-clr2 dark:border-dclr2 print:border-clr2 ${comprobante.forma_pago === 'Transferencia' ? 'bg-clr2 dark:bg-dclr1 print:bg-clr2' : ''}`}></div>
                     <span>TRANSF.</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <div className={`w-3 h-3 border border-black dark:border-white print:border-black ${comprobante.forma_pago === 'Depósito' ? 'bg-black dark:bg-white print:bg-black' : ''}`}></div>
+                    <div className={`w-3 h-3 border border-clr2 dark:border-dclr2 print:border-clr2 ${comprobante.forma_pago === 'Depósito' ? 'bg-clr2 dark:bg-dclr1 print:bg-clr2' : ''}`}></div>
                     <span>DEPÓSITO</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <div className={`w-3 h-3 border border-black dark:border-white print:border-black ${comprobante.forma_pago === 'Documento' ? 'bg-black dark:bg-white print:bg-black' : ''}`}></div>
+                    <div className={`w-3 h-3 border border-clr2 dark:border-dclr2 print:border-clr2 ${comprobante.forma_pago === 'Documento' ? 'bg-clr2 dark:bg-dclr1 print:bg-clr2' : ''}`}></div>
                     <span>DOC.</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <div className={`w-3 h-3 border border-black dark:border-white print:border-black ${comprobante.forma_pago === 'Efectivo' ? 'bg-black dark:bg-white print:bg-black' : ''}`}></div>
+                    <div className={`w-3 h-3 border border-clr2 dark:border-dclr2 print:border-clr2 ${comprobante.forma_pago === 'Efectivo' ? 'bg-clr2 dark:bg-dclr1 print:bg-clr2' : ''}`}></div>
                     <span>EFECTIVO</span>
                   </div>
                 </div>
                 {comprobante.numero_documento && <p className="text-[8px] mt-2 opacity-60">REF: {comprobante.numero_documento}</p>}
               </div>
-              <div className="col-span-4 p-2 border-r-[1.5px] border-black dark:border-white border-b-[1.5px] text-center print:border-black">
+              <div className="col-span-4 p-2 border-r-[1.5px] border-clr2 dark:border-dclr2 border-b-[1.5px] text-center print:border-clr2">
                 <p className="text-[0.9em] font-bold uppercase mb-8">HECHO POR</p>
-                <div className="border-t border-black dark:border-white pt-1 print:border-black">
+                <div className="border-t border-clr2 dark:border-dclr2 pt-1 print:border-clr2">
                   <p className="text-[0.8em] font-bold uppercase">{comprobante.hecho_por?.nombres} {comprobante.hecho_por?.apellidos}</p>
                   <p className="text-[0.8em] font-bold opacity-70">RUT: {comprobante.hecho_por?.rut}</p>    
                 </div>
               </div>
-              <div className="col-span-4 p-2 border-b-[1.5px] border-black dark:border-white text-center relative overflow-hidden print:border-black">
-                <div className="absolute inset-0 flex items-center justify-center opacity-10 dark:opacity-20 rotate-12 text-green-600 font-bold text-2xl pointer-events-none">APROBADO</div>
+              <div className="col-span-4 p-2 border-b-[1.5px] border-clr2 dark:border-dclr2 text-center relative overflow-hidden print:border-clr2">
+                <div className="absolute inset-0 flex items-center justify-center opacity-10 dark:opacity-20 rotate-12 text-clr6 font-bold text-2xl pointer-events-none">APROBADO</div>
                 <p className="text-[0.9em] font-bold uppercase mb-8">VISTO BUENO</p>
-                <p className="text-[0.8em] font-bold uppercase border-t border-black dark:border-white pt-1 print:border-black">CONSEJO DE GRUPO</p>
+                <p className="text-[0.8em] font-bold uppercase border-t border-clr2 dark:border-dclr2 pt-1 print:border-clr2">CONSEJO DE GRUPO</p>
               </div>
 
               <div className="col-span-12 p-2 text-center h-20 flex flex-col justify-end">
-                <p className="text-[0.8em] font-bold uppercase border-t border-black dark:border-white pt-1 w-64 mx-auto print:border-black">FIRMA RECEPTOR</p>
+                <p className="text-[0.8em] font-bold uppercase border-t border-clr2 dark:border-dclr2 pt-1 w-64 mx-auto print:border-clr2">FIRMA RECEPTOR</p>
               </div>
             </div>
           </div>
         ) : (
           /* VISTA DE MOVIMIENTO GENÉRICO (Boleta/Factura) con Modo Oscuro */
           <div className="space-y-6">
-            <div className="flex justify-between items-center border-b-2 border-black dark:border-white pb-4 print:border-black">
+            <div className="flex justify-between items-center border-b-2 border-clr2 dark:border-dclr2 pb-4 print:border-clr2">
               <h2 className="text-2xl font-bold uppercase">Registro de Movimiento</h2>
               <span className="text-xl font-bold">{data.tipo_documento === 'B' ? 'BOLETA' : 'FACTURA'} #{data.comprobante_numero || 'S/N'}</span>
             </div>
@@ -192,16 +192,16 @@ export default function DashModTesoreriaVer({ isOpen, onClose, data }: DashModTe
                   <p className="text-md font-bold uppercase text-clr6">{data.tesoreria_items?.nombre}</p> 
                 </div>
               </div>
-              <div className="bg-zinc-50 dark:bg-white/5 p-6 border-2 border-black dark:border-white rounded-3xl text-right print:bg-zinc-50 print:border-black">
+              <div className="bg-clr7 dark:bg-dclr7 p-6 border-2 border-clr2 dark:border-dclr2 rounded-3xl text-right print:bg-clr7 print:border-clr2">
                 <p className="text-xs font-bold uppercase opacity-40">Monto Total</p>
-                <p className={`text-4xl font-bold ${data.monto_ingreso > 0 ? 'text-green-600' : 'text-red-600'}`}>
+                <p className={`text-4xl font-bold ${data.monto_ingreso > 0 ? 'text-clr6' : 'text-clr4'}`}>
                   ${(data.monto_ingreso || data.monto_egreso).toLocaleString('es-CL')}
                 </p>
                 <p className="text-xs font-bold mt-2 opacity-60 uppercase">REGISTRADO EL {new Date(data.fecha_completa).toLocaleDateString('es-CL')}</p>
               </div>
             </div>
             {data.imagen_respaldo_url && (
-              <div className="border-2 border-black dark:border-white p-2 rounded-3xl overflow-hidden print:border-black">
+              <div className="border-2 border-clr2 dark:border-dclr2 p-2 rounded-3xl overflow-hidden print:border-clr2">
                 <img src={data.imagen_respaldo_url} className="w-full h-auto max-h-[500px] object-contain" alt="Respaldo" />
               </div>
             )}
@@ -209,8 +209,8 @@ export default function DashModTesoreriaVer({ isOpen, onClose, data }: DashModTe
         )}
 
         <div className="mt-8 flex justify-center gap-4 no-print">
-          <button onClick={() => window.print()} className="px-8 py-3 bg-clr5 text-white font-bold uppercase rounded-xl shadow-lg hover:brightness-110 transition-all text-xs tracking-widest">🖨️ Imprimir</button>
-          <button onClick={onClose} className="px-8 py-3 bg-zinc-200 dark:bg-zinc-700 text-black dark:text-white font-bold uppercase rounded-xl hover:brightness-110 transition-all text-xs tracking-widest">Cerrar</button>
+          <button onClick={() => window.print()} className="px-8 py-3 bg-clr4 text-clr1 font-bold uppercase rounded-xl shadow-lg hover:brightness-110 transition-all text-xs tracking-widest">🖨️ Imprimir</button>
+          <button onClick={onClose} className="px-8 py-3 bg-clr7 dark:bg-dclr7 text-clr2 dark:text-dclr2 font-bold uppercase rounded-xl hover:brightness-110 transition-all text-xs tracking-widest">Cerrar</button>
         </div>
       </div>
 
@@ -218,12 +218,12 @@ export default function DashModTesoreriaVer({ isOpen, onClose, data }: DashModTe
         @media print {
           .no-print { display: none !important; }
           .fixed { position: absolute !important; top: 0; left: 0; width: 100%; height: auto; background: white !important; padding: 0 !important; }
-          .bg-black\/80 { background: white !important; }
+          .bg-clr2\/80 { background: white !important; }
           /* Forzar modo claro en impresión */
-          :global(.dark) .bg-zinc-900 { background-color: white !important; color: black !important; }    
-          :global(.dark) .border-white { border-color: black !important; }
-          :global(.dark) .bg-white\/10 { background-color: #f4f4f5 !important; }
-          :global(.dark) .bg-white\/5 { background-color: #fafafa !important; }
+          :global(.dark) .bg-clr2 { background-color: white !important; color: black !important; }    
+          :global(.dark) .border-clr1 { border-color: black !important; }
+          :global(.dark) .bg-clr1\/10 { background-color: #f4f4f5 !important; }
+          :global(.dark) .bg-clr1\/5 { background-color: #fafafa !important; }
         }
       `}</style>
     </div>

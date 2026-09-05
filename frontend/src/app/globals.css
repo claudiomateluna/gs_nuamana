@@ -4,19 +4,129 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --clr1: #FFFFFF; --clr2: #95a5a6; --clr3: #333333; --clr4: #1d1d1d; 
-  --clr5: #2c3e50; --clr6: #3eb34b; --clr7: #cb3327; --clr8: #ffc41d; 
-  --clr9: #f8f9fa; --clr10: #e9ecef;
-  --clr11: #2c3e50; --clr12: #cb3327;
-  
-  /* Colores oscuros personalizados */
-  --dclr1: #121212; --dclr2: #b0b0b0; --dclr3: #1e1e1e; --dclr4: #0a0a0a;
-  --dclr5: #33506f; --dclr6: #33a345; --dclr7: #ef4b3a; --dclr8: #ffcf33;
-  --dclr9: #26262b; --dclr10: #3c3c3c;
-  --dclr11: #33506f; --dclr12: #ef4b3a;
+  /* Base (10 roles) — light */
+  --clr1: #FFFFFF; /* Fondo */
+  --clr2: #1d1d1d; /* Texto Principal */
+  --clr3: #95a5a6; /* Texto Secundario */
+  --clr4: #cb3327; /* Énfasis Principal */
+  --clr5: #ffc41d; /* Énfasis Secundario */
+  --clr6: #3eb34b; /* Énfasis Terciario */
+  --clr7: #e9ecef; /* Bordes Principal */
+  --clr8: #d4d4d8; /* Bordes Secundario */
+  --clr9: #FFFFFF; /* Fondo Scrollbar */
+  --clr10: #cb3327; /* Scrollbar */
+
+  /* Base (10 roles) — dark */
+  --dclr1: #121212; --dclr2: #b0b0b0; --dclr3: #8a8a8a; --dclr4: #ef4b3a;
+  --dclr5: #ffcf33; --dclr6: #33a345; --dclr7: #3c3c3c; --dclr8: #2a2a2a;
+  --dclr9: #121212; --dclr10: #ef4b3a;
+
+  /* Tarjetas (6 roles) — light */
+  --tclr1: #FFFFFF; --tclr2: #f8f9fa; --tclr3: #2c3e50;
+  --tclr4: #cb3327; --tclr5: #2c3e50; --tclr6: #333333;
+
+  /* Tarjetas (6 roles) — dark */
+  --tdclr1: #1e1e1e; --tdclr2: #26262b; --tdclr3: #d0d0d0;
+  --tdclr4: #ef4b3a; --tdclr5: #33506f; --tdclr6: #b0b0b0;
+
+  /* Header (13 roles) — light */
+  --hclr1: #cb3327; --hclr2: #ffc41d; --hclr3: #95a5a6;
+  --hclr4: #cb3327; --hclr5: #1d1d1d; --hclr6: #f8f9fa;
+  --hclr7: #cb3327; --hclr8: #333333; --hclr9: #cb3327; --hclr10: #2c3e50;
+  --hclr11: #cb3327; --hclr12: #2c3e50; --hclr13: #cb3327;
+
+  /* Header (13 roles) — dark */
+  --hdclr1: #FFFFFF; --hdclr2: #ffcf33; --hdclr3: #8a8a8a;
+  --hdclr4: #ef4b3a; --hdclr5: #ffcf33; --hdclr6: #26262b;
+  --hdclr7: #ffcf33; --hdclr8: #b0b0b0; --hdclr9: #ef4b3a; --hdclr10: #33506f;
+  --hdclr11: #ef4b3a; --hdclr12: #33506f; --hdclr13: #ef4b3a;
+
+  /* Menú (11 roles) — light */
+  --mclr1: #FFFFFF; --mclr2: #95a5a6; --mclr3: #2c3e50;
+  --mclr4: #cb3327; --mclr5: #cb3327; --mclr6: #cb3327;
+  --mclr7: #1d1d1d; --mclr8: #cb3327; --mclr9: #1d1d1d;
+  --mclr10: #e9ecef; --mclr11: #cb3327;
+
+  /* Menú (11 roles) — dark */
+  --mdclr1: #33506f; --mdclr2: #ef4b3a; --mdclr3: #b0b0b0;
+  --mdclr4: #ef4b3a; --mdclr5: #ef4b3a; --mdclr6: #ef4b3a;
+  --mdclr7: #b0b0b0; --mdclr8: #ef4b3a; --mdclr9: #ffcf33;
+  --mdclr10: #3c3c3c; --mdclr11: #ef4b3a;
+
+  /* CategoryPromoBanner (9 roles) — light */
+  --cbclr1: #edf2f7; --cbclr2: #e2e8f0; --cbclr3: #cbd5e0;
+  --cbclr4: #2c3e50; --cbclr5: #4a5568; --cbclr6: #cb3327;
+  --cbclr7: #2c3e50; --cbclr8: #e9ecef; --cbclr9: #FFFFFF;
+
+  /* CategoryPromoBanner (9 roles) — dark */
+  --cbdclr1: #1a202c; --cbdclr2: #2d3748; --cbdclr3: #4a5568;
+  --cbdclr4: #f7fafc; --cbdclr5: #e2e8f0; --cbdclr6: #ef4b3a;
+  --cbdclr7: #33506f; --cbdclr8: #3c3c3c; --cbdclr9: #121212;
+
+  /* BlogSlideshow (9 roles) — light */
+  --bsclr1: #e9ecef; --bsclr2: #b0b0b0; --bsclr3: #95a5a6;
+  --bsclr4: #cb3327; --bsclr5: #1d1d1d; --bsclr6: #1d1d1d;
+  --bsclr7: #cb3327; --bsclr8: #FFFFFF; --bsclr9: #e9ecef;
+
+  /* BlogSlideshow (9 roles) — dark */
+  --bsdclr1: #121212; --bsdclr2: #b0b0b0; --bsdclr3: #95a5a6;
+  --bsdclr4: #cb3327; --bsdclr5: #121212; --bsdclr6: #121212;
+  --bsdclr7: #ef4b3a; --bsdclr8: #FFFFFF; --bsdclr9: #3c3c3c;
+
+  /* Testimonials (8 roles) — light */
+  --tsclr1: #e9ecef; --tsclr2: #cb3327; --tsclr3: #1d1d1d;
+  --tsclr4: #FFFFFF; --tsclr5: #1d1d1d; --tsclr6: #95a5a6;
+  --tsclr7: #cb3327; --tsclr8: #e9ecef;
+
+  /* Testimonials (8 roles) — dark */
+  --tsdclr1: #3c3c3c; --tsdclr2: #ef4b3a; --tsdclr3: #b0b0b0;
+  --tsdclr4: #121212; --tsdclr5: #b0b0b0; --tsdclr6: #8a8a8a;
+  --tsdclr7: #ef4b3a; --tsdclr8: #3c3c3c;
+
+  /* VisitSection (9 roles) — light */
+  --vsclr1: #FFFFFF; --vsclr2: #cb3327; --vsclr3: #FFFFFF;
+  --vsclr4: #f8f9fa; --vsclr5: #33a345; --vsclr6: #333333;
+  --vsclr7: #FFFFFF; --vsclr8: #e9ecef; --vsclr9: #ffc41d;
+
+  /* VisitSection (9 roles) — dark */
+  --vsdclr1: #121212; --vsdclr2: #ef4b3a; --vsdclr3: #1e1e1e;
+  --vsdclr4: #26262b; --vsdclr5: #33a345; --vsdclr6: #b0b0b0;
+  --vsdclr7: #121212; --vsdclr8: #3c3c3c; --vsdclr9: #ffcf33;
+
+  /* FAQ (8 roles) — light */
+  --fclr1: #e9ecef; --fclr2: #cb3327; --fclr3: #95a5a6;
+  --fclr4: #FFFFFF; --fclr5: #cb3327; --fclr6: #1d1d1d;
+  --fclr7: #e9ecef; --fclr8: #cb3327;
+
+  /* FAQ (8 roles) — dark */
+  --fdclr1: #3c3c3c; --fdclr2: #ef4b3a; --fdclr3: #8a8a8a;
+  --fdclr4: #121212; --fdclr5: #ef4b3a; --fdclr6: #b0b0b0;
+  --fdclr7: #3c3c3c; --fdclr8: #ef4b3a;
+
+  /* SecondaryHeader (14 roles) — light */
+  --shclr1: #cb3327; --shclr2: #ffc41d; --shclr3: #95a5a6;
+  --shclr4: #cb3327; --shclr5: #1d1d1d; --shclr6: #f8f9fa;
+  --shclr7: #cb3327; --shclr8: #333333; --shclr9: #cb3327; --shclr10: #2c3e50;
+  --shclr11: #cb3327; --shclr12: #2c3e50; --shclr13: #cb3327; --shclr14: #cb3327;
+
+  /* SecondaryHeader (14 roles) — dark */
+  --shdclr1: #FFFFFF; --shdclr2: #ffcf33; --shdclr3: #8a8a8a;
+  --shdclr4: #ef4b3a; --shdclr5: #ffcf33; --shdclr6: #26262b;
+  --shdclr7: #ffcf33; --shdclr8: #b0b0b0; --shdclr9: #ef4b3a; --shdclr10: #b0b0b0;
+  --shdclr11: #ef4b3a; --shdclr12: #33506f; --shdclr13: #ef4b3a; --shdclr14: #ef4b3a;
+
+  /* Footer (10 roles) — light */
+  --foclr1: #FFFFFF; --foclr2: #cb3327; --foclr3: #cb3327;
+  --foclr4: #cb3327; --foclr5: #cb3327; --foclr6: #1d1d1d;
+  --foclr7: #cb3327; --foclr8: #FFFFFF; --foclr9: #cb3327; --foclr10: #cb3327;
+
+  /* Footer (10 roles) — dark */
+  --fodclr1: #121212; --fodclr2: #ef4b3a; --fodclr3: #ef4b3a;
+  --fodclr4: #b0b0b0; --fodclr5: #ffcf33; --fodclr6: #b0b0b0;
+  --fodclr7: #121212; --fodclr8: #FFFFFF; --fodclr9: #ef4b3a; --fodclr10: #ef4b3a;
 
   --background: var(--clr1);
-  --foreground: var(--clr4);
+  --foreground: var(--clr2);
 }
 
 .dark {
@@ -25,13 +135,100 @@
 }
 
 @theme {
-  --color-clr1: var(--clr1); --color-clr2: var(--clr2); --color-clr3: var(--clr3); 
-  --color-clr4: var(--clr4); --color-clr5: var(--clr5); --color-clr6: var(--clr6); 
-  --color-clr7: var(--clr7); --color-clr8: var(--clr8); --color-clr9: var(--clr9); 
-  --color-clr10: var(--clr10); --color-clr11: var(--clr11); --color-clr12: var(--clr12);
-  --color-dclr1: var(--dclr1); --color-dclr2: var(--dclr2); --color-dclr3: var(--dclr3); 
-  --color-dclr4: var(--dclr4); --color-dclr5: var(--dclr5); --color-dclr6: var(--dclr6); --color-dclr7: var(--dclr7); --color-dclr8: var(--dclr8); --color-dclr9: var(--dclr9); --color-dclr10: var(--dclr10); --color-dclr11: var(--dclr11); --color-dclr12: var(--dclr12);
-  
+  /* Base */
+  --color-clr1: var(--clr1); --color-clr2: var(--clr2); --color-clr3: var(--clr3);
+  --color-clr4: var(--clr4); --color-clr5: var(--clr5); --color-clr6: var(--clr6);
+  --color-clr7: var(--clr7); --color-clr8: var(--clr8);
+  --color-clr9: var(--clr9); --color-clr10: var(--clr10);
+  --color-dclr1: var(--dclr1); --color-dclr2: var(--dclr2); --color-dclr3: var(--dclr3);
+  --color-dclr4: var(--dclr4); --color-dclr5: var(--dclr5); --color-dclr6: var(--dclr6);
+  --color-dclr7: var(--dclr7); --color-dclr8: var(--dclr8);
+  --color-dclr9: var(--dclr9); --color-dclr10: var(--dclr10);
+
+  /* Tarjetas */
+  --color-tclr1: var(--tclr1); --color-tclr2: var(--tclr2); --color-tclr3: var(--tclr3);
+  --color-tclr4: var(--tclr4); --color-tclr5: var(--tclr5); --color-tclr6: var(--tclr6);
+  --color-tdclr1: var(--tdclr1); --color-tdclr2: var(--tdclr2); --color-tdclr3: var(--tdclr3);
+  --color-tdclr4: var(--tdclr4); --color-tdclr5: var(--tdclr5); --color-tdclr6: var(--tdclr6);
+
+  /* Header */
+  --color-hclr1: var(--hclr1); --color-hclr2: var(--hclr2); --color-hclr3: var(--hclr3);
+  --color-hclr4: var(--hclr4); --color-hclr5: var(--hclr5); --color-hclr6: var(--hclr6);
+  --color-hclr7: var(--hclr7); --color-hclr8: var(--hclr8); --color-hclr9: var(--hclr9); --color-hclr10: var(--hclr10);
+  --color-hclr11: var(--hclr11); --color-hclr12: var(--hclr12); --color-hclr13: var(--hclr13);
+  --color-hdclr1: var(--hdclr1); --color-hdclr2: var(--hdclr2); --color-hdclr3: var(--hdclr3);
+  --color-hdclr4: var(--hdclr4); --color-hdclr5: var(--hdclr5); --color-hdclr6: var(--hdclr6);
+  --color-hdclr7: var(--hdclr7); --color-hdclr8: var(--hdclr8); --color-hdclr9: var(--hdclr9); --color-hdclr10: var(--hdclr10);
+  --color-hdclr11: var(--hdclr11); --color-hdclr12: var(--hdclr12); --color-hdclr13: var(--hdclr13);
+
+  /* Menú */
+  --color-mclr1: var(--mclr1); --color-mclr2: var(--mclr2); --color-mclr3: var(--mclr3);
+  --color-mclr4: var(--mclr4); --color-mclr5: var(--mclr5); --color-mclr6: var(--mclr6);
+  --color-mclr7: var(--mclr7); --color-mclr8: var(--mclr8); --color-mclr9: var(--mclr9);
+  --color-mclr10: var(--mclr10); --color-mclr11: var(--mclr11);
+  --color-mdclr1: var(--mdclr1); --color-mdclr2: var(--mdclr2); --color-mdclr3: var(--mdclr3);
+  --color-mdclr4: var(--mdclr4); --color-mdclr5: var(--mdclr5); --color-mdclr6: var(--mdclr6);
+  --color-mdclr7: var(--mdclr7); --color-mdclr8: var(--mdclr8); --color-mdclr9: var(--mdclr9);
+  --color-mdclr10: var(--mdclr10); --color-mdclr11: var(--mdclr11);
+
+  /* CategoryPromoBanner */
+  --color-cbclr1: var(--cbclr1); --color-cbclr2: var(--cbclr2); --color-cbclr3: var(--cbclr3);
+  --color-cbclr4: var(--cbclr4); --color-cbclr5: var(--cbclr5); --color-cbclr6: var(--cbclr6);
+  --color-cbclr7: var(--cbclr7); --color-cbclr8: var(--cbclr8); --color-cbclr9: var(--cbclr9);
+  --color-cbdclr1: var(--cbdclr1); --color-cbdclr2: var(--cbdclr2); --color-cbdclr3: var(--cbdclr3);
+  --color-cbdclr4: var(--cbdclr4); --color-cbdclr5: var(--cbdclr5); --color-cbdclr6: var(--cbdclr6);
+  --color-cbdclr7: var(--cbdclr7); --color-cbdclr8: var(--cbdclr8); --color-cbdclr9: var(--cbdclr9);
+
+  /* BlogSlideshow */
+  --color-bsclr1: var(--bsclr1); --color-bsclr2: var(--bsclr2); --color-bsclr3: var(--bsclr3);
+  --color-bsclr4: var(--bsclr4); --color-bsclr5: var(--bsclr5); --color-bsclr6: var(--bsclr6);
+  --color-bsclr7: var(--bsclr7); --color-bsclr8: var(--bsclr8); --color-bsclr9: var(--bsclr9);
+  --color-bsdclr1: var(--bsdclr1); --color-bsdclr2: var(--bsdclr2); --color-bsdclr3: var(--bsdclr3);
+  --color-bsdclr4: var(--bsdclr4); --color-bsdclr5: var(--bsdclr5); --color-bsdclr6: var(--bsdclr6);
+  --color-bsdclr7: var(--bsdclr7); --color-bsdclr8: var(--bsdclr8); --color-bsdclr9: var(--bsdclr9);
+
+  /* Testimonials */
+  --color-tsclr1: var(--tsclr1); --color-tsclr2: var(--tsclr2); --color-tsclr3: var(--tsclr3);
+  --color-tsclr4: var(--tsclr4); --color-tsclr5: var(--tsclr5); --color-tsclr6: var(--tsclr6);
+  --color-tsclr7: var(--tsclr7); --color-tsclr8: var(--tsclr8);
+  --color-tsdclr1: var(--tsdclr1); --color-tsdclr2: var(--tsdclr2); --color-tsdclr3: var(--tsdclr3);
+  --color-tsdclr4: var(--tsdclr4); --color-tsdclr5: var(--tsdclr5); --color-tsdclr6: var(--tsdclr6);
+  --color-tsdclr7: var(--tsdclr7); --color-tsdclr8: var(--tsdclr8);
+
+  /* VisitSection */
+  --color-vsclr1: var(--vsclr1); --color-vsclr2: var(--vsclr2); --color-vsclr3: var(--vsclr3);
+  --color-vsclr4: var(--vsclr4); --color-vsclr5: var(--vsclr5); --color-vsclr6: var(--vsclr6);
+  --color-vsclr7: var(--vsclr7); --color-vsclr8: var(--vsclr8); --color-vsclr9: var(--vsclr9);
+  --color-vsdclr1: var(--vsdclr1); --color-vsdclr2: var(--vsdclr2); --color-vsdclr3: var(--vsdclr3);
+  --color-vsdclr4: var(--vsdclr4); --color-vsdclr5: var(--vsdclr5); --color-vsdclr6: var(--vsdclr6);
+  --color-vsdclr7: var(--vsdclr7); --color-vsdclr8: var(--vsdclr8); --color-vsdclr9: var(--vsdclr9);
+
+  /* FAQ */
+  --color-fclr1: var(--fclr1); --color-fclr2: var(--fclr2); --color-fclr3: var(--fclr3);
+  --color-fclr4: var(--fclr4); --color-fclr5: var(--fclr5); --color-fclr6: var(--fclr6);
+  --color-fclr7: var(--fclr7); --color-fclr8: var(--fclr8);
+  --color-fdclr1: var(--fdclr1); --color-fdclr2: var(--fdclr2); --color-fdclr3: var(--fdclr3);
+  --color-fdclr4: var(--fdclr4); --color-fdclr5: var(--fdclr5); --color-fdclr6: var(--fdclr6);
+  --color-fdclr7: var(--fdclr7); --color-fdclr8: var(--fdclr8);
+
+  /* SecondaryHeader */
+  --color-shclr1: var(--shclr1); --color-shclr2: var(--shclr2); --color-shclr3: var(--shclr3);
+  --color-shclr4: var(--shclr4); --color-shclr5: var(--shclr5); --color-shclr6: var(--shclr6);
+  --color-shclr7: var(--shclr7); --color-shclr8: var(--shclr8); --color-shclr9: var(--shclr9); --color-shclr10: var(--shclr10);
+  --color-shclr11: var(--shclr11); --color-shclr12: var(--shclr12); --color-shclr13: var(--shclr13); --color-shclr14: var(--shclr14);
+  --color-shdclr1: var(--shdclr1); --color-shdclr2: var(--shdclr2); --color-shdclr3: var(--shdclr3);
+  --color-shdclr4: var(--shdclr4); --color-shdclr5: var(--shdclr5); --color-shdclr6: var(--shdclr6);
+  --color-shdclr7: var(--shdclr7); --color-shdclr8: var(--shdclr8); --color-shdclr9: var(--shdclr9); --color-shdclr10: var(--shdclr10);
+  --color-shdclr11: var(--shdclr11); --color-shdclr12: var(--shdclr12); --color-shdclr13: var(--shdclr13); --color-shdclr14: var(--shdclr14);
+
+  /* Footer */
+  --color-foclr1: var(--foclr1); --color-foclr2: var(--foclr2); --color-foclr3: var(--foclr3);
+  --color-foclr4: var(--foclr4); --color-foclr5: var(--foclr5); --color-foclr6: var(--foclr6);
+  --color-foclr7: var(--foclr7); --color-foclr8: var(--foclr8); --color-foclr9: var(--foclr9); --color-foclr10: var(--foclr10);
+  --color-fodclr1: var(--fodclr1); --color-fodclr2: var(--fodclr2); --color-fodclr3: var(--fodclr3);
+  --color-fodclr4: var(--fodclr4); --color-fodclr5: var(--fodclr5); --color-fodclr6: var(--fodclr6);
+  --color-fodclr7: var(--fodclr7); --color-fodclr8: var(--fodclr8); --color-fodclr9: var(--fodclr9); --color-fodclr10: var(--fodclr10);
+
   /* Vinculación de fuentes para Tailwind v4 */
   --font-display: var(--font-inika);
   --font-body: var(--font-quicksand);
@@ -76,7 +273,7 @@ h1, h2, h3, h4, h5, h6, .font-display {
   margin-bottom: 1.5rem;
 }
 .blog-content hr {
-  color: var(--clr7);
+  color: var(--clr4);
   width: 50%;
   height: 1px;
   margin-left: 25%;
@@ -106,18 +303,18 @@ h1, h2, h3, h4, h5, h6, .font-display {
 }
 
 .btn-save {
-  background-color: var(--clr7) !important;
+  background-color: var(--clr4) !important;
   color: white !important;
 }
 
 /* Estilos para scrollbars institucionales */
 :root {
   scrollbar-width: thin;
-  scrollbar-color: var(--clr7) var(--clr1);
+  scrollbar-color: var(--clr10) var(--clr9);
 }
 
 .dark {
-  scrollbar-color: var(--clr7) var(--clr4);
+  scrollbar-color: var(--dclr10) var(--dclr9);
 }
 
 /* For Webkit browsers (Chrome, Safari, Edge) */
@@ -126,32 +323,33 @@ h1, h2, h3, h4, h5, h6, .font-display {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--clr1);
+  background: var(--clr9);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--clr7);
+  background: var(--clr10);
   border-radius: 4px;
 }
 
 .dark ::-webkit-scrollbar-track {
-  background: var(--clr4);
+  background: var(--dclr9);
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: var(--clr7);
+  background: var(--dclr10);
 }
 
 /* Scrollbar para áreas específicas con fondo transparente opcional */
 .custom-scrollbar::-webkit-scrollbar { width: 6px; }
 .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-.custom-scrollbar::-webkit-scrollbar-thumb { background: var(--clr7); border-radius: 10px; }
-.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: var(--clr6); }
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--clr10); border-radius: 10px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: var(--clr10); }
 
 /* Scrollbar dinámico con color de la unidad */
 .unit-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: var(--scrollbar-thumb, var(--clr7)) transparent;
+  scrollbar-color: var(--scrollbar-thumb, var(--clr10)) transparent;
 }
 .unit-scrollbar::-webkit-scrollbar {
   width: 6px;
@@ -161,7 +359,7 @@ h1, h2, h3, h4, h5, h6, .font-display {
   background: transparent;
 }
 .unit-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-thumb, var(--clr7));
+  background: var(--scrollbar-thumb, var(--clr10));
   border-radius: 10px;
 }
 .unit-scrollbar::-webkit-scrollbar-thumb:hover {

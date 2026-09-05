@@ -57,7 +57,7 @@ export function UnitView({
   return (
     <div className="space-y-6">
       {/* Tab Navigation */}
-      <div className="border-b border-zinc-200 dark:border-white/10 pb-2">
+      <div className="border-b border-clr7 dark:border-dclr7 pb-2">
         <div className="flex flex-wrap gap-2">
           {tabs.map(tab => (
             <button
@@ -65,8 +65,8 @@ export function UnitView({
               onClick={() => setActiveTab(tab.key)}
               className={`px-2 py-1 rounded-[0.5rem] text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
                 activeTab === tab.key
-                  ? 'text-white shadow-lg'
-                  : 'bg-zinc-100 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-white/10'
+                  ? 'text-clr1 shadow-lg'
+                  : 'bg-clr7 dark:bg-dclr7 text-clr2 dark:text-dclr2 hover:bg-clr7 dark:hover:bg-clr1'
               }`}
               style={{
                 backgroundColor: activeTab === tab.key
@@ -95,14 +95,14 @@ export function UnitView({
       {/* Profile Sub-Tabs (shared across all units) */}
       {activeTab === 'perfil' && (
         <div className="space-y-8 animate-in fade-in duration-300">
-          <div className="flex justify-center border-b border-zinc-200 dark:border-white/10 pb-4">
+          <div className="flex justify-center border-b border-clr7 dark:border-dclr7 pb-4">
             <div className="flex gap-2">
               <button
                 onClick={() => setProfileTab('desarrollo')}
                 className={`px-4 py-2 rounded-xl text-[0.85em] font-black uppercase tracking-wider transition-all duration-300 ${
                   profileTab === 'desarrollo'
-                    ? 'text-white shadow-md'
-                    : 'bg-zinc-100 dark:bg-white/5 text-zinc-700 dark:text-zinc-300'
+                    ? 'text-clr1 shadow-md'
+                    : 'bg-clr7 dark:bg-dclr7 text-clr2 dark:text-dclr2'
                 }`}
                 style={{
                   backgroundColor: profileTab === 'desarrollo'
@@ -119,8 +119,8 @@ export function UnitView({
                 onClick={() => setProfileTab('egreso')}
                 className={`px-4 py-2 rounded-xl text-[0.85em] font-black uppercase tracking-wider transition-all duration-300 ${
                   profileTab === 'egreso'
-                    ? 'text-white shadow-md'
-                    : 'bg-zinc-100 dark:bg-white/5 text-zinc-700 dark:text-zinc-300'
+                    ? 'text-clr1 shadow-md'
+                    : 'bg-clr7 dark:bg-dclr7 text-clr2 dark:text-dclr2'
                 }`}
                 style={{
                   backgroundColor: profileTab === 'egreso'

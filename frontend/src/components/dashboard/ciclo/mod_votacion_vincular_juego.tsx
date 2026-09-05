@@ -105,9 +105,9 @@ export default function DashModVincularJuego({ isOpen, onClose, cicloActivo, onS
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-md z-[130] flex items-center justify-center p-4 animate-in fade-in duration-300">
-      <div className="bg-white dark:bg-dclr5 w-full max-w-4xl rounded-[3rem] p-8 md:p-12 shadow-2xl overflow-y-auto max-h-[90vh]">
-        <div className="flex justify-between items-start mb-8 border-b dark:border-dclr10 pb-4">
+    <div className="fixed inset-0 bg-clr2 backdrop-blur-md z-[130] flex items-center justify-center p-4 animate-in fade-in duration-300">
+      <div className="bg-clr1 dark:bg-dclr1 w-full max-w-4xl rounded-[3rem] p-8 md:p-12 shadow-2xl overflow-y-auto max-h-[90vh]">
+        <div className="flex justify-between items-start mb-8 border-b dark:border-dclr7 pb-4">
           <div>
             <h2 className="text-3xl font-black font-display uppercase text-clr6 tracking-tighter">
               🗳️ Vincular Juego Democrático
@@ -120,14 +120,14 @@ export default function DashModVincularJuego({ isOpen, onClose, cicloActivo, onS
         </div>
 
         <div className="space-y-6">
-          <div className="flex justify-between items-center bg-blue-50 dark:bg-blue-900/20 p-4 rounded-2xl border border-blue-100 dark:border-blue-900/30">
-            <p className="text-sm font-bold text-blue-800 dark:text-blue-300">
+          <div className="flex justify-between items-center bg-clr4 dark:bg-dclr4 p-4 rounded-2xl border border-clr4 dark:border-dclr4">
+            <p className="text-sm font-bold text-clr4 dark:text-dclr4">
               ¿No encuentras el juego ideal?
             </p>
             <a 
               href="/blog/crear" 
               target="_blank"
-              className="px-6 py-2 bg-blue-600 text-white text-xs font-black uppercase rounded-xl hover:bg-blue-700 transition-all shadow-md tracking-widest"
+              className="px-6 py-2 bg-clr4 text-clr1 text-xs font-black uppercase rounded-xl hover:bg-clr4 transition-all shadow-md tracking-widest"
             >
               ✍️ Redactar Nuevo Juego
             </a>
@@ -144,8 +144,8 @@ export default function DashModVincularJuego({ isOpen, onClose, cicloActivo, onS
                     onClick={() => setSelectedJuegoId(juego.id)}
                     className={`p-4 rounded-2xl border-2 cursor-pointer transition-all flex flex-col justify-between gap-4 ${
                       selectedJuegoId === juego.id 
-                        ? 'border-clr6 bg-clr6/5 shadow-md scale-[1.02]' 
-                        : 'border-zinc-100 dark:border-dclr10 bg-zinc-50 dark:bg-black/10 hover:border-clr6/30'
+                        ? 'border-clr6 bg-clr6 shadow-md scale-[1.02]' 
+                        : 'border-clr7 dark:border-dclr7 bg-clr7 dark:bg-dclr7 hover:border-clr6'
                     }`}
                   >
                     <div className="flex gap-4">
@@ -154,18 +154,18 @@ export default function DashModVincularJuego({ isOpen, onClose, cicloActivo, onS
                           <img src={juego.imagen_destacada} className="w-full h-full object-cover" alt={juego.titulo} />
                         </div>
                       ) : (
-                        <div className="w-16 h-16 rounded-xl bg-zinc-200 dark:bg-dclr1 flex items-center justify-center shrink-0">
+                        <div className="w-16 h-16 rounded-xl bg-clr7 dark:bg-dclr7 flex items-center justify-center shrink-0">
                           <span className="text-2xl">🎲</span>
                         </div>
                       )}
                       <div>
-                        <h4 className="font-black uppercase text-sm leading-tight text-clr5 dark:text-dclr2">{juego.titulo}</h4>
+                        <h4 className="font-black uppercase text-sm leading-tight text-clr4 dark:text-dclr4">{juego.titulo}</h4>
                         <p className="text-[0.8em] opacity-60 italic line-clamp-2 mt-1">{juego.extracto}</p>
                       </div>
                     </div>
                     {selectedJuegoId === juego.id && (
                       <div className="text-center mt-2">
-                        <span className="px-3 py-1 bg-clr6 text-white text-[9px] font-black uppercase rounded-full tracking-widest shadow-sm">
+                        <span className="px-3 py-1 bg-clr6 text-clr1 text-[9px] font-black uppercase rounded-full tracking-widest shadow-sm">
                           Seleccionado
                         </span>
                       </div>
@@ -182,12 +182,12 @@ export default function DashModVincularJuego({ isOpen, onClose, cicloActivo, onS
             </div>
           )}
 
-          <div className="flex gap-4 pt-6 border-t dark:border-dclr10">
+          <div className="flex gap-4 pt-6 border-t dark:border-dclr7">
             <button 
               type="button" 
               onClick={handleVincular}
               disabled={saving || !selectedJuegoId || selectedJuegoId === (cicloActivo as Record<string, unknown>).articulo_juego_id}
-              className="flex-1 py-5 bg-clr6 text-white font-black font-display uppercase rounded-[1.5rem] shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest disabled:opacity-50"
+              className="flex-1 py-5 bg-clr6 text-clr1 font-black font-display uppercase rounded-[1.5rem] shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest disabled:opacity-50"
             >
               {saving ? '⌛ Guardando...' : '🔗 Vincular al Ciclo'}
             </button>
@@ -196,7 +196,7 @@ export default function DashModVincularJuego({ isOpen, onClose, cicloActivo, onS
                 type="button" 
                 onClick={handleDesvincular}
                 disabled={saving}
-                className="px-6 py-5 bg-red-50 text-red-600 hover:bg-red-500 hover:text-white rounded-[1.5rem] font-black uppercase tracking-widest transition-all shadow-sm disabled:opacity-50"
+                className="px-6 py-5 bg-clr4 text-clr4 hover:bg-clr4 hover:text-clr1 rounded-[1.5rem] font-black uppercase tracking-widest transition-all shadow-sm disabled:opacity-50"
                 title="Desvincular juego actual"
               >
                 🗑️
@@ -205,7 +205,7 @@ export default function DashModVincularJuego({ isOpen, onClose, cicloActivo, onS
             <button 
               type="button" 
               onClick={onClose}
-              className="px-8 py-5 bg-zinc-100 dark:bg-dclr1 text-clr2 rounded-[1.5rem] font-bold uppercase tracking-widest"
+              className="px-8 py-5 bg-clr7 dark:bg-dclr7 text-clr3 rounded-[1.5rem] font-bold uppercase tracking-widest"
             >
               Cerrar
             </button>

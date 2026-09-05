@@ -127,9 +127,9 @@ export default function DashModCrearActividadFase4({ isOpen, onClose, cicloId, p
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-md z-[130] flex items-center justify-center p-2 animate-in fade-in duration-300">
-      <div className="bg-white dark:bg-dclr5 w-full max-w-2xl rounded-[2rem] p-4 md:p-4 shadow-2xl overflow-y-auto max-h-[90vh]">
-        <h2 className="text-2xl font-black font-display uppercase text-clr7 tracking-tighter mb-6">
+    <div className="fixed inset-0 bg-clr2 backdrop-blur-md z-[130] flex items-center justify-center p-2 animate-in fade-in duration-300">
+      <div className="bg-clr1 dark:bg-dclr1 w-full max-w-2xl rounded-[2rem] p-4 md:p-4 shadow-2xl overflow-y-auto max-h-[90vh]">
+        <h2 className="text-2xl font-black font-display uppercase text-clr4 tracking-tighter mb-6">
           🆕 Nueva Actividad
         </h2>
 
@@ -142,7 +142,7 @@ export default function DashModCrearActividadFase4({ isOpen, onClose, cicloId, p
               value={titulo}
               onChange={e => setTitulo(e.target.value)}
               placeholder="Ej: Gran Juego de Rastreo..."
-              className="w-full p-4 rounded-2xl border dark:border-dclr10 bg-zinc-50 dark:bg-dclr10 font-bold"
+              className="w-full p-4 rounded-2xl border dark:border-dclr7 bg-clr7 dark:bg-dclr7 font-bold"
             />
           </div>
 
@@ -152,7 +152,7 @@ export default function DashModCrearActividadFase4({ isOpen, onClose, cicloId, p
               value={descripcion}
               onChange={e => setDescripcion(e.target.value)}
               placeholder="Describe brevemente la actividad..."
-              className="w-full p-4 rounded-2xl border dark:border-dclr10 bg-zinc-50 dark:bg-dclr10 font-bold h-24"
+              className="w-full p-4 rounded-2xl border dark:border-dclr7 bg-clr7 dark:bg-dclr7 font-bold h-24"
             />
           </div>
 
@@ -163,7 +163,7 @@ export default function DashModCrearActividadFase4({ isOpen, onClose, cicloId, p
               type="date" 
               value={fecha}
               onChange={e => setFecha(e.target.value)}
-              className="w-full p-4 rounded-2xl border dark:border-dclr10 bg-zinc-50 dark:bg-dclr10 font-bold"
+              className="w-full p-4 rounded-2xl border dark:border-dclr7 bg-clr7 dark:bg-dclr7 font-bold"
             />
           </div>
 
@@ -175,7 +175,7 @@ export default function DashModCrearActividadFase4({ isOpen, onClose, cicloId, p
                 placeholder="🔍 Buscar ficha de actividad..." 
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full p-3 pl-4 rounded-xl border bg-zinc-50 dark:bg-dclr10 font-bold text-sm focus:ring-2 ring-clr6 outline-none transition-all"
+                className="w-full p-3 pl-4 rounded-xl border bg-clr7 dark:bg-dclr7 font-bold text-sm focus:ring-2 ring-clr6 outline-none transition-all"
               />
             </div>
             
@@ -190,8 +190,8 @@ export default function DashModCrearActividadFase4({ isOpen, onClose, cicloId, p
                       onClick={() => setSelectedArticuloId(selectedArticuloId === art.id ? null : art.id)}
                       className={`p-2 rounded-2xl border-2 cursor-pointer transition-all flex gap-2 items-center ${
                         selectedArticuloId === art.id 
-                          ? 'border-clr6 bg-clr6/5 shadow-md scale-[1.02]' 
-                          : 'border-zinc-100 dark:border-dclr10 bg-zinc-50 dark:bg-black/10 hover:border-clr6/30'
+                          ? 'border-clr6 bg-clr6 shadow-md scale-[1.02]' 
+                          : 'border-clr7 dark:border-dclr7 bg-clr7 dark:bg-dclr7 hover:border-clr6'
                       }`}
                     >
                       {art.imagen_destacada ? (
@@ -199,16 +199,16 @@ export default function DashModCrearActividadFase4({ isOpen, onClose, cicloId, p
                           <img src={art.imagen_destacada} className="w-full h-full object-cover" alt={art.titulo} />
                         </div>
                       ) : (
-                        <div className="w-12 h-12 rounded-xl bg-zinc-200 dark:bg-dclr1 flex items-center justify-center shrink-0">
+                        <div className="w-12 h-12 rounded-xl bg-clr7 dark:bg-dclr7 flex items-center justify-center shrink-0">
                           <span className="text-xl">📋</span>
                         </div>
                       )}
                       <div className="flex-1 min-w-0">
-                        <h4 className="font-bold uppercase text-[0.85em] leading-tight text-clr5 dark:text-dclr2 truncate">{art.titulo}</h4>
+                        <h4 className="font-bold uppercase text-[0.85em] leading-tight text-clr4 dark:text-dclr4 truncate">{art.titulo}</h4>
                         <p className="text-[0.75em] opacity-60 italic line-clamp-1">{art.extracto}</p>
                       </div>
                       {selectedArticuloId === art.id && (
-                        <span className="px-2 py-0.5 bg-clr6 text-white text-[8px] font-black uppercase rounded-full tracking-widest shrink-0">
+                        <span className="px-2 py-0.5 bg-clr6 text-clr1 text-[8px] font-black uppercase rounded-full tracking-widest shrink-0">
                           ✓
                         </span>
                       )}
@@ -227,14 +227,14 @@ export default function DashModCrearActividadFase4({ isOpen, onClose, cicloId, p
             <button 
               type="submit" 
               disabled={loading}
-              className="flex-1 py-4 bg-clr7 text-white font-black font-display uppercase rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest"
+              className="flex-1 py-4 bg-clr4 text-clr1 font-black font-display uppercase rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest"
             >
               {loading ? '⌛ Creando...' : '✨ Crear Actividad'}
             </button>
             <button 
               type="button" 
               onClick={onClose}
-              className="px-6 py-4 bg-zinc-100 dark:bg-dclr1 text-clr2 rounded-2xl font-bold uppercase"
+              className="px-6 py-4 bg-clr7 dark:bg-dclr7 text-clr3 rounded-2xl font-bold uppercase"
             >
               Cancelar
             </button>

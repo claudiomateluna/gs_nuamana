@@ -75,12 +75,12 @@ export default function CicloFase3Planeacion({
     const days = eachDayOfInterval({ start: startDate, end: endDate })
 
     return (
-      <div className="bg-white dark:bg-black/20 rounded-3xl p-6 border border-zinc-100 dark:border-dclr10 shadow-sm mb-6">
+      <div className="bg-clr1 dark:bg-dclr1 rounded-3xl p-6 border border-clr7 dark:border-dclr7 shadow-sm mb-6">
         <div className="flex justify-between items-center mb-6">
           <button 
             type="button"
             onClick={() => setCurrentMonth(subMonths(currentMonth, 1))} 
-            className="w-8 h-8 flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-dclr4 rounded-full transition-colors font-black"
+            className="w-8 h-8 flex items-center justify-center hover:bg-clr7 dark:hover:bg-dclr7 rounded-full transition-colors font-black"
           >
             ❮
           </button>
@@ -90,7 +90,7 @@ export default function CicloFase3Planeacion({
           <button 
             type="button"
             onClick={() => setCurrentMonth(addMonths(currentMonth, 1))} 
-            className="w-8 h-8 flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-dclr4 rounded-full transition-colors font-black"
+            className="w-8 h-8 flex items-center justify-center hover:bg-clr7 dark:hover:bg-dclr7 rounded-full transition-colors font-black"
           >
             ❯
           </button>
@@ -114,12 +114,12 @@ export default function CicloFase3Planeacion({
               <div 
                 key={day.toString()} 
                 className={`aspect-square flex flex-col items-center justify-center rounded-2xl text-[0.8em] relative group transition-all ${
-                  !isCurrentMonth ? 'text-zinc-300 dark:text-zinc-600' : 'font-bold'
+                  !isCurrentMonth ? 'text-clr3 dark:text-dclr3' : 'font-bold'
                 } ${
-                  isToday ? 'bg-zinc-100 dark:bg-dclr1 border-2 border-zinc-200 dark:border-dclr10' : 'border-2 border-transparent hover:border-zinc-100 dark:hover:border-dclr4'
+                  isToday ? 'bg-clr7 dark:bg-dclr7 border-2 border-clr7 dark:border-dclr7' : 'border-2 border-transparent hover:border-clr7 dark:hover:border-dclr7'
                 } ${
                   allActivities.length > 0 ? 'cursor-pointer hover:scale-110 shadow-sm' : ''
-                } ${hasGrupal ? 'ring-2 ring-red-500/50 bg-red-50/30' : ''}`}
+                } ${hasGrupal ? 'ring-2 ring-clr4 bg-clr4' : ''}`}
               >
                 <span>{format(day, 'd')}</span>
                 {allActivities.length > 0 && (
@@ -147,7 +147,7 @@ export default function CicloFase3Planeacion({
   return (
     <div className="space-y-12 animate-in slide-in-from-bottom-4 duration-500">
       <div className="space-y-1 text-center md:text-left">
-        <h3 className="text-2xl font-black font-display uppercase tracking-tight text-clr5 dark:text-dclr2">Organización y Diseño</h3>
+        <h3 className="text-2xl font-black font-display uppercase tracking-tight text-clr4 dark:text-dclr4">Organización y Diseño</h3>
         <p className="text-sm opacity-80 font-medium italic font-body">
           Las actividades más votadas deben ser planificadas y agendadas en el calendario.
         </p>
@@ -168,20 +168,20 @@ export default function CicloFase3Planeacion({
               .map((p, index) => {
                 const totalVotos = votos.filter(v => v.propuesta_id === p.id).reduce((acc, v) => acc + (v.cantidad || 0), 0)
                 return (
-                  <div key={p.id} className="p-2 rounded-3xl bg-white dark:bg-black/20 border border-zinc-100 dark:border-dclr10 shadow-sm flex items-center justify-between gap-4 font-body">
+                  <div key={p.id} className="p-2 rounded-3xl bg-clr1 dark:bg-dclr1 border border-clr7 dark:border-dclr7 shadow-sm flex items-center justify-between gap-4 font-body">
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-2xl flex items-center justify-center font-black text-xl text-white shadow-inner shrink-0" style={{ backgroundColor: unitColor }}>
+                      <div className="w-12 h-12 rounded-2xl flex items-center justify-center font-black text-xl text-clr1 shadow-inner shrink-0" style={{ backgroundColor: unitColor }}>
                         {index + 1}º
                       </div>
                       <div>
-                        <h5 className="font-bold text-[1em] uppercase leading-tight text-clr5 dark:text-dclr2">{p.titulo}</h5>
+                        <h5 className="font-bold text-[1em] uppercase leading-tight text-clr4 dark:text-dclr4">{p.titulo}</h5>
                         <p className="text-[0.8em] opacity-60 font-black mt-1">{totalVotos} Voto{totalVotos !== 1 && 's'}</p>
                       </div>
                     </div>
                     {canManage && cicloActivo.fase_actual === 3 && (
                       <button 
                         onClick={() => { setSelectedPropuesta(p); setIsModAgendarOpen(true); }}
-                        className="p-2 bg-clr7 text-white text-[0.9em] font-bold uppercase rounded-xl hover:scale-105 transition-all shadow-md shrink-0 border-none"
+                        className="p-2 bg-clr4 text-clr1 text-[0.9em] font-bold uppercase rounded-xl hover:scale-105 transition-all shadow-md shrink-0 border-none"
                       >
                         Agendar
                       </button>
@@ -210,8 +210,8 @@ export default function CicloFase3Planeacion({
                 return (
                 <div key={p.id} className={`p-4 rounded-3xl border-2 shadow-sm flex flex-col gap-4 relative overflow-hidden group font-body ${
                   p.es_grupal_global 
-                    ? 'border-clr8/30' 
-                    : 'bg-white dark:bg-black/20 border-green-500/20'
+                    ? 'border-clr5' 
+                    : 'bg-clr1 dark:bg-dclr1 border-clr6'
                 }`} style={p.es_grupal_global ? {
                   background: 'linear-gradient(to right, var(--clr7, #1e3a5f), var(--clr4, #4a7c59))',
                   color: 'var(--clr8, #ffffff)'
@@ -222,16 +222,16 @@ export default function CicloFase3Planeacion({
                   
                   <div className="flex justify-between items-start z-10">
                     <div>
-                      <span className={`text-[0.9em] font-bold uppercase ${p.es_grupal_global ? 'opacity-80' : 'text-clr2'}`}>
+                      <span className={`text-[0.9em] font-bold uppercase ${p.es_grupal_global ? 'opacity-80' : 'text-clr3'}`}>
                         {parseLocalDate(p.fecha_programada)?.toLocaleDateString('es-CL', { weekday: 'long', day: 'numeric', month: 'long' }) || '—'}
                       </span>
-                      <h5 className={`font-bold text-lg uppercase leading-none mt-1 ${p.es_grupal_global ? '' : 'text-clr5 dark:text-dclr2'}`}>{p.titulo}</h5>
+                      <h5 className={`font-bold text-lg uppercase leading-none mt-1 ${p.es_grupal_global ? '' : 'text-clr4 dark:text-dclr2'}`}>{p.titulo}</h5>
                       {p.fichas_vinculadas && p.fichas_vinculadas.length > 0 && (
                         <div className="flex flex-wrap gap-1 mt-1">
                           {p.fichas_vinculadas.map((f: any) => (
                             <a key={f.id} href={`/blog/actividades/${f.slug}`} target="_blank"
                                className={`px-2 py-0.5 rounded-full text-[0.7em] font-bold ${
-                                 p.es_grupal_global ? 'bg-white/20 hover:bg-white/30' : 'bg-blue-100 text-blue-700 hover:bg-blue-200'
+                                 p.es_grupal_global ? 'bg-clr1 hover:bg-clr1' : 'bg-clr4 text-clr4 hover:bg-clr4'
                                }`}>
                               📋 {f.titulo}
                             </a>
@@ -239,21 +239,21 @@ export default function CicloFase3Planeacion({
                         </div>
                       )}
                       {p.es_especialidad && p.autor && (
-                        <p className="text-[0.8em] font-semibold text-purple-650 dark:text-purple-300 mt-1.5 uppercase tracking-wider">
+                        <p className="text-[0.8em] font-semibold text-clr4 dark:text-dclr4 mt-1.5 uppercase tracking-wider">
                           Scout: {p.autor.nombres} {p.autor.apellidos}
                         </p>
                       )}
                       {p.es_grupal_global && (
-                        <span className="inline-block mt-1 px-2 py-0.5 bg-white/20 rounded-full text-[0.7em] font-bold uppercase">👥 Actividad Grupal</span>
+                        <span className="inline-block mt-1 px-2 py-0.5 bg-clr1 rounded-full text-[0.7em] font-bold uppercase">👥 Actividad Grupal</span>
                       )}
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between z-10 border-t border-white/10 pt-4">
+                  <div className="flex items-center justify-between z-10 border-t border-clr1 pt-4">
                     {p.es_actividad_programada ? (
                       <div className="flex items-center gap-2">
                         <span 
-                          className="px-2.5 py-0.5 rounded-full text-[0.8em] font-extrabold uppercase shadow-sm border text-white"
+                          className="px-2.5 py-0.5 rounded-full text-[0.8em] font-extrabold uppercase shadow-sm border text-clr1"
                           style={{ backgroundColor: p.es_especialidad ? '#a855f7' : unitColor }}
                         >
                           {p.es_especialidad ? '🎖️ Especialidad' : '📅 Unidad'}
@@ -261,8 +261,8 @@ export default function CicloFase3Planeacion({
                       </div>
                     ) : p.articulo ? (
                       <div className="flex items-center gap-3">
-                        <span className="px-2 py-1 bg-green-100 text-green-700 rounded-md text-[0.8em] font-bold uppercase">Planificada</span>
-                        <a href={`/blog/actividades/${p.articulo.slug}`} target="_blank" className="text-[1em] font-bold underline hover:text-clr7 transition-colors">
+                        <span className="px-2 py-1 bg-clr6 text-clr6 rounded-md text-[0.8em] font-bold uppercase">Planificada</span>
+                        <a href={`/blog/actividades/${p.articulo.slug}`} target="_blank" className="text-[1em] font-bold underline hover:text-clr4 transition-colors">
                           Ver Ficha
                         </a>
                       </div>
@@ -270,14 +270,14 @@ export default function CicloFase3Planeacion({
                       /* Actividad grupal de acta — sin botones de edición */
                       <div className="flex items-center gap-2">
                         {p.fichas_vinculadas && p.fichas_vinculadas.length > 0 ? (
-                          <span className="px-2 py-1 bg-white/20 rounded-md text-[0.8em] font-bold uppercase">✅ Vinculada</span>
+                          <span className="px-2 py-1 bg-clr1 rounded-md text-[0.8em] font-bold uppercase">✅ Vinculada</span>
                         ) : (
-                          <span className="px-2 py-1 bg-white/10 rounded-md text-[0.8em] font-bold uppercase opacity-60">Sin ficha</span>
+                          <span className="px-2 py-1 bg-clr1 rounded-md text-[0.8em] font-bold uppercase opacity-60">Sin ficha</span>
                         )}
                       </div>
                     ) : (
                       <div className="flex items-center gap-2">
-                        <span className="px-2 py-1 bg-amber-100 text-amber-700 rounded-md text-[0.8em] font-bold uppercase animate-pulse">Falta Ficha</span>
+                        <span className="px-2 py-1 bg-clr5 text-clr5 rounded-md text-[0.8em] font-bold uppercase animate-pulse">Falta Ficha</span>
                         {canManage && cicloActivo.fase_actual === 3 && (
                           <button onClick={() => { setSelectedPropuesta(p); setIsModVincularArticuloOpen(true); }} className="text-[0.9em] font-bold text-clr6 hover:underline uppercase border-none bg-transparent">
                             Vincular
@@ -290,7 +290,7 @@ export default function CicloFase3Planeacion({
                       {perfil?.unidad_id != null && (perfil.unidad_id === UNIT_IDS.AVANZADA || perfil.unidad_id === UNIT_IDS.CLAN) && !p.es_grupal_global && (
                         <button
                           onClick={() => handleProjectWizardOpen(p.titulo)}
-                          className="text-[0.8em] font-black uppercase text-blue-600 hover:text-blue-700 transition-colors border-none bg-transparent"
+                          className="text-[0.8em] font-black uppercase text-clr4 hover:text-clr4 transition-colors border-none bg-transparent"
                         >
                           📋 Proyecto {perfil.unidad_id === UNIT_IDS.AVANZADA ? 'Empresa' : '12 Pasos'}
                         </button>
@@ -299,7 +299,7 @@ export default function CicloFase3Planeacion({
                       {canManage && cicloActivo.fase_actual === 3 && !p.es_actividad_programada && !p.es_grupal_global && (
                         <button 
                           onClick={() => onUnscheduleProposal(p.id)}
-                          className="text-[0.8em] opacity-60 hover:opacity-100 hover:text-red-500 transition-colors uppercase font-bold border-none bg-transparent"
+                          className="text-[0.8em] opacity-60 hover:opacity-100 hover:text-clr4 transition-colors uppercase font-bold border-none bg-transparent"
                         >
                           Desagendar
                         </button>
@@ -310,15 +310,15 @@ export default function CicloFase3Planeacion({
                 )
               })}
             {proposalsScheduled.length === 0 && (
-              <div className="py-20 text-center border-2 border-dashed border-green-500/30 rounded-[2rem] opacity-60 bg-green-50/10">
+              <div className="py-20 text-center border-2 border-dashed border-clr6 rounded-[2rem] opacity-60 bg-clr6">
                 <span className="text-4xl block mb-2">🗓️</span>
-                <p className="text-[0.8em] font-black uppercase tracking-widest text-green-700 dark:text-green-400">Aún no hay actividades agendadas</p>
+                <p className="text-[0.8em] font-black uppercase tracking-widest text-clr6 dark:text-dclr6">Aún no hay actividades agendadas</p>
               </div>
             )}
           </div>
         </div>
         {cicloActivo.fase_actual > 3 && (
-           <div className="col-span-full py-4 text-center opacity-30 text-[0.8em] font-black uppercase tracking-widest border-t border-dashed border-zinc-100 mt-4">
+           <div className="col-span-full py-4 text-center opacity-30 text-[0.8em] font-black uppercase tracking-widest border-t border-dashed border-clr7 mt-4">
              🔒 Modo Lectura (Calendario Cerrado)
            </div>
         )}

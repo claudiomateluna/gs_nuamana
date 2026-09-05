@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function LoQueHacemosPage() {
-  const { content, metadata } = await readContentFile('lo-que-hacemos', 'lo-que-hacemos');
+  const { content, metadata, format } = await readContentFile('lo-que-hacemos', 'lo-que-hacemos');
   const allContent = await getAllContentMetadata('lo-que-hacemos');
 
   const subPages = allContent
@@ -29,19 +29,19 @@ export default async function LoQueHacemosPage() {
   return (
     <PageTemplate title={metadata.title || 'Lo que Hacemos'}>
       <section className="space-y-12">
-        <MarkdownRenderer content={content} />
+        <MarkdownRenderer content={content} format={format} />
 
-        <div className="pt-12 border-t border-clr10 dark:border-dclr10">
-          <h2 className="text-3xl font-black font-display text-clr7 uppercase tracking-tighter mb-8">Nuestra Metodología</h2>
+        <div className="pt-12 border-t border-clr7 dark:border-dclr7">
+          <h2 className="text-3xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8">Nuestra Metodología</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {subPages.map((item) => (
-              <Link key={item.slug} href={`/lo-que-hacemos/${item.slug}`} className="group p-6 bg-zinc-50 dark:bg-black/20 rounded-[2rem] border border-transparent hover:border-clr7 hover:bg-white dark:hover:bg-zinc-900 transition-all shadow-sm hover:shadow-xl flex gap-4 items-center">
-                <div className="shrink-0 w-24 h-24 rounded-2xl overflow-hidden bg-white shadow-md border-2 border-white group-hover:scale-110 transition-transform duration-500">
+              <Link key={item.slug} href={`/lo-que-hacemos/${item.slug}`} className="group p-6 bg-clr1 dark:bg-dclr1 rounded-[2rem] border border-transparent hover:border-clr4 hover:bg-clr1 dark:hover:bg-dclr1 transition-all shadow-sm hover:shadow-xl flex gap-4 items-center">
+                <div className="shrink-0 w-24 h-24 rounded-2xl overflow-hidden bg-clr1 dark:bg-dclr1 shadow-md border-2 border-clr1 dark:border-dclr1 group-hover:scale-110 transition-transform duration-500">
                   <Image src={item.image} alt={item.title} width={100} height={100} className="w-full h-full object-contain" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-black font-display text-clr5 dark:text-dclr2 uppercase group-hover:text-clr7 transition-colors leading-none mb-2">{item.title}</h3>
-                  <p className="text-xs text-clr2 line-clamp-2 font-bold">{item.description}</p>
+                  <h3 className="text-lg font-black font-display text-clr4 dark:text-dclr4 uppercase group-hover:text-clr4 transition-colors leading-none mb-2">{item.title}</h3>
+                  <p className="text-xs text-clr3 dark:text-dclr3 line-clamp-2 font-bold">{item.description}</p>
                 </div>
               </Link>
             ))}

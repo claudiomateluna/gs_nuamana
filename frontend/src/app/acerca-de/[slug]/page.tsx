@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function AcercaDeSubPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   try {
-    const { content, metadata } = await readContentFile('acerca-de', slug);
+    const { content, metadata, format } = await readContentFile('acerca-de', slug);
     return (
       <PageTemplate title={metadata.title || slug}>
         <article className="space-y-6">
@@ -28,7 +28,7 @@ export default async function AcercaDeSubPage({ params }: { params: Promise<{ sl
           {/* Cabecera Refinada: Imagen + Texto */}
           <header className="flex flex-col md:flex-row gap-6 md:items-center">
             {metadata.image && (
-              <div className="shrink-0 w-full md:w-[350px] lg:w-[450px] aspect-square rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white dark:border-dclr10">
+              <div className="shrink-0 w-full md:w-[350px] lg:w-[450px] aspect-square rounded-[3rem] overflow-hidden shadow-2xl border-8 border-clr1 dark:border-dclr1">
                 <img 
                   src={metadata.image} 
                   alt={metadata.title} 
@@ -38,20 +38,20 @@ export default async function AcercaDeSubPage({ params }: { params: Promise<{ sl
             )}
             
             <div className="space-y-6">
-              <h1 className="text-4xl lg:text-7xl font-black font-display text-clr5 dark:text-dclr2 uppercase tracking-tighter leading-none">
+              <h1 className="text-4xl lg:text-7xl font-black font-display text-clr4 dark:text-dclr4 uppercase tracking-tighter leading-none">
                 {metadata.title}
               </h1>
               {metadata.description && (
-                <p className="text-xl lg:text-2xl text-clr2 font-body font-bold italic leading-relaxed">
+                <p className="text-xl lg:text-2xl text-clr3 dark:text-dclr3 font-body font-bold italic leading-relaxed">
                   {metadata.description}
                 </p>
               )}
-              <div className="w-24 h-2 bg-clr7 rounded-full" />
+              <div className="w-24 h-2 bg-clr4 dark:bg-dclr4 rounded-full" />
             </div>
           </header>
 
-          <div className="max-w-none pt-6 border-t border-clr10 dark:border-dclr10">
-            <MarkdownRenderer content={content} />
+          <div className="max-w-none pt-6 border-t border-clr7 dark:border-dclr7">
+            <MarkdownRenderer content={content} format={format} />
           </div>
         </article>
       </PageTemplate>

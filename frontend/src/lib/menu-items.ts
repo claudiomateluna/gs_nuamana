@@ -9,8 +9,13 @@ import type { MenuItem, MenuItemNode } from './menu-items.types';
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || 'http://127.0.0.1:54321';
 const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 
+let _supabase: ReturnType<typeof createClient> | null = null;
+
 function getSupabase() {
-  return createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  if (!_supabase) {
+    _supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  }
+  return _supabase;
 }
 
 /**

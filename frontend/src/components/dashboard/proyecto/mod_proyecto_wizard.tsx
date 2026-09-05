@@ -147,22 +147,22 @@ export default function DashModProyectoWizard({ isOpen, onClose, perfil, proyect
     const days = eachDayOfInterval({ start: startDate, end: endDate })
 
     return (
-      <div className="bg-white dark:bg-zinc-950/20 rounded-3xl p-4 border border-zinc-150 dark:border-white/5 shadow-inner w-full">
+      <div className="bg-clr1 dark:bg-dclr1 rounded-3xl p-4 border border-clr7 dark:border-dclr7 shadow-inner w-full">
         <div className="flex justify-between items-center mb-4">
           <button 
             type="button"
             onClick={() => setCalendarMonth(subMonths(calendarMonth, 1))} 
-            className="w-7 h-7 flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-full transition-colors text-[0.9em] font-bold text-zinc-500"
+            className="w-7 h-7 flex items-center justify-center hover:bg-clr7 dark:hover:bg-dclr7 rounded-full transition-colors text-[0.9em] font-bold text-clr3"
           >
             ❮
           </button>
-          <h5 className="font-black uppercase tracking-wider text-[0.8em] text-zinc-700 dark:text-zinc-300 capitalize">
+          <h5 className="font-black uppercase tracking-wider text-[0.8em] text-clr2 dark:text-dclr2 capitalize">
             {format(calendarMonth, 'MMMM yyyy', { locale: es })}
           </h5>
           <button 
             type="button"
             onClick={() => setCalendarMonth(addMonths(calendarMonth, 1))} 
-            className="w-7 h-7 flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-full transition-colors text-[0.9em] font-bold text-zinc-500"
+            className="w-7 h-7 flex items-center justify-center hover:bg-clr7 dark:hover:bg-dclr7 rounded-full transition-colors text-[0.9em] font-bold text-clr3"
           >
             ❯
           </button>
@@ -170,7 +170,7 @@ export default function DashModProyectoWizard({ isOpen, onClose, perfil, proyect
         
         <div className="grid grid-cols-7 gap-1.5 mb-1.5">
           {['Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá', 'Do'].map(d => (
-            <div key={d} className="text-center text-[0.8em] font-black uppercase opacity-40 text-zinc-500">{d}</div>
+            <div key={d} className="text-center text-[0.8em] font-black uppercase opacity-40 text-clr3">{d}</div>
           ))}
         </div>
         
@@ -216,14 +216,14 @@ export default function DashModProyectoWizard({ isOpen, onClose, perfil, proyect
               const hasOtro = otherProjActs.length > 0
               
               if (hasActual) {
-                bgClass = 'bg-red-500/10 dark:bg-red-500/5'
-                borderClass = 'border-red-500/30 dark:border-red-500/20'
+                bgClass = 'bg-clr4 dark:bg-dclr4'
+                borderClass = 'border-clr4 dark:border-dclr4'
               } else if (hasCiclo) {
-                bgClass = 'bg-green-500/10 dark:bg-green-500/5'
-                borderClass = 'border-green-500/30 dark:border-green-500/20'
+                bgClass = 'bg-clr6 dark:bg-dclr6'
+                borderClass = 'border-clr6 dark:border-dclr6'
               } else if (hasOtro) {
-                bgClass = 'bg-indigo-500/10 dark:bg-indigo-500/5'
-                borderClass = 'border-indigo-500/30 dark:border-indigo-500/20'
+                bgClass = 'bg-clr4 dark:bg-dclr4'
+                borderClass = 'border-clr4 dark:border-dclr4'
               }
             }
             
@@ -231,8 +231,8 @@ export default function DashModProyectoWizard({ isOpen, onClose, perfil, proyect
               <div 
                 key={day.toString()} 
                 className={`aspect-square flex flex-col items-center justify-center rounded-xl text-[0.8em] relative group transition-all ${
-                  !isCurrentMonth ? 'text-zinc-300 dark:text-zinc-600' : 'font-bold text-zinc-800 dark:text-zinc-200'
-                } ${isToday ? 'bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-white/10' : `border ${borderClass} hover:border-zinc-100 dark:hover:border-white/5`} ${bgClass}`}
+                  !isCurrentMonth ? 'text-clr3 dark:text-dclr3' : 'font-bold text-clr2 dark:text-dclr2'
+                } ${isToday ? 'bg-clr7 dark:bg-dclr7 border border-clr3 dark:border-dclr3' : `border ${borderClass} hover:border-clr7 dark:hover:border-dclr7`} ${bgClass}`}
               >
                 <span>{format(day, 'd')}</span>
                 {allDayItems.length > 0 && (
@@ -247,14 +247,14 @@ export default function DashModProyectoWizard({ isOpen, onClose, perfil, proyect
                   </div>
                 )}
                 {allDayItems.length > 0 && (
-                  <div className="absolute bottom-full mb-2 hidden group-hover:block w-48 p-2 bg-zinc-950 text-white text-[0.8em] rounded-xl shadow-xl z-[100] animate-in fade-in zoom-in duration-200 pointer-events-none text-left">
-                    <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-zinc-950 rotate-45" />
+                  <div className="absolute bottom-full mb-2 hidden group-hover:block w-48 p-2 bg-clr2 text-clr1 text-[0.8em] rounded-xl shadow-xl z-[100] animate-in fade-in zoom-in duration-200 pointer-events-none text-left">
+                    <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-clr2 rotate-45" />
                     {allDayItems.map((a, idx) => (
                       <div key={idx} className="mb-1.5 last:mb-0 border-l-2 pl-1.5" style={{ borderColor: a.color }}>
                         <span className="text-[0.8em] font-black uppercase tracking-wider block opacity-70">
                           {a.tipoItem === 'actual' ? 'Este Proyecto' : a.tipoItem === 'ciclo' ? 'Ciclo / Acta' : 'Otro Proyecto'}
                         </span>
-                        <strong className="block leading-tight text-white">
+                        <strong className="block leading-tight text-clr1">
                           {a.label}
                         </strong>
                       </div>
@@ -267,17 +267,17 @@ export default function DashModProyectoWizard({ isOpen, onClose, perfil, proyect
         </div>
 
         {/* Leyenda */}
-        <div className="mt-4 pt-3 border-t border-zinc-150 dark:border-white/5 flex flex-wrap gap-x-4 gap-y-1.5 justify-center text-[0.8em] font-black uppercase tracking-wider text-zinc-500">
+        <div className="mt-4 pt-3 border-t border-clr7 dark:border-dclr7 flex flex-wrap gap-x-4 gap-y-1.5 justify-center text-[0.8em] font-black uppercase tracking-wider text-clr3">
           <div className="flex items-center gap-1.5">
             <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: themePrimary }} />
             <span>Este Proyecto</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <div className="w-2.5 h-2.5 rounded-full bg-green-600" />
+            <div className="w-2.5 h-2.5 rounded-full bg-clr6" />
             <span>Ciclo / Acta Grupal</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <div className="w-2.5 h-2.5 rounded-full bg-indigo-600" />
+            <div className="w-2.5 h-2.5 rounded-full bg-clr4" />
             <span>Otros Proyectos</span>
           </div>
         </div>
@@ -668,13 +668,13 @@ export default function DashModProyectoWizard({ isOpen, onClose, perfil, proyect
     const [imgErr, setImgErr] = useState(false)
     if (imgErr) {
       return (
-        <div className="w-full h-36 rounded-3xl bg-gradient-to-r from-red-600/10 to-orange-500/10 flex items-center justify-center border border-red-500/20 mb-6">
+        <div className="w-full h-36 rounded-3xl bg-gradient-to-r from-clr4 to-clr5 flex items-center justify-center border border-clr4 mb-6">
           <span className="text-5xl">{emoji}</span>
         </div>
       )
     }
     return (
-      <div className="w-full h-36 rounded-3xl overflow-hidden mb-6 relative border border-zinc-100 dark:border-white/5 shadow-inner">
+      <div className="w-full h-36 rounded-3xl overflow-hidden mb-6 relative border border-clr7 dark:border-dclr7 shadow-inner">
         <img
           src={`/images/progresion/paso${num}.png`}
           alt={`Ilustración Paso ${num}`}
@@ -699,8 +699,8 @@ export default function DashModProyectoWizard({ isOpen, onClose, perfil, proyect
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black/85 backdrop-blur-md z-[150] flex items-center justify-center p-2 sm:p-4 overflow-y-auto animate-in fade-in duration-300">
-      <div className="bg-white dark:bg-zinc-900 w-full max-w-full lg:max-w-[1024px] rounded-[1rem] shadow-2xl overflow-hidden flex flex-col my-auto max-h-[95vh] border-2 border-white/5 transition-all duration-300">
+    <div className="fixed inset-0 bg-clr2 backdrop-blur-md z-[150] flex items-center justify-center p-2 sm:p-4 overflow-y-auto animate-in fade-in duration-300">
+      <div className="bg-clr1 dark:bg-dclr1 w-full max-w-full lg:max-w-[1024px] rounded-[1rem] shadow-2xl overflow-hidden flex flex-col my-auto max-h-[95vh] border-2 border-clr1 transition-all duration-300">
         
         {/* Cabecera */}
         <div className="relative overflow-hidden p-6 shadow-2xl border-b-4 flex flex-col md:flex-row items-center gap-6 transition-all shrink-0" style={{ backgroundColor: themePrimary, borderColor: themeSecondary }}>
@@ -714,7 +714,7 @@ export default function DashModProyectoWizard({ isOpen, onClose, perfil, proyect
           )}
 
           {/* Icon Badge */}
-          <div className="relative z-10 w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl border-4 overflow-hidden shrink-0" style={{ borderColor: themeSecondary }}>
+          <div className="relative z-10 w-20 h-20 bg-clr1 rounded-full flex items-center justify-center shadow-2xl border-4 overflow-hidden shrink-0" style={{ borderColor: themeSecondary }}>
             <span className="text-3xl">{esGrupal ? '👥' : '🚀'}</span>
           </div>
 
@@ -737,7 +737,7 @@ export default function DashModProyectoWizard({ isOpen, onClose, perfil, proyect
           {/* Close Button */}
           <button 
             onClick={onClose}
-            className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md hover:bg-white/30 text-white flex items-center justify-center font-bold transition-all shadow-md"
+            className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-clr1 backdrop-blur-md hover:bg-clr1 text-clr1 flex items-center justify-center font-bold transition-all shadow-md"
             style={{ color: themeSecondary }}
             title="Cerrar"
           >
@@ -746,11 +746,11 @@ export default function DashModProyectoWizard({ isOpen, onClose, perfil, proyect
         </div>
 
         {/* Pasos */}
-        <div className="relative border-b border-zinc-100 dark:border-white/5 bg-zinc-100/50 dark:bg-zinc-950/20 flex items-center shrink-0">
+        <div className="relative border-b border-clr7 dark:border-dclr7 bg-clr7 dark:bg-dclr7 flex items-center shrink-0">
           <button 
             type="button"
             onClick={scrollStepsLeft}
-            className="w-8 h-full min-h-[44px] flex items-center justify-center hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-500 dark:text-zinc-400 font-bold transition-all z-10 select-none border-r border-zinc-150 dark:border-white/5 text-[1.2em]"
+            className="w-8 h-full min-h-[44px] flex items-center justify-center hover:bg-clr7 dark:hover:bg-dclr7 text-clr3 dark:text-dclr3 font-bold transition-all z-10 select-none border-r border-clr7 dark:border-dclr7 text-[1.2em]"
             title="Deslizar izquierda"
           >
             ‹
@@ -771,7 +771,7 @@ export default function DashModProyectoWizard({ isOpen, onClose, perfil, proyect
                 className={`p-2 rounded-[0.6rem] text-[0.8em] font-bold uppercase whitespace-nowrap transition-all border ${
                   step === num 
                     ? 'bg-[var(--secundario)] text-[var(--primario)] border-[var(--primario)] dark:bg-[var(--primario)] dark:text-[var(--secundario)] dark:border-[var(--secundario)]' 
-                    : 'bg-zinc-200/50 dark:bg-zinc-800/50 text-zinc-500 hover:bg-zinc-200 border-transparent'
+                    : 'bg-clr7 dark:bg-dclr7 text-clr3 hover:bg-clr7 border-transparent'
                 }`}
               >
                 {num}. {num === 1 ? '¿Qué Haremos?' : num === 2 ? '¿Por Qué?' : num === 3 ? '¿Para Qué?' : num === 4 ? '¿Para Quiénes?' : num === 5 ? '¿Dónde?' : num === 6 ? '¿Cómo Lo Haremos?' : num === 7 ? '¿Cuáles?' : num === 8 ? '¿Cuándo?' : num === 9 ? '¿Quiénes?' : num === 10 ? '¿Cuánto?' : '¿Con Qué?'}
@@ -781,7 +781,7 @@ export default function DashModProyectoWizard({ isOpen, onClose, perfil, proyect
               <button
                 onClick={() => setStep(12)}
                 className={`px-4 py-2 rounded-2xl text-[0.8em] font-black uppercase tracking-wider whitespace-nowrap transition-all ${
-                  step === 12 ? 'text-white bg-green-600' : 'bg-green-50 text-green-700 hover:bg-green-100'
+                  step === 12 ? 'text-clr1 bg-clr6' : 'bg-clr6 text-clr6 hover:bg-clr6'
                 }`}
               >
                 12. ¿Cómo Lo Hicimos?
@@ -792,7 +792,7 @@ export default function DashModProyectoWizard({ isOpen, onClose, perfil, proyect
           <button 
             type="button"
             onClick={scrollStepsRight}
-            className="w-8 h-full min-h-[44px] flex items-center justify-center hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-500 dark:text-zinc-400 font-bold transition-all z-10 select-none border-l border-zinc-150 dark:border-white/5 text-[1.2em]"
+            className="w-8 h-full min-h-[44px] flex items-center justify-center hover:bg-clr7 dark:hover:bg-dclr7 text-clr3 dark:text-dclr3 font-bold transition-all z-10 select-none border-l border-clr7 dark:border-dclr7 text-[1.2em]"
             title="Deslizar derecha"
           >
             ›
@@ -962,7 +962,7 @@ export default function DashModProyectoWizard({ isOpen, onClose, perfil, proyect
         </div>
 
         {/* Footer */}
-        <div className="p-1 bg-zinc-50 dark:bg-black/20 border-t border-zinc-100 dark:border-white/5 flex items-center justify-between shrink-0">
+        <div className="p-1 bg-clr7 dark:bg-dclr7 border-t border-clr7 dark:border-dclr7 flex items-center justify-between shrink-0">
           
           
           <div className="flex gap-2">
@@ -970,7 +970,7 @@ export default function DashModProyectoWizard({ isOpen, onClose, perfil, proyect
               type="button"
               disabled={step === 1}
               onClick={() => setStep(step - 1)}
-              className="p-2 bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 text-zinc-800 dark:text-white rounded-[1rem] font-bold uppercase tracking-tight text-[1em] disabled:opacity-50 transition-all"
+              className="p-2 bg-clr7 dark:bg-dclr1 hover:bg-clr3 dark:hover:bg-dclr1 text-clr2 dark:text-dclr2 rounded-[1rem] font-bold uppercase tracking-tight text-[1em] disabled:opacity-50 transition-all"
             >
               ← Anterior
             </button>
@@ -978,7 +978,7 @@ export default function DashModProyectoWizard({ isOpen, onClose, perfil, proyect
               type="button"
               onClick={() => handleSave(false)}
               disabled={loading}
-              className="p-2 bg-zinc-900 hover:bg-black text-white dark:bg-white dark:text-black dark:hover:bg-zinc-100 rounded-[1rem] font-bold uppercase tracking-widest text-[1em] shadow-xl hover:scale-[1.02] active:scale-95 transition-all"
+              className="p-2 bg-clr2 hover:bg-clr2 text-clr1 dark:bg-dclr1 dark:text-dclr1 dark:hover:bg-dclr7 rounded-[1rem] font-bold uppercase tracking-widest text-[1em] shadow-xl hover:scale-[1.02] active:scale-95 transition-all"
               style={{ backgroundColor: themeSecondary, color: themePrimary }}
             >
               {loading ? '⌛ Guardando...' : '💾 Guardar Proyecto'}
@@ -993,7 +993,7 @@ export default function DashModProyectoWizard({ isOpen, onClose, perfil, proyect
                   }
                 }}
                 disabled={loading}
-                className="p-2 bg-green-600 text-white rounded-[1rem] font-black uppercase tracking-tight text-[0.8em] hover:brightness-110 shadow-lg"
+                className="p-2 bg-clr6 text-clr1 rounded-[1rem] font-black uppercase tracking-tight text-[0.8em] hover:brightness-110 shadow-lg"
               >
                 🏁 Concluir Proyecto
               </button>
@@ -1003,7 +1003,7 @@ export default function DashModProyectoWizard({ isOpen, onClose, perfil, proyect
               <button 
                 type="button"
                 onClick={() => setStep(step + 1)}
-                className="p-2 text-white rounded-[1rem] font-black uppercase tracking-tight text-[1em] hover:brightness-110 shadow-lg"
+                className="p-2 text-clr1 rounded-[1rem] font-black uppercase tracking-tight text-[1em] hover:brightness-110 shadow-lg"
                 style={{ backgroundColor: themePrimary, color: themeSecondary }}
               >
                 Siguiente →

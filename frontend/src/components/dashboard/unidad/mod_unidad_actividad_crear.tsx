@@ -73,8 +73,8 @@ export default function DashModActividadCrear({ isOpen, onClose, perfil, unidade
   }
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[150] flex items-center justify-center p-2 animate-in fade-in duration-300">
-      <div className="bg-white dark:bg-dclr5 w-full max-w-lg rounded-[2rem] p-8 shadow-2xl overflow-y-auto max-h-[90vh]">
+    <div className="fixed inset-0 bg-clr2 backdrop-blur-sm z-[150] flex items-center justify-center p-2 animate-in fade-in duration-300">
+      <div className="bg-clr1 dark:bg-dclr1 w-full max-w-lg rounded-[2rem] p-8 shadow-2xl overflow-y-auto max-h-[90vh]">
         <h2 className="text-2xl font-black font-display uppercase text-clr6 mb-6 border-b pb-2 tracking-tighter">{isEditing ? 'Editar Actividad' : 'Programar Salida / Campamento'}</h2>
         
         <form onSubmit={handleSave} className="space-y-4 text-[1em]">
@@ -82,14 +82,14 @@ export default function DashModActividadCrear({ isOpen, onClose, perfil, unidade
             {editingActividad?.tipo === 'Especialidad' ? (
               <div className="space-y-1">
                 <label className="text-[0.8em] font-black uppercase opacity-40">Tipo</label>
-                <div className="w-full p-3 dark:bg-dclr5 rounded-xl border font-bold uppercase bg-zinc-50 text-clr6">
+                <div className="w-full p-3 dark:bg-dclr7 rounded-xl border font-bold uppercase bg-clr7 text-clr6">
                   🎓 Especialidad
                 </div>
               </div>
             ) : (
               <div className="space-y-1">
                 <label className="text-[0.8em] font-black uppercase opacity-40">Tipo</label>
-                <select value={form.tipo} onChange={e => setForm({...form, tipo: e.target.value})} className="w-full p-3 dark:bg-dclr5 rounded-xl border font-bold uppercase">
+                <select value={form.tipo} onChange={e => setForm({...form, tipo: e.target.value})} className="w-full p-3 dark:bg-dclr4 rounded-xl border font-bold uppercase">
                   <option value="Salida">🚶 Salida</option>
                   <option value="Campamento">⛺ Campamento</option>
                   <option value="Especialidad">🎓 Especialidad</option>
@@ -99,7 +99,7 @@ export default function DashModActividadCrear({ isOpen, onClose, perfil, unidade
             {!isEditing && (
               <div className="space-y-1">
                 <label className="text-[0.8em] font-black uppercase opacity-40">Nivel</label>
-                <select value={form.nivel} onChange={e => setForm({...form, nivel: e.target.value})} className="w-full p-3 dark:bg-dclr5 rounded-xl border font-bold uppercase">
+                <select value={form.nivel} onChange={e => setForm({...form, nivel: e.target.value})} className="w-full p-3 dark:bg-dclr4 rounded-xl border font-bold uppercase">
                   <option value="unidad">🛡️ Solo Mi Unidad</option>
                   <option value="grupo">⚜️ Todo el Grupo</option>
                 </select>
@@ -129,10 +129,10 @@ export default function DashModActividadCrear({ isOpen, onClose, perfil, unidade
           </div>
 
           <div className="flex gap-4 pt-6 border-t mt-6">
-            <button type="submit" disabled={loading} className="flex-1 py-4 bg-clr6 text-white font-black uppercase rounded-2xl shadow-xl hover:brightness-110 transition-all font-inika tracking-widest">
+            <button type="submit" disabled={loading} className="flex-1 py-4 bg-clr6 text-clr1 font-black uppercase rounded-2xl shadow-xl hover:brightness-110 transition-all font-inika tracking-widest">
               {loading ? '⌛ Guardando...' : isEditing ? '💾 Actualizar Actividad' : '💾 Crear Actividad'}
             </button>
-            <button type="button" onClick={onClose} className="px-8 py-4 bg-zinc-100 text-clr2 font-bold uppercase rounded-2xl">Cancelar</button>
+            <button type="button" onClick={onClose} className="px-8 py-4 bg-clr7 text-clr3 font-bold uppercase rounded-2xl">Cancelar</button>
           </div>
         </form>
       </div>

@@ -18,6 +18,7 @@ export interface Rol {
 export interface Unidad {
   id: number
   nombre: string
+  nombre_unidad?: string | null
   colores?: { primario?: string | null; secundario?: string | null } | string | null
   logo_unidad_url?: string | null
   logo_rama_url?: string | null

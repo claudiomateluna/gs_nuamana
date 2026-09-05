@@ -7,7 +7,10 @@ import type { ComponentType, SVGProps } from 'react';
 import { supabase } from '@/lib/supabase';
 import { getMenuItems } from '@/app/(admin)/actions/get-menu-items';
 import { HARDCODED_MENU_TREE } from '@/lib/menu-fallback';
+import { enhanceMenuTitles, buildUnitNameMap } from '@/lib/unit-title';
+import type { UnitNameRow } from '@/lib/unit-title';
 import type { MenuItemNode } from '@/lib/menu-items.types';
+import { useSiteConfigSafe } from '@/contexts/site-config-context';
 import {
   IconoInicio,
   IconoAcercaDe,
@@ -31,8 +34,20 @@ import {
   IconoRRSSYoutube,
   IconoRRSSTiktok,
   IconoRRSSWhatsApp,
+  IconoRRSSGoogle,
+  IconoRRSSEmail,
   IconoCerrar
 } from './iconos';
+
+const SOCIAL_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+  instagram: IconoRRSSInstagram,
+  facebook: IconoRRSSFacebook,
+  whatsapp: IconoRRSSWhatsApp,
+  youtube: IconoRRSSYoutube,
+  tiktok: IconoRRSSTiktok,
+  google: IconoRRSSGoogle,
+  email: IconoRRSSEmail,
+};
 
 interface SidebarDrawerProps {
   isOpen: boolean;
@@ -107,7 +122,7 @@ function MenuIcon({ icono }: { icono: string | null }) {
   }
   const Icon = (icono ? SPECIAL_ICONS[icono] ?? ICON_MAP[icono] : null) ?? DefaultIcon;
   return (
-    <span data-icon-name={icono ?? 'default'} className="w-8 h-8 mr-4 flex items-center justify-center text-clr7">
+    <span data-icon-name={icono ?? 'default'} className="w-8 h-8 mr-4 flex items-center justify-center text-mclr4">
       <Icon className="w-8 h-8" />
     </span>
   );
@@ -115,6 +130,22 @@ function MenuIcon({ icono }: { icono: string | null }) {
 
 const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
   const router = useRouter();
+  const config = useSiteConfigSafe();
+  const pretitulo = config?.branding.pretitulo ?? 'Guías y Scouts';
+  const nombreCorto = config?.branding.nombre_corto ?? 'Nua Mana';
+  const slogan = config?.branding.slogan ?? 'una nueva aventura';
+  const logoSidebar = config?.branding.logo_sidebar ?? '/images/logos/LogoColor.svg';
+
+  const socialLinks = (config?.social_list?.items ?? [])
+    .filter(item => item.enabled && (item.placement || '').split(',').includes('menu'))
+    .sort((a, b) => a.order - b.order)
+    .map(item => ({
+      href: item.url,
+      icon: SOCIAL_ICONS[item.icon],
+      label: item.label,
+    }))
+    .filter(item => item.icon) as { href: string; icon: React.ComponentType<{ className?: string }>; label: string }[];
+
   // null = main view; a root node = its sub-view (drawer UX preserved).
   const [currentView, setCurrentView] = useState<MenuItemNode | null>(null);
   // Start from today's sidebar; the DB tree replaces it once loaded (if any),
@@ -163,9 +194,24 @@ const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
         // truly empty DB — a DB with rows but nothing visible to this rol must
         // render an empty menu, never the hardcoded tree.
         const result = await getMenuItems(session?.access_token ?? null);
-        setMenuItems(result.items.length > 0 ? result.items : result.dbEmpty ? HARDCODED_MENU_TREE : []);
+        // Fetch unidades (lectura pública, rápido, solo 5 filas)
+        const { data: unidades } = await supabase
+          .from('unidades')
+          .select('id, nombre, nombre_unidad')
+          .order('id');
+        const unidadesMap = buildUnitNameMap((unidades || []) as UnitNameRow[]);
+
+        let menuTree: MenuItemNode[];
+        if (result.items.length > 0) {
+          menuTree = enhanceMenuTitles(result.items, unidadesMap);
+        } else if (result.dbEmpty) {
+          menuTree = enhanceMenuTitles(HARDCODED_MENU_TREE, unidadesMap);
+        } else {
+          menuTree = [];
+        }
+        setMenuItems(menuTree);
         setCurrentView(null);
-      });
+      }).catch(() => {}); // Silenciar errores de red durante cold start
     }
 
     return () => {
@@ -196,34 +242,34 @@ const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
 
   return (
     <div className="sidebar-overlay fixed inset-0 z-[9999]">
-      <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" onClick={onClose} />
+      <div className="absolute inset-0 bg-mclr7 backdrop-blur-sm" onClick={onClose} />
 
-      <div className={`bg-gradient-to-b from-clr1 dark:from-dclr5 to-clr2/80 dark:to-dclr7/80 fixed top-0 left-0 h-screen w-[280px] sm:w-[320px] z-[10000] shadow-2xl transition-transform duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+      <div className={`bg-gradient-to-b from-mclr1 to-mclr2 dark:from-mdclr1 dark:to-mdclr2 fixed top-0 left-0 h-screen w-[280px] sm:w-[320px] z-[10000] shadow-2xl transition-transform duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="flex flex-col h-full">
-          <div className="p-2 border-b border-clr10 dark:border-dclr10">
+          <div className="p-2 border-b border-mclr10 dark:border-mdclr10">
             <div className="flex justify-between items-center">
               <div className="flex items-center">
                 {currentView !== null && (
-                  <button onClick={() => setCurrentView(null)} aria-label="Volver al menú principal" className="mr-1 p-1 rounded-full hover:bg-clr10/50 transition-colors">
-                    <ArrowLeftIcon className="w-5 h-5 text-clr5 dark:text-dclr2" />
+                  <button onClick={() => setCurrentView(null)} aria-label="Volver al menú principal" className="mr-1 p-1 rounded-full hover:bg-mclr6 transition-colors">
+                    <ArrowLeftIcon className="w-5 h-5 text-mclr3 dark:text-mdclr3" />
                   </button>
                 )}
                 <div className="flex items-center">
                   <Link href="/" className="flex items-center" onClick={onClose}>
                     <img
-                      src="/images/logos/LogoColor.svg"
+                      src={logoSidebar}
                       alt="Logo"
                       style={{ height: '60px', width: 'auto' }}
                       className="h-10 w-auto mr-2" />
                     <div>
-                      <div className="text-clr4 dark:text-dclr2 text-[0.85em] uppercase leading-none mb-[-2px]">Guías y Scouts</div>
-                      <div className="text-clr7 dark:text-dclr7 text-[1.25em] font-black uppercase leading-none font-inika">Nua Mana</div>
-                      <div className="text-clr4 dark:text-dclr8 italic text-[0.8em] leading-none mt-[-4px]">una nueva aventura</div>
+                      <div className="text-mclr7 dark:text-mdclr7 text-[0.85em] uppercase leading-none mb-[-2px]">{pretitulo}</div>
+                      <div className="text-mclr8 dark:text-mdclr8 text-[1.25em] font-black uppercase leading-none font-inika">{nombreCorto}</div>
+                      <div className="text-mclr9 dark:text-mdclr9 italic text-[0.8em] leading-none mt-[-4px]">{slogan}</div>
                     </div>
                   </Link>
                 </div>
               </div>
-              <button onClick={onClose} className="p-1 text-clr7 hover:bg-clr7/10 rounded-full transition-colors">
+              <button onClick={onClose} className="p-1 text-mclr4 hover:bg-mclr6 rounded-full transition-colors">
                 <IconoCerrar className="h-6 w-6" />
               </button>
             </div>
@@ -233,59 +279,61 @@ const SidebarDrawer = ({ isOpen, onClose }: SidebarDrawerProps) => {
             {currentView === null ? (
               <nav className="space-y-2" aria-label="Menú principal">
                 {menuItems.map((item) => (
-                  <button key={item.id} onClick={() => handleRootClick(item)} className="flex items-center w-full p-3 rounded-2xl hover:bg-clr7/5 transition-all group">
+                  <button key={item.id} onClick={() => handleRootClick(item)} className="flex items-center w-full p-3 rounded-2xl hover:bg-mclr6 hover:text-mclr11 dark:hover:text-mdclr11 transition-all group">
                     <MenuIcon icono={item.icono} />
-                    <span className="font-bold text-clr5 dark:text-dclr2 group-hover:text-clr7">{item.titulo}</span>
+                    <span className="font-bold text-mclr3 dark:text-mdclr3 group-hover:text-mclr11 dark:group-hover:text-mdclr11">{item.titulo}</span>
                   </button>
                 ))}
               </nav>
             ) : (
               <nav className="space-y-1" aria-label={currentView.titulo}>
-                <h3 className="px-3 mb-4 text-[0.8em] font-black uppercase tracking-widest text-clr2">{currentView.titulo}</h3>
+                <h3 className="px-3 mb-4 text-[0.8em] font-black uppercase tracking-widest text-mclr3">{currentView.titulo}</h3>
                 {currentView.children.map((item) => (
-                  <button key={item.id} onClick={() => { router.push(item.href ?? '/'); onClose(); }} className="flex items-center w-full p-3 rounded-2xl hover:bg-clr7/5 transition-all group">
+                  <button key={item.id} onClick={() => { router.push(item.href ?? '/'); onClose(); }} className="flex items-center w-full p-3 rounded-2xl hover:bg-mclr6 hover:text-mclr11 dark:hover:text-mdclr11 transition-all group">
                     <MenuIcon icono={item.icono} />
-                    <span className="font-bold text-clr5 dark:text-dclr2 group-hover:text-clr7">{item.titulo}</span>
+                    <span className="font-bold text-mclr3 dark:text-mdclr3 group-hover:text-mclr11 dark:group-hover:text-mdclr11">{item.titulo}</span>
                   </button>
                 ))}
               </nav>
             )}
           </div>
 
-          <div className="p-6 border-t border-clr10 dark:border-dclr10 bg-white/50 dark:bg-black/20">
+          <div className="p-6 border-t border-mclr10 dark:border-mdclr10 bg-mclr1 dark:bg-mdclr1">
             {isInstallable && (
               <button 
                 onClick={handleInstallClick} 
-                className="w-full py-3 mb-4 bg-clr6 text-white font-black uppercase rounded-2xl shadow-xl hover:brightness-110 transition-all flex items-center justify-center gap-2 text-[0.9em]"
+                className="w-full py-3 mb-4 bg-mclr4 text-clr1 font-black uppercase rounded-2xl shadow-xl hover:brightness-110 transition-all flex items-center justify-center gap-2 text-[0.9em]"
               >
                 Instalar Aplicación
               </button>
             )}
             {showIOSHelper && (
-              <div className="w-full p-4 mb-4 bg-white/40 dark:bg-black/20 border border-clr10 dark:border-dclr10 rounded-2xl text-[0.85em] text-clr5 dark:text-dclr2 flex flex-col gap-2 shadow-inner">
-                <div className="font-black text-clr7 flex items-center gap-1.5 uppercase tracking-wide">📲 Instalar en tu iPhone</div>
-                <p className="text-clr2 dark:text-dclr8 leading-snug">
-                  Presioná el botón de <strong>Compartir</strong> <span className="inline-block px-1.5 py-0.5 bg-zinc-200 dark:bg-zinc-800 rounded">📤</span> en Safari y seleccioná <strong>&quot;Agregar al inicio&quot;</strong> ➕.
+              <div className="w-full p-4 mb-4 bg-clr1 dark:bg-dclr1 border border-mclr10 dark:border-mdclr10 rounded-2xl text-[0.85em] text-mclr3 dark:text-mdclr3 flex flex-col gap-2 shadow-inner">
+                <div className="font-black text-mclr4 flex items-center gap-1.5 uppercase tracking-wide">📲 Instalar en tu iPhone</div>
+                <p className="text-mclr3 dark:text-mdclr3 leading-snug">
+                  Presioná el botón de <strong>Compartir</strong> <span className="inline-block px-1.5 py-0.5 bg-clr7 dark:bg-dclr7 rounded">📤</span> en Safari y seleccioná <strong>&quot;Agregar al inicio&quot;</strong> ➕.
                 </p>
               </div>
             )}
             {user ? (
-              <button onClick={() => { router.push('/panel'); onClose(); }} className="w-full p-2 bg-clr7 text-white font-black uppercase rounded-2xl shadow-xl hover:brightness-110 transition-all mb-6 flex items-center justify-between gap-2">
+              <button onClick={() => { router.push('/panel'); onClose(); }} className="w-full p-2 bg-mclr4 text-clr1 font-black uppercase rounded-2xl shadow-xl hover:brightness-110 transition-all mb-6 flex items-center justify-between gap-2">
                 <div className="w-12 h-12 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_mi_panel.svg)', maskImage: 'url(/images/iconos/icono_mi_panel.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
                  Mi Panel Personal
               </button>
             ) : (
-              <button onClick={() => { router.push('/login'); onClose(); }} className="w-full py-4 bg-clr7 text-white font-black uppercase rounded-2xl shadow-xl hover:brightness-110 transition-all mb-6">
+              <button onClick={() => { router.push('/login'); onClose(); }} className="w-full py-4 bg-mclr4 text-clr1 font-black uppercase rounded-2xl shadow-xl hover:brightness-110 transition-all mb-6">
                 Acceder
               </button>
             )}
-            <div className="flex justify-between px-2">
-              <a href="https://instagram.com/gruponuamana" className="text-clr5 dark:text-dclr2 hover:text-clr7 transition-colors"><IconoRRSSInstagram className="w-5 h-5" /></a>
-              <a href="https://facebook.com/gruponuamana" className="text-clr5 dark:text-dclr2 hover:text-clr7 transition-colors"><IconoRRSSFacebook className="w-5 h-5" /></a>
-              <a href="https://youtube.com/@gruponuamana" className="text-clr5 dark:text-dclr2 hover:text-clr7 transition-colors"><IconoRRSSYoutube className="w-5 h-5" /></a>
-              <a href="https://tiktok.com/@gruponuamana" className="text-clr5 dark:text-dclr2 hover:text-clr7 transition-colors"><IconoRRSSTiktok className="w-5 h-5" /></a>
-              <a href="https://wa.me/+56966896001" className="text-clr5 dark:text-dclr2 hover:text-clr7 transition-colors"><IconoRRSSWhatsApp className="w-5 h-5" /></a>
-            </div>
+            {socialLinks.length > 0 && (
+              <div className="flex justify-between px-2">
+                {socialLinks.map((social) => (
+                  <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" className="text-mclr3 dark:text-mdclr3 hover:text-mclr11 dark:hover:text-mdclr11 transition-colors">
+                    <social.icon className="w-5 h-5" />
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>

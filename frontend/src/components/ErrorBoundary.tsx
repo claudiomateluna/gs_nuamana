@@ -32,14 +32,14 @@ export class ErrorBoundary extends Component<Props, State> {
       if (this.props.fallback) return this.props.fallback;
       return (
         <div className="p-6 text-center">
-          <h2 className="text-xl font-bold text-red-600 mb-2">Algo salió mal</h2>
-          <p className="text-gray-600 mb-4">{this.state.error?.message || 'Error inesperado'}</p>
+          <h2 className="text-xl font-bold text-clr4 mb-2">Algo salió mal</h2>
+          <p className="text-clr2 mb-4">{this.state.error?.message || 'Error inesperado'}</p>
           <button
             onClick={() => {
               this.setState({ hasError: false, error: null });
               this.props.onReset?.();
             }}
-            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+            className="px-4 py-2 bg-clr4 text-clr1 rounded hover:bg-clr4"
           >
             Intentar de nuevo
           </button>

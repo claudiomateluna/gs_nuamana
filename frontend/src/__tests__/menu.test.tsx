@@ -32,7 +32,14 @@ const supabaseMocks = vi.hoisted(() => {
       error: null,
     }),
   );
-  const supabase = { auth: { getSession }, from: vi.fn() };
+  // Chainable query for the unidades enhancement: returns no rows so the
+  // composition leaves the menu titles unchanged in these tests.
+  const from = vi.fn(() => ({
+    select: vi.fn(() => ({
+      order: vi.fn(async () => ({ data: [], error: null })),
+    })),
+  }));
+  const supabase = { auth: { getSession }, from };
   return {
     supabase,
     getSession,
@@ -127,7 +134,8 @@ describe('SidebarDrawer — DB menu consumption', () => {
 
     await waitFor(() => expect(getMenuItemsMock).toHaveBeenCalledWith(null));
     expect(await screen.findByText('Noticias')).toBeInTheDocument();
-    expect(supabaseMocks.supabase.from).not.toHaveBeenCalled();
+    // The client only queries unidades (name enhancement) — never perfiles.
+    expect(supabaseMocks.supabase.from).not.toHaveBeenCalledWith('perfiles');
     expect(onClose).not.toHaveBeenCalled();
   });
 
@@ -141,7 +149,7 @@ describe('SidebarDrawer — DB menu consumption', () => {
 
     await waitFor(() => expect(getMenuItemsMock).toHaveBeenCalledWith('token-xyz'));
     // The client no longer queries perfiles — the action derives the rol server-side.
-    expect(supabaseMocks.supabase.from).not.toHaveBeenCalled();
+    expect(supabaseMocks.supabase.from).not.toHaveBeenCalledWith('perfiles');
     expect(await screen.findByText('Panel Admin')).toBeInTheDocument();
   });
 });

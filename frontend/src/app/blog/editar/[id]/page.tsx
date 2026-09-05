@@ -401,7 +401,7 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
     } catch (e: unknown) { toast.error('Error: ' + (e instanceof Error ? e.message : String(e))) } finally { setSaving(false) }
   }
 
-  if (!mounted || loading) return <div className="p-20 text-center font-body text-clr2 italic tracking-widest text-[0.8em] uppercase">Abriendo bitácora...</div>
+  if (!mounted || loading) return <div className="p-20 text-center font-body text-clr3 italic tracking-widest text-[0.8em] uppercase">Abriendo bitácora...</div>
 
   const hasAncestor = (catId: number, slug: string): boolean => {
     const cat = categorias.find(c => c.id === catId)
@@ -416,28 +416,28 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
   const isHistoriaScout = selectedCatIds.some(id => hasAncestor(parseInt(id), 'historia-scout') || hasAncestor(parseInt(id), 'historias-scouts'))
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-dclr1 font-body transition-colors">
+    <div className="min-h-screen bg-clr7 dark:bg-dclr7 font-body transition-colors">
       <SecondaryHeader />
       <main className="max-w-[1080px] mx-auto px-4 py-32 flex justify-center">
-        <div className="w-full bg-white dark:bg-dclr5 rounded-[1rem] p-4 shadow-2xl border border-clr10 dark:border-dclr10 animate-in fade-in zoom-in duration-700">
-          <div className="flex justify-between items-center mb-8 border-b border-zinc-100 dark:border-dclr10 pb-4">
-            <h1 className="text-3xl font-black text-clr7 dark:text-dclr7 uppercase tracking-tighter font-display">Editar Entrada</h1>
-            <button onClick={() => window.history.back()} className="text-xs font-bold text-zinc-400 hover:text-black uppercase tracking-widest font-display">Volver</button>
+        <div className="w-full bg-clr1 dark:bg-dclr1 rounded-[1rem] p-4 shadow-2xl border border-clr7 dark:border-dclr7 animate-in fade-in zoom-in duration-700">
+          <div className="flex justify-between items-center mb-8 border-b border-clr7 dark:border-dclr7 pb-4">
+            <h1 className="text-3xl font-black text-clr4 dark:text-dclr4 uppercase tracking-tighter font-display">Editar Entrada</h1>
+            <button onClick={() => window.history.back()} className="text-xs font-bold text-clr3 hover:text-clr2 uppercase tracking-widest font-display">Volver</button>
           </div>
           
           <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 lg:grid-cols-4 gap-4">
             <div className="lg:col-span-3 space-y-4">
-              <input {...register('titulo')} className="w-full text-3xl font-bold border-b border-zinc-100 dark:border-dclr10 focus:border-clr7 outline-none py-2 font-display bg-transparent" />
+              <input {...register('titulo')} className="w-full text-3xl font-bold border-b border-clr7 dark:border-dclr7 focus:border-clr4 outline-none py-2 font-display bg-transparent" />
 
               {isActividad && (
-                <div className="p-4 bg-blue-50/50 dark:bg-black/20 rounded-3xl border border-blue-100 dark:border-blue-900/30 space-y-2">
-                  <h2 className="text-blue-700 dark:text-blue-300 font-black text-[1em] uppercase tracking-widest font-display">Ficha de Actividad</h2>
+                <div className="p-4 bg-clr4 dark:bg-dclr4 rounded-3xl border border-clr4 dark:border-dclr4 space-y-2">
+                  <h2 className="text-clr4 dark:text-dclr4 font-black text-[1em] uppercase tracking-widest font-display">Ficha de Actividad</h2>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
                     <div className="space-y-2">
                       <label className="text-[1em] uppercase opacity-60 tracking-widest">Unidades</label>
                       <div className="space-y-1">
                         {['manada', 'compañía', 'tropa', 'avanzada', 'clan'].map(u => (
-                          <label key={u} className="flex items-center gap-2 text-[1em] cursor-pointer capitalize font-bold"><input type="checkbox" value={u} {...register('unidades')} className="w-4 h-4 rounded text-blue-600" /> {u}</label>
+                          <label key={u} className="flex items-center gap-2 text-[1em] cursor-pointer capitalize font-bold"><input type="checkbox" value={u} {...register('unidades')} className="w-4 h-4 rounded text-clr4" /> {u}</label>
                         ))}
                       </div>
                     </div>
@@ -445,7 +445,7 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
                       <label className="text-[1em] uppercase opacity-60 tracking-widest">Áreas de Desarrollo</label>
                       <div className="space-y-1">
                         {['afectividad', 'carácter', 'corporalidad', 'creatividad', 'espiritualidad', 'sociabilidad'].map(a => (
-                          <label key={a} className="flex items-center gap-2 text-[1em] cursor-pointer capitalize font-bold"><input type="checkbox" value={a} {...register('areas')} className="w-4 h-4 rounded text-blue-600" /> {a}</label>
+                          <label key={a} className="flex items-center gap-2 text-[1em] cursor-pointer capitalize font-bold"><input type="checkbox" value={a} {...register('areas')} className="w-4 h-4 rounded text-clr4" /> {a}</label>
                         ))}
                       </div>
                     </div>
@@ -454,13 +454,13 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
                       <div className="h-[250px] overflow-y-auto space-y-2 pr-2 custom-scrollbar">
                         {(LUGARES_TREE as LugarNode[]).map(p => (
                           <div key={p.name} className="space-y-2">
-                            <label className="flex items-center gap-2 text-[1em] font-black text-blue-700 dark:text-blue-300 uppercase cursor-pointer"><input type="checkbox" value={p.name} {...register('lugares')} className="w-4 h-4 rounded" /> {p.name}</label>
-                            <div className="ml-2 space-y-2 border-l-2 border-blue-100 dark:border-blue-900/30 pl-3">
+                            <label className="flex items-center gap-2 text-[1em] font-black text-clr4 dark:text-dclr4 uppercase cursor-pointer"><input type="checkbox" value={p.name} {...register('lugares')} className="w-4 h-4 rounded" /> {p.name}</label>
+                            <div className="ml-2 space-y-2 border-l-2 border-clr4 dark:border-dclr4 pl-3">
                               {p.children.map((c: string | { name: string; children: string[] }) => typeof c === 'string' ? (
                                 <label key={c} className="flex items-center gap-2 text-[0.9em] cursor-pointer font-bold"><input type="checkbox" value={c} {...register('lugares')} className="w-3.5 h-3.5 rounded" /> {c}</label>
                               ) : (
                                 <div key={c.name} className="space-y-1">
-                                  <label className="flex items-center gap-2 text-[0.9em] font-bold text-blue-500 uppercase cursor-pointer"><input type="checkbox" value={c.name} {...register('lugares')} className="w-3.5 h-3.5 rounded" /> {c.name}</label>
+                                  <label className="flex items-center gap-2 text-[0.9em] font-bold text-clr4 uppercase cursor-pointer"><input type="checkbox" value={c.name} {...register('lugares')} className="w-3.5 h-3.5 rounded" /> {c.name}</label>
                                   <div className="ml-4 grid grid-cols-1 gap-1">
                                     {c.children.map((s: string) => (<label key={s} className="flex items-center gap-2 text-[1em] cursor-pointer"><input type="checkbox" value={s} {...register('lugares')} className="w-3.5 h-3.5 rounded" /> {s}</label>))}
                                   </div>
@@ -473,39 +473,39 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
                     </div>
                     <div className="col-span-1 md:col-span-3 space-y-1 pt-2">
                       <label className="text-[0.9em] uppercase opacity-60 block font-bold tracking-wider">Justificación de Selección de Áreas (Opcional)</label>
-                      <textarea {...register('justificacion_areas')} placeholder="Explica por qué esta actividad aporta a las áreas de desarrollo seleccionadas..." className="w-full p-4 rounded-2xl border h-20 text-sm bg-white dark:bg-black/20 font-bold focus:border-clr7 outline-none" />
+                      <textarea {...register('justificacion_areas')} placeholder="Explica por qué esta actividad aporta a las áreas de desarrollo seleccionadas..." className="w-full p-4 rounded-2xl border h-20 text-sm bg-clr1 dark:bg-dclr1 font-bold focus:border-clr4 outline-none" />
                     </div>
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-6 border-t border-blue-100 dark:border-blue-900/30">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-6 border-t border-clr4 dark:border-dclr4">
                     <div className="col-span-2">
                       <label className="text-[1em] uppercase opacity-60 block mb-1">Objetivos (separados por coma)</label>
-                      <input {...register('objetivos_input')} list="objs-list" placeholder="Liderazgo, Trabajo en equipo..." className="w-full p-4 rounded-2xl border bg-white dark:bg-black/20 text-sm font-bold" />
+                      <input {...register('objetivos_input')} list="objs-list" placeholder="Liderazgo, Trabajo en equipo..." className="w-full p-4 rounded-2xl border bg-clr1 dark:bg-dclr1 text-sm font-bold" />
                     </div>
                     <div className="col-span-2">
                       <label className="text-[1em] uppercase opacity-60 block mb-1">Materiales necesarios (separados por coma)</label>
-                      <input {...register('materiales')} list="mats-list" placeholder="Cuerdas, Pañolines..." className="w-full p-4 rounded-2xl border bg-white dark:bg-black/20 text-sm font-bold" />
+                      <input {...register('materiales')} list="mats-list" placeholder="Cuerdas, Pañolines..." className="w-full p-4 rounded-2xl border bg-clr1 dark:bg-dclr1 text-sm font-bold" />
                     </div>
-                    <div><label className="text-[1em] uppercase opacity-60 block mb-1">Duración</label><select {...register('duracion')} className="w-full p-4 rounded-2xl border bg-white dark:bg-black/20 text-sm font-bold">{DURACIONES.map(d => <option key={d} value={d}>{d}</option>)}</select></div>
-                    <div><label className="text-[1em] uppercase opacity-60 block mb-1">Participantes</label><select {...register('cantidad')} className="w-full p-4 rounded-2xl border bg-white dark:bg-black/20 text-sm font-bold">{PARTICIPANTES.map(p => <option key={p} value={p}>{p}</option>)}</select></div>
+                    <div><label className="text-[1em] uppercase opacity-60 block mb-1">Duración</label><select {...register('duracion')} className="w-full p-4 rounded-2xl border bg-clr1 dark:bg-dclr1 text-sm font-bold">{DURACIONES.map(d => <option key={d} value={d}>{d}</option>)}</select></div>
+                    <div><label className="text-[1em] uppercase opacity-60 block mb-1">Participantes</label><select {...register('cantidad')} className="w-full p-4 rounded-2xl border bg-clr1 dark:bg-dclr1 text-sm font-bold">{PARTICIPANTES.map(p => <option key={p} value={p}>{p}</option>)}</select></div>
                     <div className="col-span-2 space-y-1">
                       <label className="text-[0.9em] font-black uppercase opacity-60 block tracking-wider font-display">Variaciones (Usa saltos de línea para separar párrafos)</label>
-                      <textarea {...register('variaciones')} placeholder="Escribe las variaciones de la actividad. Usa saltos de línea para separar cada párrafo..." className="w-full p-4 rounded-2xl border h-36 text-sm bg-white dark:bg-black/20 font-bold focus:border-clr7 outline-none" />
+                      <textarea {...register('variaciones')} placeholder="Escribe las variaciones de la actividad. Usa saltos de línea para separar cada párrafo..." className="w-full p-4 rounded-2xl border h-36 text-sm bg-clr1 dark:bg-dclr1 font-bold focus:border-clr4 outline-none" />
                     </div>
                     <div className="col-span-2 space-y-1">
                       <label className="text-[0.9em] font-black uppercase opacity-60 block tracking-wider font-display">Recomendaciones (Usa saltos de línea para separar párrafos)</label>
-                      <textarea {...register('recomendaciones')} placeholder="Escribe las recomendaciones de seguridad, animación y facilitación..." className="w-full p-4 rounded-2xl border h-36 text-sm bg-white dark:bg-black/20 font-bold focus:border-clr7 outline-none" />
+                      <textarea {...register('recomendaciones')} placeholder="Escribe las recomendaciones de seguridad, animación y facilitación..." className="w-full p-4 rounded-2xl border h-36 text-sm bg-clr1 dark:bg-dclr1 font-bold focus:border-clr4 outline-none" />
                     </div>
                   </div>
 
-                  <div className="mt-4 pt-4 border-t border-blue-100 dark:border-blue-900/30 space-y-6">
+                  <div className="mt-4 pt-4 border-t border-clr4 dark:border-dclr4 space-y-6">
                     <div className="flex justify-between items-end">
                       <div className="space-y-1">
-                        <h2 className="text-blue-700 dark:text-blue-300 font-black text-[1em] uppercase tracking-widest font-display">Objetivos Educativos del Programa</h2>
-                        <p className="text-[0.9em] text-zinc-400 uppercase font-bold italic">Selecciona los objetivos que se trabajan en esta actividad</p>
+                        <h2 className="text-clr4 dark:text-dclr4 font-black text-[1em] uppercase tracking-widest font-display">Objetivos Educativos del Programa</h2>
+                        <p className="text-[0.9em] text-clr3 uppercase font-bold italic">Selecciona los objetivos que se trabajan en esta actividad</p>
                       </div>
-                      {selectedObjsEd.length > 0 && <span className="px-3 py-1 bg-clr7 text-white text-[0.9em] font-black rounded-full shadow-md animate-bounce">{selectedObjsEd.length} SELECCIONADOS</span>}
+                      {selectedObjsEd.length > 0 && <span className="px-3 py-1 bg-clr4 text-clr1 text-[0.9em] font-black rounded-full shadow-md animate-bounce">{selectedObjsEd.length} SELECCIONADOS</span>}
                     </div>
-                    <div className="relative"><input type="text" value={searchObj} onChange={e => setSearchObj(e.target.value)} placeholder="🔍 Buscar objetivos..." className="w-full p-4 pl-4 rounded-2xl border bg-white dark:bg-black/20 text-[1em] font-bold focus:ring-2 ring-blue-500 transition-all outline-none" /></div>
+                    <div className="relative"><input type="text" value={searchObj} onChange={e => setSearchObj(e.target.value)} placeholder="🔍 Buscar objetivos..." className="w-full p-4 pl-4 rounded-2xl border bg-clr1 dark:bg-dclr1 text-[1em] font-bold focus:ring-2 ring-clr4 transition-all outline-none" /></div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
                       {fetchingObjs ? (
                         <div className="col-span-2 py-10 text-center animate-pulse text-xs font-black uppercase opacity-40">Consultando manuales...</div>
@@ -521,7 +521,7 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
                             }, {})
                         ).map(([terminal, objs], idx) => (
                           <div key={idx} className="col-span-1 md:col-span-2 flex flex-col gap-3 mt-4 first:mt-0">
-                            <h4 className="font-bold text-[0.9em] text-clr5 dark:text-dclr2 leading-relaxed border-b border-zinc-200 dark:border-zinc-800 pb-2 uppercase tracking-widest">
+                            <h4 className="font-bold text-[0.9em] text-clr4 dark:text-dclr4 leading-relaxed border-b border-clr7 dark:border-dclr7 pb-2 uppercase tracking-widest">
                               🎯 {terminal}
                             </h4>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -533,29 +533,29 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
                                     key={obj.id}
                                     onClick={() => toggleObjEd(obj)}
                                     style={{ borderLeftColor: unitColor }}
-                                    className={`p-4 rounded-2xl border-2 border-l-4 cursor-pointer transition-all hover:scale-[1.02] active:scale-95 flex flex-col gap-2 ${isSelected ? 'bg-zinc-50 dark:bg-dclr1 border-clr7' : 'bg-white dark:bg-black/10 border-zinc-100 dark:border-dclr10 opacity-80 hover:opacity-100'}`}
+                                    className={`p-4 rounded-2xl border-2 border-l-4 cursor-pointer transition-all hover:scale-[1.02] active:scale-95 flex flex-col gap-2 ${isSelected ? 'bg-clr7 dark:bg-dclr1 border-clr4' : 'bg-clr1 dark:bg-dclr1 border-clr7 dark:border-dclr7 opacity-80 hover:opacity-100'}`}
                                   >
                                     <div className="flex justify-between items-center relative">
-                                      <span className="text-[0.9em] font-black uppercase px-2 py-0.5 rounded-md text-white shadow-sm" style={{ backgroundColor: unitColor }}>{obj.unidad?.nombre}</span>
+                                      <span className="text-[0.9em] font-black uppercase px-2 py-0.5 rounded-md text-clr1 shadow-sm" style={{ backgroundColor: unitColor }}>{obj.unidad?.nombre}</span>
                                       <div className="flex items-center gap-2">
                                         {obj.texto_terminal && (
                                           <div className="relative group/tooltip flex items-center justify-center" onClick={(e) => { e.stopPropagation(); toast.info('🎯 OBJETIVO TERMINAL:\n\n' + obj.texto_terminal); }}>
                                             <span className="text-xl cursor-help opacity-50 hover:opacity-100 transition-opacity" title="Ver Objetivo Terminal (Clic en móvil)">🎯</span>
-                                            <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:group-hover/tooltip:block w-80 max-w-[90vw] p-2 bg-zinc-900 text-white text-[0.9em] font-bold rounded-[1rem] shadow-[0_0_50px_rgba(0,0,0,0.5)] z-[9999] animate-in fade-in zoom-in duration-200 pointer-events-none text-center border border-zinc-800 flex flex-col items-center gap-3">
+                                            <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:group-hover/tooltip:block w-80 max-w-[90vw] p-2 bg-clr2 text-clr1 text-[0.9em] font-bold rounded-[1rem] shadow-[0_0_50px_rgba(0,0,0,0.5)] z-[9999] animate-in fade-in zoom-in duration-200 pointer-events-none text-center border border-clr2 flex flex-col items-center gap-3">
                                               <div className="flex flex-col items-center gap-1">
-                                                <span className="text-clr7 uppercase tracking-widest block text-[0.9em] font-black">🎯 Objetivo Terminal</span>
+                                                <span className="text-clr4 uppercase tracking-widest block text-[0.9em] font-black">🎯 Objetivo Terminal</span>
                                               </div>
                                               <p className="leading-relaxed">{obj.texto_terminal}</p>
                                             </div>
                                           </div>
                                         )}
-                                        <span className="text-[0.9em] font-black uppercase text-zinc-400">{obj.area?.nombre}</span>
+                                        <span className="text-[0.9em] font-black uppercase text-clr3">{obj.area?.nombre}</span>
                                       </div>
                                     </div>
                                     <div className="text-center space-y-2 mt-2">
                                       <p className="text-[1em] leading-relaxed font-bold dark:text-dclr2 italic">"{obj.texto_infantil}"</p>
                                       {obj.rango_edad && (
-                                        <span className="inline-block px-3 py-1 rounded-full text-[0.8em] font-black uppercase tracking-widest bg-zinc-100 dark:bg-black/30 text-zinc-500 dark:text-zinc-400 border border-zinc-200 dark:border-dclr10">
+                                        <span className="inline-block px-3 py-1 rounded-full text-[0.8em] font-black uppercase tracking-widest bg-clr7 dark:bg-dclr7 text-clr3 dark:text-dclr3 border border-clr7 dark:border-dclr7">
                                           {obj.rango_edad}
                                         </span>
                                       )}
@@ -569,30 +569,30 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
                       ) : <div className="col-span-2 py-10 text-center border-2 border-dashed rounded-3xl opacity-30 text-[0.8em] font-black uppercase">Selecciona Unidad y Área.</div>}
                     </div>
                     {selectedObjsEd.length > 0 && (
-                      <div className="flex flex-col gap-4 pt-4 border-t border-blue-100 dark:border-blue-900/30">
-                        <h4 className="font-bold text-[0.9em] text-blue-700 dark:text-blue-300 uppercase tracking-widest">
+                      <div className="flex flex-col gap-4 pt-4 border-t border-clr4 dark:border-dclr4">
+                        <h4 className="font-bold text-[0.9em] text-clr4 dark:text-dclr4 uppercase tracking-widest">
                           ✍️ Detalles de Objetivos Seleccionados
                         </h4>
                         <div className="grid grid-cols-1 gap-4">
                           {selectedObjsEd.map(o => (
-                            <div key={o.id} className="p-4 bg-zinc-50 dark:bg-black/20 rounded-2xl border border-zinc-200 dark:border-dclr10 flex flex-col gap-3 relative">
+                            <div key={o.id} className="p-4 bg-clr7 dark:bg-dclr7 rounded-2xl border border-clr7 dark:border-dclr7 flex flex-col gap-3 relative">
                               <button 
                                 type="button" 
                                 onClick={() => toggleObjEd(o)} 
-                                className="absolute right-4 top-4 text-red-500 hover:text-red-700 text-lg font-bold"
+                                className="absolute right-4 top-4 text-clr4 hover:text-clr4 text-lg font-bold"
                                 title="Quitar Objetivo"
                               >
                                 ✕
                               </button>
                               <div className="flex items-center gap-2">
-                                <span className="text-[0.8em] font-black uppercase px-2 py-0.5 rounded text-white" style={{ backgroundColor: typeof o.unidad?.colores === 'object' && o.unidad?.colores ? o.unidad.colores.primario || '#ccc' : '#ccc' }}>
+                                <span className="text-[0.8em] font-black uppercase px-2 py-0.5 rounded text-clr1" style={{ backgroundColor: typeof o.unidad?.colores === 'object' && o.unidad?.colores ? o.unidad.colores.primario || '#ccc' : '#ccc' }}>
                                   {o.unidad?.nombre ?? ''}
                                 </span>
-                                <span className="text-[0.8em] font-black text-zinc-400 uppercase">
+                                <span className="text-[0.8em] font-black text-clr3 uppercase">
                                   {o.area?.nombre ?? ''}
                                 </span>
                               </div>
-                              <p className="font-bold text-[1em] italic leading-relaxed text-zinc-800 dark:text-dclr2">
+                              <p className="font-bold text-[1em] italic leading-relaxed text-clr2 dark:text-dclr2">
                                 "{o.texto_infantil}"
                               </p>
                               <div className="space-y-1">
@@ -601,7 +601,7 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
                                   value={o.como_se_cumple || ''}
                                   onChange={e => handleComoSeCumpleChange(o.id, e.target.value)}
                                   placeholder="Describe de qué forma esta dinámica ayuda a cumplir este objetivo educativo..." 
-                                  className="w-full p-3 rounded-xl border text-sm bg-white dark:bg-black/30 outline-none focus:border-clr7 font-bold h-16"
+                                  className="w-full p-3 rounded-xl border text-sm bg-clr1 dark:bg-dclr1 outline-none focus:border-clr4 font-bold h-16"
                                 />
                               </div>
                             </div>
@@ -614,21 +614,21 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
               )}
 
               {(isBiografia || isHistoriaScout) && (
-                <div className="p-4 bg-red-50/50 dark:bg-black/20 rounded-3xl border border-red-100 dark:border-red-900/30 space-y-2">
-                  <h2 className="text-red-700 dark:text-red-300 font-black text-xs uppercase tracking-widest font-display">{isBiografia ? 'Ficha Biográfica' : 'Ficha Histórica'}</h2>
+                <div className="p-4 bg-clr4 dark:bg-dclr4 rounded-3xl border border-clr4 dark:border-dclr4 space-y-2">
+                  <h2 className="text-clr4 dark:text-dclr4 font-black text-xs uppercase tracking-widest font-display">{isBiografia ? 'Ficha Biográfica' : 'Ficha Histórica'}</h2>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
                     {isBiografia ? (
                       <>
-                        <div className="space-y-1"><label className="text-[0.9em] font-black uppercase opacity-40">Lugar de Nacimiento</label><input {...register('lugar_nacimiento')} list="places-list" className="w-full p-4 rounded-2xl border bg-white dark:bg-black/20 font-bold" /></div>
-                        <div className="space-y-1"><label className="text-[0.9em] font-black uppercase opacity-40">País de Nacimiento</label><input {...register('pais_nacimiento')} list="paises-list" className="w-full p-4 rounded-2xl border bg-white dark:bg-black/20 font-bold" /></div>
-                        <div className="space-y-1"><label className="text-[0.9em] font-black uppercase opacity-40">Fecha Nacimiento</label><input type="date" {...register('fecha_nacimiento')} className="w-full p-4 rounded-2xl border bg-white dark:bg-black/20 font-bold" /></div>
-                        <div className="space-y-1"><label className="text-[0.9em] font-black uppercase opacity-40">Fecha Defunción</label><input type="date" {...register('fecha_defuncion')} className="w-full p-4 rounded-2xl border bg-white dark:bg-black/20 font-bold" /></div>
+                        <div className="space-y-1"><label className="text-[0.9em] font-black uppercase opacity-40">Lugar de Nacimiento</label><input {...register('lugar_nacimiento')} list="places-list" className="w-full p-4 rounded-2xl border bg-clr1 dark:bg-dclr1 font-bold" /></div>
+                        <div className="space-y-1"><label className="text-[0.9em] font-black uppercase opacity-40">País de Nacimiento</label><input {...register('pais_nacimiento')} list="paises-list" className="w-full p-4 rounded-2xl border bg-clr1 dark:bg-dclr1 font-bold" /></div>
+                        <div className="space-y-1"><label className="text-[0.9em] font-black uppercase opacity-40">Fecha Nacimiento</label><input type="date" {...register('fecha_nacimiento')} className="w-full p-4 rounded-2xl border bg-clr1 dark:bg-dclr1 font-bold" /></div>
+                        <div className="space-y-1"><label className="text-[0.9em] font-black uppercase opacity-40">Fecha Defunción</label><input type="date" {...register('fecha_defuncion')} className="w-full p-4 rounded-2xl border bg-clr1 dark:bg-dclr1 font-bold" /></div>
                       </>
                     ) : (
                       <>
-                        <div className="space-y-1"><label className="text-[0.9em] font-black uppercase opacity-40">Lugar del hecho</label><input {...register('lugar_hecho')} list="places-list" className="w-full p-4 rounded-2xl border bg-white dark:bg-black/20 font-bold" /></div>
-                        <div className="space-y-1"><label className="text-[0.9em] font-black uppercase opacity-40">País del hecho</label><input {...register('pais_hecho')} list="paises-list" className="w-full p-4 rounded-2xl border bg-white dark:bg-black/20 font-bold" /></div>
-                        <div className="space-y-1"><label className="text-[0.9em] font-black uppercase opacity-40">Año del hecho</label><input type="number" {...register('ano_hecho')} placeholder="YYYY" className="w-full p-4 rounded-2xl border bg-white dark:bg-black/20 font-bold" /></div>
+                        <div className="space-y-1"><label className="text-[0.9em] font-black uppercase opacity-40">Lugar del hecho</label><input {...register('lugar_hecho')} list="places-list" className="w-full p-4 rounded-2xl border bg-clr1 dark:bg-dclr1 font-bold" /></div>
+                        <div className="space-y-1"><label className="text-[0.9em] font-black uppercase opacity-40">País del hecho</label><input {...register('pais_hecho')} list="paises-list" className="w-full p-4 rounded-2xl border bg-clr1 dark:bg-dclr1 font-bold" /></div>
+                        <div className="space-y-1"><label className="text-[0.9em] font-black uppercase opacity-40">Año del hecho</label><input type="number" {...register('ano_hecho')} placeholder="YYYY" className="w-full p-4 rounded-2xl border bg-clr1 dark:bg-dclr1 font-bold" /></div>
                       </>
                     )}
                   </div>
@@ -637,27 +637,27 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
 
               <SunEditor setContents={contenido} onChange={(val) => setValue('contenido', val, { shouldDirty: true })} setOptions={{ height: '600', buttonList: [['undo', 'redo'], ['formatBlock', 'font', 'fontSize'], ['bold', 'underline', 'italic', 'strike'], ['fontColor', 'hiliteColor'], ['outdent', 'indent'], ['align', 'list', 'lineHeight'], ['table', 'link', 'image'], ['fullScreen', 'codeView'], ['preview']], defaultStyle: "font-family: var(--font-body); font-size: 1.1rem; line-height: 2;" }} />
 
-              <div className="p-6 bg-zinc-50 dark:bg-black/20 rounded-[1.5rem] border border-zinc-200 dark:border-dclr10 space-y-4">
+              <div className="p-6 bg-clr7 dark:bg-dclr7 rounded-[1.5rem] border border-clr7 dark:border-dclr7 space-y-4">
                 <div className="flex justify-between items-center">
-                  <h3 className="text-lg font-display font-bold text-clr5 dark:text-white uppercase my-0 flex items-center gap-2">📥 Documentos Adjuntos / Descargas</h3>
+                  <h3 className="text-lg font-display font-bold text-clr4 dark:text-dclr4 uppercase my-0 flex items-center gap-2">📥 Documentos Adjuntos / Descargas</h3>
                   <button
                     type="button"
                     onClick={addDescarga}
-                    className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[0.8em] rounded-xl shadow-md transition-all uppercase"
+                    className="px-4 py-2 bg-clr6 hover:bg-clr6 text-clr1 font-bold text-[0.8em] rounded-xl shadow-md transition-all uppercase"
                   >
                     + Agregar Descarga
                   </button>
                 </div>
                 {descargas.length === 0 ? (
-                  <p className="text-[0.9em] text-zinc-400 font-bold italic uppercase">No hay archivos adjuntos para descargar en este artículo.</p>
+                  <p className="text-[0.9em] text-clr3 font-bold italic uppercase">No hay archivos adjuntos para descargar en este artículo.</p>
                 ) : (
                   <div className="space-y-3">
                     {descargas.map((d, idx) => (
-                      <div key={idx} className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-4 bg-white dark:bg-black/40 rounded-2xl border border-zinc-100 dark:border-zinc-800 relative">
+                      <div key={idx} className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-4 bg-clr1 dark:bg-dclr1 rounded-2xl border border-clr7 dark:border-dclr7 relative">
                         <button
                           type="button"
                           onClick={() => removeDescarga(idx)}
-                          className="absolute right-3 top-3 text-red-500 hover:text-red-700 font-bold text-sm"
+                          className="absolute right-3 top-3 text-clr4 hover:text-clr4 font-bold text-sm"
                           title="Quitar descarga"
                         >
                           ✕
@@ -669,7 +669,7 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
                             value={d.nombre}
                             onChange={(e) => handleDescargaChange(idx, 'nombre', e.target.value)}
                             placeholder="Ej: Reglamento del juego, Póliza de seguro..."
-                            className="w-full p-3 rounded-xl border text-sm bg-zinc-50 dark:bg-zinc-900/60 font-bold"
+                            className="w-full p-3 rounded-xl border text-sm bg-clr7 dark:bg-dclr7 font-bold"
                             required
                           />
                         </div>
@@ -680,7 +680,7 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
                             value={d.url}
                             onChange={(e) => handleDescargaChange(idx, 'url', e.target.value)}
                             placeholder="Ej: https://raw.githubusercontent.com/...pdf"
-                            className="w-full p-3 rounded-xl border text-sm bg-zinc-50 dark:bg-zinc-900/60 font-bold"
+                            className="w-full p-3 rounded-xl border text-sm bg-clr7 dark:bg-dclr7 font-bold"
                             required
                           />
                         </div>
@@ -692,37 +692,37 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
             </div>
 
             <div className="space-y-4">
-              <div className="p-2 bg-zinc-50 dark:bg-black/20 rounded-2xl border border-zinc-100 dark:border-dclr10">
-                <h3 className="text-[0.9em] font-black text-zinc-400 uppercase mb-4 tracking-widest font-display">Imagen Destacada</h3>
-                <div className="flex bg-white dark:bg-black/40 p-1 rounded-xl mb-4 border dark:border-dclr10">
-                  <button type="button" onClick={() => setImageMode('url')} className={`flex-1 py-2 text-[1em] font-black uppercase rounded-lg transition-all ${imageMode === 'url' ? 'bg-clr7 text-white shadow-md' : 'opacity-40'}`}>🔗 URL</button>
-                  <button type="button" onClick={() => setImageMode('upload')} className={`flex-1 py-2 text-[1em] font-black uppercase rounded-lg transition-all ${imageMode === 'upload' ? 'bg-clr7 text-white shadow-md' : 'opacity-40'}`}>📸 Subir</button>
+              <div className="p-2 bg-clr7 dark:bg-dclr7 rounded-2xl border border-clr7 dark:border-dclr7">
+                <h3 className="text-[0.9em] font-black text-clr3 uppercase mb-4 tracking-widest font-display">Imagen Destacada</h3>
+                <div className="flex bg-clr1 dark:bg-dclr1 p-1 rounded-xl mb-4 border dark:border-dclr7">
+                  <button type="button" onClick={() => setImageMode('url')} className={`flex-1 py-2 text-[1em] font-black uppercase rounded-lg transition-all ${imageMode === 'url' ? 'bg-clr4 text-clr1 shadow-md' : 'opacity-40'}`}>🔗 URL</button>
+                  <button type="button" onClick={() => setImageMode('upload')} className={`flex-1 py-2 text-[1em] font-black uppercase rounded-lg transition-all ${imageMode === 'upload' ? 'bg-clr4 text-clr1 shadow-md' : 'opacity-40'}`}>📸 Subir</button>
                 </div>
                 {imageMode === 'url' ? (
-                  <input {...register('imagen_destacada')} className="w-full p-3 rounded-xl border text-sm mb-4 bg-white dark:bg-black/20" placeholder="https://..." />
+                  <input {...register('imagen_destacada')} className="w-full p-3 rounded-xl border text-sm mb-4 bg-clr1 dark:bg-dclr1" placeholder="https://..." />
                 ) : (
                   <div className="space-y-4 mb-4">
-                    <button type="button" disabled={uploading} onClick={() => fileInputRef.current?.click()} className={`w-full py-4 border-2 border-dashed border-clr2 rounded-2xl flex flex-col items-center justify-center gap-2 hover:bg-white transition-all ${uploading ? 'animate-pulse opacity-50' : ''}`}><span className="text-3xl">{uploading ? '⏳' : '📤'}</span><span className="text-[0.9em] font-black uppercase text-clr2">{uploading ? 'Subiendo...' : 'Seleccionar Archivo'}</span></button>
+                    <button type="button" disabled={uploading} onClick={() => fileInputRef.current?.click()} className={`w-full py-4 border-2 border-dashed border-clr3 rounded-2xl flex flex-col items-center justify-center gap-2 hover:bg-clr1 transition-all ${uploading ? 'animate-pulse opacity-50' : ''}`}><span className="text-3xl">{uploading ? '⏳' : '📤'}</span><span className="text-[0.9em] font-black uppercase text-clr3">{uploading ? 'Subiendo...' : 'Seleccionar Archivo'}</span></button>
                     <input type="file" ref={fileInputRef} onChange={handleFileUpload} accept="image/*" className="hidden" />
-                    {currentImage && <button type="button" onClick={() => setValue('imagen_destacada', '')} className="text-[0.8em] font-black text-red-500 uppercase tracking-widest hover:underline block mx-auto">✕ Eliminar foto</button>}
+                    {currentImage && <button type="button" onClick={() => setValue('imagen_destacada', '')} className="text-[0.8em] font-black text-clr4 uppercase tracking-widest hover:underline block mx-auto">✕ Eliminar foto</button>}
                   </div>
                 )}
-                {currentImage && <div className="relative rounded-xl overflow-hidden shadow-lg border-2 border-white dark:border-dclr10"><img src={currentImage} className="w-full h-auto object-cover max-h-48" alt="Preview" /></div>}
+                {currentImage && <div className="relative rounded-xl overflow-hidden shadow-lg border-2 border-clr1 dark:border-dclr1"><img src={currentImage} className="w-full h-auto object-cover max-h-48" alt="Preview" /></div>}
               </div>
 
-              <div className="p-2 bg-zinc-50 dark:bg-black/20 rounded-2xl border border-zinc-100 dark:border-dclr10">
-                <h3 className="text-[1em] font-black text-zinc-400 uppercase mb-6 tracking-widest font-display">Categorías del Blog</h3>
+              <div className="p-2 bg-clr7 dark:bg-dclr7 rounded-2xl border border-clr7 dark:border-dclr7">
+                <h3 className="text-[1em] font-black text-clr3 uppercase mb-6 tracking-widest font-display">Categorías del Blog</h3>
                 <div className="space-y-4">
                   {categorias.filter(c => !c.parent_id && !['áreas de desarrollo', 'unidades', 'lugar de la actividad', 'duración de la actividad', 'cantidad de participantes'].includes(c.nombre.toLowerCase())).map(parent => (
                     <div key={parent.id} className="space-y-2">
-                      <label className="flex items-center gap-2 cursor-pointer font-bold text-[0.9em] dark:text-dclr2"><input type="checkbox" checked={selectedCatIds.includes(parent.id.toString())} onChange={(e) => handleCatChange(parent.id, e.target.checked)} className="w-4 h-4 rounded text-clr7" /> {parent.nombre}</label>
-                      <div className="ml-2 space-y-2 border-l-2 border-zinc-200 dark:border-dclr10 pl-4">
+                      <label className="flex items-center gap-2 cursor-pointer font-bold text-[0.9em] dark:text-dclr2"><input type="checkbox" checked={selectedCatIds.includes(parent.id.toString())} onChange={(e) => handleCatChange(parent.id, e.target.checked)} className="w-4 h-4 rounded text-clr4" /> {parent.nombre}</label>
+                      <div className="ml-2 space-y-2 border-l-2 border-clr7 dark:border-dclr7 pl-4">
                         {categorias.filter(c => c.parent_id === parent.id).map(child => (
                           <div key={child.id} className="space-y-2">
-                            <label className="flex items-center gap-2 cursor-pointer text-[0.9em] text-zinc-600 dark:text-dclr2 hover:text-black dark:hover:text-white font-bold transition-colors"><input type="checkbox" checked={selectedCatIds.includes(child.id.toString())} onChange={(e) => handleCatChange(child.id, e.target.checked)} className="w-3.5 h-3.5 rounded text-clr7" /> {child.nombre}</label>
-                            <div className="ml-2 space-y-1 border-l border-zinc-100 dark:border-dclr10 pl-3">
+                            <label className="flex items-center gap-2 cursor-pointer text-[0.9em] text-clr2 dark:text-dclr2 hover:text-clr2 dark:hover:text-clr1 font-bold transition-colors"><input type="checkbox" checked={selectedCatIds.includes(child.id.toString())} onChange={(e) => handleCatChange(child.id, e.target.checked)} className="w-3.5 h-3.5 rounded text-clr4" /> {child.nombre}</label>
+                            <div className="ml-2 space-y-1 border-l border-clr7 dark:border-dclr7 pl-3">
                               {categorias.filter(c => c.parent_id === child.id).map(grandChild => (
-                                <label key={grandChild.id} className="flex items-center gap-2 cursor-pointer text-[0.9em] text-zinc-400 hover:text-black transition-colors italic"><input type="checkbox" checked={selectedCatIds.includes(grandChild.id.toString())} onChange={(e) => handleCatChange(grandChild.id, e.target.checked)} className="w-3.5 h-3.5 rounded text-clr7" /> {grandChild.nombre}</label>
+                                <label key={grandChild.id} className="flex items-center gap-2 cursor-pointer text-[0.9em] text-clr3 hover:text-clr2 transition-colors italic"><input type="checkbox" checked={selectedCatIds.includes(grandChild.id.toString())} onChange={(e) => handleCatChange(grandChild.id, e.target.checked)} className="w-3.5 h-3.5 rounded text-clr4" /> {grandChild.nombre}</label>
                               ))}
                             </div>
                           </div>
@@ -733,12 +733,12 @@ export default function EditarArticuloPage({ params }: { params: Promise<{ id: s
                 </div>
               </div>
 
-              <div className="p-2 bg-zinc-50 dark:bg-black/20 rounded-2xl border border-zinc-100 dark:border-dclr10">
-                <h3 className="text-[1em] font-black text-zinc-400 uppercase mb-4 tracking-widest font-display">Etiquetas</h3>
-                <input {...register('etiquetas_input')} list="tags-list" className="w-full p-3 rounded-xl border text-sm bg-white dark:bg-black/20" />
+              <div className="p-2 bg-clr7 dark:bg-dclr7 rounded-2xl border border-clr7 dark:border-dclr7">
+                <h3 className="text-[1em] font-black text-clr3 uppercase mb-4 tracking-widest font-display">Etiquetas</h3>
+                <input {...register('etiquetas_input')} list="tags-list" className="w-full p-3 rounded-xl border text-sm bg-clr1 dark:bg-dclr1" />
               </div>
 
-              <button type="submit" disabled={saving} className="btn-save w-full py-6 bg-clr7 text-white font-black uppercase rounded-2xl shadow-2xl hover:brightness-110 active:scale-95 transition-all tracking-widest font-display text-sm">
+              <button type="submit" disabled={saving} className="btn-save w-full py-6 bg-clr4 text-clr1 font-black uppercase rounded-2xl shadow-2xl hover:brightness-110 active:scale-95 transition-all tracking-widest font-display text-sm">
                 {saving ? '⌛ Guardando...' : '💾 Guardar Cambios'}
               </button>
             </div>

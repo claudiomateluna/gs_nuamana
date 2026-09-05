@@ -134,11 +134,11 @@ export default async function UnidadPage({ params }: PageProps) {
   }
 
   return (
-    <div className="bg-zinc-50 dark:bg-dclr1 text-zinc-900 dark:text-zinc-100 min-h-screen flex flex-col transition-colors duration-300">
+    <div className="bg-clr7 dark:bg-dclr7 text-clr2 dark:text-dclr2 min-h-screen flex flex-col transition-colors duration-300">
       <Header />
       
       {/* Sección Hero / Bandera Full-Screen */}
-      <section className="relative w-full h-screen min-h-[700px] overflow-hidden bg-clr5">
+      <section className="relative w-full h-screen min-h-[700px] overflow-hidden bg-clr4">
         {/* Fondo Base (Igual al inicio) */}
         <div 
           className="absolute inset-0 bg-cover bg-bottom bg-no-repeat blur-xs"
@@ -153,15 +153,15 @@ export default async function UnidadPage({ params }: PageProps) {
         />
 
         {/* Gradiente y Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/30 via-zinc-950/50 to-zinc-50/90 dark:to-dclr1 transition-colors duration-300 z-2" />
+        <div className="absolute inset-0 bg-gradient-to-b from-clr2 via-clr2 to-clr7 dark:to-dclr7 transition-colors duration-300 z-2" />
 
         {/* Contenido centrado absolutamente */}
         <div className="absolute inset-0 flex items-center justify-center z-10">
-          <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-8 items-center text-white w-full">
+          <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-8 items-center text-clr1 w-full">
             {/* Columna 1: Logo de la Unidad */}
             <div className="md:col-span-4 flex justify-center">
               <div 
-                className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-white/10 backdrop-blur-md border-4 p-6 shadow-2xl flex items-center justify-center transform hover:rotate-6 transition-transform duration-500"
+                className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-clr1 backdrop-blur-md border-4 p-6 shadow-2xl flex items-center justify-center transform hover:rotate-6 transition-transform duration-500"
                 style={{ borderColor: primario }}
               >
                 <img 
@@ -184,7 +184,7 @@ export default async function UnidadPage({ params }: PageProps) {
               >
                 {unit.nombre}
               </span>
-              <h1 className="text-[2.5em] md:text-[4.5em] font-bold px-4 pt-4 pb-1 rounded-bl-3xl rounded-br-3xl rounded-tr-3xl uppercase tracking-tighter leading-none text-white drop-shadow-lg font-inika"
+              <h1 className="text-[2.5em] md:text-[4.5em] font-bold px-4 pt-4 pb-1 rounded-bl-3xl rounded-br-3xl rounded-tr-3xl uppercase tracking-tighter leading-none text-clr1 drop-shadow-lg font-inika"
                 style={{ 
                   color: secundario,
                   backgroundColor: primario,
@@ -192,7 +192,7 @@ export default async function UnidadPage({ params }: PageProps) {
               >
                 {unit.nombre_unidad || unit.nombre}
               </h1>
-              <p className="text-[1em] md:text-[1.25em] text-center md:text-right font-bold text-zinc-100 leading-relaxed max-w-2xl drop-shadow">
+              <p className="text-[1em] md:text-[1.25em] text-center md:text-right font-bold text-clr7 leading-relaxed max-w-2xl drop-shadow">
                 {unit.descripcion}
               </p>
             </div>
@@ -201,7 +201,7 @@ export default async function UnidadPage({ params }: PageProps) {
       </section>
 
       {/* Sección Fuera del Full-Screen */}
-      <section className="py-20 relative z-10 border-t border-zinc-200 dark:border-white/5 bg-zinc-50 dark:bg-dclr1 transition-colors duration-300">
+      <section className="py-20 relative z-10 border-t border-clr7 dark:border-dclr7 bg-clr7 dark:bg-dclr7 transition-colors duration-300">
         <div className="max-w-5xl mx-auto px-6 space-y-20">
           {/* Descripción Detallada */}
           <div className="space-y-6">
@@ -212,17 +212,17 @@ export default async function UnidadPage({ params }: PageProps) {
             </h2>
             </div>
             {slug === 'clan' ? (
-              <ClanCustomContent objectives={unitObjectives} />
+              <ClanCustomContent objectives={unitObjectives} nombreUnidad={unit.nombre_unidad} />
             ) : slug === 'manada' ? (
               <ManadaCustomContent objectives={unitObjectives} />
             ) : slug === 'compania' ? (
               <CompaniaCustomContent objectives={unitObjectives} />
             ) : slug === 'tropa' ? (
-              <TropaCustomContent objectives={unitObjectives} />
+              <TropaCustomContent objectives={unitObjectives} nombreUnidad={unit.nombre_unidad} />
             ) : slug === 'avanzada' ? (
               <AvanzadaCustomContent objectives={unitObjectives} />
             ) : (
-              <p className="text-[1.15em] text-zinc-700 dark:text-zinc-300 leading-relaxed whitespace-pre-line font-medium">
+              <p className="text-[1.15em] text-clr2 dark:text-dclr2 leading-relaxed whitespace-pre-line font-medium">
                 {detailedDescriptions[unit.id]}
               </p>
             )}
@@ -230,23 +230,23 @@ export default async function UnidadPage({ params }: PageProps) {
 
           {/* Muestra de Actividades (Artículos) */}
           <div className="space-y-8">
-            <div className="p-1 rounded-[1rem] shadow-sm border-b border-zinc-200 dark:border-white/10 flex items-center gap-3" style={{ backgroundColor: primario }}>
+            <div className="p-1 rounded-[1rem] shadow-sm border-b border-clr7 dark:border-dclr7 flex items-center gap-3" style={{ backgroundColor: primario }}>
               <span className="w-2.5 h-8 rounded-full inline-block" style={{ backgroundColor: secundario }} />
               <div>
-                <h2 className="text-[2em] font-black uppercase tracking-tight text-zinc-900 dark:text-white leading-none"
+                <h2 className="text-[2em] font-black uppercase tracking-tight text-clr2 dark:text-dclr2 leading-none"
                   style={{ color: secundario }}>
                   Actividades y Vida en la {unit.nombre}
                 </h2>
-                <p className="text-[0.9em] text-zinc-500 dark:text-zinc-400 font-medium mt-1"style={{ color: secundario }}>
+                <p className="text-[0.9em] text-clr3 dark:text-dclr3 font-medium mt-1"style={{ color: secundario }}>
                   Explora las bitácoras, dinámicas e historias de la {unit.nombre} {unit.nombre_unidad || unit.nombre}.
                 </p>
               </div>
             </div>
 
             {processedArticles.length === 0 ? (
-              <div className="p-12 rounded-3xl bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/5 text-center">
+              <div className="p-12 rounded-3xl bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7 text-center">
                 <span className="text-4xl mb-2 block">🎒</span>
-                <p className="text-zinc-500 dark:text-zinc-400 font-bold">Aún no hay actividades publicadas para esta unidad.</p>
+                <p className="text-clr3 dark:text-dclr3 font-bold">Aún no hay actividades publicadas para esta unidad.</p>
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -256,7 +256,7 @@ export default async function UnidadPage({ params }: PageProps) {
                     <a 
                       key={art.id} 
                       href={`/blog/${art.path}`}
-                      className="group rounded-3xl bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/5 hover:border-zinc-300 dark:hover:border-white/10 overflow-hidden shadow-sm hover:shadow-xl hover:scale-[1.01] transition-all flex flex-col justify-between border-l-[6px]"
+                      className="group rounded-3xl bg-clr1 dark:bg-clr1 border border-clr7 dark:border-dclr7 hover:border-clr3 dark:hover:border-clr1 overflow-hidden shadow-sm hover:shadow-xl hover:scale-[1.01] transition-all flex flex-col justify-between border-l-[6px]"
                       style={{ borderLeftColor: primario }}
                     >
                       <div>
@@ -268,10 +268,10 @@ export default async function UnidadPage({ params }: PageProps) {
                           />
                         </div>
                         <div className="p-5 space-y-3">
-                          <h4 className="font-bold text-[1.25em] text-zinc-900 dark:text-white group-hover:text-zinc-650 dark:group-hover:text-zinc-300 line-clamp-2 leading-tight uppercase">
+                          <h4 className="font-bold text-[1.25em] text-clr2 dark:text-dclr2 group-hover:text-clr2 dark:group-hover:text-clr3 line-clamp-2 leading-tight uppercase">
                             {art.titulo}
                           </h4>
-                          <p className="text-[0.95em] text-zinc-650 dark:text-zinc-400 line-clamp-3 leading-relaxed font-body italic">
+                          <p className="text-[0.95em] text-clr2 dark:text-dclr2 line-clamp-3 leading-relaxed font-body italic">
                             {art.extracto || "Sin descripción disponible."}
                           </p>
                         </div>

@@ -512,13 +512,13 @@ export default function DashModActaCrear({ isOpen, onClose, perfil, miembrosUnid
   }
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center p-2 animate-in fade-in duration-300 text-[1em]">
-      <div className="bg-white dark:bg-dclr5 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg rounded-l-[1rem] p-4 shadow-2xl overflow-y-auto max-h-[95vh]">
+    <div className="fixed inset-0 bg-clr2 backdrop-blur-sm z-[100] flex items-center justify-center p-2 animate-in fade-in duration-300 text-[1em]">
+      <div className="bg-clr1 dark:bg-dclr1 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg rounded-l-[1rem] p-4 shadow-2xl overflow-y-auto max-h-[95vh]">
         <div className="flex justify-between items-center mb-4 border-b pb-4">
           <h2 className="text-3xl font-bold font-display uppercase text-clr6 tracking-tighter">
             {editingActa ? `Editando: ${editingActa.codigo}` : 'Nueva Acta de Sesión'}
           </h2>
-          <button onClick={onClose} className="text-2xl opacity-40 hover:opacity-100 hover:text-clr7 font-bold">✕</button>
+          <button onClick={onClose} className="text-2xl opacity-40 hover:opacity-100 hover:text-clr4 font-bold">✕</button>
         </div>
 
         <form onSubmit={handleSave} className="space-y-6">
@@ -528,24 +528,24 @@ export default function DashModActaCrear({ isOpen, onClose, perfil, miembrosUnid
               <div className="grid grid-cols-2 gap-2">
                 <div className="space-y-1">
                   <label className="text-[0.8em] uppercase font-bold opacity-60">Tipo</label>
-                  <select value={actaData.tipo} onChange={e => setActaData({...actaData, tipo: e.target.value})} className="w-full p-2 rounded-[0.6em] border dark:border-dclr10 bg-zinc-50 dark:bg-dclr10 uppercase text-[1em] font-bold">
+                  <select value={actaData.tipo} onChange={e => setActaData({...actaData, tipo: e.target.value})} className="w-full p-2 rounded-[0.6em] border dark:border-dclr7 bg-clr7 dark:bg-dclr7 uppercase text-[1em] font-bold">
                     {tiposDisponibles.map(t => <option key={t} value={t}>{t}</option>)}
                   </select>
                 </div>
                 <div className="space-y-1">
                   <label className="text-[0.8em] uppercase font-bold opacity-60">Fecha</label>
-                  <input type="date" value={actaData.fecha} onChange={e => setActaData({...actaData, fecha: e.target.value})} className="w-full p-2 rounded-[0.6em] border dark:border-dclr10 bg-zinc-50 dark:bg-dclr10 text-[1em] font-bold" />
+                  <input type="date" value={actaData.fecha} onChange={e => setActaData({...actaData, fecha: e.target.value})} className="w-full p-2 rounded-[0.6em] border dark:border-dclr7 bg-clr7 dark:bg-dclr7 text-[1em] font-bold" />
                 </div>
               </div>
               <div className="space-y-1">
                 <label className="text-[0.8em] uppercase font-bold opacity-60">Confidencialidad</label>
-                <select value={actaData.confidencialidad} onChange={e => setActaData({...actaData, confidencialidad: e.target.value})} className="w-full p-2 rounded-[0.6em] border dark:border-dclr10 bg-zinc-50 dark:bg-dclr10 text-[1em] uppercase font-bold">
+                <select value={actaData.confidencialidad} onChange={e => setActaData({...actaData, confidencialidad: e.target.value})} className="w-full p-2 rounded-[0.6em] border dark:border-dclr7 bg-clr7 dark:bg-dclr7 text-[1em] uppercase font-bold">
                   {NIVELES_CONFIDENCIALIDAD.map(n => <option key={n} value={n}>{n}</option>)}
                 </select>
               </div>
               <div className="space-y-1">
                 <label className="text-[0.8em] uppercase font-bold opacity-60">Resumen (Agenda General)</label>
-                <textarea placeholder="Propósito de la sesión..." value={actaData.resumen} onChange={e => setActaData({...actaData, resumen: e.target.value})} className="w-full p-2 rounded-[0.6em] border dark:border-dclr10 bg-zinc-50 dark:bg-dclr10 h-24 text-[1em] font-bold" />
+                <textarea placeholder="Propósito de la sesión..." value={actaData.resumen} onChange={e => setActaData({...actaData, resumen: e.target.value})} className="w-full p-2 rounded-[0.6em] border dark:border-dclr7 bg-clr7 dark:bg-dclr7 h-24 text-[1em] font-bold" />
               </div>
             </div>
 
@@ -570,7 +570,7 @@ export default function DashModActaCrear({ isOpen, onClose, perfil, miembrosUnid
                       }
                       e.target.value = ''
                     }}
-                    className="p-2 bg-clr6 text-white rounded-xl text-[0.8em] font-bold uppercase cursor-pointer hover:brightness-110 shadow-md outline-none"
+                    className="p-2 bg-clr6 text-clr1 rounded-xl text-[0.8em] font-bold uppercase cursor-pointer hover:brightness-110 shadow-md outline-none"
                   >
                     <option value="">➕ INVITAR PERSONA</option>
                     {allMiembros
@@ -584,22 +584,22 @@ export default function DashModActaCrear({ isOpen, onClose, perfil, miembrosUnid
               </div>
               <div className="grid grid-cols-1 gap-2 max-h-[350px] overflow-y-auto pr-2">
                 {participantes.map(m => (
-                  <div key={m.id} className="grid grid-cols-1 md:grid-cols-3 gap-2 p-2 bg-zinc-50 dark:bg-dclr3 rounded-[0.6em] border border-transparent hover:border-clr6/20 relative group">
+                  <div key={m.id} className="grid grid-cols-1 md:grid-cols-3 gap-2 p-2 bg-clr7 dark:bg-dclr7 rounded-[0.6em] border border-transparent hover:border-clr6 relative group">
                     <button 
                       type="button" 
                       onClick={() => setParticipantes(participantes.filter(p => p.id !== m.id))}
-                      className="absolute -top-1 -right-1 bg-red-500 text-white w-5 h-5 rounded-full text-[0.8em] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10"
+                      className="absolute -top-1 -right-1 bg-clr4 text-clr1 w-5 h-5 rounded-full text-[0.8em] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10"
                     >
                       ✕
                     </button>
                     <span className="truncate text-[1em] self-center font-bold">{m.nombres} {m.apellidos}</span>
-                    <select value={actaData.roles_participantes[m.id] || 'Asistente'} onChange={e => setActaData({...actaData, roles_participantes: {...actaData.roles_participantes, [m.id]: e.target.value}})} className="text-[0.8em] rounded-[0.6em] px-2 py-1 bg-zinc-50 dark:bg-dclr10 border dark:border-dclr10 font-bold">
+                    <select value={actaData.roles_participantes[m.id] || 'Asistente'} onChange={e => setActaData({...actaData, roles_participantes: {...actaData.roles_participantes, [m.id]: e.target.value}})} className="text-[0.8em] rounded-[0.6em] px-2 py-1 bg-clr7 dark:bg-dclr7 border dark:border-dclr7 font-bold">
                       {ROLES_REUNION.map(r => <option key={r} value={r}>{r}</option>)}
                     </select>
                     <select value={actaData.asistencia[m.id] || 'Ausente'} onChange={e => setActaData({...actaData, asistencia: {...actaData.asistencia, [m.id]: e.target.value}})} className={`text-[0.8em] font-bold rounded-[0.6em] px-2 py-1 border-none uppercase ${
-                      actaData.asistencia[m.id] === 'Presente' ? 'bg-green-100 text-green-700' : 
-                      actaData.asistencia[m.id] === 'No Invitado' ? 'bg-zinc-200 text-zinc-500' :
-                      'bg-red-100 text-red-700'
+                      actaData.asistencia[m.id] === 'Presente' ? 'bg-clr6 text-clr6' : 
+                      actaData.asistencia[m.id] === 'No Invitado' ? 'bg-clr7 text-clr3' :
+                      'bg-clr4 text-clr4'
                     }`}>
                       <option value="Ausente">Ausente</option>
                       <option value="Presente">Presente</option>
@@ -617,54 +617,54 @@ export default function DashModActaCrear({ isOpen, onClose, perfil, miembrosUnid
             <h3 className="font-bold uppercase text-[1em] opacity-40 border-b pb-2 tracking-widest font-slab">Agenda y Desarrollo</h3>
             <div className="space-y-3">
               {actaData.temas.map((t: TemaData, i: number) => (
-                <div key={i} className="p-2 bg-zinc-50 dark:bg-dclr3 rounded-[1rem] border dark:border-dclr10 shadow-sm relative group">
-                  <button type="button" onClick={() => setActaData((v: ActaData) => ({ ...v, temas: v.temas.filter((_: TemaData, idx: number)=>idx!==i)}))} className="absolute top-3 right-2 text-red-500 font-bold opacity-60 hover:opacity-100">✕</button>
+                <div key={i} className="p-2 bg-clr7 dark:bg-dclr7 rounded-[1rem] border dark:border-dclr7 shadow-sm relative group">
+                  <button type="button" onClick={() => setActaData((v: ActaData) => ({ ...v, temas: v.temas.filter((_: TemaData, idx: number)=>idx!==i)}))} className="absolute top-3 right-2 text-clr4 font-bold opacity-60 hover:opacity-100">✕</button>
                   <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
                     <div className="md:col-span-3 space-y-2">
-                      <input placeholder="TÍTULO DEL TEMA" value={t.titulo} onChange={e => { const nt = [...actaData.temas]; nt[i].titulo = e.target.value; setActaData({...actaData, temas: nt}); }} className="w-full bg-transparent border-b-2 border-zinc-400 font-bold text-[1.1em] pb-1 uppercase outline-none" />
+                      <input placeholder="TÍTULO DEL TEMA" value={t.titulo} onChange={e => { const nt = [...actaData.temas]; nt[i].titulo = e.target.value; setActaData({...actaData, temas: nt}); }} className="w-full bg-transparent border-b-2 border-clr3 font-bold text-[1.1em] pb-1 uppercase outline-none" />
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                        <textarea placeholder="Descripción / Agenda..." value={t.descripcion} onChange={e => { const nt = [...actaData.temas]; nt[i].descripcion = e.target.value; setActaData({...actaData, temas: nt}); }} className="w-full p-3 rounded-[0.5em] border dark:border-dclr10 bg-clr1 dark:bg-dclr10 h-24 text-[1em] font-bold" />
-                        <textarea placeholder="Conclusiones / Decisiones..." value={t.conclusiones} onChange={e => { const nt = [...actaData.temas]; nt[i].conclusiones = e.target.value; setActaData({...actaData, temas: nt}); }} className="w-full p-3 rounded-[0.5em] border dark:border-dclr10 bg-clr6/5 h-24 text-[1em] font-bold" />
+                        <textarea placeholder="Descripción / Agenda..." value={t.descripcion} onChange={e => { const nt = [...actaData.temas]; nt[i].descripcion = e.target.value; setActaData({...actaData, temas: nt}); }} className="w-full p-3 rounded-[0.5em] border dark:border-dclr7 bg-clr1 dark:bg-dclr1 h-24 text-[1em] font-bold" />
+                        <textarea placeholder="Conclusiones / Decisiones..." value={t.conclusiones} onChange={e => { const nt = [...actaData.temas]; nt[i].conclusiones = e.target.value; setActaData({...actaData, temas: nt}); }} className="w-full p-3 rounded-[0.5em] border dark:border-dclr7 bg-clr6 h-24 text-[1em] font-bold" />
                       </div>
                     </div>
                     <div className="space-y-2">
-                      <div className="p-2 bg-white dark:bg-dclr3 rounded-[0.5em] border dark:border-dclr10">
+                      <div className="p-2 bg-clr1 dark:bg-dclr1 rounded-[0.5em] border dark:border-dclr7">
                         <label className="text-[0.8em] uppercase opacity-60 font-bold">Duración Est.</label>
-                        <input type="number" value={t.duracion_estimada} onChange={e => { const nt = [...actaData.temas]; nt[i].duracion_estimada = parseInt(e.target.value) || 0; setActaData({...actaData, temas: nt}); }} className="w-full bg-transparent dark:bg-dclr10 font-bold" />
+                        <input type="number" value={t.duracion_estimada} onChange={e => { const nt = [...actaData.temas]; nt[i].duracion_estimada = parseInt(e.target.value) || 0; setActaData({...actaData, temas: nt}); }} className="w-full bg-transparent dark:bg-dclr7 font-bold" />
                       </div>
-                      <div className="p-2 bg-white dark:bg-dclr3 rounded-[0.5em] border dark:border-dclr10">
+                      <div className="p-2 bg-clr1 dark:bg-dclr1 rounded-[0.5em] border dark:border-dclr7">
                         <label className="text-[0.8em] uppercase opacity-60 font-bold">Duración Real</label>
-                        <input type="number" value={t.duracion_real} onChange={e => { const nt = [...actaData.temas]; nt[i].duracion_real = parseInt(e.target.value) || 0; setActaData({...actaData, temas: nt}); }} className="w-full bg-transparent dark:bg-dclr10 font-bold" />
+                        <input type="number" value={t.duracion_real} onChange={e => { const nt = [...actaData.temas]; nt[i].duracion_real = parseInt(e.target.value) || 0; setActaData({...actaData, temas: nt}); }} className="w-full bg-transparent dark:bg-dclr7 font-bold" />
                       </div>
                     </div>
                   </div>
                 </div>
               ))}
-              <button type="button" onClick={() => setActaData((v: ActaData) => ({ ...v, temas: [...v.temas, { titulo: '', descripcion: '', conclusiones: '', duracion_estimada: 15, duracion_real: 15 }] }))} className="w-full py-3 border-2 border-dashed border-clr6/50 text-clr6 rounded-[1rem] font-bold uppercase text-[1em] hover:bg-clr6/5">+ Añadir Punto de Tabla</button>
+              <button type="button" onClick={() => setActaData((v: ActaData) => ({ ...v, temas: [...v.temas, { titulo: '', descripcion: '', conclusiones: '', duracion_estimada: 15, duracion_real: 15 }] }))} className="w-full py-3 border-2 border-dashed border-clr6 text-clr6 rounded-[1rem] font-bold uppercase text-[1em] hover:bg-clr6">+ Añadir Punto de Tabla</button>
             </div>
           </div>
 
           <div className="space-y-6">
-            <h3 className="font-bold uppercase text-[1em] opacity-40 border-b pb-2 tracking-widest font-slab text-blue-600 dark:text-blue-300">Acuerdos y Tareas</h3>
+            <h3 className="font-bold uppercase text-[1em] opacity-40 border-b pb-2 tracking-widest font-slab text-clr4 dark:text-dclr4">Acuerdos y Tareas</h3>
             <div className="space-y-4">
               {actaData.acuerdos.map((a: AcuerdoData, i: number) => (
-                <div key={i} className="p-3 bg-blue-50/20 dark:bg-dclr3/60 rounded-[1rem] border border-blue-100 dark:border-dclr10 relative group grid grid-cols-1 md:grid-cols-4 gap-2">
-                  <button type="button" onClick={() => setActaData((v: ActaData) => ({ ...v, acuerdos: v.acuerdos.filter((_: AcuerdoData, idx: number)=>idx!==i)}))} className="absolute top-4 right-6 text-red-500 dark:text-dclr7 font-bold opacity-40 dark:opacity-80 hover:opacity-100 font-display">✕</button>
+                <div key={i} className="p-3 bg-clr4 dark:bg-dclr4 rounded-[1rem] border border-clr4 dark:border-dclr4 relative group grid grid-cols-1 md:grid-cols-4 gap-2">
+                  <button type="button" onClick={() => setActaData((v: ActaData) => ({ ...v, acuerdos: v.acuerdos.filter((_: AcuerdoData, idx: number)=>idx!==i)}))} className="absolute top-4 right-6 text-clr4 dark:text-dclr4 font-bold opacity-40 dark:opacity-80 hover:opacity-100 font-display">✕</button>
                   <div className="md:col-span-2 space-y-3 font-bold">
-                    <input placeholder="¿QUÉ SE HARÁ?" value={a.titulo} onChange={e => { const na = [...actaData.acuerdos]; na[i].titulo = e.target.value; setActaData({...actaData, acuerdos: na}); }} className="w-full bg-transparent border-b border-blue-200 font-bold text-[1em] pb-1 uppercase outline-none" />
-                    <textarea placeholder="Detalles de la tarea..." value={a.descripcion} onChange={e => { const na = [...actaData.acuerdos]; na[i].descripcion = e.target.value; setActaData({...actaData, acuerdos: na}); }} className="w-full p-2 rounded-lg border dark:border-dclr10 bg-white dark:bg-dclr10 text-[1em] font-bold h-16" />
+                    <input placeholder="¿QUÉ SE HARÁ?" value={a.titulo} onChange={e => { const na = [...actaData.acuerdos]; na[i].titulo = e.target.value; setActaData({...actaData, acuerdos: na}); }} className="w-full bg-transparent border-b border-clr4 font-bold text-[1em] pb-1 uppercase outline-none" />
+                    <textarea placeholder="Detalles de la tarea..." value={a.descripcion} onChange={e => { const na = [...actaData.acuerdos]; na[i].descripcion = e.target.value; setActaData({...actaData, acuerdos: na}); }} className="w-full p-2 rounded-lg border dark:border-dclr7 bg-clr1 dark:bg-dclr1 text-[1em] font-bold h-16" />
                   </div>
                   <div className="space-y-3">
                     <div>
                       <label className="text-[0.8em] uppercase opacity-40 font-bold">Responsable</label>
-                      <select value={a.responsable_id || ''} onChange={e => { const na = [...actaData.acuerdos]; na[i].responsable_id = e.target.value; setActaData({...actaData, acuerdos: na}); }} className="w-full p-2 rounded-[0.5em] dark:border-dclr10 bg-white dark:bg-dclr10 border text-[0.8em] uppercase font-bold">
+                      <select value={a.responsable_id || ''} onChange={e => { const na = [...actaData.acuerdos]; na[i].responsable_id = e.target.value; setActaData({...actaData, acuerdos: na}); }} className="w-full p-2 rounded-[0.5em] dark:border-dclr7 bg-clr1 dark:bg-dclr1 border text-[0.8em] uppercase font-bold">
                         <option value="">Seleccionar...</option>
                         {allMiembros.map(m => (<option key={m.id} value={m.id}>{m.nombres} {m.apellidos}</option>))}
                       </select>
                     </div>
                     <div className="grid grid-cols-2 gap-2">
-                      <div><label className="text-[0.8em] uppercase opacity-40 font-bold">Plazo</label><input type="date" value={a.fecha_compromiso} onChange={e => { const na = [...actaData.acuerdos]; na[i].fecha_compromiso = e.target.value; setActaData({...actaData, acuerdos: na}); }} className="w-full p-2 dark:bg-dclr10 rounded-[0.5em] border dark:border-dclr10 text-[0.8em] font-bold" /></div>
-                      <div><label className="text-[0.8em] uppercase font-bold">Prioridad</label><select value={a.prioridad} onChange={e => { const na = [...actaData.acuerdos]; na[i].prioridad = e.target.value; setActaData({...actaData, acuerdos: na}); }} className="w-full p-2 dark:bg-dclr10 rounded-[0.5em] border dark:border-dclr10 text-[0.8em] uppercase font-bold">{PRIORIDADES.map(p => <option key={p} value={p}>{p}</option>)}</select></div>
+                      <div><label className="text-[0.8em] uppercase opacity-40 font-bold">Plazo</label><input type="date" value={a.fecha_compromiso} onChange={e => { const na = [...actaData.acuerdos]; na[i].fecha_compromiso = e.target.value; setActaData({...actaData, acuerdos: na}); }} className="w-full p-2 dark:bg-dclr7 rounded-[0.5em] border dark:border-dclr7 text-[0.8em] font-bold" /></div>
+                      <div><label className="text-[0.8em] uppercase font-bold">Prioridad</label><select value={a.prioridad} onChange={e => { const na = [...actaData.acuerdos]; na[i].prioridad = e.target.value; setActaData({...actaData, acuerdos: na}); }} className="w-full p-2 dark:bg-dclr7 rounded-[0.5em] border dark:border-dclr7 text-[0.8em] uppercase font-bold">{PRIORIDADES.map(p => <option key={p} value={p}>{p}</option>)}</select></div>
                     </div>
                     <div className="flex items-center gap-2 mt-1">
                       <input 
@@ -672,9 +672,9 @@ export default function DashModActaCrear({ isOpen, onClose, perfil, miembrosUnid
                         id={`grupal-${i}`}
                         checked={!!a.es_actividad_grupal} 
                         onChange={e => { const na = [...actaData.acuerdos]; na[i].es_actividad_grupal = e.target.checked; setActaData({...actaData, acuerdos: na}); }} 
-                        className="w-4 h-4 rounded border-gray-300 text-clr7 focus:ring-clr7"
+                        className="w-4 h-4 rounded border-clr3 text-clr4 focus:ring-clr4"
                       />
-                      <label htmlFor={`grupal-${i}`} className="text-[0.8em] font-black uppercase text-red-600 dark:text-red-400 cursor-pointer">
+                      <label htmlFor={`grupal-${i}`} className="text-[0.8em] font-black uppercase text-clr4 dark:text-dclr4 cursor-pointer">
                         ¿Actividad Grupal? 👥
                       </label>
                     </div>
@@ -689,7 +689,7 @@ export default function DashModActaCrear({ isOpen, onClose, perfil, miembrosUnid
                   </div>
                 </div>
               ))}
-              <button type="button" onClick={() => setActaData((v: ActaData) => ({ ...v, acuerdos: [...v.acuerdos, { titulo: '', descripcion: '', responsable_id: '', fecha_compromiso: '', prioridad: 'Media' }] }))} className="w-full py-4 border-2 border-dashed border-blue-300 text-blue-600 dark:text-blue-400 rounded-[1rem] font-bold uppercase text-[1em] hover:bg-blue-50">+ Añadir Compromiso</button>
+              <button type="button" onClick={() => setActaData((v: ActaData) => ({ ...v, acuerdos: [...v.acuerdos, { titulo: '', descripcion: '', responsable_id: '', fecha_compromiso: '', prioridad: 'Media' }] }))} className="w-full py-4 border-2 border-dashed border-clr4 text-clr4 dark:text-dclr4 rounded-[1rem] font-bold uppercase text-[1em] hover:bg-clr4">+ Añadir Compromiso</button>
             </div>
           </div>
 
@@ -698,20 +698,20 @@ export default function DashModActaCrear({ isOpen, onClose, perfil, miembrosUnid
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="space-y-1">
                 <label className="text-[0.8em] uppercase font-bold opacity-60">Próxima Reunión</label>
-                <input type="date" value={actaData.proxima_reunion} onChange={e => setActaData({...actaData, proxima_reunion: e.target.value})} className="w-full p-3 rounded-xl border dark:border-dclr10 bg-zinc-50 dark:bg-dclr10 font-bold" />
+                <input type="date" value={actaData.proxima_reunion} onChange={e => setActaData({...actaData, proxima_reunion: e.target.value})} className="w-full p-3 rounded-xl border dark:border-dclr7 bg-clr7 dark:bg-dclr7 font-bold" />
               </div>
               <div className="md:col-span-2 space-y-1">
                 <label className="text-[0.8em] uppercase font-bold opacity-60">Observaciones Finales</label>
-                <textarea placeholder="Comentarios de cierre..." value={actaData.observaciones_finales} onChange={e => setActaData({...actaData, observaciones_finales: e.target.value})} className="w-full p-2 rounded-xl border dark:border-dclr10 bg-zinc-50 dark:bg-dclr10 h-24 text-[1em] font-bold" />
+                <textarea placeholder="Comentarios de cierre..." value={actaData.observaciones_finales} onChange={e => setActaData({...actaData, observaciones_finales: e.target.value})} className="w-full p-2 rounded-xl border dark:border-dclr7 bg-clr7 dark:bg-dclr7 h-24 text-[1em] font-bold" />
               </div>
             </div>
           </div>
 
           <div className="flex gap-2 pt-8 border-t">
-            <button type="submit" disabled={saving} className="flex-1 py-4 bg-clr6 text-white uppercase rounded-2xl shadow-xl font-inika font-bold tracking-widest text-[1em] hover:brightness-110">
+            <button type="submit" disabled={saving} className="flex-1 py-4 bg-clr6 text-clr1 uppercase rounded-2xl shadow-xl font-inika font-bold tracking-widest text-[1em] hover:brightness-110">
               {saving ? '⌛ PROCESANDO...' : editingActa ? '💾 ACTUALIZAR LIBRO' : '💾 GUARDAR ACTA'}
             </button>
-            <button type="button" onClick={onClose} className="px-10 py-4 bg-zinc-100 dark:bg-dclr7/80 rounded-[1em] font-bold uppercase tracking-widest text-[1em]">CANCELAR</button>
+            <button type="button" onClick={onClose} className="px-10 py-4 bg-clr7 dark:bg-dclr7 rounded-[1em] font-bold uppercase tracking-widest text-[1em]">CANCELAR</button>
           </div>
         </form>
       </div>

@@ -48,9 +48,9 @@ export default function DashModPropuestaCrear({ isOpen, onClose, perfil, cicloId
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-md z-[130] flex items-center justify-center p-2 animate-in fade-in duration-300">
-      <div className="bg-white dark:bg-dclr5 w-full max-w-lg rounded-[2rem] p-4 shadow-2xl">
-        <h2 className="text-2xl font-black font-display uppercase text-clr7 tracking-tighter mb-6">
+    <div className="fixed inset-0 bg-clr2 backdrop-blur-md z-[130] flex items-center justify-center p-2 animate-in fade-in duration-300">
+      <div className="bg-clr1 dark:bg-dclr1 w-full max-w-lg rounded-[2rem] p-4 shadow-2xl">
+        <h2 className="text-2xl font-black font-display uppercase text-clr4 tracking-tighter mb-6">
           💡 Proponer Actividad
         </h2>
 
@@ -63,7 +63,7 @@ export default function DashModPropuestaCrear({ isOpen, onClose, perfil, cicloId
               value={formData.titulo}
               onChange={e => setFormData({...formData, titulo: e.target.value})}
               placeholder="Ej: Gran Juego de Rastreo..."
-              className="w-full p-4 rounded-2xl border dark:border-dclr10 bg-zinc-50 dark:bg-dclr10 font-bold"
+              className="w-full p-4 rounded-2xl border dark:border-dclr7 bg-clr7 dark:bg-dclr7 font-bold"
             />
           </div>
 
@@ -73,7 +73,7 @@ export default function DashModPropuestaCrear({ isOpen, onClose, perfil, cicloId
               value={formData.descripcion}
               onChange={e => setFormData({...formData, descripcion: e.target.value})}
               placeholder="Cuéntanos un poco más de tu idea..."
-              className="w-full p-4 rounded-2xl border dark:border-dclr10 bg-zinc-50 dark:bg-dclr10 font-bold h-32"
+              className="w-full p-4 rounded-2xl border dark:border-dclr7 bg-clr7 dark:bg-dclr7 font-bold h-32"
             />
           </div>
 
@@ -81,14 +81,14 @@ export default function DashModPropuestaCrear({ isOpen, onClose, perfil, cicloId
             <button 
               type="submit" 
               disabled={loading}
-              className="flex-1 py-4 bg-clr7 text-white font-black font-display uppercase rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest"
+              className="flex-1 py-4 bg-clr4 text-clr1 font-black font-display uppercase rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest"
             >
               {loading ? '⌛ Enviando...' : '📤 Subir Idea'}
             </button>
             <button 
               type="button" 
               onClick={onClose}
-              className="px-6 py-4 bg-zinc-100 dark:bg-dclr1 text-clr2 rounded-2xl font-bold uppercase"
+              className="px-6 py-4 bg-clr7 dark:bg-dclr7 text-clr3 rounded-2xl font-bold uppercase"
             >
               Cancelar
             </button>

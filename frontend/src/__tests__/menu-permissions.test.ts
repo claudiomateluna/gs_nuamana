@@ -246,7 +246,7 @@ describe('HARDCODED_MENU_TREE', () => {
   it('mirrors the Nuestras Unidades submenu with image paths as icono', () => {
     expect(HARDCODED_MENU_TREE[4].children.map((c) => c.titulo)).toEqual([
       'Manada (Ahi Niho Vænga)',
-      'Compañía (Põ Vui Vaikava)',
+      'Compañía (Põ Nui Vaikava)',
       "Tropa (A'ata)",
       'Avanzada (Rapahango)',
       'Clan (Ahu Akivi)',

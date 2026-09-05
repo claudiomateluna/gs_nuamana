@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { supabase } from '@/lib/supabase';
 
 const UnitSlideShow = () => {
   const units = [
@@ -37,6 +38,24 @@ const UnitSlideShow = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  // Empieza con los datos hardcoded (fallback inmediato, sin flash vacío);
+  // la DB (corregida) siempre los sobreescribe cuando el fetch responde.
+  const [unitNames, setUnitNames] = useState(units);
+
+  useEffect(() => {
+    supabase.from('unidades')
+      .select('id, nombre, nombre_unidad, logo_unidad_url')
+      .order('id')
+      .then(({ data }) => {
+        if (!data || data.length === 0) return;
+        setUnitNames(data.map((row, i) => ({
+          name: row.nombre,
+          displayName: row.nombre_unidad || row.nombre,
+          image: row.logo_unidad_url || units[i]?.image || '',
+          alt: row.nombre_unidad ? `${row.nombre} ${row.nombre_unidad}` : row.nombre,
+        })));
+      });
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -52,7 +71,7 @@ const UnitSlideShow = () => {
         className="flex transition-transform duration-1000 ease-in-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
-        {units.map((unit, index) => (
+        {unitNames.map((unit, index) => (
           <div 
             key={index} 
             className="flex-shrink-0 w-full flex flex-col items-center justify-center p-4"
@@ -63,18 +82,18 @@ const UnitSlideShow = () => {
               className="w-48 h-48 object-contain mb-4"
             />
             <div className="text-center">
-              <p className="font-display font-black text-clr1 uppercase tracking-tighter text-[2em] leading-none">{unit.name}</p>
-              <p className="font-display text-clr5 dark:text-dclr8 font-bold text-lg">{unit.displayName}</p>
+              <p className="font-display font-black text-foclr4 dark:text-fodclr4 uppercase tracking-tighter text-[2em] leading-none">{unit.name}</p>
+              <p className="font-display text-foclr5 dark:text-fodclr5 font-bold text-lg">{unit.displayName}</p>
             </div>
           </div>
         ))}
       </div>
       <div className="flex justify-center mt-4 space-x-2">
-        {units.map((_, index) => (
+        {unitNames.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
-            className={`w-2 h-2 rounded-full transition-all ${currentIndex === index ? 'bg-clr8 w-4' : 'bg-white/20'}`}
+            className={`w-2 h-2 rounded-full transition-all ${currentIndex === index ? 'bg-foclr5 w-4' : 'bg-foclr1 dark:bg-fodclr1'}`}
             aria-label={`Ir a slide ${index + 1}`}
           />
         ))}

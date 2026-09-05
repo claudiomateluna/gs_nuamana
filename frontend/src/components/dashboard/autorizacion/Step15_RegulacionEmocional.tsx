@@ -4,14 +4,14 @@ import DOMPurify from 'dompurify'
 import type { StepProps } from '@/types/autorizacion'
 
 export default function Step15_RegulacionEmocional({ formData, setFormData, perfil }: StepProps) {
-  const titleStyle = "text-[1.2em] font-black text-clr5 dark:text-dclr2 uppercase tracking-tighter mb-8 border-b-2 border-clr7 pb-2";
+  const titleStyle = "text-[1.2em] font-black text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8 border-b-2 border-clr4 pb-2";
   const labelContainerStyle = "flex items-center gap-2 mb-1";
-  const labelStyle = "text-[0.9em] font-black uppercase text-clr2 tracking-widest block";
-  const inputStyle = "w-full bg-zinc-50 dark:bg-dclr10 dark:text-dclr2 border-2 dark:border-dclr10 border-transparent focus:border-clr7 rounded-xl p-3 text-[1em] font-bold outline-none transition-all shadow-inner";
+  const labelStyle = "text-[0.9em] font-black uppercase text-clr3 tracking-widest block";
+  const inputStyle = "w-full bg-clr7 dark:bg-dclr7 dark:text-dclr2 border-2 dark:border-dclr4 border-transparent focus:border-clr4 rounded-xl p-3 text-[1em] font-bold outline-none transition-all shadow-inner";
   
   const infoIconContainerStyle = "inline-block";
-  const infoIconStyle = "text-clr7 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
-  const tooltipStyle = "fixed z-[300] left-1/2 -translate-x-1/2 top-1/4 w-[90%] max-w-lg p-6 bg-zinc-800 dark:bg-zinc-900 text-white text-[1em] font-medium leading-relaxed rounded-[2rem] shadow-2xl opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 border-2 border-clr7/50 backdrop-blur-md";
+  const infoIconStyle = "text-clr4 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
+  const tooltipStyle = "fixed z-[300] left-1/2 -translate-x-1/2 top-1/4 w-[90%] max-w-lg p-6 bg-clr2 dark:bg-dclr2 text-clr1 text-[1em] font-medium leading-relaxed rounded-[2rem] shadow-2xl opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 border-2 border-clr4 backdrop-blur-md";
 
   // Lógica de visibilidad
   const hasDiagnostico = formData.presenta_diagnostico_radio === 'Si' || (formData.presenta_diagnostico_radio === undefined && perfil.presenta_diagnostico_bool === true);
@@ -26,7 +26,7 @@ export default function Step15_RegulacionEmocional({ formData, setFormData, perf
           </span>
         </div>
         <div className={tooltipStyle}>
-          <div className="text-clr7 font-black uppercase text-[0.8em] tracking-tight mb-3 border-b border-clr7/30 pb-2 leading-tight">{label}</div>
+          <div className="text-clr4 font-black uppercase text-[0.8em] tracking-tight mb-3 border-b border-clr4 pb-2 leading-tight">{label}</div>
           <div className="text-[0.95em]" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(info) }} />
         </div>
       </div>
@@ -38,7 +38,7 @@ export default function Step15_RegulacionEmocional({ formData, setFormData, perf
       <FieldInfo label={label} info={info} />
       <div className="flex gap-4">
         {['Si', 'No'].map(o => (
-          <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] transition-all ${value === o ? 'border-clr7 bg-clr7 text-white' : 'border-zinc-100 dark:border-dclr10 dark:text-dclr2'}`}>
+          <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] transition-all ${value === o ? 'border-clr4 bg-clr4 text-clr1' : 'border-clr7 dark:border-dclr7 dark:text-dclr2'}`}>
             <input type="radio" checked={value === o} onChange={() => onChange(o)} className="hidden" /> {o}
           </label>
         ))}
@@ -82,8 +82,8 @@ export default function Step15_RegulacionEmocional({ formData, setFormData, perf
             </div>
 
             {/* Sub-sección: Necesidades Específicas */}
-            <div className="p-4 bg-zinc-50 dark:bg-dclr1/50 rounded-[1em] border border-clr10 dark:border-dclr10 space-y-4">
-              <h4 className="text-[1em] font-black uppercase text-clr7 tracking-widest border-b border-clr7/20 pb-2">Necesidades Específicas</h4>
+            <div className="p-4 bg-clr7 dark:bg-dclr7 rounded-[1em] border border-clr7 dark:border-dclr7 space-y-4">
+              <h4 className="text-[1em] font-black uppercase text-clr4 tracking-widest border-b border-clr4 pb-2">Necesidades Específicas</h4>
               
               {/* Comunicación */}
               <div className="space-y-4">

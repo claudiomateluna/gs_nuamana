@@ -5,7 +5,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/contexts/theme-context";
 import { SiteConfigProvider } from "@/contexts/site-config-context";
 import { loadSiteConfig } from "@/lib/site-config";
-import { generateThemeCSS } from "@/lib/theme-css";
+import { generateThemeCSS, generateHeaderColorsCSS, generateMenuColorsCSS, generatePromoColorsCSS, generateSlideshowColorsCSS, generateTestimonialsColorsCSS, generateVisitColorsCSS, generateFAQColorsCSS, generateSecondaryHeaderColorsCSS, generateFooterColorsCSS } from "@/lib/theme-css";
 import Footer from "@/components/footer";
 
 const inika = Inika({
@@ -67,14 +67,21 @@ export default async function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <body
-        className={`${inika.variable} ${quicksand.variable} ${robotoSlab.variable} antialiased bg-white dark:bg-dclr1 text-clr4 dark:text-dclr2`}
+        className={`${inika.variable} ${quicksand.variable} ${robotoSlab.variable} antialiased bg-clr1 dark:bg-dclr1 text-clr2 dark:text-dclr2`}
       >
-        {/* SSR theme overrides: emitted before ThemeProvider/children so the 18
+        {/* SSR theme overrides: emitted before ThemeProvider/children so the
             globals.css :root palette vars are overridden on first paint (zero
-            FOUC). Body-level <style> wins over globals.css (::head import) by
-            source order for equal specificity (:root). Re-rendered on save via
-            revalidatePath('/', 'layout') in saveSiteConfig. */}
+            FOUC). Re-rendered on save via revalidatePath('/', 'layout') in saveSiteConfig. */}
         <style dangerouslySetInnerHTML={{ __html: generateThemeCSS(config.theme_colors) }} />
+        <style dangerouslySetInnerHTML={{ __html: generateHeaderColorsCSS(config.header_colors || {}) }} />
+        <style dangerouslySetInnerHTML={{ __html: generateMenuColorsCSS(config.menu_colors || {}) }} />
+        <style dangerouslySetInnerHTML={{ __html: generatePromoColorsCSS(config.promo_colors) }} />
+        <style dangerouslySetInnerHTML={{ __html: generateSlideshowColorsCSS(config.slideshow_colors || {}) }} />
+        <style dangerouslySetInnerHTML={{ __html: generateTestimonialsColorsCSS(config.testimonials_colors || {}) }} />
+        <style dangerouslySetInnerHTML={{ __html: generateVisitColorsCSS(config.visit_colors || {}) }} />
+        <style dangerouslySetInnerHTML={{ __html: generateFAQColorsCSS(config.faq_colors || {}) }} />
+        <style dangerouslySetInnerHTML={{ __html: generateSecondaryHeaderColorsCSS(config.secondary_header_colors || {}) }} />
+        <style dangerouslySetInnerHTML={{ __html: generateFooterColorsCSS(config.footer_colors || {}) }} />
         <ThemeProvider>
           <SiteConfigProvider config={config}>
             <div className="flex flex-col min-h-screen">

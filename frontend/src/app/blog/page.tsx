@@ -165,34 +165,34 @@ function BlogContent() {
   const hasAnyFilter = search || selCat !== 'todas' || selUnidad || selArea || tagFilter || (metaKey && metaValue) || objEdFilter
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-dclr1 font-body transition-colors">
+    <div className="min-h-screen bg-clr1 dark:bg-dclr1 font-body transition-colors">
       <SecondaryHeader />
       
       <main className="max-w-[1080px] mx-auto px-2 py-32">
         <header className="mb-8">
-          <h1 className="text-4xl text-clr7 dark:text-dclr7 font-bold font-display uppercase">Bitácora Nua Mana</h1>
-          <p className="text-[0.9em] text-clr2 dark:text-dclr8 uppercase tracking-wider">Explora nuestras actividades, técnicas e historia</p>
+          <h1 className="text-4xl text-clr4 dark:text-dclr4 font-bold font-display uppercase">Bitácora Nua Mana</h1>
+          <p className="text-[0.9em] text-clr3 dark:text-dclr3 uppercase tracking-wider">Explora nuestras actividades, técnicas e historia</p>
         </header>
 
         {/* BANNER ANUNCIO DE CATEGORÍAS PRINCIPALES CON CONTADORES */}
         <CategoryPromoBanner className="mb-6" />
 
         {/* BARRA DE FILTROS */}
-        <div className="bg-clr9 dark:bg-dclr5 rounded-3xl border border-zinc-100 dark:border-dclr10 p-2 mb-2 shadow-sm grid grid-cols-1 md:grid-cols-4 gap-2">
+        <div className="bg-clr1 dark:bg-dclr1 rounded-3xl border border-clr7 dark:border-dclr7 p-2 mb-2 shadow-sm grid grid-cols-1 md:grid-cols-4 gap-2">
           <input 
             type="text" placeholder="🔍 Buscar..." 
-            className="p-2 rounded-2xl border bg-zinc-50 dark:bg-dclr1 text-[1em] focus:outline-clr7 transition-colors border-clr10 dark:border-dclr4 font-bold"
+            className="p-2 rounded-2xl border bg-clr1 dark:bg-dclr1 text-[1em] focus:outline-clr4 transition-colors border-clr7 dark:border-dclr7 font-bold"
             defaultValue={search} onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => e.key === 'Enter' && updateURL('q', e.currentTarget.value)}
           />
-          <select className="p-2 rounded-2xl border bg-zinc-50 dark:bg-dclr1 text-[0.8em] focus:outline-clr7 transition-colors border-clr10 dark:border-dclr4 font-bold" value={selCat} onChange={(e) => updateURL('category', e.target.value)}>
+          <select className="p-2 rounded-2xl border bg-clr1 dark:bg-dclr1 text-[0.8em] focus:outline-clr4 transition-colors border-clr7 dark:border-dclr7 font-bold" value={selCat} onChange={(e) => updateURL('category', e.target.value)}>
             <option value="todas">Todas las Categorías</option>
             {allCategorias.map(c => <option key={c.id} value={c.id.toString()}>{c.nombre} ({c.count})</option>)}
           </select>
-          <select className="p-2 rounded-2xl border bg-zinc-50 dark:bg-dclr1 text-[0.8em] focus:outline-clr7 transition-colors border-clr10 dark:border-dclr4 font-bold" value={selUnidad} onChange={(e) => updateURL('unidades', e.target.value)}>
+          <select className="p-2 rounded-2xl border bg-clr1 dark:bg-dclr1 text-[0.8em] focus:outline-clr4 transition-colors border-clr7 dark:border-dclr7 font-bold" value={selUnidad} onChange={(e) => updateURL('unidades', e.target.value)}>
             <option value="">Unidad (Todas)</option>
             {UNIDADES.map(u => <option key={u} value={u}>{u === 'compania' ? 'COMPAÑÍA' : u.toUpperCase()}</option>)}
           </select>
-          <select className="p-2 rounded-2xl border bg-zinc-50 dark:bg-dclr1 text-[0.8em] focus:outline-clr7 transition-colors border-clr10 dark:border-dclr4 font-bold" value={selArea} onChange={(e) => updateURL('areas', e.target.value)}>
+          <select className="p-2 rounded-2xl border bg-clr1 dark:bg-dclr1 text-[0.8em] focus:outline-clr4 transition-colors border-clr7 dark:border-dclr7 font-bold" value={selArea} onChange={(e) => updateURL('areas', e.target.value)}>
             <option value="">Área (Todas)</option>
             {AREAS.map(a => <option key={a} value={a}>{a.toUpperCase()}</option>)}
           </select>
@@ -201,12 +201,12 @@ function BlogContent() {
         {/* INDICADOR DE FILTROS ACTIVOS */}
         {hasAnyFilter && (
           <div className="flex flex-wrap gap-2 mb-8 px-2 items-center">
-            <span className="text-[0.8em] font-bold text-clr2 uppercase tracking-widest mr-2">Filtrando por:</span>
-            {tagFilter && <span className="bg-clr7 text-white px-3 py-1 rounded-full text-[0.8em] font-bold flex items-center gap-2 shadow-sm">#{tagFilter} <button onClick={() => updateURL('tag', '')} className="hover:text-clr3">✕</button></span>}
-            {metaKey && metaValue && <span className="bg-clr6 text-white px-3 py-1 rounded-full text-[0.8em] font-bold flex items-center gap-2 shadow-sm">{metaKey}: {metaValue} <button onClick={() => { updateURL('meta_key', ''); updateURL('meta_value', '') }} className="hover:text-clr3">✕</button></span>}
-            {objEdFilter && <span className="bg-orange-600 text-white px-3 py-1 rounded-full text-[0.8em] font-bold flex items-center gap-2 shadow-sm truncate max-w-[300px]">🎯 {objEdFilter} <button onClick={() => updateURL('obj_ed', '')} className="hover:text-orange-200">✕</button></span>}
-            {search && <span className="bg-clr3 text-white px-3 py-1 rounded-full text-[0.8em] font-bold flex items-center gap-2 shadow-sm">búsqueda: {search} <button onClick={() => updateURL('q', '')} className="hover:text-clr3">✕</button></span>}
-            <button onClick={() => router.push('/blog')} className="text-[0.8em] font-bold text-clr7 hover:underline uppercase ml-2">Limpiar todo</button>
+            <span className="text-[0.8em] font-bold text-clr3 uppercase tracking-widest mr-2">Filtrando por:</span>
+            {tagFilter && <span className="bg-clr4 text-clr1 px-3 py-1 rounded-full text-[0.8em] font-bold flex items-center gap-2 shadow-sm">#{tagFilter} <button onClick={() => updateURL('tag', '')} className="hover:text-clr2">✕</button></span>}
+            {metaKey && metaValue && <span className="bg-clr6 text-clr1 px-3 py-1 rounded-full text-[0.8em] font-bold flex items-center gap-2 shadow-sm">{metaKey}: {metaValue} <button onClick={() => { updateURL('meta_key', ''); updateURL('meta_value', '') }} className="hover:text-clr2">✕</button></span>}
+            {objEdFilter && <span className="bg-clr5 text-clr1 px-3 py-1 rounded-full text-[0.8em] font-bold flex items-center gap-2 shadow-sm truncate max-w-[300px]">🎯 {objEdFilter} <button onClick={() => updateURL('obj_ed', '')} className="hover:text-clr5">✕</button></span>}
+            {search && <span className="bg-clr2 text-clr1 px-3 py-1 rounded-full text-[0.8em] font-bold flex items-center gap-2 shadow-sm">búsqueda: {search} <button onClick={() => updateURL('q', '')} className="hover:text-clr2">✕</button></span>}
+            <button onClick={() => router.push('/blog')} className="text-[0.8em] font-bold text-clr4 hover:underline uppercase ml-2">Limpiar todo</button>
           </div>
         )}
 
@@ -216,15 +216,15 @@ function BlogContent() {
             const isLast = articulos.length === index + 1
             const mainCatName = post.articulo_categorias?.[0]?.categorias?.nombre || 'General'
             return (
-              <Link key={post.id} href={`/blog/${post.path}`} ref={isLast ? lastPostRef : null} className="group bg-white dark:bg-dclr5 rounded-[1em] overflow-hidden shadow-sm hover:shadow-xl transition-all border border-zinc-100 dark:border-dclr10 flex flex-col h-full">
+              <Link key={post.id} href={`/blog/${post.path}`} ref={isLast ? lastPostRef : null} className="group bg-clr1 dark:bg-dclr1 rounded-[1em] overflow-hidden shadow-sm hover:shadow-xl transition-all border border-clr7 dark:border-dclr7 flex flex-col h-full">
                 <div className="aspect-square relative overflow-hidden block">
-                  {post.imagen_destacada ? <img src={post.imagen_destacada} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" alt={post.titulo} /> : <div className="w-full h-full flex items-center justify-center text-zinc-300 opacity-20 text-4xl font-display uppercase italic">Nua Mana</div>}
+                  {post.imagen_destacada ? <img src={post.imagen_destacada} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" alt={post.titulo} /> : <div className="w-full h-full flex items-center justify-center text-clr3 opacity-20 text-4xl font-display uppercase italic">Nua Mana</div>}
                 </div>
                 <div className="p-4 flex flex-col flex-1">
-                  <span className="text-[0.8em] text-clr7 uppercase font-bold">{mainCatName}</span>
-                  <h2 className="text-[1.1em] font-bold font-display leading-tight mb-4 text-clr3 dark:text-dclr8 group-hover:text-clr6 transition-colors uppercase">{post.titulo}</h2>
-                  <p className="text-[1em] text-clr5 dark:text-dclr2 line-clamp-3 leading-relaxed font-body mb-6 italic">{post.extracto}</p>
-                  <div className="mt-auto flex justify-between items-center"><span className="text-[1em] font-bold uppercase text-clr6 group-hover:translate-x-2 transition-transform duration-300 font-display">Leer más →</span></div>
+                  <span className="text-[0.8em] text-tclr4 uppercase font-bold">{mainCatName}</span>
+                  <h2 className="text-[1.1em] font-bold font-display leading-tight mb-4 text-tclr3 dark:text-tdclr3 group-hover:text-tclr5 dark:group-hover:text-tdclr5 transition-colors uppercase">{post.titulo}</h2>
+                  <p className="text-[1em] text-tclr6 dark:text-tdclr6 line-clamp-3 leading-relaxed font-body mb-6 italic">{post.extracto}</p>
+                  <div className="mt-auto flex justify-between items-center"><span className="text-[1em] font-bold uppercase text-tclr5 dark:text-tdclr5 group-hover:translate-x-2 transition-transform duration-300 font-display">Leer más →</span></div>
                 </div>
               </Link>
             )
@@ -233,20 +233,20 @@ function BlogContent() {
 
         {/* ESTADOS DE CARGA Y VACÍO */}
         {loading && articulos.length === 0 && (
-          <div className="py-20 text-center font-display uppercase italic text-clr2 tracking-widest">Buscando aventuras...</div>
+          <div className="py-20 text-center font-display uppercase italic text-clr3 tracking-widest">Buscando aventuras...</div>
         )}
         {!loading && articulos.length === 0 && (
           <div className="py-20 text-center">
-            <p className="text-xl font-display uppercase text-clr2 italic mb-4">No encontramos rastros de esa actividad</p>
+            <p className="text-xl font-display uppercase text-clr3 italic mb-4">No encontramos rastros de esa actividad</p>
             {metaKey && <p className="text-[0.8em] opacity-50 mb-4 uppercase tracking-widest font-bold">Criterio: {metaKey} = {metaValue}</p>}
-            <button onClick={() => router.push('/blog')} className="text-clr7 font-bold uppercase border-b-2 border-clr7">Ver todo el contenido</button>
+            <button onClick={() => router.push('/blog')} className="text-clr4 font-bold uppercase border-b-2 border-clr4">Ver todo el contenido</button>
           </div>
         )}
         {loading && articulos.length > 0 && (
-          <div className="py-12 text-center text-clr2 italic font-bold uppercase tracking-[0.3em] text-[0.8em]">Cargando más...</div>
+          <div className="py-12 text-center text-clr3 italic font-bold uppercase tracking-[0.3em] text-[0.8em]">Cargando más...</div>
         )}
         {!hasMore && articulos.length > 0 && (
-          <div className="py-12 text-center text-zinc-300 font-black uppercase tracking-[0.2em] text-[0.8em]">Has llegado al final del camino</div>
+          <div className="py-12 text-center text-clr3 font-black uppercase tracking-[0.2em] text-[0.8em]">Has llegado al final del camino</div>
         )}
       </main>
     </div>
@@ -255,7 +255,7 @@ function BlogContent() {
 
 export default function BlogPage() {
   return (
-    <Suspense fallback={<div className="p-20 text-center font-display uppercase italic text-clr2">Cargando bitácora...</div>}>
+    <Suspense fallback={<div className="p-20 text-center font-display uppercase italic text-clr3">Cargando bitácora...</div>}>
       <BlogContent />
     </Suspense>
   )

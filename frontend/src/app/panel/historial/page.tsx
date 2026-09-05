@@ -35,7 +35,7 @@ export default function HistorialCiclosPage() {
 
   if (loading) {
     return (
-      <div className="p-20 text-center animate-pulse uppercase font-medium text-[0.8em] tracking-widest text-clr2">
+      <div className="p-20 text-center animate-pulse uppercase font-medium text-[0.8em] tracking-widest text-clr3">
         Cargando Memoria Scout...
       </div>
     )
@@ -43,7 +43,7 @@ export default function HistorialCiclosPage() {
 
   if (!perfil) {
     return (
-      <div className="p-20 text-center uppercase font-bold text-[0.9em] text-clr2">
+      <div className="p-20 text-center uppercase font-bold text-[0.9em] text-clr3">
         No se pudo cargar el perfil de usuario.
       </div>
     )
