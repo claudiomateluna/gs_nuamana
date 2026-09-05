@@ -55,13 +55,13 @@ export default function DashModRecaudacionCrear({ isOpen, onClose, onSuccess, pe
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-clr2 backdrop-blur-sm z-[110] flex items-center justify-center p-2 md:p-4 animate-in fade-in duration-300">
-      <div className="bg-clr1 dark:bg-dclr1 w-full max-w-lg rounded-[2.5rem] p-6 md:p-10 shadow-2xl border-4 border-clr7 dark:border-dclr7 overflow-y-auto max-h-[95vh]">
+    <div className="fixed inset-0 bg-pclr2 backdrop-blur-sm z-[110] flex items-center justify-center p-2 md:p-4 animate-in fade-in duration-300">
+      <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-lg rounded-[2.5rem] p-6 md:p-10 shadow-2xl border-4 border-pclr13 dark:border-pdclr13 overflow-y-auto max-h-[95vh]">
         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-2xl font-black font-display uppercase text-clr6 tracking-tighter">
+          <h2 className="text-2xl font-black font-display uppercase text-pclr6 tracking-tighter">
             Crear Nueva Recaudación
           </h2>
-          <button onClick={onClose} className="text-clr3 hover:text-clr2 dark:text-dclr3 dark:hover:text-clr1 font-bold text-[1.2em]">✕</button>
+          <button onClick={onClose} className="text-pclr7 hover:text-pclr4 dark:text-pdclr7 dark:hover:text-pclr12 font-bold text-[1.2em]">✕</button>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6 text-[1em]">
@@ -72,7 +72,7 @@ export default function DashModRecaudacionCrear({ isOpen, onClose, onSuccess, pe
               required
               value={nombre}
               onChange={e => setNombre(e.target.value)}
-              className="w-full p-3 rounded-xl border bg-clr7 dark:bg-dclr7 font-bold"
+              className="w-full p-3 rounded-xl border bg-pclr3 dark:bg-pdclr3 font-bold"
               placeholder="Ej: Rifa Pro-Campamento, Entradas Bingo..."
             />
           </div>
@@ -85,7 +85,7 @@ export default function DashModRecaudacionCrear({ isOpen, onClose, onSuccess, pe
                 required
                 value={fechaInicio}
                 onChange={e => setFechaInicio(e.target.value)}
-                className="w-full p-3 rounded-xl border bg-clr7 dark:bg-dclr7 font-bold text-center"
+                className="w-full p-3 rounded-xl border bg-pclr3 dark:bg-pdclr3 font-bold text-center"
               />
             </div>
             <div className="space-y-1">
@@ -95,7 +95,7 @@ export default function DashModRecaudacionCrear({ isOpen, onClose, onSuccess, pe
                 required
                 value={plazoMaximo}
                 onChange={e => setPlazoMaximo(e.target.value)}
-                className="w-full p-3 rounded-xl border bg-clr7 dark:bg-dclr7 font-bold text-center"
+                className="w-full p-3 rounded-xl border bg-pclr3 dark:bg-pdclr3 font-bold text-center"
               />
             </div>
           </div>
@@ -105,7 +105,7 @@ export default function DashModRecaudacionCrear({ isOpen, onClose, onSuccess, pe
             <select
               value={unidad}
               onChange={e => setUnidad(e.target.value)}
-              className="w-full p-3 rounded-xl border bg-clr7 dark:bg-dclr7 font-bold uppercase"
+              className="w-full p-3 rounded-xl border bg-pclr3 dark:bg-pdclr3 font-bold uppercase"
             >
               <option value="Grupal">⚜️ Grupal (Todo el Grupo)</option>
               <option value="Manada">🐾 Manada</option>
@@ -119,18 +119,18 @@ export default function DashModRecaudacionCrear({ isOpen, onClose, onSuccess, pe
             </p>
           </div>
 
-          <div className="flex justify-end gap-3 pt-4 border-t dark:border-dclr7">
+          <div className="flex justify-end gap-3 pt-4 border-t dark:border-pdclr13">
             <button
               type="button"
               onClick={onClose}
-              className="px-6 py-3 border-2 border-clr3 text-clr3 rounded-xl text-[0.85em] font-bold uppercase hover:bg-clr7 dark:hover:bg-dclr7 transition-all"
+              className="px-6 py-3 border-2 border-pclr13 text-pclr7 rounded-xl text-[0.85em] font-bold uppercase hover:bg-pclr3 dark:hover:bg-pdclr3 transition-all"
             >
               Cancelar
             </button>
             <button
               type="submit"
               disabled={saving}
-              className="px-6 py-3 bg-clr6 text-clr1 rounded-xl text-[0.85em] font-bold uppercase hover:brightness-110 shadow-lg transition-all disabled:opacity-50"
+              className="px-6 py-3 bg-pclr6 text-pclr12 rounded-xl text-[0.85em] font-bold uppercase hover:brightness-110 shadow-lg transition-all disabled:opacity-50"
             >
               {saving ? 'Creando...' : 'Crear Recaudación'}
             </button>

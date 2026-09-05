@@ -24,8 +24,8 @@ export default function ProyectoPaso1Que({
   return (
     <div className="space-y-2">
       <div className="flex items-center gap-1 p-2 opacity-60 rounded-[0.8rem]" style={{ backgroundColor: themePrimary }}>
-        <span className="w-8 h-8 rounded-full flex items-center justify-center text-clr1 text-[0.9em] font-bold" style={{ color: themeSecondary }}>1</span>
-        <h3 className="text-xl font-black uppercase tracking-tight text-clr2 dark:text-dclr2" style={{ color: themeSecondary }}>¿Qué Haremos?</h3>
+        <span className="w-8 h-8 rounded-full flex items-center justify-center text-pclr12 text-[0.9em] font-bold" style={{ color: themeSecondary }}>1</span>
+        <h3 className="text-xl font-black uppercase tracking-tight text-pclr4 dark:text-pdclr4" style={{ color: themeSecondary }}>¿Qué Haremos?</h3>
       </div>
 
       <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 min-h-[420px] p-1 font-body">
@@ -44,7 +44,7 @@ export default function ProyectoPaso1Que({
         </div>
 
         {/* Right Column (Desktop) / Bottom Row (Mobile) */}
-        <div className="w-full space-y-2 bg-clr7 dark:bg-dclr7 p-1 rounded-[1rem] border border-clr7 dark:border-dclr7 backdrop-blur-xs shadow-md">
+        <div className="w-full space-y-2 bg-pclr3 dark:bg-pdclr3 p-1 rounded-[1rem] border border-pclr13 dark:border-pdclr13 backdrop-blur-xs shadow-md">
           <div className="space-y-1">
             <label className="text-[0.8em] md:text-[0.9em] font-bold uppercase ml-1 p-1 rounded-[0.6rem] text-center" style={{ backgroundColor: themePrimary, color: themeSecondary }}>Nombre del Proyecto</label>
             <input 
@@ -52,17 +52,17 @@ export default function ProyectoPaso1Que({
               value={formData.titulo || ''}
               onChange={e => setFormData({ ...formData, titulo: e.target.value })}
               placeholder="Ej: Misión Reforestación"
-              className="w-full p-2 rounded-2xl border-2 border-clr7 dark:border-dclr7 bg-clr1 dark:bg-dclr1 font-bold text-[0.9em]"
+              className="w-full p-2 rounded-2xl border-2 border-pclr13 dark:border-pdclr13 bg-pclr1 dark:bg-pdclr1 font-bold text-[0.9em]"
             />
           </div>
 
           {perfil.unidad_id === UNIT_IDS.CLAN && (
             <div className="space-y-1">
-              <label className="text-[0.8em] md:text-[0.9em] font-bold uppercase text-clr3 ml-1 p-1 rounded-[0.6rem]" style={{ backgroundColor: themePrimary }}>Campo de Acción</label>
+              <label className="text-[0.8em] md:text-[0.9em] font-bold uppercase text-pclr7 ml-1 p-1 rounded-[0.6rem]" style={{ backgroundColor: themePrimary }}>Campo de Acción</label>
               <select 
                 value={formData.campo_prioritario || ''}
                 onChange={e => setFormData({ ...formData, campo_prioritario: e.target.value })}
-                className="w-full p-1 rounded-2xl border-2 border-clr7 dark:border-dclr7 bg-clr1 dark:bg-dclr1 font-bold uppercase tracking-tight text-[0.8em]"
+                className="w-full p-1 rounded-2xl border-2 border-pclr13 dark:border-pdclr13 bg-pclr1 dark:bg-pdclr1 font-bold uppercase tracking-tight text-[0.8em]"
               >
                 <option value="">Seleccionar campo de acción...</option>
                 <option value="servicio">Servicio Comunitario</option>
@@ -75,7 +75,7 @@ export default function ProyectoPaso1Que({
           
           {perfil.unidad_id === UNIT_IDS.AVANZADA && (
             <div className="space-y-1">
-              <label className="text-[0.8em] md:text-[0.9em] font-bold uppercase text-clr3 ml-1 p-1 rounded-[0.6rem]" style={{ backgroundColor: themePrimary, color: themeSecondary }}>Competencias</label>
+              <label className="text-[0.8em] md:text-[0.9em] font-bold uppercase text-pclr7 ml-1 p-1 rounded-[0.6rem]" style={{ backgroundColor: themePrimary, color: themeSecondary }}>Competencias</label>
               <select 
                 value=""
                 onChange={e => {
@@ -84,7 +84,7 @@ export default function ProyectoPaso1Que({
                     setCompetenciasAsociadas([...competenciasAsociadas, val])
                   }
                 }}
-                className="w-full p-2 rounded-2xl border-2 border-clr7 dark:border-dclr7 bg-clr1 dark:bg-dclr1 font-bold uppercase tracking-tight text-[0.8em]"
+                className="w-full p-2 rounded-2xl border-2 border-pclr13 dark:border-pdclr13 bg-pclr1 dark:bg-pdclr1 font-bold uppercase tracking-tight text-[0.8em]"
               >
                 <option value="">Seleccionar competencia...</option>
                 <option value="cultura">🎭 Cultura</option>
@@ -102,14 +102,14 @@ export default function ProyectoPaso1Que({
                   {competenciasAsociadas.map(comp => (
                     <span 
                       key={comp}
-                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[0.8em] font-black uppercase text-clr1 shadow-sm"
+                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[0.8em] font-black uppercase text-pclr12 shadow-sm"
                       style={{ backgroundColor: themePrimary }}
                     >
                       {comp.replace('_', ' ')}
                       <button 
                         type="button" 
                         onClick={() => setCompetenciasAsociadas(competenciasAsociadas.filter(c => c !== comp))}
-                        className="w-4 h-4 rounded-full bg-clr1 hover:bg-clr1 flex items-center justify-center text-[0.8em] font-bold"
+                        className="w-4 h-4 rounded-full bg-pclr1 hover:bg-pclr1 flex items-center justify-center text-[0.8em] font-bold"
                       >
                         ✕
                       </button>
@@ -121,12 +121,12 @@ export default function ProyectoPaso1Que({
           )}
 
           <div className="space-y-1">
-            <label className="text-[0.8em] md:text-[0.9em] font-black uppercase tracking-wider text-clr3 ml-1 p-1 rounded-[0.6rem]" style={{ backgroundColor: themePrimary, color: themeSecondary }}>Describe tu Proyecto</label>
+            <label className="text-[0.8em] md:text-[0.9em] font-black uppercase tracking-wider text-pclr7 ml-1 p-1 rounded-[0.6rem]" style={{ backgroundColor: themePrimary, color: themeSecondary }}>Describe tu Proyecto</label>
             <textarea 
               value={formData.paso1_que_haremos || ''}
               onChange={e => setFormData({ ...formData, paso1_que_haremos: e.target.value })}
               placeholder="Describe de forma simple y soñadora el cambio..."
-              className="w-full p-2 rounded-2xl border-2 border-clr7 dark:border-dclr7 bg-clr1 dark:bg-dclr1 font-bold h-28 text-[0.9em]"
+              className="w-full p-2 rounded-2xl border-2 border-pclr13 dark:border-pdclr13 bg-pclr1 dark:bg-pdclr1 font-bold h-28 text-[0.9em]"
             />
           </div>
         </div>

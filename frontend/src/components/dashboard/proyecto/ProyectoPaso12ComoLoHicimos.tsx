@@ -20,8 +20,8 @@ export default function ProyectoPaso12ComoLoHicimos({
   return (
     <div className="space-y-2">
       <div className="flex items-center gap-1 p-2 opacity-60 rounded-[0.8rem]" style={{ backgroundColor: themePrimary }}>
-        <span className="w-8 h-8 rounded-full flex items-center justify-center text-clr1 text-[0.9em] font-bold" style={{ color: themeSecondary }}>12</span>
-        <h3 className="text-xl font-black uppercase tracking-tight text-clr2 dark:text-dclr2" style={{ color: themeSecondary }}>¿Cómo lo hicimos?</h3>
+        <span className="w-8 h-8 rounded-full flex items-center justify-center text-pclr12 text-[0.9em] font-bold" style={{ color: themeSecondary }}>12</span>
+        <h3 className="text-xl font-black uppercase tracking-tight text-pclr4 dark:text-pdclr4" style={{ color: themeSecondary }}>¿Cómo lo hicimos?</h3>
       </div>
 
       <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 min-h-[420px] p-1 font-body">
@@ -40,42 +40,42 @@ export default function ProyectoPaso12ComoLoHicimos({
         </div>
 
         {/* Right Column (Desktop) / Bottom Row (Mobile) */}
-        <div className="w-full space-y-2 bg-clr7 dark:bg-dclr7 p-1 rounded-[1rem] border border-clr7 dark:border-dclr7 backdrop-blur-xs shadow-md">
-          <p className="text-[0.9em] text-clr3 font-bold p-1 leading-tight">
+        <div className="w-full space-y-2 bg-pclr3 dark:bg-pdclr3 p-1 rounded-[1rem] border border-pclr13 dark:border-pdclr13 backdrop-blur-xs shadow-md">
+          <p className="text-[0.9em] text-pclr7 font-bold p-1 leading-tight">
             Escribe la co-evaluación del grupo o del Caminante para cada una de las actividades del proyecto.
           </p>
 
           <div className="space-y-2 max-h-[500px] overflow-y-auto pr-1">
             {/* Actividades del paso 7 */}
             {actividades.map((act, index) => (
-              <div key={act.id} className="p-2 bg-clr1 dark:bg-dclr1 border dark:border-clr1 rounded-2xl space-y-2">
-                <span className="text-[0.9em] font-black uppercase text-clr3">Actividad #{index + 1} del Paso 7</span>
-                <h5 className="font-bold text-[0.9em] uppercase text-clr2 dark:text-dclr2 leading-none">{act.nombre || '(Sin Nombre)'}</h5>
+              <div key={act.id} className="p-2 bg-pclr1 dark:bg-pdclr1 border dark:border-pclr1 rounded-2xl space-y-2">
+                <span className="text-[0.9em] font-black uppercase text-pclr7">Actividad #{index + 1} del Paso 7</span>
+                <h5 className="font-bold text-[0.9em] uppercase text-pclr4 dark:text-pdclr4 leading-none">{act.nombre || '(Sin Nombre)'}</h5>
                 <textarea 
                   value={evaluacionesAct[act.nombre] || ''}
                   onChange={e => setEvaluacionesAct({ ...evaluacionesAct, [act.nombre]: e.target.value })}
                   placeholder="¿Se cumplieron los objetivos? ¿Qué falló? ¿Qué aprendimos?..."
-                  className="w-full p-2 rounded-2xl border-2 border-clr7 dark:border-dclr7 bg-clr1 dark:bg-dclr1 font-bold h-20 text-[0.9em]"
+                  className="w-full p-2 rounded-2xl border-2 border-pclr13 dark:border-pdclr13 bg-pclr1 dark:bg-pdclr1 font-bold h-20 text-[0.9em]"
                 />
               </div>
             ))}
 
             {/* Actividades del paso 11 */}
             {financiamientoItems.map((item, index) => (
-              <div key={index} className="p-2 bg-clr1 dark:bg-dclr1 border dark:border-clr1 rounded-2xl space-y-2">
-                <span className="text-[0.9em] font-black uppercase text-clr3">Actividad de Financiamiento #{index + 1} del Paso 11</span>
-                <h5 className="font-bold text-[0.9em] uppercase text-clr2 dark:text-dclr2 leading-none">{item.nombre || '(Sin Nombre)'}</h5>
+              <div key={index} className="p-2 bg-pclr1 dark:bg-pdclr1 border dark:border-pclr1 rounded-2xl space-y-2">
+                <span className="text-[0.9em] font-black uppercase text-pclr7">Actividad de Financiamiento #{index + 1} del Paso 11</span>
+                <h5 className="font-bold text-[0.9em] uppercase text-pclr4 dark:text-pdclr4 leading-none">{item.nombre || '(Sin Nombre)'}</h5>
                 <textarea 
                   value={evaluacionesAct[item.nombre] || ''}
                   onChange={e => setEvaluacionesAct({ ...evaluacionesAct, [item.nombre]: e.target.value })}
                   placeholder="¿Logramos recaudar los fondos estimados? ¿Cuáles fueron las dificultades?..."
-                  className="w-full p-2 rounded-2xl border-2 border-clr7 dark:border-dclr7 bg-clr1 dark:bg-dclr1 font-bold h-20 text-[0.9em]"
+                  className="w-full p-2 rounded-2xl border-2 border-pclr13 dark:border-pdclr13 bg-pclr1 dark:bg-pdclr1 font-bold h-20 text-[0.9em]"
                 />
               </div>
             ))}
 
             {actividades.length === 0 && financiamientoItems.length === 0 && (
-              <p className="text-center py-6 text-clr3 font-bold italic text-[0.85em]">No hay actividades de planificación para evaluar en este paso.</p>
+              <p className="text-center py-6 text-pclr7 font-bold italic text-[0.85em]">No hay actividades de planificación para evaluar en este paso.</p>
             )}
           </div>
         </div>

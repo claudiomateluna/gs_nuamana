@@ -51,33 +51,33 @@ export default function DashboardPage() {
   const d = useDashboard()
   const [tallyRefreshKey, setTallyRefreshKey] = useState(0)
 
-  if (d.loading) return <div className="p-20 text-center font-body text-clr3 italic tracking-widest uppercase text-[0.8em]">Sincronizando Bitacora...</div>
+  if (d.loading) return <div className="p-20 text-center font-body text-pclr7 dark:text-pdclr7 italic tracking-widest uppercase text-[0.8em]">Sincronizando Bitacora...</div>
   if (!d.perfil) return null
 
   return (
-    <div className="min-h-screen bg-clr7 dark:bg-dclr7 font-body transition-colors">
+    <div className="min-h-screen bg-pclr1 dark:bg-pdclr1 font-body transition-colors">
       <SecondaryHeader />
       <main className="max-w-[1080px] mx-auto px-2 py-32">
-        <div className="bg-gradient-to-br from-tclr1 to-tclr2 dark:from-tdclr1 dark:to-tdclr2 rounded-[1rem] p-2 md:p-4 shadow-2xl border border-clr7 dark:border-dclr7 animate-in fade-in slide-in-from-bottom-8 duration-700">
+        <div className="bg-gradient-to-br from-pclr1 to-pclr2 dark:from-pdclr1 dark:to-pdclr2 rounded-[1rem] p-2 md:p-4 shadow-2xl border border-pclr13 dark:border-pdclr13 animate-in fade-in slide-in-from-bottom-8 duration-700">
           
-          <header className="flex flex-col md:flex-row justify-between items-center gap-4 mb-4 border-b border-clr7 dark:border-dclr7 pb-4">
+          <header className="flex flex-col md:flex-row justify-between items-center gap-4 mb-4 border-b border-pclr13 dark:border-pdclr13 pb-4">
             <div className="text-center md:text-left">
-              <h1 className="text-3xl md:text-4xl font-black font-display text-tclr3 dark:text-tdclr3 uppercase tracking-tighter leading-none font-bold">{d.perfil.nombres} {d.perfil.apellidos}</h1>
-              <p className="text-sm md:text-xl text-tclr4 dark:text-tdclr4 font-bold uppercase tracking-[0.2em] mt-2">{d.perfil.roles?.name} • {d.perfil.unidades?.nombre || 'Grupo Nua Mana'}</p>
+              <h1 className="text-3xl md:text-4xl font-black font-display text-pclr4 dark:text-pdclr4 uppercase tracking-tighter leading-none font-bold">{d.perfil.nombres} {d.perfil.apellidos}</h1>
+              <p className="text-sm md:text-xl text-pclr5 dark:text-pdclr5 font-bold uppercase tracking-[0.2em] mt-2">{d.perfil.roles?.name} • {d.perfil.unidades?.nombre || 'Grupo Nua Mana'}</p>
             </div>
-            <div className="shrink-0 w-24 h-24 bg-clr6 rounded-full flex items-center justify-center shadow-xl overflow-hidden"><img src="/images/logos/LogoColor.svg" alt="Logo" className="w-28 h-28" /></div>
+            <div className="shrink-0 w-24 h-24 bg-pclr3 dark:bg-pdclr3 rounded-full flex items-center justify-center shadow-xl overflow-hidden"><img src="/images/logos/LogoColor.svg" alt="Logo" className="w-28 h-28" /></div>
           </header>
 
           {/* ACCIONES RAPIDAS */}
-          <div className="flex flex-col md:flex-row gap-2 border-b border-clr7 dark:border-dclr7 pb-4 flex-wrap">
+          <div className="flex flex-col md:flex-row gap-2 border-b border-pclr13 dark:border-pdclr13 pb-4 flex-wrap">
             {d.directivo && (
               <>
-                <button onClick={() => d.setIsModActividadOpen(true)} className="flex items-center justify-between gap-2 p-2 bg-clr2 text-clr1 font-bold uppercase rounded-[1rem] shadow-xl hover:brightness-125 transition-all tracking-widest text-[0.9em] font-inika text-right leading-none">
+                <button onClick={() => d.setIsModActividadOpen(true)} className="flex items-center justify-between gap-2 p-2 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 font-bold uppercase rounded-[1rem] shadow-xl hover:brightness-125 transition-all tracking-widest text-[0.9em] font-inika text-right leading-none">
                   <div className="w-6 h-6 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_programar_actividad.svg)', maskImage: 'url(/images/iconos/icono_programar_actividad.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
                   Programar Actividad
                 </button>
-                <button onClick={d.handleSyncOffline} className="flex items-center justify-between gap-2 p-2 bg-clr5 hover:bg-clr5 text-clr1 font-bold uppercase rounded-[1rem] shadow-xl active:scale-95 transition-all tracking-widest text-[0.9em] font-inika text-right leading-none relative group">
-                  <div className="w-6 h-6 flex items-center justify-center bg-transparent text-clr1">
+                <button onClick={d.handleSyncOffline} className="flex items-center justify-between gap-2 p-2 bg-pclr6 dark:bg-pdclr6 text-pclr12 dark:text-pdclr12 font-bold uppercase rounded-[1rem] shadow-xl active:scale-95 transition-all tracking-widest text-[0.9em] font-inika text-right leading-none relative group">
+                  <div className="w-6 h-6 flex items-center justify-center bg-transparent text-pclr12 dark:text-pdclr12">
                     <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                     </svg>
@@ -93,62 +93,62 @@ export default function DashboardPage() {
                 </button>
               </>
             )}
-            <button onClick={() => { d.setEditingPupilo(null); d.setEditData(d.perfil as Partial<Perfil>); d.setIsModPerfilOpen(true); }} className="flex items-center justify-between gap-2 p-2 bg-clr6 dark:bg-dclr6 text-clr1 font-bold uppercase rounded-[1rem] shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest text-[0.9em] font-inika text-right leading-none">
+            <button onClick={() => { d.setEditingPupilo(null); d.setEditData(d.perfil as Partial<Perfil>); d.setIsModPerfilOpen(true); }} className="flex items-center justify-between gap-2 p-2 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 font-bold uppercase rounded-[1rem] shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest text-[0.9em] font-inika text-right leading-none">
               <div className="w-6 h-6 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_actualizar_ficha.svg)', maskImage: 'url(/images/iconos/icono_actualizar_ficha.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
               Actualizar Datos
             </button>
-            <button onClick={() => d.handleOpenWizard(d.perfil)} className="flex items-center justify-between gap-2 p-2 bg-tclr5 hover:bg-tclr5 dark:bg-tdclr5 text-clr1 font-bold uppercase rounded-[1rem] shadow-xl active:scale-95 transition-all tracking-widest text-[0.9em] font-inika text-right leading-none">
+            <button onClick={() => d.handleOpenWizard(d.perfil)} className="flex items-center justify-between gap-2 p-2 bg-pclr8 dark:bg-pdclr8 text-pclr12 dark:text-pdclr12 font-bold uppercase rounded-[1rem] shadow-xl active:scale-95 transition-all tracking-widest text-[0.9em] font-inika text-right leading-none">
               <div className="w-6 h-6 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_autorizacion.svg)', maskImage: 'url(/images/iconos/icono_autorizacion.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
               Autorizacion
             </button>
-            <button onClick={() => d.setShowPassModal(true)} className="flex items-center justify-between gap-2 p-2 bg-clr7 dark:bg-dclr1 text-clr2 dark:text-dclr2 font-bold uppercase rounded-[1rem] hover:bg-clr6 transition-all tracking-widest text-[0.9em] font-inika text-right leading-none">
+            <button onClick={() => d.setShowPassModal(true)} className="flex items-center justify-between gap-2 p-2 bg-pclr11 dark:bg-pdclr11 text-pclr12 dark:text-pdclr12 font-bold uppercase rounded-[1rem] hover:brightness-125 transition-all tracking-widest text-[0.9em] font-inika text-right leading-none">
               <div className="w-6 h-6 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_cambiar_contrasena.svg)', maskImage: 'url(/images/iconos/icono_cambiar_contrasena.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
               Cambiar Contrasena
             </button>
-            <button onClick={async () => { if (!window.confirm('¿Cerrar sesión?')) return; await supabase.auth.signOut(); window.location.href = '/'; }} className="flex items-center justify-between gap-2 p-2 bg-tclr5 dark:bg-tdclr5 text-clr1 font-bold uppercase rounded-[1rem] hover:brightness-110 active:scale-95 transition-all tracking-widest text-[0.9em] font-inika text-right leading-none">
+            <button onClick={async () => { if (!window.confirm('¿Cerrar sesión?')) return; await supabase.auth.signOut(); window.location.href = '/'; }} className="flex items-center justify-between gap-2 p-2 bg-pclr5 dark:bg-pdclr5 text-pclr12 dark:text-pdclr12 font-bold uppercase rounded-[1rem] hover:brightness-110 active:scale-95 transition-all tracking-widest text-[0.9em] font-inika text-right leading-none">
               <div className="w-6 h-6 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_salir.svg)', maskImage: 'url(/images/iconos/icono_salir.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
               Cerrar Sesion
             </button>
           </div>
 
-          <div className="flex border-b border-clr7 dark:border-dclr7 mb-5 mt-2 overflow-x-auto scrollbar-hide text-[1em]">
-            <button onClick={() => d.setActiveTab('inicio')} className={`flex flex-col items-center justify-center px-4 py-2 uppercase font-slab border-b-2 gap-1 ${d.activeTab === 'inicio' ? 'border-clr4 text-clr4 font-bold' : 'border-transparent text-clr3 hover:text-clr2 dark:hover:text-clr1'}`}>
+          <div className="flex border-b border-pclr13 dark:border-pdclr13 mb-5 mt-2 overflow-x-auto scrollbar-hide text-[1em]">
+            <button onClick={() => d.setActiveTab('inicio')} className={`flex flex-col items-center justify-center px-4 py-2 uppercase font-slab border-b-2 gap-1 ${d.activeTab === 'inicio' ? 'border-pclr8 text-pclr8 dark:border-pdclr8 dark:text-pdclr8 font-bold' : 'border-transparent text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4'}`}>
               <div className="w-8 h-8 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_ficha.svg)', maskImage: 'url(/images/iconos/icono_ficha.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
               <span className="text-[0.8em] sm:text-xs leading-none">Ficha</span>
             </button>
-            {d.canSeeUnits && <button onClick={() => d.setActiveTab('unidad')} className={`flex flex-col items-center justify-center px-4 py-2 uppercase font-slab border-b-2 gap-1 ${d.activeTab === 'unidad' ? 'border-clr4 text-clr4 font-bold' : 'border-transparent text-clr3 hover:text-clr2 dark:hover:text-clr1'}`}>
+            {d.canSeeUnits && <button onClick={() => d.setActiveTab('unidad')} className={`flex flex-col items-center justify-center px-4 py-2 uppercase font-slab border-b-2 gap-1 ${d.activeTab === 'unidad' ? 'border-pclr8 text-pclr8 dark:border-pdclr8 dark:text-pdclr8 font-bold' : 'border-transparent text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4'}`}>
               <div className="w-8 h-8 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_unidad.svg)', maskImage: 'url(/images/iconos/icono_unidad.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
               <span className="text-[0.8em] sm:text-xs leading-none">Unidad</span>
             </button>}
-            {d.directivo && <button onClick={() => d.setActiveTab('usuarios')} className={`flex flex-col items-center justify-center px-4 py-2 uppercase font-slab border-b-2 gap-1 ${d.activeTab === 'usuarios' ? 'border-clr4 text-clr4 font-bold' : 'border-transparent text-clr3 hover:text-clr2 dark:hover:text-clr1'}`}>
+            {d.directivo && <button onClick={() => d.setActiveTab('usuarios')} className={`flex flex-col items-center justify-center px-4 py-2 uppercase font-slab border-b-2 gap-1 ${d.activeTab === 'usuarios' ? 'border-pclr8 text-pclr8 dark:border-pdclr8 dark:text-pdclr8 font-bold' : 'border-transparent text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4'}`}>
               <div className="w-8 h-8 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_grupo.svg)', maskImage: 'url(/images/iconos/icono_grupo.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
               <span className="text-[0.8em] sm:text-xs leading-none">Grupo</span>
             </button>}
-            {canSeeAllTabs(d.perfil) && !isInactive(d.perfil) && <button onClick={() => d.setActiveTab('actas')} className={`flex flex-col items-center justify-center px-4 py-2 uppercase font-slab border-b-2 gap-1 ${d.activeTab === 'actas' ? 'border-clr4 text-clr4 font-bold' : 'border-transparent text-clr3 hover:text-clr2 dark:hover:text-clr1'}`}>
+            {canSeeAllTabs(d.perfil) && !isInactive(d.perfil) && <button onClick={() => d.setActiveTab('actas')} className={`flex flex-col items-center justify-center px-4 py-2 uppercase font-slab border-b-2 gap-1 ${d.activeTab === 'actas' ? 'border-pclr8 text-pclr8 dark:border-pdclr8 dark:text-pdclr8 font-bold' : 'border-transparent text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4'}`}>
               <div className="w-8 h-8 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_actas.svg)', maskImage: 'url(/images/iconos/icono_actas.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
               <span className="text-[0.8em] sm:text-xs leading-none">Actas</span>
             </button>}
-            {d.canSeeTeso && <button onClick={() => d.setActiveTab('tesoreria')} className={`flex flex-col items-center justify-center px-4 py-2 uppercase font-slab border-b-2 gap-1 ${d.activeTab === 'tesoreria' ? 'border-clr4 text-clr4 font-bold' : 'border-transparent text-clr3 hover:text-clr2 dark:hover:text-clr1'}`}>
+            {d.canSeeTeso && <button onClick={() => d.setActiveTab('tesoreria')} className={`flex flex-col items-center justify-center px-4 py-2 uppercase font-slab border-b-2 gap-1 ${d.activeTab === 'tesoreria' ? 'border-pclr8 text-pclr8 dark:border-pdclr8 dark:text-pdclr8 font-bold' : 'border-transparent text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4'}`}>
               <div className="w-8 h-8 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_tesoreria.svg)', maskImage: 'url(/images/iconos/icono_tesoreria.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
               <span className="text-[0.8em] sm:text-xs leading-none">Tesoreria</span>
             </button>}
-            {(d.directivo || d.nnj) && <button onClick={() => d.setActiveTab('ciclo')} className={`flex flex-col items-center justify-center px-4 py-2 uppercase font-slab border-b-2 gap-1 ${d.activeTab === 'ciclo' ? 'border-clr4 text-clr4 font-bold' : 'border-transparent text-clr3 hover:text-clr2 dark:hover:text-clr1'}`}>
+            {(d.directivo || d.nnj) && <button onClick={() => d.setActiveTab('ciclo')} className={`flex flex-col items-center justify-center px-4 py-2 uppercase font-slab border-b-2 gap-1 ${d.activeTab === 'ciclo' ? 'border-pclr8 text-pclr8 dark:border-pdclr8 dark:text-pdclr8 font-bold' : 'border-transparent text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4'}`}>
               <div className="w-8 h-8 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_ciclo.svg)', maskImage: 'url(/images/iconos/icono_ciclo.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
               <span className="text-[0.8em] sm:text-xs leading-none">Ciclo</span>
             </button>}
-            {(d.directivo || d.nnj) && !isInactive(d.perfil) && <button onClick={() => d.setActiveTab('articulos')} className={`flex flex-col items-center justify-center px-4 py-2 uppercase font-slab border-b-2 gap-1 ${d.activeTab === 'articulos' ? 'border-clr4 text-clr4 font-bold' : 'border-transparent text-clr3 hover:text-clr2 dark:hover:text-clr1'}`}>
+            {(d.directivo || d.nnj) && !isInactive(d.perfil) && <button onClick={() => d.setActiveTab('articulos')} className={`flex flex-col items-center justify-center px-4 py-2 uppercase font-slab border-b-2 gap-1 ${d.activeTab === 'articulos' ? 'border-pclr8 text-pclr8 dark:border-pdclr8 dark:text-pdclr8 font-bold' : 'border-transparent text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4'}`}>
               <div className="w-8 h-8 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_articulos.svg)', maskImage: 'url(/images/iconos/icono_articulos.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
               <span className="text-[0.8em] sm:text-xs leading-none">Articulos</span>
             </button>}
-            {(d.directivo || d.nnj) && !isInactive(d.perfil) && <button onClick={() => d.setActiveTab('tally')} className={`flex flex-col items-center justify-center px-4 py-2 uppercase font-slab border-b-2 gap-1 ${d.activeTab === 'tally' ? 'border-clr4 text-clr4 font-bold' : 'border-transparent text-clr3 hover:text-clr2 dark:hover:text-clr1'}`}>
+            {(d.directivo || d.nnj) && !isInactive(d.perfil) && <button onClick={() => d.setActiveTab('tally')} className={`flex flex-col items-center justify-center px-4 py-2 uppercase font-slab border-b-2 gap-1 ${d.activeTab === 'tally' ? 'border-pclr8 text-pclr8 dark:border-pdclr8 dark:text-pdclr8 font-bold' : 'border-transparent text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4'}`}>
               <div className="w-8 h-8 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_unidad.svg)', maskImage: 'url(/images/iconos/icono_tally.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
               <span className="text-[0.8em] sm:text-xs leading-none">{getBitacoraName(d.perfil?.unidad_id)}</span>
             </button>}
-            <button onClick={() => d.setActiveTab('progresion')} className={`flex flex-col items-center justify-center px-4 py-2 uppercase font-slab border-b-2 gap-1 ${d.activeTab === 'progresion' ? 'border-clr4 text-clr4 font-bold' : 'border-transparent text-clr3 hover:text-clr2 dark:hover:text-clr1'}`}>
+            <button onClick={() => d.setActiveTab('progresion')} className={`flex flex-col items-center justify-center px-4 py-2 uppercase font-slab border-b-2 gap-1 ${d.activeTab === 'progresion' ? 'border-pclr8 text-pclr8 dark:border-pdclr8 dark:text-pdclr8 font-bold' : 'border-transparent text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4'}`}>
               <div className="w-8 h-8 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_progresion.svg)', maskImage: 'url(/images/iconos/icono_progresion.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
               <span className="text-[0.8em] sm:text-xs leading-none">Progresion</span>
             </button>
-            {canSeeAllTabs(d.perfil) && !isInactive(d.perfil) && <button onClick={() => d.setActiveTab('inventario')} className={`flex flex-col items-center justify-center px-4 py-2 uppercase font-slab border-b-2 gap-1 ${d.activeTab === 'inventario' ? 'border-clr4 text-clr4 font-bold' : 'border-transparent text-clr3 hover:text-clr2 dark:hover:text-clr1'}`}>
+            {canSeeAllTabs(d.perfil) && !isInactive(d.perfil) && <button onClick={() => d.setActiveTab('inventario')} className={`flex flex-col items-center justify-center px-4 py-2 uppercase font-slab border-b-2 gap-1 ${d.activeTab === 'inventario' ? 'border-pclr8 text-pclr8 dark:border-pdclr8 dark:text-pdclr8 font-bold' : 'border-transparent text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4'}`}>
               <div className="w-8 h-8 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_inventario.svg)', maskImage: 'url(/images/iconos/icono_inventario.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
               <span className="text-[0.8em] sm:text-xs leading-none">Inventario</span>
             </button>}
@@ -174,8 +174,8 @@ export default function DashboardPage() {
           {d.activeTab === 'progresion' && (
             <div className="space-y-8">
               {(d.directivo || isApoderado(d.perfil)) && (
-                <div className="p-4 bg-clr7 dark:bg-dclr7 rounded-[2rem] flex flex-wrap gap-2 items-center">
-                  <span className="text-[0.8em] font-black uppercase text-clr3 ml-4">Ver Progresion de:</span>
+                <div className="p-4 bg-pclr3 dark:bg-pdclr3 rounded-[2rem] flex flex-wrap gap-2 items-center">
+                  <span className="text-[0.8em] font-black uppercase text-pclr7 dark:text-pdclr7 ml-4">Ver Progresion de:</span>
                   {/* Roles 1-3: ven todos los NNJ de la unidad (excluir roles 1-8) */}
                   {/* Roles 4-8: solo ven su pupilo/hijo vinculado */}
                   {(isApoderado(d.perfil) 
@@ -185,7 +185,7 @@ export default function DashboardPage() {
                     <button 
                       key={m.id} 
                       onClick={() => d.setSelectedProgresionPerfil(m)}
-                      className={`px-4 py-2 rounded-xl text-[0.8em] font-black uppercase transition-all ${d.selectedProgresionPerfil?.id === m.id ? 'bg-tclr5 dark:bg-tdclr5 text-clr1 shadow-md' : 'bg-tclr1 dark:bg-tdclr1 text-tclr6 dark:text-tdclr6'}`}
+                      className={`px-4 py-2 rounded-xl text-[0.8em] font-black uppercase transition-all ${d.selectedProgresionPerfil?.id === m.id ? 'bg-pclr8 dark:bg-pdclr8 text-pclr12 dark:text-pdclr12 shadow-md' : 'bg-pclr1 dark:bg-pdclr1 text-pclr4 dark:text-pdclr4'}`}
                     >
                       {m.nombres}
                     </button>
@@ -193,7 +193,7 @@ export default function DashboardPage() {
                   {d.nnj && (
                     <button 
                       onClick={() => d.setSelectedProgresionPerfil(d.perfil)}
-                      className={`px-4 py-2 rounded-xl text-[0.8em] font-black uppercase transition-all ${d.selectedProgresionPerfil?.id === d.perfil!.id ? 'bg-tclr5 dark:bg-tdclr5 text-clr1 shadow-md' : 'bg-tclr1 dark:bg-tdclr1 text-tclr6 dark:text-tdclr6'}`}
+                      className={`px-4 py-2 rounded-xl text-[0.8em] font-black uppercase transition-all ${d.selectedProgresionPerfil?.id === d.perfil!.id ? 'bg-pclr8 dark:bg-pdclr8 text-pclr12 dark:text-pdclr12 shadow-md' : 'bg-pclr1 dark:bg-pdclr1 text-pclr4 dark:text-pdclr4'}`}
                     >
                       Mi Progresion
                     </button>
@@ -207,8 +207,8 @@ export default function DashboardPage() {
                   userPerfil={d.perfil} 
                 />
               ) : (
-                <div className="p-20 text-center border-2 border-dashed rounded-[3rem] opacity-40">
-                  <p className="italic uppercase tracking-widest text-[0.8em]">Selecciona un beneficiario para ver su Camino de Seeonee.</p>
+                <div className="p-20 text-center border-2 border-dashed rounded-[3rem] opacity-40 border-pclr13 dark:border-pdclr13">
+                  <p className="italic uppercase tracking-widest text-[0.8em] text-pclr7 dark:text-pdclr7">Selecciona un beneficiario para ver su Camino de Seeonee.</p>
                 </div>
               )}
             </div>
@@ -217,10 +217,10 @@ export default function DashboardPage() {
           {d.activeTab === 'inventario' && <DashInventario items={d.inventario} isAdmin={d.directivo} onEdit={(item) => { d.setEditingInventoryItem(item); d.setIsModInventarioOpen(true); }} onDelete={d.handleDeleteInventory} onNuevo={() => { d.setEditingInventoryItem(null); d.setIsModInventarioOpen(true); }} />}
           {d.activeTab === 'tesoreria' && (
             <div className="space-y-6">
-              <div className="flex bg-clr7 dark:bg-dclr7 p-1 rounded-2xl w-fit">
-                <button onClick={() => d.setSubTabTeso('libro')} className={`px-6 py-2 rounded-xl text-[0.8em] font-black uppercase ${d.subTabTeso === 'libro' ? 'bg-clr1 dark:bg-dclr4 shadow-md text-clr6' : 'opacity-40'}`}>Libro</button>
-                <button onClick={() => d.setSubTabTeso('rendiciones')} className={`px-6 py-2 rounded-xl text-[0.8em] font-black uppercase ${d.subTabTeso === 'rendiciones' ? 'bg-clr1 dark:bg-dclr4 shadow-md text-clr6' : 'opacity-40'}`}>Rendiciones</button>
-                <button onClick={() => d.setSubTabTeso('recaudaciones')} className={`px-6 py-2 rounded-xl text-[0.8em] font-black uppercase ${d.subTabTeso === 'recaudaciones' ? 'bg-clr1 dark:bg-dclr4 shadow-md text-clr6' : 'opacity-40'}`}>Recaudaciones</button>
+              <div className="flex bg-pclr3 dark:bg-pdclr3 p-1 rounded-2xl w-fit">
+                <button onClick={() => d.setSubTabTeso('libro')} className={`px-6 py-2 rounded-xl text-[0.8em] font-black uppercase ${d.subTabTeso === 'libro' ? 'bg-pclr8 dark:bg-pdclr8 text-pclr12 dark:text-pdclr12 shadow-md' : 'text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4'}`}>Libro</button>
+                <button onClick={() => d.setSubTabTeso('rendiciones')} className={`px-6 py-2 rounded-xl text-[0.8em] font-black uppercase ${d.subTabTeso === 'rendiciones' ? 'bg-pclr8 dark:bg-pdclr8 text-pclr12 dark:text-pdclr12 shadow-md' : 'text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4'}`}>Rendiciones</button>
+                <button onClick={() => d.setSubTabTeso('recaudaciones')} className={`px-6 py-2 rounded-xl text-[0.8em] font-black uppercase ${d.subTabTeso === 'recaudaciones' ? 'bg-pclr8 dark:bg-pdclr8 text-pclr12 dark:text-pdclr12 shadow-md' : 'text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4'}`}>Recaudaciones</button>
               </div>
               {d.subTabTeso === 'libro' && <DashTesoreria movimientos={d.tesoreria} unidades={d.unidades} isAdmin={true} canAction={d.canActionTeso} onNuevoMovimiento={() => { d.setEditingMov(null); d.setIsModTesoreriaOpen(true); }} onEditMovimiento={(m) => { d.setEditingMov(m); d.setIsModTesoreriaOpen(true); }} onDeleteMovimiento={d.handleDeleteMov} onEmitirVale={() => d.setIsModValeOpen(true)} onVerMovimiento={(m) => { d.setViewingMov(m); d.setIsModTesoreriaVerOpen(true); }} />}
               {d.subTabTeso === 'rendiciones' && <DashRendiciones rendiciones={d.rendiciones} isAdmin={d.canActionTeso} onNueva={() => d.setIsModRendicionOpen(true)} onVer={(r) => { d.setViewingRendicion(r); d.setIsModRendicionVerOpen(true); }} onDelete={d.handleDeleteRendicion} />}
@@ -229,11 +229,11 @@ export default function DashboardPage() {
           )}
           {d.activeTab === 'ciclo' && (
             <div className="space-y-6">
-              <div className="flex bg-clr7 dark:bg-dclr7 p-1 rounded-2xl w-fit">
-                <button onClick={() => d.setSubTabCiclo('activo')} className={`px-6 py-2 rounded-xl text-[0.8em] font-black uppercase ${d.subTabCiclo === 'activo' ? 'bg-clr1 dark:bg-dclr4 shadow-md text-clr6' : 'opacity-40'}`}>Ciclo Activo</button>
-                <button onClick={() => d.setSubTabCiclo('historial')} className={`px-6 py-2 rounded-xl text-[0.8em] font-black uppercase ${d.subTabCiclo === 'historial' ? 'bg-clr1 dark:bg-dclr4 shadow-md text-clr6' : 'opacity-40'}`}>Historial</button>
+              <div className="flex bg-pclr3 dark:bg-pdclr3 p-1 rounded-2xl w-fit">
+                <button onClick={() => d.setSubTabCiclo('activo')} className={`px-6 py-2 rounded-xl text-[0.8em] font-black uppercase ${d.subTabCiclo === 'activo' ? 'bg-pclr8 dark:bg-pdclr8 text-pclr12 dark:text-pdclr12 shadow-md' : 'text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4'}`}>Ciclo Activo</button>
+                <button onClick={() => d.setSubTabCiclo('historial')} className={`px-6 py-2 rounded-xl text-[0.8em] font-black uppercase ${d.subTabCiclo === 'historial' ? 'bg-pclr8 dark:bg-pdclr8 text-pclr12 dark:text-pdclr12 shadow-md' : 'text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4'}`}>Historial</button>
                 {d.directivo && (
-                  <button onClick={() => d.setSubTabCiclo('otras_unidades')} className={`px-6 py-2 rounded-xl text-[0.8em] font-black uppercase ${d.subTabCiclo === 'otras_unidades' ? 'bg-clr1 dark:bg-dclr4 shadow-md text-clr6' : 'opacity-40'}`}>Otras Unidades</button>
+                  <button onClick={() => d.setSubTabCiclo('otras_unidades')} className={`px-6 py-2 rounded-xl text-[0.8em] font-black uppercase ${d.subTabCiclo === 'otras_unidades' ? 'bg-pclr8 dark:bg-pdclr8 text-pclr12 dark:text-pdclr12 shadow-md' : 'text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4'}`}>Otras Unidades</button>
                 )}
               </div>
               {d.subTabCiclo === 'activo' && <DashCiclo perfil={d.perfil} />}
@@ -295,49 +295,49 @@ export default function DashboardPage() {
       )}
 
       {d.showPassModal && (
-        <div className="fixed inset-0 bg-clr2 backdrop-blur-sm z-[100] flex items-center justify-center p-6 animate-in fade-in duration-300">
-          <div className="bg-clr1 dark:bg-dclr1 w-full max-w-md rounded-[3rem] p-10 shadow-2xl">
-            <h2 className="text-2xl font-black font-display uppercase text-clr4 dark:text-dclr4 mb-8 border-b pb-4 tracking-tighter font-bold">Seguridad</h2>
+        <div className="fixed inset-0 bg-pclr4/40 backdrop-blur-sm z-[100] flex items-center justify-center p-6 animate-in fade-in duration-300">
+          <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-md rounded-[3rem] p-10 shadow-2xl border border-pclr13 dark:border-pdclr13">
+            <h2 className="text-2xl font-black font-display uppercase text-pclr4 dark:text-pdclr4 mb-8 border-b border-pclr13 dark:border-pdclr13 pb-4 tracking-tighter font-bold">Seguridad</h2>
             <form onSubmit={async (e) => { e.preventDefault(); const { error } = await supabase.auth.updateUser({ password: d.newPass }); if (!error) { toast.success('Contraseña actualizada correctamente.'); d.setShowPassModal(false); } else toast.error(error.message); }} className="space-y-6">
-              <input type="password" value={d.newPass} onChange={(e) => d.setNewPass(e.target.value)} className="w-full p-4 rounded-2xl border bg-clr7 font-bold text-center" autoFocus placeholder="Nueva Contrasena" />
-              <div className="flex gap-2 pt-4"><button type="submit" className="flex-1 py-4 bg-clr4 text-clr1 font-black uppercase rounded-2xl shadow-xl font-inika text-[0.8em] tracking-widest">Actualizar</button><button type="button" onClick={() => d.setShowPassModal(false)} className="flex-1 py-4 bg-clr7 rounded-2xl font-inika text-[0.8em] tracking-widest">Cancelar</button></div>
+              <input type="password" value={d.newPass} onChange={(e) => d.setNewPass(e.target.value)} className="w-full p-4 rounded-2xl border border-pclr13 dark:border-pdclr13 bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4 font-bold text-center" autoFocus placeholder="Nueva Contrasena" />
+              <div className="flex gap-2 pt-4"><button type="submit" className="flex-1 py-4 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 font-black uppercase rounded-2xl shadow-xl font-inika text-[0.8em] tracking-widest">Actualizar</button><button type="button" onClick={() => d.setShowPassModal(false)} className="flex-1 py-4 bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4 rounded-2xl font-inika text-[0.8em] tracking-widest">Cancelar</button></div>
             </form>
           </div>
         </div>
       )}
       {d.activeCeremonyForMessage && (
-        <div className="fixed inset-0 bg-clr2 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
-          <div className="bg-clr1 dark:bg-dclr1 border dark:border-clr1 w-full max-w-md rounded-[2rem] shadow-2xl flex flex-col overflow-hidden animate-in zoom-in duration-200">
-            <div className="p-6 border-b border-clr7 dark:border-dclr7 flex justify-between items-center bg-clr7 dark:bg-dclr7">
-              <h3 className="font-extrabold uppercase text-[1.1em] text-clr2 dark:text-dclr2">
+        <div className="fixed inset-0 bg-pclr4/40 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+          <div className="bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 w-full max-w-md rounded-[2rem] shadow-2xl flex flex-col overflow-hidden animate-in zoom-in duration-200">
+            <div className="p-6 border-b border-pclr13 dark:border-pdclr13 flex justify-between items-center bg-pclr3 dark:bg-pdclr3">
+              <h3 className="font-extrabold uppercase text-[1.1em] text-pclr4 dark:text-pdclr4">
                 Escribir Mensaje Scout
               </h3>
               <button 
                 onClick={d.handleCloseMessageModal} 
-                className="text-clr3 hover:text-clr2 dark:hover:text-clr1 font-black text-xl"
+                className="text-pclr7 hover:text-pclr4 dark:hover:text-pdclr4 font-black text-xl"
               >
                 X
               </button>
             </div>
 
             <div className="p-6 space-y-4 text-[0.9em]">
-              <p className="font-bold text-clr2 dark:text-dclr2">
-                Deja tus palabras para <span className="text-clr2 dark:text-dclr2 uppercase font-extrabold">{d.activeCeremonyForMessage.perfil?.nombres} {d.activeCeremonyForMessage.perfil?.apellidos}</span> en su ceremonia de <span className="text-clr4 font-extrabold uppercase">{d.activeCeremonyForMessage.nombre_hito}</span>:
+              <p className="font-bold text-pclr4 dark:text-pdclr4">
+                Deja tus palabras para <span className="text-pclr5 dark:text-pdclr5 uppercase font-extrabold">{d.activeCeremonyForMessage.perfil?.nombres} {d.activeCeremonyForMessage.perfil?.apellidos}</span> en su ceremonia de <span className="text-pclr8 dark:text-pdclr8 font-extrabold uppercase">{d.activeCeremonyForMessage.nombre_hito}</span>:
               </p>
               <textarea
                 value={d.farewellMessageText}
                 onChange={(e) => d.setFarewellMessageText(e.target.value)}
                 placeholder="Escribe tus mejores deseos, anecdotas o felicitaciones aqui..."
                 rows={4}
-                className="w-full bg-clr7 dark:bg-dclr7 border dark:border-clr1 p-3 rounded-xl font-bold text-clr2 dark:text-dclr2 placeholder-clr3"
+                className="w-full bg-pclr3 dark:bg-pdclr3 border border-pclr13 dark:border-pdclr13 p-3 rounded-xl font-bold text-pclr4 dark:text-pdclr4 placeholder-pclr7"
               />
             </div>
 
-            <div className="p-4 border-t border-clr7 dark:border-dclr7 flex gap-3 bg-clr7 dark:bg-dclr7 shrink-0">
+            <div className="p-4 border-t border-pclr13 dark:border-pdclr13 flex gap-3 bg-pclr3 dark:bg-pdclr3 shrink-0">
               <button 
                 type="button"
                 onClick={d.handleCloseMessageModal}
-                className="flex-1 py-3 text-[0.8em] font-black uppercase tracking-wider text-clr3 hover:text-clr4 transition-all"
+                className="flex-1 py-3 text-[0.8em] font-black uppercase tracking-wider text-pclr7 hover:text-pclr4 dark:hover:text-pdclr4 transition-all"
               >
                 Cancelar
               </button>
@@ -345,7 +345,7 @@ export default function DashboardPage() {
                 type="button"
                 onClick={d.handleSaveCeremonyMessage}
                 disabled={!d.farewellMessageText.trim()}
-                className="flex-[2] py-3 bg-clr4 text-clr1 text-[0.8em] font-black uppercase rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition-all tracking-wider disabled:opacity-50 cursor-pointer"
+                className="flex-[2] py-3 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 text-[0.8em] font-black uppercase rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition-all tracking-wider disabled:opacity-50 cursor-pointer"
               >
                 Enviar Mensaje
               </button>
@@ -354,29 +354,29 @@ export default function DashboardPage() {
         </div>
       )}
       {d.isSyncing && (
-        <div className="fixed inset-0 bg-clr2 backdrop-blur-sm z-[110] flex items-center justify-center p-6 animate-in fade-in duration-300">
-          <div className="bg-clr1 dark:bg-dclr1 w-full max-w-md rounded-[3rem] p-10 shadow-2xl flex flex-col items-center text-center space-y-6">
-            <div className="relative w-20 h-20 flex items-center justify-center bg-clr5 dark:bg-dclr5 text-clr5 dark:text-dclr5 rounded-full animate-bounce">
+        <div className="fixed inset-0 bg-pclr4/40 backdrop-blur-sm z-[110] flex items-center justify-center p-6 animate-in fade-in duration-300">
+          <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-md rounded-[3rem] p-10 shadow-2xl flex flex-col items-center text-center space-y-6 border border-pclr13 dark:border-pdclr13">
+            <div className="relative w-20 h-20 flex items-center justify-center bg-pclr6 dark:bg-pdclr6 text-pclr12 dark:text-pdclr12 rounded-full animate-bounce">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
               </svg>
             </div>
             
             <div className="space-y-2">
-              <h3 className="text-2xl font-black font-display uppercase tracking-tight text-clr4 dark:text-dclr4">Preparando Campamento</h3>
-              <p className="text-sm font-medium opacity-65 font-body leading-tight">
+              <h3 className="text-2xl font-black font-display uppercase tracking-tight text-pclr4 dark:text-pdclr4">Preparando Campamento</h3>
+              <p className="text-sm font-medium opacity-65 font-body leading-tight text-pclr4 dark:text-pdclr4">
                 Estamos descargando los datos de tu unidad a la base de datos local para que puedas acceder sin senal.
               </p>
             </div>
 
-            <div className="w-full bg-clr7 dark:bg-dclr7 h-3 rounded-full overflow-hidden animate-pulse">
+            <div className="w-full bg-pclr3 dark:bg-pdclr3 h-3 rounded-full overflow-hidden animate-pulse">
               <div 
-                className="bg-clr5 h-full transition-all duration-300 rounded-full" 
+                className="bg-pclr6 dark:bg-pdclr6 h-full transition-all duration-300 rounded-full" 
                 style={{ width: `${d.syncProgress}%` }}
               ></div>
             </div>
             
-            <p className="text-xs font-black uppercase text-clr5 dark:text-dclr5 tracking-wider">
+            <p className="text-xs font-black uppercase text-pclr6 dark:text-pdclr6 tracking-wider">
               {d.syncProgress}% - {d.syncMessage}
             </p>
           </div>

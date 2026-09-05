@@ -341,6 +341,56 @@ export const secondaryHeaderColorsSchema = z.object({
 });
 
 // ---------------------------------------------------------------------------
+// Panel Colors (56 fields: 28 hex + 28 opacity) — 14 roles × 4 fields each
+// (light hex, dark hex, light opacity, dark opacity).
+// ---------------------------------------------------------------------------
+
+export const panelColorsSchema = z.object({
+  // 1. Fondo Inicial
+  pclr1: hexColor, pdclr1: hexColor,
+  pclr1_opacity: opacity, pdclr1_opacity: opacity,
+  // 2. Fondo Final
+  pclr2: hexColor, pdclr2: hexColor,
+  pclr2_opacity: opacity, pdclr2_opacity: opacity,
+  // 3. Fondo Cajas e Inputs
+  pclr3: hexColor, pdclr3: hexColor,
+  pclr3_opacity: opacity, pdclr3_opacity: opacity,
+  // 4. Título Principal
+  pclr4: hexColor, pdclr4: hexColor,
+  pclr4_opacity: opacity, pdclr4_opacity: opacity,
+  // 5. Subtítulo Rol/Unidad
+  pclr5: hexColor, pdclr5: hexColor,
+  pclr5_opacity: opacity, pdclr5_opacity: opacity,
+  // 6. Texto Estado/Metadatos
+  pclr6: hexColor, pdclr6: hexColor,
+  pclr6_opacity: opacity, pdclr6_opacity: opacity,
+  // 7. Pestaña Inactiva
+  pclr7: hexColor, pdclr7: hexColor,
+  pclr7_opacity: opacity, pdclr7_opacity: opacity,
+  // 8. Pestaña Activa / Acento
+  pclr8: hexColor, pdclr8: hexColor,
+  pclr8_opacity: opacity, pdclr8_opacity: opacity,
+  // 9. Pestaña Hover
+  pclr9: hexColor, pdclr9: hexColor,
+  pclr9_opacity: opacity, pdclr9_opacity: opacity,
+  // 10. Acción Primaria
+  pclr10: hexColor, pdclr10: hexColor,
+  pclr10_opacity: opacity, pdclr10_opacity: opacity,
+  // 11. Acción Neutra
+  pclr11: hexColor, pdclr11: hexColor,
+  pclr11_opacity: opacity, pdclr11_opacity: opacity,
+  // 12. Acción Secundaria / Peligro
+  pclr12: hexColor, pdclr12: hexColor,
+  pclr12_opacity: opacity, pdclr12_opacity: opacity,
+  // 13. Separadores Internos
+  pclr13: hexColor, pdclr13: hexColor,
+  pclr13_opacity: opacity, pdclr13_opacity: opacity,
+  // 14. Bordes / Focus
+  pclr14: hexColor, pdclr14: hexColor,
+  pclr14_opacity: opacity, pdclr14_opacity: opacity,
+}).partial();
+
+// ---------------------------------------------------------------------------
 // Footer Colors (40 fields: 20 hex + 20 opacity) — 10 roles × 4 fields each
 // (light hex, dark hex, light opacity, dark opacity).
 // ---------------------------------------------------------------------------
@@ -823,6 +873,7 @@ export const categorySchemaMap: Record<SiteConfigCategory, z.ZodType> = {
   faq_colors: faqColorsSchema,
   secondary_header_colors: secondaryHeaderColorsSchema,
   footer_colors: footerColorsSchema,
+  panel_colors: panelColorsSchema,
   section_visibility: sectionVisibilitySchema,
   social_list: socialListSchema,
 };
@@ -857,6 +908,7 @@ export const schemaResolver: Record<SchemaId, { category: SiteConfigCategory; sc
   'faq_colors': { category: 'faq_colors', schema: faqColorsSchema },
   'secondary_header_colors': { category: 'secondary_header_colors', schema: secondaryHeaderColorsSchema },
   'footer_colors': { category: 'footer_colors', schema: footerColorsSchema },
+  'panel_colors': { category: 'panel_colors', schema: panelColorsSchema },
   'header_colors': { category: 'header_colors', schema: headerColorsSchema },
   'menu_colors': { category: 'menu_colors', schema: menuColorsSchema },
   faq: { category: 'faq', schema: faqSchema },

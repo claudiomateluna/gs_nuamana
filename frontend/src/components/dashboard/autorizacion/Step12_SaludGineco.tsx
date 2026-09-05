@@ -6,14 +6,14 @@ import type { StepProps } from '@/types/autorizacion'
 export default function Step12_SaludGineco({ formData, setFormData, perfil }: StepProps) {
   const isFemale = perfil.sexo === 'femenina';
 
-  const titleStyle = "text-[1.2em] font-black text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-4 border-b-2 border-clr4 pb-2";
+  const titleStyle = "text-[1.2em] font-black text-pclr4 dark:text-pdclr4 uppercase tracking-tighter mb-4 border-b-2 border-pclr14 pb-2";
   const labelContainerStyle = "flex items-center gap-2 mb-1";
-  const labelStyle = "text-[0.9em] font-black uppercase text-clr3 tracking-widest block";
-  const inputStyle = "w-full bg-clr7 dark:bg-dclr7 dark:text-dclr2 border-2 border-transparent focus:border-clr4 rounded-xl p-3 text-[1em] font-bold outline-none transition-all shadow-inner";
+  const labelStyle = "text-[0.9em] font-black uppercase text-pclr7 tracking-widest block";
+  const inputStyle = "w-full bg-pclr3 dark:bg-pdclr3 dark:text-pdclr4 border-2 border-transparent focus:border-pclr14 rounded-xl p-3 text-[1em] font-bold outline-none transition-all shadow-inner";
   
   const infoIconContainerStyle = "inline-block";
-  const infoIconStyle = "text-clr4 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
-  const tooltipStyle = "fixed z-[300] left-1/2 -translate-x-1/2 top-1/4 w-[90%] max-w-lg p-6 bg-clr2 dark:bg-dclr2 text-clr1 text-[1em] font-medium leading-relaxed rounded-[2rem] shadow-2xl opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 border-2 border-clr4 backdrop-blur-md";
+  const infoIconStyle = "text-pclr4 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
+  const tooltipStyle = "fixed z-[300] left-1/2 -translate-x-1/2 top-1/4 w-[90%] max-w-lg p-6 bg-pclr2 dark:bg-pdclr2 text-pclr12 text-[1em] font-medium leading-relaxed rounded-[2rem] shadow-2xl opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 border-2 border-pclr14 backdrop-blur-md";
 
   // Lógica de visibilidad
   const hasMenstruacion = formData.menstruaciones === 'Si' || (formData.menstruaciones === undefined && perfil.menstruaciones === 'Si');
@@ -29,7 +29,7 @@ export default function Step12_SaludGineco({ formData, setFormData, perfil }: St
           </span>
         </div>
         <div className={tooltipStyle}>
-          <div className="text-clr4 font-black uppercase text-[0.8em] tracking-tight mb-3 border-b border-clr4 pb-2 leading-tight">{label}</div>
+          <div className="text-pclr4 font-black uppercase text-[0.8em] tracking-tight mb-3 border-b border-pclr14 pb-2 leading-tight">{label}</div>
           <div className="text-[0.95em]" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(info) }} />
         </div>
       </div>
@@ -40,9 +40,9 @@ export default function Step12_SaludGineco({ formData, setFormData, perfil }: St
     return (
       <div className="animate-in fade-in duration-500 p-10 text-center">
         <h3 className={titleStyle}>12. INFORMACIÓN GINECO-OBSTÉTRICA</h3>
-        <div className="bg-clr7 dark:bg-dclr7 p-4 rounded-[1rem] border-2 border-dashed border-clr7 dark:border-dclr7">
-          <p className="text-clr3 font-bold italic text-[1em]">Esta sección no aplica según tu asignación de nacimiento registrada.</p>
-          <p className="mt-4 text-[0.8em] uppercase font-black text-clr4 tracking-widest">Puedes avanzar al siguiente paso →</p>
+        <div className="bg-pclr3 dark:bg-pdclr3 p-4 rounded-[1rem] border-2 border-dashed border-pclr13 dark:border-pdclr13">
+          <p className="text-pclr7 font-bold italic text-[1em]">Esta sección no aplica según tu asignación de nacimiento registrada.</p>
+          <p className="mt-4 text-[0.8em] uppercase font-black text-pclr4 tracking-widest">Puedes avanzar al siguiente paso →</p>
         </div>
       </div>
     );
@@ -59,7 +59,7 @@ export default function Step12_SaludGineco({ formData, setFormData, perfil }: St
           <FieldInfo label="¿Tienes menstruaciones?" info="Por favor cuéntanos si ya has tenido menstruaciones" />
           <div className="flex gap-4">
             {['Si', 'No'].map(o => (
-              <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] transition-all ${formData.menstruaciones === o ? 'border-clr4 bg-clr4 text-clr1' : 'border-clr7 dark:border-dclr7 dark:text-dclr2'}`}>
+              <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] transition-all ${formData.menstruaciones === o ? 'border-pclr14 bg-pclr10 text-pclr12' : 'border-pclr13 dark:border-pdclr13 dark:text-pdclr4'}`}>
                 <input type="radio" name="mens_radio" checked={formData.menstruaciones === o} onChange={() => setFormData({ ...formData, menstruaciones: o })} className="hidden" /> {o}
               </label>
             ))}
@@ -75,7 +75,7 @@ export default function Step12_SaludGineco({ formData, setFormData, perfil }: St
                 <FieldInfo label="¿Tus ciclos menstruales son…?" info="Cuantanos si tienes ciclos menstruales regulares o irregulares" />
                 <div className="flex gap-4">
                   {['Regulares', 'Irregulares'].map(o => (
-                    <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.8em] transition-all ${formData.ciclo_regular === o ? 'border-clr4 bg-clr4 text-clr1' : 'border-clr7 dark:border-dclr7 dark:text-dclr2'}`}>
+                    <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.8em] transition-all ${formData.ciclo_regular === o ? 'border-pclr14 bg-pclr10 text-pclr12' : 'border-pclr13 dark:border-pdclr13 dark:text-pdclr4'}`}>
                       <input type="radio" name="ciclo_radio" checked={formData.ciclo_regular === o} onChange={() => setFormData({ ...formData, ciclo_regular: o })} className="hidden" /> {o}
                     </label>
                   ))}
@@ -87,7 +87,7 @@ export default function Step12_SaludGineco({ formData, setFormData, perfil }: St
                 <FieldInfo label="¿Sufres de dismenorrea?" info="Por favor cuentanos si sufres cólicos o dolores durante tu menstruación" />
                 <div className="flex gap-4">
                   {['Si', 'No'].map(o => (
-                    <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.8em] transition-all ${formData.dismenorrea === o ? 'border-clr4 bg-clr4 text-clr1' : 'border-clr7 dark:border-dclr7 dark:text-dclr2'}`}>
+                    <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.8em] transition-all ${formData.dismenorrea === o ? 'border-pclr14 bg-pclr10 text-pclr12' : 'border-pclr13 dark:border-pdclr13 dark:text-pdclr4'}`}>
                       <input type="radio" name="dis_radio" checked={formData.dismenorrea === o} onChange={() => setFormData({ ...formData, dismenorrea: o })} className="hidden" /> {o}
                     </label>
                   ))}
@@ -114,7 +114,7 @@ export default function Step12_SaludGineco({ formData, setFormData, perfil }: St
               <FieldInfo label="¿Estás cursando un embarazo?" info="Cuéntanos si actualmente estas embarazada" />
               <div className="flex gap-4">
                 {['Si', 'No'].map(o => (
-                  <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] transition-all ${formData.embarazo === o ? 'border-clr4 bg-clr4 text-clr1' : 'border-clr7 dark:border-dclr7 dark:text-dclr2'}`}>
+                  <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] transition-all ${formData.embarazo === o ? 'border-pclr14 bg-pclr10 text-pclr12' : 'border-pclr13 dark:border-pdclr13 dark:text-pdclr4'}`}>
                     <input type="radio" name="emb_radio" checked={formData.embarazo === o} onChange={() => setFormData({ ...formData, embarazo: o })} className="hidden" /> {o}
                   </label>
                 ))}
@@ -122,7 +122,7 @@ export default function Step12_SaludGineco({ formData, setFormData, perfil }: St
             </div>
 
             {isEmbarazada && (
-              <div className="animate-in slide-in-from-top-4 duration-500 grid grid-cols-1 md:grid-cols-2 gap-4 bg-clr7 dark:bg-dclr7 p-2 rounded-[1em] border border-clr7 dark:border-dclr7">
+              <div className="animate-in slide-in-from-top-4 duration-500 grid grid-cols-1 md:grid-cols-2 gap-4 bg-pclr3 dark:bg-pdclr3 p-2 rounded-[1em] border border-pclr13 dark:border-pdclr13">
                 {/* Item 7: Semanas */}
                 <div className="space-y-1">
                   <FieldInfo label="¿En que semana de Embarazo te encuentras?" info="Indicanos en que semana de embarazo te encuentras" />

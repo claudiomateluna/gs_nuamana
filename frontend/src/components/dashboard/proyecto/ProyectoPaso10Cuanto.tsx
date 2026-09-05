@@ -28,8 +28,8 @@ export default function ProyectoPaso10Cuanto({
   return (
     <div className="space-y-2">
       <div className="flex items-center gap-1 p-2 opacity-60 rounded-[0.8rem]" style={{ backgroundColor: themePrimary }}>
-        <span className="w-8 h-8 rounded-full flex items-center justify-center text-clr1 text-[0.9em] font-bold" style={{ color: themeSecondary }}>10</span>
-        <h3 className="text-xl font-black uppercase tracking-tight text-clr2 dark:text-dclr2" style={{ color: themeSecondary }}>¿Cuánto?</h3>
+        <span className="w-8 h-8 rounded-full flex items-center justify-center text-pclr12 text-[0.9em] font-bold" style={{ color: themeSecondary }}>10</span>
+        <h3 className="text-xl font-black uppercase tracking-tight text-pclr4 dark:text-pdclr4" style={{ color: themeSecondary }}>¿Cuánto?</h3>
       </div>
 
       <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 min-h-[420px] p-1 font-body">
@@ -48,7 +48,7 @@ export default function ProyectoPaso10Cuanto({
         </div>
 
         {/* Right Column (Desktop) / Bottom Row (Mobile) */}
-        <div className="w-full space-y-2 bg-clr7 dark:bg-dclr7 p-1 rounded-[1rem] border border-clr7 dark:border-dclr7 backdrop-blur-xs shadow-md">
+        <div className="w-full space-y-2 bg-pclr3 dark:bg-pdclr3 p-1 rounded-[1rem] border border-pclr13 dark:border-pdclr13 backdrop-blur-xs shadow-md">
           <div className="flex justify-end p-1">
             <button 
               type="button" 
@@ -62,13 +62,13 @@ export default function ProyectoPaso10Cuanto({
 
           <div className="space-y-2 max-h-[360px] overflow-y-auto pr-1">
             {presupuestoItems.map((item, idx) => (
-              <div key={idx} className="p-2 bg-clr1 dark:bg-dclr1 border dark:border-clr1 rounded-xl space-y-2 relative">
+              <div key={idx} className="p-2 bg-pclr1 dark:bg-pdclr1 border dark:border-pclr1 rounded-xl space-y-2 relative">
                 <div className="flex items-center justify-between">
-                  <span className="text-[0.8em] font-black uppercase text-clr3">Presupuesto Ítem #{idx + 1}</span>
+                  <span className="text-[0.8em] font-black uppercase text-pclr7">Presupuesto Ítem #{idx + 1}</span>
                   <button 
                     type="button" 
                     onClick={() => removePresupuestoItem(idx)}
-                    className="text-clr4 font-bold text-[0.8em] px-2 py-0.5 hover:bg-clr4 dark:hover:bg-dclr4 rounded-xl border-none bg-transparent"
+                    className="text-pclr4 font-bold text-[0.8em] px-2 py-0.5 hover:bg-pclr10 dark:hover:bg-dclr4 rounded-xl border-none bg-transparent"
                   >
                     ✕ Quitar
                   </button>
@@ -79,7 +79,7 @@ export default function ProyectoPaso10Cuanto({
                   value={item.descripcion || ''}
                   onChange={e => updatePresupuestoItem(idx, 'descripcion', e.target.value)}
                   placeholder="Descripción / Material"
-                  className="w-full p-2 rounded-lg border dark:border-clr1 bg-clr7 dark:bg-dclr7 text-[0.9em] font-bold"
+                  className="w-full p-2 rounded-lg border dark:border-pclr1 bg-pclr3 dark:bg-pdclr3 text-[0.9em] font-bold"
                 />
 
                 <div className="flex flex-col sm:flex-row gap-1.5">
@@ -89,7 +89,7 @@ export default function ProyectoPaso10Cuanto({
                     value={item.cantidad || 0}
                     onChange={e => updatePresupuestoItem(idx, 'cantidad', parseInt(e.target.value) || 0)}
                     placeholder="Cant."
-                    className="w-full sm:w-1/2 p-2 rounded-lg border dark:border-clr1 bg-clr7 dark:bg-dclr7 text-[0.85em] font-bold text-center"
+                    className="w-full sm:w-1/2 p-2 rounded-lg border dark:border-pclr1 bg-pclr3 dark:bg-pdclr3 text-[0.85em] font-bold text-center"
                   />
                   <label className="text-[0.8em] font-bold uppercase px-2 py-0.4 rounded-[0.4rem] flex items-center leading-none" style={{ backgroundColor: themePrimary, color: themeSecondary }}>Costo Unitario</label> 
                   <input 
@@ -97,7 +97,7 @@ export default function ProyectoPaso10Cuanto({
                     value={item.costo_unitario || 0}
                     onChange={e => updatePresupuestoItem(idx, 'costo_unitario', parseInt(e.target.value) || 0)}
                     placeholder="$ Unitario"
-                    className="w-full sm:w-1/2 p-2 rounded-lg border dark:border-clr1 bg-clr7 dark:bg-dclr7 text-[0.85em] font-bold text-center"
+                    className="w-full sm:w-1/2 p-2 rounded-lg border dark:border-pclr1 bg-pclr3 dark:bg-pdclr3 text-[0.85em] font-bold text-center"
                   />
                 </div>
 
@@ -105,7 +105,7 @@ export default function ProyectoPaso10Cuanto({
                   <select 
                     value={item.tipo || 'gasto'}
                     onChange={e => updatePresupuestoItem(idx, 'tipo', e.target.value)}
-                    className="w-full p-2 rounded-lg border dark:border-clr1 bg-clr7 dark:bg-dclr7 text-[0.8em] font-black uppercase"
+                    className="w-full p-2 rounded-lg border dark:border-pclr1 bg-pclr3 dark:bg-pdclr3 text-[0.8em] font-black uppercase"
                   >
                     <option value="gasto">📉 Gasto / Compra</option>
                     <option value="ingreso">📈 Ingreso / Aporte</option>
@@ -115,7 +115,7 @@ export default function ProyectoPaso10Cuanto({
                     <select 
                       value={item.fuente || 'compra'}
                       onChange={e => updatePresupuestoItem(idx, 'fuente', e.target.value)}
-                      className="w-full p-2 rounded-lg border dark:border-clr1 bg-clr7 dark:bg-dclr7 text-[0.8em] font-black uppercase"
+                      className="w-full p-2 rounded-lg border dark:border-pclr1 bg-pclr3 dark:bg-pdclr3 text-[0.8em] font-black uppercase"
                     >
                       <option value="compra">Compra Directa</option>
                       <option value="donacion">Donación / Reciclado</option>
@@ -124,7 +124,7 @@ export default function ProyectoPaso10Cuanto({
                     <select 
                       value={item.fuente || 'ingreso_propio'}
                       onChange={e => updatePresupuestoItem(idx, 'fuente', e.target.value)}
-                      className="w-full p-2 rounded-lg border dark:border-clr1 bg-clr7 dark:bg-dclr7 text-[0.8em] font-black uppercase"
+                      className="w-full p-2 rounded-lg border dark:border-pclr1 bg-pclr3 dark:bg-pdclr3 text-[0.8em] font-black uppercase"
                     >
                       <option value="ingreso_propio">Ingreso Propio</option>
                       <option value="donacion">Aporte Terceros</option>
@@ -134,7 +134,7 @@ export default function ProyectoPaso10Cuanto({
                   <select 
                     value={item.actividad_nombre || ''}
                     onChange={e => updatePresupuestoItem(idx, 'actividad_nombre', e.target.value)}
-                    className="w-full p-2 rounded-lg border dark:border-clr1 bg-clr7 dark:bg-dclr7 text-[0.8em] font-bold"
+                    className="w-full p-2 rounded-lg border dark:border-pclr1 bg-pclr3 dark:bg-pdclr3 text-[0.8em] font-bold"
                   >
                     <option value="">-- Asociar Actividad --</option>
                     {actividades.map(act => (
@@ -147,14 +147,14 @@ export default function ProyectoPaso10Cuanto({
           </div>
 
           {/* Balance General */}
-          <div className="bg-clr1 dark:bg-dclr1 p-2 rounded-2xl border dark:border-clr1 flex flex-col gap-1">
+          <div className="bg-pclr1 dark:bg-pdclr1 p-2 rounded-2xl border dark:border-pclr1 flex flex-col gap-1">
             <div className="text-[0.8em] font-bold uppercase opacity-80 space-y-0.5">
-              <p>Ingresos: <span className="text-clr6">${totalIngresos.toLocaleString()}</span></p>
-              <p>Gastos: <span className="text-clr4">${totalGastos.toLocaleString()}</span></p>
+              <p>Ingresos: <span className="text-pclr6">${totalIngresos.toLocaleString()}</span></p>
+              <p>Gastos: <span className="text-pclr4">${totalGastos.toLocaleString()}</span></p>
             </div>
-            <div className="border-t pt-1 dark:border-clr1 flex justify-between items-center">
-              <span className="text-[0.8em] font-black uppercase text-clr3">Balance</span>
-              <p className={`text-lg font-black ${balance >= 0 ? 'text-clr6' : 'text-clr4'}`}>
+            <div className="border-t pt-1 dark:border-pclr1 flex justify-between items-center">
+              <span className="text-[0.8em] font-black uppercase text-pclr7">Balance</span>
+              <p className={`text-lg font-black ${balance >= 0 ? 'text-pclr6' : 'text-pclr4'}`}>
                 ${balance.toLocaleString()}
               </p>
             </div>

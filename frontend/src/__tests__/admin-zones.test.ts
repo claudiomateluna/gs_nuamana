@@ -300,6 +300,23 @@ const EXPECTED_FIELDS = {
     'mclr10', 'mdclr10', 'mclr10_opacity', 'mdclr10_opacity',
     'mclr11', 'mdclr11', 'mclr11_opacity', 'mdclr11_opacity',
   ],
+  panel_colors: [
+    // 14 roles × 4 fields = 56
+    'pclr1', 'pdclr1', 'pclr1_opacity', 'pdclr1_opacity',
+    'pclr2', 'pdclr2', 'pclr2_opacity', 'pdclr2_opacity',
+    'pclr3', 'pdclr3', 'pclr3_opacity', 'pdclr3_opacity',
+    'pclr4', 'pdclr4', 'pclr4_opacity', 'pdclr4_opacity',
+    'pclr5', 'pdclr5', 'pclr5_opacity', 'pdclr5_opacity',
+    'pclr6', 'pdclr6', 'pclr6_opacity', 'pdclr6_opacity',
+    'pclr7', 'pdclr7', 'pclr7_opacity', 'pdclr7_opacity',
+    'pclr8', 'pdclr8', 'pclr8_opacity', 'pdclr8_opacity',
+    'pclr9', 'pdclr9', 'pclr9_opacity', 'pdclr9_opacity',
+    'pclr10', 'pdclr10', 'pclr10_opacity', 'pdclr10_opacity',
+    'pclr11', 'pdclr11', 'pclr11_opacity', 'pdclr11_opacity',
+    'pclr12', 'pdclr12', 'pclr12_opacity', 'pdclr12_opacity',
+    'pclr13', 'pdclr13', 'pclr13_opacity', 'pdclr13_opacity',
+    'pclr14', 'pdclr14', 'pclr14_opacity', 'pdclr14_opacity',
+  ],
 } as const satisfies CategoryFieldMap;
 
 const FIELD_TYPES = ['text', 'textarea', 'url', 'color', 'number', 'json', 'heading'] as const;
@@ -429,7 +446,7 @@ describe('ADMIN_ZONES coverage', () => {
 
     // Triangulation: zones with real sections
     const otherZones = ADMIN_ZONES.filter((z) => z.tabOnly !== true);
-    expect(otherZones.map((z) => z.sections.length)).toEqual([13, 5, 3, 3]);
+    expect(otherZones.map((z) => z.sections.length)).toEqual([13, 5, 3, 4]);
   });
 
   it('maps each zone to its exact sections and categories', () => {
@@ -450,7 +467,7 @@ describe('ADMIN_ZONES coverage', () => {
     ]);
     expect(zoneOf('header').sections.map((s) => s.category)).toEqual(['branding', 'secondary_header_colors', 'header_colors', 'menu_colors', 'navigation']);
     expect(zoneOf('footer').sections.map((s) => s.category)).toEqual(['branding', 'contact', 'footer_colors']);
-    expect(zoneOf('global').sections.map((s) => s.category)).toEqual(['seo', 'pwa', 'theme_colors']);
+    expect(zoneOf('global').sections.map((s) => s.category)).toEqual(['seo', 'pwa', 'theme_colors', 'panel_colors']);
   });
 
   it('exposes a colores-tema section in Global with 65 fields (32 color + 32 number + 1 heading) and layout=grid', () => {

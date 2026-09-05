@@ -266,7 +266,7 @@ describe('ZoneConfigForm rendering', () => {
     expect(screen.getAllByRole('button', { name: 'Guardar' })).toHaveLength(13);
   });
 
-  it('drives the rendered sections from the zone prop — footer renders 3 cards, global 3 (not hardcoded)', () => {
+  it('drives the rendered sections from the zone prop — footer renders 3 cards, global 4 (not hardcoded)', () => {
     const { unmount } = render(<ZoneConfigForm config={CONFIG} zone={zone('footer')} />);
     expect(screen.getAllByRole('heading', { level: 3 }).map((h) => h.textContent)).toEqual([
       'Marca',
@@ -281,8 +281,9 @@ describe('ZoneConfigForm rendering', () => {
       'SEO',
       'PWA',
       'Colores del Tema',
+      'Colores del Panel',
     ]);
-    expect(screen.getAllByRole('button', { name: 'Guardar' })).toHaveLength(3);
+    expect(screen.getAllByRole('button', { name: 'Guardar' })).toHaveLength(4);
   });
 
   it('renders no cards for the tab-only Menú zone (companion to the non-empty cases above)', () => {

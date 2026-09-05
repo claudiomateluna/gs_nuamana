@@ -89,12 +89,12 @@ describe('RootLayout SSR theme style injection', () => {
     }
   });
 
-  it('renders ten <style> tags: theme, header, menu, promo, slideshow, testimonials, visit, FAQ, SecondaryHeader and Footer color vars', async () => {
+  it('renders eleven <style> tags: theme, header, menu, promo, slideshow, testimonials, visit, FAQ, SecondaryHeader, Footer and Panel color vars', async () => {
     const ui = await RootLayout({ children: <div data-testid="page-child">page</div> });
     const { container } = render(ui as React.ReactElement);
 
     const styles = container.querySelectorAll('style');
-    expect(styles).toHaveLength(10);
+    expect(styles).toHaveLength(11);
 
     const themeCss = styles[0].textContent ?? '';
     const headerCss = styles[1].textContent ?? '';
@@ -106,6 +106,7 @@ describe('RootLayout SSR theme style injection', () => {
     const faqCss = styles[7].textContent ?? '';
     const secondaryHeaderCss = styles[8].textContent ?? '';
     const footerCss = styles[9].textContent ?? '';
+    const panelCss = styles[10].textContent ?? '';
 
     // Promo vars live exclusively in the second style, not the theme style
     expect(themeCss).not.toContain('--cbclr1');
@@ -177,6 +178,18 @@ describe('RootLayout SSR theme style injection', () => {
     expect(footerCss).not.toContain('--vsclr1');
     expect(footerCss).not.toContain('--fclr1');
     expect(footerCss).not.toContain('--shclr1');
+    // Panel vars live in the eleventh style
+    expect(panelCss).toContain(':root{');
+    expect(panelCss).toContain('--pclr1:#FFFFFF');
+    expect(panelCss).toContain('--pdclr1:#1e1e1e');
+    expect(panelCss).not.toContain('--clr7');
+    expect(panelCss).not.toContain('--cbclr1');
+    expect(panelCss).not.toContain('--bsclr1');
+    expect(panelCss).not.toContain('--tsclr1');
+    expect(panelCss).not.toContain('--vsclr1');
+    expect(panelCss).not.toContain('--fclr1');
+    expect(panelCss).not.toContain('--shclr1');
+    expect(panelCss).not.toContain('--foclr1');
   });
 
   it('derives the viewport themeColor from config.theme_colors.clr7 (no loose hardcoded color)', async () => {

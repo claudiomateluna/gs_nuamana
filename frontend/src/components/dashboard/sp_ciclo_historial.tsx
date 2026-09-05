@@ -79,7 +79,7 @@ export default function DashCicloHistorial({ perfil }: DashCicloHistorialProps) 
 
   if (loading) {
     return (
-      <div className="p-20 text-center animate-pulse uppercase font-medium text-[0.8em] tracking-widest text-clr3">
+      <div className="p-20 text-center animate-pulse uppercase font-medium text-[0.8em] tracking-widest text-pclr7">
         Cargando Memoria Scout...
       </div>
     )
@@ -93,22 +93,22 @@ export default function DashCicloHistorial({ perfil }: DashCicloHistorialProps) 
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <button 
             onClick={() => setCicloSeleccionado(null)}
-            className="flex items-center gap-2 text-[0.8em] font-bold uppercase tracking-widest text-clr4 hover:scale-105 transition-all"
+            className="flex items-center gap-2 text-[0.8em] font-bold uppercase tracking-widest text-pclr4 hover:scale-105 transition-all"
           >
             ❮ Volver al Historial
           </button>
           {canDelete && (
             <button
               onClick={(e) => handleEliminarCiclo(e, cicloSeleccionado)}
-              className="px-5 py-2.5 bg-clr4 hover:bg-clr4 text-clr4 hover:text-clr1 dark:bg-dclr4 dark:text-dclr4 dark:hover:bg-dclr4 rounded-xl transition-all shadow-sm text-[0.8em] font-bold uppercase tracking-wider flex items-center gap-1.5"
+              className="px-5 py-2.5 bg-pclr10 hover:bg-pclr10 text-pclr4 hover:text-pclr12 dark:bg-pdclr10 dark:text-pdclr4 dark:hover:bg-dclr4 rounded-xl transition-all shadow-sm text-[0.8em] font-bold uppercase tracking-wider flex items-center gap-1.5"
             >
               🗑️ Eliminar este Ciclo
             </button>
           )}
         </div>
         
-        <div className="bg-clr5 dark:bg-dclr5 p-4 rounded-2xl border-2 border-clr5 dark:border-dclr5 text-center">
-          <p className="text-[0.8em] font-medium uppercase text-clr5 dark:text-dclr5 tracking-tighter">
+        <div className="bg-pclr5 dark:bg-pdclr5 p-4 rounded-2xl border-2 border-pclr5 dark:border-pdclr5 text-center">
+          <p className="text-[0.8em] font-medium uppercase text-pclr5 dark:text-pdclr5 tracking-tighter">
             📜 Estás viendo un Ciclo Histórico (Solo Lectura)
           </p>
         </div>
@@ -121,8 +121,8 @@ export default function DashCicloHistorial({ perfil }: DashCicloHistorialProps) 
   return (
     <div className="max-w-6xl mx-auto space-y-8 py-6">
       <div className="text-center space-y-2">
-        <span className="text-[0.8em] font-bold uppercase tracking-[0.3em] text-clr4">Memoria Institucional</span>
-        <h2 className="text-3xl md:text-5xl font-black font-display uppercase tracking-tighter leading-none text-clr4 dark:text-dclr4">
+        <span className="text-[0.8em] font-bold uppercase tracking-[0.3em] text-pclr4">Memoria Institucional</span>
+        <h2 className="text-3xl md:text-5xl font-black font-display uppercase tracking-tighter leading-none text-pclr4 dark:text-pdclr4">
           Historial de Ciclos
         </h2>
         <p className="text-sm italic opacity-60 font-medium max-w-xl mx-auto">
@@ -138,7 +138,7 @@ export default function DashCicloHistorial({ perfil }: DashCicloHistorialProps) 
             <div 
               key={c.id} 
               onClick={() => setCicloSeleccionado(c)}
-              className="group cursor-pointer bg-clr1 dark:bg-dclr1 rounded-[2.5rem] border-2 border-clr7 dark:border-dclr7 p-8 shadow-sm hover:shadow-2xl transition-all relative overflow-hidden flex flex-col justify-between min-h-[250px]"
+              className="group cursor-pointer bg-pclr1 dark:bg-pdclr1 rounded-[2.5rem] border-2 border-pclr13 dark:border-pdclr13 p-8 shadow-sm hover:shadow-2xl transition-all relative overflow-hidden flex flex-col justify-between min-h-[250px]"
               style={{ borderColor: 'transparent' }} // Let hover handle it or keep it subtle
             >
               <div className="absolute -right-4 -bottom-4 opacity-5 group-hover:scale-110 group-hover:rotate-12 transition-all">
@@ -150,23 +150,23 @@ export default function DashCicloHistorial({ perfil }: DashCicloHistorialProps) 
                   <span className="text-[0.8em] font-medium uppercase opacity-40 tracking-widest">
                     {c.unidades?.nombre} • {c.fecha_inicio ? format(new Date(c.fecha_inicio), 'MMMM yyyy', { locale: es }) : 'Sin fecha'}
                   </span>
-                  <h3 className="text-xl font-bold uppercase text-clr4 dark:text-dclr4 leading-tight group-hover:text-clr4 transition-colors">
+                  <h3 className="text-xl font-bold uppercase text-pclr4 dark:text-pdclr4 leading-tight group-hover:text-pclr4 transition-colors">
                     {c.nombre}
                   </h3>
                 </div>
 
-                <div className="p-4 bg-clr7 dark:bg-dclr7 rounded-2xl border-l-4" style={{ borderLeftColor: uColor }}>
+                <div className="p-4 bg-pclr3 dark:bg-pdclr3 rounded-2xl border-l-4" style={{ borderLeftColor: uColor }}>
                   <p className="text-[0.9em] italic opacity-80 line-clamp-2">"{c.enfasis}"</p>
                 </div>
               </div>
 
-              <div className="pt-6 border-t border-clr7 dark:border-dclr7 flex justify-between items-center relative z-10 mt-4">
-                <span className="text-[0.8em] font-bold uppercase text-clr6">Finalizado</span>
+              <div className="pt-6 border-t border-pclr13 dark:border-pdclr13 flex justify-between items-center relative z-10 mt-4">
+                <span className="text-[0.8em] font-bold uppercase text-pclr6">Finalizado</span>
                 <div className="flex items-center gap-3">
                   {canDelete && (
                     <button
                       onClick={(e) => handleEliminarCiclo(e, c)}
-                      className="px-3 py-1.5 bg-clr4 hover:bg-clr4 text-clr4 hover:text-clr1 dark:bg-dclr4 dark:text-dclr4 dark:hover:bg-dclr4 rounded-lg transition-all text-[0.8em] font-bold"
+                      className="px-3 py-1.5 bg-pclr10 hover:bg-pclr10 text-pclr4 hover:text-pclr12 dark:bg-pdclr10 dark:text-pdclr4 dark:hover:bg-dclr4 rounded-lg transition-all text-[0.8em] font-bold"
                       title="Eliminar ciclo del historial"
                     >
                       🗑️ Borrar

@@ -9,15 +9,15 @@ export default function Step16_AutorizacionParticipacion({ formData, setFormData
   const isAdult = (perfil.edad ?? 0) >= 18;
   const fechaHoy = format(new Date(), "yyyy-MM-dd");
 
-  const titleStyle = "text-[1.2em] font-black text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8 border-b-2 border-clr4 pb-2";
+  const titleStyle = "text-[1.2em] font-black text-pclr4 dark:text-pdclr4 uppercase tracking-tighter mb-8 border-b-2 border-pclr14 pb-2";
   const labelContainerStyle = "flex items-center gap-2 mb-1";
-  const labelStyle = "text-[0.9em] font-black uppercase text-clr3 tracking-widest block";
-  const inputStyle = (isValid: boolean) => `w-full bg-clr7 dark:bg-dclr7 dark:text-dclr2 border-2 ${!isValid ? 'border-clr4 bg-clr4' : 'border-transparent focus:border-clr4'} rounded-xl p-3 text-[1em] font-bold outline-none transition-colors duration-200 shadow-inner`;
-  const disabledInputStyle = "w-full bg-clr7 dark:bg-dclr7 p-3 rounded-xl font-bold text-[1em] dark:text-dclr2 border border-clr7 dark:border-dclr7 opacity-70 cursor-not-allowed outline-none";
+  const labelStyle = "text-[0.9em] font-black uppercase text-pclr7 tracking-widest block";
+  const inputStyle = (isValid: boolean) => `w-full bg-pclr3 dark:bg-pdclr3 dark:text-pdclr4 border-2 ${!isValid ? 'border-pclr14 bg-pclr10' : 'border-transparent focus:border-pclr14'} rounded-xl p-3 text-[1em] font-bold outline-none transition-colors duration-200 shadow-inner`;
+  const disabledInputStyle = "w-full bg-pclr3 dark:bg-pdclr3 p-3 rounded-xl font-bold text-[1em] dark:text-pdclr4 border border-pclr13 dark:border-pdclr13 opacity-70 cursor-not-allowed outline-none";
   
   const infoIconContainerStyle = "inline-block";
-  const infoIconStyle = "text-clr4 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
-  const tooltipStyle = "fixed z-[300] left-1/2 -translate-x-1/2 top-1/4 w-[90%] max-w-lg p-6 bg-clr2 dark:bg-dclr2 text-clr1 text-[1em] font-medium leading-relaxed rounded-[2rem] shadow-2xl opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 border-2 border-clr4 backdrop-blur-md";
+  const infoIconStyle = "text-pclr4 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
+  const tooltipStyle = "fixed z-[300] left-1/2 -translate-x-1/2 top-1/4 w-[90%] max-w-lg p-6 bg-pclr2 dark:bg-pdclr2 text-pclr12 text-[1em] font-medium leading-relaxed rounded-[2rem] shadow-2xl opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 border-2 border-pclr14 backdrop-blur-md";
 
   const legalTextAdult = (
     <>
@@ -51,13 +51,13 @@ export default function Step16_AutorizacionParticipacion({ formData, setFormData
               </span>
             </div>
             <div className={tooltipStyle}>
-              <div className="text-clr4 font-black uppercase text-[0.8em] tracking-tight mb-3 border-b border-clr4 pb-2 leading-tight">{label}</div>
+              <div className="text-pclr4 font-black uppercase text-[0.8em] tracking-tight mb-3 border-b border-pclr14 pb-2 leading-tight">{label}</div>
               <div className="text-[0.95em]">{info}</div>
             </div>
           </div>
         </div>
         {children}
-        {error && <p className="text-clr4 text-[0.8em] font-black uppercase tracking-tight pl-2">⚠️ {error}</p>}
+        {error && <p className="text-pclr4 text-[0.8em] font-black uppercase tracking-tight pl-2">⚠️ {error}</p>}
       </div>
     );
   };
@@ -80,33 +80,33 @@ export default function Step16_AutorizacionParticipacion({ formData, setFormData
       <h3 className={titleStyle}>16. Autorización de Participación en Actividades</h3>
       
       {/* Datos de la Actividad (Solo Lectura) */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 p-4 bg-clr7 dark:bg-dclr7 rounded-2xl border border-clr7 dark:border-dclr7">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 p-4 bg-pclr3 dark:bg-pdclr3 rounded-2xl border border-pclr13 dark:border-pdclr13">
         <div>
-          <span className="text-[0.8em] font-black uppercase text-clr3 tracking-widest block">Nombre de la Actividad</span>
-          <p className="font-bold dark:text-dclr2">{actividad?.nombre || '---'}</p>
+          <span className="text-[0.8em] font-black uppercase text-pclr7 tracking-widest block">Nombre de la Actividad</span>
+          <p className="font-bold dark:text-pdclr4">{actividad?.nombre || '---'}</p>
         </div>
         <div>
-          <span className="text-[0.8em] font-black uppercase text-clr3 tracking-widest block">Fechas de la Actividad</span>
-          <p className="font-bold dark:text-dclr2">
+          <span className="text-[0.8em] font-black uppercase text-pclr7 tracking-widest block">Fechas de la Actividad</span>
+          <p className="font-bold dark:text-pdclr4">
             {actividad?.fecha_inicio && parseFechaLocal(actividad.fecha_inicio) ? format(parseFechaLocal(actividad.fecha_inicio)!, "dd/MM/yyyy", { locale: es }) : '---'}
           </p>
         </div>
         <div>
-          <span className="text-[0.8em] font-black uppercase text-clr3 tracking-widest block">Lugar de la Actividad</span>
-          <p className="font-bold dark:text-dclr2">{actividad?.lugar || '---'}</p>
+          <span className="text-[0.8em] font-black uppercase text-pclr7 tracking-widest block">Lugar de la Actividad</span>
+          <p className="font-bold dark:text-pdclr4">{actividad?.lugar || '---'}</p>
         </div>
       </div>
 
       {/* Bloque 1: Declaración de Salud */}
-      <div className="p-6 bg-clr7 dark:bg-dclr7 rounded-3xl border border-clr7 dark:border-dclr7 mb-6">
-        <div className="text-[0.95em] leading-relaxed italic dark:text-dclr2 text-clr2 font-medium">
+      <div className="p-6 bg-pclr3 dark:bg-pdclr3 rounded-3xl border border-pclr13 dark:border-pdclr13 mb-6">
+        <div className="text-[0.95em] leading-relaxed italic dark:text-pdclr4 text-pclr4 font-medium">
           {isAdult ? legalTextAdult : legalTextMinor}
         </div>
       </div>
 
       {/* Bloque 2: Autorización Médica (Nueva Caja) */}
-      <div className="p-6 bg-clr7 dark:bg-dclr7 rounded-3xl border-2 border-clr4 mb-8">
-        <p className="text-[0.95em] leading-relaxed italic dark:text-dclr2 text-clr2 font-bold">
+      <div className="p-6 bg-pclr3 dark:bg-pdclr3 rounded-3xl border-2 border-pclr14 mb-8">
+        <p className="text-[0.95em] leading-relaxed italic dark:text-pdclr4 text-pclr4 font-bold">
           {medicalAuthText}
         </p>
       </div>
@@ -123,7 +123,7 @@ export default function Step16_AutorizacionParticipacion({ formData, setFormData
             {['SI', 'NO'].map(o => {
               const isChecked = formData.autoriza_participacion === o;
               return (
-                <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] tracking-widest transition-all ${isChecked ? 'border-clr4 bg-clr4 text-clr1 shadow-lg scale-105' : 'border-clr7 dark:border-dclr7 dark:text-dclr2'}`}>
+                <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] tracking-widest transition-all ${isChecked ? 'border-pclr14 bg-pclr10 text-pclr12 shadow-lg scale-105' : 'border-pclr13 dark:border-pdclr13 dark:text-pdclr4'}`}>
                   <input type="radio" checked={isChecked} onChange={() => setFormData({ ...formData, autoriza_participacion: o })} className="hidden" /> {o}
                 </label>
               );

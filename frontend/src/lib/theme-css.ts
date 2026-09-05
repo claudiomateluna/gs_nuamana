@@ -29,7 +29,7 @@
  * `RootLayout` so utilities consume the overrides with zero FOUC.
  */
 
-import type { ThemeColorsConfig, HeaderColorsConfig, MenuColorsConfig } from './site-config.types';
+import type { ThemeColorsConfig, HeaderColorsConfig, MenuColorsConfig, PanelColorsConfig } from './site-config.types';
 import type { PromoColorsConfig } from './promo-colors';
 import type { SlideshowColorsConfig } from './site-config.types';
 import type { TestimonialsColorsConfig } from './site-config.types';
@@ -354,3 +354,32 @@ export function generateMenuColorsCSS(menu: MenuColorsConfig): string {
   }).join(';');
   return `:root{${declarations};}`;
 }
+
+// ---------------------------------------------------------------------------
+// Panel — panel_colors → CSS variables (pclr1-14 / pdclr1-14)
+// ---------------------------------------------------------------------------
+//
+// The Panel area consumes its 14 role pairs through Tailwind utilities
+// (`text-pclr4`, `dark:text-pdclr4`, `bg-pclr1`, `dark:bg-pdclr1`, ...) compiled
+// against the `@theme` bindings in globals.css. This generator emits a dedicated
+// minified `:root` block overriding those 28 variables from the DB-driven
+// panel_colors config — rendered as a ninth `<style>` tag in RootLayout.
+
+const PANEL_VAR_ORDER = [
+  'pclr1', 'pclr2', 'pclr3', 'pclr4', 'pclr5', 'pclr6', 'pclr7', 'pclr8', 'pclr9', 'pclr10', 'pclr11', 'pclr12', 'pclr13', 'pclr14',
+  'pdclr1', 'pdclr2', 'pdclr3', 'pdclr4', 'pdclr5', 'pdclr6', 'pdclr7', 'pdclr8', 'pdclr9', 'pdclr10', 'pdclr11', 'pdclr12', 'pdclr13', 'pdclr14',
+] as const;
+
+export function generatePanelColorsCSS(panel: PanelColorsConfig): string {
+  const declarations = PANEL_VAR_ORDER.map((key) => {
+    const hex = panel[key];
+    if (!hex) return `--${key}:`;
+    const opacityKey = `${key}_opacity` as keyof PanelColorsConfig;
+    const opacity = panel[opacityKey] as number | undefined;
+    if (opacity === undefined || opacity >= 100) return `--${key}:${hex}`;
+    const [r, g, b] = hexToRgb(hex);
+    return `--${key}:rgba(${r}, ${g}, ${b}, ${opacity / 100})`;
+  }).join(';');
+  return `:root{${declarations};}`;
+}
+

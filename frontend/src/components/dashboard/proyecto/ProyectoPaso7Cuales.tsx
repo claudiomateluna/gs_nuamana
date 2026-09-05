@@ -38,8 +38,8 @@ export default function ProyectoPaso7Cuales({
   return (
     <div className="space-y-2">
       <div className="flex items-center gap-1 p-2 opacity-60 rounded-[0.8rem]" style={{ backgroundColor: themePrimary }}>
-        <span className="w-8 h-8 rounded-full flex items-center justify-center text-clr1 text-[0.9em] font-bold" style={{ color: themeSecondary }}>7</span>
-        <h3 className="text-xl font-black uppercase tracking-tight text-clr2 dark:text-dclr2" style={{ color: themeSecondary }}>¿Cuáles Actividades?</h3>
+        <span className="w-8 h-8 rounded-full flex items-center justify-center text-pclr12 text-[0.9em] font-bold" style={{ color: themeSecondary }}>7</span>
+        <h3 className="text-xl font-black uppercase tracking-tight text-pclr4 dark:text-pdclr4" style={{ color: themeSecondary }}>¿Cuáles Actividades?</h3>
       </div>
 
       <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 min-h-[420px] p-1 font-body">
@@ -58,7 +58,7 @@ export default function ProyectoPaso7Cuales({
         </div>
 
         {/* Right Column (Desktop) / Bottom Row (Mobile) */}
-        <div className="w-full space-y-2 bg-clr7 dark:bg-dclr7 p-1 rounded-[1rem] border border-clr7 dark:border-dclr7 backdrop-blur-xs shadow-md">
+        <div className="w-full space-y-2 bg-pclr3 dark:bg-pdclr3 p-1 rounded-[1rem] border border-pclr13 dark:border-pdclr13 backdrop-blur-xs shadow-md">
           <div className="flex justify-end p-1">
             <button 
               type="button" 
@@ -72,16 +72,16 @@ export default function ProyectoPaso7Cuales({
 
           <div className="space-y-2 max-h-[600px] overflow-y-auto pr-1">
             {actividades.map((act, index) => (
-              <div key={act.id} className="p-2 bg-clr1 dark:bg-dclr1 rounded-2xl border dark:border-clr1 space-y-2 relative">
+              <div key={act.id} className="p-2 bg-pclr1 dark:bg-pdclr1 rounded-2xl border dark:border-pclr1 space-y-2 relative">
                 <button 
                   type="button" 
                   onClick={() => removeActividad(act.id)}
-                  className="absolute top-1 right-2 text-clr4 font-bold hover:bg-clr4 dark:hover:bg-dclr4 px-2 py-0.5 rounded-xl text-[0.8em] border-none bg-transparent"
+                  className="absolute top-1 right-2 text-pclr4 font-bold hover:bg-pclr10 dark:hover:bg-dclr4 px-2 py-0.5 rounded-xl text-[0.8em] border-none bg-transparent"
                 >
                   ✕ Quitar
                 </button>
                 
-                <span className="text-[0.8em] font-black uppercase tracking-wider text-clr3">Actividad #{index + 1}</span>
+                <span className="text-[0.8em] font-black uppercase tracking-wider text-pclr7">Actividad #{index + 1}</span>
                 
                 <div className="space-y-1">
                   <label className="text-[0.8em] font-bold uppercase ml-1 p-0.5 rounded-[0.4rem]" style={{ backgroundColor: themePrimary, color: themeSecondary }}>Nombre</label>
@@ -90,7 +90,7 @@ export default function ProyectoPaso7Cuales({
                     value={act.nombre || ''}
                     onChange={e => updateActividad(act.id, 'nombre', e.target.value)}
                     placeholder="Ej: Jornada Reforestación 1"
-                    className="w-full p-2 bg-clr7 dark:bg-dclr7 rounded-xl border dark:border-clr1 text-[0.85em] font-bold"
+                    className="w-full p-2 bg-pclr3 dark:bg-pdclr3 rounded-xl border dark:border-pclr1 text-[0.85em] font-bold"
                   />
                 </div>
                 
@@ -101,7 +101,7 @@ export default function ProyectoPaso7Cuales({
                       <a 
                         href={`/blog/crear?categoria=1&unidad=${miUnidad?.nombre || ''}`} 
                         target="_blank" 
-                        className="text-[0.8em] font-bold text-clr4 dark:text-dclr4 hover:underline uppercase flex items-center gap-0.5"
+                        className="text-[0.8em] font-bold text-pclr4 dark:text-pdclr4 hover:underline uppercase flex items-center gap-0.5"
                         title="Redactar una nueva ficha de actividad en una pestaña nueva"
                       >
                         ✍️ Redactar
@@ -109,7 +109,7 @@ export default function ProyectoPaso7Cuales({
                       <button
                         type="button"
                         onClick={handleRefreshArticles}
-                        className="text-[0.8em] font-bold text-clr3 hover:text-clr2 dark:text-dclr2 dark:hover:text-dclr7 uppercase flex items-center gap-0.5 border-none bg-transparent"
+                        className="text-[0.8em] font-bold text-pclr7 hover:text-pclr4 dark:text-pdclr4 dark:hover:text-dclr7 uppercase flex items-center gap-0.5 border-none bg-transparent"
                         title="Actualizar la lista de fichas disponibles"
                       >
                         🔄 Refrescar
@@ -119,7 +119,7 @@ export default function ProyectoPaso7Cuales({
                   <select 
                     value={act.articulo_id || ''}
                     onChange={e => updateActividad(act.id, 'articulo_id', e.target.value)}
-                    className="w-full p-2 bg-clr7 dark:bg-dclr7 rounded-xl border dark:border-clr1 text-[0.8em] font-bold uppercase tracking-tight"
+                    className="w-full p-2 bg-pclr3 dark:bg-pdclr3 rounded-xl border dark:border-pclr1 text-[0.8em] font-bold uppercase tracking-tight"
                   >
                     <option value="">Ninguno</option>
                     {articulosActividades.map(art => (
@@ -134,14 +134,14 @@ export default function ProyectoPaso7Cuales({
                     value={act.descripcion || ''}
                     onChange={e => updateActividad(act.id, 'descripcion', e.target.value)}
                     placeholder="Qué se hará..."
-                    className="w-full p-2 bg-clr7 dark:bg-dclr7 rounded-xl border dark:border-clr1 text-[0.85em] font-bold h-16"
+                    className="w-full p-2 bg-pclr3 dark:bg-pdclr3 rounded-xl border dark:border-pclr1 text-[0.85em] font-bold h-16"
                   />
                 </div>
               </div>
             ))}
 
             {actividades.length === 0 && (
-              <p className="text-center py-6 text-clr3 font-bold italic text-[0.85em]">No has agregado ninguna actividad.</p>
+              <p className="text-center py-6 text-pclr7 font-bold italic text-[0.85em]">No has agregado ninguna actividad.</p>
             )}
           </div>
         </div>

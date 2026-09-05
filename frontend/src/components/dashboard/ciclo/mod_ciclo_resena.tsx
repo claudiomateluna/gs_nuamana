@@ -115,13 +115,13 @@ export default function DashModResena({ isOpen, onClose, propuesta, perfil, onSu
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-clr2 backdrop-blur-sm animate-in fade-in duration-300">
-      <div className="bg-clr1 dark:bg-dclr1 w-full max-w-lg rounded-[2.5rem] shadow-2xl overflow-hidden border-4 border-clr1 dark:border-dclr1 animate-in zoom-in duration-300">
+    <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-pclr2 backdrop-blur-sm animate-in fade-in duration-300">
+      <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-lg rounded-[2.5rem] shadow-2xl overflow-hidden border-4 border-pclr1 dark:border-pdclr1 animate-in zoom-in duration-300">
         <div className="p-8 space-y-6">
           <div className="text-center space-y-2">
             <span className="text-5xl block mb-2">⭐</span>
-            <h2 className="text-2xl font-black uppercase text-clr4 dark:text-dclr4">Calificar Actividad</h2>
-            <p className="text-[0.9em] text-clr3 dark:text-dclr3 italic">Tu opinión aparecerá en la ficha pública</p>
+            <h2 className="text-2xl font-black uppercase text-pclr4 dark:text-pdclr4">Calificar Actividad</h2>
+            <p className="text-[0.9em] text-pclr7 dark:text-pdclr7 italic">Tu opinión aparecerá en la ficha pública</p>
           </div>
 
           <div className="space-y-4">
@@ -134,15 +134,15 @@ export default function DashModResena({ isOpen, onClose, propuesta, perfil, onSu
                     onClick={() => setCalificacion(num)}
                     className={`w-10 h-10 rounded-xl font-black transition-all flex items-center justify-center text-lg ${
                       calificacion >= num 
-                        ? 'bg-clr5 text-clr1 shadow-lg scale-110' 
-                        : 'bg-clr7 text-clr3 dark:bg-dclr7'
+                        ? 'bg-pclr5 text-pclr12 shadow-lg scale-110' 
+                        : 'bg-pclr3 text-pclr7 dark:bg-pdclr3'
                     }`}
                   >
                     {num}
                   </button>
                 ))}
               </div>
-              <span className="text-[0.9em] font-bold text-clr5 uppercase mt-1">
+              <span className="text-[0.9em] font-bold text-pclr5 uppercase mt-1">
                 {calificacion === 7 ? '¡Increíble!' : calificacion >= 5 ? 'Muy buena' : calificacion >= 4 ? 'Normal' : 'Se puede mejorar'}
               </span>
             </div>
@@ -153,11 +153,11 @@ export default function DashModResena({ isOpen, onClose, propuesta, perfil, onSu
                 value={comentario}
                 onChange={(e) => setComentario(e.target.value)}
                 placeholder="Cuéntanos qué fue lo que más te gustó de esta actividad..."
-                className="w-full p-4 rounded-2xl border bg-clr7 dark:bg-dclr7 font-bold min-h-[120px] text-[1em]"
+                className="w-full p-4 rounded-2xl border bg-pclr3 dark:bg-pdclr3 font-bold min-h-[120px] text-[1em]"
               />
             </div>
 
-            <label className="flex items-center gap-3 cursor-pointer group p-2 bg-clr7 dark:bg-dclr7 rounded-xl border border-clr7 dark:border-dclr7">
+            <label className="flex items-center gap-3 cursor-pointer group p-2 bg-pclr3 dark:bg-pdclr3 rounded-xl border border-pclr13 dark:border-pdclr13">
               <input 
                 type="checkbox" 
                 checked={esAnonimo} 
@@ -168,11 +168,11 @@ export default function DashModResena({ isOpen, onClose, propuesta, perfil, onSu
             </label>
           </div>
 
-          <div className="flex gap-4 pt-4 border-t border-clr7 dark:border-dclr7">
+          <div className="flex gap-4 pt-4 border-t border-pclr13 dark:border-pdclr13">
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 py-4 bg-clr7 dark:bg-dclr7 font-black uppercase rounded-2xl tracking-widest text-[0.9em]"
+              className="flex-1 py-4 bg-pclr3 dark:bg-pdclr3 font-black uppercase rounded-2xl tracking-widest text-[0.9em]"
             >
               Cerrar
             </button>
@@ -180,7 +180,7 @@ export default function DashModResena({ isOpen, onClose, propuesta, perfil, onSu
               type="button"
               onClick={handleSave}
               disabled={saving || loading}
-              className="flex-[2] py-4 bg-clr5 text-clr1 font-black uppercase rounded-2xl tracking-widest text-[0.9em] shadow-lg hover:brightness-110 active:scale-95 transition-all disabled:opacity-50"
+              className="flex-[2] py-4 bg-pclr5 text-pclr12 font-black uppercase rounded-2xl tracking-widest text-[0.9em] shadow-lg hover:brightness-110 active:scale-95 transition-all disabled:opacity-50"
             >
               {saving ? 'Guardando...' : '💾 Publicar Reseña'}
             </button>

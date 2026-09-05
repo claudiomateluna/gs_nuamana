@@ -25,6 +25,7 @@ export type SiteConfigCategory =
   | 'faq_colors'
   | 'secondary_header_colors'
   | 'footer_colors'
+  | 'panel_colors'
   | 'section_visibility'
   | 'social_list';
 
@@ -923,6 +924,80 @@ export interface FooterColorsConfig {
   fodclr10_opacity?: number;
 }
 
+export interface PanelColorsConfig {
+  // 14 color roles × light + dark (28 hex fields) + 14 light opacities + 14 dark opacities = 56
+  // 1. Fondo Inicial
+  pclr1?: string;
+  pdclr1?: string;
+  pclr1_opacity?: number;
+  pdclr1_opacity?: number;
+  // 2. Fondo Final
+  pclr2?: string;
+  pdclr2?: string;
+  pclr2_opacity?: number;
+  pdclr2_opacity?: number;
+  // 3. Fondo Cajas e Inputs
+  pclr3?: string;
+  pdclr3?: string;
+  pclr3_opacity?: number;
+  pdclr3_opacity?: number;
+  // 4. Título Principal
+  pclr4?: string;
+  pdclr4?: string;
+  pclr4_opacity?: number;
+  pdclr4_opacity?: number;
+  // 5. Subtítulo Rol/Unidad
+  pclr5?: string;
+  pdclr5?: string;
+  pclr5_opacity?: number;
+  pdclr5_opacity?: number;
+  // 6. Texto Estado/Metadatos
+  pclr6?: string;
+  pdclr6?: string;
+  pclr6_opacity?: number;
+  pdclr6_opacity?: number;
+  // 7. Pestaña Inactiva
+  pclr7?: string;
+  pdclr7?: string;
+  pclr7_opacity?: number;
+  pdclr7_opacity?: number;
+  // 8. Pestaña Activa / Acento
+  pclr8?: string;
+  pdclr8?: string;
+  pclr8_opacity?: number;
+  pdclr8_opacity?: number;
+  // 9. Pestaña Hover
+  pclr9?: string;
+  pdclr9?: string;
+  pclr9_opacity?: number;
+  pdclr9_opacity?: number;
+  // 10. Acción Primaria
+  pclr10?: string;
+  pdclr10?: string;
+  pclr10_opacity?: number;
+  pdclr10_opacity?: number;
+  // 11. Acción Neutra
+  pclr11?: string;
+  pdclr11?: string;
+  pclr11_opacity?: number;
+  pdclr11_opacity?: number;
+  // 12. Acción Secundaria / Peligro
+  pclr12?: string;
+  pdclr12?: string;
+  pclr12_opacity?: number;
+  pdclr12_opacity?: number;
+  // 13. Separadores Internos
+  pclr13?: string;
+  pdclr13?: string;
+  pclr13_opacity?: number;
+  pdclr13_opacity?: number;
+  // 14. Bordes / Focus
+  pclr14?: string;
+  pdclr14?: string;
+  pclr14_opacity?: number;
+  pdclr14_opacity?: number;
+}
+
 export interface SectionVisibilityConfig {
   hero: boolean;
   features: boolean;
@@ -955,6 +1030,7 @@ export interface SiteConfigRecord {
   faq_colors: FAQColorsConfig;
   secondary_header_colors: SecondaryHeaderColorsConfig;
   footer_colors: FooterColorsConfig;
+  panel_colors: PanelColorsConfig;
   section_visibility: SectionVisibilityConfig;
   social_list: SocialListConfig;
 }

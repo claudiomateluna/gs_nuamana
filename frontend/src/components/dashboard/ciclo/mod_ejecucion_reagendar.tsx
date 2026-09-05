@@ -42,9 +42,9 @@ export default function DashModReagendar({ isOpen, onClose, propuesta, onSuccess
   if (!isOpen || !propuesta) return null
 
   return (
-    <div className="fixed inset-0 bg-clr2 backdrop-blur-md z-[130] flex items-center justify-center p-4 animate-in fade-in duration-300">
-      <div className="bg-clr1 dark:bg-dclr1 w-full max-w-lg rounded-[3rem] p-8 shadow-2xl">
-        <h2 className="text-2xl font-black font-display uppercase text-clr4 tracking-tighter mb-2">
+    <div className="fixed inset-0 bg-pclr2 backdrop-blur-md z-[130] flex items-center justify-center p-4 animate-in fade-in duration-300">
+      <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-lg rounded-[3rem] p-8 shadow-2xl">
+        <h2 className="text-2xl font-black font-display uppercase text-pclr4 tracking-tighter mb-2">
           ðŸ“… Reagendar Actividad
         </h2>
         <p className="text-sm opacity-60 font-medium italic mb-6">
@@ -62,7 +62,7 @@ export default function DashModReagendar({ isOpen, onClose, propuesta, onSuccess
               type="date" 
               value={fecha}
               onChange={e => setFecha(e.target.value)}
-              className="w-full p-4 rounded-2xl border dark:border-dclr7 bg-clr7 dark:bg-dclr7 font-bold"
+              className="w-full p-4 rounded-2xl border dark:border-pdclr13 bg-pclr3 dark:bg-pdclr3 font-bold"
             />
           </div>
 
@@ -70,14 +70,14 @@ export default function DashModReagendar({ isOpen, onClose, propuesta, onSuccess
             <button 
               type="submit" 
               disabled={loading}
-              className="flex-1 py-4 bg-clr4 text-clr1 font-black font-display uppercase rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest"
+              className="flex-1 py-4 bg-pclr10 text-pclr12 font-black font-display uppercase rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest"
             >
               {loading ? 'âŒ› Guardando...' : 'âœ… Confirmar'}
             </button>
             <button 
               type="button" 
               onClick={onClose}
-              className="px-6 py-4 bg-clr7 dark:bg-dclr7 text-clr3 rounded-2xl font-bold uppercase"
+              className="px-6 py-4 bg-pclr3 dark:bg-pdclr3 text-pclr7 rounded-2xl font-bold uppercase"
             >
               Cancelar
             </button>

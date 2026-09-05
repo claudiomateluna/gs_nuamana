@@ -239,10 +239,10 @@ const fetchInitialData = useCallback(async () => {
     const isBeneficiaryRole = isNNJConAgenda(perfil)
 
     return (
-      <div className="p-8 rounded-[2.5rem] bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7 shadow-xl text-center space-y-4">
+      <div className="p-8 rounded-[2.5rem] bg-pclr3 dark:bg-pdclr3 border border-pclr13 dark:border-pdclr13 shadow-xl text-center space-y-4">
         <span className="text-4xl">📓</span>
-        <h3 className="text-xl font-bold uppercase text-clr2 dark:text-dclr2">Agenda de Vida no Inicializada</h3>
-        <p className="text-[0.9em] font-bold text-clr3 max-w-md mx-auto leading-relaxed">
+        <h3 className="text-xl font-bold uppercase text-pclr4 dark:text-pdclr4">Agenda de Vida no Inicializada</h3>
+        <p className="text-[0.9em] font-bold text-pclr7 max-w-md mx-auto leading-relaxed">
           {!isBeneficiaryRole
             ? 'Los dirigentes y administradores no poseen una Agenda Personal de Vida.'
             : isOwner 
@@ -273,7 +273,7 @@ const fetchInitialData = useCallback(async () => {
                 setLoading(false)
               }
             }}
-            className="px-6 py-3 rounded-2xl text-[0.9em] font-bold uppercase tracking-wider text-clr1 shadow-xl hover:scale-102 transition-all mx-auto block"
+            className="px-6 py-3 rounded-2xl text-[0.9em] font-bold uppercase tracking-wider text-pclr12 shadow-xl hover:scale-102 transition-all mx-auto block"
             style={{ backgroundColor: colorHighlight }}
           >
             🚀 Inicializar mi Agenda de Vida
@@ -287,19 +287,19 @@ const fetchInitialData = useCallback(async () => {
     if (!agenda) return null
 
     return (
-      <div className="p-2 rounded-[1rem] bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7 shadow-xl space-y-6">
+      <div className="p-2 rounded-[1rem] bg-pclr3 dark:bg-pdclr3 border border-pclr13 dark:border-pdclr13 shadow-xl space-y-6">
         <div>
-          <h3 className="font-bold uppercase text-[1.5em] text-clr2 dark:text-dclr2">
+          <h3 className="font-bold uppercase text-[1.5em] text-pclr4 dark:text-pdclr4">
             🎯 Mi Pre-Proyecto de Vida
           </h3>
-          <p className="text-[1em] font-bold text-clr3 mt-1">
+          <p className="text-[1em] font-bold text-pclr7 mt-1">
             Reflexiona sobre estas 4 preguntas clave para planificar tu ruta en la unidad.
           </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
           {/* Pregunta 1 */}
-          <div className="p-2 rounded-md bg-clr1 dark:bg-dclr1 border border-clr7 dark:border-dclr7 flex flex-col">
+          <div className="p-2 rounded-md bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 flex flex-col">
             <span className="text-[1em] p-1 rounded-md font-bold uppercase tracking-widest mb-2 block" style={{ backgroundColor: themePrimary, color: themeSecondary }}>¿Quién quiero ser?</span>
             <textarea
               disabled={!isOwner}
@@ -307,12 +307,12 @@ const fetchInitialData = useCallback(async () => {
               onChange={e => setAgenda({ ...agenda, quien_soy: e.target.value })}
               onBlur={e => handleUpdateAgendaField('quien_soy', e.target.value)}
               placeholder="Describe tu identidad ideal, tus valores and tu carácter..."
-              className="flex-1 w-full p-2 rounded-md bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7 font-bold min-h-[120px] outline-none text-[0.9em]"
+              className="flex-1 w-full p-2 rounded-md bg-pclr3 dark:bg-pdclr3 border border-pclr13 dark:border-pdclr13 font-bold min-h-[120px] outline-none text-[0.9em]"
             />
           </div>
 
           {/* Pregunta 2 */}
-          <div className="p-2 rounded-md bg-clr1 dark:bg-dclr1 border border-clr7 dark:border-dclr7 flex flex-col">
+          <div className="p-2 rounded-md bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 flex flex-col">
             <span className="text-[1em] p-1 rounded-md font-bold uppercase tracking-widest mb-2 block" style={{ backgroundColor: themePrimary, color: themeSecondary }}>¿Qué quiero para mi vida?</span>
             <textarea
               disabled={!isOwner}
@@ -320,12 +320,12 @@ const fetchInitialData = useCallback(async () => {
               onChange={e => setAgenda({ ...agenda, vision_futuro: e.target.value })}
               onBlur={e => handleUpdateAgendaField('vision_futuro', e.target.value)}
               placeholder="Tus metas a mediano y largo plazo en lo personal, familiar y social..."
-              className="flex-1 w-full p-2 rounded-md bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7 font-bold min-h-[120px] outline-none text-[0.9em]"
+              className="flex-1 w-full p-2 rounded-md bg-pclr3 dark:bg-pdclr3 border border-pclr13 dark:border-pdclr13 font-bold min-h-[120px] outline-none text-[0.9em]"
             />
           </div>
 
           {/* Pregunta 3 */}
-          <div className="p-2 rounded-md bg-clr1 dark:bg-dclr1 border border-clr7 dark:border-dclr7 flex flex-col">
+          <div className="p-2 rounded-md bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 flex flex-col">
             <span className="text-[1em] p-1 rounded-md font-bold uppercase tracking-widest mb-2 block" style={{ backgroundColor: themePrimary, color: themeSecondary }}>¿Cómo me visualizo en el futuro?</span>
             <textarea
               disabled={!isOwner}
@@ -333,12 +333,12 @@ const fetchInitialData = useCallback(async () => {
               onChange={e => setAgenda({ ...agenda, como_me_visualizo: e.target.value })}
               onBlur={e => handleUpdateAgendaField('como_me_visualizo', e.target.value)}
               placeholder="¿Dónde te ves viviendo, en qué trabajando, qué haciendo en unos años?..."
-              className="flex-1 w-full p-2 rounded-md bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7 font-bold min-h-[120px] outline-none text-[0.9em]"
+              className="flex-1 w-full p-2 rounded-md bg-pclr3 dark:bg-pdclr3 border border-pclr13 dark:border-pdclr13 font-bold min-h-[120px] outline-none text-[0.9em]"
             />
           </div>
 
           {/* Pregunta 4 */}
-          <div className="p-2 rounded-md bg-clr1 dark:bg-dclr1 border border-clr7 dark:border-dclr7 flex flex-col">
+          <div className="p-2 rounded-md bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 flex flex-col">
             <span className="text-[1em] p-1 rounded-md font-bold uppercase tracking-widest mb-2 block" style={{ backgroundColor: themePrimary, color: themeSecondary }}>¿Qué hago hoy para cumplir mis sueños y lograr ser la persona que imagino ser?</span>
             <textarea
               disabled={!isOwner}
@@ -346,13 +346,13 @@ const fetchInitialData = useCallback(async () => {
               onChange={e => setAgenda({ ...agenda, que_hago_hoy: e.target.value })}
               onBlur={e => handleUpdateAgendaField('que_hago_hoy', e.target.value)}
               placeholder="Tus acciones, hábitos y estudios del día a día..."
-              className="flex-1 w-full p-2 rounded-md bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7 font-bold min-h-[120px] outline-none text-[0.9em]"
+              className="flex-1 w-full p-2 rounded-md bg-pclr3 dark:bg-pdclr3 border border-pclr13 dark:border-pdclr13 font-bold min-h-[120px] outline-none text-[0.9em]"
             />
           </div>
         </div>
 
         {isClan && (
-          <div className="p-2 rounded-md bg-clr1 dark:bg-dclr1 border border-clr7 dark:border-dclr7 flex flex-col">
+          <div className="p-2 rounded-md bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 flex flex-col">
             <span className="text-[1em] p-1 rounded-md font-bold uppercase tracking-widest mb-2 block" style={{ backgroundColor: themePrimary, color: themeSecondary }}>Mi Compromiso con el Clan y la Promesa</span>
             <textarea
               disabled={!isOwner}
@@ -360,7 +360,7 @@ const fetchInitialData = useCallback(async () => {
               onChange={e => setAgenda({ ...agenda, compromiso_texto: e.target.value })}
               onBlur={e => handleUpdateAgendaField('compromiso_texto', e.target.value)}
               placeholder="Escribe tu compromiso personal con el Clan, la Ley y la Promesa..."
-              className="w-full p-2 rounded-md bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7 font-bold min-h-[100px] outline-none text-[0.9em]"
+              className="w-full p-2 rounded-md bg-pclr3 dark:bg-pdclr3 border border-pclr13 dark:border-pdclr13 font-bold min-h-[100px] outline-none text-[0.9em]"
             />
           </div>
         )}
@@ -371,24 +371,24 @@ const fetchInitialData = useCallback(async () => {
   const renderProyectosSection = (proyectos: Proyecto[]) => {
     return (
       <div className="space-y-2">
-        <div className="border-b pb-4 border-clr7 dark:border-dclr7 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="border-b pb-4 border-pclr13 dark:border-pdclr13 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <h3 className="font-bold uppercase text-[1.5em] text-clr2 dark:text-dclr2">Mis Proyectos</h3>
-            <p className="text-[0.9em] font-bold text-clr3 mt-1">Elabora y gestiona tus proyectos individuales (personales) o de unidad (colectivos).</p>
+            <h3 className="font-bold uppercase text-[1.5em] text-pclr4 dark:text-pdclr4">Mis Proyectos</h3>
+            <p className="text-[0.9em] font-bold text-pclr7 mt-1">Elabora y gestiona tus proyectos individuales (personales) o de unidad (colectivos).</p>
           </div>
           
           {isOwner && (
             <div className="flex flex-wrap gap-2">
               <button 
                 onClick={() => { setWizardProyecto(null); setWizardEsGrupal(false); setWizardInitialStep(1); setIsWizardOpen(true); }}
-                className="p-2 rounded-xl text-[0.8em] font-bold uppercase tracking-wider text-clr1 shadow-md hover:scale-102 transition-all"
+                className="p-2 rounded-xl text-[0.8em] font-bold uppercase tracking-wider text-pclr12 shadow-md hover:scale-102 transition-all"
                 style={{ backgroundColor: colorHighlight }}
               >
                 🚀 Iniciar Proyecto Personal
               </button>
               <button 
                 onClick={() => { setWizardProyecto(null); setWizardEsGrupal(true); setWizardInitialStep(1); setIsWizardOpen(true); }}
-                className="p-2 rounded-xl text-[0.8em] font-bold uppercase tracking-wider text-clr1 shadow-md hover:scale-102 transition-all bg-clr4"
+                className="p-2 rounded-xl text-[0.8em] font-bold uppercase tracking-wider text-pclr12 shadow-md hover:scale-102 transition-all bg-pclr10"
               >
                 👥 Iniciar Proyecto Colectivo
               </button>
@@ -398,22 +398,22 @@ const fetchInitialData = useCallback(async () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
           {proyectos.map(p => (
-            <div key={p.id} className="p-2 bg-clr7 dark:bg-dclr7 border dark:border-clr1 rounded-[1rem] flex flex-col justify-between relative shadow-md">
+            <div key={p.id} className="p-2 bg-pclr3 dark:bg-pdclr3 border dark:border-pclr1 rounded-[1rem] flex flex-col justify-between relative shadow-md">
               <div>
                 <div className="flex justify-between items-start">
-                  <span className={`px-3 py-1 rounded-full text-[0.8em] font-bold uppercase tracking-wider text-clr1 ${
-                    p.es_grupal ? 'bg-clr4' : 'bg-clr6'
+                  <span className={`px-3 py-1 rounded-full text-[0.8em] font-bold uppercase tracking-wider text-pclr12 ${
+                    p.es_grupal ? 'bg-pclr10' : 'bg-pclr6'
                   }`}>
                     {p.es_grupal ? 'Colectivo' : 'Individual'}
                   </span>
                   <span className={`px-2 py-0.5 rounded text-[0.8em] font-bold uppercase ${
-                    p.fase === 'completado' ? 'bg-clr6 text-clr6' : 'bg-clr5 text-clr5'
+                    p.fase === 'completado' ? 'bg-pclr6 text-pclr12 dark:bg-pdclr6 dark:text-pdclr12' : 'bg-pclr5 text-pclr12 dark:bg-pdclr5 dark:text-pdclr12'
                   }`}>
                     {p.fase}
                   </span>
                 </div>
                 
-                <h4 className="font-bold uppercase text-[1.2em] text-clr2 dark:text-dclr2 mt-3 mb-1">
+                <h4 className="font-bold uppercase text-[1.2em] text-pclr4 dark:text-pdclr4 mt-3 mb-1">
                   {p.titulo}
                 </h4>
                 
@@ -432,14 +432,14 @@ const fetchInitialData = useCallback(async () => {
               <div className="mt-6 flex gap-2">
                 <button 
                   onClick={() => { setSelectedProjectSheet(p); loadSheetParticipants(p.id); }}
-                  className="flex-1 py-2 bg-clr7 dark:bg-dclr1 hover:bg-clr3 dark:hover:bg-dclr1 rounded-xl text-[0.8em] font-bold uppercase tracking-tight"
+                  className="flex-1 py-2 bg-pclr3 dark:bg-pdclr1 hover:bg-pclr3 dark:hover:bg-pdclr1 rounded-xl text-[0.8em] font-bold uppercase tracking-tight"
                 >
                   📋 Ver Ficha
                 </button>
                 {isOwner && p.fase !== 'completado' && (
                   <button 
                     onClick={() => { setWizardProyecto(p); setWizardEsGrupal(p.es_grupal ?? false); setWizardInitialStep(1); setIsWizardOpen(true); }}
-                    className="px-3 py-2 bg-clr7 hover:bg-clr7 dark:bg-dclr7 dark:hover:bg-dclr1 text-clr2 dark:text-dclr2 rounded-xl text-[0.8em]"
+                    className="px-3 py-2 bg-pclr3 hover:bg-pclr3 dark:bg-pdclr3 dark:hover:bg-pdclr1 text-pclr4 dark:text-pdclr4 rounded-xl text-[0.8em]"
                   >
                     ✏️
                   </button>
@@ -448,7 +448,7 @@ const fetchInitialData = useCallback(async () => {
             </div>
           ))}
           {proyectos.length === 0 && (
-            <p className="col-span-full text-center py-10 text-clr3 font-bold italic">No has iniciado ningún proyecto aún.</p>
+            <p className="col-span-full text-center py-10 text-pclr7 font-bold italic">No has iniciado ningún proyecto aún.</p>
           )}
         </div>
       </div>
@@ -473,7 +473,7 @@ const fetchInitialData = useCallback(async () => {
         {/* Top Info section */}
         <div className="flex flex-col md:flex-row items-center gap-6 w-full relative z-10">
           {/* Insignia de Etapa */}
-          <div className="w-32 h-32 bg-clr1 rounded-full flex items-center justify-center shadow-2xl border-4 overflow-hidden shrink-0" style={{ borderColor: themeSecondary }}>
+          <div className="w-32 h-32 bg-pclr1 rounded-full flex items-center justify-center shadow-2xl border-4 overflow-hidden shrink-0" style={{ borderColor: themeSecondary }}>
             {etapaActual?.imagen_url ? (
               <img src={etapaActual.imagen_url} alt={etapaActual.nombre} className="w-full h-full object-cover" onError={(e: React.SyntheticEvent<HTMLImageElement>) => e.currentTarget.style.display='none'} />
             ) : (
@@ -497,12 +497,12 @@ const fetchInitialData = useCallback(async () => {
               </div>
               
               {isLeader && (
-                <div className="bg-clr1 backdrop-blur-md p-4 rounded-3xl border-2 border-clr1 shadow-lg shrink-0 z-20">
+                <div className="bg-pclr1 backdrop-blur-md p-4 rounded-3xl border-2 border-pclr1 shadow-lg shrink-0 z-20">
                   <label className="block text-[0.8em] font-bold uppercase mb-2 ml-1 drop-shadow-md" style={{ color: themeSecondary }}>Asignar Etapa</label>
                   <select 
                     value={etapaActual?.id || ''} 
                     onChange={(e) => handleSetEtapaDefault(e.target.value)}
-                    className="bg-clr1 font-bold text-[0.9em] p-2 rounded-xl outline-none cursor-pointer uppercase tracking-tight w-full shadow-inner min-w-[150px]"
+                    className="bg-pclr1 font-bold text-[0.9em] p-2 rounded-xl outline-none cursor-pointer uppercase tracking-tight w-full shadow-inner min-w-[150px]"
                     style={{ color: themeTextDark }}
                   >
                     <option value="">Seleccionar...</option>
@@ -518,7 +518,7 @@ const fetchInitialData = useCallback(async () => {
 
         {/* Bottom completed specialties grid */}
         {completedSpecialties.length > 0 && (
-          <div className="relative z-10 pt-4 border-t border-clr1 w-full">
+          <div className="relative z-10 pt-4 border-t border-pclr1 w-full">
             <span className="text-[1.25em] font-bold uppercase tracking-widest block mb-1 text-center md:text-center" style={{ color: themeSecondary }}>
               🎖️ Especialidades Obtenidas
             </span>
@@ -538,7 +538,7 @@ const fetchInitialData = useCallback(async () => {
                       borderColor: borderColor,
                     }}
                   >
-                    <div className="absolute top-1 right-1 w-4 h-4 bg-clr1 dark:bg-dclr1 rounded-full flex items-center justify-center p-0.5 shadow-sm">
+                    <div className="absolute top-1 right-1 w-4 h-4 bg-pclr1 dark:bg-pdclr1 rounded-full flex items-center justify-center p-0.5 shadow-sm">
                       <img 
                         src={logoPath} 
                         alt="" 
@@ -573,28 +573,28 @@ const fetchInitialData = useCallback(async () => {
 
         {/* Ceremonias / Acciones de Dirigente */}
         {isLeader && (
-          <div className="relative z-10 pt-4 border-t border-clr1 w-full flex flex-col gap-2">
+          <div className="relative z-10 pt-4 border-t border-pclr1 w-full flex flex-col gap-2">
             <span className="text-[1.1em] font-extrabold uppercase tracking-widest block text-center" style={{ color: themeSecondary }}>
               👑 Acciones de Ceremonia e Hitos
             </span>
             <div className="flex flex-wrap justify-center gap-2">
               <button
                 onClick={() => cer.setActiveCeremonyType('etapa')}
-                className="p-2 active:scale-95 text-[1em] font-bold uppercase rounded-xl tracking-wider transition-all border border-clr1 cursor-pointer"
+                className="p-2 active:scale-95 text-[1em] font-bold uppercase rounded-xl tracking-wider transition-all border border-pclr1 cursor-pointer"
                 style={{ backgroundColor: themeSecondary, color: themePrimary }}
               >
                 🎖️ Entregar Insignia
               </button>
               <button
                 onClick={() => cer.setActiveCeremonyType('promesa')}
-                className="p-2 active:scale-95 text-[1em] font-bold uppercase rounded-xl tracking-wider transition-all border border-clr1 cursor-pointer"
+                className="p-2 active:scale-95 text-[1em] font-bold uppercase rounded-xl tracking-wider transition-all border border-pclr1 cursor-pointer"
                 style={{ backgroundColor: themeSecondary, color: themePrimary }}
               >
                 🕯️ Promesa
               </button>
               <button
                 onClick={() => cer.setActiveCeremonyType('paso')}
-                className="p-2 active:scale-95 text-[1em] font-bold uppercase rounded-xl tracking-wider transition-all border border-clr1 cursor-pointer"
+                className="p-2 active:scale-95 text-[1em] font-bold uppercase rounded-xl tracking-wider transition-all border border-pclr1 cursor-pointer"
                 style={{ backgroundColor: themeSecondary, color: themePrimary }}
               >
                 👣 Paso de Unidad
@@ -614,13 +614,13 @@ const fetchInitialData = useCallback(async () => {
     const labelCeremonias = 'Ceremonias e Hitos'
 
     return (
-      <div className="flex flex-wrap gap-2 border-b border-clr7 dark:border-dclr7 pb-2">
+      <div className="flex flex-wrap gap-2 border-b border-pclr13 dark:border-pdclr13 pb-2">
         <button
           onClick={() => esp.setSubTab('progreso')}
           className={`pb-2 px-4 font-bold uppercase text-[0.85em] md:text-[0.95em] border-b-2 transition-all rounded-t-lg ${
             esp.subTab === 'progreso'
               ? 'font-extrabold'
-              : 'border-transparent text-clr3 hover:text-clr2 dark:hover:text-dclr2'
+              : 'border-transparent text-pclr7 hover:text-pclr4 dark:hover:text-dclr2'
           }`}
           style={esp.subTab === 'progreso' ? { backgroundColor: themePrimary, borderColor: themeSecondary, color: themeSecondary } : {}}
         >
@@ -631,7 +631,7 @@ const fetchInitialData = useCallback(async () => {
           className={`pb-2 px-4 font-bold uppercase text-[0.85em] md:text-[0.95em] border-b-2 transition-all rounded-t-lg ${
             esp.subTab === 'especialidades'
               ? 'font-extrabold'
-              : 'border-transparent text-clr3 hover:text-clr2 dark:hover:text-dclr2'
+              : 'border-transparent text-pclr7 hover:text-pclr4 dark:hover:text-dclr2'
           }`}
           style={esp.subTab === 'especialidades' ? { backgroundColor: themePrimary, borderColor: themeSecondary, color: themeSecondary } : {}}
         >
@@ -642,7 +642,7 @@ const fetchInitialData = useCallback(async () => {
           className={`pb-2 px-4 font-bold uppercase text-[0.85em] md:text-[0.95em] border-b-2 transition-all rounded-t-lg ${
             esp.subTab === 'ceremonias'
               ? 'font-extrabold'
-              : 'border-transparent text-clr3 hover:text-clr2 dark:hover:text-dclr2'
+              : 'border-transparent text-pclr7 hover:text-pclr4 dark:hover:text-dclr2'
           }`}
           style={esp.subTab === 'ceremonias' ? { backgroundColor: themePrimary, borderColor: themeSecondary, color: themeSecondary } : {}}
         >
@@ -768,7 +768,7 @@ const fetchInitialData = useCallback(async () => {
             ) : (
               <>
             {/* Camino Simbólico - Insignias */}
-            <div className="p-6 rounded-[2.5rem] bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7 shadow-xl">
+            <div className="p-6 rounded-[2.5rem] bg-pclr3 dark:bg-pdclr3 border border-pclr13 dark:border-pdclr13 shadow-xl">
               <span className="text-[0.8em] font-bold uppercase tracking-widest block mb-6 text-center md:text-left" style={{ color: themePrimary }}>Camino Simbólico del Caminante</span>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 
@@ -777,7 +777,7 @@ const fetchInitialData = useCallback(async () => {
                   className={`p-6 rounded-3xl border-2 flex flex-col items-center text-center transition-all ${
                     agenda.etapa_progresion === 'fuego' || agenda.etapa_progresion === 'antorcha' || agenda.etapa_progresion === 'partida'
                       ? 'shadow-lg' 
-                      : 'bg-clr1 dark:bg-dclr1 border-clr7 opacity-60'
+                      : 'bg-pclr1 dark:bg-pdclr1 border-pclr13 opacity-60'
                   }`}
                   style={
                     agenda.etapa_progresion === 'fuego' || agenda.etapa_progresion === 'antorcha' || agenda.etapa_progresion === 'partida'
@@ -793,13 +793,13 @@ const fetchInitialData = useCallback(async () => {
                     }`}
                   />
                   <h4 className="font-bold uppercase text-[1.2em]">Insignia Fuego</h4>
-                  <p className="text-[0.8em] font-bold text-clr3 mt-1">
+                  <p className="text-[0.8em] font-bold text-pclr7 mt-1">
                     {agenda.fecha_fuego ? `Recibida el ${agenda.fecha_fuego}` : 'No iniciada'}
                   </p>
                   {isLeader && agenda.etapa_progresion === 'ninguna' && (
                     <button 
                       onClick={() => handleUpdateAgendaEtapa('fuego')}
-                      className="mt-4 px-4 py-2 text-clr1 rounded-xl text-[0.8em] font-bold uppercase"
+                      className="mt-4 px-4 py-2 text-pclr12 rounded-xl text-[0.8em] font-bold uppercase"
                       style={{ backgroundColor: themePrimary }}
                     >
                       Entregar Fuego
@@ -810,8 +810,8 @@ const fetchInitialData = useCallback(async () => {
                 {/* ANTORCHA */}
                 <div className={`p-6 rounded-3xl border-2 flex flex-col items-center text-center transition-all ${
                   agenda.etapa_progresion === 'antorcha' || agenda.etapa_progresion === 'partida'
-                    ? 'bg-clr5 border-clr5 shadow-lg' 
-                    : 'bg-clr1 dark:bg-dclr1 border-clr7 opacity-60'
+                    ? 'bg-pclr5 border-pclr5 shadow-lg' 
+                    : 'bg-pclr1 dark:bg-pdclr1 border-pclr13 opacity-60'
                 }`}>
                   <img 
                     src="/images/progresion/clan/etapa_antorcha.png" 
@@ -821,13 +821,13 @@ const fetchInitialData = useCallback(async () => {
                     }`}
                   />
                   <h4 className="font-bold uppercase text-[1.2em]">Insignia Antorcha</h4>
-                  <p className="text-[0.8em] font-bold text-clr3 mt-1">
+                  <p className="text-[0.8em] font-bold text-pclr7 mt-1">
                     {agenda.fecha_antorcha ? `Recibida el ${agenda.fecha_antorcha}` : 'No iniciada'}
                   </p>
                   {isLeader && agenda.etapa_progresion === 'fuego' && (
                     <button 
                       onClick={() => handleUpdateAgendaEtapa('antorcha')}
-                      className="mt-4 px-4 py-2 bg-clr5 text-clr1 rounded-xl text-[0.8em] font-bold uppercase"
+                      className="mt-4 px-4 py-2 bg-pclr5 text-pclr12 rounded-xl text-[0.8em] font-bold uppercase"
                     >
                       Entregar Antorcha
                     </button>
@@ -837,8 +837,8 @@ const fetchInitialData = useCallback(async () => {
                 {/* LA PARTIDA */}
                 <div className={`p-6 rounded-3xl border-2 flex flex-col items-center text-center transition-all ${
                   agenda.etapa_progresion === 'partida'
-                    ? 'bg-clr4 border-clr4 shadow-lg' 
-                    : 'bg-clr1 dark:bg-dclr1 border-clr7 opacity-60'
+                    ? 'bg-pclr10 border-pclr14 shadow-lg' 
+                    : 'bg-pclr1 dark:bg-pdclr1 border-pclr13 opacity-60'
                 }`}>
                   <img 
                     src="/images/progresion/clan/etapa_partida.png" 
@@ -848,13 +848,13 @@ const fetchInitialData = useCallback(async () => {
                     }`}
                   />
                   <h4 className="font-bold uppercase text-[1.2em]">La Partida</h4>
-                  <p className="text-[0.8em] font-bold text-clr3 mt-1">
+                  <p className="text-[0.8em] font-bold text-pclr7 mt-1">
                     {agenda.fecha_partida ? `Remando su propia canoa el ${agenda.fecha_partida}` : 'No iniciada'}
                   </p>
                   {isLeader && agenda.etapa_progresion === 'antorcha' && (
                     <button 
                       onClick={() => handleUpdateAgendaEtapa('partida')}
-                      className="mt-4 px-4 py-2 bg-clr4 text-clr1 rounded-xl text-[0.8em] font-bold uppercase"
+                      className="mt-4 px-4 py-2 bg-pclr10 text-pclr12 rounded-xl text-[0.8em] font-bold uppercase"
                     >
                       Otorgar Partida
                     </button>
@@ -874,15 +874,15 @@ const fetchInitialData = useCallback(async () => {
 
         {agenda && (
           <div className="space-y-4">
-            <div className="flex items-center justify-between border-b pb-4 border-clr7 dark:border-dclr7">
+            <div className="flex items-center justify-between border-b pb-4 border-pclr13 dark:border-pdclr13">
               <div>
-                <h3 className="font-bold uppercase text-[1.5em] text-clr2 dark:text-dclr2">Mis Metas de Progresión</h3>
-                <p className="text-[0.8em] font-bold text-clr3 mt-1">Crea tus objetivos a 6 meses basados en la propuesta terminal.</p>
+                <h3 className="font-bold uppercase text-[1.5em] text-pclr4 dark:text-pdclr4">Mis Metas de Progresión</h3>
+                <p className="text-[0.8em] font-bold text-pclr7 mt-1">Crea tus objetivos a 6 meses basados en la propuesta terminal.</p>
               </div>
               {isOwner && !inactive && (
                 <button 
                   onClick={() => setShowAddGoalModal(true)}
-                  className="px-4 py-2.5 rounded-2xl text-[0.8em] font-bold uppercase tracking-wider text-clr1 shadow-xl hover:scale-102 transition-all"
+                  className="px-4 py-2.5 rounded-2xl text-[0.8em] font-bold uppercase tracking-wider text-pclr12 shadow-xl hover:scale-102 transition-all"
                   style={{ backgroundColor: colorHighlight }}
                 >
                   ➕ Añadir Meta
@@ -901,42 +901,42 @@ const fetchInitialData = useCallback(async () => {
                   <div 
                     key={meta.id} 
                     className={`p-6 rounded-[2rem] border-2 shadow-md relative flex flex-col justify-between ${
-                      isAlcanzada ? 'bg-clr1 dark:bg-dclr1 border-clr6' : isEnProceso ? 'bg-clr4 border-clr4' : 'bg-clr1 dark:bg-dclr1 border-clr7'
+                      isAlcanzada ? 'bg-pclr1 dark:bg-pdclr1 border-pclr6' : isEnProceso ? 'bg-pclr10 border-pclr14' : 'bg-pclr1 dark:bg-pdclr1 border-pclr13'
                     }`}
                   >
                     <div>
                       <div className="flex justify-between items-start mb-4">
                         <span 
-                          className="px-3 py-1 rounded-full text-[0.8em] font-bold uppercase tracking-wider text-clr1" 
+                          className="px-3 py-1 rounded-full text-[0.8em] font-bold uppercase tracking-wider text-pclr12" 
                           style={{ backgroundColor: areaColor }}
                         >
                           {areaName}
                         </span>
                         
                         <span className={`text-[0.8em] font-bold uppercase ${
-                          isAlcanzada ? 'text-clr6' : isEnProceso ? 'text-clr4' : 'text-clr3'
+                          isAlcanzada ? 'text-pclr6' : isEnProceso ? 'text-pclr4' : 'text-pclr7'
                         }`}>
                           ● {isAlcanzada ? 'Alcanzada' : isEnProceso ? 'En Evaluación' : 'Pendiente'}
                         </span>
                       </div>
 
-                      <p className="font-bold text-[0.95em] text-clr2 dark:text-dclr2 mb-2">
+                      <p className="font-bold text-[0.95em] text-pclr4 dark:text-pdclr4 mb-2">
                         {meta.progresion_objetivos?.texto_terminal}
                       </p>
 
-                      <div className="mt-3 p-3 bg-clr7 dark:bg-dclr7 rounded-xl border dark:border-clr1">
-                        <span className="text-[0.8em] font-bold uppercase tracking-wider text-clr3 block mb-1">Mi Meta Personal:</span>
-                        <p className="text-[0.85em] font-bold text-clr2 dark:text-dclr2 italic">
+                      <div className="mt-3 p-3 bg-pclr3 dark:bg-pdclr3 rounded-xl border dark:border-pclr1">
+                        <span className="text-[0.8em] font-bold uppercase tracking-wider text-pclr7 block mb-1">Mi Meta Personal:</span>
+                        <p className="text-[0.85em] font-bold text-pclr4 dark:text-pdclr4 italic">
                           "{meta.meta_personal}"
                         </p>
                       </div>
 
                       {meta.evidencia_texto && (
-                        <div className="mt-3 p-3 bg-clr6 dark:bg-dclr6 rounded-xl border border-clr6 text-[0.8em] font-bold text-clr2 dark:text-dclr2">
-                          <span className="text-[0.8em] font-bold uppercase text-clr6 block mb-1">Evidencia Enviada:</span>
+                        <div className="mt-3 p-3 bg-pclr6 dark:bg-pdclr6 rounded-xl border border-pclr6 text-[0.8em] font-bold text-pclr4 dark:text-pdclr4">
+                          <span className="text-[0.8em] font-bold uppercase text-pclr6 block mb-1">Evidencia Enviada:</span>
                           "{meta.evidencia_texto}"
                           {meta.evidencia_url && (
-                            <a href={meta.evidencia_url} target="_blank" rel="noopener noreferrer" className="block text-clr4 mt-1 font-bold underline">
+                            <a href={meta.evidencia_url} target="_blank" rel="noopener noreferrer" className="block text-pclr4 mt-1 font-bold underline">
                               🔗 Ver evidencia externa
                             </a>
                           )}
@@ -944,8 +944,8 @@ const fetchInitialData = useCallback(async () => {
                       )}
 
                       {meta.evaluacion_lider && (
-                        <div className="mt-3 p-3 bg-clr5 dark:bg-dclr5 rounded-xl border border-clr5 text-[0.8em] font-bold text-clr5 dark:text-dclr5">
-                          <span className="text-[0.8em] font-bold uppercase text-clr5 block mb-1">Evaluación del Dirigente:</span>
+                        <div className="mt-3 p-3 bg-pclr5 dark:bg-pdclr5 rounded-xl border border-pclr5 text-[0.8em] font-bold text-pclr5 dark:text-pdclr5">
+                          <span className="text-[0.8em] font-bold uppercase text-pclr5 block mb-1">Evaluación del Dirigente:</span>
                           "{meta.evaluacion_lider}"
                         </div>
                       )}
@@ -955,7 +955,7 @@ const fetchInitialData = useCallback(async () => {
                       {isOwner && !isAlcanzada && !isEnProceso && !inactive && (
                         <button
                           onClick={() => setActiveMetaIdForEvidence(meta.id)}
-                          className="px-4 py-2 bg-clr4 text-clr1 rounded-xl text-[0.8em] font-bold uppercase tracking-tight"
+                          className="px-4 py-2 bg-pclr10 text-pclr12 rounded-xl text-[0.8em] font-bold uppercase tracking-tight"
                         >
                           Enviar Evidencia
                         </button>
@@ -967,7 +967,7 @@ const fetchInitialData = useCallback(async () => {
                             setActiveMetaIdForReview(meta.id);
                             setLeaderReviewText('');
                           }}
-                          className="px-4 py-2 bg-clr6 text-clr1 rounded-xl text-[0.8em] font-bold uppercase tracking-tight"
+                          className="px-4 py-2 bg-pclr6 text-pclr12 rounded-xl text-[0.8em] font-bold uppercase tracking-tight"
                         >
                           Evaluar Meta
                         </button>
@@ -976,7 +976,7 @@ const fetchInitialData = useCallback(async () => {
                       {isOwner && !isAlcanzada && (
                         <button
                           onClick={() => handleDeleteGoal(meta.id)}
-                          className="px-3 py-2 bg-clr4 text-clr4 hover:bg-clr4 rounded-xl text-[0.8em] font-bold"
+                          className="px-3 py-2 bg-pclr10 text-pclr4 hover:bg-pclr10 rounded-xl text-[0.8em] font-bold"
                         >
                           ✕
                         </button>
@@ -984,31 +984,31 @@ const fetchInitialData = useCallback(async () => {
                     </div>
 
                     {activeMetaIdForEvidence === meta.id && (
-                      <div className="absolute inset-0 bg-clr1 dark:bg-dclr1 rounded-[2rem] p-6 z-20 flex flex-col justify-between border-2 border-clr4">
+                      <div className="absolute inset-0 bg-pclr1 dark:bg-pdclr1 rounded-[2rem] p-6 z-20 flex flex-col justify-between border-2 border-pclr14">
                         <div className="space-y-4">
-                          <span className="text-[0.8em] font-bold uppercase tracking-widest text-clr4 block">Reportar Evidencia</span>
+                          <span className="text-[0.8em] font-bold uppercase tracking-widest text-pclr4 block">Reportar Evidencia</span>
                           
                           <div className="space-y-1">
-                            <label className="text-[0.8em] font-bold uppercase tracking-wider text-clr3">¿Qué hiciste para lograrlo? (Mínimo 150 caracteres)</label>
+                            <label className="text-[0.8em] font-bold uppercase tracking-wider text-pclr7">¿Qué hiciste para lograrlo? (Mínimo 150 caracteres)</label>
                             <textarea 
                               value={evidenceText}
                               onChange={e => setEvidenceText(e.target.value)}
                               placeholder="Detalla de forma madura y seria cómo cumpliste esta meta..."
-                              className="w-full p-3 rounded-xl border dark:border-clr1 bg-clr7 dark:bg-dclr7 text-[0.85em] font-bold h-24"
+                              className="w-full p-3 rounded-xl border dark:border-pclr1 bg-pclr3 dark:bg-pdclr3 text-[0.85em] font-bold h-24"
                             />
-                            <span className={`text-[0.8em] font-bold block text-right ${evidenceText.length >= 150 ? 'text-clr6' : 'text-clr4'}`}>
+                            <span className={`text-[0.8em] font-bold block text-right ${evidenceText.length >= 150 ? 'text-pclr6' : 'text-pclr4'}`}>
                               {evidenceText.length} / 150 caracteres
                             </span>
                           </div>
 
                           <div className="space-y-1">
-                            <label className="text-[0.8em] font-bold uppercase tracking-wider text-clr3">Enlace de Evidencia</label>
+                            <label className="text-[0.8em] font-bold uppercase tracking-wider text-pclr7">Enlace de Evidencia</label>
                             <input 
                               type="url"
                               value={evidenceUrl}
                               onChange={e => setEvidenceUrl(e.target.value)}
                               placeholder="https://drive.google.com/..."
-                              className="w-full p-3 rounded-xl border dark:border-clr1 bg-clr7 dark:bg-dclr7 text-[0.85em] font-bold"
+                              className="w-full p-3 rounded-xl border dark:border-pclr1 bg-pclr3 dark:bg-pdclr3 text-[0.85em] font-bold"
                             />
                           </div>
                         </div>
@@ -1016,13 +1016,13 @@ const fetchInitialData = useCallback(async () => {
                         <div className="flex gap-2 justify-end mt-4">
                           <button 
                             onClick={() => { setActiveMetaIdForEvidence(null); setEvidenceText(''); setEvidenceUrl(''); }}
-                            className="px-4 py-2 text-[0.8em] font-bold uppercase text-clr3"
+                            className="px-4 py-2 text-[0.8em] font-bold uppercase text-pclr7"
                           >
                             Cancelar
                           </button>
                           <button 
                             onClick={() => handleRegisterGoalEvidence(meta.id)}
-                            className="px-4 py-2 bg-clr4 text-clr1 rounded-xl text-[0.8em] font-bold uppercase"
+                            className="px-4 py-2 bg-pclr10 text-pclr12 rounded-xl text-[0.8em] font-bold uppercase"
                           >
                             Enviar
                           </button>
@@ -1031,20 +1031,20 @@ const fetchInitialData = useCallback(async () => {
                     )}
 
                     {activeMetaIdForReview === meta.id && (
-                      <div className="absolute inset-0 bg-clr1 dark:bg-dclr1 rounded-[2rem] p-6 z-20 flex flex-col justify-between border-2 border-clr6">
+                      <div className="absolute inset-0 bg-pclr1 dark:bg-pdclr1 rounded-[2rem] p-6 z-20 flex flex-col justify-between border-2 border-pclr6">
                         <div className="space-y-4">
-                          <span className="text-[0.8em] font-bold uppercase tracking-widest text-clr6 block">Evaluar Meta Personal</span>
-                          <p className="text-[0.85em] font-bold text-clr2 dark:text-dclr2 leading-tight">
+                          <span className="text-[0.8em] font-bold uppercase tracking-widest text-pclr6 block">Evaluar Meta Personal</span>
+                          <p className="text-[0.85em] font-bold text-pclr4 dark:text-pdclr4 leading-tight">
                             <strong>Meta:</strong> "{meta.meta_personal}"
                           </p>
                           
                           <div className="space-y-1">
-                            <label className="text-[0.8em] font-bold uppercase tracking-wider text-clr3">Comentario Pedagógico / Retroalimentación</label>
+                            <label className="text-[0.8em] font-bold uppercase tracking-wider text-pclr7">Comentario Pedagógico / Retroalimentación</label>
                             <textarea 
                               value={leaderReviewText}
                               onChange={e => setLeaderReviewText(e.target.value)}
                               placeholder="Escribe la evaluación pedagógica..."
-                              className="w-full p-3 rounded-xl border dark:border-clr1 bg-clr7 dark:bg-dclr7 text-[0.85em] font-bold h-24"
+                              className="w-full p-3 rounded-xl border dark:border-pclr1 bg-pclr3 dark:bg-pdclr3 text-[0.85em] font-bold h-24"
                             />
                           </div>
                         </div>
@@ -1052,19 +1052,19 @@ const fetchInitialData = useCallback(async () => {
                         <div className="flex gap-2 justify-end mt-4">
                           <button 
                             onClick={() => { setActiveMetaIdForReview(null); setLeaderReviewText(''); }}
-                            className="px-4 py-2 text-[0.8em] font-bold uppercase text-clr3"
+                            className="px-4 py-2 text-[0.8em] font-bold uppercase text-pclr7"
                           >
                             Cancelar
                           </button>
                           <button 
                             onClick={() => handleLeaderReviewGoal(meta.id, false)}
-                            className="px-4 py-2 bg-clr4 hover:bg-clr4 text-clr4 rounded-xl text-[0.8em] font-bold uppercase"
+                            className="px-4 py-2 bg-pclr10 hover:bg-pclr10 text-pclr4 rounded-xl text-[0.8em] font-bold uppercase"
                           >
                             Pedir Cambios
                           </button>
                           <button 
                             onClick={() => handleLeaderReviewGoal(meta.id, true)}
-                            className="px-4 py-2 bg-clr6 hover:brightness-110 text-clr1 rounded-xl text-[0.8em] font-bold uppercase"
+                            className="px-4 py-2 bg-pclr6 hover:brightness-110 text-pclr12 rounded-xl text-[0.8em] font-bold uppercase"
                           >
                             Marcar Logrado
                           </button>
@@ -1075,7 +1075,7 @@ const fetchInitialData = useCallback(async () => {
                 )
               })}
               {agendaObjetivos.length === 0 && (
-                <p className="col-span-full text-center py-6 text-clr3 font-bold italic">No has agregado metas personales.</p>
+                <p className="col-span-full text-center py-6 text-pclr7 font-bold italic">No has agregado metas personales.</p>
               )}
             </div>
           </div>
@@ -1086,18 +1086,18 @@ const fetchInitialData = useCallback(async () => {
 
         {/* Modal: Añadir Meta */}
         {showAddGoalModal && (
-          <div className="fixed inset-0 bg-clr2 backdrop-blur-md z-[140] flex items-center justify-center p-4">
-            <div className="bg-clr1 dark:bg-dclr1 w-full max-w-xl rounded-[2rem] p-6 shadow-2xl space-y-6">
-              <h4 className="text-xl font-bold uppercase tracking-tight text-clr2 dark:text-dclr2">
+          <div className="fixed inset-0 bg-pclr2 backdrop-blur-md z-[140] flex items-center justify-center p-4">
+            <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-xl rounded-[2rem] p-6 shadow-2xl space-y-6">
+              <h4 className="text-xl font-bold uppercase tracking-tight text-pclr4 dark:text-pdclr4">
                 ➕ Añadir Meta a mi Agenda de Vida
               </h4>
               
               <div className="space-y-1">
-                <label className="text-[0.8em] font-bold uppercase tracking-wider text-clr3 block ml-2">Selecciona un Objetivo Educativo</label>
+                <label className="text-[0.8em] font-bold uppercase tracking-wider text-pclr7 block ml-2">Selecciona un Objetivo Educativo</label>
                 <select
                   value={selectedObjId}
                   onChange={e => setSelectedObjId(e.target.value)}
-                  className="w-full p-4 rounded-2xl border dark:border-clr1 bg-clr7 dark:bg-dclr7 text-[0.9em] font-bold"
+                  className="w-full p-4 rounded-2xl border dark:border-pclr1 bg-pclr3 dark:bg-pdclr3 text-[0.9em] font-bold"
                 >
                   <option value="">Seleccione un objetivo...</option>
                   {todosObjetivosClan
@@ -1112,26 +1112,26 @@ const fetchInitialData = useCallback(async () => {
               </div>
 
               <div className="space-y-1">
-                <label className="text-[0.8em] font-bold uppercase tracking-wider text-clr3 block ml-2">Mi Meta Personal (Cómo planeo lograrlo)</label>
+                <label className="text-[0.8em] font-bold uppercase tracking-wider text-pclr7 block ml-2">Mi Meta Personal (Cómo planeo lograrlo)</label>
                 <textarea 
                   value={metaPersonalText}
                   onChange={e => setMetaPersonalText(e.target.value)}
                   placeholder="Escribe aquí tu meta personal en base al objetivo seleccionado..."
-                  className="w-full p-4 rounded-2xl border dark:border-clr1 bg-clr7 dark:bg-dclr7 text-[0.9em] font-bold h-32"
+                  className="w-full p-4 rounded-2xl border dark:border-pclr1 bg-pclr3 dark:bg-pdclr3 text-[0.9em] font-bold h-32"
                 />
               </div>
 
               <div className="flex gap-4 pt-2">
                 <button 
                   onClick={handleSaveGoalMeta}
-                  className="flex-1 py-4 text-clr1 font-bold uppercase rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all"
+                  className="flex-1 py-4 text-pclr12 font-bold uppercase rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all"
                   style={{ backgroundColor: colorHighlight }}
                 >
                   Guardar Meta
                 </button>
                 <button 
                   onClick={() => { setShowAddGoalModal(false); setSelectedObjId(''); setMetaPersonalText(''); }}
-                  className="px-6 py-4 bg-clr7 dark:bg-dclr7 text-clr3 rounded-2xl font-bold uppercase"
+                  className="px-6 py-4 bg-pclr3 dark:bg-pdclr3 text-pclr7 rounded-2xl font-bold uppercase"
                 >
                   Cancelar
                 </button>
@@ -1166,10 +1166,10 @@ const fetchInitialData = useCallback(async () => {
           <>
             {/* Mis Competencias (7 Rumbos) */}
             <div className="space-y-2">
-          <div className="flex justify-between items-center border-b pb-4 border-clr7 dark:border-dclr7">
+          <div className="flex justify-between items-center border-b pb-4 border-pclr13 dark:border-pdclr13">
             <div>
-              <h3 className="font-bold uppercase text-[1.5em] text-clr2 dark:text-dclr2">Mis Competencias</h3>
-              <p className="text-[0.9em] font-bold text-clr3">Los rumbos de competencia adquiridos en las aventuras con tu comunidad.</p>
+              <h3 className="font-bold uppercase text-[1.5em] text-pclr4 dark:text-pdclr4">Mis Competencias</h3>
+              <p className="text-[0.9em] font-bold text-pclr7">Los rumbos de competencia adquiridos en las aventuras con tu comunidad.</p>
             </div>
             {isOwner && canSeeAllTabs(perfil) && !inactive && (
               <button 
@@ -1181,7 +1181,7 @@ const fetchInitialData = useCallback(async () => {
                   setCompProyectoId('');
                   setShowCompetenciaModal(true);
                 }}
-                className="p-2 rounded-2xl text-[0.8em] font-bold uppercase tracking-wider text-clr1 shadow-xl hover:scale-102 transition-all"
+                className="p-2 rounded-2xl text-[0.8em] font-bold uppercase tracking-wider text-pclr12 shadow-xl hover:scale-102 transition-all"
                 style={{ backgroundColor: themePrimary, color: themeSecondary }}
               >
                 🎓 Solicitar Competencia
@@ -1216,12 +1216,12 @@ const fetchInitialData = useCallback(async () => {
                     isAprobada 
                       ? 'scale-102' 
                       : isPendiente 
-                        ? 'bg-clr4 border-clr4 dark:border-dclr4' 
+                        ? 'bg-pclr10 border-pclr14 dark:border-pdclr14' 
                         : isCambio
-                          ? 'bg-clr5 border-clr5 dark:border-dclr5'
+                          ? 'bg-pclr5 border-pclr5 dark:border-pdclr5'
                           : isRechazada
-                            ? 'bg-clr4 border-clr4 dark:border-dclr4'
-                            : 'bg-clr7 dark:bg-dclr7 border-clr7 dark:border-dclr7 grayscale opacity-45'
+                            ? 'bg-pclr10 border-pclr14 dark:border-pdclr14'
+                            : 'bg-pclr3 dark:bg-pdclr3 border-pclr13 dark:border-pdclr13 grayscale opacity-45'
                   }`}
                   style={isAprobada ? { borderColor: themePrimary, backgroundColor: `${themePrimary}10` } : {}}
                 >
@@ -1235,21 +1235,21 @@ const fetchInitialData = useCallback(async () => {
                     ) : (
                       <span className="text-4xl mb-2">✨</span>
                     )}
-                    <h5 className="font-bold uppercase text-[1em] leading-tight mt-1 text-clr2 dark:text-dclr2">
+                    <h5 className="font-bold uppercase text-[1em] leading-tight mt-1 text-pclr4 dark:text-pdclr4">
                       {areaDetails.label}
                     </h5>
                   </div>
 
                   <span className={`text-[0.9em] font-bold uppercase mt-2 ${
                     isAprobada 
-                      ? 'text-clr6' 
+                      ? 'text-pclr6' 
                       : isPendiente 
-                        ? 'text-clr4' 
+                        ? 'text-pclr4' 
                         : isCambio 
-                          ? 'text-clr5' 
+                          ? 'text-pclr5' 
                           : isRechazada
-                            ? 'text-clr4'
-                            : 'text-clr3'
+                            ? 'text-pclr4'
+                            : 'text-pclr7'
                   }`}>
                     {isAprobada ? 'Aprobada' : isPendiente ? 'Pendiente' : isCambio ? 'Cambio Solicitado' : isRechazada ? 'Rechazada' : 'Inactiva'}
                   </span>
@@ -1264,7 +1264,7 @@ const fetchInitialData = useCallback(async () => {
                             setActiveMetaIdForReview(approvedRow.id)
                           }
                         }}
-                        className="w-full py-1 text-[0.9em] font-bold uppercase rounded-lg border border-clr6 text-clr6 dark:text-dclr6 hover:bg-clr6 transition-colors"
+                        className="w-full py-1 text-[0.9em] font-bold uppercase rounded-lg border border-pclr6 text-pclr6 dark:text-pdclr6 hover:bg-pclr6 transition-colors"
                       >
                         🔎 Detalles
                       </button>
@@ -1278,20 +1278,20 @@ const fetchInitialData = useCallback(async () => {
                               setLeaderReviewText('')
                             }
                           }}
-                          className="w-full py-1 text-[0.9em] font-bold uppercase rounded-lg bg-clr4 hover:bg-clr4 text-clr1 shadow-sm transition-colors"
+                          className="w-full py-1 text-[0.9em] font-bold uppercase rounded-lg bg-pclr10 hover:bg-pclr10 text-pclr12 shadow-sm transition-colors"
                         >
                           ✅ Resolver
                         </button>
                       ) : (
                         <div className="w-full flex gap-1 justify-center items-center">
-                          <span className="flex-1 text-[0.9em] font-bold text-clr3 block py-1 uppercase tracking-tight">⏳ En Espera</span>
+                          <span className="flex-1 text-[0.9em] font-bold text-pclr7 block py-1 uppercase tracking-tight">⏳ En Espera</span>
                           {isOwner && (
                             <button
                               onClick={() => {
                                 const pendingRow = areaRows.find(c => c.estado === 'pendiente')
                                 if (pendingRow) handleDeleteCompetencia(pendingRow.id)
                               }}
-                              className="px-2 py-1 text-[0.9em] font-bold uppercase rounded-lg bg-clr4 hover:bg-clr4 text-clr4 transition-colors"
+                              className="px-2 py-1 text-[0.9em] font-bold uppercase rounded-lg bg-pclr10 hover:bg-pclr10 text-pclr4 transition-colors"
                               title="Retirar solicitud"
                             >
                               ❌
@@ -1314,7 +1314,7 @@ const fetchInitialData = useCallback(async () => {
                                 setShowCompetenciaModal(true)
                               }
                             }}
-                            className="flex-1 py-1 text-[0.9em] font-bold uppercase rounded-lg bg-clr5 hover:bg-clr5 text-clr1 shadow-sm transition-colors"
+                            className="flex-1 py-1 text-[0.9em] font-bold uppercase rounded-lg bg-pclr5 hover:bg-pclr5 text-pclr12 shadow-sm transition-colors"
                           >
                             ✏️ Corregir
                           </button>
@@ -1323,7 +1323,7 @@ const fetchInitialData = useCallback(async () => {
                               const activeRow = areaRows.find(c => c.estado === 'solicitud_cambio')
                               if (activeRow) handleDeleteCompetencia(activeRow.id)
                             }}
-                            className="px-2 py-1 text-[0.9em] font-bold uppercase rounded-lg bg-clr4 hover:bg-clr4 text-clr4 transition-colors"
+                            className="px-2 py-1 text-[0.9em] font-bold uppercase rounded-lg bg-pclr10 hover:bg-pclr10 text-pclr4 transition-colors"
                             title="Retirar solicitud"
                           >
                             ❌
@@ -1338,12 +1338,12 @@ const fetchInitialData = useCallback(async () => {
                               setLeaderReviewText(activeRow.evaluacion_lider || '')
                             }
                           }}
-                          className="w-full py-1 text-[0.9em] font-bold uppercase rounded-lg bg-clr7 hover:bg-clr3 dark:bg-dclr1 dark:hover:bg-dclr1 text-clr2 dark:text-dclr2 transition-colors"
+                          className="w-full py-1 text-[0.9em] font-bold uppercase rounded-lg bg-pclr3 hover:bg-pclr3 dark:bg-pdclr1 dark:hover:bg-pdclr1 text-pclr4 dark:text-pdclr4 transition-colors"
                         >
                           🔍 Resolver
                         </button>
                       ) : (
-                        <span className="text-[0.9em] font-bold text-clr5 block py-1 uppercase tracking-tight">⏳ Pendiente</span>
+                        <span className="text-[0.9em] font-bold text-pclr5 block py-1 uppercase tracking-tight">⏳ Pendiente</span>
                       )
                     ) : isRechazada ? (
                       <div className="w-full flex gap-1 justify-center items-center">
@@ -1354,7 +1354,7 @@ const fetchInitialData = useCallback(async () => {
                               setActiveMetaIdForReview(rejectedRow.id)
                             }
                           }}
-                          className="flex-1 py-1 text-[0.9em] font-bold uppercase rounded-lg border border-clr4 text-clr4 dark:text-dclr4 hover:bg-clr4 transition-colors"
+                          className="flex-1 py-1 text-[0.9em] font-bold uppercase rounded-lg border border-pclr14 text-pclr4 dark:text-pdclr4 hover:bg-pclr10 transition-colors"
                         >
                           🔎 Detalles
                         </button>
@@ -1364,7 +1364,7 @@ const fetchInitialData = useCallback(async () => {
                               const rejectedRow = areaRows.find(c => c.estado === 'rechazada')
                               if (rejectedRow) handleDeleteCompetencia(rejectedRow.id)
                             }}
-                            className="px-2.5 py-1 text-[0.9em] font-bold uppercase rounded-lg bg-clr4 hover:bg-clr4 text-clr1 shadow-sm transition-colors"
+                            className="px-2.5 py-1 text-[0.9em] font-bold uppercase rounded-lg bg-pclr10 hover:bg-pclr10 text-pclr12 shadow-sm transition-colors"
                             title="Eliminar solicitud rechazada"
                           >
                             🗑️
@@ -1381,7 +1381,7 @@ const fetchInitialData = useCallback(async () => {
                             setDirectCompProyectoId('')
                             setShowDirectCompetenciaModal(true)
                           }}
-                          className="w-full py-1 text-[0.9em] font-bold uppercase rounded-lg bg-clr6 hover:bg-clr6 text-clr1 shadow-sm transition-colors"
+                          className="w-full py-1 text-[0.9em] font-bold uppercase rounded-lg bg-pclr6 hover:bg-pclr6 text-pclr12 shadow-sm transition-colors"
                         >
                           ➕ Entregar
                         </button>
@@ -1395,7 +1395,7 @@ const fetchInitialData = useCallback(async () => {
                             setCompProyectoId('')
                             setShowCompetenciaModal(true)
                           }}
-                          className="w-full py-1 text-[0.9em] font-bold uppercase rounded-lg bg-clr7 hover:bg-clr4 dark:bg-dclr1 dark:hover:bg-dclr4 text-clr2 dark:text-dclr2 transition-colors"
+                          className="w-full py-1 text-[0.9em] font-bold uppercase rounded-lg bg-pclr3 hover:bg-pclr10 dark:bg-pdclr1 dark:hover:bg-dclr4 text-pclr4 dark:text-pdclr4 transition-colors"
                         >
                           🚀 Solicitar
                         </button>
@@ -1411,39 +1411,39 @@ const fetchInitialData = useCallback(async () => {
         {/* Detalle de Solicitudes de Competencia (Bitácora) */}
         {competencias.length > 0 && (
           <div className="space-y-4">
-            <h4 className="font-bold uppercase text-[1.2em] text-clr2 dark:text-dclr2 border-b pb-2 border-clr7 dark:border-dclr7">
+            <h4 className="font-bold uppercase text-[1.2em] text-pclr4 dark:text-pdclr4 border-b pb-2 border-pclr13 dark:border-pdclr13">
               Historial de Solicitudes de Competencia
             </h4>
             
             <div className="space-y-4">
               {competencias.map(c => (
-                <div key={c.id} className="p-6 bg-clr7 dark:bg-dclr7 border dark:border-clr1 rounded-3xl flex flex-col md:flex-row justify-between gap-6">
+                <div key={c.id} className="p-6 bg-pclr3 dark:bg-pdclr3 border dark:border-pclr1 rounded-3xl flex flex-col md:flex-row justify-between gap-6">
                   <div className="space-y-2 flex-1">
                     <div className="flex items-center gap-3">
-                      <span className="px-3 py-1 rounded-full text-clr1 text-[0.8em] font-bold uppercase" style={{ backgroundColor: themePrimary }}>
+                      <span className="px-3 py-1 rounded-full text-pclr12 text-[0.8em] font-bold uppercase" style={{ backgroundColor: themePrimary }}>
                         {c.area_competencia.replace('_', ' ')}
                       </span>
                       <span className={`text-[0.8em] font-bold uppercase ${
-                        c.estado === 'aprobada' ? 'text-clr6' : c.estado === 'solicitud_cambio' ? 'text-clr5' : c.estado === 'rechazada' ? 'text-clr4' : 'text-clr4'
+                        c.estado === 'aprobada' ? 'text-pclr6' : c.estado === 'solicitud_cambio' ? 'text-pclr5' : c.estado === 'rechazada' ? 'text-pclr4' : 'text-pclr4'
                       }`}>
                         ● {c.estado === 'solicitud_cambio' ? 'cambios solicitados' : c.estado}
                       </span>
                     </div>
 
                     {c.proyectos && (
-                      <p className="text-[0.8em] font-bold text-clr3">
-                        Proyecto de Respaldo: <span className="text-clr2 dark:text-dclr2">{c.proyectos.titulo}</span>
+                      <p className="text-[0.8em] font-bold text-pclr7">
+                        Proyecto de Respaldo: <span className="text-pclr4 dark:text-pdclr4">{c.proyectos.titulo}</span>
                       </p>
                     )}
 
-                    <div className="p-3 bg-clr1 dark:bg-dclr1 rounded-xl text-[0.85em] font-bold">
-                      <span className="text-[0.8em] font-bold uppercase text-clr3 block mb-1">Justificación del Pionero:</span>
+                    <div className="p-3 bg-pclr1 dark:bg-pdclr1 rounded-xl text-[0.85em] font-bold">
+                      <span className="text-[0.8em] font-bold uppercase text-pclr7 block mb-1">Justificación del Pionero:</span>
                       "{c.justificacion_nnj}"
                     </div>
 
                     {c.evaluacion_lider && (
-                      <div className="p-3 bg-clr5 dark:bg-dclr5 rounded-xl text-[0.85em] font-bold text-clr5 dark:text-dclr5">
-                        <span className="text-[0.8em] font-bold uppercase text-clr5 block mb-1">Aprobación de la Reunión de Coordinadores:</span>
+                      <div className="p-3 bg-pclr5 dark:bg-pdclr5 rounded-xl text-[0.85em] font-bold text-pclr5 dark:text-pdclr5">
+                        <span className="text-[0.8em] font-bold uppercase text-pclr5 block mb-1">Aprobación de la Reunión de Coordinadores:</span>
                         "{c.evaluacion_lider}"
                       </div>
                     )}
@@ -1454,7 +1454,7 @@ const fetchInitialData = useCallback(async () => {
                     {isLeader && (c.estado === 'pendiente' || c.estado === 'solicitud_cambio') && (
                       <button
                         onClick={() => setActiveMetaIdForReview(c.id)}
-                        className="px-4 py-2.5 bg-clr6 text-clr1 rounded-xl text-[0.8em] font-bold uppercase tracking-tight hover:brightness-110"
+                        className="px-4 py-2.5 bg-pclr6 text-pclr12 rounded-xl text-[0.8em] font-bold uppercase tracking-tight hover:brightness-110"
                       >
                         Resolver Solicitud
                       </button>
@@ -1464,7 +1464,7 @@ const fetchInitialData = useCallback(async () => {
                     {(c.estado === 'aprobada' || c.estado === 'rechazada') && (
                       <button
                         onClick={() => setActiveMetaIdForReview(c.id)}
-                        className="px-4 py-2 bg-clr7 dark:bg-dclr1 hover:bg-clr3 dark:hover:bg-dclr1 text-clr2 dark:text-dclr2 rounded-xl text-[0.8em] font-bold uppercase tracking-tight"
+                        className="px-4 py-2 bg-pclr3 dark:bg-pdclr1 hover:bg-pclr3 dark:hover:bg-pdclr1 text-pclr4 dark:text-pdclr4 rounded-xl text-[0.8em] font-bold uppercase tracking-tight"
                       >
                         🔎 Ver Detalles
                       </button>
@@ -1475,7 +1475,7 @@ const fetchInitialData = useCallback(async () => {
                       c.estado === 'pendiente' ? (
                         <button
                           onClick={() => handleDeleteCompetencia(c.id)}
-                          className="px-4 py-2 bg-clr4 hover:bg-clr4 text-clr4 rounded-xl text-[0.8em] font-bold uppercase tracking-tight"
+                          className="px-4 py-2 bg-pclr10 hover:bg-pclr10 text-pclr4 rounded-xl text-[0.8em] font-bold uppercase tracking-tight"
                         >
                           ❌ Retirar Solicitud
                         </button>
@@ -1490,13 +1490,13 @@ const fetchInitialData = useCallback(async () => {
                               setCompProyectoId(c.proyecto_id || '')
                               setShowCompetenciaModal(true)
                             }}
-                            className="px-4 py-2 bg-clr5 hover:bg-clr5 text-clr1 rounded-xl text-[0.8em] font-bold uppercase tracking-tight text-center"
+                            className="px-4 py-2 bg-pclr5 hover:bg-pclr5 text-pclr12 rounded-xl text-[0.8em] font-bold uppercase tracking-tight text-center"
                           >
                             ✏️ Corregir
                           </button>
                           <button
                             onClick={() => handleDeleteCompetencia(c.id)}
-                            className="px-4 py-2 bg-clr4 hover:bg-clr4 text-clr4 rounded-xl text-[0.8em] font-bold uppercase tracking-tight text-center"
+                            className="px-4 py-2 bg-pclr10 hover:bg-pclr10 text-pclr4 rounded-xl text-[0.8em] font-bold uppercase tracking-tight text-center"
                           >
                             ❌ Retirar
                           </button>
@@ -1504,7 +1504,7 @@ const fetchInitialData = useCallback(async () => {
                       ) : c.estado === 'rechazada' ? (
                         <button
                           onClick={() => handleDeleteCompetencia(c.id)}
-                          className="px-4 py-2 bg-clr4 hover:bg-clr4 text-clr1 rounded-xl text-[0.8em] font-bold uppercase tracking-tight"
+                          className="px-4 py-2 bg-pclr10 hover:bg-pclr10 text-pclr12 rounded-xl text-[0.8em] font-bold uppercase tracking-tight"
                         >
                           🗑️ Eliminar Registro
                         </button>
@@ -1514,27 +1514,27 @@ const fetchInitialData = useCallback(async () => {
 
                   {/* Formulario de Aprobación de Competencia */}
                   {activeMetaIdForReview === c.id && (
-                    <div className="fixed inset-0 bg-clr2 backdrop-blur-md z-[150] flex items-center justify-center p-4">
-                      <div className="bg-clr1 dark:bg-dclr1 w-full max-w-lg rounded-[2rem] p-6 shadow-2xl space-y-6">
-                        <h4 className="text-xl font-bold uppercase tracking-tight text-clr2 dark:text-dclr2">
+                    <div className="fixed inset-0 bg-pclr2 backdrop-blur-md z-[150] flex items-center justify-center p-4">
+                      <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-lg rounded-[2rem] p-6 shadow-2xl space-y-6">
+                        <h4 className="text-xl font-bold uppercase tracking-tight text-pclr4 dark:text-pdclr4">
                           🎓 Resolver Competencia ({c.area_competencia.replace('_', ' ')})
                         </h4>
 
                         {/* Detalle de la solicitud para que el dirigente lo revise */}
-                        <div className="p-4 rounded-2xl bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7 space-y-3 text-[0.85em] text-left">
-                          <span className="text-[0.8em] font-black uppercase text-clr3 block">Detalles de la Solicitud</span>
+                        <div className="p-4 rounded-2xl bg-pclr3 dark:bg-pdclr3 border border-pclr13 dark:border-pdclr13 space-y-3 text-[0.85em] text-left">
+                          <span className="text-[0.8em] font-black uppercase text-pclr7 block">Detalles de la Solicitud</span>
                           
                           <div>
-                            <strong className="text-clr3 block uppercase text-[0.8em] mb-1">Autoevaluación del Joven:</strong>
-                            <p className="text-clr2 dark:text-dclr2 italic font-bold leading-relaxed whitespace-pre-line bg-clr1 dark:bg-dclr1 p-2.5 rounded-xl border dark:border-clr1">
+                            <strong className="text-pclr7 block uppercase text-[0.8em] mb-1">Autoevaluación del Joven:</strong>
+                            <p className="text-pclr4 dark:text-pdclr4 italic font-bold leading-relaxed whitespace-pre-line bg-pclr1 dark:bg-pdclr1 p-2.5 rounded-xl border dark:border-pclr1">
                               "{c.justificacion_nnj}"
                             </p>
                           </div>
 
                           {c.proyectos && (
                             <div>
-                              <strong className="text-clr3 block uppercase text-[0.8em] mb-0.5">Proyecto de Respaldo:</strong>
-                              <span className="font-bold text-clr2 dark:text-dclr2">
+                              <strong className="text-pclr7 block uppercase text-[0.8em] mb-0.5">Proyecto de Respaldo:</strong>
+                              <span className="font-bold text-pclr4 dark:text-pdclr4">
                                 📁 {c.proyectos.titulo}
                               </span>
                             </div>
@@ -1542,12 +1542,12 @@ const fetchInitialData = useCallback(async () => {
 
                           {c.evidencia_url && (
                             <div>
-                              <strong className="text-clr3 block uppercase text-[0.8em] mb-0.5">Evidencia Externa:</strong>
+                              <strong className="text-pclr7 block uppercase text-[0.8em] mb-0.5">Evidencia Externa:</strong>
                               <a 
                                 href={c.evidencia_url} 
                                 target="_blank" 
                                 rel="noopener noreferrer" 
-                                className="text-clr4 hover:text-clr4 underline font-bold inline-flex items-center gap-1"
+                                className="text-pclr4 hover:text-pclr4 underline font-bold inline-flex items-center gap-1"
                               >
                                 🔗 Ver portafolio/evidencia
                               </a>
@@ -1558,9 +1558,9 @@ const fetchInitialData = useCallback(async () => {
                         {c.estado === 'aprobada' || c.estado === 'rechazada' ? (
                           <div className="space-y-4">
                             {c.evaluacion_lider && (
-                              <div className="p-3.5 bg-clr7 dark:bg-dclr7 rounded-xl border dark:border-clr1 text-[0.9em]">
-                                <strong className="text-clr3 block uppercase text-[0.8em] mb-1">Fundamentos del Consejo:</strong>
-                                <p className="text-clr2 dark:text-dclr2 italic font-bold">
+                              <div className="p-3.5 bg-pclr3 dark:bg-pdclr3 rounded-xl border dark:border-pclr1 text-[0.9em]">
+                                <strong className="text-pclr7 block uppercase text-[0.8em] mb-1">Fundamentos del Consejo:</strong>
+                                <p className="text-pclr4 dark:text-pdclr4 italic font-bold">
                                   "{c.evaluacion_lider}"
                                 </p>
                               </div>
@@ -1568,7 +1568,7 @@ const fetchInitialData = useCallback(async () => {
                             <div className="flex justify-end pt-2">
                               <button 
                                 onClick={() => setActiveMetaIdForReview(null)}
-                                className="px-6 py-3 bg-clr7 dark:bg-dclr7 text-clr2 dark:text-dclr2 rounded-2xl font-bold uppercase text-[0.8em]"
+                                className="px-6 py-3 bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4 rounded-2xl font-bold uppercase text-[0.8em]"
                               >
                                 Cerrar
                               </button>
@@ -1577,25 +1577,25 @@ const fetchInitialData = useCallback(async () => {
                         ) : (
                           <>
                             <div className="space-y-1">
-                              <label className="text-[0.8em] font-bold uppercase tracking-wider text-clr3 block ml-2">Comentarios del Consejo / Resolución</label>
+                              <label className="text-[0.8em] font-bold uppercase tracking-wider text-pclr7 block ml-2">Comentarios del Consejo / Resolución</label>
                               <textarea 
                                 value={leaderReviewText}
                                 onChange={e => setLeaderReviewText(e.target.value)}
                                 placeholder="Escribe la justificación pedagógica del Consejo..."
-                                className="w-full p-4 rounded-2xl border dark:border-clr1 bg-clr7 dark:bg-dclr7 text-[0.9em] font-bold h-32"
+                                className="w-full p-4 rounded-2xl border dark:border-pclr1 bg-pclr3 dark:bg-pdclr3 text-[0.9em] font-bold h-32"
                               />
                             </div>
 
                             <div className="flex flex-wrap gap-2 pt-2 justify-end">
                               <button 
                                 onClick={() => { setActiveMetaIdForReview(null); setLeaderReviewText(''); }}
-                                className="px-4 py-3 bg-clr7 dark:bg-dclr7 text-clr3 rounded-2xl font-bold uppercase text-[0.8em]"
+                                className="px-4 py-3 bg-pclr3 dark:bg-pdclr3 text-pclr7 rounded-2xl font-bold uppercase text-[0.8em]"
                               >
                                 Cancelar
                               </button>
                               <button 
                                 onClick={() => handleLeaderReviewCompetencia(c.id, 'pedir_cambios')}
-                                className="px-4 py-3 bg-clr5 hover:bg-clr5 text-clr5 rounded-2xl font-bold uppercase text-[0.8em]"
+                                className="px-4 py-3 bg-pclr5 hover:bg-pclr5 text-pclr12 dark:bg-pdclr5 dark:text-pdclr12 rounded-2xl font-bold uppercase text-[0.8em]"
                               >
                                 Pedir Cambios
                               </button>
@@ -1605,13 +1605,13 @@ const fetchInitialData = useCallback(async () => {
                                     handleLeaderReviewCompetencia(c.id, 'rechazar');
                                   }
                                 }}
-                                className="px-4 py-3 bg-clr4 hover:bg-clr4 text-clr4 rounded-2xl font-bold uppercase text-[0.8em]"
+                                className="px-4 py-3 bg-pclr10 hover:bg-pclr10 text-pclr4 rounded-2xl font-bold uppercase text-[0.8em]"
                               >
                                 Rechazar
                               </button>
                               <button 
                                 onClick={() => handleLeaderReviewCompetencia(c.id, 'aprobar')}
-                                className="flex-1 px-4 py-3 bg-clr6 text-clr1 font-bold uppercase rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all text-[0.8em]"
+                                className="flex-1 px-4 py-3 bg-pclr6 text-pclr12 font-bold uppercase rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all text-[0.8em]"
                               >
                                 Aprobar
                               </button>
@@ -1643,28 +1643,28 @@ const fetchInitialData = useCallback(async () => {
 
         {/* Modal: Solicitar Competencia */}
         {showCompetenciaModal && (
-          <div className="fixed inset-0 bg-clr2 backdrop-blur-md z-[140] flex items-center justify-center p-4">
-            <div className="bg-clr1 dark:bg-dclr1 w-full max-w-xl rounded-[2rem] p-6 shadow-2xl space-y-6">
-              <h4 className="text-xl font-bold uppercase tracking-tight text-clr2 dark:text-dclr2">
+          <div className="fixed inset-0 bg-pclr2 backdrop-blur-md z-[140] flex items-center justify-center p-4">
+            <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-xl rounded-[2rem] p-6 shadow-2xl space-y-6">
+              <h4 className="text-xl font-bold uppercase tracking-tight text-pclr4 dark:text-pdclr4">
                 {editingSolicitudId ? '✏️ Corregir Solicitud de Competencia' : '🎓 Solicitar Competencia (Rumbo)'}
               </h4>
               
               {editingSolicitudId && (() => {
                 const activeSolicitud = competencias.find(c => c.id === editingSolicitudId);
                 return activeSolicitud?.evaluacion_lider ? (
-                  <div className="p-4 bg-clr5 dark:bg-dclr5 border border-clr5 dark:border-dclr5 rounded-2xl text-[0.85em] text-clr5 dark:text-dclr5 space-y-1">
-                    <span className="font-extrabold uppercase text-[0.8em] tracking-wider block text-clr5 dark:text-dclr5">⚠️ Observaciones del Dirigente:</span>
+                  <div className="p-4 bg-pclr5 dark:bg-pdclr5 border border-pclr5 dark:border-pdclr5 rounded-2xl text-[0.85em] text-pclr5 dark:text-pdclr5 space-y-1">
+                    <span className="font-extrabold uppercase text-[0.8em] tracking-wider block text-pclr5 dark:text-pdclr5">⚠️ Observaciones del Dirigente:</span>
                     <p className="italic font-bold">"{activeSolicitud.evaluacion_lider}"</p>
                   </div>
                 ) : null;
               })()}
               
               <div className="space-y-1">
-                <label className="text-[0.8em] font-bold uppercase tracking-wider text-clr3 block ml-2">Área de Competencia</label>
+                <label className="text-[0.8em] font-bold uppercase tracking-wider text-pclr7 block ml-2">Área de Competencia</label>
                 <select
                   value={selectedCompetenciaArea}
                   onChange={e => setSelectedCompetenciaArea(e.target.value)}
-                  className="w-full p-4 rounded-2xl border dark:border-clr1 bg-clr7 dark:bg-dclr7 text-[0.9em] font-bold uppercase tracking-tight"
+                  className="w-full p-4 rounded-2xl border dark:border-pclr1 bg-pclr3 dark:bg-pdclr3 text-[0.9em] font-bold uppercase tracking-tight"
                   disabled={!!editingSolicitudId}
                 >
                   <option value="">Seleccione rumbo...</option>
@@ -1692,11 +1692,11 @@ const fetchInitialData = useCallback(async () => {
               </div>
 
               <div className="space-y-1">
-                <label className="text-[0.8em] font-bold uppercase tracking-wider text-clr3 block ml-2">Proyecto de la Avanzada (Opcional)</label>
+                <label className="text-[0.8em] font-bold uppercase tracking-wider text-pclr7 block ml-2">Proyecto de la Avanzada (Opcional)</label>
                 <select
                   value={compProyectoId}
                   onChange={e => setCompProyectoId(e.target.value)}
-                  className="w-full p-4 rounded-2xl border dark:border-clr1 bg-clr7 dark:bg-dclr7 text-[0.9em] font-bold"
+                  className="w-full p-4 rounded-2xl border dark:border-pclr1 bg-pclr3 dark:bg-pdclr3 text-[0.9em] font-bold"
                 >
                   <option value="">Seleccione proyecto...</option>
                   {avanzadaProyectos.map(p => (
@@ -1706,40 +1706,40 @@ const fetchInitialData = useCallback(async () => {
               </div>
 
               <div className="space-y-1">
-                <label className="text-[0.8em] font-bold uppercase tracking-wider text-clr3 block ml-2">Mi Autoevaluación (Mínimo 150 caracteres)</label>
+                <label className="text-[0.8em] font-bold uppercase tracking-wider text-pclr7 block ml-2">Mi Autoevaluación (Mínimo 150 caracteres)</label>
                 <textarea 
                   value={justificacionNnj}
                   onChange={e => setJustificacionNnj(e.target.value)}
                   placeholder="Detalla de forma madura y seria qué rol desempeñaste, qué aprendiste..."
-                  className="w-full p-4 rounded-2xl border dark:border-clr1 bg-clr7 dark:bg-dclr7 text-[0.9em] font-bold h-32"
+                  className="w-full p-4 rounded-2xl border dark:border-pclr1 bg-pclr3 dark:bg-pdclr3 text-[0.9em] font-bold h-32"
                 />
-                <span className={`text-[0.8em] font-bold block text-right ${justificacionNnj.length >= 150 ? 'text-clr6' : 'text-clr4'}`}>
+                <span className={`text-[0.8em] font-bold block text-right ${justificacionNnj.length >= 150 ? 'text-pclr6' : 'text-pclr4'}`}>
                   {justificacionNnj.length} / 150 caracteres
                 </span>
               </div>
 
               <div className="space-y-1">
-                <label className="text-[0.8em] font-bold uppercase tracking-wider text-clr3 block ml-2">Enlace a portafolio digital o evidencias</label>
+                <label className="text-[0.8em] font-bold uppercase tracking-wider text-pclr7 block ml-2">Enlace a portafolio digital o evidencias</label>
                 <input 
                   type="url"
                   value={evidenciaCompUrl}
                   onChange={e => setEvidenciaCompUrl(e.target.value)}
                   placeholder="https://drive.google.com/..."
-                  className="w-full p-4 rounded-2xl border dark:border-clr1 bg-clr7 dark:bg-dclr7 text-[0.9em] font-bold"
+                  className="w-full p-4 rounded-2xl border dark:border-pclr1 bg-pclr3 dark:bg-pdclr3 text-[0.9em] font-bold"
                 />
               </div>
 
               <div className="flex gap-4 pt-2">
                 <button 
                   onClick={handleRequestCompetencia}
-                  className="flex-1 py-4 text-clr1 font-bold uppercase rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all"
+                  className="flex-1 py-4 text-pclr12 font-bold uppercase rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all"
                   style={{ backgroundColor: colorHighlight }}
                 >
                   Enviar Solicitud
                 </button>
                 <button 
                   onClick={() => { setShowCompetenciaModal(false); setSelectedCompetenciaArea(''); setJustificacionNnj(''); setEvidenciaCompUrl(''); setCompProyectoId(''); }}
-                  className="px-6 py-4 bg-clr7 dark:bg-dclr7 text-clr3 rounded-2xl font-bold uppercase"
+                  className="px-6 py-4 bg-pclr3 dark:bg-pdclr3 text-pclr7 rounded-2xl font-bold uppercase"
                 >
                   Cancelar
                 </button>
@@ -1750,18 +1750,18 @@ const fetchInitialData = useCallback(async () => {
 
         {/* Modal: Entregar Competencia Directamente (Líder) */}
         {showDirectCompetenciaModal && (
-          <div className="fixed inset-0 bg-clr2 backdrop-blur-md z-[140] flex items-center justify-center p-4">
-            <div className="bg-clr1 dark:bg-dclr1 w-full max-w-xl rounded-[2rem] p-6 shadow-2xl space-y-6">
-              <h4 className="text-xl font-bold uppercase tracking-tight text-clr2 dark:text-dclr2">
+          <div className="fixed inset-0 bg-pclr2 backdrop-blur-md z-[140] flex items-center justify-center p-4">
+            <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-xl rounded-[2rem] p-6 shadow-2xl space-y-6">
+              <h4 className="text-xl font-bold uppercase tracking-tight text-pclr4 dark:text-pdclr4">
                 🎓 Entregar Competencia Directamente ({selectedDirectCompetenciaArea.replace('_', ' ')})
               </h4>
               
               <div className="space-y-1">
-                <label className="text-[0.8em] font-bold uppercase tracking-wider text-clr3 block ml-2">Proyecto de Respaldo (Opcional)</label>
+                <label className="text-[0.8em] font-bold uppercase tracking-wider text-pclr7 block ml-2">Proyecto de Respaldo (Opcional)</label>
                 <select
                   value={directCompProyectoId}
                   onChange={e => setDirectCompProyectoId(e.target.value)}
-                  className="w-full p-4 rounded-2xl border dark:border-clr1 bg-clr7 dark:bg-dclr7 text-[0.9em] font-bold"
+                  className="w-full p-4 rounded-2xl border dark:border-pclr1 bg-pclr3 dark:bg-pdclr3 text-[0.9em] font-bold"
                 >
                   <option value="">Seleccione proyecto...</option>
                   {avanzadaProyectos.map(p => (
@@ -1771,26 +1771,26 @@ const fetchInitialData = useCallback(async () => {
               </div>
 
               <div className="space-y-1">
-                <label className="text-[0.8em] font-bold uppercase tracking-wider text-clr3 block ml-2">Fundamentos de la Reunión de Coordinadores (Obligatorio)</label>
+                <label className="text-[0.8em] font-bold uppercase tracking-wider text-pclr7 block ml-2">Fundamentos de la Reunión de Coordinadores (Obligatorio)</label>
                 <textarea 
                   value={directLeaderReviewText}
                   onChange={e => setDirectLeaderReviewText(e.target.value)}
                   placeholder="Detalla los motivos acordados en la Reunión de Coordinadores..."
-                  className="w-full p-4 rounded-2xl border dark:border-clr1 bg-clr7 dark:bg-dclr7 text-[0.9em] font-bold h-32"
+                  className="w-full p-4 rounded-2xl border dark:border-pclr1 bg-pclr3 dark:bg-pdclr3 text-[0.9em] font-bold h-32"
                 />
               </div>
 
               <div className="flex gap-4 pt-2">
                 <button 
                   onClick={handleDirectDeliverCompetencia}
-                  className="flex-1 py-4 text-clr1 font-bold uppercase rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all"
+                  className="flex-1 py-4 text-pclr12 font-bold uppercase rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all"
                   style={{ backgroundColor: colorHighlight }}
                 >
                   Entregar Competencia
                 </button>
                 <button 
                   onClick={() => { setShowDirectCompetenciaModal(false); setSelectedDirectCompetenciaArea(''); setDirectLeaderReviewText(''); setDirectCompProyectoId(''); }}
-                  className="px-6 py-4 bg-clr7 dark:bg-dclr7 text-clr3 rounded-2xl font-bold uppercase"
+                  className="px-6 py-4 bg-pclr3 dark:bg-pdclr3 text-pclr7 rounded-2xl font-bold uppercase"
                 >
                   Cancelar
                 </button>
@@ -1966,10 +1966,10 @@ const fetchInitialData = useCallback(async () => {
           {/* Text & Button Area */}
           <div className="relative z-10 text-center md:text-left flex-1 w-full">
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-2">
-              <span className="p-2 rounded-full text-[0.8em] font-bold uppercase tracking-widest text-clr1 bg-clr1">
+              <span className="p-2 rounded-full text-[0.8em] font-bold uppercase tracking-widest text-pclr12 bg-pclr1">
                 {p.es_grupal ? 'Proyecto Colectivo' : 'Proyecto Individual'}
               </span>
-              <span className="p-2 rounded-full border text-[0.8em] font-bold uppercase tracking-widest text-clr1 border-clr1 bg-clr2">
+              <span className="p-2 rounded-full border text-[0.8em] font-bold uppercase tracking-widest text-pclr12 border-pclr1 bg-pclr2">
                 Fase: {p.fase}
               </span>
             </div>
@@ -1991,7 +1991,7 @@ const fetchInitialData = useCallback(async () => {
             <div className="pt-2 flex flex-wrap justify-center md:justify-start gap-2">
               <button 
                 onClick={() => setSelectedProjectSheet(null)}
-                className="p-2 bg-clr1 hover:bg-clr1 text-clr1 rounded-xl font-bold uppercase tracking-wider text-[0.8em] transition-all border"
+                className="p-2 bg-pclr1 hover:bg-pclr1 text-pclr12 rounded-xl font-bold uppercase tracking-wider text-[0.8em] transition-all border"
                 style={{ borderColor: themeSecondary }}
               >
                 ← Volver a Progresión
@@ -2005,7 +2005,7 @@ const fetchInitialData = useCallback(async () => {
                     setWizardInitialStep(1);
                     setIsWizardOpen(true); 
                   }}
-                  className="p-2 bg-clr1 hover:bg-clr7 rounded-xl font-bold uppercase tracking-wider text-[0.8em] transition-all shadow-lg"
+                  className="p-2 bg-pclr1 hover:bg-pclr3 rounded-xl font-bold uppercase tracking-wider text-[0.8em] transition-all shadow-lg"
                   style={{ color: themeTextDark }}
                 >
                   ✏️ Editar Formulación
@@ -2020,7 +2020,7 @@ const fetchInitialData = useCallback(async () => {
                     setWizardInitialStep(12);
                     setIsWizardOpen(true); 
                   }}
-                  className="p-2 bg-clr6 hover:bg-clr6 text-clr1 rounded-xl font-bold uppercase tracking-wider text-[0.8em] transition-all shadow-lg"
+                  className="p-2 bg-pclr6 hover:bg-pclr6 text-pclr12 rounded-xl font-bold uppercase tracking-wider text-[0.8em] transition-all shadow-lg"
                 >
                   🏁 Evaluar y Concluir (Paso 12)
                 </button>
@@ -2030,7 +2030,7 @@ const fetchInitialData = useCallback(async () => {
               {(userPerfil.id === p.perfil_id || isLeader) && (
                 <button 
                   onClick={handleDeleteProyecto}
-                  className="p-2 bg-clr4 hover:bg-clr4 text-clr1 rounded-xl font-bold uppercase tracking-wider text-[0.8em] transition-all border border-clr4 shadow-lg flex items-center gap-1.5"
+                  className="p-2 bg-pclr10 hover:bg-pclr10 text-pclr12 rounded-xl font-bold uppercase tracking-wider text-[0.8em] transition-all border border-pclr14 shadow-lg flex items-center gap-1.5"
                 >
                   🗑️ Eliminar Proyecto
                 </button>
@@ -2043,32 +2043,32 @@ const fetchInitialData = useCallback(async () => {
         <div className="grid grid-cols-1 gap-2">
           
           {/* Paso 1: Qué Haremos */}
-          <div className="p-2 bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7 rounded-[1rem] shadow-sm space-y-2">
-            <h4 className="font-bold uppercase text-[1.1em] text-clr2 dark:text-dclr2 flex items-center gap-2 border-b border-clr7 dark:border-dclr7">
-              <span className="w-6 h-6 rounded-full text-clr1 text-[1em] flex items-center justify-center font-bold" style={{ backgroundColor: themePrimary }}>1</span>
+          <div className="p-2 bg-pclr3 dark:bg-pdclr3 border border-pclr13 dark:border-pdclr13 rounded-[1rem] shadow-sm space-y-2">
+            <h4 className="font-bold uppercase text-[1.1em] text-pclr4 dark:text-pdclr4 flex items-center gap-2 border-b border-pclr13 dark:border-pdclr13">
+              <span className="w-6 h-6 rounded-full text-pclr12 text-[1em] flex items-center justify-center font-bold" style={{ backgroundColor: themePrimary }}>1</span>
               ¿Qué Haremos?
             </h4>
-            <p className="text-[1em] font-bold text-clr2 dark:text-dclr2 leading-relaxed">
+            <p className="text-[1em] font-bold text-pclr4 dark:text-pdclr4 leading-relaxed">
               {p.paso1_que_haremos || 'No detallado.'}
             </p>
           </div>
 
           {/* Paso 2: Por Qué */}
-          <div className="p-2 bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7 rounded-[1rem] shadow-sm space-y-4">
-            <h4 className="font-bold uppercase text-[1.1em] text-clr2 dark:text-dclr2 flex items-center gap-2 border-b border-clr7 dark:border-dclr7">
-              <span className="w-6 h-6 rounded-full text-clr1 text-[1em] flex items-center justify-center font-bold" style={{ backgroundColor: themePrimary }}>2</span>
+          <div className="p-2 bg-pclr3 dark:bg-pdclr3 border border-pclr13 dark:border-pdclr13 rounded-[1rem] shadow-sm space-y-4">
+            <h4 className="font-bold uppercase text-[1.1em] text-pclr4 dark:text-pdclr4 flex items-center gap-2 border-b border-pclr13 dark:border-pdclr13">
+              <span className="w-6 h-6 rounded-full text-pclr12 text-[1em] flex items-center justify-center font-bold" style={{ backgroundColor: themePrimary }}>2</span>
               ¿Por Qué?
             </h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-              <div className="p-2 rounded-2xl bg-clr1 dark:bg-dclr1 border border-clr7 dark:border-dclr7">
+              <div className="p-2 rounded-2xl bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13">
                 <span className="text-[1em] font-bold uppercase block mb-1" style={{ color: themePrimary }}>Diagnóstico Inicial:</span>
-                <p className="text-[1em] font-bold text-clr2 dark:text-dclr2">
+                <p className="text-[1em] font-bold text-pclr4 dark:text-pdclr4">
                   {p.paso2_por_que_diagnostico || 'No detallado.'}
                 </p>
               </div>
-              <div className="p-2 rounded-2xl bg-clr1 dark:bg-dclr1 border border-clr7 dark:border-dclr7">
+              <div className="p-2 rounded-2xl bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13">
                 <span className="text-[1em] font-bold uppercase block mb-1" style={{ color: themePrimary }}>Justificación y Fundamentos:</span>
-                <p className="text-[1em] font-bold text-clr2 dark:text-dclr2">
+                <p className="text-[1em] font-bold text-pclr4 dark:text-pdclr4">
                   {p.paso2_por_que_justificacion || 'No detallado.'}
                 </p>
               </div>
@@ -2076,21 +2076,21 @@ const fetchInitialData = useCallback(async () => {
           </div>
 
           {/* Paso 3: Para Qué */}
-          <div className="p-2 bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7 rounded-[1rem] shadow-sm space-y-4">
-            <h4 className="font-bold uppercase text-[1.1em] text-clr2 dark:text-dclr2 flex items-center gap-2 border-b border-clr7 dark:border-dclr7">
-              <span className="w-6 h-6 rounded-full text-clr1 text-[1em] flex items-center justify-center font-bold" style={{ backgroundColor: themePrimary }}>3</span>
+          <div className="p-2 bg-pclr3 dark:bg-pdclr3 border border-pclr13 dark:border-pdclr13 rounded-[1rem] shadow-sm space-y-4">
+            <h4 className="font-bold uppercase text-[1.1em] text-pclr4 dark:text-pdclr4 flex items-center gap-2 border-b border-pclr13 dark:border-pdclr13">
+              <span className="w-6 h-6 rounded-full text-pclr12 text-[1em] flex items-center justify-center font-bold" style={{ backgroundColor: themePrimary }}>3</span>
               ¿Para Qué?
             </h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-              <div className="p-2 rounded-[1rem] bg-clr1 dark:bg-dclr1 border border-clr7 dark:border-dclr7">
+              <div className="p-2 rounded-[1rem] bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13">
                 <span className="text-[1em] font-bold uppercase block mb-1" style={{ color: themePrimary }}>Objetivo General:</span>
-                <p className="text-[1em] font-bold text-clr2 dark:text-dclr2">
+                <p className="text-[1em] font-bold text-pclr4 dark:text-pdclr4">
                   {p.paso3_para_que_general || 'No detallado.'}
                 </p>
               </div>
-              <div className="p-2 rounded-[1rem] bg-clr1 dark:bg-dclr1 border border-clr7 dark:border-dclr7">
+              <div className="p-2 rounded-[1rem] bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13">
                 <span className="text-[1em] font-bold uppercase block mb-1" style={{ color: themePrimary }}>Objetivos Específicos:</span>
-                <p className="text-[1em] font-bold text-clr2 dark:text-dclr2 whitespace-pre-line">
+                <p className="text-[1em] font-bold text-pclr4 dark:text-pdclr4 whitespace-pre-line">
                   {p.paso3_para_que_especificos || 'No detallado.'}
                 </p>
               </div>
@@ -2099,77 +2099,77 @@ const fetchInitialData = useCallback(async () => {
 
           {/* Pasos 4, 5, 6 en Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-            <div className="p-2 bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7 rounded-[1rem] shadow-sm space-y-2">
-              <h4 className="font-bold uppercase text-[1.1em] text-clr2 dark:text-dclr2 flex items-center gap-2 border-b border-clr7 dark:border-dclr7">
-                <span className="w-6 h-6 rounded-full text-clr1 text-[0.8em] flex items-center justify-center font-bold" style={{ backgroundColor: themePrimary }}>4</span>
+            <div className="p-2 bg-pclr3 dark:bg-pdclr3 border border-pclr13 dark:border-pdclr13 rounded-[1rem] shadow-sm space-y-2">
+              <h4 className="font-bold uppercase text-[1.1em] text-pclr4 dark:text-pdclr4 flex items-center gap-2 border-b border-pclr13 dark:border-pdclr13">
+                <span className="w-6 h-6 rounded-full text-pclr12 text-[0.8em] flex items-center justify-center font-bold" style={{ backgroundColor: themePrimary }}>4</span>
                 ¿Para Quiénes?
               </h4>
-              <p className="text-[0.85em] font-bold text-clr2 dark:text-dclr2">
+              <p className="text-[0.85em] font-bold text-pclr4 dark:text-pdclr4">
                 {p.paso4_para_quienes || 'No detallado.'}
               </p>
             </div>
 
-            <div className="p-2 bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7 rounded-[1rem] shadow-sm space-y-2">
-              <h4 className="font-bold uppercase text-[1.1em] text-clr2 dark:text-dclr2 flex items-center gap-2 border-b border-clr7 dark:border-dclr7">
-                <span className="w-6 h-6 rounded-full text-clr1 text-[0.8em] flex items-center justify-center font-bold" style={{ backgroundColor: themePrimary }}>5</span>
+            <div className="p-2 bg-pclr3 dark:bg-pdclr3 border border-pclr13 dark:border-pdclr13 rounded-[1rem] shadow-sm space-y-2">
+              <h4 className="font-bold uppercase text-[1.1em] text-pclr4 dark:text-pdclr4 flex items-center gap-2 border-b border-pclr13 dark:border-pdclr13">
+                <span className="w-6 h-6 rounded-full text-pclr12 text-[0.8em] flex items-center justify-center font-bold" style={{ backgroundColor: themePrimary }}>5</span>
                 ¿Dónde?
               </h4>
-              <p className="text-[0.85em] font-bold text-clr2 dark:text-dclr2">
+              <p className="text-[0.85em] font-bold text-pclr4 dark:text-pdclr4">
                 {p.paso5_donde || 'No detallado.'}
               </p>
             </div>
 
-            <div className="p-2 bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7 rounded-[1rem] shadow-sm space-y-2">
-              <h4 className="font-bold uppercase text-[1.1em] text-clr2 dark:text-dclr2 flex items-center gap-2 border-b border-clr7 dark:border-dclr7">
-                <span className="w-6 h-6 rounded-full text-clr1 text-[0.8em] flex items-center justify-center font-bold" style={{ backgroundColor: themePrimary }}>6</span>
+            <div className="p-2 bg-pclr3 dark:bg-pdclr3 border border-pclr13 dark:border-pdclr13 rounded-[1rem] shadow-sm space-y-2">
+              <h4 className="font-bold uppercase text-[1.1em] text-pclr4 dark:text-pdclr4 flex items-center gap-2 border-b border-pclr13 dark:border-pdclr13">
+                <span className="w-6 h-6 rounded-full text-pclr12 text-[0.8em] flex items-center justify-center font-bold" style={{ backgroundColor: themePrimary }}>6</span>
                 ¿Cómo lo haremos?
               </h4>
-              <p className="text-[0.85em] font-bold text-clr2 dark:text-dclr2">
+              <p className="text-[0.85em] font-bold text-pclr4 dark:text-pdclr4">
                 {p.paso6_como_lo_haremos || 'No detallado.'}
               </p>
             </div>
           </div>
 
           {/* Paso 7 & 8: Actividades y Cronograma */}
-          <div className="p-2 bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7 rounded-[1rem] shadow-sm space-y-2">
-            <h4 className="font-bold uppercase text-[1.1em] text-clr2 dark:text-dclr2 flex items-center gap-2 border-b border-clr7 dark:border-dclr7">
-              <span className="w-12 h-6 rounded-full text-clr1 text-[0.8em] flex items-center justify-center font-bold" style={{ backgroundColor: themePrimary }}>7 & 8</span>
+          <div className="p-2 bg-pclr3 dark:bg-pdclr3 border border-pclr13 dark:border-pdclr13 rounded-[1rem] shadow-sm space-y-2">
+            <h4 className="font-bold uppercase text-[1.1em] text-pclr4 dark:text-pdclr4 flex items-center gap-2 border-b border-pclr13 dark:border-pdclr13">
+              <span className="w-12 h-6 rounded-full text-pclr12 text-[0.8em] flex items-center justify-center font-bold" style={{ backgroundColor: themePrimary }}>7 & 8</span>
               ¿Cuáles Actividades? y ¿Cuándo?
             </h4>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {acts.map((act: ProjectActivity, idx: number) => (
-                <div key={act.id} className="p-4 bg-clr1 dark:bg-dclr1 rounded-2xl border border-clr7 dark:border-dclr7 flex flex-col justify-between">
+                <div key={act.id} className="p-4 bg-pclr1 dark:bg-pdclr1 rounded-2xl border border-pclr13 dark:border-pdclr13 flex flex-col justify-between">
                   <div>
                     <div className="flex justify-between items-start mb-2">
-                      <span className="text-[0.8em] font-bold uppercase tracking-wider text-clr3">Actividad #{idx + 1}</span>
+                      <span className="text-[0.8em] font-bold uppercase tracking-wider text-pclr7">Actividad #{idx + 1}</span>
                       {act.fecha && (
-                        <span className="px-2.5 py-1 rounded-lg bg-clr4 dark:bg-dclr4 text-[0.8em] font-bold uppercase" style={{ backgroundColor: themePrimary, color: themeSecondary }}>
+                        <span className="px-2.5 py-1 rounded-lg bg-pclr10 dark:bg-pdclr10 text-[0.8em] font-bold uppercase" style={{ backgroundColor: themePrimary, color: themeSecondary }}>
                           📅 {act.fecha}
                         </span>
                       )}
                     </div>
-                    <h5 className="font-bold uppercase text-[1em] text-clr2 dark:text-dclr2 mb-1">{act.nombre || '(Sin Nombre)'}</h5>
-                    <p className="text-[0.8em] font-bold text-clr2 dark:text-dclr2">{act.descripcion || 'Sin descripción.'}</p>
+                    <h5 className="font-bold uppercase text-[1em] text-pclr4 dark:text-pdclr4 mb-1">{act.nombre || '(Sin Nombre)'}</h5>
+                    <p className="text-[0.8em] font-bold text-pclr4 dark:text-pdclr4">{act.descripcion || 'Sin descripción.'}</p>
                   </div>
                   
                   {act.articulo_id && (
-                    <div className="mt-3 pt-3 border-t border-clr7 dark:border-dclr7 flex items-center gap-1.5 text-[0.8em] font-bold text-clr4">
+                    <div className="mt-3 pt-3 border-t border-pclr13 dark:border-pdclr13 flex items-center gap-1.5 text-[0.8em] font-bold text-pclr4">
                       <span>🔗 Vinculada a Ficha de Actividad</span>
                     </div>
                   )}
                 </div>
               ))}
               {acts.length === 0 && (
-                <p className="col-span-full text-center py-6 text-clr3 font-bold italic">No hay actividades planificadas.</p>
+                <p className="col-span-full text-center py-6 text-pclr7 font-bold italic">No hay actividades planificadas.</p>
               )}
             </div>
           </div>
 
           {/* Paso 9: Quiénes lo haremos */}
-          <div className="p-2 bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7 rounded-[1rem] shadow-sm space-y-4">
-            <h4 className="font-bold uppercase text-[1.1em] text-clr2 dark:text-dclr2 flex items-center gap-2 border-b pb-2 border-clr7 dark:border-dclr7">
-              <span className="w-6 h-6 rounded-full text-clr1 text-[0.8em] flex items-center justify-center font-bold" style={{ backgroundColor: themePrimary }}>9</span>
+          <div className="p-2 bg-pclr3 dark:bg-pdclr3 border border-pclr13 dark:border-pdclr13 rounded-[1rem] shadow-sm space-y-4">
+            <h4 className="font-bold uppercase text-[1.1em] text-pclr4 dark:text-pdclr4 flex items-center gap-2 border-b pb-2 border-pclr13 dark:border-pdclr13">
+              <span className="w-6 h-6 rounded-full text-pclr12 text-[0.8em] flex items-center justify-center font-bold" style={{ backgroundColor: themePrimary }}>9</span>
               ¿Quiénes lo Haremos?
             </h4>
             
@@ -2178,10 +2178,10 @@ const fetchInitialData = useCallback(async () => {
               {/* Participantes Internos */}
               {sheetParticipants.length > 0 && (
                 <div className="space-y-2">
-                  <span className="text-[0.8em] font-bold uppercase text-clr3 block ml-1">
+                  <span className="text-[0.8em] font-bold uppercase text-pclr7 block ml-1">
                     {p.es_grupal ? 'Equipo del Grupo Scout' : 'Responsable / Participantes'}
                   </span>
-                  <div className="rounded-2xl border border-clr7 dark:border-dclr7 divide-y divide-clr7 dark:divide-dclr7 max-h-[200px] overflow-y-auto pr-2" style={{ backgroundColor: themePrimary, color: themeSecondary }}>
+                  <div className="rounded-2xl border border-pclr13 dark:border-pdclr13 divide-y divide-clr7 dark:divide-dclr7 max-h-[200px] overflow-y-auto pr-2" style={{ backgroundColor: themePrimary, color: themeSecondary }}>
                     {sheetParticipants.map((pReg: SheetParticipant) => (
                       <div key={pReg.perfil_id} className="p-2 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 text-[1em] font-bold">
                         <div className="space-y-0.5">
@@ -2196,13 +2196,13 @@ const fetchInitialData = useCallback(async () => {
                             </div>
                           )}
                         </div>
-                        <span className="px-2 py-0.5 rounded bg-clr7 dark:bg-dclr7 text-[0.8em] font-bold uppercase text-clr3 dark:text-dclr3 self-start sm:self-auto shrink-0">
+                        <span className="px-2 py-0.5 rounded bg-pclr3 dark:bg-pdclr3 text-[0.8em] font-bold uppercase text-pclr7 dark:text-pdclr7 self-start sm:self-auto shrink-0">
                           {pReg.rol_en_proyecto}
                         </span>
                       </div>
                     ))}
                     {sheetParticipants.length === 0 && (
-                      <p className="p-3 text-center text-clr3 font-bold italic">No hay miembros del grupo asignados.</p>
+                      <p className="p-3 text-center text-pclr7 font-bold italic">No hay miembros del grupo asignados.</p>
                     )}
                   </div>
                 </div>
@@ -2210,30 +2210,30 @@ const fetchInitialData = useCallback(async () => {
 
               {/* Colaboradores Externos */}
               <div className="space-y-2">
-                <span className="text-[0.8em] font-bold uppercase text-clr3 block ml-1">Colaboradores Externos / Contactos</span>
-                <div className="rounded-2xl border border-clr7 dark:border-dclr7 divide-y divide-clr7 dark:divide-dclr7 max-h-[200px] overflow-y-auto pr-2" style={{ backgroundColor: themePrimary, color: themeSecondary }}>
+                <span className="text-[0.8em] font-bold uppercase text-pclr7 block ml-1">Colaboradores Externos / Contactos</span>
+                <div className="rounded-2xl border border-pclr13 dark:border-pdclr13 divide-y divide-clr7 dark:divide-dclr7 max-h-[200px] overflow-y-auto pr-2" style={{ backgroundColor: themePrimary, color: themeSecondary }}>
                   {partsManual.map((pMan: { nombre?: string; tarea_asignada?: string; telefono?: string; email?: string }, idx: number) => (
-                    <div key={idx} className="p-3 flex flex-col gap-1 text-[0.85em] font-bold text-clr2 dark:text-dclr2">
+                    <div key={idx} className="p-3 flex flex-col gap-1 text-[0.85em] font-bold text-pclr4 dark:text-pdclr4">
                       <div className="flex justify-between items-start gap-2">
                         <span>{pMan.nombre || '(Sin Nombre)'}</span>
                         {pMan.tarea_asignada && (
                           <div className="flex flex-wrap gap-1 justify-end max-w-[60%]">
                             {pMan.tarea_asignada.split(',').map((t: string, idx: number) => (
-                              <span key={idx} className="px-2 py-0.5 rounded-full bg-clr6 dark:bg-dclr6 text-clr6 dark:text-dclr6 text-[0.8em] font-black uppercase tracking-wider">
+                              <span key={idx} className="px-2 py-0.5 rounded-full bg-pclr6 dark:bg-pdclr6 text-pclr6 dark:text-pdclr6 text-[0.8em] font-black uppercase tracking-wider">
                                 {t.trim()}
                               </span>
                             ))}
                           </div>
                         )}
                       </div>
-                      <div className="flex gap-4 text-[0.8em] text-clr3">
+                      <div className="flex gap-4 text-[0.8em] text-pclr7">
                         {pMan.telefono && <span>📞 {pMan.telefono}</span>}
                         {pMan.email && <span>✉️ {pMan.email}</span>}
                       </div>
                     </div>
                   ))}
                   {partsManual.length === 0 && (
-                    <p className="p-3 text-center text-clr3 font-bold italic">No hay colaboradores externos agregados.</p>
+                    <p className="p-3 text-center text-pclr7 font-bold italic">No hay colaboradores externos agregados.</p>
                   )}
                 </div>
               </div>
@@ -2242,17 +2242,17 @@ const fetchInitialData = useCallback(async () => {
           </div>
 
           {/* Paso 10: ¿Cuánto? */}
-          <div className="p-2 bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7 rounded-[1rem] shadow-sm space-y-2">
-            <h4 className="font-bold uppercase text-[1.1em] text-clr2 dark:text-dclr2 flex items-center gap-2 border-b pb-2 border-clr7 dark:border-dclr7">
-              <span className="w-6 h-6 rounded-full text-clr1 text-[0.8em] flex items-center justify-center font-bold" style={{ backgroundColor: themePrimary }}>10</span>
+          <div className="p-2 bg-pclr3 dark:bg-pdclr3 border border-pclr13 dark:border-pdclr13 rounded-[1rem] shadow-sm space-y-2">
+            <h4 className="font-bold uppercase text-[1.1em] text-pclr4 dark:text-pdclr4 flex items-center gap-2 border-b pb-2 border-pclr13 dark:border-pdclr13">
+              <span className="w-6 h-6 rounded-full text-pclr12 text-[0.8em] flex items-center justify-center font-bold" style={{ backgroundColor: themePrimary }}>10</span>
               ¿Cuánto Presupuesto? (Desglose de Materiales)
             </h4>
             
-            <div className="bg-clr1 dark:bg-dclr1 rounded-2xl border border-clr7 dark:border-dclr7 overflow-hidden">
+            <div className="bg-pclr1 dark:bg-pdclr1 rounded-2xl border border-pclr13 dark:border-pdclr13 overflow-hidden">
               <div className="overflow-x-auto">
-                <table className="w-full text-left border-collapse text-[0.85em] font-bold text-clr2 dark:text-dclr2">
+                <table className="w-full text-left border-collapse text-[0.85em] font-bold text-pclr4 dark:text-pdclr4">
                   <thead>
-                    <tr className="bg-clr7 dark:bg-dclr7 text-clr3 uppercase text-[0.9em]">
+                    <tr className="bg-pclr3 dark:bg-pdclr3 text-pclr7 uppercase text-[0.9em]">
                       <th className="p-3">Ítem / Material</th>
                       <th className="p-3 text-center">Tipo</th>
                       <th className="p-3 text-center">Fuente</th>
@@ -2267,7 +2267,7 @@ const fetchInitialData = useCallback(async () => {
                       <tr key={idx}>
                         <td className="p-3">{item.descripcion || 'Sin descripción'}</td>
                         <td className="p-3 text-center">
-                          <span className={`px-2 py-0.5 rounded text-[0.9em] uppercase ${item.tipo === 'ingreso' ? 'bg-clr6 text-clr6' : 'bg-clr4 text-clr4'}`}>
+                          <span className={`px-2 py-0.5 rounded text-[0.9em] uppercase ${item.tipo === 'ingreso' ? 'bg-pclr6 text-pclr12 dark:bg-pdclr6 dark:text-pdclr12' : 'bg-pclr10 text-pclr4'}`}>
                             {item.tipo}
                           </span>
                         </td>
@@ -2280,7 +2280,7 @@ const fetchInitialData = useCallback(async () => {
                     ))}
                     {presItems.length === 0 && (
                       <tr>
-                        <td colSpan={7} className="p-2 text-center text-clr3 italic">No hay ítems presupuestados.</td>
+                        <td colSpan={7} className="p-2 text-center text-pclr7 italic">No hay ítems presupuestados.</td>
                       </tr>
                     )}
                   </tbody>
@@ -2290,17 +2290,17 @@ const fetchInitialData = useCallback(async () => {
 
             {/* Balances */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-              <div className="p-4 rounded-2xl bg-clr1 dark:bg-dclr1 border border-clr7 dark:border-dclr7 flex flex-col justify-between">
-                <span className="text-[0.8em] font-bold uppercase text-clr3">Total Ingresos</span>
-                <span className="text-xl font-bold text-clr6">${totalIngresos.toLocaleString()}</span>
+              <div className="p-4 rounded-2xl bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 flex flex-col justify-between">
+                <span className="text-[0.8em] font-bold uppercase text-pclr7">Total Ingresos</span>
+                <span className="text-xl font-bold text-pclr6">${totalIngresos.toLocaleString()}</span>
               </div>
-              <div className="p-4 rounded-2xl bg-clr1 dark:bg-dclr1 border border-clr7 dark:border-dclr7 flex flex-col justify-between">
-                <span className="text-[0.8em] font-bold uppercase text-clr3">Total Gastos</span>
-                <span className="text-xl font-bold text-clr4">${totalGastos.toLocaleString()}</span>
+              <div className="p-4 rounded-2xl bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 flex flex-col justify-between">
+                <span className="text-[0.8em] font-bold uppercase text-pclr7">Total Gastos</span>
+                <span className="text-xl font-bold text-pclr4">${totalGastos.toLocaleString()}</span>
               </div>
-              <div className="p-4 rounded-2xl bg-clr1 dark:bg-dclr1 border border-clr7 dark:border-dclr7 flex flex-col justify-between">
-                <span className="text-[0.8em] font-bold uppercase text-clr3">Balance Estimado</span>
-                <span className={`text-xl font-bold ${balance >= 0 ? 'text-clr6' : 'text-clr4'}`}>
+              <div className="p-4 rounded-2xl bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 flex flex-col justify-between">
+                <span className="text-[0.8em] font-bold uppercase text-pclr7">Balance Estimado</span>
+                <span className={`text-xl font-bold ${balance >= 0 ? 'text-pclr6' : 'text-pclr4'}`}>
                   ${balance.toLocaleString()}
                 </span>
               </div>
@@ -2308,49 +2308,49 @@ const fetchInitialData = useCallback(async () => {
           </div>
 
           {/* Paso 11: ¿Con Qué? */}
-          <div className="p-2 bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7 rounded-[1rem] shadow-sm space-y-2">
-            <h4 className="font-bold uppercase text-[1.1em] text-clr2 dark:text-dclr2 flex items-center gap-2 border-b border-clr7 dark:border-dclr7">
-              <span className="w-6 h-6 rounded-full text-clr1 text-[0.8em] flex items-center justify-center font-bold" style={{ backgroundColor: themePrimary }}>11</span>
+          <div className="p-2 bg-pclr3 dark:bg-pdclr3 border border-pclr13 dark:border-pdclr13 rounded-[1rem] shadow-sm space-y-2">
+            <h4 className="font-bold uppercase text-[1.1em] text-pclr4 dark:text-pdclr4 flex items-center gap-2 border-b border-pclr13 dark:border-pdclr13">
+              <span className="w-6 h-6 rounded-full text-pclr12 text-[0.8em] flex items-center justify-center font-bold" style={{ backgroundColor: themePrimary }}>11</span>
               ¿Con qué Financiamiento?
             </h4>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {finItems.map((item: FinanciamientoItem, idx: number) => (
-                <div key={idx} className="p-4 bg-clr1 dark:bg-dclr1 rounded-2xl border border-clr7 dark:border-dclr7 flex flex-col justify-between">
+                <div key={idx} className="p-4 bg-pclr1 dark:bg-pdclr1 rounded-2xl border border-pclr13 dark:border-pdclr13 flex flex-col justify-between">
                   <div>
-                    <span className="text-[0.8em] font-bold uppercase text-clr3 block mb-1">Financiamiento #{idx + 1}</span>
-                    <h5 className="font-bold uppercase text-[1em] text-clr2 dark:text-dclr2 mb-1">{item.nombre || '(Sin Nombre)'}</h5>
-                    <div className="space-y-1 text-[0.8em] font-bold text-clr2 dark:text-dclr2 mt-2">
+                    <span className="text-[0.8em] font-bold uppercase text-pclr7 block mb-1">Financiamiento #{idx + 1}</span>
+                    <h5 className="font-bold uppercase text-[1em] text-pclr4 dark:text-pdclr4 mb-1">{item.nombre || '(Sin Nombre)'}</h5>
+                    <div className="space-y-1 text-[0.8em] font-bold text-pclr4 dark:text-pdclr4 mt-2">
                       <p>📍 Lugar: {item.lugar || '--'}</p>
                       <p>🛠️ Recursos: {item.recursos || '--'}</p>
                     </div>
                   </div>
                   {item.fecha && (
-                    <div className="mt-3 pt-3 border-t border-clr7 dark:border-dclr7 text-[0.8em] font-bold text-clr4 uppercase">
+                    <div className="mt-3 pt-3 border-t border-pclr13 dark:border-pdclr13 text-[0.8em] font-bold text-pclr4 uppercase">
                       📅 Fecha Estimada: {item.fecha}
                     </div>
                   )}
                 </div>
               ))}
               {finItems.length === 0 && (
-                <p className="col-span-full text-center py-6 text-clr3 font-bold italic">No hay actividades de financiamiento agregadas.</p>
+                <p className="col-span-full text-center py-6 text-pclr7 font-bold italic">No hay actividades de financiamiento agregadas.</p>
               )}
             </div>
           </div>
 
           {/* Paso 12: ¿Cómo lo hicimos? (Evaluación) */}
           {(p.fase === 'completado' || Object.keys(evals).length > 0) && (
-            <div className="p-2 bg-clr6 dark:bg-dclr6 border-2 border-clr6 rounded-[1rem] shadow-sm space-y-2">
-              <h4 className="font-bold uppercase text-[1.1em] text-clr6 dark:text-dclr6 flex items-center gap-2 border-b border-clr6">
-                <span className="w-6 h-6 rounded-full bg-clr6 text-clr1 text-[0.8em] flex items-center justify-center font-bold">12</span>
+            <div className="p-2 bg-pclr6 dark:bg-pdclr6 border-2 border-pclr6 rounded-[1rem] shadow-sm space-y-2">
+              <h4 className="font-bold uppercase text-[1.1em] text-pclr6 dark:text-pdclr6 flex items-center gap-2 border-b border-pclr6">
+                <span className="w-6 h-6 rounded-full bg-pclr6 text-pclr12 text-[0.8em] flex items-center justify-center font-bold">12</span>
                 ¿Cómo lo hicimos? (Evaluación de Actividades)
               </h4>
               
               <div className="space-y-4">
                 {Object.entries(evals).map(([name, comment], idx: number) => (
-                  <div key={idx} className="p-4 bg-clr1 dark:bg-dclr1 rounded-[1rem] border border-clr7 dark:border-dclr7 space-y-1">
+                  <div key={idx} className="p-4 bg-pclr1 dark:bg-pdclr1 rounded-[1rem] border border-pclr13 dark:border-pdclr13 space-y-1">
                     <span className="text-[0.8em] font-bold uppercase" style={{ color: themePrimary }}>{name}</span>
-                    <p className="text-[0.85em] font-bold text-clr2 dark:text-dclr2 italic">
+                    <p className="text-[0.85em] font-bold text-pclr4 dark:text-pdclr4 italic">
                       "{String(comment) || 'Sin comentarios.'}"
                     </p>
                   </div>
@@ -2413,22 +2413,22 @@ const fetchInitialData = useCallback(async () => {
         };
 
         return (
-          <div className="fixed inset-0 z-[999] flex items-center justify-center p-2 bg-clr2 backdrop-blur-md animate-in fade-in duration-300">
-            <div className="bg-clr1 dark:bg-dclr1 w-full max-w-2xl rounded-[1rem] shadow-2xl overflow-hidden border-4 border-clr1 dark:border-dclr1 animate-in zoom-in duration-300 flex flex-col max-h-[90vh]">
+          <div className="fixed inset-0 z-[999] flex items-center justify-center p-2 bg-pclr2 backdrop-blur-md animate-in fade-in duration-300">
+            <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-2xl rounded-[1rem] shadow-2xl overflow-hidden border-4 border-pclr1 dark:border-pdclr1 animate-in zoom-in duration-300 flex flex-col max-h-[90vh]">
               
-              <div className="p-4 pb-3 space-y-2 border-b border-clr7 dark:border-dclr7">
-                <span className="text-[0.8em] font-black uppercase tracking-wider text-clr4 block">
+              <div className="p-4 pb-3 space-y-2 border-b border-pclr13 dark:border-pdclr13">
+                <span className="text-[0.8em] font-black uppercase tracking-wider text-pclr4 block">
                   {isOwner ? 'Autoevaluación de Objetivo' : isParent ? 'Evaluación de Apoderado' : `Evaluando a ${perfil.nombres}`}
                 </span>
                 <div className="flex items-center gap-2">
-                  <span className="px-2.5 py-0.5 bg-clr7 dark:bg-dclr7 text-clr2 dark:text-dclr2 rounded-full text-[0.8em] font-bold uppercase">
+                  <span className="px-2.5 py-0.5 bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4 rounded-full text-[0.8em] font-bold uppercase">
                     {areaName}
                   </span>
                 </div>
-                <h3 className="text-lg font-bold text-clr2 dark:text-dclr2 leading-tight mt-1">
+                <h3 className="text-lg font-bold text-pclr4 dark:text-pdclr4 leading-tight mt-1">
                   {objText}
                 </h3>
-                <p className="text-[0.8em] text-clr3 italic">
+                <p className="text-[0.8em] text-pclr7 italic">
                   {isOwner 
                     ? `Selecciona el nivel que mejor represente tu desarrollo en esta ${termObjSingular}.`
                     : `Evalúa el desarrollo de esta ${termObjSingular} para el beneficiario.`}
@@ -2448,12 +2448,12 @@ const fetchInitialData = useCallback(async () => {
                         onClick={() => setTempEvalValue(step.value)}
                         className={`p-3 text-left text-[0.9em] rounded-xl border-2 transition-all flex items-center gap-3 ${
                           isSelected 
-                            ? 'bg-clr4 border-clr4 text-clr1 shadow-md scale-[1.01]' 
-                            : 'bg-clr1 dark:bg-dclr1 border-clr7 dark:border-transparent opacity-85 hover:opacity-100 hover:border-clr4'
+                            ? 'bg-pclr10 border-pclr14 text-pclr12 shadow-md scale-[1.01]' 
+                            : 'bg-pclr1 dark:bg-pdclr1 border-pclr13 dark:border-transparent opacity-85 hover:opacity-100 hover:border-pclr14'
                         }`}
                       >
                         <span className={`w-7 h-7 rounded-full flex items-center justify-center font-black shrink-0 text-[0.9em] ${
-                          isSelected ? 'bg-clr1 text-clr4' : 'bg-clr7 dark:bg-dclr7 text-clr2 dark:text-dclr2'
+                          isSelected ? 'bg-pclr1 text-pclr4' : 'bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4'
                         }`}>
                           {step.value}
                         </span>
@@ -2464,7 +2464,7 @@ const fetchInitialData = useCallback(async () => {
                 </div>
               </div>
 
-              <div className="p-4 border-t border-clr7 dark:border-dclr7 flex gap-3 bg-clr7 dark:bg-dclr7 shrink-0">
+              <div className="p-4 border-t border-pclr13 dark:border-pdclr13 flex gap-3 bg-pclr3 dark:bg-pdclr3 shrink-0">
                 <button 
                   type="button"
                   onClick={() => {
@@ -2472,7 +2472,7 @@ const fetchInitialData = useCallback(async () => {
                     setActiveObjForEval(null);
                     setTempEvalValue(null);
                   }}
-                  className="flex-1 py-3 text-[0.8em] font-black uppercase tracking-wider text-clr3 hover:text-clr4 transition-all"
+                  className="flex-1 py-3 text-[0.8em] font-black uppercase tracking-wider text-pclr7 hover:text-pclr4 transition-all"
                 >
                   Cancelar
                 </button>
@@ -2480,7 +2480,7 @@ const fetchInitialData = useCallback(async () => {
                   type="button"
                   onClick={handleSaveEval}
                   disabled={tempEvalValue === null}
-                  className="flex-[2] py-3 bg-clr4 text-clr1 text-[0.8em] font-black uppercase rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition-all tracking-wider disabled:opacity-50"
+                  className="flex-[2] py-3 bg-pclr10 text-pclr12 text-[0.8em] font-black uppercase rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition-all tracking-wider disabled:opacity-50"
                 >
                   🚀 Guardar Evaluación
                 </button>
@@ -2492,15 +2492,15 @@ const fetchInitialData = useCallback(async () => {
 
       {/* Modal de Crear Ceremonia */}
       {cer.activeCeremonyType && (
-        <div className="fixed inset-0 bg-clr2 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-clr1 dark:bg-dclr1 border dark:border-clr1 w-full max-w-lg rounded-[2rem] shadow-2xl flex flex-col max-h-[90vh] overflow-hidden animate-in zoom-in duration-200">
-            <div className="p-6 border-b border-clr7 dark:border-dclr7 flex justify-between items-center bg-clr7 dark:bg-dclr7">
-              <h3 className="font-extrabold uppercase text-[1.25em] text-clr2 dark:text-dclr2">
+        <div className="fixed inset-0 bg-pclr2 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-pclr1 dark:bg-pdclr1 border dark:border-pclr1 w-full max-w-lg rounded-[2rem] shadow-2xl flex flex-col max-h-[90vh] overflow-hidden animate-in zoom-in duration-200">
+            <div className="p-6 border-b border-pclr13 dark:border-pdclr13 flex justify-between items-center bg-pclr3 dark:bg-pdclr3">
+              <h3 className="font-extrabold uppercase text-[1.25em] text-pclr4 dark:text-pdclr4">
                 {cer.activeCeremonyType === 'etapa' ? '🎖️ Entregar Insignia Etapa' : cer.activeCeremonyType === 'promesa' ? '🕯️ Registrar Promesa' : '👣 Registrar Paso'}
               </h3>
               <button 
                 onClick={() => cer.setActiveCeremonyType(null)} 
-                className="text-clr3 hover:text-clr2 dark:hover:text-clr1 font-black text-xl"
+                className="text-pclr7 hover:text-pclr4 dark:hover:text-pclr12 font-black text-xl"
               >
                 ✕
               </button>
@@ -2509,11 +2509,11 @@ const fetchInitialData = useCallback(async () => {
             <div className="p-6 overflow-y-auto space-y-4 text-[0.9em]">
               {cer.activeCeremonyType === 'etapa' ? (
                 <div>
-                  <label className="block font-extrabold uppercase text-clr3 mb-1">Nombre de la Etapa</label>
+                  <label className="block font-extrabold uppercase text-pclr7 mb-1">Nombre de la Etapa</label>
                   <select
                     value={cer.cNombreHito}
                     onChange={(e) => cer.setCNombreHito(e.target.value)}
-                    className="w-full bg-clr7 dark:bg-dclr7 border dark:border-clr1 p-3 rounded-xl font-bold uppercase tracking-tight text-clr2 dark:text-dclr2 cursor-pointer"
+                    className="w-full bg-pclr3 dark:bg-pdclr3 border dark:border-pclr1 p-3 rounded-xl font-bold uppercase tracking-tight text-pclr4 dark:text-pdclr4 cursor-pointer"
                   >
                     <option value="">Selecciona etapa...</option>
                     {cer.getStageOptionsForDropdown().map(opt => (
@@ -2523,56 +2523,56 @@ const fetchInitialData = useCallback(async () => {
                 </div>
               ) : (
                 <div>
-                  <label className="block font-extrabold uppercase text-clr3 mb-1">Nombre del Hito</label>
+                  <label className="block font-extrabold uppercase text-pclr7 mb-1">Nombre del Hito</label>
                   <input
                     type="text"
                     value={cer.cNombreHito}
                     disabled
-                    className="w-full bg-clr7 dark:bg-dclr7 border dark:border-clr1 p-3 rounded-xl font-bold uppercase text-clr3"
+                    className="w-full bg-pclr3 dark:bg-pdclr3 border dark:border-pclr1 p-3 rounded-xl font-bold uppercase text-pclr7"
                   />
                 </div>
               )}
 
               <div>
-                <label className="block font-extrabold uppercase text-clr3 mb-1">Campamento (Opcional)</label>
+                <label className="block font-extrabold uppercase text-pclr7 mb-1">Campamento (Opcional)</label>
                 <input
                   type="text"
                   value={cer.cCampamento}
                   onChange={(e) => cer.setCCampamento(e.target.value)}
                   placeholder="Ej: Campamento de Verano Picarquín"
-                  className="w-full bg-clr7 dark:bg-dclr7 border dark:border-clr1 p-3 rounded-xl font-bold text-clr2 dark:text-dclr2"
+                  className="w-full bg-pclr3 dark:bg-pdclr3 border dark:border-pclr1 p-3 rounded-xl font-bold text-pclr4 dark:text-pdclr4"
                 />
               </div>
 
               <div>
-                <label className="block font-extrabold uppercase text-clr3 mb-1">Lugar (Opcional)</label>
+                <label className="block font-extrabold uppercase text-pclr7 mb-1">Lugar (Opcional)</label>
                 <input
                   type="text"
                   value={cer.cLugar}
                   onChange={(e) => cer.setCLugar(e.target.value)}
                   placeholder="Ej: Local de Grupo o Picarquín"
-                  className="w-full bg-clr7 dark:bg-dclr7 border dark:border-clr1 p-3 rounded-xl font-bold text-clr2 dark:text-dclr2"
+                  className="w-full bg-pclr3 dark:bg-pdclr3 border dark:border-pclr1 p-3 rounded-xl font-bold text-pclr4 dark:text-pdclr4"
                 />
               </div>
 
               <div>
-                <label className="block font-extrabold uppercase text-clr3 mb-1">Fecha</label>
+                <label className="block font-extrabold uppercase text-pclr7 mb-1">Fecha</label>
                 <input
                   type="date"
                   value={cer.cFecha}
                   onChange={(e) => cer.setCFecha(e.target.value)}
-                  className="w-full bg-clr7 dark:bg-dclr7 border dark:border-clr1 p-3 rounded-xl font-bold text-clr2 dark:text-dclr2 cursor-pointer"
+                  className="w-full bg-pclr3 dark:bg-pdclr3 border dark:border-pclr1 p-3 rounded-xl font-bold text-pclr4 dark:text-pdclr4 cursor-pointer"
                 />
               </div>
 
               {cer.activeCeremonyType === 'promesa' && (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block font-extrabold uppercase text-clr3 mb-1">Padrino</label>
+                    <label className="block font-extrabold uppercase text-pclr7 mb-1">Padrino</label>
                     <select
                       value={cer.cPadrinoId}
                       onChange={(e) => cer.setCPadrinoId(e.target.value)}
-                      className="w-full bg-clr7 dark:bg-dclr7 border dark:border-clr1 p-3 rounded-xl font-bold text-clr2 dark:text-dclr2 cursor-pointer"
+                      className="w-full bg-pclr3 dark:bg-pdclr3 border dark:border-pclr1 p-3 rounded-xl font-bold text-pclr4 dark:text-pdclr4 cursor-pointer"
                     >
                       <option value="">Ninguno...</option>
                       {cer.availablePadrinos.map(p => (
@@ -2581,11 +2581,11 @@ const fetchInitialData = useCallback(async () => {
                     </select>
                   </div>
                   <div>
-                    <label className="block font-extrabold uppercase text-clr3 mb-1">Madrina</label>
+                    <label className="block font-extrabold uppercase text-pclr7 mb-1">Madrina</label>
                     <select
                       value={cer.cMadrinaId}
                       onChange={(e) => cer.setCMadrinaId(e.target.value)}
-                      className="w-full bg-clr7 dark:bg-dclr7 border dark:border-clr1 p-3 rounded-xl font-bold text-clr2 dark:text-dclr2 cursor-pointer"
+                      className="w-full bg-pclr3 dark:bg-pdclr3 border dark:border-pclr1 p-3 rounded-xl font-bold text-pclr4 dark:text-pdclr4 cursor-pointer"
                     >
                       <option value="">Ninguna...</option>
                       {cer.availablePadrinos.map(p => (
@@ -2597,28 +2597,28 @@ const fetchInitialData = useCallback(async () => {
               )}
 
               <div>
-                <label className="block font-extrabold uppercase text-clr3 mb-1">Fotografía del Momento</label>
+                <label className="block font-extrabold uppercase text-pclr7 mb-1">Fotografía del Momento</label>
                 <input
                   type="file"
                   accept="image/*"
                   onChange={(e) => cer.setCFotoFile(e.target.files?.[0] || null)}
-                  className="w-full file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-[0.8em] file:font-black file:uppercase file:bg-clr7 dark:file:bg-dclr7 file:text-clr2 dark:file:text-clr1 hover:file:bg-clr7 cursor-pointer font-bold text-clr3"
+                  className="w-full file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-[0.8em] file:font-black file:uppercase file:bg-pclr3 dark:file:bg-dclr7 file:text-pclr4 dark:file:text-pclr12 hover:file:bg-pclr3 cursor-pointer font-bold text-pclr7"
                 />
               </div>
 
               {cer.activeCeremonyType === 'paso' && (
-                <div className="p-3 bg-clr4 rounded-2xl border border-clr4 text-clr4 dark:text-dclr4 font-bold text-[0.85em]">
+                <div className="p-3 bg-pclr10 rounded-2xl border border-pclr14 text-pclr4 dark:text-pdclr4 font-bold text-[0.85em]">
                   💡 Al confirmar el paso, se cambiará automáticamente al beneficiario a su siguiente unidad y rol en la base de datos, y se enviará una notificación a sus pares para que dejen sus despedidas.
                 </div>
               )}
             </div>
 
-            <div className="p-4 border-t border-clr7 dark:border-dclr7 flex gap-3 bg-clr7 dark:bg-dclr7 shrink-0">
+            <div className="p-4 border-t border-pclr13 dark:border-pdclr13 flex gap-3 bg-pclr3 dark:bg-pdclr3 shrink-0">
               <button 
                 type="button"
                 onClick={() => cer.setActiveCeremonyType(null)} 
                 disabled={cer.cLoading}
-                className="flex-1 py-3 text-[0.8em] font-black uppercase tracking-wider text-clr3 hover:text-clr4 transition-all disabled:opacity-50"
+                className="flex-1 py-3 text-[0.8em] font-black uppercase tracking-wider text-pclr7 hover:text-pclr4 transition-all disabled:opacity-50"
               >
                 Cancelar
               </button>
@@ -2626,7 +2626,7 @@ const fetchInitialData = useCallback(async () => {
                 type="button"
                 onClick={cer.handleSaveCeremonia}
                 disabled={cer.cLoading || (cer.activeCeremonyType === 'etapa' && !cer.cNombreHito)}
-                className="flex-[2] py-3 bg-clr4 text-clr1 text-[0.8em] font-black uppercase rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition-all tracking-wider disabled:opacity-50 cursor-pointer"
+                className="flex-[2] py-3 bg-pclr10 text-pclr12 text-[0.8em] font-black uppercase rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition-all tracking-wider disabled:opacity-50 cursor-pointer"
               >
                 {cer.cLoading ? 'Guardando...' : '🏆 Registrar Ceremonia'}
               </button>
@@ -2637,38 +2637,38 @@ const fetchInitialData = useCallback(async () => {
 
       {/* Modal para dejar Mensaje (por url de notificación) */}
       {cer.activeCeremonyForMessage && (
-        <div className="fixed inset-0 bg-clr2 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-clr1 dark:bg-dclr1 border dark:border-clr1 w-full max-w-md rounded-[2rem] shadow-2xl flex flex-col overflow-hidden animate-in zoom-in duration-200">
-            <div className="p-6 border-b border-clr7 dark:border-dclr7 flex justify-between items-center bg-clr7 dark:bg-dclr7">
-              <h3 className="font-extrabold uppercase text-[1.1em] text-clr2 dark:text-dclr2">
+        <div className="fixed inset-0 bg-pclr2 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-pclr1 dark:bg-pdclr1 border dark:border-pclr1 w-full max-w-md rounded-[2rem] shadow-2xl flex flex-col overflow-hidden animate-in zoom-in duration-200">
+            <div className="p-6 border-b border-pclr13 dark:border-pdclr13 flex justify-between items-center bg-pclr3 dark:bg-pdclr3">
+              <h3 className="font-extrabold uppercase text-[1.1em] text-pclr4 dark:text-pdclr4">
                 💬 Escribir Mensaje Scout
               </h3>
               <button 
                 onClick={cer.handleCloseMessageModal} 
-                className="text-clr3 hover:text-clr2 dark:hover:text-clr1 font-black text-xl"
+                className="text-pclr7 hover:text-pclr4 dark:hover:text-pclr12 font-black text-xl"
               >
                 ✕
               </button>
             </div>
 
             <div className="p-6 space-y-4 text-[0.9em]">
-              <p className="font-bold text-clr2 dark:text-dclr2">
-                Deja tus palabras para <span className="text-clr2 dark:text-dclr2 uppercase font-extrabold">{cer.activeCeremonyForMessage.perfil?.nombres} {cer.activeCeremonyForMessage.perfil?.apellidos}</span> en su ceremonia de <span className="text-clr4 font-extrabold uppercase">{cer.activeCeremonyForMessage.nombre_hito}</span>:
+              <p className="font-bold text-pclr4 dark:text-pdclr4">
+                Deja tus palabras para <span className="text-pclr4 dark:text-pdclr4 uppercase font-extrabold">{cer.activeCeremonyForMessage.perfil?.nombres} {cer.activeCeremonyForMessage.perfil?.apellidos}</span> en su ceremonia de <span className="text-pclr4 font-extrabold uppercase">{cer.activeCeremonyForMessage.nombre_hito}</span>:
               </p>
               <textarea
                 value={cer.farewellMessageText}
                 onChange={(e) => cer.setFarewellMessageText(e.target.value)}
                 placeholder="Escribe tus mejores deseos, anécdotas o felicitaciones aquí..."
                 rows={4}
-                className="w-full bg-clr7 dark:bg-dclr7 border dark:border-clr1 p-3 rounded-xl font-bold text-clr2 dark:text-dclr2 placeholder-clr3"
+                className="w-full bg-pclr3 dark:bg-pdclr3 border dark:border-pclr1 p-3 rounded-xl font-bold text-pclr4 dark:text-pdclr4 placeholder-clr3"
               />
             </div>
 
-            <div className="p-4 border-t border-clr7 dark:border-dclr7 flex gap-3 bg-clr7 dark:bg-dclr7 shrink-0">
+            <div className="p-4 border-t border-pclr13 dark:border-pdclr13 flex gap-3 bg-pclr3 dark:bg-pdclr3 shrink-0">
               <button 
                 type="button"
                 onClick={cer.handleCloseMessageModal}
-                className="flex-1 py-3 text-[0.8em] font-black uppercase tracking-wider text-clr3 hover:text-clr4 transition-all"
+                className="flex-1 py-3 text-[0.8em] font-black uppercase tracking-wider text-pclr7 hover:text-pclr4 transition-all"
               >
                 Cancelar
               </button>
@@ -2676,7 +2676,7 @@ const fetchInitialData = useCallback(async () => {
                 type="button"
                 onClick={cer.handleSaveCeremonyMessage}
                 disabled={!cer.farewellMessageText.trim()}
-                className="flex-[2] py-3 bg-clr4 text-clr1 text-[0.8em] font-black uppercase rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition-all tracking-wider disabled:opacity-50 cursor-pointer"
+                className="flex-[2] py-3 bg-pclr10 text-pclr12 text-[0.8em] font-black uppercase rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition-all tracking-wider disabled:opacity-50 cursor-pointer"
               >
                 🚀 Enviar Mensaje
               </button>
@@ -2687,27 +2687,27 @@ const fetchInitialData = useCallback(async () => {
 
       {/* Modal de Informe de Paso (Transition report) */}
       {cer.viewingReportCeremony && (
-        <div className="fixed inset-0 bg-clr2 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-clr1 dark:bg-dclr1 border dark:border-clr1 w-full max-w-xl rounded-[2rem] shadow-2xl flex flex-col max-h-[90vh] overflow-hidden animate-in zoom-in duration-200">
-            <div className="p-6 border-b border-clr7 dark:border-dclr7 flex justify-between items-center bg-clr7 dark:bg-dclr7">
+        <div className="fixed inset-0 bg-pclr2 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-pclr1 dark:bg-pdclr1 border dark:border-pclr1 w-full max-w-xl rounded-[2rem] shadow-2xl flex flex-col max-h-[90vh] overflow-hidden animate-in zoom-in duration-200">
+            <div className="p-6 border-b border-pclr13 dark:border-pdclr13 flex justify-between items-center bg-pclr3 dark:bg-pdclr3">
               <div>
-                <h3 className="font-extrabold uppercase text-[1.25em] text-clr2 dark:text-dclr2 leading-none">
+                <h3 className="font-extrabold uppercase text-[1.25em] text-pclr4 dark:text-pdclr4 leading-none">
                   📄 Informe de Hitos y Logros de Paso
                 </h3>
-                <p className="text-[0.8em] font-bold text-clr3 uppercase mt-1">
+                <p className="text-[0.8em] font-bold text-pclr7 uppercase mt-1">
                   Beneficiario: {perfil.nombres} {perfil.apellidos}
                 </p>
               </div>
               <button 
                 onClick={() => cer.setViewingReportCeremony(null)} 
-                className="text-clr3 hover:text-clr2 dark:hover:text-clr1 font-black text-xl"
+                className="text-pclr7 hover:text-pclr4 dark:hover:text-pclr12 font-black text-xl"
               >
                 ✕
               </button>
             </div>
 
             <div className="p-6 overflow-y-auto space-y-6 text-[0.9em]">
-              <div className="p-4 bg-clr4 rounded-2xl border border-clr4 text-clr4 dark:text-dclr4 font-bold uppercase text-[0.8em] flex justify-between">
+              <div className="p-4 bg-pclr10 rounded-2xl border border-pclr14 text-pclr4 dark:text-pdclr4 font-bold uppercase text-[0.8em] flex justify-between">
                 <span>Unidad de Origen: {cer.viewingReportCeremony.unidad_origen?.nombre || 'Origen'}</span>
                 <span>➡️</span>
                 <span>Unidad de Destino: {cer.viewingReportCeremony.unidad_destino?.nombre || 'Destino'}</span>
@@ -2715,27 +2715,27 @@ const fetchInitialData = useCallback(async () => {
 
               {/* Radar snapshot briefing */}
               <div>
-                <h4 className="font-extrabold uppercase text-clr3 border-b pb-2 mb-3">📊 Nivel de Desarrollo Alcanzado</h4>
+                <h4 className="font-extrabold uppercase text-pclr7 border-b pb-2 mb-3">📊 Nivel de Desarrollo Alcanzado</h4>
                 {cer.viewingReportCeremony.radar_snapshot && Array.isArray(cer.viewingReportCeremony.radar_snapshot) ? (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {cer.viewingReportCeremony.radar_snapshot.map((item: RadarSnapshotItem) => {
                       const score = item.Dirigente || item.Autoevaluacion || 0;
                       return (
-                        <div key={item.subject} className="p-3 bg-clr7 dark:bg-dclr7 rounded-xl border dark:border-clr1 flex justify-between items-center">
+                        <div key={item.subject} className="p-3 bg-pclr3 dark:bg-pdclr3 rounded-xl border dark:border-pclr1 flex justify-between items-center">
                           <span className="font-bold text-[0.9em]">{item.subject}</span>
-                          <span className="font-black text-clr4 dark:text-dclr4 text-[1em]">{score} / 8</span>
+                          <span className="font-black text-pclr4 dark:text-pdclr4 text-[1em]">{score} / 8</span>
                         </div>
                       );
                     })}
                   </div>
                 ) : (
-                  <p className="text-clr3 italic">No hay snapshot de radar grabado para esta ceremonia.</p>
+                  <p className="text-pclr7 italic">No hay snapshot de radar grabado para esta ceremonia.</p>
                 )}
               </div>
 
               {/* Achieved objectives */}
               <div>
-                <h4 className="font-extrabold uppercase text-clr3 border-b pb-2 mb-3">🎯 Objetivos y Desafíos Completados</h4>
+                <h4 className="font-extrabold uppercase text-pclr7 border-b pb-2 mb-3">🎯 Objetivos y Desafíos Completados</h4>
                 {(() => {
                   const achieved = cer.reportObjectives.filter(obj => {
                     const av = cer.reportAvances.find(a => a.objetivo_id === obj.id);
@@ -2744,23 +2744,23 @@ const fetchInitialData = useCallback(async () => {
                   return achieved.length > 0 ? (
                     <ul className="space-y-2">
                       {achieved.map(obj => (
-                        <li key={obj.id} className="p-3 bg-clr7 dark:bg-dclr7 rounded-xl border dark:border-clr1 text-[0.85em] font-medium leading-relaxed">
+                        <li key={obj.id} className="p-3 bg-pclr3 dark:bg-pdclr3 rounded-xl border dark:border-pclr1 text-[0.85em] font-medium leading-relaxed">
                           ✅ {obj.texto_terminal}
                         </li>
                       ))}
                     </ul>
                   ) : (
-                    <p className="text-clr3 italic">No se registraron objetivos completados en esta etapa.</p>
+                    <p className="text-pclr7 italic">No se registraron objetivos completados en esta etapa.</p>
                   );
                 })()}
               </div>
             </div>
 
-            <div className="p-4 border-t border-clr7 dark:border-dclr7 flex bg-clr7 dark:bg-dclr7 shrink-0">
+            <div className="p-4 border-t border-pclr13 dark:border-pdclr13 flex bg-pclr3 dark:bg-pdclr3 shrink-0">
               <button 
                 type="button"
                 onClick={() => cer.setViewingReportCeremony(null)} 
-                className="w-full py-3 bg-clr2 text-clr1 text-[0.8em] font-black uppercase rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition-all tracking-wider cursor-pointer"
+                className="w-full py-3 bg-pclr2 text-pclr12 text-[0.8em] font-black uppercase rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition-all tracking-wider cursor-pointer"
               >
                 Cerrar Informe
               </button>

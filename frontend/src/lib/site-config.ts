@@ -673,6 +673,51 @@ export const DEFAULT_SITE_CONFIG: SiteConfigRecord = {
     foclr10: '#cb3327', fodclr10: '#ef4b3a',
     foclr10_opacity: 100, fodclr10_opacity: 100,
   },
+  panel_colors: {
+    // 14 roles × light + dark (28 hex) + 28 opacities = 56
+    // 1. Fondo Inicial
+    pclr1: '#FFFFFF', pdclr1: '#1e1e1e',
+    pclr1_opacity: 100, pdclr1_opacity: 100,
+    // 2. Fondo Final
+    pclr2: '#f8f9fa', pdclr2: '#26262b',
+    pclr2_opacity: 100, pdclr2_opacity: 100,
+    // 3. Fondo Cajas e Inputs
+    pclr3: '#e9ecef', pdclr3: '#2a2a2a',
+    pclr3_opacity: 100, pdclr3_opacity: 100,
+    // 4. Título Principal
+    pclr4: '#2c3e50', pdclr4: '#f7fafc',
+    pclr4_opacity: 100, pdclr4_opacity: 100,
+    // 5. Subtítulo Rol/Unidad
+    pclr5: '#cb3327', pdclr5: '#ef4b3a',
+    pclr5_opacity: 100, pdclr5_opacity: 100,
+    // 6. Texto Estado/Metadatos
+    pclr6: '#3eb34b', pdclr6: '#33a345',
+    pclr6_opacity: 100, pdclr6_opacity: 100,
+    // 7. Pestaña Inactiva
+    pclr7: '#95a5a6', pdclr7: '#8a8a8a',
+    pclr7_opacity: 100, pdclr7_opacity: 100,
+    // 8. Pestaña Activa / Acento
+    pclr8: '#cb3327', pdclr8: '#ef4b3a',
+    pclr8_opacity: 100, pdclr8_opacity: 100,
+    // 9. Pestaña Hover
+    pclr9: '#f8f9fa', pdclr9: '#26262b',
+    pclr9_opacity: 100, pdclr9_opacity: 100,
+    // 10. Acción Primaria
+    pclr10: '#2c3e50', pdclr10: '#33506f',
+    pclr10_opacity: 100, pdclr10_opacity: 100,
+    // 11. Acción Neutra
+    pclr11: '#333333', pdclr11: '#3c3c3c',
+    pclr11_opacity: 100, pdclr11_opacity: 100,
+    // 12. Acción Secundaria / Peligro
+    pclr12: '#FFFFFF', pdclr12: '#FFFFFF',
+    pclr12_opacity: 100, pdclr12_opacity: 100,
+    // 13. Separadores Internos
+    pclr13: '#e9ecef', pdclr13: '#3c3c3c',
+    pclr13_opacity: 100, pdclr13_opacity: 100,
+    // 14. Bordes / Focus
+    pclr14: '#cb3327', pdclr14: '#ef4b3a',
+    pclr14_opacity: 100, pdclr14_opacity: 100,
+  },
   section_visibility: {
     hero: true,
     features: true,
@@ -802,6 +847,7 @@ export async function loadSiteConfig(): Promise<SiteConfigRecord> {
     faq_colors: getCat('faq_colors', defaults.faq_colors),
     secondary_header_colors: getCat('secondary_header_colors', defaults.secondary_header_colors),
     footer_colors: getCat('footer_colors', defaults.footer_colors),
+    panel_colors: getCat('panel_colors', defaults.panel_colors),
     section_visibility: getCat('section_visibility', defaults.section_visibility),
     social_list: getCat('social_list', defaults.social_list),
   };

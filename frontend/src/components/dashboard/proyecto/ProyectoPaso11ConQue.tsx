@@ -20,8 +20,8 @@ export default function ProyectoPaso11ConQue({
   return (
     <div className="space-y-2">
       <div className="flex items-center gap-1 p-2 opacity-60 rounded-[0.8rem]" style={{ backgroundColor: themePrimary }}>
-        <span className="w-8 h-8 rounded-full flex items-center justify-center text-clr1 text-[0.9em] font-bold" style={{ color: themeSecondary }}>11</span>
-        <h3 className="text-xl font-black uppercase tracking-tight text-clr2 dark:text-dclr2" style={{ color: themeSecondary }}>¿Con Qué?</h3>
+        <span className="w-8 h-8 rounded-full flex items-center justify-center text-pclr12 text-[0.9em] font-bold" style={{ color: themeSecondary }}>11</span>
+        <h3 className="text-xl font-black uppercase tracking-tight text-pclr4 dark:text-pdclr4" style={{ color: themeSecondary }}>¿Con Qué?</h3>
       </div>
 
       <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 min-h-[420px] p-1 font-body">
@@ -40,7 +40,7 @@ export default function ProyectoPaso11ConQue({
         </div>
 
         {/* Right Column (Desktop) / Bottom Row (Mobile) */}
-        <div className="w-full space-y-2 bg-clr7 dark:bg-dclr7 p-1 rounded-[1rem] border border-clr7 dark:border-dclr7 backdrop-blur-xs shadow-md">
+        <div className="w-full space-y-2 bg-pclr3 dark:bg-pdclr3 p-1 rounded-[1rem] border border-pclr13 dark:border-pdclr13 backdrop-blur-xs shadow-md">
           <div className="flex justify-end p-1">
             <button 
               type="button" 
@@ -54,16 +54,16 @@ export default function ProyectoPaso11ConQue({
 
           <div className="space-y-2 max-h-[500px] overflow-y-auto pr-1">
             {financiamientoItems.map((item, idx) => (
-              <div key={idx} className="p-2 bg-clr1 dark:bg-dclr1 border dark:border-clr1 rounded-2xl space-y-2 relative">
+              <div key={idx} className="p-2 bg-pclr1 dark:bg-pdclr1 border dark:border-pclr1 rounded-2xl space-y-2 relative">
                 <button 
                   type="button" 
                   onClick={() => removeFinanciamiento(idx)}
-                  className="absolute top-1 right-2 text-clr4 font-bold hover:bg-clr4 dark:hover:bg-dclr4 px-2 py-0.5 rounded-xl text-[0.8em] border-none bg-transparent"
+                  className="absolute top-1 right-2 text-pclr4 font-bold hover:bg-pclr10 dark:hover:bg-dclr4 px-2 py-0.5 rounded-xl text-[0.8em] border-none bg-transparent"
                 >
                   ✕ Quitar
                 </button>
                 
-                <span className="text-[0.8em] font-black uppercase tracking-wider text-clr3">Financiamiento #{idx + 1}</span>
+                <span className="text-[0.8em] font-black uppercase tracking-wider text-pclr7">Financiamiento #{idx + 1}</span>
                 
                 <div className="space-y-1">
                   <label className="text-[0.8em] md:text-[0.9em] font-bold uppercase ml-1 p-1 rounded-[0.6rem] text-center" style={{ backgroundColor: themePrimary, color: themeSecondary }}>Actividad Económica</label>
@@ -72,7 +72,7 @@ export default function ProyectoPaso11ConQue({
                     value={item.nombre || ''}
                     onChange={e => updateFinanciamiento(idx, 'nombre', e.target.value)}
                     placeholder="Ej: Rifas, Venta de Completos..."
-                    className="w-full p-2 rounded-2xl border-2 border-clr7 dark:border-dclr7 bg-clr1 dark:bg-dclr1 font-bold text-[0.9em]"
+                    className="w-full p-2 rounded-2xl border-2 border-pclr13 dark:border-pdclr13 bg-pclr1 dark:bg-pdclr1 font-bold text-[0.9em]"
                   />
                 </div>
                 
@@ -83,7 +83,7 @@ export default function ProyectoPaso11ConQue({
                     value={item.lugar || ''}
                     onChange={e => updateFinanciamiento(idx, 'lugar', e.target.value)}
                     placeholder="Ej: Patio del Colegio..."
-                    className="w-full p-2 rounded-2xl border-2 border-clr7 dark:border-dclr7 bg-clr1 dark:bg-dclr1 font-bold text-[0.9em]"
+                    className="w-full p-2 rounded-2xl border-2 border-pclr13 dark:border-pdclr13 bg-pclr1 dark:bg-pdclr1 font-bold text-[0.9em]"
                   />
                 </div>
 
@@ -94,7 +94,7 @@ export default function ProyectoPaso11ConQue({
                     value={item.recursos || ''}
                     onChange={e => updateFinanciamiento(idx, 'recursos', e.target.value)}
                     placeholder="Ej: Ingredientes, Folletos..."
-                    className="w-full p-2 rounded-2xl border-2 border-clr7 dark:border-dclr7 bg-clr1 dark:bg-dclr1 font-bold text-[0.9em]"
+                    className="w-full p-2 rounded-2xl border-2 border-pclr13 dark:border-pdclr13 bg-pclr1 dark:bg-pdclr1 font-bold text-[0.9em]"
                   />
                 </div>
 
@@ -104,14 +104,14 @@ export default function ProyectoPaso11ConQue({
                     type="date" 
                     value={item.fecha || ''}
                     onChange={e => updateFinanciamiento(idx, 'fecha', e.target.value)}
-                    className="w-full p-2 rounded-2xl border-2 border-clr7 dark:border-dclr7 bg-clr1 dark:bg-dclr1 font-bold text-[0.9em] text-center"
+                    className="w-full p-2 rounded-2xl border-2 border-pclr13 dark:border-pdclr13 bg-pclr1 dark:bg-pdclr1 font-bold text-[0.9em] text-center"
                   />
                 </div>
               </div>
             ))}
 
             {financiamientoItems.length === 0 && (
-              <p className="text-center py-6 text-clr3 font-bold italic text-[0.85em]">No has agregado ninguna actividad económica para financiamiento.</p>
+              <p className="text-center py-6 text-pclr7 font-bold italic text-[0.85em]">No has agregado ninguna actividad económica para financiamiento.</p>
             )}
           </div>
         </div>

@@ -119,11 +119,11 @@ beforeEach(() => {
 });
 
 // ---------------------------------------------------------------------------
-// schemaResolver — 30 ids (12 plain categories + 5 splits + theme_colors + hero_colors + features_colors + promo_colors + slideshow_colors + testimonials_colors + visit_colors + faq_colors + secondary_header_colors + footer_colors + header_colors + menu_colors + section_visibility + social_list)
+// schemaResolver — 31 ids (12 plain categories + 5 splits + theme_colors + hero_colors + features_colors + promo_colors + slideshow_colors + testimonials_colors + visit_colors + faq_colors + secondary_header_colors + footer_colors + header_colors + menu_colors + panel_colors + section_visibility + social_list)
 // ---------------------------------------------------------------------------
 
 describe('schemaResolver', () => {
-  it('covers exactly the 30 schema ids', () => {
+  it('covers exactly the 31 schema ids', () => {
     expect(Object.keys(schemaResolver).sort()).toEqual([
       'branding',
       'branding.footer',
@@ -140,6 +140,7 @@ describe('schemaResolver', () => {
       'hero_colors',
       'menu_colors',
       'navigation',
+      'panel_colors',
       'promo_colors',
       'pwa',
       'secondary_header_colors',

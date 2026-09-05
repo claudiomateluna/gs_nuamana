@@ -143,11 +143,11 @@ export default function DashModVincularArticulo({ isOpen, onClose, propuestaId, 
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-clr2 backdrop-blur-md z-[130] flex items-center justify-center p-2 animate-in fade-in duration-300">
-      <div className="bg-clr1 dark:bg-dclr1 w-full max-w-4xl rounded-[1rem] p-2 md:p-2 shadow-2xl overflow-y-auto max-h-[90vh]">
-        <div className="flex justify-between items-start mb-8 border-b dark:border-dclr7 pb-4">
+    <div className="fixed inset-0 bg-pclr2 backdrop-blur-md z-[130] flex items-center justify-center p-2 animate-in fade-in duration-300">
+      <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-4xl rounded-[1rem] p-2 md:p-2 shadow-2xl overflow-y-auto max-h-[90vh]">
+        <div className="flex justify-between items-start mb-8 border-b dark:border-pdclr13 pb-4">
           <div>
-            <h2 className="text-3xl font-black font-display uppercase text-clr6 tracking-tighter">
+            <h2 className="text-3xl font-black font-display uppercase text-pclr6 tracking-tighter">
               📝 Vincular Ficha de Planificación
             </h2>
             <p className="text-sm opacity-60 font-medium italic mt-2">
@@ -158,34 +158,34 @@ export default function DashModVincularArticulo({ isOpen, onClose, propuestaId, 
         </div>
 
         <div className="space-y-6">
-          <div className="flex justify-between items-center bg-clr4 dark:bg-dclr4 p-4 rounded-2xl border border-clr4 dark:border-dclr4">
-            <p className="text-sm font-bold text-clr4 dark:text-dclr4">
+          <div className="flex justify-between items-center bg-pclr10 dark:bg-pdclr10 p-4 rounded-2xl border border-pclr14 dark:border-pdclr14">
+            <p className="text-sm font-bold text-pclr4 dark:text-pdclr4">
               ¿Aún no has diseñado la actividad?
             </p>
             <a 
               href="/blog/crear" 
               target="_blank"
-              className="px-6 py-2 bg-clr4 text-clr1 text-xs font-black uppercase rounded-xl hover:bg-clr4 transition-all shadow-md tracking-widest"
+              className="px-6 py-2 bg-pclr10 text-pclr12 text-xs font-black uppercase rounded-xl hover:bg-pclr10 transition-all shadow-md tracking-widest"
             >
               ✍️ Redactar Nueva Ficha
             </a>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 bg-clr7 dark:bg-dclr7 p-2 rounded-[1rem] border border-clr7 dark:border-dclr7">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 bg-pclr3 dark:bg-pdclr3 p-2 rounded-[1rem] border border-pclr13 dark:border-pdclr13">
             <div className="relative">
               <input 
                 type="text" 
                 placeholder="🔍 Buscar por nombre..." 
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full p-3 pl-4 rounded-xl border bg-clr1 dark:bg-dclr1 font-bold text-sm focus:ring-2 ring-clr6 outline-none transition-all"
+                className="w-full p-3 pl-4 rounded-xl border bg-pclr1 dark:bg-pdclr1 font-bold text-sm focus:ring-2 ring-clr6 outline-none transition-all"
               />
             </div>
             <div className="relative">
               <select
                 value={selectedArea}
                 onChange={(e) => setSelectedArea(e.target.value)}
-                className="w-full p-3 rounded-xl border bg-clr1 dark:bg-dclr1 font-black text-[1em] uppercase tracking-widest focus:ring-2 ring-clr6 outline-none transition-all"
+                className="w-full p-3 rounded-xl border bg-pclr1 dark:bg-pdclr1 font-black text-[1em] uppercase tracking-widest focus:ring-2 ring-clr6 outline-none transition-all"
               >
                 <option value="">Todas las Áreas</option>
                 {AREAS.map(a => <option key={a} value={a}>{a.toUpperCase()}</option>)}
@@ -204,8 +204,8 @@ export default function DashModVincularArticulo({ isOpen, onClose, propuestaId, 
                     onClick={() => setSelectedArticuloId(art.id)}
                     className={`p-2 rounded-2xl border-2 cursor-pointer transition-all flex flex-col justify-between gap-2 ${
                       selectedArticuloId === art.id 
-                        ? 'border-clr6 bg-clr6 shadow-md scale-[1.02]' 
-                        : 'border-clr7 dark:border-dclr7 bg-clr7 dark:bg-dclr7 hover:border-clr6'
+                        ? 'border-pclr6 bg-pclr6 shadow-md scale-[1.02]' 
+                        : 'border-pclr13 dark:border-pdclr13 bg-pclr3 dark:bg-pdclr3 hover:border-pclr6'
                     }`}
                   >
                     <div className="flex gap-2">
@@ -214,18 +214,18 @@ export default function DashModVincularArticulo({ isOpen, onClose, propuestaId, 
                           <img src={art.imagen_destacada} className="w-full h-full object-cover" alt={art.titulo} />
                         </div>
                       ) : (
-                        <div className="w-16 h-16 rounded-xl bg-clr7 dark:bg-dclr7 flex items-center justify-center shrink-0">
+                        <div className="w-16 h-16 rounded-xl bg-pclr3 dark:bg-pdclr3 flex items-center justify-center shrink-0">
                           <span className="text-2xl">📋</span>
                         </div>
                       )}
                       <div>
-                        <h4 className="font-bold uppercase text-[1em] leading-tight text-clr4 dark:text-dclr4">{art.titulo}</h4>
+                        <h4 className="font-bold uppercase text-[1em] leading-tight text-pclr4 dark:text-pdclr4">{art.titulo}</h4>
                         <p className="text-[0.8em] opacity-60 italic line-clamp-2 mt-1">{art.extracto}</p>
                       </div>
                     </div>
                     {selectedArticuloId === art.id && (
                       <div className="text-center mt-2">
-                        <span className="px-3 py-1 bg-clr6 text-clr1 text-[9px] font-black uppercase rounded-full tracking-widest shadow-sm">
+                        <span className="px-3 py-1 bg-pclr6 text-pclr12 text-[9px] font-black uppercase rounded-full tracking-widest shadow-sm">
                           Seleccionada
                         </span>
                       </div>
@@ -242,19 +242,19 @@ export default function DashModVincularArticulo({ isOpen, onClose, propuestaId, 
             </div>
           )}
 
-          <div className="flex gap-4 pt-6 border-t dark:border-dclr7">
+          <div className="flex gap-4 pt-6 border-t dark:border-pdclr13">
             <button 
               type="button" 
               onClick={handleVincular}
               disabled={saving || !selectedArticuloId}
-              className="flex-1 py-5 bg-clr6 text-clr1 font-black font-display uppercase rounded-[1.5rem] shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest disabled:opacity-50"
+              className="flex-1 py-5 bg-pclr6 text-pclr12 font-black font-display uppercase rounded-[1.5rem] shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest disabled:opacity-50"
             >
               {saving ? '⌛ Guardando...' : '🔗 Vincular Ficha'}
             </button>
             <button 
               type="button" 
               onClick={onClose}
-              className="px-8 py-5 bg-clr7 dark:bg-dclr7 text-clr3 rounded-[1.5rem] font-bold uppercase tracking-widest"
+              className="px-8 py-5 bg-pclr3 dark:bg-pdclr3 text-pclr7 rounded-[1.5rem] font-bold uppercase tracking-widest"
             >
               Cerrar
             </button>

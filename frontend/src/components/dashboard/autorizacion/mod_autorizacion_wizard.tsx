@@ -288,25 +288,25 @@ export default function DashModAutorizacionWizard({ isOpen, onClose, perfil, act
   }
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-clr2 backdrop-blur-sm p-0 sm:p-4">
-      <div className="w-full max-w-3xl bg-clr1 dark:bg-dclr1 sm:rounded-[1.5rem] shadow-2xl overflow-hidden flex flex-col h-full sm:h-auto sm:max-h-[90vh]">
-        <div className="p-3 sm:p-4 bg-clr4 text-clr1 flex justify-between items-center shrink-0">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-pclr2 backdrop-blur-sm p-0 sm:p-4">
+      <div className="w-full max-w-3xl bg-pclr1 dark:bg-pdclr1 sm:rounded-[1.5rem] shadow-2xl overflow-hidden flex flex-col h-full sm:h-auto sm:max-h-[90vh]">
+        <div className="p-3 sm:p-4 bg-pclr10 text-pclr12 flex justify-between items-center shrink-0">
           <div>
             <h2 className="text-[1.3em] sm:text-[1.5em] font-bold uppercase">Autorización</h2>
             <p className="text-[0.8em] sm:text-[0.9em] opacity-80 uppercase">Paso {step === 0 ? 'Inicial' : step} de 18 • {actividadSelected?.nombre || 'Seleccione Actividad'}</p>
           </div>
-          <button onClick={onClose} className="text-clr1 hover:text-clr1 font-bold text-2xl pr-2">×</button>
+          <button onClick={onClose} className="text-pclr12 hover:text-pclr12 font-bold text-2xl pr-2">×</button>
         </div>
 
         <div className="flex-1 overflow-y-auto custom-scrollbar overflow-x-hidden p-2 sm:p-4">
           {renderStep()}
         </div>
 
-        <div className="p-3 sm:p-4 bg-clr7 dark:bg-dclr7 border-t border-clr7 dark:border-dclr7 flex justify-between items-center shrink-0 min-h-[64px]">
+        <div className="p-3 sm:p-4 bg-pclr3 dark:bg-pdclr3 border-t border-pclr13 dark:border-pdclr13 flex justify-between items-center shrink-0 min-h-[64px]">
           <button 
             onClick={handleBack} 
             disabled={step === 0 || saving} 
-            className={`px-3 py-2 font-black uppercase text-[0.85em] sm:text-[1em] tracking-widest transition-all ${step === 0 ? 'opacity-0 pointer-events-none' : 'text-clr3 hover:text-clr4 dark:text-dclr3'}`}
+            className={`px-3 py-2 font-black uppercase text-[0.85em] sm:text-[1em] tracking-widest transition-all ${step === 0 ? 'opacity-0 pointer-events-none' : 'text-pclr7 hover:text-pclr4 dark:text-pdclr7'}`}
           >
             ← Atrás
           </button>
@@ -315,10 +315,10 @@ export default function DashModAutorizacionWizard({ isOpen, onClose, perfil, act
             <>
               <div className="hidden md:flex gap-1.5">
                 {[...Array(18)].map((_, i) => (
-                  <div key={i} className={`h-1 w-2.5 rounded-full transition-all ${step === i + 1 ? 'bg-clr4 w-5' : 'bg-clr7 dark:bg-dclr1'}`} />
+                  <div key={i} className={`h-1 w-2.5 rounded-full transition-all ${step === i + 1 ? 'bg-pclr10 w-5' : 'bg-pclr3 dark:bg-pdclr1'}`} />
                 ))}
               </div>
-              <span className="md:hidden text-[0.85em] font-black uppercase tracking-widest text-clr3 dark:text-dclr3">
+              <span className="md:hidden text-[0.85em] font-black uppercase tracking-widest text-pclr7 dark:text-pdclr7">
                 {step} / 18
               </span>
             </>
@@ -328,12 +328,12 @@ export default function DashModAutorizacionWizard({ isOpen, onClose, perfil, act
             <button 
               onClick={handleNext} 
               disabled={!canAdvance}
-              className={`px-4 py-2.5 bg-clr4 text-clr1 font-black uppercase rounded-xl shadow-lg text-[0.85em] sm:text-[1em] tracking-widest min-h-[44px] flex items-center justify-center ${!canAdvance ? 'opacity-50 cursor-not-allowed' : 'hover:brightness-110 active:scale-95'}`}
+              className={`px-4 py-2.5 bg-pclr10 text-pclr12 font-black uppercase rounded-xl shadow-lg text-[0.85em] sm:text-[1em] tracking-widest min-h-[44px] flex items-center justify-center ${!canAdvance ? 'opacity-50 cursor-not-allowed' : 'hover:brightness-110 active:scale-95'}`}
             >
               Siguiente →
             </button>
           ) : (
-            <button onClick={handleFinalSave} disabled={saving || !formData.firma} className="px-4 py-2.5 bg-clr6 text-clr1 font-black uppercase rounded-xl shadow-lg text-[0.85em] sm:text-[1em] tracking-widest min-h-[44px] flex items-center justify-center">✍️ FINALIZAR</button>
+            <button onClick={handleFinalSave} disabled={saving || !formData.firma} className="px-4 py-2.5 bg-pclr6 text-pclr12 font-black uppercase rounded-xl shadow-lg text-[0.85em] sm:text-[1em] tracking-widest min-h-[44px] flex items-center justify-center">✍️ FINALIZAR</button>
           )}
         </div>
       </div>

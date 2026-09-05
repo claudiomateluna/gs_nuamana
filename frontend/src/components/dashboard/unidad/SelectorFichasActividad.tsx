@@ -89,7 +89,7 @@ export default function SelectorFichasActividad({ selectedIds, onChange, unidadN
   }
 
   if (loading) {
-    return <p className="text-sm text-clr3">Cargando actividades...</p>
+    return <p className="text-sm text-pclr7">Cargando actividades...</p>
   }
 
   return (
@@ -100,9 +100,9 @@ export default function SelectorFichasActividad({ selectedIds, onChange, unidadN
           placeholder="Buscar por titulo..."
           value={searchTerm}
           onChange={e => setSearchTerm(e.target.value)}
-          className="flex-1 px-3 py-2 text-sm border border-clr3 dark:border-dclr3 rounded-xl bg-clr1 dark:bg-dclr1 focus:outline-none focus:ring-2 focus:ring-clr6"
+          className="flex-1 px-3 py-2 text-sm border border-pclr13 dark:border-pdclr13 rounded-xl bg-pclr1 dark:bg-pdclr1 focus:outline-none focus:ring-2 focus:ring-clr6"
         />
-        <span className="text-xs text-clr3 whitespace-nowrap">
+        <span className="text-xs text-pclr7 whitespace-nowrap">
           {selectedIds.length} seleccionada{selectedIds.length !== 1 ? 's' : ''}
         </span>
       </div>
@@ -112,7 +112,7 @@ export default function SelectorFichasActividad({ selectedIds, onChange, unidadN
           type="button"
           onClick={handleSelectAll}
           disabled={allVisibleSelected || filtered.length === 0}
-          className="text-xs px-3 py-1 rounded-lg bg-clr6 text-clr6 font-bold hover:bg-clr6 disabled:opacity-40 transition-all"
+          className="text-xs px-3 py-1 rounded-lg bg-pclr6 text-pclr12 dark:bg-pdclr6 dark:text-pdclr12 font-bold hover:bg-pclr6 disabled:opacity-40 transition-all"
         >
           Seleccionar todo
         </button>
@@ -120,22 +120,22 @@ export default function SelectorFichasActividad({ selectedIds, onChange, unidadN
           type="button"
           onClick={handleClear}
           disabled={filtered.every(a => !selectedIds.includes(a.id))}
-          className="text-xs px-3 py-1 rounded-lg bg-clr4 text-clr4 font-bold hover:bg-clr4 disabled:opacity-40 transition-all"
+          className="text-xs px-3 py-1 rounded-lg bg-pclr10 text-pclr4 font-bold hover:bg-pclr10 disabled:opacity-40 transition-all"
         >
           Limpiar
         </button>
       </div>
 
-      <div className="max-h-60 overflow-y-auto space-y-1 border border-clr7 dark:border-dclr7 rounded-xl p-2">
+      <div className="max-h-60 overflow-y-auto space-y-1 border border-pclr13 dark:border-pdclr13 rounded-xl p-2">
         {filtered.length === 0 ? (
-          <p className="text-sm text-clr3 text-center py-4">
+          <p className="text-sm text-pclr7 text-center py-4">
             {articulos.length === 0 ? 'No hay actividades disponibles' : 'Sin resultados'}
           </p>
         ) : (
           filtered.map(articulo => (
             <label
               key={articulo.id}
-              className="flex items-start gap-3 p-2 rounded-lg hover:bg-clr7 dark:hover:bg-dclr7 cursor-pointer transition-all"
+              className="flex items-start gap-3 p-2 rounded-lg hover:bg-pclr3 dark:hover:bg-pdclr3 cursor-pointer transition-all"
             >
               <input
                 type="checkbox"
@@ -146,7 +146,7 @@ export default function SelectorFichasActividad({ selectedIds, onChange, unidadN
               <div className="min-w-0">
                 <p className="text-sm font-medium truncate">{articulo.titulo}</p>
                 {articulo.extracto && (
-                  <p className="text-xs text-clr3 truncate">{articulo.extracto}</p>
+                  <p className="text-xs text-pclr7 truncate">{articulo.extracto}</p>
                 )}
               </div>
             </label>

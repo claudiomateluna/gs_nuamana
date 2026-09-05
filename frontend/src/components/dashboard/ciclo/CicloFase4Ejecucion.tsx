@@ -133,7 +133,7 @@ export default function CicloFase4Ejecucion({
       <div className="space-y-1 text-center md:text-left">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
-            <h3 className="text-2xl font-black font-display uppercase tracking-tight text-clr4 dark:text-dclr4">Ejecución de Actividades</h3>
+            <h3 className="text-2xl font-black font-display uppercase tracking-tight text-pclr4 dark:text-pdclr4">Ejecución de Actividades</h3>
             <p className="text-sm opacity-60 font-medium italic font-body">
               Es hora de vivir la aventura. Registra la historia de cada actividad a medida que ocurre.
             </p>
@@ -141,7 +141,7 @@ export default function CicloFase4Ejecucion({
           {canManage && cicloActivo.fase_actual === 4 && !inactive && (
             <button 
               onClick={onNuevaActividad}
-              className="px-6 py-3 bg-clr4 text-clr1 font-black uppercase rounded-2xl shadow-lg hover:scale-105 active:scale-95 transition-all text-sm tracking-widest shrink-0"
+              className="px-6 py-3 bg-pclr10 text-pclr12 font-black uppercase rounded-2xl shadow-lg hover:scale-105 active:scale-95 transition-all text-sm tracking-widest shrink-0"
             >
               🆕 Nueva Actividad
             </button>
@@ -159,12 +159,12 @@ export default function CicloFase4Ejecucion({
           return (
             <div key={dateKey} className="space-y-3">
               <div className="flex items-center gap-3 px-2">
-                <div className="w-16 h-16 rounded-2xl flex flex-col items-center justify-center shrink-0 text-clr1" style={{ backgroundColor: unitColor, border: `2px solid ${unitColor}40` }}>
+                <div className="w-16 h-16 rounded-2xl flex flex-col items-center justify-center shrink-0 text-pclr12" style={{ backgroundColor: unitColor, border: `2px solid ${unitColor}40` }}>
                   <span className="text-3xl font-black font-display leading-none">{dayNumber}</span>
                   <span className="text-[0.8em] font-bold uppercase leading-none mt-0.5">{monthYear.split(' ')[0]}</span>
                 </div>
                 <div>
-                  <p className="text-lg font-black font-display uppercase text-clr4 dark:text-dclr4 capitalize">{dayName}</p>
+                  <p className="text-lg font-black font-display uppercase text-pclr4 dark:text-pdclr4 capitalize">{dayName}</p>
                   <p className="text-sm opacity-50 font-medium">{monthYear}</p>
                 </div>
                 <div className="flex-1 border-b-2 border-dashed ml-2" style={{ borderColor: unitColor + '30' }} />
@@ -174,23 +174,23 @@ export default function CicloFase4Ejecucion({
                 {items.map(p => (
                   <div 
                     key={p.id} 
-                    className="p-4 rounded-[1.5rem] bg-clr1 dark:bg-dclr1 border-2 border-clr7 dark:border-dclr7 shadow-sm flex flex-col gap-4 relative overflow-hidden group hover:shadow-xl transition-all"
+                    className="p-4 rounded-[1.5rem] bg-pclr1 dark:bg-pdclr1 border-2 border-pclr13 dark:border-pdclr13 shadow-sm flex flex-col gap-4 relative overflow-hidden group hover:shadow-xl transition-all"
                   >
                     <div className="flex flex-col justify-between space-y-4 font-body">
                       <div className="space-y-2">
                         <div className="flex items-start justify-between gap-3">
-                          <h4 className="text-xl font-bold uppercase leading-tight text-clr4 dark:text-dclr4">{p.titulo}</h4>
+                          <h4 className="text-xl font-bold uppercase leading-tight text-pclr4 dark:text-pdclr4">{p.titulo}</h4>
                           {canManage && cicloActivo.fase_actual === 4 && !inactive && (
                             <button 
                               onClick={() => onMover(p)}
-                              className="text-xs font-black uppercase tracking-widest opacity-50 hover:opacity-100 hover:text-clr4 transition-all flex items-center gap-1 border-none bg-transparent shrink-0"
+                              className="text-xs font-black uppercase tracking-widest opacity-50 hover:opacity-100 hover:text-pclr4 transition-all flex items-center gap-1 border-none bg-transparent shrink-0"
                             >
                               📅 Mover
                             </button>
                           )}
                         </div>
                         {p.es_especialidad && p.autor && (
-                          <p className="text-[0.8em] font-bold text-clr4 dark:text-dclr4 uppercase tracking-wider">
+                          <p className="text-[0.8em] font-bold text-pclr4 dark:text-pdclr4 uppercase tracking-wider">
                             Scout: {p.autor.nombres} {p.autor.apellidos}
                           </p>
                         )}
@@ -201,7 +201,7 @@ export default function CicloFase4Ejecucion({
                         {p.es_actividad_programada ? (
                           <div className="flex items-center gap-2">
                             <span 
-                              className="px-2.5 py-0.5 rounded-full text-[0.8em] font-extrabold uppercase shadow-sm border text-clr1"
+                              className="px-2.5 py-0.5 rounded-full text-[0.8em] font-extrabold uppercase shadow-sm border text-pclr12"
                               style={{ backgroundColor: p.es_especialidad ? '#a855f7' : unitColor }}
                             >
                               {p.es_especialidad ? '🎖️ Especialidad' : '📅 Unidad'}
@@ -210,7 +210,7 @@ export default function CicloFase4Ejecucion({
                               <button
                                 onClick={() => handlePublishActivity(p.id)}
                                 disabled={publishingId === p.id}
-                                className="px-3 py-1 rounded-full text-[0.75em] font-extrabold uppercase bg-clr6 text-clr1 hover:bg-clr6 disabled:opacity-50 transition-all"
+                                className="px-3 py-1 rounded-full text-[0.75em] font-extrabold uppercase bg-pclr6 text-pclr12 hover:bg-pclr6 disabled:opacity-50 transition-all"
                               >
                                 {publishingId === p.id ? '...' : '📤 Publicar'}
                               </button>
@@ -220,7 +220,7 @@ export default function CicloFase4Ejecucion({
                           <a 
                             href={`/blog/actividades/${p.articulo.slug}`} 
                             target="_blank" 
-                            className="text-sm font-black uppercase tracking-widest underline decoration-2 underline-offset-4 opacity-60 hover:opacity-100 hover:text-clr4 transition-all flex items-center gap-2"
+                            className="text-sm font-black uppercase tracking-widest underline decoration-2 underline-offset-4 opacity-60 hover:opacity-100 hover:text-pclr4 transition-all flex items-center gap-2"
                           >
                             <span>📋</span> Ficha de Actividad
                           </a>
@@ -228,7 +228,7 @@ export default function CicloFase4Ejecucion({
                           <div className="flex flex-wrap gap-2">
                             {p.fichas_vinculadas.map((f: any) => (
                               <a key={f.id} href={`/blog/actividades/${f.slug}`} target="_blank"
-                                 className="px-3 py-1 bg-clr4 text-clr4 rounded-full text-xs font-bold hover:bg-clr4 flex items-center gap-1">
+                                 className="px-3 py-1 bg-pclr10 text-pclr4 rounded-full text-xs font-bold hover:bg-pclr10 flex items-center gap-1">
                                 📋 {f.titulo}
                               </a>
                             ))}
@@ -246,7 +246,7 @@ export default function CicloFase4Ejecucion({
                         {perfil?.unidad_id != null && (perfil.unidad_id === UNIT_IDS.AVANZADA || perfil.unidad_id === UNIT_IDS.CLAN) && (
                           <button
                             onClick={() => handleProjectWizardOpen(p.titulo)}
-                            className="text-sm font-black uppercase tracking-widest text-clr4 hover:opacity-100 hover:text-clr4 transition-all flex items-center gap-2 border-none bg-transparent"
+                            className="text-sm font-black uppercase tracking-widest text-pclr4 hover:opacity-100 hover:text-pclr4 transition-all flex items-center gap-2 border-none bg-transparent"
                           >
                             <span>📋</span> Proyecto {perfil.unidad_id === UNIT_IDS.AVANZADA ? 'Empresa' : '12 Pasos'}
                           </button>
@@ -260,7 +260,7 @@ export default function CicloFase4Ejecucion({
                               setIsModEvalActividadOpen(true);
                             }}
                             className={`text-sm font-black uppercase tracking-widest flex items-center gap-2 transition-all border-none bg-transparent ${
-                              p.evaluacion ? 'text-clr6 opacity-100' : 'opacity-60 hover:opacity-100 hover:text-clr4'
+                              p.evaluacion ? 'text-pclr6 opacity-100' : 'opacity-60 hover:opacity-100 hover:text-pclr4'
                             }`}
                           >
                             <span>{p.evaluacion ? '✅' : '📝'}</span> {p.evaluacion ? 'Evaluada' : 'Evaluar'}
@@ -273,7 +273,7 @@ export default function CicloFase4Ejecucion({
                               setSelectedPropuesta(p);
                               setIsModAsistenciaOpen(true);
                             }}
-                            className="text-sm font-black uppercase tracking-widest opacity-60 hover:opacity-100 hover:text-clr6 transition-all flex items-center gap-2 border-none bg-transparent"
+                            className="text-sm font-black uppercase tracking-widest opacity-60 hover:opacity-100 hover:text-pclr6 transition-all flex items-center gap-2 border-none bg-transparent"
                           >
                             <span>👥</span> Asistencia
                           </button>
@@ -285,7 +285,7 @@ export default function CicloFase4Ejecucion({
                               setSelectedPropuesta(p);
                               setIsModResenaOpen(true);
                             }}
-                            className="text-sm font-black uppercase tracking-widest opacity-60 hover:opacity-100 hover:text-clr5 transition-all flex items-center gap-2 border-none bg-transparent"
+                            className="text-sm font-black uppercase tracking-widest opacity-60 hover:opacity-100 hover:text-pclr5 transition-all flex items-center gap-2 border-none bg-transparent"
                           >
                             <span>⭐</span> Calificar
                           </button>
@@ -297,7 +297,7 @@ export default function CicloFase4Ejecucion({
                               setSelectedPropuesta(p);
                               setIsModEvalNNJOpen(true);
                             }}
-                            className="text-sm font-black uppercase tracking-widest text-clr4 hover:opacity-100 hover:text-clr4 transition-all flex items-center gap-2 border-none bg-transparent"
+                            className="text-sm font-black uppercase tracking-widest text-pclr4 hover:opacity-100 hover:text-pclr4 transition-all flex items-center gap-2 border-none bg-transparent"
                           >
                             <span>🎯</span> Evaluar Objetivos
                           </button>
@@ -315,7 +315,7 @@ export default function CicloFase4Ejecucion({
                             })
                             setIsModBitacoraOpen(true)
                           }}
-                          className="w-full sm:w-auto px-6 py-4 bg-clr2 text-clr1 text-[0.9em] font-black uppercase rounded-2xl shadow-lg hover:scale-105 active:scale-95 transition-all tracking-widest flex items-center justify-center gap-2 border-none"
+                          className="w-full sm:w-auto px-6 py-4 bg-pclr2 text-pclr12 text-[0.9em] font-black uppercase rounded-2xl shadow-lg hover:scale-105 active:scale-95 transition-all tracking-widest flex items-center justify-center gap-2 border-none"
                         >
                           <span>📸</span> Escribir en {getBitacoraName(perfil.unidad_id ?? null)}
                         </button>
@@ -329,14 +329,14 @@ export default function CicloFase4Ejecucion({
         })}
 
         {filteredPropuestas.length === 0 && (
-          <div className="py-20 text-center border-4 border-dashed border-clr7 dark:border-dclr7 rounded-[3rem] opacity-30">
+          <div className="py-20 text-center border-4 border-dashed border-pclr13 dark:border-pdclr13 rounded-[3rem] opacity-30">
             <span className="text-5xl block mb-4">🏕️</span>
             <p className="text-xl font-black uppercase">No hay actividades agendadas</p>
             <p className="font-medium italic">Debes planificar actividades en la Fase 3 primero.</p>
             {canManage && cicloActivo.fase_actual === 4 && !inactive && (
               <button 
                 onClick={onNuevaActividad}
-                className="mt-6 px-8 py-3 bg-clr4 text-clr1 font-black uppercase rounded-2xl shadow-lg hover:scale-105 active:scale-95 transition-all text-sm tracking-widest"
+                className="mt-6 px-8 py-3 bg-pclr10 text-pclr12 font-black uppercase rounded-2xl shadow-lg hover:scale-105 active:scale-95 transition-all text-sm tracking-widest"
               >
                 🆕 Crear Primera Actividad
               </button>
@@ -344,7 +344,7 @@ export default function CicloFase4Ejecucion({
           </div>
         )}
         {cicloActivo.fase_actual > 4 && (
-           <div className="py-4 text-center opacity-30 text-[0.8em] font-black uppercase tracking-widest border-t border-dashed border-clr7 mt-4">
+           <div className="py-4 text-center opacity-30 text-[0.8em] font-black uppercase tracking-widest border-t border-dashed border-pclr13 mt-4">
              🔒 Modo Lectura (Ejecución Finalizada)
            </div>
         )}

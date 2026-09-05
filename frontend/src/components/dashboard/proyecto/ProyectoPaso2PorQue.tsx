@@ -16,8 +16,8 @@ export default function ProyectoPaso2PorQue({
   return (
     <div className="space-y-2">
       <div className="flex items-center gap-1 p-2 opacity-60 rounded-[0.8rem]" style={{ backgroundColor: themePrimary }}>
-        <span className="w-8 h-8 rounded-full flex items-center justify-center text-clr1 text-[0.9em] font-bold" style={{ color: themeSecondary }}>2</span>
-        <h3 className="text-xl font-black uppercase tracking-tight text-clr2 dark:text-dclr2" style={{ color: themeSecondary }}>¿Por Qué?</h3>
+        <span className="w-8 h-8 rounded-full flex items-center justify-center text-pclr12 text-[0.9em] font-bold" style={{ color: themeSecondary }}>2</span>
+        <h3 className="text-xl font-black uppercase tracking-tight text-pclr4 dark:text-pdclr4" style={{ color: themeSecondary }}>¿Por Qué?</h3>
       </div>
 
       <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 min-h-[420px] p-1 font-body">
@@ -36,14 +36,14 @@ export default function ProyectoPaso2PorQue({
         </div>
 
         {/* Right Column (Desktop) / Bottom Row (Mobile) */}
-        <div className="w-full space-y-2 bg-clr7 dark:bg-dclr7 p-1 rounded-[1rem] border border-clr7 dark:border-dclr7 backdrop-blur-xs shadow-md">
+        <div className="w-full space-y-2 bg-pclr3 dark:bg-pdclr3 p-1 rounded-[1rem] border border-pclr13 dark:border-pdclr13 backdrop-blur-xs shadow-md">
           <div className="space-y-1">
             <label className="text-[0.8em] md:text-[0.9em] font-bold uppercase p-1 rounded-[0.6rem] text-center" style={{ backgroundColor: themePrimary, color: themeSecondary }}>Diagnóstico<br />¿Qué vimos?</label>
             <textarea 
               value={formData.paso2_por_que_diagnostico || ''}
               onChange={e => setFormData({ ...formData, paso2_por_que_diagnostico: e.target.value })}
               placeholder="Describe la oportunidad o necesidad identificada..."
-              className="w-full p-2 rounded-2xl border-2 border-clr7 dark:border-dclr7 bg-clr1 dark:bg-dclr1 font-bold h-24 text-[0.9em]"
+              className="w-full p-2 rounded-2xl border-2 border-pclr13 dark:border-pdclr13 bg-pclr1 dark:bg-pdclr1 font-bold h-24 text-[0.9em]"
             />
           </div>
 
@@ -53,7 +53,7 @@ export default function ProyectoPaso2PorQue({
               value={formData.paso2_por_que_justificacion || ''}
               onChange={e => setFormData({ ...formData, paso2_por_que_justificacion: e.target.value })}
               placeholder="Explica por qué es fundamental realizar este proyecto ahora..."
-              className="w-full p-2 rounded-2xl border-2 border-clr7 dark:border-dclr7 bg-clr1 dark:bg-dclr1 font-bold h-28 text-[0.9em]"
+              className="w-full p-2 rounded-2xl border-2 border-pclr13 dark:border-pdclr13 bg-pclr1 dark:bg-pdclr1 font-bold h-28 text-[0.9em]"
             />
           </div>
         </div>

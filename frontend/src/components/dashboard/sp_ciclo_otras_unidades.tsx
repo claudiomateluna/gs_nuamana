@@ -49,7 +49,7 @@ export default function DashCiclosOtros({ perfil }: DashCiclosOtrosProps) {
       <div className="space-y-4 animate-in fade-in zoom-in-95 duration-300">
         <button 
           onClick={() => setSelectedCicloId(null)}
-          className="flex items-center gap-2 px-6 py-3 bg-clr7 dark:bg-dclr7 text-clr3 font-black uppercase rounded-2xl hover:bg-clr7 transition-all tracking-widest text-xs"
+          className="flex items-center gap-2 px-6 py-3 bg-pclr3 dark:bg-pdclr3 text-pclr7 font-black uppercase rounded-2xl hover:bg-pclr3 transition-all tracking-widest text-xs"
         >
           <span>❮</span> Volver a Otros Ciclos
         </button>
@@ -64,7 +64,7 @@ export default function DashCiclosOtros({ perfil }: DashCiclosOtrosProps) {
 
   if (ciclos.length === 0) {
     return (
-      <div className="py-20 text-center border-4 border-dashed border-clr7 dark:border-dclr7 rounded-[2rem] space-y-4 opacity-40">
+      <div className="py-20 text-center border-4 border-dashed border-pclr13 dark:border-pdclr13 rounded-[2rem] space-y-4 opacity-40">
         <span className="text-6xl block">🏕️</span>
         <h3 className="text-xl font-black uppercase tracking-widest">No hay otros ciclos activos</h3>
         <p className="font-medium italic">Las demás unidades aún no han iniciado su aventura.</p>
@@ -80,18 +80,18 @@ export default function DashCiclosOtros({ perfil }: DashCiclosOtrosProps) {
           <div 
             key={ciclo.id}
             onClick={() => setSelectedCicloId(ciclo.id)}
-            className="group cursor-pointer p-6 rounded-[2rem] bg-clr1 dark:bg-dclr1 border-2 border-clr7 dark:border-dclr7 shadow-sm hover:shadow-xl hover:border-transparent transition-all overflow-hidden relative flex flex-col justify-between min-h-[220px]"
+            className="group cursor-pointer p-6 rounded-[2rem] bg-pclr1 dark:bg-pdclr1 border-2 border-pclr13 dark:border-pdclr13 shadow-sm hover:shadow-xl hover:border-transparent transition-all overflow-hidden relative flex flex-col justify-between min-h-[220px]"
           >
             <div className="absolute top-0 right-0 w-32 h-32 opacity-10 rounded-bl-[100%] transition-all group-hover:scale-110" style={{ backgroundColor: unitColor }} />
             
             <div className="space-y-2 relative z-10">
               <span 
-                className="px-3 py-1 text-[1em] font-black uppercase rounded-md tracking-widest text-clr1"
+                className="px-3 py-1 text-[1em] font-black uppercase rounded-md tracking-widest text-pclr12"
                 style={{ backgroundColor: unitColor }}
               >
                 {ciclo.unidades?.nombre} • Fase {ciclo.fase_actual}
               </span>
-              <h4 className="text-2xl font-black font-display uppercase tracking-tight text-clr4 dark:text-dclr4 group-hover:text-clr4 transition-colors">
+              <h4 className="text-2xl font-black font-display uppercase tracking-tight text-pclr4 dark:text-pdclr4 group-hover:text-pclr4 transition-colors">
                 {ciclo.nombre}
               </h4>
               <p className="text-normal opacity-60 italic font-medium line-clamp-3">
@@ -99,7 +99,7 @@ export default function DashCiclosOtros({ perfil }: DashCiclosOtrosProps) {
               </p>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-clr7 dark:border-dclr7 flex justify-between items-center relative z-10">
+            <div className="mt-6 pt-4 border-t border-pclr13 dark:border-pdclr13 flex justify-between items-center relative z-10">
               <span className="text-[0.9em] font-bold uppercase tracking-widest opacity-40">
                 Iniciado en {format(new Date(ciclo.created_at), 'MMMM yyyy', { locale: es })}
               </span>

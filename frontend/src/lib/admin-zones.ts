@@ -268,6 +268,30 @@ const MENU_TOOLTIPS = [
   'Color del texto del menú lateral al pasar el cursor (var(--mclr11))',
 ];
 
+const PANEL_LABELS = [
+  'Fondo Inicial', 'Fondo Final', 'Fondo Cajas e Inputs',
+  'Título Principal', 'Subtítulo Rol/Unidad', 'Texto Estado/Metadatos',
+  'Pestaña Inactiva', 'Pestaña Activa / Acento', 'Pestaña Hover',
+  'Acción Primaria', 'Acción Neutra', 'Acción Secundaria / Peligro',
+  'Separadores Internos', 'Bordes / Focus',
+];
+const PANEL_TOOLTIPS = [
+  'Color de fondo inicial del contenedor del panel (var(--pclr1))',
+  'Color de fondo final del degradado del panel (var(--pclr2))',
+  'Color de fondo para cajas, tarjetas e inputs del panel (var(--pclr3))',
+  'Color del título principal del usuario (var(--pclr4))',
+  'Color del subtítulo de rol y unidad (var(--pclr5))',
+  'Color de texto para estado y metadatos (var(--pclr6))',
+  'Color de la pestaña inactiva (var(--pclr7))',
+  'Color de la pestaña activa o acento (var(--pclr8))',
+  'Color de la pestaña al pasar el cursor (var(--pclr9))',
+  'Color de botones para acción primaria (var(--pclr10))',
+  'Color de botones para acción neutra (var(--pclr11))',
+  'Color de botones para acción secundaria / peligro (var(--pclr12))',
+  'Color de separadores e hitos internos del panel (var(--pclr13))',
+  'Color de bordes y estado focus del panel (var(--pclr14))',
+];
+
 // ---------------------------------------------------------------------------
 // Zones
 // ---------------------------------------------------------------------------
@@ -560,6 +584,14 @@ export const ADMIN_ZONES: AdminZone[] = [
           { key: '_heading_tarjetas', label: 'Tarjetas', type: 'heading', tooltip: 'Sección de colores de tarjetas' },
           ...colorGrid('tclr', 6, (n) => TARJETAS_LABELS[n - 1], (n) => TARJETAS_TOOLTIPS[n - 1]),
         ],
+      },
+      {
+        id: 'panel-colors',
+        title: 'Colores del Panel',
+        category: 'panel_colors',
+        schemaId: 'panel_colors',
+        layout: 'grid',
+        fields: colorGrid('pclr', 14, (n) => PANEL_LABELS[n - 1], (n) => PANEL_TOOLTIPS[n - 1]),
       },
     ],
   },

@@ -148,44 +148,44 @@ export default function DashModMovimiento({ isOpen, onClose, onSuccess, editingM
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-clr2 backdrop-blur-sm z-[110] flex items-center justify-center p-2 md:p-4 animate-in fade-in duration-300">
-      <div className="bg-clr1 dark:bg-dclr1 w-full max-w-2xl rounded-[2.5rem] p-6 md:p-10 shadow-2xl border-4 border-clr7 dark:border-dclr7 overflow-y-auto max-h-[95vh]">
-        <h2 className="text-2xl font-black font-display uppercase text-clr6 mb-8 tracking-tighter">
+    <div className="fixed inset-0 bg-pclr2 backdrop-blur-sm z-[110] flex items-center justify-center p-2 md:p-4 animate-in fade-in duration-300">
+      <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-2xl rounded-[2.5rem] p-6 md:p-10 shadow-2xl border-4 border-pclr13 dark:border-pdclr13 overflow-y-auto max-h-[95vh]">
+        <h2 className="text-2xl font-black font-display uppercase text-pclr6 mb-8 tracking-tighter">
           {editingMov ? 'Editar Movimiento' : 'Registrar Movimiento'}
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-6 text-[1em]">
-          <div className="grid grid-cols-3 gap-4 bg-clr7 dark:bg-dclr7 p-4 rounded-2xl border">
+          <div className="grid grid-cols-3 gap-4 bg-pclr3 dark:bg-pdclr3 p-4 rounded-2xl border">
             <div className="space-y-1">
               <label className="text-[0.8em] font-black uppercase opacity-40">Día</label>
-              <input type="number" min="1" max="31" required value={formData.dia} onChange={e => setFormData({...formData, dia: e.target.value})} className="w-full p-2 rounded-xl bg-clr1 dark:bg-dclr1 font-bold text-center" />
+              <input type="number" min="1" max="31" required value={formData.dia} onChange={e => setFormData({...formData, dia: e.target.value})} className="w-full p-2 rounded-xl bg-pclr1 dark:bg-pdclr1 font-bold text-center" />
             </div>
             <div className="space-y-1">
               <label className="text-[0.8em] font-black uppercase opacity-40">Mes</label>
-              <input type="number" min="1" max="12" required value={formData.mes} onChange={e => setFormData({...formData, mes: e.target.value})} className="w-full p-2 rounded-xl bg-clr1 dark:bg-dclr1 font-bold text-center" />
+              <input type="number" min="1" max="12" required value={formData.mes} onChange={e => setFormData({...formData, mes: e.target.value})} className="w-full p-2 rounded-xl bg-pclr1 dark:bg-pdclr1 font-bold text-center" />
             </div>
             <div className="space-y-1">
               <label className="text-[0.8em] font-black uppercase opacity-40">Año</label>
-              <input type="number" required value={formData.anio} onChange={e => setFormData({...formData, anio: e.target.value})} className="w-full p-2 rounded-xl bg-clr1 dark:bg-dclr1 font-bold text-center" />
+              <input type="number" required value={formData.anio} onChange={e => setFormData({...formData, anio: e.target.value})} className="w-full p-2 rounded-xl bg-pclr1 dark:bg-pdclr1 font-bold text-center" />
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-1">
               <label className="text-[0.8em] font-bold uppercase opacity-40">Tipo Documento</label>
-              <select value={formData.tipo_documento} onChange={e => setFormData({...formData, tipo_documento: e.target.value})} className="w-full p-3 rounded-xl border bg-clr7 dark:bg-dclr7 font-bold uppercase">
+              <select value={formData.tipo_documento} onChange={e => setFormData({...formData, tipo_documento: e.target.value})} className="w-full p-3 rounded-xl border bg-pclr3 dark:bg-pdclr3 font-bold uppercase">
                 {TIPOS_DOC.map(t => <option key={t.val} value={t.val}>{t.lab}</option>)}
               </select>
             </div>
             <div className="space-y-1">
               <label className="text-[0.8em] font-bold uppercase opacity-40">Nº Comprobante / Boleta</label>
-              <input value={formData.comprobante_numero || ''} onChange={e => setFormData({...formData, comprobante_numero: e.target.value})} className="w-full p-3 rounded-xl border bg-clr7 dark:bg-dclr7 font-bold" placeholder="Ej: 4521" />
+              <input value={formData.comprobante_numero || ''} onChange={e => setFormData({...formData, comprobante_numero: e.target.value})} className="w-full p-3 rounded-xl border bg-pclr3 dark:bg-pdclr3 font-bold" placeholder="Ej: 4521" />
             </div>
           </div>
 
           <div className="space-y-1">
             <label className="text-[0.8em] font-bold uppercase opacity-40">Ítem Presupuestario (Glosario)</label>
-            <select required value={formData.item_id || ''} onChange={e => setFormData({...formData, item_id: e.target.value})} className="w-full p-3 rounded-xl border bg-clr7 dark:bg-dclr7 font-bold uppercase text-[0.85em]">
+            <select required value={formData.item_id || ''} onChange={e => setFormData({...formData, item_id: e.target.value})} className="w-full p-3 rounded-xl border bg-pclr3 dark:bg-pdclr3 font-bold uppercase text-[0.85em]">
               <option value="">Seleccionar ítem...</option>
               {items.map(i => <option key={i.id} value={i.id}>{i.codigo} - {i.nombre.toUpperCase()}</option>)}
             </select>
@@ -193,12 +193,12 @@ export default function DashModMovimiento({ isOpen, onClose, onSuccess, editingM
 
           <div className="space-y-1">
             <label className="text-[0.8em] font-bold uppercase opacity-40">Descripción Detallada</label>
-            <textarea required value={formData.descripcion || ''} onChange={e => setFormData({...formData, descripcion: e.target.value})} className="w-full p-3 rounded-xl border bg-clr7 dark:bg-dclr7 font-bold h-20" placeholder="Ej: Compra de carbón y carne para actividad de unidad..." />
+            <textarea required value={formData.descripcion || ''} onChange={e => setFormData({...formData, descripcion: e.target.value})} className="w-full p-3 rounded-xl border bg-pclr3 dark:bg-pdclr3 font-bold h-20" placeholder="Ej: Compra de carbón y carne para actividad de unidad..." />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-1">
-              <label className="text-[0.8em] font-bold uppercase text-clr6">Ingreso ($)</label>
+              <label className="text-[0.8em] font-bold uppercase text-pclr6">Ingreso ($)</label>
               <input 
                 type="text" 
                 inputMode="numeric" 
@@ -209,11 +209,11 @@ export default function DashModMovimiento({ isOpen, onClose, onSuccess, editingM
                   const val = e.target.value.replace(/\D/g, '')
                   setFormData({...formData, monto_ingreso: val, monto_egreso: ''})
                 }} 
-                className="w-full p-3 rounded-xl border border-clr6 bg-clr6 dark:bg-dclr6 font-black text-clr6 dark:text-dclr6" 
+                className="w-full p-3 rounded-xl border border-pclr6 bg-pclr6 dark:bg-pdclr6 font-black text-pclr6 dark:text-pdclr6" 
               />
             </div>
             <div className="space-y-1">
-              <label className="text-[0.8em] font-bold uppercase text-clr4">Egreso ($)</label>
+              <label className="text-[0.8em] font-bold uppercase text-pclr4">Egreso ($)</label>
               <input 
                 type="text" 
                 inputMode="numeric" 
@@ -224,29 +224,29 @@ export default function DashModMovimiento({ isOpen, onClose, onSuccess, editingM
                   const val = e.target.value.replace(/\D/g, '')
                   setFormData({...formData, monto_egreso: val, monto_ingreso: ''})
                 }} 
-                className="w-full p-3 rounded-xl border border-clr4 bg-clr4 dark:bg-dclr4 font-black text-clr4 dark:text-dclr4" 
+                className="w-full p-3 rounded-xl border border-pclr14 bg-pclr10 dark:bg-pdclr10 font-black text-pclr4 dark:text-pdclr4" 
               />
             </div>
           </div>
 
           <div className="space-y-1">
             <label className="text-[0.8em] font-bold uppercase opacity-40">Asignación de Unidad</label>
-            <select value={formData.unidad_id || 'grupal'} onChange={e => setFormData({...formData, unidad_id: e.target.value})} className="w-full p-3 rounded-xl border bg-clr7 dark:bg-dclr7 font-bold uppercase">
+            <select value={formData.unidad_id || 'grupal'} onChange={e => setFormData({...formData, unidad_id: e.target.value})} className="w-full p-3 rounded-xl border bg-pclr3 dark:bg-pdclr3 font-bold uppercase">
               <option value="grupal">⚜️ GRUPAL (FONDO GRUPO)</option>
               {unidades.map(u => <option key={u.id} value={u.id}>{u.nombre.toUpperCase()}</option>)}
             </select>
           </div>
 
-          <div className="space-y-1 bg-clr7 dark:bg-dclr7 p-4 rounded-2xl border-2 border-dashed border-clr7 dark:border-dclr7">
+          <div className="space-y-1 bg-pclr3 dark:bg-pdclr3 p-4 rounded-2xl border-2 border-dashed border-pclr13 dark:border-pdclr13">
             <label className="text-[0.8em] font-bold uppercase opacity-40">Documento de Respaldo (Boleta/Factura)</label>
             <div className="mt-2 flex flex-col items-center gap-4">
               {formData.imagen_respaldo_url ? (
-                <div className="relative group w-full h-40 bg-clr1 rounded-xl overflow-hidden shadow-inner border">
+                <div className="relative group w-full h-40 bg-pclr1 rounded-xl overflow-hidden shadow-inner border">
                   <img src={formData.imagen_respaldo_url} className="w-full h-full object-contain" alt="Respaldo" />
-                  <button type="button" onClick={() => setFormData({...formData, imagen_respaldo_url: ''})} className="absolute top-2 right-2 bg-clr4 text-clr1 p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">✕</button>
+                  <button type="button" onClick={() => setFormData({...formData, imagen_respaldo_url: ''})} className="absolute top-2 right-2 bg-pclr10 text-pclr12 p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">✕</button>
                 </div>
               ) : (
-                <label className="w-full h-24 flex flex-col items-center justify-center border-2 border-dashed rounded-xl cursor-pointer hover:bg-clr1 dark:hover:bg-dclr1 transition-all">
+                <label className="w-full h-24 flex flex-col items-center justify-center border-2 border-dashed rounded-xl cursor-pointer hover:bg-pclr1 dark:hover:bg-pdclr1 transition-all">
                   <span className="text-2xl">{uploading ? '⌛' : '📸'}</span>
                   <span className="text-[0.8em] font-bold uppercase opacity-40">{uploading ? 'Subiendo...' : 'Subir Foto o PDF'}</span>
                   <input type="file" className="hidden" accept="image/*,application/pdf" onChange={handleFileUpload} disabled={uploading} />
@@ -256,10 +256,10 @@ export default function DashModMovimiento({ isOpen, onClose, onSuccess, editingM
           </div>
 
           <div className="flex gap-3 pt-4">
-            <button type="submit" disabled={saving} className="flex-1 py-4 bg-clr6 text-clr1 font-black uppercase rounded-2xl shadow-xl hover:brightness-110 tracking-widest transition-all">
+            <button type="submit" disabled={saving} className="flex-1 py-4 bg-pclr6 text-pclr12 font-black uppercase rounded-2xl shadow-xl hover:brightness-110 tracking-widest transition-all">
               {saving ? '⌛ Procesando...' : editingMov ? '💾 Actualizar' : '💾 Registrar'}
             </button>
-            <button type="button" onClick={onClose} className="px-8 py-4 bg-clr7 dark:bg-dclr7 text-clr3 font-bold uppercase rounded-2xl tracking-widest">
+            <button type="button" onClick={onClose} className="px-8 py-4 bg-pclr3 dark:bg-pdclr3 text-pclr7 font-bold uppercase rounded-2xl tracking-widest">
               Cancelar
             </button>
           </div>

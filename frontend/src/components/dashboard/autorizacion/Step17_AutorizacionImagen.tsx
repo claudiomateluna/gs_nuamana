@@ -10,15 +10,15 @@ export default function Step17_AutorizacionImagen({ formData, setFormData, perfi
   const fechaHoyStr = format(new Date(), "dd/MM/yyyy", { locale: es });
   const fechaHoyISO = format(new Date(), "yyyy-MM-dd");
 
-  const titleStyle = "text-[1.2em] font-black text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8 border-b-2 border-clr4 pb-2";
+  const titleStyle = "text-[1.2em] font-black text-pclr4 dark:text-pdclr4 uppercase tracking-tighter mb-8 border-b-2 border-pclr14 pb-2";
   const labelContainerStyle = "flex items-center gap-2 mb-1";
-  const labelStyle = "text-[0.9em] font-black uppercase text-clr3 tracking-widest block";
-  const inputStyle = (isValid: boolean) => `w-full bg-clr7 dark:bg-dclr7 dark:text-dclr2 border-2 ${!isValid ? 'border-clr4 bg-clr4' : 'border-transparent focus:border-clr4'} rounded-xl p-3 text-[1em] font-bold outline-none transition-colors duration-200 shadow-inner`;
-  const disabledInputStyle = "w-full bg-clr7 dark:bg-dclr7 p-3 rounded-xl font-bold text-[1em] dark:text-dclr2 border border-clr7 dark:border-dclr7 opacity-70 cursor-not-allowed outline-none";
+  const labelStyle = "text-[0.9em] font-black uppercase text-pclr7 tracking-widest block";
+  const inputStyle = (isValid: boolean) => `w-full bg-pclr3 dark:bg-pdclr3 dark:text-pdclr4 border-2 ${!isValid ? 'border-pclr14 bg-pclr10' : 'border-transparent focus:border-pclr14'} rounded-xl p-3 text-[1em] font-bold outline-none transition-colors duration-200 shadow-inner`;
+  const disabledInputStyle = "w-full bg-pclr3 dark:bg-pdclr3 p-3 rounded-xl font-bold text-[1em] dark:text-pdclr4 border border-pclr13 dark:border-pdclr13 opacity-70 cursor-not-allowed outline-none";
   
   const infoIconContainerStyle = "inline-block";
-  const infoIconStyle = "text-clr4 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
-  const tooltipStyle = "fixed z-[300] left-1/2 -translate-x-1/2 top-1/4 w-[90%] max-w-lg p-6 bg-clr2 dark:bg-dclr2 text-clr1 text-[1em] font-medium leading-relaxed rounded-[2rem] shadow-2xl opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 border-2 border-clr4 backdrop-blur-md";
+  const infoIconStyle = "text-pclr4 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
+  const tooltipStyle = "fixed z-[300] left-1/2 -translate-x-1/2 top-1/4 w-[90%] max-w-lg p-6 bg-pclr2 dark:bg-pdclr2 text-pclr12 text-[1em] font-medium leading-relaxed rounded-[2rem] shadow-2xl opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 border-2 border-pclr14 backdrop-blur-md";
 
   const legalTextAdult = (
     <>
@@ -62,13 +62,13 @@ export default function Step17_AutorizacionImagen({ formData, setFormData, perfi
               </span>
             </div>
             <div className={tooltipStyle}>
-              <div className="text-clr4 font-black uppercase text-[0.8em] tracking-tight mb-3 border-b border-clr4 pb-2 leading-tight">{label}</div>
+              <div className="text-pclr4 font-black uppercase text-[0.8em] tracking-tight mb-3 border-b border-pclr14 pb-2 leading-tight">{label}</div>
               <div className="text-[0.95em]">{info}</div>
             </div>
           </div>
         </div>
         {children}
-        {error && <p className="text-clr4 text-[0.8em] font-black uppercase tracking-tight pl-2">⚠️ {error}</p>}
+        {error && <p className="text-pclr4 text-[0.8em] font-black uppercase tracking-tight pl-2">⚠️ {error}</p>}
       </div>
     );
   };
@@ -184,8 +184,8 @@ export default function Step17_AutorizacionImagen({ formData, setFormData, perfi
         label="Decisión de Uso de Imagen"
         info="Seleccione SI para autorizar el uso de imagen y voz bajo las condiciones descritas en el texto legal."
       >
-        <div className="p-6 bg-clr7 dark:bg-dclr7 rounded-3xl border-2 border-clr4 mb-6">
-          <p className="text-[0.95em] leading-relaxed italic dark:text-dclr2 text-clr2 font-bold text-center">
+        <div className="p-6 bg-pclr3 dark:bg-pdclr3 rounded-3xl border-2 border-pclr14 mb-6">
+          <p className="text-[0.95em] leading-relaxed italic dark:text-pdclr4 text-pclr4 font-bold text-center">
             {dynamicQuestion}
           </p>
         </div>
@@ -193,7 +193,7 @@ export default function Step17_AutorizacionImagen({ formData, setFormData, perfi
           {['SI', 'NO'].map(o => {
             const isChecked = formData.autoriza_imagen === o;
             return (
-              <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] tracking-widest transition-all ${isChecked ? 'border-clr4 bg-clr4 text-clr1 shadow-lg scale-105' : 'border-clr7 dark:border-dclr7 dark:text-dclr2'}`}>
+              <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] tracking-widest transition-all ${isChecked ? 'border-pclr14 bg-pclr10 text-pclr12 shadow-lg scale-105' : 'border-pclr13 dark:border-pdclr13 dark:text-pdclr4'}`}>
                 <input type="radio" checked={isChecked} onChange={() => setFormData({ ...formData, autoriza_imagen: o })} className="hidden" /> {o}
               </label>
             );
@@ -202,8 +202,8 @@ export default function Step17_AutorizacionImagen({ formData, setFormData, perfi
       </Field>
 
       {/* Texto Legal (Informativo) */}
-      <div className="mt-8 p-6 bg-clr7 dark:bg-dclr7 rounded-3xl border border-clr7 dark:border-dclr7">
-        <div className="text-[0.9em] leading-relaxed italic dark:text-dclr2 text-clr2 font-medium">
+      <div className="mt-8 p-6 bg-pclr3 dark:bg-pdclr3 rounded-3xl border border-pclr13 dark:border-pdclr13">
+        <div className="text-[0.9em] leading-relaxed italic dark:text-pdclr4 text-pclr4 font-medium">
           {isAdult ? legalTextAdult : legalTextMinor}
         </div>
       </div>

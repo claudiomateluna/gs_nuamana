@@ -32,11 +32,11 @@ export default function DashUsuarios({ userPerfil, usuarios = [], onEdit, onVer,
   return (
     <div className="space-y-8 animate-in fade-in duration-500">
       <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-        <h2 className="text-[1.8em] font-black text-clr4 dark:text-dclr4 uppercase tracking-tighter">Gestión de Grupo</h2>
+        <h2 className="text-[1.8em] font-black text-pclr4 dark:text-pdclr4 uppercase tracking-tighter">Gestión de Grupo</h2>
         <input 
           type="text" 
           placeholder="🔍 Buscar por nombre o RUT..." 
-          className="w-full md:w-96 p-4 rounded-2xl border-2 border-clr7 dark:border-dclr7 bg-clr1 dark:bg-dclr1 outline-none focus:border-clr4 transition-all text-[1em] font-medium"
+          className="w-full md:w-96 p-4 rounded-2xl border-2 border-pclr13 dark:border-pdclr13 bg-pclr1 dark:bg-pdclr1 outline-none focus:border-pclr14 transition-all text-[1em] font-medium"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
@@ -51,7 +51,7 @@ export default function DashUsuarios({ userPerfil, usuarios = [], onEdit, onVer,
           return (
             <div 
               key={u.id} 
-              className="p-2 bg-clr1 dark:bg-dclr1 rounded-[1.5rem] border-2 shadow-sm hover:shadow-xl transition-all group flex flex-col relative overflow-hidden"
+              className="p-2 bg-pclr1 dark:bg-pdclr1 rounded-[1.5rem] border-2 shadow-sm hover:shadow-xl transition-all group flex flex-col relative overflow-hidden"
               style={{ borderColor: unitColor2 ? `${unitColor2}50` : 'rgba(244, 244, 245, 0.5)', backgroundColor: unitColor, color: unitColor2 }}
             >
               {logoUrl && (
@@ -77,18 +77,18 @@ export default function DashUsuarios({ userPerfil, usuarios = [], onEdit, onVer,
                   }}
                 />
                 <div className="flex-1 overflow-hidden">
-                  <h3 className="font-black text-[1.1em] py-[0.5px] px-1 rounded-xl text-clr4 dark:text-dclr4 truncate uppercase leading-tight mb-[-4px]" style={{ backgroundColor: unitColor2, color: unitColor }}>
+                  <h3 className="font-black text-[1.1em] py-[0.5px] px-1 rounded-xl text-pclr4 dark:text-pdclr4 truncate uppercase leading-tight mb-[-4px]" style={{ backgroundColor: unitColor2, color: unitColor }}>
                     {u.nombres}
                   </h3>
-                  <p className="font-bold text-[0.9em] text-clr2 dark:text-dclr2 truncate uppercase tracking-tight ml-1" style={{ color: unitColor2 }}>{u.apellidos}</p>
+                  <p className="font-bold text-[0.9em] text-pclr4 dark:text-pdclr4 truncate uppercase tracking-tight ml-1" style={{ color: unitColor2 }}>{u.apellidos}</p>
                 </div>
               </div>
 
               <div className="mb-2 relative z-10">
                 <span className={`px-2 py-0.5 rounded-full text-[0.7em] font-bold uppercase ${
-                  u.estado === 'activo' ? 'bg-clr6 text-clr6' :
-                  u.estado === 'inactivo' ? 'bg-clr4 text-clr4' :
-                  'bg-clr5 text-clr5'
+                  u.estado === 'activo' ? 'bg-pclr6 text-pclr12 dark:bg-pdclr6 dark:text-pdclr12' :
+                  u.estado === 'inactivo' ? 'bg-pclr10 text-pclr4' :
+                  'bg-pclr5 text-pclr12 dark:bg-pdclr5 dark:text-pdclr12'
                 }`}>{u.estado}</span>
               </div>
 
@@ -97,22 +97,22 @@ export default function DashUsuarios({ userPerfil, usuarios = [], onEdit, onVer,
                   <span className="text-[0.8em] uppercase" style={{ color: unitColor }} >Unidad</span>
                   {u.unidades?.nombre ? (
                     <span 
-                      className="text-[0.85em] font-black uppercase px-2.5 py-1 rounded-lg text-clr1 tracking-wider"
+                      className="text-[0.85em] font-black uppercase px-2.5 py-1 rounded-lg text-pclr12 tracking-wider"
                       style={{ backgroundColor: unitColor || '#a1a1aa', color: unitColor2 || '#1b1c1d' }}
                     >
                       {u.unidades.nombre}
                     </span>
                   ) : (
-                    <span className="text-[0.9em] font-bold text-clr3 uppercase">Sin Unidad</span>
+                    <span className="text-[0.9em] font-bold text-pclr7 uppercase">Sin Unidad</span>
                   )}
                 </div>
                 <div className="flex justify-between items-center p-2 rounded-xl" style={{ backgroundColor: unitColor2 }}>
                   <span className="text-[0.8em] uppercase" style={{ color: unitColor }}>Rol</span>
-                  <span className="text-[0.9em] font-bold text-clr4 dark:text-dclr4 uppercase" style={{ color: unitColor }}>{u.roles?.name}</span>
+                  <span className="text-[0.9em] font-bold text-pclr4 dark:text-pdclr4 uppercase" style={{ color: unitColor }}>{u.roles?.name}</span>
                 </div>
                 <div className="flex justify-between items-center p-2 rounded-xl" style={{ backgroundColor: unitColor2 }}>
                   <span className="text-[0.8em] uppercase" style={{ color: unitColor }}>Edad</span>
-                  <span className="text-[0.9em] font-bold text-clr4 dark:text-dclr4 uppercase" style={{ color: unitColor }}>{calcularEdad(u.fecha_nacimiento)} Años</span>
+                  <span className="text-[0.9em] font-bold text-pclr4 dark:text-pdclr4 uppercase" style={{ color: unitColor }}>{calcularEdad(u.fecha_nacimiento)} Años</span>
                 </div>
               </div>
 
@@ -132,13 +132,13 @@ export default function DashUsuarios({ userPerfil, usuarios = [], onEdit, onVer,
               <div className={`grid ${isAdmin(userPerfil) ? 'grid-cols-3' : 'grid-cols-2'} gap-3 relative z-10`}>
                 <button 
                   onClick={() => onVer(u)}
-                  className="p-2 bg-clr7 dark:bg-dclr7 text-clr2 dark:text-dclr2 rounded-2xl text-[0.8em] font-black uppercase tracking-widest transition-all hover:bg-clr7 dark:hover:bg-clr1 text-center"
+                  className="p-2 bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4 rounded-2xl text-[0.8em] font-black uppercase tracking-widest transition-all hover:bg-pclr3 dark:hover:bg-pclr1 text-center"
                 >
                   🔎 Ver
                 </button>
                 <button 
                   onClick={() => onEdit(u)}
-                  className="p-2 bg-clr4 text-clr4 border-1 border-clr4 rounded-2xl text-[0.8em] font-bold uppercase tracking-widest transition-all hover:bg-clr4 hover:text-clr1 shadow-sm text-center"
+                  className="p-2 bg-pclr8 dark:bg-pdclr8 text-pclr12 dark:text-pdclr12 border border-pclr8 dark:border-pdclr8 rounded-2xl text-[0.8em] font-bold uppercase tracking-widest transition-all hover:brightness-110 shadow-sm text-center"
                   style={{ backgroundColor: unitColor, color: unitColor2, borderColor: unitColor2 }}
                 >
                   ✎ Editar
@@ -146,7 +146,7 @@ export default function DashUsuarios({ userPerfil, usuarios = [], onEdit, onVer,
                 {isAdmin(userPerfil) && onDelete && (
                   <button 
                     onClick={() => { if (window.confirm('¿Eliminar este usuario? Esta acción no se puede deshacer.')) onDelete(u); }}
-                    className="p-2 bg-clr4 text-clr4 border border-clr4 rounded-2xl text-[0.8em] font-bold uppercase tracking-widest transition-all hover:bg-clr4 hover:text-clr1 shadow-sm text-center"
+                    className="p-2 bg-pclr5 dark:bg-pdclr5 text-pclr12 dark:text-pdclr12 border border-pclr5 dark:border-pdclr5 rounded-2xl text-[0.8em] font-bold uppercase tracking-widest transition-all hover:brightness-110 shadow-sm text-center"
                   >
                     🗑 Borrar
                   </button>

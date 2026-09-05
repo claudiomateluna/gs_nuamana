@@ -6,14 +6,14 @@ import type { StepProps } from '@/types/autorizacion'
 export default function Step2_DatosGrupo({ formData, setFormData, perfil }: StepProps) {
   const unidadesMap: Record<number, string> = { 1: 'Manada', 2: 'Compañía', 3: 'Tropa', 4: 'Avanzada', 5: 'Clan' };
 
-  const titleStyle = "text-[1.2em] font-black text-clr4 dark:text-dclr4 uppercase tracking-tighter mb-8 border-b-2 border-clr4 pb-2";
+  const titleStyle = "text-[1.2em] font-black text-pclr4 dark:text-pdclr4 uppercase tracking-tighter mb-8 border-b-2 border-pclr14 pb-2";
   const labelContainerStyle = "flex items-center gap-2 mb-1";
-  const labelStyle = "text-[0.9em] font-black uppercase text-clr3 tracking-widest block";
-  const inputStyle = "w-full bg-clr7 dark:bg-dclr7 dark:text-dclr2 border-2 border-transparent focus:border-clr4 rounded-xl p-3 text-[1em] font-bold outline-none transition-all shadow-inner";
+  const labelStyle = "text-[0.9em] font-black uppercase text-pclr7 tracking-widest block";
+  const inputStyle = "w-full bg-pclr3 dark:bg-pdclr3 dark:text-pdclr4 border-2 border-transparent focus:border-pclr14 rounded-xl p-3 text-[1em] font-bold outline-none transition-all shadow-inner";
   
   const infoIconContainerStyle = "inline-block";
-  const infoIconStyle = "text-clr4 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
-  const tooltipStyle = "fixed z-[300] left-1/2 -translate-x-1/2 top-1/4 w-[90%] max-w-lg p-6 bg-clr2 dark:bg-dclr2 text-clr1 text-[1em] font-medium leading-relaxed rounded-[2rem] shadow-2xl opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 border-2 border-clr4 backdrop-blur-md";
+  const infoIconStyle = "text-pclr4 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
+  const tooltipStyle = "fixed z-[300] left-1/2 -translate-x-1/2 top-1/4 w-[90%] max-w-lg p-6 bg-pclr2 dark:bg-pdclr2 text-pclr12 text-[1em] font-medium leading-relaxed rounded-[2rem] shadow-2xl opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 border-2 border-pclr14 backdrop-blur-md";
 
   const unidades = ['No Aplica', 'Manada', 'Compañía', 'Tropa', 'Avanzada', 'Clan', 'Sin Unidad'];
   const zonasDistritos: Record<string, string[]> = {
@@ -42,7 +42,7 @@ export default function Step2_DatosGrupo({ formData, setFormData, perfil }: Step
               </span>
             </div>
             <div className={tooltipStyle}>
-              <div className="text-clr4 font-black uppercase text-[0.8em] tracking-tight mb-3 border-b border-clr4 pb-2 leading-tight">{label}</div>
+              <div className="text-pclr4 font-black uppercase text-[0.8em] tracking-tight mb-3 border-b border-pclr14 pb-2 leading-tight">{label}</div>
               <div className="text-[0.95em]" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(info) }} />
             </div>
           </div>
@@ -64,7 +64,7 @@ export default function Step2_DatosGrupo({ formData, setFormData, perfil }: Step
               const perteneceNuaMana = formData.pertenece_grupo_nua_mana !== undefined ? formData.pertenece_grupo_nua_mana : (perfil.pertenece_grupo_nua_mana ?? true);
               const isChecked = (g === 'Guias y Scouts Nua Mana' && perteneceNuaMana) || (g === 'Otro' && !perteneceNuaMana);
               return (
-                <label key={g} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] tracking-widest transition-all ${isChecked ? 'border-clr4 bg-clr4 text-clr1 shadow-lg scale-105' : 'border-clr7 dark:border-dclr7 dark:text-dclr2 hover:border-clr4'}`}>
+                <label key={g} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] tracking-widest transition-all ${isChecked ? 'border-pclr14 bg-pclr10 text-pclr12 shadow-lg scale-105' : 'border-pclr13 dark:border-pdclr13 dark:text-pdclr4 hover:border-pclr14'}`}>
                   <input type="radio" name="nombre_grupo" checked={isChecked} onChange={() => setFormData({ ...formData, nombre_grupo: g, pertenece_grupo_nua_mana: g === 'Guias y Scouts Nua Mana' })} className="hidden" /> {g}
                 </label>
               );
@@ -72,7 +72,7 @@ export default function Step2_DatosGrupo({ formData, setFormData, perfil }: Step
           </div>
         </Field>
 
-        <Field label="¿A que unidad perteneces?" info="Seleccione la unidad a la que pertenece la niña, niño o joven de acuerdo a la edad del mismo (si es adulto seleccione su unidad)<br></br><br></br><b>Manada</b> – niños y niñas entre 7 y 11 años (unidad mixta)<br></br><b>Compañía</b> – niñas y jóvenes mujeres entre 11 y 15 años (unidad femenina)<br></br><b>Tropa</b> – niños y jóvenes entre 11 y 15 años (unidad masculina)<br></br><b>Avanzada</b> – jóvenes entre 15 y 17 años (unidad mixta)<br></br><b>Clan</b> – jóvenes entre 17 y 20 años (unidad mixta)<br></br><br></br><span class='font-black text-clr4'>* Estos campos son obligatorios</span>">
+        <Field label="¿A que unidad perteneces?" info="Seleccione la unidad a la que pertenece la niña, niño o joven de acuerdo a la edad del mismo (si es adulto seleccione su unidad)<br></br><br></br><b>Manada</b> – niños y niñas entre 7 y 11 años (unidad mixta)<br></br><b>Compañía</b> – niñas y jóvenes mujeres entre 11 y 15 años (unidad femenina)<br></br><b>Tropa</b> – niños y jóvenes entre 11 y 15 años (unidad masculina)<br></br><b>Avanzada</b> – jóvenes entre 15 y 17 años (unidad mixta)<br></br><b>Clan</b> – jóvenes entre 17 y 20 años (unidad mixta)<br></br><br></br><span class='font-black text-pclr4'>* Estos campos son obligatorios</span>">
           <select defaultValue={formData.unidad_nombre || (perfil.unidad_id ? unidadesMap[perfil.unidad_id] : undefined) || 'Manada'} onChange={(e) => setFormData({ ...formData, unidad_nombre: e.target.value })} className={inputStyle}>
             {unidades.map(u => <option key={u} value={u}>{u}</option>)}
           </select>

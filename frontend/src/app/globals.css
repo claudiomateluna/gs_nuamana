@@ -125,6 +125,20 @@
   --fodclr4: #b0b0b0; --fodclr5: #ffcf33; --fodclr6: #b0b0b0;
   --fodclr7: #121212; --fodclr8: #FFFFFF; --fodclr9: #ef4b3a; --fodclr10: #ef4b3a;
 
+  /* Panel (14 roles) — light */
+  --pclr1: #FFFFFF; --pclr2: #f8f9fa; --pclr3: #e9ecef;
+  --pclr4: #2c3e50; --pclr5: #cb3327; --pclr6: #3eb34b;
+  --pclr7: #95a5a6; --pclr8: #cb3327; --pclr9: #f8f9fa;
+  --pclr10: #2c3e50; --pclr11: #333333; --pclr12: #FFFFFF;
+  --pclr13: #e9ecef; --pclr14: #cb3327;
+
+  /* Panel (14 roles) — dark */
+  --pdclr1: #1e1e1e; --pdclr2: #26262b; --pdclr3: #2a2a2a;
+  --pdclr4: #f7fafc; --pdclr5: #ef4b3a; --pdclr6: #33a345;
+  --pdclr7: #8a8a8a; --pdclr8: #ef4b3a; --pdclr9: #26262b;
+  --pdclr10: #33506f; --pdclr11: #3c3c3c; --pdclr12: #FFFFFF;
+  --pdclr13: #3c3c3c; --pdclr14: #ef4b3a;
+
   --background: var(--clr1);
   --foreground: var(--clr2);
 }
@@ -228,6 +242,16 @@
   --color-fodclr1: var(--fodclr1); --color-fodclr2: var(--fodclr2); --color-fodclr3: var(--fodclr3);
   --color-fodclr4: var(--fodclr4); --color-fodclr5: var(--fodclr5); --color-fodclr6: var(--fodclr6);
   --color-fodclr7: var(--fodclr7); --color-fodclr8: var(--fodclr8); --color-fodclr9: var(--fodclr9); --color-fodclr10: var(--fodclr10);
+
+  /* Panel */
+  --color-pclr1: var(--pclr1); --color-pclr2: var(--pclr2); --color-pclr3: var(--pclr3);
+  --color-pclr4: var(--pclr4); --color-pclr5: var(--pclr5); --color-pclr6: var(--pclr6);
+  --color-pclr7: var(--pclr7); --color-pclr8: var(--pclr8); --color-pclr9: var(--pclr9); --color-pclr10: var(--pclr10);
+  --color-pclr11: var(--pclr11); --color-pclr12: var(--pclr12); --color-pclr13: var(--pclr13); --color-pclr14: var(--pclr14);
+  --color-pdclr1: var(--pdclr1); --color-pdclr2: var(--pdclr2); --color-pdclr3: var(--pdclr3);
+  --color-pdclr4: var(--pdclr4); --color-pdclr5: var(--pdclr5); --color-pdclr6: var(--pdclr6);
+  --color-pdclr7: var(--pdclr7); --color-pdclr8: var(--pdclr8); --color-pdclr9: var(--pdclr9); --color-pdclr10: var(--pdclr10);
+  --color-pdclr11: var(--pdclr11); --color-pdclr12: var(--pdclr12); --color-pdclr13: var(--pdclr13); --color-pdclr14: var(--pdclr14);
 
   /* Vinculación de fuentes para Tailwind v4 */
   --font-display: var(--font-inika);

@@ -5,7 +5,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/contexts/theme-context";
 import { SiteConfigProvider } from "@/contexts/site-config-context";
 import { loadSiteConfig } from "@/lib/site-config";
-import { generateThemeCSS, generateHeaderColorsCSS, generateMenuColorsCSS, generatePromoColorsCSS, generateSlideshowColorsCSS, generateTestimonialsColorsCSS, generateVisitColorsCSS, generateFAQColorsCSS, generateSecondaryHeaderColorsCSS, generateFooterColorsCSS } from "@/lib/theme-css";
+import { generateThemeCSS, generateHeaderColorsCSS, generateMenuColorsCSS, generatePromoColorsCSS, generateSlideshowColorsCSS, generateTestimonialsColorsCSS, generateVisitColorsCSS, generateFAQColorsCSS, generateSecondaryHeaderColorsCSS, generateFooterColorsCSS, generatePanelColorsCSS } from "@/lib/theme-css";
 import Footer from "@/components/footer";
 
 const inika = Inika({
@@ -82,6 +82,7 @@ export default async function RootLayout({
         <style dangerouslySetInnerHTML={{ __html: generateFAQColorsCSS(config.faq_colors || {}) }} />
         <style dangerouslySetInnerHTML={{ __html: generateSecondaryHeaderColorsCSS(config.secondary_header_colors || {}) }} />
         <style dangerouslySetInnerHTML={{ __html: generateFooterColorsCSS(config.footer_colors || {}) }} />
+        <style dangerouslySetInnerHTML={{ __html: generatePanelColorsCSS(config.panel_colors || {}) }} />
         <ThemeProvider>
           <SiteConfigProvider config={config}>
             <div className="flex flex-col min-h-screen">

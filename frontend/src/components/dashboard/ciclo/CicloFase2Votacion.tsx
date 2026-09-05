@@ -58,10 +58,10 @@ export default function CicloFase2Votacion({
   return (
     <div className="space-y-8 animate-in slide-in-from-bottom-4 duration-500">
       {canManage && cicloActivo.fase_actual === 2 && (
-        <div className="p-6 bg-clr7 dark:bg-dclr7 rounded-[2rem] border-2 border-dashed border-clr7 dark:border-dclr7 space-y-4">
+        <div className="p-6 bg-pclr3 dark:bg-pdclr3 rounded-[2rem] border-2 border-dashed border-pclr13 dark:border-pdclr13 space-y-4">
           <div className="flex items-center gap-3">
             <span className="text-2xl">⚙️</span>
-            <h4 className="text-sm font-black uppercase tracking-widest text-clr3">Configurar Reglas de Votación</h4>
+            <h4 className="text-sm font-black uppercase tracking-widest text-pclr7">Configurar Reglas de Votación</h4>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
             <div className="space-y-1">
@@ -71,7 +71,7 @@ export default function CicloFase2Votacion({
                 min="1"
                 value={votosTotales}
                 onChange={(e) => setVotosTotales(parseInt(e.target.value) || 0)}
-                className="w-full p-3 rounded-xl border bg-clr1 dark:bg-dclr1 font-black text-sm"
+                className="w-full p-3 rounded-xl border bg-pclr1 dark:bg-pdclr1 font-black text-sm"
               />
             </div>
             <div className="space-y-1">
@@ -81,11 +81,11 @@ export default function CicloFase2Votacion({
                 min="1"
                 value={votosMax}
                 onChange={(e) => setVotosMax(parseInt(e.target.value) || 0)}
-                className="w-full p-3 rounded-xl border bg-clr1 dark:bg-dclr1 font-black text-sm"
+                className="w-full p-3 rounded-xl border bg-pclr1 dark:bg-pdclr1 font-black text-sm"
               />
             </div>
             <div>
-              <label className="flex items-center gap-3 cursor-pointer p-3 bg-clr1 dark:bg-dclr1 rounded-xl border w-full">
+              <label className="flex items-center gap-3 cursor-pointer p-3 bg-pclr1 dark:bg-pdclr1 rounded-xl border w-full">
                 <input 
                   type="checkbox" 
                   checked={votosIlimitados}
@@ -99,7 +99,7 @@ export default function CicloFase2Votacion({
               onClick={guardarReglasVotacion}
               disabled={savingRules}
               style={{ backgroundColor: unitColor }} 
-              className="w-full py-3 text-clr1 font-black uppercase rounded-xl shadow-lg hover:scale-105 transition-all text-[1em] tracking-widest disabled:opacity-50 border-none text-shadow-lg"
+              className="w-full py-3 text-pclr12 font-black uppercase rounded-xl shadow-lg hover:scale-105 transition-all text-[1em] tracking-widest disabled:opacity-50 border-none text-shadow-lg"
             >
               {savingRules ? '⏳' : '💾 Aplicar Reglas'}
             </button>
@@ -109,7 +109,7 @@ export default function CicloFase2Votacion({
 
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
         <div className="space-y-1">
-          <h3 className="text-2xl font-black font-display uppercase tracking-tight text-clr4 dark:text-dclr4">Juego Democrático</h3>
+          <h3 className="text-2xl font-black font-display uppercase tracking-tight text-pclr4 dark:text-pdclr4">Juego Democrático</h3>
           <p className="text-sm opacity-60 font-medium italic font-body">
             Es momento de decidir. Vota por tus actividades favoritas.
           </p>
@@ -126,7 +126,7 @@ export default function CicloFase2Votacion({
         {canManage && cicloActivo.fase_actual === 2 && (
           <button 
             onClick={() => setIsModVincularJuegoOpen(true)}
-            className="px-6 py-3 bg-clr2 text-clr1 font-black uppercase rounded-2xl shadow-lg hover:brightness-125 transition-all text-xs tracking-widest flex items-center gap-2"
+            className="px-6 py-3 bg-pclr2 text-pclr12 font-black uppercase rounded-2xl shadow-lg hover:brightness-125 transition-all text-xs tracking-widest flex items-center gap-2"
           >
             <span>🎲</span>
             {cicloActivo.articulo_juego_id ? 'Cambiar Dinámica' : 'Vincular Dinámica'}
@@ -135,21 +135,21 @@ export default function CicloFase2Votacion({
       </div>
 
       {cicloActivo.articulo_juego && (
-        <div className="p-2 bg-clr4 dark:bg-dclr4 rounded-[2rem] border border-clr4 dark:border-dclr4 flex flex-col md:flex-row items-center gap-6">
+        <div className="p-2 bg-pclr10 dark:bg-pdclr10 rounded-[2rem] border border-pclr14 dark:border-pdclr14 flex flex-col md:flex-row items-center gap-6">
           {cicloActivo.articulo_juego.imagen_destacada ? (
             <img src={cicloActivo.articulo_juego.imagen_destacada} className="w-full md:w-32 h-32 object-cover rounded-2xl shadow-md" alt="Juego Democrático" />
           ) : (
-            <div className="w-full md:w-32 h-32 bg-clr4 dark:bg-dclr4 rounded-2xl flex items-center justify-center text-4xl">🎲</div>
+            <div className="w-full md:w-32 h-32 bg-pclr10 dark:bg-pdclr10 rounded-2xl flex items-center justify-center text-4xl">🎲</div>
           )}
           <div className="flex-1 space-y-2 text-center md:text-left">
-            <span className="text-[0.8em] font-black uppercase text-clr4 tracking-widest">Dinámica de Votación Usada</span>
-            <h4 className="text-2xl font-bold uppercase text-clr4 dark:text-dclr4">{cicloActivo.articulo_juego.titulo}</h4>
+            <span className="text-[0.8em] font-black uppercase text-pclr4 tracking-widest">Dinámica de Votación Usada</span>
+            <h4 className="text-2xl font-bold uppercase text-pclr4 dark:text-pdclr4">{cicloActivo.articulo_juego.titulo}</h4>
             <p className="text-sm italic opacity-70 line-clamp-2">{cicloActivo.articulo_juego.extracto}</p>
           </div>
           <a 
             href={`/blog/actividades/juegos-democraticos/${cicloActivo.articulo_juego.slug}`}
             target="_blank"
-            className="px-6 py-3 bg-clr4 text-clr1 font-bold uppercase rounded-xl hover:bg-clr4 transition-all text-xs shadow-md whitespace-nowrap"
+            className="px-6 py-3 bg-pclr10 text-pclr12 font-bold uppercase rounded-xl hover:bg-pclr10 transition-all text-xs shadow-md whitespace-nowrap"
           >
             Reglas de la Dinámica
           </a>
@@ -173,8 +173,8 @@ export default function CicloFase2Votacion({
           return (
             <div 
               key={p.id} 
-              className={`p-2 rounded-[1rem] bg-clr1 dark:bg-dclr1 border-2 transition-all shadow-sm flex flex-col justify-between gap-2 relative overflow-hidden ${
-                userQty > 0 ? "shadow-xl border-opacity-100" : "border-clr7 dark:border-dclr7"
+              className={`p-2 rounded-[1rem] bg-pclr1 dark:bg-pdclr1 border-2 transition-all shadow-sm flex flex-col justify-between gap-2 relative overflow-hidden ${
+                userQty > 0 ? "shadow-xl border-opacity-100" : "border-pclr13 dark:border-pdclr13"
               }`} 
               style={{ 
                 borderColor: userQty > 0 ? unitColor : undefined, 
@@ -194,23 +194,23 @@ export default function CicloFase2Votacion({
               
               <div className="space-y-2 relative z-10 font-body">
                 <span className="text-[0.8em] font-black uppercase opacity-35 tracking-widest">Idea de {p.autor?.nombres}</span>
-                <h4 className="text-xl font-bold uppercase leading-tight text-clr4 dark:text-dclr4">{p.titulo}</h4>
+                <h4 className="text-xl font-bold uppercase leading-tight text-pclr4 dark:text-pdclr4">{p.titulo}</h4>
                 <p className="text-sm italic opacity-60 line-clamp-3">{p.descripcion}</p>
               </div>
               
-              <div className="pt-4 border-t border-clr7 dark:border-dclr7 flex justify-between items-center relative z-10">
+              <div className="pt-4 border-t border-pclr13 dark:border-pdclr13 flex justify-between items-center relative z-10">
                 <div className="flex items-center gap-2">
                   <span className="text-2xl font-black" style={{ color: unitColor }}>{totalVotos}</span>
                   <span className="text-[9px] font-black uppercase opacity-40 leading-tight">Votos<br/>Totales</span>
                 </div>
                 
                 {cicloActivo.fase_actual === 2 && !readOnlyOverride && (
-                  <div className="flex items-center gap-2 bg-clr7 dark:bg-dclr7 p-1 rounded-2xl border border-clr7 dark:border-dclr7">
+                  <div className="flex items-center gap-2 bg-pclr3 dark:bg-pdclr3 p-1 rounded-2xl border border-pclr13 dark:border-pdclr13">
                     <button 
                       disabled={!canSub || userQty === 0}
                       onClick={() => onVoteClick(p.id, userQty, -1)}
                       style={{ color: unitColor, borderColor: unitColor }} 
-                      className="w-10 h-10 flex items-center justify-center bg-clr1 dark:bg-dclr1 rounded-xl shadow-sm hover:brightness-110 disabled:opacity-20 transition-all font-black border-2"
+                      className="w-10 h-10 flex items-center justify-center bg-pclr1 dark:bg-pdclr1 rounded-xl shadow-sm hover:brightness-110 disabled:opacity-20 transition-all font-black border-2"
                     >
                       -
                     </button>
@@ -219,7 +219,7 @@ export default function CicloFase2Votacion({
                       disabled={!canAdd}
                       onClick={() => onVoteClick(p.id, userQty, 1)}
                       style={{ color: unitColor, borderColor: unitColor }} 
-                      className="w-10 h-10 flex items-center justify-center bg-clr1 dark:bg-dclr1 rounded-xl shadow-sm hover:brightness-90 disabled:opacity-20 transition-all font-black text-lg border-2"
+                      className="w-10 h-10 flex items-center justify-center bg-pclr1 dark:bg-pdclr1 rounded-xl shadow-sm hover:brightness-90 disabled:opacity-20 transition-all font-black text-lg border-2"
                     >
                       +
                     </button>
@@ -238,7 +238,7 @@ export default function CicloFase2Votacion({
           </div>
         )}
         {cicloActivo.fase_actual > 2 && (
-           <div className="col-span-full py-4 text-center opacity-30 text-[0.8em] font-black uppercase tracking-widest border-t border-dashed border-clr7 mt-4">
+           <div className="col-span-full py-4 text-center opacity-30 text-[0.8em] font-black uppercase tracking-widest border-t border-dashed border-pclr13 mt-4">
              🔒 Modo Lectura (Votación Finalizada)
            </div>
         )}
