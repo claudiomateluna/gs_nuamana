@@ -41,7 +41,7 @@ const FALLBACK = {
   ] as const,
   sede_nombre: 'Sede San José',
   direccion: 'San José de la Estrella 1004<br/>La Granja, Santiago, Chile',
-  maps_embed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3324.382796811922!2d-70.6096195!3d-33.569409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d0a6e457520d%3A0xc3892aa7fa7d74b!2sGuias%20y%20Scouts%20Nua%20Mana!5e0%3m2!1ses!2scl!4v1763171854990!5m2!1ses!2scl',
+  maps_embed: 'https://maps.google.com/maps?q=Guias%20y%20Scouts%20Nua%20Mana&t=&z=17&ie=UTF8&iwloc=&output=embed',
 };
 
 const NuaManaFooter = () => {

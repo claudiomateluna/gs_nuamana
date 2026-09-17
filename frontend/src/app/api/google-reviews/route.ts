@@ -5,10 +5,9 @@ export async function GET() {
   const placeId = process.env.NEXT_PUBLIC_GOOGLE_PLACE_ID;
 
   if (!apiKey || !placeId) {
-    return NextResponse.json(
-      { error: 'Faltan configurar las variables GOOGLE_PLACES_API_KEY o NEXT_PUBLIC_GOOGLE_PLACE_ID en .env.local' },
-      { status: 500 }
-    );
+    // Return empty reviews instead of 500 — the component degrades gracefully
+    // with an empty state. A 500 triggers retries and pollutes the console.
+    return NextResponse.json({ reviews: [], source: 'unconfigured' });
   }
 
   try {
@@ -72,14 +71,11 @@ export async function GET() {
       });
     }
 
-    return NextResponse.json(
-      { error: 'No se pudieron obtener las reseñas de Google Places.' },
-      { status: 400 }
-    );
+    // Both Google APIs failed — return empty reviews instead of an error
+    // so the component renders gracefully without retries.
+    return NextResponse.json({ reviews: [], source: 'unavailable' });
   } catch (error: any) {
-    return NextResponse.json(
-      { error: 'Error interno en el servidor de reseñas', details: error.message },
-      { status: 500 }
-    );
+    // Network or parsing error — return empty reviews, not 500.
+    return NextResponse.json({ reviews: [], source: 'error' });
   }
 }
