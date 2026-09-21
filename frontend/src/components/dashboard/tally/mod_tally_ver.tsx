@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useCallback, useEffect } from 'react'
 import { getBitacoraName } from '@/lib/bitacora-utils'
 import type { Bitacora } from '@/types'
 
@@ -10,20 +10,64 @@ interface DashModBitacoraVerProps {
   bitacora: any
 }
 
+const SWIPE_THRESHOLD = 50
+
 export default function DashModBitacoraVer({ isOpen, onClose, bitacora }: DashModBitacoraVerProps) {
   const [activeImg, setActiveImg] = useState(0)
+  const touchStartX = useRef(0)
+  const touchStartY = useRef(0)
+  const isSwiping = useRef(false)
   
   if (!isOpen || !bitacora) return null
   
   const unitName = getBitacoraName(bitacora.unidad_id)
   const images = bitacora.imagenes || []
 
+  const goToPrev = () => setActiveImg(prev => (prev > 0 ? prev - 1 : images.length - 1))
+  const goToNext = () => setActiveImg(prev => (prev < images.length - 1 ? prev + 1 : 0))
+
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX
+    touchStartY.current = e.touches[0].clientY
+    isSwiping.current = false
+  }, [])
+
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    if (!touchStartX.current) return
+    const deltaX = e.touches[0].clientX - touchStartX.current
+    const deltaY = e.touches[0].clientY - touchStartY.current
+    // Si el movimiento horizontal es mayor que el vertical, es un swipe
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 10) {
+      isSwiping.current = true
+      e.preventDefault()
+    }
+  }, [])
+
+  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+    if (!isSwiping.current) return
+    const deltaX = e.changedTouches[0].clientX - touchStartX.current
+    if (deltaX < -SWIPE_THRESHOLD) goToNext()
+    else if (deltaX > SWIPE_THRESHOLD) goToPrev()
+    touchStartX.current = 0
+    isSwiping.current = false
+  }, [images.length])
+
+  // Reset image index when bitacora changes
+  useEffect(() => {
+    setActiveImg(0)
+  }, [bitacora?.id])
+
   return (
     <div className="fixed inset-0 bg-pclr2 backdrop-blur-xl z-[120] flex items-center justify-center p-0 md:p-10 animate-in fade-in zoom-in duration-500">
       <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-6xl h-full md:h-auto md:max-h-[90vh] rounded-none md:rounded-[3rem] shadow-2xl overflow-hidden flex flex-col md:flex-row">
         
         {/* Galería de Imágenes (Lado Izquierdo o Arriba) */}
-        <div className="w-full md:w-3/5 h-[40vh] md:h-auto bg-pclr2 relative flex items-center justify-center group">
+        <div 
+          className="w-full md:w-3/5 h-[40vh] md:h-auto bg-pclr2 relative flex items-center justify-center group"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
           {images.length > 0 ? (
             <>
               <img 

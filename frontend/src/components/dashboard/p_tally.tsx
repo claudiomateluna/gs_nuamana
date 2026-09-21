@@ -1,9 +1,11 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { supabase } from '@/lib/supabase'
 import { getBitacoraName, getBitacoraDescription } from '@/lib/bitacora-utils'
 import { isAdmin, isInactive } from '@/lib/roles'
+
+const PAGE_SIZE = 12
 
 interface DashTallyProps {
   perfil: any
@@ -17,32 +19,56 @@ interface DashTallyProps {
 export default function DashTally({ perfil, refreshKey = 0, onNuevaEntrada, onEditEntrada, onVerEntrada, onDelete }: DashTallyProps) {
   const [bitacoras, setBitacoras] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
+  const [loadingMore, setLoadingMore] = useState(false)
+  const [hasMore, setHasMore] = useState(true)
+  const [totalCount, setTotalCount] = useState(0)
   
   const unitName = getBitacoraName(perfil?.unidad_id)
   const unitDesc = getBitacoraDescription(perfil?.unidad_id)
   const unitColor = perfil?.unidades?.colores?.primario || '#cb3327'
   const inactive = isInactive(perfil)
 
-  const fetchBitacoras = async () => {
-    setLoading(true)
+  const fetchBitacoras = async (offset = 0, append = false) => {
+    if (offset === 0) setLoading(true)
+    else setLoadingMore(true)
+    
     try {
-      const { data, error } = await supabase
+      const from = offset
+      const to = offset + PAGE_SIZE - 1
+
+      const { data, error, count } = await supabase
         .from('bitacoras_unidad')
-        .select('*, autor:perfiles(nombres, apellidos)')
+        .select('*, autor:perfiles(nombres, apellidos)', { count: 'exact' })
         .order('fecha_suceso', { ascending: false })
+        .range(from, to)
       
       if (error) throw error
-      setBitacoras(data || [])
+
+      const newItems = data || []
+      if (append) {
+        setBitacoras(prev => [...prev, ...newItems])
+      } else {
+        setBitacoras(newItems)
+      }
+      setTotalCount(count || 0)
+      setHasMore(newItems.length === PAGE_SIZE)
     } catch (err: any) {
       console.error('Error fetching bitacoras:', err.message)
     } finally {
       setLoading(false)
+      setLoadingMore(false)
     }
   }
 
   useEffect(() => {
-    fetchBitacoras()
+    fetchBitacoras(0, false)
   }, [perfil?.unidad_id, refreshKey])
+
+  const loadMore = useCallback(() => {
+    if (!loadingMore && hasMore) {
+      fetchBitacoras(bitacoras.length, true)
+    }
+  }, [bitacoras.length, loadingMore, hasMore])
 
   const canManage = (entrada: any) => {
     if (isAdmin(perfil)) return true
@@ -165,6 +191,24 @@ export default function DashTally({ perfil, refreshKey = 0, onNuevaEntrada, onEd
           )}
         </div>
       )}
+
+        {/* Load More + Counter */}
+        {!loading && bitacoras.length > 0 && (
+          <div className="flex flex-col items-center gap-3 pt-4">
+            <p className="text-sm font-bold opacity-40 uppercase tracking-widest">
+              Mostrando {bitacoras.length} de {totalCount}
+            </p>
+            {hasMore && (
+              <button
+                onClick={loadMore}
+                disabled={loadingMore}
+                className="px-8 py-3 bg-pclr3 dark:bg-pdclr3 text-pclr7 dark:text-pdclr7 font-black font-display uppercase rounded-2xl hover:bg-pclr10 hover:text-pclr12 transition-all tracking-widest text-sm shadow-md disabled:opacity-50"
+              >
+                {loadingMore ? '⏳ Cargando...' : '📜 Cargar más'}
+              </button>
+            )}
+          </div>
+        )}
     </div>
   )
 }
