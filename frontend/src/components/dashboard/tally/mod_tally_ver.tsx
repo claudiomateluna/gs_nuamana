@@ -37,24 +37,24 @@ export default function DashModBitacoraVer({ isOpen, onClose, bitacora }: DashMo
                 <>
                   <button 
                     onClick={() => setActiveImg(prev => (prev > 0 ? prev - 1 : images.length - 1))}
-                    className="absolute left-4 p-4 bg-pclr2 hover:bg-pclr2 text-pclr12 rounded-full backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity"
+                    className="absolute left-2 md:left-4 p-3 md:p-4 bg-pclr2/80 hover:bg-pclr2 text-pclr12 rounded-full backdrop-blur-md opacity-80 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-10"
                   >
                     ❮
                   </button>
                   <button 
                     onClick={() => setActiveImg(prev => (prev < images.length - 1 ? prev + 1 : 0))}
-                    className="absolute right-4 p-4 bg-pclr2 hover:bg-pclr2 text-pclr12 rounded-full backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity"
+                    className="absolute right-2 md:right-4 p-3 md:p-4 bg-pclr2/80 hover:bg-pclr2 text-pclr12 rounded-full backdrop-blur-md opacity-80 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-10"
                   >
                     ❯
                   </button>
                   
                   {/* Indicadores / Miniaturas */}
-                  <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2 px-4 overflow-x-auto">
+                  <div className="absolute bottom-4 md:bottom-6 left-0 right-0 flex justify-center gap-2 px-4 overflow-x-auto">
                     {images.map((img: string, i: number) => (
                       <div 
                         key={i} 
                         onClick={() => setActiveImg(i)}
-                        className={`w-3 h-3 rounded-full cursor-pointer border border-pclr1 transition-all ${i === activeImg ? 'bg-pclr1 scale-125 w-8' : 'bg-pclr1'}`} 
+                        className={`w-4 h-4 md:w-3 md:h-3 rounded-full cursor-pointer border border-pclr1 transition-all ${i === activeImg ? 'bg-pclr1 scale-125 w-8 md:w-8' : 'bg-pclr1/50'}`} 
                       />
                     ))}
                   </div>
