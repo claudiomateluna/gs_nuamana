@@ -25,20 +25,43 @@ jobs:
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
             
             cd /var/www/nuamana
-            # Descargar y forzar la sincronización exacta con origin/main
+            
+            # ============================================
+            # FASE 0: BACKUP PRE-DEPLOY
+            # ============================================
+            echo "=== FASE 0: Creando backup pre-deploy ==="
+            BACKUP_BRANCH="backup-$(date +%Y%m%d-%H%M%S)"
+            git branch "$BACKUP_BRANCH" HEAD 2>/dev/null || true
+            
+            # Backup de .next y .env.local
+            if [ -d "frontend/.next" ]; then
+              rm -rf frontend/.next.backup
+              cp -r frontend/.next frontend/.next.backup
+              echo "Backup de .next creado"
+            fi
+            if [ -f "frontend/.env.local" ]; then
+              cp frontend/.env.local frontend/.env.local.backup
+              echo "Backup de .env.local creado"
+            fi
+            
+            # ============================================
+            # FASE 1: SYNC CÓDIGO
+            # ============================================
+            echo "=== FASE 1: Sincronizando código ==="
             git fetch origin main
             git reset --hard origin/main
             
+            # ============================================
+            # FASE 2: MIGRACIONES DE BD
+            # ============================================
+            echo "=== FASE 2: Ejecutando migraciones ==="
             # Asegurar la existencia de la tabla de control de migraciones
-            echo "Inicializando tabla de control de migraciones..."
             docker exec -i supabase-db psql -U supabase_admin -d postgres -c "CREATE TABLE IF NOT EXISTS public.applied_migrations (filename text PRIMARY KEY, applied_at timestamp default now());"
 
             # Desactivar temporalmente el trigger de notificaciones si existe para evitar spam en migraciones
-            echo "Desactivando trigger de notificaciones..."
             docker exec -i supabase-db psql -U supabase_admin -d postgres -c "ALTER TABLE public.articulos DISABLE TRIGGER trigger_notificar_cambio_articulo;" || true
             
             # Aplicar sólo las migraciones no ejecutadas anteriormente en orden cronológico
-            echo "Ejecutando migraciones de base de datos..."
             for f in supabase/migrations/*.sql; do
               filename=$(basename "$f")
               # Comprobar si la migración ya fue aplicada
@@ -52,22 +75,67 @@ jobs:
                   docker exec -i supabase-db psql -U supabase_admin -d postgres -c "INSERT INTO public.applied_migrations (filename) VALUES ('$filename');"
                 else
                   echo "ERROR crítico al aplicar migración: $filename"
+                  echo "Rollback: Restaurando código anterior..."
+                  git reset --hard HEAD~1
                   exit 1
                 fi
               fi
             done
 
             # Reactivar el trigger de notificaciones al finalizar si existe
-            echo "Reactivando trigger de notificaciones..."
             docker exec -i supabase-db psql -U supabase_admin -d postgres -c "ALTER TABLE public.articulos ENABLE TRIGGER trigger_notificar_cambio_articulo;" || true
 
-            # Entrar al frontend e instalar y compilar limpiando la caché de Next.js
+            # ============================================
+            # FASE 3: BUILD CON ROLLBACK
+            # ============================================
+            echo "=== FASE 3: Compilando frontend ==="
             cd frontend
             npm install
-            rm -rf .next
-            npm run build
             
-            # Sincronizar imágenes a todas las carpetas públicas servidas por Nginx
+            # Guardar commit actual para rollback
+            DEPLOY_COMMIT=$(git rev-parse HEAD)
+            
+            # Intentar build
+            rm -rf .next
+            if npm run build; then
+              echo "Build exitoso"
+              BUILD_SUCCESS=true
+            else
+              echo "Build FALLÓ - Ejecutando rollback..."
+              BUILD_SUCCESS=false
+              
+              # Restaurar .next del backup
+              if [ -d ".next.backup" ]; then
+                rm -rf .next
+                mv .next.backup .next
+                echo "Backup de .next restaurado"
+              fi
+              
+              # Restaurar .env.local si se perdió
+              if [ -f ".env.local.backup" ] && [ ! -f ".env.local" ]; then
+                mv .env.local.backup .env.local
+                echo "Backup de .env.local restaurado"
+              fi
+              
+              # Restaurar código anterior
+              cd /var/www/nuamana
+              git reset --hard "$DEPLOY_COMMIT~1"
+              cd frontend
+              
+              # Reintentar build con código anterior
+              rm -rf .next
+              if npm run build; then
+                echo "Rollback exitoso - Build con código anterior completado"
+              else
+                echo "ERROR CRÍTICO: Rollback falló - Intervención manual requerida"
+                exit 1
+              fi
+            fi
+            
+            # ============================================
+            # FASE 4: SINCRONIZAR IMÁGENES
+            # ============================================
+            echo "=== FASE 4: Sincronizando imágenes ==="
             mkdir -p /var/www/nuamana/public/uploads
             mkdir -p /var/www/nuamana/uploads
             mkdir -p /var/www/html/uploads
@@ -76,5 +144,57 @@ jobs:
             cp -rf /var/www/nuamana/frontend/public/uploads/. /var/www/html/uploads/ 2>/dev/null || true
             chmod -R 755 /var/www/nuamana/public/uploads /var/www/nuamana/uploads /var/www/html/uploads /var/www/nuamana/frontend/public/uploads 2>/dev/null || true
 
-            # Reiniciar la aplicación de Next.js en PM2
+            # ============================================
+            # FASE 5: REINICIAR PM2
+            # ============================================
+            echo "=== FASE 5: Reiniciando PM2 ==="
             pm2 reload nuamana-pwa --update-env || pm2 restart nuamana-pwa
+            
+            # ============================================
+            # FASE 6: HEALTH CHECK CON ROLLBACK
+            # ============================================
+            echo "=== FASE 6: Health check post-deploy ==="
+            sleep 5
+            
+            HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://nuamana.cl 2>/dev/null || echo "000")
+            
+            if [ "$HTTP_STATUS" = "200" ]; then
+              echo "✅ Health check exitoso (HTTP $HTTP_STATUS)"
+              echo "=== Deploy completado exitosamente ==="
+            else
+              echo "⚠️ Health check falló (HTTP $HTTP_STATUS) - Ejecutando rollback..."
+              
+              # Restaurar .next del backup
+              if [ -d "frontend/.next.backup" ]; then
+                rm -rf frontend/.next
+                mv frontend/.next.backup frontend/.next
+                echo "Backup de .next restaurado"
+              fi
+              
+              # Restaurar .env.local si se perdió
+              if [ -f "frontend/.env.local.backup" ] && [ ! -f "frontend/.env.local" ]; then
+                mv frontend/.env.local.backup frontend/.env.local
+                echo "Backup de .env.local restaurado"
+              fi
+              
+              # Restaurar código anterior
+              git reset --hard "$DEPLOY_COMMIT~1"
+              
+              # Reintentar build con código anterior
+              cd frontend
+              rm -rf .next
+              if npm run build; then
+                pm2 restart nuamana-pwa
+                echo "Rollback exitoso - Aplicación restaurada con código anterior"
+              else
+                echo "ERROR CRÍTICO: Rollback falló - Intervención manual requerida"
+                exit 1
+              fi
+            fi
+            
+            # Limpiar backups si todo salió bien
+            if [ "$BUILD_SUCCESS" = "true" ] && [ "$HTTP_STATUS" = "200" ]; then
+              rm -rf frontend/.next.backup
+              rm -f frontend/.env.local.backup
+              echo "Backups limpiados"
+            fi

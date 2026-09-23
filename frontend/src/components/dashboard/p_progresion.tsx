@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useCallback, useMemo } from 'react'
+import { usePathname } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
 import { isDirectivo, isNNJConAgenda, canSeeAllTabs, hasRole, isAdmin, Rol, isInactive } from '@/lib/roles'
 import DashModProyectoWizard from './proyecto/mod_proyecto_wizard'
@@ -109,6 +110,18 @@ const DashmodProgresion = React.memo(function DashmodProgresion({ perfil, userPe
 
   // --- Especialidades (Hook) ---
   const esp = useEspecialidades({ perfil, userPerfil })
+
+  // --- Sync subTab with URL ---
+  const pathname = usePathname()
+  useEffect(() => {
+    if (pathname.endsWith('/especialidades') && esp.subTab !== 'especialidades') {
+      esp.setSubTab('especialidades')
+    } else if (pathname.endsWith('/ceremonias') && esp.subTab !== 'ceremonias') {
+      esp.setSubTab('ceremonias')
+    } else if (pathname.endsWith('/progreso') && esp.subTab !== 'progreso') {
+      esp.setSubTab('progreso')
+    }
+  }, [pathname, esp.subTab, esp.setSubTab])
 
   // --- Estados de Ceremonias (Hitos y Celebraciones) ---
   const cer = useCeremonias({ perfil, userPerfil, isLeader, getRadarData: () => getRadarData(), fetchDefaultProgresion: def.fetchDefaultProgresion });
@@ -606,52 +619,6 @@ const fetchInitialData = useCallback(async () => {
     )
   }
 
-  const renderSubTabBar = () => {
-    const labelProgreso = isOwner ? 'Mi Progreso' : `Progreso de ${perfil.nombres}`
-    const labelEspecialidades = esp.especialidadesSupervisadas.length > 0
-      ? 'Tutorías y Supervisiones'
-      : (isOwner ? 'Mis Especialidades' : `Especialidades de ${perfil.nombres}`)
-    const labelCeremonias = 'Ceremonias e Hitos'
-
-    return (
-      <div className="flex flex-wrap gap-2 border-b border-pclr13 dark:border-pdclr13 pb-2">
-        <button
-          onClick={() => esp.setSubTab('progreso')}
-          className={`pb-2 px-4 font-bold uppercase text-[0.85em] md:text-[0.95em] border-b-2 transition-all rounded-t-lg ${
-            esp.subTab === 'progreso'
-              ? 'font-extrabold'
-              : 'border-transparent text-pclr7 hover:text-pclr4 dark:hover:text-dclr2'
-          }`}
-          style={esp.subTab === 'progreso' ? { backgroundColor: themePrimary, borderColor: themeSecondary, color: themeSecondary } : {}}
-        >
-          {labelProgreso} {isManada ? '🐾' : isCompania || isTropa ? '⚔️' : '📈'}
-        </button>
-        <button
-          onClick={() => esp.setSubTab('especialidades')}
-          className={`pb-2 px-4 font-bold uppercase text-[0.85em] md:text-[0.95em] border-b-2 transition-all rounded-t-lg ${
-            esp.subTab === 'especialidades'
-              ? 'font-extrabold'
-              : 'border-transparent text-pclr7 hover:text-pclr4 dark:hover:text-dclr2'
-          }`}
-          style={esp.subTab === 'especialidades' ? { backgroundColor: themePrimary, borderColor: themeSecondary, color: themeSecondary } : {}}
-        >
-          {labelEspecialidades} 🎖️
-        </button>
-        <button
-          onClick={() => esp.setSubTab('ceremonias')}
-          className={`pb-2 px-4 font-bold uppercase text-[0.85em] md:text-[0.95em] border-b-2 transition-all rounded-t-lg ${
-            esp.subTab === 'ceremonias'
-              ? 'font-extrabold'
-              : 'border-transparent text-pclr7 hover:text-pclr4 dark:hover:text-dclr2'
-          }`}
-          style={esp.subTab === 'ceremonias' ? { backgroundColor: themePrimary, borderColor: themeSecondary, color: themeSecondary } : {}}
-        >
-          {labelCeremonias} 🏆
-        </button>
-      </div>
-    )
-  }
-
   const getRoleLabel = (rolId: number) => {
     const roles: Record<number, string> = {
       1: 'Admin', 2: 'Dirigente', 3: 'Guiadora', 8: 'Apoderado', 
@@ -753,7 +720,7 @@ const fetchInitialData = useCallback(async () => {
       <div className="space-y-12 animate-in fade-in duration-500 pb-20">
         {renderProgressionHeader()}
 
-        {renderSubTabBar()}
+        
 
         {esp.subTab === 'ceremonias' ? (
           renderCeremoniasSection()
@@ -1154,7 +1121,7 @@ const fetchInitialData = useCallback(async () => {
       <div className="space-y-12 animate-in fade-in duration-500 pb-20">
         {renderProgressionHeader()}
 
-        {renderSubTabBar()}
+        
 
         {esp.subTab === 'ceremonias' ? (
           renderCeremoniasSection()
@@ -1811,7 +1778,7 @@ const fetchInitialData = useCallback(async () => {
     return (
       <div className="space-y-8 animate-in fade-in duration-500 pb-20">
         {renderProgressionHeader()}
-        {renderSubTabBar()}
+        
 
         {esp.subTab === 'ceremonias' ? (
           renderCeremoniasSection()
