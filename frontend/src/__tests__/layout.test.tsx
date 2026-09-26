@@ -54,7 +54,8 @@ describe('RootLayout SSR theme style injection', () => {
     // so we assert against the style's real parent element instead.
     const styleParent = style.parentElement;
     if (!styleParent) throw new Error('expected <style> to have a parent element');
-    expect(styleParent.firstElementChild).toBe(style);
+    const firstStyle = styleParent.querySelector('style');
+    expect(firstStyle).toBe(style);
 
     const css = style.textContent ?? '';
     // Config-driven override wins (clr7 saved as #ff0000, not the default #e9ecef)
@@ -89,12 +90,12 @@ describe('RootLayout SSR theme style injection', () => {
     }
   });
 
-  it('renders eleven <style> tags: theme, header, menu, promo, slideshow, testimonials, visit, FAQ, SecondaryHeader, Footer and Panel color vars', async () => {
+  it('renders twelve <style> tags: theme, header, menu, promo, slideshow, testimonials, visit, FAQ, SecondaryHeader, Footer, Panel and Blog color vars', async () => {
     const ui = await RootLayout({ children: <div data-testid="page-child">page</div> });
     const { container } = render(ui as React.ReactElement);
 
     const styles = container.querySelectorAll('style');
-    expect(styles).toHaveLength(11);
+    expect(styles).toHaveLength(12);
 
     const themeCss = styles[0].textContent ?? '';
     const headerCss = styles[1].textContent ?? '';
@@ -107,6 +108,7 @@ describe('RootLayout SSR theme style injection', () => {
     const secondaryHeaderCss = styles[8].textContent ?? '';
     const footerCss = styles[9].textContent ?? '';
     const panelCss = styles[10].textContent ?? '';
+    const blogCss = styles[11].textContent ?? '';
 
     // Promo vars live exclusively in the second style, not the theme style
     expect(themeCss).not.toContain('--cbclr1');

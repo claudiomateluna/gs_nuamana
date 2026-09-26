@@ -284,8 +284,9 @@ describe('ZoneConfigForm rendering', () => {
       'PWA',
       'Colores del Tema',
       'Colores del Panel',
+      'Colores del Blog',
     ]);
-    expect(screen.getAllByRole('button', { name: 'Guardar' })).toHaveLength(4);
+    expect(screen.getAllByRole('button', { name: 'Guardar' })).toHaveLength(5);
   });
 
   it('renders no cards for the tab-only Menú zone (companion to the non-empty cases above)', () => {

@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Header from '@/components/Header'
+import { JsonLd } from '@/components/json-ld'
 import { supabase } from '@/lib/supabase'
 import ClanCustomContent from '@/components/unidades/clan'
 import ManadaCustomContent from '@/components/unidades/manada'
@@ -37,9 +38,23 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!unit) return {}
 
+  const unitIcons: Record<string, string> = {
+    manada: '/images/logos/iconos_lobatos.svg',
+    compania: '/images/logos/iconos_guias.svg',
+    tropa: '/images/logos/iconos_scouts.svg',
+    avanzada: '/images/logos/iconos_pioneres.svg',
+    clan: '/images/logos/iconos_caminantes.svg',
+  }
+
   return {
     title: `${unit.nombre} ${unit.nombre_unidad ? `"${unit.nombre_unidad}"` : ''} - Guías y Scouts Nua Mana`,
     description: `${unit.descripcion}. Conoce más sobre la propuesta pedagógica, actividades y desafíos de la unidad.`,
+    openGraph: {
+      title: `${unit.nombre} ${unit.nombre_unidad ? `"${unit.nombre_unidad}"` : ''} - Guías y Scouts Nua Mana`,
+      description: `${unit.descripcion}. Conoce más sobre la propuesta pedagógica, actividades y desafíos de la unidad.`,
+      images: unitIcons[slug] ? [{ url: unitIcons[slug], width: 1200, height: 630 }] : undefined,
+      type: 'website',
+    },
   }
 }
 
@@ -135,6 +150,15 @@ export default async function UnidadPage({ params }: PageProps) {
 
   return (
     <div className="bg-clr7 dark:bg-dclr7 text-clr2 dark:text-dclr2 min-h-screen flex flex-col transition-colors duration-300">
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+          { '@type': 'ListItem', 'position': 1, 'name': 'Inicio', 'item': 'https://nuamana.cl' },
+          { '@type': 'ListItem', 'position': 2, 'name': 'Unidades', 'item': 'https://nuamana.cl/unidad' },
+          { '@type': 'ListItem', 'position': 3, 'name': unit.nombre },
+        ],
+      }} />
       <Header />
       
       {/* Sección Hero / Bandera Full-Screen */}

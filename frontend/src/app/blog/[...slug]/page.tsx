@@ -1,582 +1,101 @@
-'use client'
+import { Metadata } from 'next';
+import { supabase } from '@/lib/supabase';
+import { JsonLd } from '@/components/json-ld';
+import BlogArticleClient from './BlogArticleClient';
 
-import { useEffect, useState, use, useRef, useCallback, Suspense } from 'react'
-import { useSearchParams } from 'next/navigation'
-import NotFound from '@/app/not-found'
-import { supabase } from '@/lib/supabase'
-import { format } from 'date-fns'
-import { es } from 'date-fns/locale'
-import Link from 'next/link'
-import SecondaryHeader from '@/components/SecondaryHeader'
-import DOMPurify from 'dompurify'
-import type { Articulo, ArticuloResena, Categoria, ArticuloMetadata, ObjEducacionMeta } from '@/types'
-
-const POSTS_PER_PAGE = 9
-
-const ICON_URLS = {
-  categoria: "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/icono_category.svg",  
-  unidad: "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/icono_unidades.svg",     
-  area: "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/icono_area.svg",
-  lugar: "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/icono_lugar.svg",
-  duracion: "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/icono_duracion.svg",   
-  cantidad: "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/icono_participantes.svg",
-  materiales: "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/icono_materiales.svg",
-  objetivos: "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/icono_objetivos.svg", 
-  pais: "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/icono_pais.svg",
-  nacimiento: "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/icono_nacimiento.svg",
-  defuncion: "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/icono_fdefuncion.svg",
-  calendario: "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/iconos_Calendario.svg",
-  variacion: "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/icono_variacion.svg", 
-  recomendacion: "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/icono_recomendacion.svg",
-  etiquetas: "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/icono_categoriaa.svg" 
+interface PageProps {
+  params: Promise<{ slug: string[] }>;
 }
 
-const UNIDADES = ['manada', 'compania', 'tropa', 'avanzada', 'clan']
-const AREAS = ['corporalidad', 'creatividad', 'caracter', 'afectividad', 'sociabilidad', 'espiritualidad']      
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const slugStr = slug.join('/');
 
-const Icon = ({ url, className = "w-4 h-4" }: { url: string, className?: string }) => (
-  <img src={url} alt="icon" className={`${className} inline-block`} />
-)
+  const { data: articulo } = await supabase
+    .from('articulos')
+    .select('titulo, extracto, imagen_destacada')
+    .eq('slug', slugStr)
+    .single();
 
-const renderFormattedText = (text: string, className?: string) => {
-  if (!text) return null
-  const paragraphs = text.split(/\n\s*\n/).filter(Boolean)
-  const colorClass = className || 'text-blclr9 dark:text-bldclr9'
-  return (
-    <div className={`space-y-4 font-normal text-[1.05rem] leading-relaxed ${colorClass}`}>
-      {paragraphs.map((para, i) => {
-        const rawHtml = para.trim().replace(/\n/g, '<br/>')
-        const cleanHtml = typeof window !== 'undefined' ? DOMPurify.sanitize(rawHtml) : rawHtml
-        return (
-          <p
-            key={i}
-            className="my-0 leading-relaxed"
-            dangerouslySetInnerHTML={{
-              __html: cleanHtml
-            }}
-          />
-        )
-      })}
-    </div>
-  )
+  if (!articulo) {
+    return { title: 'Artículo no encontrado | Nua Mana' };
+  }
+
+  return {
+    title: `${articulo.titulo} | Nua Mana`,
+    description: articulo.extracto || '',
+    openGraph: {
+      title: articulo.titulo,
+      description: articulo.extracto || '',
+      images: articulo.imagen_destacada ? [{ url: articulo.imagen_destacada, width: 1200, height: 630 }] : undefined,
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+    },
+  };
 }
 
-function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
-  const searchParams = useSearchParams()
-  const { slug: slugArray } = params
-  const lastSlug = slugArray[slugArray.length - 1]
-  const currentPath = slugArray.join('/')
+export default async function BlogArticlePage({ params }: PageProps) {
+  const { slug } = await params;
+  const slugStr = slug.join('/');
 
-  const [articulo, setArticulo] = useState<Articulo | null>(null)
-  const [categoria, setCategoria] = useState<Categoria | null>(null)
-  const [postsCategoria, setPostsCategoria] = useState<(Articulo & { fullPath: string })[]>([])
-  const [pathCategorias, setPathCategorias] = useState<Categoria[]>([])
-  const [loading, setLoading] = useState(true)
-  const [loadingMore, setLoadingMore] = useState(false)
-  const [error404, setError404] = useState(false)
+  const { data: articulo } = await supabase
+    .from('articulos')
+    .select('titulo, extracto, imagen_destacada, created_at, updated_at, autor:perfiles(nombres, apellidos), etiquetas, articulo_categorias(categorias(nombre))')
+    .eq('slug', slugStr)
+    .single() as { data: {
+      titulo: string;
+      extracto: string | null;
+      imagen_destacada: string | null;
+      created_at: string;
+      updated_at: string | null;
+      autor: { nombres: string; apellidos: string } | null;
+      etiquetas: string[] | null;
+      articulo_categorias: Array<{ categorias: { nombre: string }[] }> | null;
+    } | null };
 
-  // Infinite Scroll & Filtros
-  const [page, setPage] = useState(0)
-  const [hasMore, setHasMore] = useState(true)
-  
-  const [search, setSearch] = useState(searchParams.get('q') || '')
-  const [selUnidad, setSelUnidad] = useState(searchParams.get('unidad') || searchParams.get('unidades') || '')
-  const [selArea, setSelArea] = useState(searchParams.get('area') || searchParams.get('areas') || '')
-
-  const observer = useRef<IntersectionObserver | null>(null)
-  const lastPostRef = useCallback((node: HTMLElement | null) => {
-    if (loading || loadingMore) return
-    if (observer.current) observer.current.disconnect()
-    observer.current = new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting && hasMore) {
-        setPage(prev => prev + 1)
-      }
-    })
-    if (node) observer.current.observe(node)
-  }, [loading, loadingMore, hasMore])
-
-  const fetchData = async (pageNum: number = 0, isNewFilter: boolean = false) => {
-    if (pageNum === 0) setLoading(true)
-    else setLoadingMore(true)
-
-    try {
-      // Realizar consultas iniciales de categorías y artículo en paralelo
-      const [catsRes, artRes] = await Promise.all([
-        supabase.from('categorias').select('*'),
-        pageNum === 0
-          ? supabase
-              .from('articulos')
-              .select(`*, articulo_categorias(categoria_id, categorias(id, nombre, slug, parent_id)), articulo_resenas(*, perfiles(nombres, apellidos, fecha_nacimiento, unidades(nombre)))`)
-              .eq('slug', lastSlug)
-              .maybeSingle()
-          : Promise.resolve({ data: null, error: null })
-      ])
-
-      const allCats = Array.isArray(catsRes.data) ? (catsRes.data as Categoria[]) : []
-      let art = (artRes.data && typeof artRes.data === 'object' && 'slug' in artRes.data) ? (artRes.data as Articulo) : null
-
-      if (pageNum === 0 && !art && artRes.error) {
-        // Fallback rápido sólo si la consulta compleja dio un error de esquema/relación en Supabase
-        const { data: simpleArt } = await supabase
-          .from('articulos')
-          .select(`*, articulo_categorias(categoria_id, categorias(id, nombre, slug, parent_id))`)
-          .eq('slug', lastSlug)
-          .maybeSingle() as { data: Articulo | null }
-        art = simpleArt
-      }
-
-      const buildCatPathSlugs = (catId: number): string[] => {
-        const cat = allCats.find(c => c.id === catId)
-        if (!cat) return []
-        return cat.parent_id ? [...buildCatPathSlugs(cat.parent_id), cat.slug] : [cat.slug]
-      }
-
-      const buildFullPath = (catId: number): Categoria[] => {
-        const c = allCats.find(x => x.id === catId); if (!c) return [];
-        return c.parent_id ? [...buildFullPath(c.parent_id), c] : [c]
-      }
-
-      // 1. INTENTAR BUSCAR COMO ARTÍCULO
-      if (pageNum === 0 && art) {
-        const linkedCats = art.articulo_categorias?.map((ac) => ac.categorias).filter((c): c is NonNullable<typeof c> => !!c) || []       
-        const allPossiblePaths = linkedCats.map((c) => [...buildCatPathSlugs(c.id), art.slug].join('/'))   
-
-        if (allPossiblePaths.includes(currentPath)) {
-          // Intentar cargar objetivos educativos desde la tabla relacional
-          const { data: relObjs } = await supabase
-            .from('articulo_objetivos_educativos')
-            .select('objetivo_id, como_se_cumple, objetivo:progresion_objetivos(id, texto_infantil, texto_terminal, rango_edad, area_id, unidad_id, area:progresion_areas(nombre), unidad:unidades(nombre, colores))')
-            .eq('articulo_id', art.id) as unknown as { data: Array<{ objetivo_id: string; como_se_cumple: string | null; objetivo: { id: string; texto_infantil: string; texto_terminal: string; rango_edad: string; area: { nombre: string } | null; unidad: { nombre: string; colores: { primario?: string } | string | null } | null } | null }> | null }
-
-          art.metadata = art.metadata || {} as ArticuloMetadata
-          if (relObjs && relObjs.length > 0) {
-            art.metadata.objetivos_educativos = relObjs.map((r) => ({
-              id: r.objetivo_id,
-              texto: r.objetivo?.texto_infantil,
-              texto_terminal: r.objetivo?.texto_terminal,
-              rango_edad: r.objetivo?.rango_edad,
-              unidad: r.objetivo?.unidad?.nombre,
-              area: r.objetivo?.area?.nombre,
-              color: typeof r.objetivo?.unidad?.colores === 'object' && r.objetivo?.unidad?.colores ? r.objetivo.unidad.colores.primario : undefined,
-              como_se_cumple: r.como_se_cumple
-            }))
-          }
-          setArticulo(art)
-          const sortedCats = [...linkedCats].sort((a, b) => buildCatPathSlugs(b.id).length - buildCatPathSlugs(a.id).length)
-          const matchingCat = sortedCats.find((c) => currentPath.startsWith(buildCatPathSlugs(c.id).join('/')))
-
-          if (matchingCat) {
-            setPathCategorias(buildFullPath(matchingCat.id))
-          }
-          setLoading(false)
-          return
+  const articleJsonLd = articulo ? {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    'headline': articulo.titulo,
+    'description': articulo.extracto || '',
+    'image': articulo.imagen_destacada
+      ? {
+          '@type': 'ImageObject',
+          'url': articulo.imagen_destacada,
+          'width': 1200,
+          'height': 630,
         }
-      }
+      : undefined,
+    'datePublished': articulo.created_at,
+    'dateModified': articulo.updated_at || articulo.created_at,
+    'author': articulo.autor
+      ? { '@type': 'Person', 'name': `${articulo.autor.nombres} ${articulo.autor.apellidos}` }
+      : { '@id': 'https://nuamana.cl/#organization' },
+    'publisher': { '@id': 'https://nuamana.cl/#organization' },
+    'mainEntityOfPage': { '@type': 'WebPage', '@id': `https://nuamana.cl/blog/${slugStr}` },
+    'articleSection': articulo.articulo_categorias?.[0]?.categorias?.[0]?.nombre || undefined,
+    'keywords': articulo.etiquetas?.join(', ') || undefined,
+    'isFamilyFriendly': true,
+    'inLanguage': 'es',
+  } : null;
 
-      // 2. INTENTAR BUSCAR COMO CATEGORÍA
-      const cat = allCats.find(c => c.slug === lastSlug)
-      if (cat) {
-        const expectedCatPath = buildCatPathSlugs(cat.id).join('/')
-        if (currentPath === expectedCatPath) {
-          setCategoria(cat)
-          const getDescendants = (parentId: number): number[] => {
-            const children = allCats.filter(c => c.parent_id === parentId).map(c => c.id) || []
-            let descendants = [...children]; children.forEach(id => descendants = [...descendants, ...getDescendants(id)])
-            return descendants
-          }
-          const allIds = [cat.id, ...getDescendants(cat.id)]
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      { '@type': 'ListItem', 'position': 1, 'name': 'Inicio', 'item': 'https://nuamana.cl' },
+      { '@type': 'ListItem', 'position': 2, 'name': 'Blog', 'item': 'https://nuamana.cl/blog' },
+      { '@type': 'ListItem', 'position': 3, 'name': articulo?.titulo || slugStr },
+    ],
+  };
 
-          let query = supabase
-            .from('articulos')
-            .select(`*, articulo_categorias!inner(categoria_id)`, { count: 'exact' })
-            .in('articulo_categorias.categoria_id', allIds)
-            .eq('estado', 'publicado')
-            .order('created_at', { ascending: false })
-
-          if (search) query = query.ilike('titulo', `%${search}%`)
-          if (selUnidad) query = query.contains('metadata', { unidades: [selUnidad] })
-          if (selArea) query = query.contains('metadata', { areas: [selArea] })
-
-          const from = pageNum * POSTS_PER_PAGE
-          const { data: arts } = await query.range(from, from + POSTS_PER_PAGE - 1)
-
-          if (arts) {
-            const processedArts = arts.map(post => {
-              const fullPath = `/blog/${currentPath}/${post.slug}`
-              return { ...post, fullPath }
-            })
-            setPostsCategoria(prev => isNewFilter ? processedArts : [...prev, ...processedArts])
-            setHasMore(arts.length === POSTS_PER_PAGE)
-          }
-
-          if (pageNum === 0) {
-            setPathCategorias(buildFullPath(cat.id))
-          }
-          setLoading(false)
-          setLoadingMore(false)
-          return
-        }
-      }
-
-      // Si no coincidió con ningún artículo ni categoría para esta ruta, es un 404
-      setError404(true)
-      setLoading(false)
-      setLoadingMore(false)
-
-    } catch (err) {
-      console.error('Error fetching blog data:', err)
-      setError404(true)
-      setLoading(false)
-      setLoadingMore(false)
-    }
-  }
-
-  useEffect(() => { fetchData(0, true) }, [lastSlug, currentPath, search, selUnidad, selArea])
-
-  useEffect(() => {
-    if (page > 0) fetchData(page)
-  }, [page])
-
-  if (error404) return <NotFound />
-  if (loading) return <div className="p-20 text-center font-body text-blclr6 dark:text-bldclr6 italic tracking-widest text-[0.8em] uppercase">Explorando...</div>
-
-  const Breadcrumbs = () => (
-    <nav className="text-[1em] uppercase text-blclr2 dark:text-bldclr2 mb-8 flex gap-2 items-center flex-wrap">     
-      <Link href="/blog" className="hover:text-blclr2">Blog</Link>
-      {pathCategorias.map((cat, i) => (
-        <span key={cat.id} className="flex gap-2 items-center">
-          <span className="text-blclr2 dark:text-bldclr2">●</span>
-          <Link href={`/blog/${pathCategorias.slice(0, i+1).map(c => c.slug).join('/')}`} className="hover:text-blclr2 opacity-70">{cat.nombre}</Link>
-        </span>
-      ))}
-    </nav>
-  )
-
-  if (categoria) {
-    const isActividades = currentPath.includes('actividades')
-    return (
-      <div className="min-h-screen bg-blclr1 dark:bg-bldclr1 font-body">
-        <SecondaryHeader />
-        <main className="max-w-[1080px] mx-auto px-2 py-32">
-          <Breadcrumbs />
-          <header className="mb-12"><h1 className="text-[1em] font-bold font-display uppercase text-blclr4 dark:text-bldclr4">{categoria.nombre}</h1></header>
-
-          <div className="bg-blclr1 dark:bg-bldclr1 p-2 rounded-3xl shadow-sm mb-12 grid grid-cols-1 md:grid-cols-3 gap-4 border border-blclr13 dark:border-bldclr13">
-            <input
-              type="text" placeholder="🔍 Buscar en esta sección..."
-              className="p-3 rounded-2xl border bg-blclr1 dark:bg-bldclr1 font-bold text-[0.8em]"
-              value={search} onChange={(e) => setSearch(e.target.value)}
-            />
-            {isActividades && (
-              <>
-                <select className="p-3 rounded-2xl border bg-blclr1 dark:bg-bldclr1 font-bold text-[0.8em]" value={selUnidad} onChange={(e) => setSelUnidad(e.target.value)}>
-                  <option value="">Unidad (Todas)</option>
-                  {UNIDADES.map(u => <option key={u} value={u}>{u.toUpperCase()}</option>)}
-                </select>
-                <select className="p-3 rounded-2xl border bg-blclr1 dark:bg-bldclr1 font-bold text-[0.8em]" value={selArea} onChange={(e) => setSelArea(e.target.value)}>
-                  <option value="">Área (Todas)</option>
-                  {AREAS.map(a => <option key={a} value={a}>{a.toUpperCase()}</option>)}
-                </select>
-              </>
-            )}
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {postsCategoria.map((post, index) => {
-              const isLast = postsCategoria.length === index + 1
-              return (
-                <Link
-                  key={post.id}
-                  href={post.fullPath}
-                  ref={isLast ? lastPostRef : null}
-                  className="group bg-blclr1 dark:bg-bldclr1 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-blclr13 dark:border-bldclr13 flex flex-col h-full"
-                >
-                  <div className="relative h-48 w-full overflow-hidden bg-blclr1 dark:bg-bldclr1">
-                    {post.imagen_destacada ? <img src={post.imagen_destacada} className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" alt={post.titulo} /> : <div className="w-full h-full flex items-center justify-center text-blclr6 opacity-20"><Icon url={ICON_URLS.categoria} className="w-12 h-12" /></div>}
-                  </div>
-                  <div className="p-6 flex flex-col flex-1">
-                    <h2 className="text-xl font-bold font-display leading-tight mb-3 group-hover:text-blclr10 transition-colors uppercase text-blclr4 dark:text-bldclr4">{post.titulo}</h2>
-                    <p className="text-[0.8em] text-blclr9 dark:text-bldclr9 line-clamp-3 leading-relaxed font-body">{post.extracto}</p>
-                  </div>
-                </Link>
-              )
-            })}
-          </div>
-
-          {loadingMore && (
-            <div className="py-12 text-center text-blclr6 dark:text-bldclr6 italic font-bold uppercase tracking-[0.3em] text-[0.8em]">Cargando más...</div>
-          )}
-        </main>
-      </div>
-    )
-  }
-
-  if (articulo) {
-    const metadata = articulo.metadata || {} as ArticuloMetadata
-    const contenidoLimpio = (articulo.contenido || '').replace(/&nbsp;/g, ' ').replace(/\u00A0/g, ' ').replace(/&shy;/g, '').replace(/\u00AD/g, '').replace(/\u200B/g, '')
-
-    const RowMeta = ({ label, value, iconUrl, metaKey }: { label: string, value: string | string[] | undefined | null, iconUrl: string, metaKey?: string }) => {
-      if (!value || (Array.isArray(value) && value.length === 0)) return null
-      const items = Array.isArray(value) ? value : [value]
-      return (
-        <div className="flex gap-2 items-center py-0.5">
-          <div className="flex items-center gap-2 min-w-[190px] shrink-0">
-            <Icon url={iconUrl} />
-            <span className="font-bold text-blclr5 dark:text-bldclr5 uppercase text-[0.9em] font-display">{label}:</span>
-          </div>
-          <div className="flex flex-wrap gap-1">
-            {items.map((it, i) => (
-              <span key={i} className="text-[1em] text-blclr6 dark:text-bldclr6 capitalize">
-                {metaKey ? <Link href={`/blog?meta_key=${metaKey}&meta_value=${it}`} className="hover:text-blclr10 dark:hover:text-bldclr10">{it}</Link> : it}
-                {i < items.length - 1 && <span className="text-blclr6 dark:text-bldclr6">, </span>}
-              </span>
-            ))}
-          </div>
-        </div>
-      )
-    }
-
-    return (
-      <div className="min-h-screen bg-blclr1 dark:bg-bldclr1 text-blclr9 dark:text-bldclr9 font-body pb-20">
-        <SecondaryHeader />
-        <main className="max-w-[1080px] mx-auto px-6 py-32">
-          <Breadcrumbs />
-          <header className="flex flex-col lg:flex-row gap-12 lg:items-center mb-6">
-            <div className="w-full lg:w-[30%] shrink-0">
-              {articulo.imagen_destacada ? <img src={articulo.imagen_destacada} alt={articulo.titulo} className="w-full h-auto aspect-square object-cover rounded-[2rem] shadow-2xl border-2 border-blclr13 dark:border-bldclr13" /> : <div className="w-full aspect-square bg-blclr1 dark:bg-bldclr1 rounded-[2rem] border-2 border-dashed border-blclr13 dark:border-bldclr13" />}
-            </div>
-            <div className="w-full lg:w-[70%]">
-              <div className="flex items-center gap-2 mb-2">
-                <Icon url={ICON_URLS.categoria} />
-                <span className="text-[0.8em] text-blclr3 dark:text-bldclr3 uppercase tracking-wider font-display">Categorías: {articulo.articulo_categorias?.map((c) => c.categorias?.nombre).join(', ')}</span>
-              </div>
-              <h1 className="text-3xl lg:text-4xl font-display font-bold leading-none text-blclr4 dark:text-bldclr4 uppercase my-0 py-0">{articulo.titulo}</h1>
-              <div className="mt-6 space-y-0.5">
-                <RowMeta label="Unidad" value={metadata.unidades} iconUrl={ICON_URLS.unidad} metaKey="unidades" />
-                <RowMeta label="Área de Desarrollo" value={metadata.areas || metadata.areas_desarrollo} iconUrl={ICON_URLS.area} metaKey="areas" />
-                <RowMeta label="Lugar" value={metadata.lugares || metadata.lugar} iconUrl={ICON_URLS.lugar} metaKey="lugares" />
-                <RowMeta label="Duración" value={metadata.duracion} iconUrl={ICON_URLS.duracion} metaKey="duracion" />
-                <RowMeta label="Cantidad" value={metadata.cantidad} iconUrl={ICON_URLS.cantidad} metaKey="cantidad" />
-                <RowMeta label="Materiales" value={metadata.materiales} iconUrl={ICON_URLS.materiales || ICON_URLS.categoria} metaKey="materiales" />
-                <RowMeta label="Objetivos" value={metadata.objetivos} iconUrl={ICON_URLS.objetivos} metaKey="objetivos" />
-                <RowMeta label="Lugar de Nacimiento" value={metadata.lugar_nacimiento} iconUrl={ICON_URLS.lugar} metaKey="lugar_nacimiento" />
-                <RowMeta label="País de Nacimiento" value={metadata.pais_nacimiento} iconUrl={ICON_URLS.pais} metaKey="pais_nacimiento" />
-                <RowMeta label="Fecha Nacimiento" value={metadata.fecha_nacimiento} iconUrl={ICON_URLS.calendario} />
-                <RowMeta label="Lugar del Hecho" value={metadata.lugar_hecho} iconUrl={ICON_URLS.lugar} metaKey="lugar_hecho" />
-                <RowMeta label="País del Hecho" value={metadata.pais_hecho} iconUrl={ICON_URLS.pais} metaKey="pais_hecho" />
-                <RowMeta label="Año del Hecho" value={metadata.ano_hecho} iconUrl={ICON_URLS.calendario} metaKey="ano_hecho" />
-              </div>
-            </div>
-          </header>
-            {metadata.justificacion_areas && (
-              <div className="p-2 bg-blclr1 dark:bg-bldclr1 rounded-[1rem] border-l-[6px] border-blclr7 shadow-sm mb-8">
-                <div className="flex flex-col gap-1 mb-3">
-                  <div className="flex items-center gap-2">
-                    <h3 className="text-lg font-display font-bold text-blclr7 dark:text-bldclr7 uppercase my-0">¿Por qué estas áreas de desarrollo?</h3>
-                  </div>
-                  <p className="text-[0.8em] tracking-widest text-blclr8 dark:text-bldclr8 mt-[-8px] pl-2">
-                    {Array.isArray(metadata.areas || metadata.areas_desarrollo)
-                      ? (metadata.areas || metadata.areas_desarrollo)!.map((a: string) => a.charAt(0).toUpperCase() + a.slice(1)).join(', ')
-                      : (metadata.areas || metadata.areas_desarrollo)}
-                  </p>
-                </div>
-                <div className="pl-2 mt-2">{renderFormattedText(metadata.justificacion_areas, 'text-blclr8 dark:text-bldclr8')}</div>
-              </div>
-            )}
-          <article className="blog-content dark:text-bldclr9 w-full mb-10 text-[1.125rem]"><div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(contenidoLimpio) }} /></article>
-          <section className="space-y-12">
-
-            {metadata.objetivos_educativos && metadata.objetivos_educativos.length > 0 && (
-              <div className="p-2 bg-blclr1 dark:bg-bldclr1 rounded-[1rem] shadow-sm">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-2xl">🎯</span>
-                  <h3 className="text-xl font-display font-bold text-blclr12 dark:text-bldclr12 uppercase my-0">Objetivos Educativos</h3>
-                </div>
-                <div className="flex flex-col gap-2">
-                  {Object.entries(
-                    [...metadata.objetivos_educativos].sort((a, b) => {
-                      const uMap: Record<string, number> = { 'Manada': 1, 'Compañía': 2, 'Tropa': 3, 'Avanzada': 4, 'Clan': 5 };
-                      return (uMap[a.unidad || ''] || 99) - (uMap[b.unidad || ''] || 99);
-                    }).reduce<Record<string, ObjEducacionMeta[]>>((acc, obj) => {
-                    const term = obj.texto_terminal || 'Objetivos Específicos'
-                    if (!acc[term]) acc[term] = []
-                    acc[term].push(obj)
-                    return acc
-                  }, {})).map(([terminal, objs], idx) => (
-                    <div key={idx} className="flex flex-col gap-2">
-                      <div className="p-4 border border-blclr13 rounded-[1em]">
-                        <h3 className="text-blclr12 dark:text-bldclr12 uppercase mb-[-4px]">🎯 Objetivo Terminal:</h3>
-                        <div className="font-bold text-[1em] text-blclr13 dark:text-bldclr13 leading-relaxed pb-2">
-                          {terminal}
-                        </div>
-                      </div>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {objs.map((o, i) => (
-                          <div key={i} className="group flex flex-col gap-1 p-3 bg-blclr1 dark:bg-bldclr1 rounded-xl shadow-sm border border-blclr13 dark:border-bldclr13 relative overflow-hidden pl-5">
-                            <div className="absolute left-0 top-0 bottom-0 w-2" style={{ backgroundColor: o.color || '#ccc' }} />
-                            <div className="flex items-center gap-2 flex-wrap">
-                              <span className="text-[0.8em] font-black uppercase tracking-widest" style={{ color: o.color || '#ccc' }}>{o.unidad}</span><span>•</span>
-                              <span className="text-[0.8em] font-black uppercase text-blclr14 dark:text-bldclr14">{o.area}</span><span>•</span>
-                              {o.rango_edad && <span className="text-[0.8em] font-black uppercase px-2 py-0.5 rounded-md bg-blclr1 dark:bg-bldclr1 text-blclr6 dark:text-bldclr6">{o.rango_edad}</span>}
-                              <Link href={`/blog?obj_ed=${encodeURIComponent(o.texto || '')}`} className="text-[0.8em] font-black uppercase text-blclr6 dark:text-bldclr6 opacity-0 group-hover:opacity-100 hover:text-blclr10 dark:hover:text-bldclr10 transition-all ml-auto">Filtrar →</Link>
-                            </div>
-                            <p className="font-bold text-[1em] text-blclr15 dark:text-bldclr15 italic">"{o.texto}"</p>
-                            {o.como_se_cumple && (
-                              <div className="mt-2 p-3 bg-blclr1 dark:bg-bldclr1 rounded-xl border-l-2 border-blclr16 text-[0.9em] font-normal leading-relaxed text-blclr17 dark:text-bldclr17">
-                                <span className="font-black text-[0.8em] text-blclr16 dark:text-bldclr16 block uppercase tracking-wider mb-1">¿Cómo se cumple?</span>
-                                {o.como_se_cumple}
-                              </div>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-            {metadata.variaciones && (
-              <div className="p-8 md:p-10 bg-blclr1 dark:bg-bldclr1 rounded-[2.5rem] border-l-[12px] border-blclr18 shadow-sm space-y-4 text-blclr19 dark:text-bldclr19">
-                <div className="flex items-center gap-3 mb-2">
-                  <Icon url={ICON_URLS.variacion} className="w-8 h-8" />
-                  <h3 className="text-2xl font-display font-bold text-blclr18 dark:text-bldclr18 uppercase my-0">Variaciones</h3>
-                </div>
-                {renderFormattedText(metadata.variaciones, 'text-blclr19 dark:text-bldclr19')}
-              </div>
-            )}
-            {metadata.recomendaciones && (
-              <div className="p-8 md:p-10 bg-blclr1 dark:bg-bldclr1 rounded-[2.5rem] border-l-[12px] border-blclr20 shadow-sm space-y-4">
-                <div className="flex items-center gap-3 mb-2">
-                  <Icon url={ICON_URLS.recomendacion} className="w-8 h-8" />
-                  <h3 className="text-2xl font-display font-bold text-blclr20 uppercase my-0">Recomendaciones</h3>
-                </div>
-                {renderFormattedText(metadata.recomendaciones, 'text-blclr21 dark:text-bldclr21')}
-              </div>
-            )}
-            
-            {metadata.descargas && metadata.descargas.length > 0 && (
-              <div className="p-10 bg-blclr1 dark:bg-bldclr1 rounded-[2.5rem] border-l-[12px] border-blclr20 shadow-sm">
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="text-3xl">📥</span>
-                  <h3 className="text-2xl font-display font-bold text-blclr5 dark:text-bldclr5 uppercase my-0">Material Descargable</h3>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {metadata.descargas.map((d, idx) => (
-                    <a
-                      key={idx}
-                      href={d.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-4 p-4 bg-blclr1 dark:bg-bldclr1 hover:bg-blclr7 dark:hover:bg-bldclr7 border border-blclr13 dark:border-bldclr13 hover:border-blclr7 rounded-2xl transition-all shadow-sm group"
-                    >
-                      <div className="p-3 bg-blclr7 dark:bg-bldclr7 rounded-xl text-blclr5 dark:text-bldclr5 group-hover:scale-110 transition-transform">
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                        </svg>
-                      </div>
-                      <div className="flex flex-col min-w-0">
-                        <span className="font-bold text-[1em] text-blclr9 dark:text-bldclr9 truncate group-hover:text-blclr7 transition-colors">{d.nombre}</span>
-                        <span className="text-[0.8em] text-blclr6 dark:text-bldclr6 uppercase tracking-wider font-display font-bold">Descargar Archivo</span>
-                      </div>
-                    </a>
-                  ))}
-                </div>
-              </div>
-            )}
-            
-            {/* SECCIÓN DE RESEÑAS SCOUTS */}
-            {articulo.articulo_resenas && articulo.articulo_resenas.length > 0 && (
-              <div className="p-2 bg-blclr1 dark:bg-bldclr1 rounded-[2rem] border-2 border-blclr13 dark:border-bldclr13 shadow-sm">
-                <div className="flex items-center justify-between mb-8">
-                  <div className="flex items-center gap-1">
-                    <span className="text-3xl">⭐</span>
-                    <h3 className="text-xl font-display font-bold text-blclr4 dark:text-bldclr4 uppercase my-0">Reseñas de la Actividad</h3>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <span className="text-2xl font-black text-blclr5">
-                      {(articulo.articulo_resenas.reduce((acc: number, r) => acc + r.calificacion, 0) / articulo.articulo_resenas.length).toFixed(1)}
-                    </span>
-                    <span className="text-[0.8em] font-black uppercase opacity-40 leading-tight leading-none">Nota<br/>Media</span>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                  {articulo.articulo_resenas.map((res) => {
-                    const profile = res.perfiles
-                    // Usamos los datos históricos capturados en la reseña
-                    const unitLabel = res.unidad_resena || 'Scout';
-                    const age = res.edad_resena || 0;
-                    const uColor = res.unidad_color_resena || '#cb3327';
-                    const uLogo = res.unidad_logo_resena;
-                    
-                    const displayName = res.es_anonimo ? 'ANÓNIMO' : `${profile?.nombres} ${profile?.apellidos}`;
-
-                    return (
-                      <div key={res.id} className="p-2 bg-blclr1 dark:bg-bldclr1 rounded-[1rem] border-2 shadow-sm flex flex-col gap-5 transition-all hover:shadow-2xl relative overflow-hidden group" style={{ borderColor: `${uColor}30` }}>
-                        
-                        {/* Fondo decorativo con logo de la unidad (Snapshot) */}
-                        {uLogo && (
-                          <div className="absolute -right-8 -bottom-8 opacity-[0.2] group-hover:opacity-[0.8] transition-all duration-500 pointer-events-none group-hover:scale-110 group-hover:-rotate-12">
-                            <img src={uLogo} alt="" className="w-56 h-56 object-contain" />
-                          </div>
-                        )}
-
-                        <div className="flex flex-col relative z-10 border-b border-blclr13 dark:border-bldclr13 pb-4">
-                          <div className="text-[1em] font-bold text-center tracking-widest" style={{ color: res.es_anonimo ? '#666' : uColor }}>
-                            {displayName.toUpperCase()}
-                          </div>
-                          <div className="flex items-center gap-3 flex-wrap justify-center">  
-                            <div className="flex items-center gap-2 text-[0.8em] opacity-80 tracking-widest uppercase mt-[-6px]">
-                              <span>{unitLabel}</span><span>•</span>
-                              {age > 0 && <span>{age} AÑOS</span>}<span>•</span>
-                              <span>
-                                {res.created_at && format(new Date(res.created_at), 'dd/MM/yy')}
-                              </span>
-                            </div>
-                          </div>
-                              <div className="flex gap-1.5 items-center justify-center">
-                                {[1, 2, 3, 4, 5, 6, 7].map(n => (
-                                  <span key={n} className={`text-2xl transition-all ${res.calificacion >= n ? 'text-blclr5 drop-shadow-sm' : 'text-blclr13'}`} style={{ color: uColor}}>★</span>
-                                ))}
-                                <span className="text-[1em] font-black px-1 py-1 rounded-full border shadow-inner" style={{ color: uColor, borderColor: `${uColor}80`, backgroundColor: `${uColor}10` }}>
-                                  NOTA {res.calificacion}
-                                </span>
-                              </div>
-                        </div>
-
-                        <div className="space-y-4 relative z-10">
-                          
-                          
-                          {res.comentario && (
-                            <div className="relative mt-2">
-                              <p className="text-[1.05em] italic opacity-95 leading-relaxed dark:text-bldclr9 font-medium bg-blclr1 dark:bg-bldclr1 p-6 rounded-[1.5rem] border-l-[8px] shadow-sm" style={{ borderLeftColor: uColor }}>
-                                "{res.comentario}"
-                              </p>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-            {articulo.etiquetas && articulo.etiquetas.length > 0 && <footer className="pt-12 border-t border-blclr13 dark:border-bldclr13 flex flex-wrap gap-3 items-center"><div className="flex items-center gap-2 mr-4"><Icon url={ICON_URLS.etiquetas} className="w-5 h-5" /><span className="text-[0.8em] font-bold text-blclr6 dark:text-bldclr6 uppercase tracking-widest">Etiquetas:</span></div>{articulo.etiquetas.map((t) => (<Link key={t} href={`/blog?tag=${t}`} className="px-5 py-2 bg-blclr1 dark:bg-bldclr1 rounded-full text-sm font-bold text-blclr9 dark:text-bldclr9 hover:bg-blclr10 hover:text-blclr1 transition-all shadow-sm">#{t}</Link>))}</footer>}
-          </section>
-        </main>
-      </div>
-    )
-  }
-
-  return <NotFound />
-}
-
-export default function BlogCatchAllPage({ params }: { params: Promise<{ slug: string[] }> }) {
-  const resolvedParams = use(params)
   return (
-    <Suspense fallback={null}>
-      <BlogCatchAllContent params={resolvedParams} />
-    </Suspense>
-  )
+    <>
+      {articleJsonLd && <JsonLd data={articleJsonLd} />}
+      <JsonLd data={breadcrumbJsonLd} />
+      <BlogArticleClient slug={slugStr} />
+    </>
+  );
 }
-

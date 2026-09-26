@@ -11,6 +11,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return {
       title: `${metadata.title} | Nua Mana`,
       description: metadata.description,
+      openGraph: {
+        title: metadata.title || slug,
+        description: metadata.description || '',
+        images: metadata.image ? [{ url: metadata.image, width: 1200, height: 630 }] : undefined,
+        type: 'website',
+      },
     };
   } catch (e) {
     return { title: 'Página no encontrada' };

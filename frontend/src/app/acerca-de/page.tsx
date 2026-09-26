@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import PageTemplate from '@/components/PageTemplate';
+import { JsonLd } from '@/components/json-ld';
 import MarkdownRenderer from '@/components/markdown-renderer';
 import { readContentFile, getAllContentMetadata } from '@/lib/content-service';
 
@@ -10,6 +11,12 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: `${metadata.title} | Nua Mana`,
     description: metadata.description,
+    openGraph: {
+      title: metadata.title || 'Acerca de Nua Mana',
+      description: metadata.description || '',
+      images: metadata.image ? [{ url: metadata.image, width: 1200, height: 630 }] : undefined,
+      type: 'website',
+    },
   };
 }
 
@@ -28,6 +35,14 @@ export default async function AcercaDePage() {
 
   return (
     <PageTemplate title={metadata.title || 'Acerca de Nua Mana'}>
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+          { '@type': 'ListItem', 'position': 1, 'name': 'Inicio', 'item': 'https://nuamana.cl' },
+          { '@type': 'ListItem', 'position': 2, 'name': 'Acerca de' },
+        ],
+      }} />
       <section className="space-y-12">
         <MarkdownRenderer content={content} format={format} />
 

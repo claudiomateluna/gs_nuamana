@@ -199,8 +199,8 @@ describe('schemaResolver theme_colors', () => {
     expect(schemaResolver['panel_colors'].schema).toBe(panelColorsSchema);
   });
 
-  it('registers exactly 31 resolvable schema ids (12 categories + 5 splits + theme_colors + hero_colors + features_colors + promo_colors + slideshow_colors + testimonials_colors + visit_colors + faq_colors + secondary_header_colors + footer_colors + header_colors + menu_colors + panel_colors + section_visibility + social_list)', () => {
-    expect(Object.keys(schemaResolver)).toHaveLength(31);
+  it('registers exactly 32 resolvable schema ids (12 categories + 5 splits + theme_colors + hero_colors + features_colors + promo_colors + slideshow_colors + testimonials_colors + visit_colors + faq_colors + secondary_header_colors + footer_colors + header_colors + menu_colors + panel_colors + blog_colors + section_visibility + social_list)', () => {
+    expect(Object.keys(schemaResolver)).toHaveLength(32);
   });
 });
 

@@ -68,6 +68,12 @@ export const DEFAULT_SITE_CONFIG: SiteConfigRecord = {
     logo_footer: '/images/logos/Iconos-logo.svg',
     logo_sidebar: '/images/logos/LogoColor.svg',
     copyright: 'Guías y Scouts Nua Mana',
+    telefono: '+56 9 6689 6001',
+    parent_organization_name: 'Asociación de Guías y Scouts de Chile',
+    parent_organization_url: 'https://guiasyscoutsdechile.org/',
+    legal_name: 'Grupo de Guías y Scouts Nua Mana',
+    funder_name: 'Sede Social San José de la Estrella',
+    funder_url: '',
   },
   social: {
     instagram: 'https://instagram.com/gruponuamana/',

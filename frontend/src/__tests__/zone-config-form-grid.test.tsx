@@ -260,23 +260,23 @@ describe('ZoneConfigForm grid layout', () => {
     const roleLabels = roleRows.map((row) => within(row).getAllByRole('cell')[0].textContent);
     expect(roleLabels).toEqual([
       // Base (10)
-      'Fondo',
-      'Texto Principal',
-      'Texto Secundario',
-      'Énfasis Principal',
-      'Énfasis Secundario',
-      'Énfasis Terciario',
-      'Bordes Principal',
-      'Bordes Secundario',
-      'Fondo Scrollbar',
-      'Scrollbar',
+      '1:Fondo',
+      '2:Texto Principal',
+      '3:Texto Secundario',
+      '4:Énfasis Principal',
+      '5:Énfasis Secundario',
+      '6:Énfasis Terciario',
+      '7:Bordes Principal',
+      '8:Bordes Secundario',
+      '9:Fondo Scrollbar',
+      '10:Scrollbar',
       // Tarjetas (6)
-      'Fondo Inicial',
-      'Fondo Final',
-      'Énfasis',
-      'Categoría',
-      'Enlaces',
-      'Texto',
+      '1:Fondo Inicial',
+      '2:Fondo Final',
+      '3:Énfasis',
+      '4:Categoría',
+      '5:Enlaces',
+      '6:Texto',
     ]);
   });
 

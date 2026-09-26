@@ -12,6 +12,7 @@ import BlogSlideshow from '@/components/blog-slideshow';
 import { supabase } from '@/lib/supabase';
 import { useSiteConfigSafe } from '@/contexts/site-config-context';
 import type { SectionVisibilityConfig } from '@/lib/site-config.types';
+import HomepageJsonLd from './HomepageJsonLd';
 
 import CategoryPromoBanner from '@/components/CategoryPromoBanner';
 
@@ -60,6 +61,7 @@ export default function Home() {
 
   return (
     <div className="bg-clr1 dark:bg-dclr1 transition-colors">
+      <HomepageJsonLd />
       <Header />
       
       <main className="w-full overflow-x-hidden">

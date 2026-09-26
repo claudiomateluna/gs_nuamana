@@ -119,12 +119,13 @@ beforeEach(() => {
 });
 
 // ---------------------------------------------------------------------------
-// schemaResolver — 31 ids (12 plain categories + 5 splits + theme_colors + hero_colors + features_colors + promo_colors + slideshow_colors + testimonials_colors + visit_colors + faq_colors + secondary_header_colors + footer_colors + header_colors + menu_colors + panel_colors + section_visibility + social_list)
+// schemaResolver — 32 ids (12 plain categories + 5 splits + theme_colors + hero_colors + features_colors + promo_colors + slideshow_colors + testimonials_colors + visit_colors + faq_colors + secondary_header_colors + footer_colors + header_colors + menu_colors + panel_colors + blog_colors + section_visibility + social_list)
 // ---------------------------------------------------------------------------
 
 describe('schemaResolver', () => {
-  it('covers exactly the 31 schema ids', () => {
+  it('covers exactly the 32 schema ids', () => {
     expect(Object.keys(schemaResolver).sort()).toEqual([
+      'blog_colors',
       'branding',
       'branding.footer',
       'branding.header',

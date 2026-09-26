@@ -55,6 +55,12 @@ const EXPECTED_FIELDS = {
     'logo_sidebar',
     'logo_footer',
     'copyright',
+    'telefono',
+    'parent_organization_name',
+    'parent_organization_url',
+    'legal_name',
+    'funder_name',
+    'funder_url',
   ],
   contact: ['sede_nombre', 'direccion', 'maps_embed'],
   hero: [
@@ -472,7 +478,7 @@ describe('ADMIN_ZONES coverage', () => {
 
     // Triangulation: zones with real sections
     const otherZones = ADMIN_ZONES.filter((z) => z.tabOnly !== true);
-    expect(otherZones.map((z) => z.sections.length)).toEqual([13, 5, 3, 4]);
+    expect(otherZones.map((z) => z.sections.length)).toEqual([13, 5, 3, 5]);
   });
 
   it('maps each zone to its exact sections and categories', () => {
@@ -493,7 +499,7 @@ describe('ADMIN_ZONES coverage', () => {
     ]);
     expect(zoneOf('header').sections.map((s) => s.category)).toEqual(['branding', 'secondary_header_colors', 'header_colors', 'menu_colors', 'navigation']);
     expect(zoneOf('footer').sections.map((s) => s.category)).toEqual(['branding', 'contact', 'footer_colors']);
-    expect(zoneOf('global').sections.map((s) => s.category)).toEqual(['seo', 'pwa', 'theme_colors', 'panel_colors']);
+    expect(zoneOf('global').sections.map((s) => s.category)).toEqual(['seo', 'pwa', 'theme_colors', 'panel_colors', 'blog_colors']);
   });
 
   it('exposes a colores-tema section in Global with 65 fields (32 color + 32 number + 1 heading) and layout=grid', () => {

@@ -51,6 +51,12 @@ export interface BrandingConfig {
   logo_footer: string;
   logo_sidebar?: string;
   copyright: string;
+  telefono?: string;
+  parent_organization_name?: string;
+  parent_organization_url?: string;
+  legal_name?: string;
+  funder_name?: string;
+  funder_url?: string;
 }
 
 export interface SocialConfig {

@@ -43,6 +43,12 @@ export const brandingSchema = z.object({
   logo_header: nonEmpty,
   logo_footer: nonEmpty,
   copyright: nonEmpty,
+  telefono: z.string().optional(),
+  parent_organization_name: z.string().optional(),
+  parent_organization_url: z.string().url('URL inválida').or(z.string().length(0)).optional(),
+  legal_name: z.string().optional(),
+  funder_name: z.string().optional(),
+  funder_url: z.string().url('URL inválida').or(z.string().length(0)).optional(),
 });
 
 export type BrandingFormData = z.infer<typeof brandingSchema>;
@@ -848,6 +854,12 @@ export const brandingFooterSchema = z
     mision: nonEmpty,
     motto: nonEmpty,
     copyright: nonEmpty,
+    telefono: z.string().optional(),
+    parent_organization_name: z.string().optional(),
+    parent_organization_url: z.string().url('URL inválida').or(z.string().length(0)).optional(),
+    legal_name: z.string().optional(),
+    funder_name: z.string().optional(),
+    funder_url: z.string().url('URL inválida').or(z.string().length(0)).optional(),
   })
   .partial();
 

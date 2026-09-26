@@ -40,11 +40,11 @@ const SecondaryHeader = () => {
       '/lo-que-hacemos/habilidades-y-tecnicas': 'Habilidades y Técnicas',
       '/lo-que-hacemos/vida-reflexiva': 'Vida Reflexiva',
       '/lo-que-hacemos/programa-y-actividades': 'Programa y Actividades',
-      '/blog': 'Bitácora Scout',
+      '/blog': 'Blog',
     };
     
     if (pathname.startsWith('/blog')) {
-      setTitle(pageTitles[pathname] || 'Bitácora Scout');
+      setTitle(pageTitles[pathname] || 'Blog');
     } else {
       setTitle(pageTitles[pathname] || '');
     }

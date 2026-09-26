@@ -551,6 +551,12 @@ export const ADMIN_ZONES: AdminZone[] = [
           { key: 'mision', label: 'Misión', type: 'textarea', tooltip: 'Texto largo en el footer que describe la misión del grupo' },
           { key: 'motto', label: 'Lema', type: 'text', tooltip: 'Frase del pie de página junto al copyright. Ej: "Educación para la vida"' },
           { key: 'copyright', label: 'Copyright', type: 'text', tooltip: 'Texto de copyright en el pie. Ej: "Guías y Scouts Nua Mana"' },
+          { key: 'telefono', label: 'Teléfono', type: 'text', tooltip: 'Número de teléfono de contacto. Ej: "+56 9 6689 6001"' },
+          { key: 'parent_organization_name', label: 'Organización Padre', type: 'text', tooltip: 'Nombre de la organización superior. Ej: "Asociación de Guías y Scouts de Chile"' },
+          { key: 'parent_organization_url', label: 'URL Organización Padre', type: 'text', tooltip: 'Sitio web de la organización padre. Ej: "https://guiasyscoutsdechile.org/"' },
+          { key: 'legal_name', label: 'Nombre Legal', type: 'text', tooltip: 'Nombre legal de la organización para Schema.org. Ej: "Grupo de Guías y Scouts Nua Mana"' },
+          { key: 'funder_name', label: 'Institución Patrocinante', type: 'text', tooltip: 'Entidad que financia o patrocina. Ej: "Sede Social San José de la Estrella"' },
+          { key: 'funder_url', label: 'URL Patrocinante', type: 'text', tooltip: 'Sitio web de la entidad patrocinante' },
         ],
       },
       {
