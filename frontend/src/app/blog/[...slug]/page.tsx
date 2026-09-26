@@ -38,11 +38,12 @@ const Icon = ({ url, className = "w-4 h-4" }: { url: string, className?: string 
   <img src={url} alt="icon" className={`${className} inline-block dark:invert-[0.9]`} />
 )
 
-const renderFormattedText = (text: string) => {
+const renderFormattedText = (text: string, className?: string) => {
   if (!text) return null
   const paragraphs = text.split(/\n\s*\n/).filter(Boolean)
+  const colorClass = className || 'text-blclr9 dark:text-bldclr9'
   return (
-    <div className="space-y-4 font-normal text-[1.05rem] leading-relaxed text-clr2 dark:text-dclr2">
+    <div className={`space-y-4 font-normal text-[1.05rem] leading-relaxed ${colorClass}`}>
       {paragraphs.map((para, i) => {
         const rawHtml = para.trim().replace(/\n/g, '<br/>')
         const cleanHtml = typeof window !== 'undefined' ? DOMPurify.sanitize(rawHtml) : rawHtml
@@ -237,15 +238,15 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
   }, [page])
 
   if (error404) return <NotFound />
-  if (loading) return <div className="p-20 text-center font-body text-clr3 italic tracking-widest text-[0.8em] uppercase">Explorando...</div>
+  if (loading) return <div className="p-20 text-center font-body text-blclr6 dark:text-bldclr6 italic tracking-widest text-[0.8em] uppercase">Explorando...</div>
 
   const Breadcrumbs = () => (
-    <nav className="text-[1em] uppercase text-clr4 dark:text-dclr4 mb-8 flex gap-2 items-center flex-wrap">     
-      <Link href="/blog" className="hover:text-clr4">Bitácora</Link>
+    <nav className="text-[1em] uppercase text-blclr2 dark:text-bldclr2 mb-8 flex gap-2 items-center flex-wrap">     
+      <Link href="/blog" className="hover:text-blclr2">Blog</Link>
       {pathCategorias.map((cat, i) => (
         <span key={cat.id} className="flex gap-2 items-center">
-          <span className="text-clr4 dark:text-dclr4">●</span>
-          <Link href={`/blog/${pathCategorias.slice(0, i+1).map(c => c.slug).join('/')}`} className="hover:text-clr4 opacity-70">{cat.nombre}</Link>
+          <span className="text-blclr2 dark:text-bldclr2">●</span>
+          <Link href={`/blog/${pathCategorias.slice(0, i+1).map(c => c.slug).join('/')}`} className="hover:text-blclr2 opacity-70">{cat.nombre}</Link>
         </span>
       ))}
     </nav>
@@ -254,25 +255,25 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
   if (categoria) {
     const isActividades = currentPath.includes('actividades')
     return (
-      <div className="min-h-screen bg-clr1 dark:bg-dclr1 font-body">
+      <div className="min-h-screen bg-blclr1 dark:bg-bldclr1 font-body">
         <SecondaryHeader />
         <main className="max-w-[1080px] mx-auto px-2 py-32">
           <Breadcrumbs />
-          <header className="mb-12"><h1 className="text-[1em] font-bold font-display uppercase text-clr2 dark:text-dclr2">{categoria.nombre}</h1></header>
+          <header className="mb-12"><h1 className="text-[1em] font-bold font-display uppercase text-blclr4 dark:text-bldclr4">{categoria.nombre}</h1></header>
 
-          <div className="bg-clr1 dark:bg-dclr1 p-2 rounded-3xl shadow-sm mb-12 grid grid-cols-1 md:grid-cols-3 gap-4 border border-clr7 dark:border-dclr7">
+          <div className="bg-blclr1 dark:bg-bldclr1 p-2 rounded-3xl shadow-sm mb-12 grid grid-cols-1 md:grid-cols-3 gap-4 border border-blclr13 dark:border-bldclr13">
             <input
               type="text" placeholder="🔍 Buscar en esta sección..."
-              className="p-3 rounded-2xl border bg-clr4 dark:bg-dclr4 font-bold text-[0.8em]"
+              className="p-3 rounded-2xl border bg-blclr1 dark:bg-bldclr1 font-bold text-[0.8em]"
               value={search} onChange={(e) => setSearch(e.target.value)}
             />
             {isActividades && (
               <>
-                <select className="p-3 rounded-2xl border bg-clr4 dark:bg-dclr4 font-bold text-[0.8em]" value={selUnidad} onChange={(e) => setSelUnidad(e.target.value)}>
+                <select className="p-3 rounded-2xl border bg-blclr1 dark:bg-bldclr1 font-bold text-[0.8em]" value={selUnidad} onChange={(e) => setSelUnidad(e.target.value)}>
                   <option value="">Unidad (Todas)</option>
                   {UNIDADES.map(u => <option key={u} value={u}>{u.toUpperCase()}</option>)}
                 </select>
-                <select className="p-3 rounded-2xl border bg-clr4 dark:bg-dclr4 font-bold text-[0.8em]" value={selArea} onChange={(e) => setSelArea(e.target.value)}>
+                <select className="p-3 rounded-2xl border bg-blclr1 dark:bg-bldclr1 font-bold text-[0.8em]" value={selArea} onChange={(e) => setSelArea(e.target.value)}>
                   <option value="">Área (Todas)</option>
                   {AREAS.map(a => <option key={a} value={a}>{a.toUpperCase()}</option>)}
                 </select>
@@ -288,14 +289,14 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
                   key={post.id}
                   href={post.fullPath}
                   ref={isLast ? lastPostRef : null}
-                  className="group bg-clr1 dark:bg-dclr1 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-clr7 dark:border-dclr7 flex flex-col h-full"
+                  className="group bg-blclr1 dark:bg-bldclr1 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-blclr13 dark:border-bldclr13 flex flex-col h-full"
                 >
-                  <div className="relative h-48 w-full overflow-hidden bg-clr4 dark:bg-dclr4">
-                    {post.imagen_destacada ? <img src={post.imagen_destacada} className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" alt={post.titulo} /> : <div className="w-full h-full flex items-center justify-center text-clr3 opacity-20"><Icon url={ICON_URLS.categoria} className="w-12 h-12" /></div>}
+                  <div className="relative h-48 w-full overflow-hidden bg-blclr1 dark:bg-bldclr1">
+                    {post.imagen_destacada ? <img src={post.imagen_destacada} className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" alt={post.titulo} /> : <div className="w-full h-full flex items-center justify-center text-blclr6 opacity-20"><Icon url={ICON_URLS.categoria} className="w-12 h-12" /></div>}
                   </div>
                   <div className="p-6 flex flex-col flex-1">
-                    <h2 className="text-xl font-bold font-display leading-tight mb-3 group-hover:text-tclr5 transition-colors uppercase dark:text-tdclr3 text-tclr3">{post.titulo}</h2>
-                    <p className="text-[0.8em] text-tclr6 dark:text-tdclr6 line-clamp-3 leading-relaxed font-body">{post.extracto}</p>
+                    <h2 className="text-xl font-bold font-display leading-tight mb-3 group-hover:text-blclr10 transition-colors uppercase text-blclr4 dark:text-bldclr4">{post.titulo}</h2>
+                    <p className="text-[0.8em] text-blclr9 dark:text-bldclr9 line-clamp-3 leading-relaxed font-body">{post.extracto}</p>
                   </div>
                 </Link>
               )
@@ -303,7 +304,7 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
           </div>
 
           {loadingMore && (
-            <div className="py-12 text-center text-clr3 italic font-bold uppercase tracking-[0.3em] text-[0.8em]">Cargando más...</div>
+            <div className="py-12 text-center text-blclr6 dark:text-bldclr6 italic font-bold uppercase tracking-[0.3em] text-[0.8em]">Cargando más...</div>
           )}
         </main>
       </div>
@@ -321,13 +322,13 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
         <div className="flex gap-2 items-center py-0.5">
           <div className="flex items-center gap-2 min-w-[190px] shrink-0">
             <Icon url={iconUrl} />
-            <span className="font-bold text-clr6 uppercase text-[0.9em] font-display">{label}:</span>
+            <span className="font-bold text-blclr5 dark:text-bldclr5 uppercase text-[0.9em] font-display">{label}:</span>
           </div>
           <div className="flex flex-wrap gap-1">
             {items.map((it, i) => (
-              <span key={i} className="text-[1em] text-clr2 dark:text-dclr2 capitalize">
-                {metaKey ? <Link href={`/blog?meta_key=${metaKey}&meta_value=${it}`} className="hover:text-clr4 dark:hover:text-dclr4">{it}</Link> : it}
-                {i < items.length - 1 && <span className="text-clr3 dark:text-dclr3">, </span>}
+              <span key={i} className="text-[1em] text-blclr6 dark:text-bldclr6 capitalize">
+                {metaKey ? <Link href={`/blog?meta_key=${metaKey}&meta_value=${it}`} className="hover:text-blclr10 dark:hover:text-bldclr10">{it}</Link> : it}
+                {i < items.length - 1 && <span className="text-blclr6 dark:text-bldclr6">, </span>}
               </span>
             ))}
           </div>
@@ -336,20 +337,20 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
     }
 
     return (
-      <div className="min-h-screen bg-clr1 dark:bg-dclr1 text-clr2 dark:text-dclr2 font-body pb-20">
+      <div className="min-h-screen bg-blclr1 dark:bg-bldclr1 text-blclr9 dark:text-bldclr9 font-body pb-20">
         <SecondaryHeader />
         <main className="max-w-[1080px] mx-auto px-6 py-32">
           <Breadcrumbs />
           <header className="flex flex-col lg:flex-row gap-12 lg:items-center mb-6">
             <div className="w-full lg:w-[30%] shrink-0">
-              {articulo.imagen_destacada ? <img src={articulo.imagen_destacada} alt={articulo.titulo} className="w-full h-auto aspect-square object-cover rounded-[2rem] shadow-2xl border-2 border-clr7 dark:border-dclr7" /> : <div className="w-full aspect-square bg-clr1 dark:bg-dclr1 rounded-[2rem] border-2 border-dashed border-clr7" />}
+              {articulo.imagen_destacada ? <img src={articulo.imagen_destacada} alt={articulo.titulo} className="w-full h-auto aspect-square object-cover rounded-[2rem] shadow-2xl border-2 border-blclr13 dark:border-bldclr13" /> : <div className="w-full aspect-square bg-blclr1 dark:bg-bldclr1 rounded-[2rem] border-2 border-dashed border-blclr13 dark:border-bldclr13" />}
             </div>
             <div className="w-full lg:w-[70%]">
               <div className="flex items-center gap-2 mb-2">
                 <Icon url={ICON_URLS.categoria} />
-                <span className="text-[0.8em] text-clr4 uppercase tracking-wider font-display">Categorías: {articulo.articulo_categorias?.map((c) => c.categorias?.nombre).join(', ')}</span>
+                <span className="text-[0.8em] text-blclr3 dark:text-bldclr3 uppercase tracking-wider font-display">Categorías: {articulo.articulo_categorias?.map((c) => c.categorias?.nombre).join(', ')}</span>
               </div>
-              <h1 className="text-3xl lg:text-4xl font-display font-bold leading-none text-clr2 dark:text-dclr2 uppercase my-0 py-0">{articulo.titulo}</h1>
+              <h1 className="text-3xl lg:text-4xl font-display font-bold leading-none text-blclr4 dark:text-bldclr4 uppercase my-0 py-0">{articulo.titulo}</h1>
               <div className="mt-6 space-y-0.5">
                 <RowMeta label="Unidad" value={metadata.unidades} iconUrl={ICON_URLS.unidad} metaKey="unidades" />
                 <RowMeta label="Área de Desarrollo" value={metadata.areas || metadata.areas_desarrollo} iconUrl={ICON_URLS.area} metaKey="areas" />
@@ -368,28 +369,28 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
             </div>
           </header>
             {metadata.justificacion_areas && (
-              <div className="p-2 bg-clr1 dark:bg-dclr1 rounded-[1rem] border-l-[6px] border-clr6 shadow-sm mb-8">
+              <div className="p-2 bg-blclr1 dark:bg-bldclr1 rounded-[1rem] border-l-[6px] border-blclr7 shadow-sm mb-8">
                 <div className="flex flex-col gap-1 mb-3">
                   <div className="flex items-center gap-2">
-                    <h3 className="text-lg font-display font-bold text-clr6 dark:text-dclr6 uppercase my-0">¿Por qué estas áreas de desarrollo?</h3>
+                    <h3 className="text-lg font-display font-bold text-blclr7 dark:text-bldclr7 uppercase my-0">¿Por qué estas áreas de desarrollo?</h3>
                   </div>
-                  <p className="text-[0.8em] tracking-widest text-clr6 dark:text-dclr6 mt-[-8px] pl-2">
+                  <p className="text-[0.8em] tracking-widest text-blclr8 dark:text-bldclr8 mt-[-8px] pl-2">
                     {Array.isArray(metadata.areas || metadata.areas_desarrollo)
                       ? (metadata.areas || metadata.areas_desarrollo)!.map((a: string) => a.charAt(0).toUpperCase() + a.slice(1)).join(', ')
                       : (metadata.areas || metadata.areas_desarrollo)}
                   </p>
                 </div>
-                <div className="pl-2 mt-2">{renderFormattedText(metadata.justificacion_areas)}</div>
+                <div className="pl-2 mt-2">{renderFormattedText(metadata.justificacion_areas, 'text-blclr8 dark:text-bldclr8')}</div>
               </div>
             )}
-          <article className="blog-content dark:text-dclr2 w-full mb-10 text-[1.125rem]"><div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(contenidoLimpio) }} /></article>
+          <article className="blog-content dark:text-bldclr9 w-full mb-10 text-[1.125rem]"><div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(contenidoLimpio) }} /></article>
           <section className="space-y-12">
 
             {metadata.objetivos_educativos && metadata.objetivos_educativos.length > 0 && (
-              <div className="p-2 bg-clr1 dark:bg-dclr1 rounded-[1rem] shadow-sm">
+              <div className="p-2 bg-blclr1 dark:bg-bldclr1 rounded-[1rem] shadow-sm">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-2xl">🎯</span>
-                  <h3 className="text-xl font-display font-bold text-clr4 dark:text-dclr4 uppercase my-0">Objetivos Educativos</h3>
+                  <h3 className="text-xl font-display font-bold text-blclr12 dark:text-bldclr12 uppercase my-0">Objetivos Educativos</h3>
                 </div>
                 <div className="flex flex-col gap-2">
                   {Object.entries(
@@ -403,26 +404,26 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
                     return acc
                   }, {})).map(([terminal, objs], idx) => (
                     <div key={idx} className="flex flex-col gap-2">
-                      <div className="p-4 border border-clr2 rounded-[1em]">
-                        <h3 className="text-clr4 uppercase mb-[-4px]">🎯 Objetivo Terminal:</h3>
-                        <div className="font-bold text-[1em] text-clr3 dark:text-dclr3 leading-relaxed pb-2">
+                      <div className="p-4 border border-blclr13 rounded-[1em]">
+                        <h3 className="text-blclr12 dark:text-bldclr12 uppercase mb-[-4px]">🎯 Objetivo Terminal:</h3>
+                        <div className="font-bold text-[1em] text-blclr13 dark:text-bldclr13 leading-relaxed pb-2">
                           {terminal}
                         </div>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {objs.map((o, i) => (
-                          <div key={i} className="group flex flex-col gap-1 p-3 bg-clr1 dark:bg-dclr1 rounded-xl shadow-sm border border-clr7 dark:border-dclr7 relative overflow-hidden pl-5">
+                          <div key={i} className="group flex flex-col gap-1 p-3 bg-blclr1 dark:bg-bldclr1 rounded-xl shadow-sm border border-blclr13 dark:border-bldclr13 relative overflow-hidden pl-5">
                             <div className="absolute left-0 top-0 bottom-0 w-2" style={{ backgroundColor: o.color || '#ccc' }} />
                             <div className="flex items-center gap-2 flex-wrap">
                               <span className="text-[0.8em] font-black uppercase tracking-widest" style={{ color: o.color || '#ccc' }}>{o.unidad}</span><span>•</span>
-                              <span className="text-[0.8em] font-black uppercase text-clr3 dark:text-dclr3">{o.area}</span><span>•</span>
-                              {o.rango_edad && <span className="text-[0.8em] font-black uppercase px-2 py-0.5 rounded-md bg-clr1 dark:bg-dclr1 text-clr3 dark:text-dclr3">{o.rango_edad}</span>}
-                              <Link href={`/blog?obj_ed=${encodeURIComponent(o.texto || '')}`} className="text-[0.8em] font-black uppercase text-clr3 dark:text-dclr3 opacity-0 group-hover:opacity-100 hover:text-clr4 dark:hover:text-dclr4 transition-all ml-auto">Filtrar →</Link>
+                              <span className="text-[0.8em] font-black uppercase text-blclr14 dark:text-bldclr14">{o.area}</span><span>•</span>
+                              {o.rango_edad && <span className="text-[0.8em] font-black uppercase px-2 py-0.5 rounded-md bg-blclr1 dark:bg-bldclr1 text-blclr6 dark:text-bldclr6">{o.rango_edad}</span>}
+                              <Link href={`/blog?obj_ed=${encodeURIComponent(o.texto || '')}`} className="text-[0.8em] font-black uppercase text-blclr6 dark:text-bldclr6 opacity-0 group-hover:opacity-100 hover:text-blclr10 dark:hover:text-bldclr10 transition-all ml-auto">Filtrar →</Link>
                             </div>
-                            <p className="font-bold text-[1em] text-clr2 dark:text-dclr2 italic">"{o.texto}"</p>
+                            <p className="font-bold text-[1em] text-blclr15 dark:text-bldclr15 italic">"{o.texto}"</p>
                             {o.como_se_cumple && (
-                              <div className="mt-2 p-3 bg-clr1 dark:bg-dclr1 rounded-xl border-l-2 border-clr6 text-[0.9em] font-normal leading-relaxed text-clr2 dark:text-dclr2">
-                                <span className="font-black text-[0.8em] text-clr6 block uppercase tracking-wider mb-1">¿Cómo se cumple?</span>
+                              <div className="mt-2 p-3 bg-blclr1 dark:bg-bldclr1 rounded-xl border-l-2 border-blclr16 text-[0.9em] font-normal leading-relaxed text-blclr17 dark:text-bldclr17">
+                                <span className="font-black text-[0.8em] text-blclr16 dark:text-bldclr16 block uppercase tracking-wider mb-1">¿Cómo se cumple?</span>
                                 {o.como_se_cumple}
                               </div>
                             )}
@@ -435,29 +436,29 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
               </div>
             )}
             {metadata.variaciones && (
-              <div className="p-8 md:p-10 bg-clr1 dark:bg-dclr1 rounded-[2.5rem] border-l-[12px] border-clr4 shadow-sm space-y-4">
+              <div className="p-8 md:p-10 bg-blclr1 dark:bg-bldclr1 rounded-[2.5rem] border-l-[12px] border-blclr18 shadow-sm space-y-4 text-blclr19 dark:text-bldclr19">
                 <div className="flex items-center gap-3 mb-2">
                   <Icon url={ICON_URLS.variacion} className="w-8 h-8" />
-                  <h3 className="text-2xl font-display font-bold text-clr4 uppercase my-0">Variaciones</h3>
+                  <h3 className="text-2xl font-display font-bold text-blclr18 dark:text-bldclr18 uppercase my-0">Variaciones</h3>
                 </div>
-                {renderFormattedText(metadata.variaciones)}
+                {renderFormattedText(metadata.variaciones, 'text-blclr19 dark:text-bldclr19')}
               </div>
             )}
             {metadata.recomendaciones && (
-              <div className="p-8 md:p-10 bg-clr1 dark:bg-dclr1 rounded-[2.5rem] border-l-[12px] border-clr4 shadow-sm space-y-4">
+              <div className="p-8 md:p-10 bg-blclr1 dark:bg-bldclr1 rounded-[2.5rem] border-l-[12px] border-blclr20 shadow-sm space-y-4">
                 <div className="flex items-center gap-3 mb-2">
                   <Icon url={ICON_URLS.recomendacion} className="w-8 h-8" />
-                  <h3 className="text-2xl font-display font-bold text-clr4 uppercase my-0">Recomendaciones</h3>
+                  <h3 className="text-2xl font-display font-bold text-blclr20 uppercase my-0">Recomendaciones</h3>
                 </div>
-                {renderFormattedText(metadata.recomendaciones)}
+                {renderFormattedText(metadata.recomendaciones, 'text-blclr21 dark:text-bldclr21')}
               </div>
             )}
             
             {metadata.descargas && metadata.descargas.length > 0 && (
-              <div className="p-10 bg-clr1 dark:bg-dclr1 rounded-[2.5rem] border-l-[12px] border-clr6 shadow-sm">
+              <div className="p-10 bg-blclr1 dark:bg-bldclr1 rounded-[2.5rem] border-l-[12px] border-blclr20 shadow-sm">
                 <div className="flex items-center gap-3 mb-6">
                   <span className="text-3xl">📥</span>
-                  <h3 className="text-2xl font-display font-bold text-clr6 uppercase my-0">Material Descargable</h3>
+                  <h3 className="text-2xl font-display font-bold text-blclr5 dark:text-bldclr5 uppercase my-0">Material Descargable</h3>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {metadata.descargas.map((d, idx) => (
@@ -466,16 +467,16 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
                       href={d.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-4 p-4 bg-clr1 dark:bg-dclr1 hover:bg-clr6 dark:hover:bg-dclr6 border border-clr7 dark:border-dclr7 hover:border-clr6 rounded-2xl transition-all shadow-sm group"
+                      className="flex items-center gap-4 p-4 bg-blclr1 dark:bg-bldclr1 hover:bg-blclr7 dark:hover:bg-bldclr7 border border-blclr13 dark:border-bldclr13 hover:border-blclr7 rounded-2xl transition-all shadow-sm group"
                     >
-                      <div className="p-3 bg-clr6 dark:bg-dclr6 rounded-xl text-clr6 dark:text-dclr6 group-hover:scale-110 transition-transform">
+                      <div className="p-3 bg-blclr7 dark:bg-bldclr7 rounded-xl text-blclr5 dark:text-bldclr5 group-hover:scale-110 transition-transform">
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                         </svg>
                       </div>
                       <div className="flex flex-col min-w-0">
-                        <span className="font-bold text-[1em] text-clr2 dark:text-dclr2 truncate group-hover:text-clr6 transition-colors">{d.nombre}</span>
-                        <span className="text-[0.8em] text-clr3 dark:text-dclr3 uppercase tracking-wider font-display font-bold">Descargar Archivo</span>
+                        <span className="font-bold text-[1em] text-blclr9 dark:text-bldclr9 truncate group-hover:text-blclr7 transition-colors">{d.nombre}</span>
+                        <span className="text-[0.8em] text-blclr6 dark:text-bldclr6 uppercase tracking-wider font-display font-bold">Descargar Archivo</span>
                       </div>
                     </a>
                   ))}
@@ -485,14 +486,14 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
             
             {/* SECCIÓN DE RESEÑAS SCOUTS */}
             {articulo.articulo_resenas && articulo.articulo_resenas.length > 0 && (
-              <div className="p-2 bg-clr1 dark:bg-dclr1 rounded-[2rem] border-2 border-clr7 dark:border-dclr7 shadow-sm">
+              <div className="p-2 bg-blclr1 dark:bg-bldclr1 rounded-[2rem] border-2 border-blclr13 dark:border-bldclr13 shadow-sm">
                 <div className="flex items-center justify-between mb-8">
                   <div className="flex items-center gap-1">
                     <span className="text-3xl">⭐</span>
-                    <h3 className="text-xl font-display font-bold text-clr4 dark:text-dclr4 uppercase my-0">Reseñas de la Actividad</h3>
+                    <h3 className="text-xl font-display font-bold text-blclr4 dark:text-bldclr4 uppercase my-0">Reseñas de la Actividad</h3>
                   </div>
                   <div className="flex items-center gap-1">
-                    <span className="text-2xl font-black text-clr6">
+                    <span className="text-2xl font-black text-blclr5">
                       {(articulo.articulo_resenas.reduce((acc: number, r) => acc + r.calificacion, 0) / articulo.articulo_resenas.length).toFixed(1)}
                     </span>
                     <span className="text-[0.8em] font-black uppercase opacity-40 leading-tight leading-none">Nota<br/>Media</span>
@@ -511,7 +512,7 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
                     const displayName = res.es_anonimo ? 'ANÓNIMO' : `${profile?.nombres} ${profile?.apellidos}`;
 
                     return (
-                      <div key={res.id} className="p-2 bg-clr1 dark:bg-dclr1 rounded-[1rem] border-2 shadow-sm flex flex-col gap-5 transition-all hover:shadow-2xl relative overflow-hidden group" style={{ borderColor: `${uColor}30` }}>
+                      <div key={res.id} className="p-2 bg-blclr1 dark:bg-bldclr1 rounded-[1rem] border-2 shadow-sm flex flex-col gap-5 transition-all hover:shadow-2xl relative overflow-hidden group" style={{ borderColor: `${uColor}30` }}>
                         
                         {/* Fondo decorativo con logo de la unidad (Snapshot) */}
                         {uLogo && (
@@ -520,7 +521,7 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
                           </div>
                         )}
 
-                        <div className="flex flex-col relative z-10 border-b border-clr7 dark:border-dclr7 pb-4">
+                        <div className="flex flex-col relative z-10 border-b border-blclr13 dark:border-bldclr13 pb-4">
                           <div className="text-[1em] font-bold text-center tracking-widest" style={{ color: res.es_anonimo ? '#666' : uColor }}>
                             {displayName.toUpperCase()}
                           </div>
@@ -535,7 +536,7 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
                           </div>
                               <div className="flex gap-1.5 items-center justify-center">
                                 {[1, 2, 3, 4, 5, 6, 7].map(n => (
-                                  <span key={n} className={`text-2xl transition-all ${res.calificacion >= n ? 'text-clr5 drop-shadow-sm' : 'text-clr7'}`} style={{ color: uColor}}>★</span>
+                                  <span key={n} className={`text-2xl transition-all ${res.calificacion >= n ? 'text-blclr5 drop-shadow-sm' : 'text-blclr13'}`} style={{ color: uColor}}>★</span>
                                 ))}
                                 <span className="text-[1em] font-black px-1 py-1 rounded-full border shadow-inner" style={{ color: uColor, borderColor: `${uColor}80`, backgroundColor: `${uColor}10` }}>
                                   NOTA {res.calificacion}
@@ -548,7 +549,7 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
                           
                           {res.comentario && (
                             <div className="relative mt-2">
-                              <p className="text-[1.05em] italic opacity-95 leading-relaxed dark:text-dclr2 font-medium bg-clr1 dark:bg-dclr1 p-6 rounded-[1.5rem] border-l-[8px] shadow-sm" style={{ borderLeftColor: uColor }}>
+                              <p className="text-[1.05em] italic opacity-95 leading-relaxed dark:text-bldclr9 font-medium bg-blclr1 dark:bg-bldclr1 p-6 rounded-[1.5rem] border-l-[8px] shadow-sm" style={{ borderLeftColor: uColor }}>
                                 "{res.comentario}"
                               </p>
                             </div>
@@ -560,7 +561,7 @@ function BlogCatchAllContent({ params }: { params: { slug: string[] } }) {
                 </div>
               </div>
             )}
-            {articulo.etiquetas && articulo.etiquetas.length > 0 && <footer className="pt-12 border-t border-clr7 dark:border-dclr7 flex flex-wrap gap-3 items-center"><div className="flex items-center gap-2 mr-4"><Icon url={ICON_URLS.etiquetas} className="w-5 h-5" /><span className="text-[0.8em] font-bold text-clr3 uppercase tracking-widest">Etiquetas:</span></div>{articulo.etiquetas.map((t) => (<Link key={t} href={`/blog?tag=${t}`} className="px-5 py-2 bg-clr1 dark:bg-dclr1 rounded-full text-sm font-bold text-clr2 dark:text-dclr2 hover:bg-clr4 hover:text-clr1 transition-all shadow-sm">#{t}</Link>))}</footer>}
+            {articulo.etiquetas && articulo.etiquetas.length > 0 && <footer className="pt-12 border-t border-blclr13 dark:border-bldclr13 flex flex-wrap gap-3 items-center"><div className="flex items-center gap-2 mr-4"><Icon url={ICON_URLS.etiquetas} className="w-5 h-5" /><span className="text-[0.8em] font-bold text-blclr6 dark:text-bldclr6 uppercase tracking-widest">Etiquetas:</span></div>{articulo.etiquetas.map((t) => (<Link key={t} href={`/blog?tag=${t}`} className="px-5 py-2 bg-blclr1 dark:bg-bldclr1 rounded-full text-sm font-bold text-blclr9 dark:text-bldclr9 hover:bg-blclr10 hover:text-blclr1 transition-all shadow-sm">#{t}</Link>))}</footer>}
           </section>
         </main>
       </div>

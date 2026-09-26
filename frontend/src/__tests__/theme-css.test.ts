@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { generateThemeCSS, generatePromoColorsCSS, generateSlideshowColorsCSS, generateTestimonialsColorsCSS, generateVisitColorsCSS, generateFAQColorsCSS, generateSecondaryHeaderColorsCSS, generateFooterColorsCSS } from '@/lib/theme-css';
+import { generateThemeCSS, generatePromoColorsCSS, generateSlideshowColorsCSS, generateTestimonialsColorsCSS, generateVisitColorsCSS, generateFAQColorsCSS, generateSecondaryHeaderColorsCSS, generateFooterColorsCSS, generateBlogColorsCSS } from '@/lib/theme-css';
 import { DEFAULT_SITE_CONFIG } from '@/lib/site-config';
 import type { ThemeColorsConfig } from '@/lib/site-config.types';
 
@@ -522,5 +522,74 @@ describe('generateFooterColorsCSS', () => {
     const body = css.replace(':root{', '').replace(/}$/, '');
     const decls = body.split(';').filter(Boolean);
     expect(decls.length).toBe(20);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// generateBlogColorsCSS — Blog (blclr1-21 / bldclr1-21)
+// ---------------------------------------------------------------------------
+
+describe('generateBlogColorsCSS', () => {
+  const BLOG = DEFAULT_SITE_CONFIG.blog_colors;
+
+  it('emits a minified :root block with all 42 blog variables (21 light + 21 dark)', () => {
+    const css = generateBlogColorsCSS(BLOG);
+    expect(css).toMatch(/^:root\{.*;\}$/);
+    for (let i = 1; i <= 21; i++) {
+      expect(css).toContain(`--blclr${i}`);
+      expect(css).toContain(`--bldclr${i}`);
+    }
+  });
+
+  it('reflects a custom override instead of default', () => {
+    const css = generateBlogColorsCSS({ ...BLOG, blclr4: '#ff0000' });
+    expect(css).toContain('--blclr4:#ff0000');
+    expect(css).not.toContain('--blclr4:#1d1d1d');
+  });
+
+  it('always wraps in :root{...} and emits each of the 42 variable names exactly once', () => {
+    const css = generateBlogColorsCSS(BLOG);
+    expect(css.startsWith(':root{')).toBe(true);
+    expect(css.endsWith('}')).toBe(true);
+    const vars = [
+      ...Array.from({ length: 21 }, (_, i) => `--blclr${i + 1}`),
+      ...Array.from({ length: 21 }, (_, i) => `--bldclr${i + 1}`),
+    ];
+    for (const v of vars) {
+      expect(css.split(`${v}:`).length - 1, `${v} should appear exactly once`).toBe(1);
+    }
+  });
+
+  it('emits rgba when opacity < 100 (admin transparency applied to the CSS variable)', () => {
+    const css = generateBlogColorsCSS({ ...BLOG, blclr4_opacity: 50 });
+    // #1d1d1d → rgb(29, 29, 29)
+    expect(css).toContain('--blclr4:rgba(29, 29, 29, 0.5)');
+    expect(css).not.toContain('--blclr4-opacity');
+    // opacity 100 → hex
+    expect(generateBlogColorsCSS(BLOG)).not.toContain('rgba');
+  });
+
+  it('omits rgba when opacity is 100', () => {
+    const css = generateBlogColorsCSS({ ...BLOG, blclr4_opacity: 100 });
+    expect(css).toContain('--blclr4:#1d1d1d');
+    expect(css).not.toContain('rgba');
+  });
+
+  it('emits an empty declaration per missing hex (partial DB row keeps the count honest)', () => {
+    const expected =
+      ':root{' +
+       ['blclr1','blclr2','blclr3','blclr4','blclr5','blclr6','blclr7','blclr8','blclr9','blclr10','blclr11','blclr12','blclr13','blclr14','blclr15','blclr16','blclr17','blclr18','blclr19','blclr20','blclr21',
+        'bldclr1','bldclr2','bldclr3','bldclr4','bldclr5','bldclr6','bldclr7','bldclr8','bldclr9','bldclr10','bldclr11','bldclr12','bldclr13','bldclr14','bldclr15','bldclr16','bldclr17','bldclr18','bldclr19','bldclr20','bldclr21']
+        .map((k) => `--${k}:`)
+        .join(';') +
+      ';}';
+    expect(generateBlogColorsCSS({})).toBe(expected);
+  });
+
+  it('preserves count invariant: 42 variable declarations', () => {
+    const css = generateBlogColorsCSS(BLOG);
+    const body = css.replace(':root{', '').replace(/}$/, '');
+    const decls = body.split(';').filter(Boolean);
+    expect(decls.length).toBe(42);
   });
 });

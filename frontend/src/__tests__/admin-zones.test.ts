@@ -15,7 +15,7 @@ type CategoryFieldMap = {
   // any ZoneSection. So it has no entries in ADMIN_ZONES coverage.
   // social_list is excluded — it stores a JSON blob (items array), not
   // individual typed fields. The admin zone uses a single JSON field.
-  [C in Exclude<SiteConfigCategory, 'theme_colors' | 'header_colors' | 'menu_colors' | 'features' | 'section_visibility' | 'social_list' | 'social'>]: readonly (keyof SiteConfigRecord[C])[];
+  [C in Exclude<SiteConfigCategory, 'theme_colors' | 'header_colors' | 'menu_colors' | 'blog_colors' | 'features' | 'section_visibility' | 'social_list' | 'social'>]: readonly (keyof SiteConfigRecord[C])[];
 } & {
   // theme_colors adds 1 heading row (_heading_tarjetas) + full 152 color/opacity fields
   theme_colors: readonly (
@@ -26,6 +26,8 @@ type CategoryFieldMap = {
   header_colors: readonly (keyof SiteConfigRecord['header_colors'])[];
   // menu_colors adds full 36 color/opacity fields
   menu_colors: readonly (keyof SiteConfigRecord['menu_colors'])[];
+  // blog_colors adds full 84 color/opacity fields
+  blog_colors: readonly (keyof SiteConfigRecord['blog_colors'])[];
   // features adds content fields + 36 color/opacity fields
   features: readonly (
     | keyof SiteConfigRecord['features']
@@ -316,6 +318,30 @@ const EXPECTED_FIELDS = {
     'pclr12', 'pdclr12', 'pclr12_opacity', 'pdclr12_opacity',
     'pclr13', 'pdclr13', 'pclr13_opacity', 'pdclr13_opacity',
     'pclr14', 'pdclr14', 'pclr14_opacity', 'pdclr14_opacity',
+  ],
+  blog_colors: [
+    // 21 roles × 4 fields = 84
+    'blclr1', 'bldclr1', 'blclr1_opacity', 'bldclr1_opacity',
+    'blclr2', 'bldclr2', 'blclr2_opacity', 'bldclr2_opacity',
+    'blclr3', 'bldclr3', 'blclr3_opacity', 'bldclr3_opacity',
+    'blclr4', 'bldclr4', 'blclr4_opacity', 'bldclr4_opacity',
+    'blclr5', 'bldclr5', 'blclr5_opacity', 'bldclr5_opacity',
+    'blclr6', 'bldclr6', 'blclr6_opacity', 'bldclr6_opacity',
+    'blclr7', 'bldclr7', 'blclr7_opacity', 'bldclr7_opacity',
+    'blclr8', 'bldclr8', 'blclr8_opacity', 'bldclr8_opacity',
+    'blclr9', 'bldclr9', 'blclr9_opacity', 'bldclr9_opacity',
+    'blclr10', 'bldclr10', 'blclr10_opacity', 'bldclr10_opacity',
+    'blclr11', 'bldclr11', 'blclr11_opacity', 'bldclr11_opacity',
+    'blclr12', 'bldclr12', 'blclr12_opacity', 'bldclr12_opacity',
+    'blclr13', 'bldclr13', 'blclr13_opacity', 'bldclr13_opacity',
+    'blclr14', 'bldclr14', 'blclr14_opacity', 'bldclr14_opacity',
+    'blclr15', 'bldclr15', 'blclr15_opacity', 'bldclr15_opacity',
+    'blclr16', 'bldclr16', 'blclr16_opacity', 'bldclr16_opacity',
+    'blclr17', 'bldclr17', 'blclr17_opacity', 'bldclr17_opacity',
+    'blclr18', 'bldclr18', 'blclr18_opacity', 'bldclr18_opacity',
+    'blclr19', 'bldclr19', 'blclr19_opacity', 'bldclr19_opacity',
+    'blclr20', 'bldclr20', 'blclr20_opacity', 'bldclr20_opacity',
+    'blclr21', 'bldclr21', 'blclr21_opacity', 'bldclr21_opacity',
   ],
 } as const satisfies CategoryFieldMap;
 

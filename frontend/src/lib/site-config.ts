@@ -718,6 +718,72 @@ export const DEFAULT_SITE_CONFIG: SiteConfigRecord = {
     pclr14: '#cb3327', pdclr14: '#ef4b3a',
     pclr14_opacity: 100, pdclr14_opacity: 100,
   },
+  blog_colors: {
+    // 21 roles × light + dark (42 hex) + 42 opacities = 84
+    // 1. Color de fondo
+    blclr1: '#FFFFFF', bldclr1: '#121212',
+    blclr1_opacity: 100, bldclr1_opacity: 100,
+    // 2. Breadcrumb
+    blclr2: '#cb3327', bldclr2: '#ef4b3a',
+    blclr2_opacity: 100, bldclr2_opacity: 100,
+    // 3. Categorías
+    blclr3: '#cb3327', bldclr3: '#ef4b3a',
+    blclr3_opacity: 100, bldclr3_opacity: 100,
+    // 4. Título Articulo
+    blclr4: '#1d1d1d', bldclr4: '#f7fafc',
+    blclr4_opacity: 100, bldclr4_opacity: 100,
+    // 5. Título Clasificación
+    blclr5: '#2c3e50', bldclr5: '#b0b0b0',
+    blclr5_opacity: 100, bldclr5_opacity: 100,
+    // 6. Texto Clasificación
+    blclr6: '#6c757d', bldclr6: '#8a8a8a',
+    blclr6_opacity: 100, bldclr6_opacity: 100,
+    // 7. Justificación Áreas
+    blclr7: '#cb3327', bldclr7: '#ef4b3a',
+    blclr7_opacity: 100, bldclr7_opacity: 100,
+    // 8. Texto Justificación
+    blclr8: '#333333', bldclr8: '#b0b0b0',
+    blclr8_opacity: 100, bldclr8_opacity: 100,
+    // 9. Texto Articulo
+    blclr9: '#1d1d1d', bldclr9: '#f7fafc',
+    blclr9_opacity: 100, bldclr9_opacity: 100,
+    // 10. Enlaces en Articulo
+    blclr10: '#cb3327', bldclr10: '#ef4b3a',
+    blclr10_opacity: 100, bldclr10_opacity: 100,
+    // 11. Títulos en Articulo
+    blclr11: '#2c3e50', bldclr11: '#b0b0b0',
+    blclr11_opacity: 100, bldclr11_opacity: 100,
+    // 12. Título Obj. Terminal
+    blclr12: '#cb3327', bldclr12: '#ef4b3a',
+    blclr12_opacity: 100, bldclr12_opacity: 100,
+    // 13. Texto Obj. Terminal
+    blclr13: '#333333', bldclr13: '#b0b0b0',
+    blclr13_opacity: 100, bldclr13_opacity: 100,
+    // 14. Texto Superior Obj. Edu.
+    blclr14: '#95a5a6', bldclr14: '#8a8a8a',
+    blclr14_opacity: 100, bldclr14_opacity: 100,
+    // 15. Texto Obj. Edu.
+    blclr15: '#1d1d1d', bldclr15: '#b0b0b0',
+    blclr15_opacity: 100, bldclr15_opacity: 100,
+    // 16. Título Cómo se cumple
+    blclr16: '#33a345', bldclr16: '#33a345',
+    blclr16_opacity: 100, bldclr16_opacity: 100,
+    // 17. Texto Cómo se cumple
+    blclr17: '#333333', bldclr17: '#b0b0b0',
+    blclr17_opacity: 100, bldclr17_opacity: 100,
+    // 18. Título Variaciones
+    blclr18: '#cb3327', bldclr18: '#ef4b3a',
+    blclr18_opacity: 100, bldclr18_opacity: 100,
+    // 19. Texto Variaciones
+    blclr19: '#333333', bldclr19: '#b0b0b0',
+    blclr19_opacity: 100, bldclr19_opacity: 100,
+    // 20. Título Recomendaciones
+    blclr20: '#ffc41d', bldclr20: '#ffcf33',
+    blclr20_opacity: 100, bldclr20_opacity: 100,
+    // 21. Texto Recomendaciones
+    blclr21: '#333333', bldclr21: '#b0b0b0',
+    blclr21_opacity: 100, bldclr21_opacity: 100,
+  },
   section_visibility: {
     hero: true,
     features: true,
@@ -848,6 +914,7 @@ export async function loadSiteConfig(): Promise<SiteConfigRecord> {
     secondary_header_colors: getCat('secondary_header_colors', defaults.secondary_header_colors),
     footer_colors: getCat('footer_colors', defaults.footer_colors),
     panel_colors: getCat('panel_colors', defaults.panel_colors),
+    blog_colors: getCat('blog_colors', defaults.blog_colors ?? {}),
     section_visibility: getCat('section_visibility', defaults.section_visibility),
     social_list: getCat('social_list', defaults.social_list),
   };

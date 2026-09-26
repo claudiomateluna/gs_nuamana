@@ -26,6 +26,7 @@ export type SiteConfigCategory =
   | 'secondary_header_colors'
   | 'footer_colors'
   | 'panel_colors'
+  | 'blog_colors'
   | 'section_visibility'
   | 'social_list';
 
@@ -998,6 +999,115 @@ export interface PanelColorsConfig {
   pdclr14_opacity?: number;
 }
 
+export interface BlogColorsConfig {
+  // 21 color roles × light + dark (42 hex fields) + 21 light opacities + 21 dark opacities = 84
+  // 1. Color de fondo
+  blclr1?: string;
+  bldclr1?: string;
+  blclr1_opacity?: number;
+  bldclr1_opacity?: number;
+  // 2. Breadcrumb
+  blclr2?: string;
+  bldclr2?: string;
+  blclr2_opacity?: number;
+  bldclr2_opacity?: number;
+  // 3. Categorías
+  blclr3?: string;
+  bldclr3?: string;
+  blclr3_opacity?: number;
+  bldclr3_opacity?: number;
+  // 4. Título Articulo
+  blclr4?: string;
+  bldclr4?: string;
+  blclr4_opacity?: number;
+  bldclr4_opacity?: number;
+  // 5. Título Clasificación
+  blclr5?: string;
+  bldclr5?: string;
+  blclr5_opacity?: number;
+  bldclr5_opacity?: number;
+  // 6. Texto Clasificación
+  blclr6?: string;
+  bldclr6?: string;
+  blclr6_opacity?: number;
+  bldclr6_opacity?: number;
+  // 7. Justificación Áreas
+  blclr7?: string;
+  bldclr7?: string;
+  blclr7_opacity?: number;
+  bldclr7_opacity?: number;
+  // 8. Texto Justificación
+  blclr8?: string;
+  bldclr8?: string;
+  blclr8_opacity?: number;
+  bldclr8_opacity?: number;
+  // 9. Texto Articulo
+  blclr9?: string;
+  bldclr9?: string;
+  blclr9_opacity?: number;
+  bldclr9_opacity?: number;
+  // 10. Enlaces en Articulo
+  blclr10?: string;
+  bldclr10?: string;
+  blclr10_opacity?: number;
+  bldclr10_opacity?: number;
+  // 11. Títulos en Articulo
+  blclr11?: string;
+  bldclr11?: string;
+  blclr11_opacity?: number;
+  bldclr11_opacity?: number;
+  // 12. Título Obj. Terminal
+  blclr12?: string;
+  bldclr12?: string;
+  blclr12_opacity?: number;
+  bldclr12_opacity?: number;
+  // 13. Texto Obj. Terminal
+  blclr13?: string;
+  bldclr13?: string;
+  blclr13_opacity?: number;
+  bldclr13_opacity?: number;
+  // 14. Texto Superior Obj. Edu.
+  blclr14?: string;
+  bldclr14?: string;
+  blclr14_opacity?: number;
+  bldclr14_opacity?: number;
+  // 15. Texto Obj. Edu.
+  blclr15?: string;
+  bldclr15?: string;
+  blclr15_opacity?: number;
+  bldclr15_opacity?: number;
+  // 16. Título Cómo se cumple
+  blclr16?: string;
+  bldclr16?: string;
+  blclr16_opacity?: number;
+  bldclr16_opacity?: number;
+  // 17. Texto Cómo se cumple
+  blclr17?: string;
+  bldclr17?: string;
+  blclr17_opacity?: number;
+  bldclr17_opacity?: number;
+  // 18. Título Variaciones
+  blclr18?: string;
+  bldclr18?: string;
+  blclr18_opacity?: number;
+  bldclr18_opacity?: number;
+  // 19. Texto Variaciones
+  blclr19?: string;
+  bldclr19?: string;
+  blclr19_opacity?: number;
+  bldclr19_opacity?: number;
+  // 20. Título Recomendaciones
+  blclr20?: string;
+  bldclr20?: string;
+  blclr20_opacity?: number;
+  bldclr20_opacity?: number;
+  // 21. Texto Recomendaciones
+  blclr21?: string;
+  bldclr21?: string;
+  blclr21_opacity?: number;
+  bldclr21_opacity?: number;
+}
+
 export interface SectionVisibilityConfig {
   hero: boolean;
   features: boolean;
@@ -1031,6 +1141,7 @@ export interface SiteConfigRecord {
   secondary_header_colors: SecondaryHeaderColorsConfig;
   footer_colors: FooterColorsConfig;
   panel_colors: PanelColorsConfig;
+  blog_colors: BlogColorsConfig;
   section_visibility: SectionVisibilityConfig;
   social_list: SocialListConfig;
 }

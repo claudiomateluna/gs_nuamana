@@ -1,93 +1,86 @@
--- ======================================================
--- RESTAURACIÓN DE ETAPAS Y CONFIGURACIÓN DE COLORES
--- ======================================================
-
-DO $$
-DECLARE
-    u_manada INTEGER;
-    u_compania INTEGER;
-    u_tropa INTEGER;
-    u_avanzada INTEGER;
-    u_clan INTEGER;
-BEGIN
-    -- 1. Obtener IDs de las Unidades
-    SELECT id INTO u_manada FROM public.unidades WHERE nombre = 'Manada' LIMIT 1;
-    SELECT id INTO u_compania FROM public.unidades WHERE nombre = 'Compañía' LIMIT 1;
-    SELECT id INTO u_tropa FROM public.unidades WHERE nombre = 'Tropa' LIMIT 1;
-    SELECT id INTO u_avanzada FROM public.unidades WHERE nombre = 'Avanzada' LIMIT 1;
-    SELECT id INTO u_clan FROM public.unidades WHERE nombre = 'Clan' LIMIT 1;
-
-    -- =================================================
-    -- 2. CONFIGURAR COLORES INSTITUCIONALES EN UNIDADES
-    -- =================================================
-    -- Manada: Amarillo Principal, Azul Marino Contraste
-    UPDATE public.unidades 
-    SET colores = '{"primario": "#f5cd16", "secundario": "#2b2c77", "textoLight": "#ffffff", "textoDark": "#1a2a44"}'::jsonb 
-    WHERE id = u_manada;
-
-    -- Compañía: Cian Principal, Amarillo Dorado Contraste
-    UPDATE public.unidades 
-    SET colores = '{"primario": "#00b7dc", "secundario": "#e7a913", "textoLight": "#ffffff", "textoDark": "#083344"}'::jsonb 
-    WHERE id = u_compania;
-
-    -- (Opcional) Dejar listos los colores de la Tropa (Verde / Rojo)
-    UPDATE public.unidades 
-    SET colores = '{"primario": "#1e592d", "secundario": "#FFFFFF", "textoLight": "#ffffff", "textoDark": "#14532d"}'::jsonb 
-    WHERE nombre = 'Tropa';
-
-    -- (Opcional) Dejar listos los colores de la Avanzada (Morado / Blanco)
-    UPDATE public.unidades 
-    SET colores = '{"primario": "#4a3f8c", "secundario": "#FFFFFF", "textoLight": "#ffffff", "textoDark": "#14532d"}'::jsonb 
-    WHERE nombre = 'Avanzada';
-
-    -- (Opcional) Dejar listos los colores de la Clan (Rojo / Amarillo)
-    UPDATE public.unidades 
-    SET colores = '{"primario": "#e32328", "secundario": "#fac620", "textoLight": "#ffffff", "textoDark": "#14532d"}'::jsonb 
-    WHERE nombre = 'Clan';
-
-    -- =================================================
-    -- 3. RESTAURAR ETAPAS Y SUS IMÁGENES
-    -- =================================================
-    
-    -- MANADA
-    INSERT INTO public.progresion_etapas (unidad_id, nombre, orden, rango_edad, imagen_url) VALUES
-    (u_manada, 'Lobezno', 1, 'Infancia Media', '/images/progresion/manada/etapa_lobezno.png'),
-    (u_manada, 'Saltador', 2, 'Infancia Media', '/images/progresion/manada/etapa_saltador.png'),
-    (u_manada, 'Diestro', 3, 'Infancia Tardía', '/images/progresion/manada/etapa_diestro.png'),
-    (u_manada, 'Cazador', 4, 'Infancia Tardía', '/images/progresion/manada/etapa_cazador.png')
-    ON CONFLICT (unidad_id, nombre) DO UPDATE 
-    SET imagen_url = EXCLUDED.imagen_url, orden = EXCLUDED.orden;
-
-    -- COMPAÑÍA
-    INSERT INTO public.progresion_etapas (unidad_id, nombre, orden, rango_edad, imagen_url) VALUES
-    (u_compania, 'Alba', 1, '11 a 13 años', '/images/progresion/compania/etapa_alba.png'),
-    (u_compania, 'Amanecer', 2, '11 a 13 años', '/images/progresion/compania/etapa_amanecer.png'),
-    (u_compania, 'Luz', 3, '13 a 15 años', '/images/progresion/compania/etapa_luz.png'),
-    (u_compania, 'Resplandor', 4, '13 a 15 años', '/images/progresion/compania/etapa_resplandor.png')
-    ON CONFLICT (unidad_id, nombre) DO UPDATE 
-    SET imagen_url = EXCLUDED.imagen_url, orden = EXCLUDED.orden;
-
-    -- TROPA
-    INSERT INTO public.progresion_etapas (unidad_id, nombre, orden, rango_edad, imagen_url) VALUES
-    (u_tropa, 'Cernícalo', 1, '11 a 13 años', '/images/progresion/tropa/etapa_cernicalo.png'),
-    (u_tropa, 'Halcón', 2, '11 a 13 años', '/images/progresion/tropa/etapa_halcon.png'),
-    (u_tropa, 'Águila', 3, '13 a 15 años', '/images/progresion/tropa/etapa_aguila.png'),
-    (u_tropa, 'Cóndor', 4, '13 a 15 años', '/images/progresion/tropa/etapa_condor.png')
-    ON CONFLICT (unidad_id, nombre) DO UPDATE 
-    SET imagen_url = EXCLUDED.imagen_url, orden = EXCLUDED.orden;
-
-    -- AVANZADA
-    INSERT INTO public.progresion_etapas (unidad_id, nombre, orden, rango_edad, imagen_url) VALUES
-    (u_avanzada, 'Sendero', 1, '15 a 17 años', '/images/progresion/avanzada/etapa_sendero.png'),
-    (u_avanzada, 'Cumbre', 2, '15 a 17 años', '/images/progresion/avanzada/etapa_cumbre.png')
-    ON CONFLICT (unidad_id, nombre) DO UPDATE 
-    SET imagen_url = EXCLUDED.imagen_url, orden = EXCLUDED.orden;
-
-    -- CLAN
-    INSERT INTO public.progresion_etapas (unidad_id, nombre, orden, rango_edad, imagen_url) VALUES
-    (u_clan, 'Fuego', 1, '17 a 20 años', '/images/progresion/clan/etapa_fuego.png'),
-    (u_clan, 'Antorcha', 2, '17 a 20 años', '/images/progresion/clan/etapa_antorcha.png')
-    ON CONFLICT (unidad_id, nombre) DO UPDATE 
-    SET imagen_url = EXCLUDED.imagen_url, orden = EXCLUDED.orden;
-
-END $$;
+INSERT INTO configuracion_sitio (categoria, clave, valor, updated_at) VALUES
+('blog_colors', 'blclr1', '"#FFFFFF"', NOW()),
+('blog_colors', 'bldclr1', '"#121212"', NOW()),
+('blog_colors', 'blclr1_opacity', '100', NOW()),
+('blog_colors', 'bldclr1_opacity', '100', NOW()),
+('blog_colors', 'blclr2', '"#cb3327"', NOW()),
+('blog_colors', 'bldclr2', '"#ef4b3a"', NOW()),
+('blog_colors', 'blclr2_opacity', '100', NOW()),
+('blog_colors', 'bldclr2_opacity', '100', NOW()),
+('blog_colors', 'blclr3', '"#cb3327"', NOW()),
+('blog_colors', 'bldclr3', '"#ef4b3a"', NOW()),
+('blog_colors', 'blclr3_opacity', '100', NOW()),
+('blog_colors', 'bldclr3_opacity', '100', NOW()),
+('blog_colors', 'blclr4', '"#1d1d1d"', NOW()),
+('blog_colors', 'bldclr4', '"#f7fafc"', NOW()),
+('blog_colors', 'blclr4_opacity', '100', NOW()),
+('blog_colors', 'bldclr4_opacity', '100', NOW()),
+('blog_colors', 'blclr5', '"#2c3e50"', NOW()),
+('blog_colors', 'bldclr5', '"#b0b0b0"', NOW()),
+('blog_colors', 'blclr5_opacity', '100', NOW()),
+('blog_colors', 'bldclr5_opacity', '100', NOW()),
+('blog_colors', 'blclr6', '"#6c757d"', NOW()),
+('blog_colors', 'bldclr6', '"#8a8a8a"', NOW()),
+('blog_colors', 'blclr6_opacity', '100', NOW()),
+('blog_colors', 'bldclr6_opacity', '100', NOW()),
+('blog_colors', 'blclr7', '"#cb3327"', NOW()),
+('blog_colors', 'bldclr7', '"#ef4b3a"', NOW()),
+('blog_colors', 'blclr7_opacity', '100', NOW()),
+('blog_colors', 'bldclr7_opacity', '100', NOW()),
+('blog_colors', 'blclr8', '"#333333"', NOW()),
+('blog_colors', 'bldclr8', '"#b0b0b0"', NOW()),
+('blog_colors', 'blclr8_opacity', '100', NOW()),
+('blog_colors', 'bldclr8_opacity', '100', NOW()),
+('blog_colors', 'blclr9', '"#1d1d1d"', NOW()),
+('blog_colors', 'bldclr9', '"#f7fafc"', NOW()),
+('blog_colors', 'blclr9_opacity', '100', NOW()),
+('blog_colors', 'bldclr9_opacity', '100', NOW()),
+('blog_colors', 'blclr10', '"#cb3327"', NOW()),
+('blog_colors', 'bldclr10', '"#ef4b3a"', NOW()),
+('blog_colors', 'blclr10_opacity', '100', NOW()),
+('blog_colors', 'bldclr10_opacity', '100', NOW()),
+('blog_colors', 'blclr11', '"#2c3e50"', NOW()),
+('blog_colors', 'bldclr11', '"#b0b0b0"', NOW()),
+('blog_colors', 'blclr11_opacity', '100', NOW()),
+('blog_colors', 'bldclr11_opacity', '100', NOW()),
+('blog_colors', 'blclr12', '"#cb3327"', NOW()),
+('blog_colors', 'bldclr12', '"#ef4b3a"', NOW()),
+('blog_colors', 'blclr12_opacity', '100', NOW()),
+('blog_colors', 'bldclr12_opacity', '100', NOW()),
+('blog_colors', 'blclr13', '"#333333"', NOW()),
+('blog_colors', 'bldclr13', '"#b0b0b0"', NOW()),
+('blog_colors', 'blclr13_opacity', '100', NOW()),
+('blog_colors', 'bldclr13_opacity', '100', NOW()),
+('blog_colors', 'blclr14', '"#95a5a6"', NOW()),
+('blog_colors', 'bldclr14', '"#8a8a8a"', NOW()),
+('blog_colors', 'blclr14_opacity', '100', NOW()),
+('blog_colors', 'bldclr14_opacity', '100', NOW()),
+('blog_colors', 'blclr15', '"#1d1d1d"', NOW()),
+('blog_colors', 'bldclr15', '"#b0b0b0"', NOW()),
+('blog_colors', 'blclr15_opacity', '100', NOW()),
+('blog_colors', 'bldclr15_opacity', '100', NOW()),
+('blog_colors', 'blclr16', '"#33a345"', NOW()),
+('blog_colors', 'bldclr16', '"#33a345"', NOW()),
+('blog_colors', 'blclr16_opacity', '100', NOW()),
+('blog_colors', 'bldclr16_opacity', '100', NOW()),
+('blog_colors', 'blclr17', '"#333333"', NOW()),
+('blog_colors', 'bldclr17', '"#b0b0b0"', NOW()),
+('blog_colors', 'blclr17_opacity', '100', NOW()),
+('blog_colors', 'bldclr17_opacity', '100', NOW()),
+('blog_colors', 'blclr18', '"#cb3327"', NOW()),
+('blog_colors', 'bldclr18', '"#ef4b3a"', NOW()),
+('blog_colors', 'blclr18_opacity', '100', NOW()),
+('blog_colors', 'bldclr18_opacity', '100', NOW()),
+('blog_colors', 'blclr19', '"#333333"', NOW()),
+('blog_colors', 'bldclr19', '"#b0b0b0"', NOW()),
+('blog_colors', 'blclr19_opacity', '100', NOW()),
+('blog_colors', 'bldclr19_opacity', '100', NOW()),
+('blog_colors', 'blclr20', '"#ffc41d"', NOW()),
+('blog_colors', 'bldclr20', '"#ffcf33"', NOW()),
+('blog_colors', 'blclr20_opacity', '100', NOW()),
+('blog_colors', 'bldclr20_opacity', '100', NOW()),
+('blog_colors', 'blclr21', '"#333333"', NOW()),
+('blog_colors', 'bldclr21', '"#b0b0b0"', NOW()),
+('blog_colors', 'blclr21_opacity', '100', NOW()),
+('blog_colors', 'bldclr21_opacity', '100', NOW())
+ON CONFLICT (categoria, clave) DO UPDATE SET valor = EXCLUDED.valor, updated_at = NOW();

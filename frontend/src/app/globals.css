@@ -139,6 +139,38 @@
   --pdclr10: #33506f; --pdclr11: #3c3c3c; --pdclr12: #FFFFFF;
   --pdclr13: #3c3c3c; --pdclr14: #ef4b3a;
 
+  /* Blog (21 roles) — light */
+  --blclr1: #FFFFFF; /* 1: Color de fondo */
+  --blclr2: #cb3327; /* 2: Breadcrumb */
+  --blclr3: #cb3327; /* 3: Categorías */
+  --blclr4: #1d1d1d; /* 4: Título Articulo */
+  --blclr5: #2c3e50; /* 5: Título Clasificación */
+  --blclr6: #6c757d; /* 6: Texto Clasificación */
+  --blclr7: #cb3327; /* 7: Justificación Áreas */
+  --blclr8: #333333; /* 8: Texto Justificación */
+  --blclr9: #1d1d1d; /* 9: Texto Articulo */
+  --blclr10: #cb3327; /* 10: Enlaces en Articulo */
+  --blclr11: #2c3e50; /* 11: Títulos en Articulo */
+  --blclr12: #cb3327; /* 12: Título Obj. Terminal */
+  --blclr13: #333333; /* 13: Texto Obj. Terminal */
+  --blclr14: #95a5a6; /* 14: Texto Superior Obj. Edu. */
+  --blclr15: #1d1d1d; /* 15: Texto Obj. Edu. */
+  --blclr16: #33a345; /* 16: Título Cómo se cumple */
+  --blclr17: #333333; /* 17: Texto Cómo se cumple */
+  --blclr18: #cb3327; /* 18: Título Variaciones */
+  --blclr19: #333333; /* 19: Texto Variaciones */
+  --blclr20: #ffc41d; /* 20: Título Recomendaciones */
+  --blclr21: #333333; /* 21: Texto Recomendaciones */
+
+  /* Blog (21 roles) — dark */
+  --bldclr1: #121212; --bldclr2: #ef4b3a; --bldclr3: #ef4b3a;
+  --bldclr4: #f7fafc; --bldclr5: #b0b0b0; --bldclr6: #8a8a8a;
+  --bldclr7: #ef4b3a; --bldclr8: #b0b0b0; --bldclr9: #f7fafc;
+  --bldclr10: #ef4b3a; --bldclr11: #b0b0b0; --bldclr12: #ef4b3a;
+  --bldclr13: #b0b0b0; --bldclr14: #8a8a8a; --bldclr15: #b0b0b0;
+  --bldclr16: #33a345; --bldclr17: #b0b0b0; --bldclr18: #ef4b3a;
+  --bldclr19: #b0b0b0; --bldclr20: #ffcf33; --bldclr21: #b0b0b0;
+
   --background: var(--clr1);
   --foreground: var(--clr2);
 }
@@ -253,6 +285,22 @@
   --color-pdclr7: var(--pdclr7); --color-pdclr8: var(--pdclr8); --color-pdclr9: var(--pdclr9); --color-pdclr10: var(--pdclr10);
   --color-pdclr11: var(--pdclr11); --color-pdclr12: var(--pdclr12); --color-pdclr13: var(--pdclr13); --color-pdclr14: var(--pdclr14);
 
+  /* Blog */
+  --color-blclr1: var(--blclr1); --color-blclr2: var(--blclr2); --color-blclr3: var(--blclr3);
+  --color-blclr4: var(--blclr4); --color-blclr5: var(--blclr5); --color-blclr6: var(--blclr6);
+  --color-blclr7: var(--blclr7); --color-blclr8: var(--blclr8); --color-blclr9: var(--blclr9);
+  --color-blclr10: var(--blclr10); --color-blclr11: var(--blclr11); --color-blclr12: var(--blclr12);
+  --color-blclr13: var(--blclr13); --color-blclr14: var(--blclr14); --color-blclr15: var(--blclr15);
+  --color-blclr16: var(--blclr16); --color-blclr17: var(--blclr17); --color-blclr18: var(--blclr18);
+  --color-blclr19: var(--blclr19); --color-blclr20: var(--blclr20); --color-blclr21: var(--blclr21);
+  --color-bldclr1: var(--bldclr1); --color-bldclr2: var(--bldclr2); --color-bldclr3: var(--bldclr3);
+  --color-bldclr4: var(--bldclr4); --color-bldclr5: var(--bldclr5); --color-bldclr6: var(--bldclr6);
+  --color-bldclr7: var(--bldclr7); --color-bldclr8: var(--bldclr8); --color-bldclr9: var(--bldclr9);
+  --color-bldclr10: var(--bldclr10); --color-bldclr11: var(--bldclr11); --color-bldclr12: var(--bldclr12);
+  --color-bldclr13: var(--bldclr13); --color-bldclr14: var(--bldclr14); --color-bldclr15: var(--bldclr15);
+  --color-bldclr16: var(--bldclr16); --color-bldclr17: var(--bldclr17); --color-bldclr18: var(--bldclr18);
+  --color-bldclr19: var(--bldclr19); --color-bldclr20: var(--bldclr20); --color-bldclr21: var(--bldclr21);
+
   /* Vinculación de fuentes para Tailwind v4 */
   --font-display: var(--font-inika);
   --font-body: var(--font-quicksand);
@@ -288,9 +336,13 @@ h1, h2, h3, h4, h5, h6, .font-display {
   line-height: 2;
 }
 
-.blog-content h1, .blog-content h2, .blog-content h3 { 
+.blog-content h1, .blog-content h2, .blog-content h3, .blog-content h4, .blog-content h5, .blog-content h6 {
   font-family: var(--font-roboto-slab), serif;
   margin-bottom: 1em;
+  color: var(--blclr11);
+}
+:is(.dark) .blog-content h1, :is(.dark) .blog-content h2, :is(.dark) .blog-content h3, :is(.dark) .blog-content h4, :is(.dark) .blog-content h5, :is(.dark) .blog-content h6 {
+  color: var(--bldclr11);
 }
 .blog-content p, .blog-content li {
   margin-top: 1.25rem;

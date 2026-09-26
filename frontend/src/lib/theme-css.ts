@@ -37,6 +37,7 @@ import type { VisitColorsConfig } from './site-config.types';
 import type { FAQColorsConfig } from './site-config.types';
 import type { SecondaryHeaderColorsConfig } from './site-config.types';
 import type { FooterColorsConfig } from './site-config.types';
+import type { BlogColorsConfig } from './site-config.types';
 
 /**
  * Convert a `#RRGGBB` hex string to its `[r, g, b]` integer components.
@@ -376,6 +377,28 @@ export function generatePanelColorsCSS(panel: PanelColorsConfig): string {
     if (!hex) return `--${key}:`;
     const opacityKey = `${key}_opacity` as keyof PanelColorsConfig;
     const opacity = panel[opacityKey] as number | undefined;
+    if (opacity === undefined || opacity >= 100) return `--${key}:${hex}`;
+    const [r, g, b] = hexToRgb(hex);
+    return `--${key}:rgba(${r}, ${g}, ${b}, ${opacity / 100})`;
+  }).join(';');
+  return `:root{${declarations};}`;
+}
+
+// ---------------------------------------------------------------------------
+// Blog — blog_colors → CSS variables (blclr1-21 / bldclr1-21)
+// ---------------------------------------------------------------------------
+
+const BLOG_VAR_ORDER = [
+  'blclr1', 'blclr2', 'blclr3', 'blclr4', 'blclr5', 'blclr6', 'blclr7', 'blclr8', 'blclr9', 'blclr10', 'blclr11', 'blclr12', 'blclr13', 'blclr14', 'blclr15', 'blclr16', 'blclr17', 'blclr18', 'blclr19', 'blclr20', 'blclr21',
+  'bldclr1', 'bldclr2', 'bldclr3', 'bldclr4', 'bldclr5', 'bldclr6', 'bldclr7', 'bldclr8', 'bldclr9', 'bldclr10', 'bldclr11', 'bldclr12', 'bldclr13', 'bldclr14', 'bldclr15', 'bldclr16', 'bldclr17', 'bldclr18', 'bldclr19', 'bldclr20', 'bldclr21',
+] as const;
+
+export function generateBlogColorsCSS(blog: BlogColorsConfig): string {
+  const declarations = BLOG_VAR_ORDER.map((key) => {
+    const hex = blog[key];
+    if (!hex) return `--${key}:`;
+    const opacityKey = `${key}_opacity` as keyof BlogColorsConfig;
+    const opacity = blog[opacityKey] as number | undefined;
     if (opacity === undefined || opacity >= 100) return `--${key}:${hex}`;
     const [r, g, b] = hexToRgb(hex);
     return `--${key}:rgba(${r}, ${g}, ${b}, ${opacity / 100})`;

@@ -391,6 +391,77 @@ export const panelColorsSchema = z.object({
 }).partial();
 
 // ---------------------------------------------------------------------------
+// Blog Colors (84 fields: 42 hex + 42 opacity) — 21 roles × 4 fields each
+// (light hex, dark hex, light opacity, dark opacity).
+// ---------------------------------------------------------------------------
+
+export const blogColorsSchema = z.object({
+  // 1. Color de fondo
+  blclr1: hexColor, bldclr1: hexColor,
+  blclr1_opacity: opacity, bldclr1_opacity: opacity,
+  // 2. Breadcrumb
+  blclr2: hexColor, bldclr2: hexColor,
+  blclr2_opacity: opacity, bldclr2_opacity: opacity,
+  // 3. Categorías
+  blclr3: hexColor, bldclr3: hexColor,
+  blclr3_opacity: opacity, bldclr3_opacity: opacity,
+  // 4. Título Articulo
+  blclr4: hexColor, bldclr4: hexColor,
+  blclr4_opacity: opacity, bldclr4_opacity: opacity,
+  // 5. Título Clasificación
+  blclr5: hexColor, bldclr5: hexColor,
+  blclr5_opacity: opacity, bldclr5_opacity: opacity,
+  // 6. Texto Clasificación
+  blclr6: hexColor, bldclr6: hexColor,
+  blclr6_opacity: opacity, bldclr6_opacity: opacity,
+  // 7. Justificación Áreas
+  blclr7: hexColor, bldclr7: hexColor,
+  blclr7_opacity: opacity, bldclr7_opacity: opacity,
+  // 8. Texto Justificación
+  blclr8: hexColor, bldclr8: hexColor,
+  blclr8_opacity: opacity, bldclr8_opacity: opacity,
+  // 9. Texto Articulo
+  blclr9: hexColor, bldclr9: hexColor,
+  blclr9_opacity: opacity, bldclr9_opacity: opacity,
+  // 10. Enlaces en Articulo
+  blclr10: hexColor, bldclr10: hexColor,
+  blclr10_opacity: opacity, bldclr10_opacity: opacity,
+  // 11. Títulos en Articulo
+  blclr11: hexColor, bldclr11: hexColor,
+  blclr11_opacity: opacity, bldclr11_opacity: opacity,
+  // 12. Título Obj. Terminal
+  blclr12: hexColor, bldclr12: hexColor,
+  blclr12_opacity: opacity, bldclr12_opacity: opacity,
+  // 13. Texto Obj. Terminal
+  blclr13: hexColor, bldclr13: hexColor,
+  blclr13_opacity: opacity, bldclr13_opacity: opacity,
+  // 14. Texto Superior Obj. Edu.
+  blclr14: hexColor, bldclr14: hexColor,
+  blclr14_opacity: opacity, bldclr14_opacity: opacity,
+  // 15. Texto Obj. Edu.
+  blclr15: hexColor, bldclr15: hexColor,
+  blclr15_opacity: opacity, bldclr15_opacity: opacity,
+  // 16. Título Cómo se cumple
+  blclr16: hexColor, bldclr16: hexColor,
+  blclr16_opacity: opacity, bldclr16_opacity: opacity,
+  // 17. Texto Cómo se cumple
+  blclr17: hexColor, bldclr17: hexColor,
+  blclr17_opacity: opacity, bldclr17_opacity: opacity,
+  // 18. Título Variaciones
+  blclr18: hexColor, bldclr18: hexColor,
+  blclr18_opacity: opacity, bldclr18_opacity: opacity,
+  // 19. Texto Variaciones
+  blclr19: hexColor, bldclr19: hexColor,
+  blclr19_opacity: opacity, bldclr19_opacity: opacity,
+  // 20. Título Recomendaciones
+  blclr20: hexColor, bldclr20: hexColor,
+  blclr20_opacity: opacity, bldclr20_opacity: opacity,
+  // 21. Texto Recomendaciones
+  blclr21: hexColor, bldclr21: hexColor,
+  blclr21_opacity: opacity, bldclr21_opacity: opacity,
+}).partial();
+
+// ---------------------------------------------------------------------------
 // Footer Colors (40 fields: 20 hex + 20 opacity) — 10 roles × 4 fields each
 // (light hex, dark hex, light opacity, dark opacity).
 // ---------------------------------------------------------------------------
@@ -874,6 +945,7 @@ export const categorySchemaMap: Record<SiteConfigCategory, z.ZodType> = {
   secondary_header_colors: secondaryHeaderColorsSchema,
   footer_colors: footerColorsSchema,
   panel_colors: panelColorsSchema,
+  blog_colors: blogColorsSchema,
   section_visibility: sectionVisibilitySchema,
   social_list: socialListSchema,
 };
@@ -909,6 +981,7 @@ export const schemaResolver: Record<SchemaId, { category: SiteConfigCategory; sc
   'secondary_header_colors': { category: 'secondary_header_colors', schema: secondaryHeaderColorsSchema },
   'footer_colors': { category: 'footer_colors', schema: footerColorsSchema },
   'panel_colors': { category: 'panel_colors', schema: panelColorsSchema },
+  'blog_colors': { category: 'blog_colors', schema: blogColorsSchema },
   'header_colors': { category: 'header_colors', schema: headerColorsSchema },
   'menu_colors': { category: 'menu_colors', schema: menuColorsSchema },
   faq: { category: 'faq', schema: faqSchema },

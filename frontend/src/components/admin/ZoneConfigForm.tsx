@@ -389,9 +389,13 @@ function SectionCard({ section, config }: SectionCardProps) {
                 );
               }
               const [colorField, lightOpacityField, darkField, darkOpacityField] = row;
+              // Extract role number from key (e.g., "hclr1" → 1, "shclr14" → 14)
+              const roleMatch = colorField.key.match(/(\d+)$/);
+              const roleNumber = roleMatch ? roleMatch[1] : '';
               return (
                 <tr key={colorField.key} className="border-t border-clr7 dark:border-dclr7">
                   <td className="px-2 py-1 text-[0.8em] font-black uppercase tracking-widest text-clr2 dark:text-dclr2 align-middle">
+                    {roleNumber && <span className="text-clr3 dark:text-dclr3 mr-1">{roleNumber}:</span>}
                     {colorField.label}
                   </td>
                   {renderGridField(colorField, rowIndex)}

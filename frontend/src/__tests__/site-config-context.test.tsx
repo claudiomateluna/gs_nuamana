@@ -103,6 +103,7 @@ const FIXTURE: SiteConfigRecord = {
   secondary_header_colors: {},
   footer_colors: {},
   panel_colors: {},
+  blog_colors: {},
   section_visibility: {
     hero: true,
     features: true,

@@ -27,6 +27,7 @@ export type SchemaId =
   | 'features_colors'
   | 'header_colors'
   | 'menu_colors'
+  | 'blog_colors'
   | 'social_list';
 
 export interface ZoneSectionField {
@@ -290,6 +291,39 @@ const PANEL_TOOLTIPS = [
   'Color de botones para acción secundaria / peligro (var(--pclr12))',
   'Color de separadores e hitos internos del panel (var(--pclr13))',
   'Color de bordes y estado focus del panel (var(--pclr14))',
+];
+
+const BLOG_LABELS = [
+  'Color de fondo', 'Breadcrumb', 'Categorías', 'Título Articulo',
+  'Título Clasificación', 'Texto Clasificación', 'Justificación Áreas',
+  'Texto Justificación', 'Texto Articulo', 'Enlaces en Articulo',
+  'Títulos en Articulo', 'Título Obj. Terminal', 'Texto Obj. Terminal',
+  'Texto Superior Obj. Edu.', 'Texto Obj. Edu.', 'Título Cómo se cumple',
+  'Texto Cómo se cumple', 'Título Variaciones', 'Texto Variaciones',
+  'Título Recomendaciones', 'Texto Recomendaciones',
+];
+const BLOG_TOOLTIPS = [
+  'Color de fondo de la página del blog en modo claro (var(--blclr1))',
+  'Color del breadcrumb de navegación del blog en modo claro (var(--blclr2))',
+  'Color de las categorías del blog en modo claro (var(--blclr3))',
+  'Color del título del artículo en modo claro (var(--blclr4))',
+  'Color del título de clasificación en modo claro (var(--blclr5))',
+  'Color del texto de clasificación en modo claro (var(--blclr6))',
+  'Color del título de justificación de áreas en modo claro (var(--blclr7))',
+  'Color del texto de justificación en modo claro (var(--blclr8))',
+  'Color del texto del artículo en modo claro (var(--blclr9))',
+  'Color de enlaces dentro del artículo en modo claro (var(--blclr10))',
+  'Color de los títulos dentro del artículo en modo claro (var(--blclr11))',
+  'Color del título de objetivo terminal en modo claro (var(--blclr12))',
+  'Color del texto de objetivo terminal en modo claro (var(--blclr13))',
+  'Color del texto superior de objetivos educativos en modo claro (var(--blclr14))',
+  'Color del texto de objetivos educativos en modo claro (var(--blclr15))',
+  'Color del título "Cómo se cumple" en modo claro (var(--blclr16))',
+  'Color del texto "Cómo se cumple" en modo claro (var(--blclr17))',
+  'Color del título de variaciones en modo claro (var(--blclr18))',
+  'Color del texto de variaciones en modo claro (var(--blclr19))',
+  'Color del título de recomendaciones en modo claro (var(--blclr20))',
+  'Color del texto de recomendaciones en modo claro (var(--blclr21))',
 ];
 
 // ---------------------------------------------------------------------------
@@ -592,6 +626,14 @@ export const ADMIN_ZONES: AdminZone[] = [
         schemaId: 'panel_colors',
         layout: 'grid',
         fields: colorGrid('pclr', 14, (n) => PANEL_LABELS[n - 1], (n) => PANEL_TOOLTIPS[n - 1]),
+      },
+      {
+        id: 'blog-colors',
+        title: 'Colores del Blog',
+        category: 'blog_colors',
+        schemaId: 'blog_colors',
+        layout: 'grid',
+        fields: colorGrid('blclr', 21, (n) => BLOG_LABELS[n - 1], (n) => BLOG_TOOLTIPS[n - 1]),
       },
     ],
   },
