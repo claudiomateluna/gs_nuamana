@@ -35,7 +35,7 @@ const UNIDADES = ['manada', 'compania', 'tropa', 'avanzada', 'clan']
 const AREAS = ['corporalidad', 'creatividad', 'caracter', 'afectividad', 'sociabilidad', 'espiritualidad']      
 
 const Icon = ({ url, className = "w-4 h-4" }: { url: string, className?: string }) => (
-  <img src={url} alt="icon" className={`${className} inline-block dark:invert-[0.9]`} />
+  <img src={url} alt="icon" className={`${className} inline-block`} />
 )
 
 const renderFormattedText = (text: string, className?: string) => {
