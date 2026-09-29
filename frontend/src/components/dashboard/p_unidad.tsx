@@ -5,6 +5,7 @@ import type { Perfil, ActividadProgramada, AutorizacionActividad } from '@/types
 import { isDirectivo } from '@/lib/roles'
 import { toggleUsuarioEstado } from '@/lib/user-utils'
 import { calcularEdad } from '@/utils/date-utils'
+import { exportarNominaExcel } from '@/utils/excel-export'
 
 interface DashUnidadProps {
   perfil: Perfil
@@ -33,12 +34,30 @@ export default function DashUnidad({
   const authsDeActividad = autorizaciones.filter(a => a.actividad_id === selectedActId)
   const idsFirmados = new Set(authsDeActividad.map(a => a.perfil_id))
 
+  const handleExportarExcel = () => {
+    const unidadNombre = perfil?.unidades?.nombre || 'Unidad'
+    exportarNominaExcel(miembros, `Nomina_${unidadNombre}`, `Nómina ${unidadNombre}`)
+  }
+
   return (
     <div className="space-y-8 animate-in fade-in duration-500">
-      <div className="flex flex-col md:flex-row justify-between items-end border-b border-pclr13 dark:border-pdclr13 pb-6 gap-4 text-[1em]">
-        <div>
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-end border-b border-pclr13 dark:border-pdclr13 pb-6 gap-4 text-[1em]">
+        <div className="space-y-2">
           <h2 className="text-2xl font-bold font-display uppercase text-pclr4 dark:text-pdclr4">Nómina {perfil?.unidades?.nombre}</h2>
-          <p className="text-[0.8em] text-pclr5 dark:text-pdclr5 uppercase font-bold tracking-wider">Total: {miembros.length} Miembros</p>
+          <div className="flex flex-wrap items-center gap-3">
+            <p className="text-[0.8em] text-pclr5 dark:text-pdclr5 uppercase font-bold tracking-wider">Total: {miembros.length} Miembros ({miembros.filter(m => m.estado === 'activo').length} activos)</p>
+            {isDirectivo(perfil) && (
+              <button
+                type="button"
+                onClick={handleExportarExcel}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 rounded-xl text-[0.8em] font-black uppercase tracking-wider shadow-sm hover:brightness-110 active:scale-95 transition-all cursor-pointer"
+                title="Descargar archivo Excel con los miembros activos de la unidad"
+              >
+                <span>📥</span>
+                <span>Descargar Excel</span>
+              </button>
+            )}
+          </div>
         </div>
         
         {/* CONTROL DE SALIDAS */}

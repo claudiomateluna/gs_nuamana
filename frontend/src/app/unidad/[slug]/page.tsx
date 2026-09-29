@@ -39,11 +39,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!unit) return {}
 
   const unitIcons: Record<string, string> = {
-    manada: '/images/logos/iconos_lobatos.svg',
-    compania: '/images/logos/iconos_guias.svg',
-    tropa: '/images/logos/iconos_scouts.svg',
-    avanzada: '/images/logos/iconos_pioneres.svg',
-    clan: '/images/logos/iconos_caminantes.svg',
+    manada: '/images/logos/iconos_lobatos.webp',
+    compania: '/images/logos/iconos_guias.webp',
+    tropa: '/images/logos/iconos_scouts.webp',
+    avanzada: '/images/logos/iconos_pioneres.webp',
+    clan: '/images/logos/iconos_caminantes.webp',
   }
 
   return {

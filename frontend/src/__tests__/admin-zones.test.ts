@@ -15,12 +15,20 @@ type CategoryFieldMap = {
   // any ZoneSection. So it has no entries in ADMIN_ZONES coverage.
   // social_list is excluded — it stores a JSON blob (items array), not
   // individual typed fields. The admin zone uses a single JSON field.
-  [C in Exclude<SiteConfigCategory, 'theme_colors' | 'header_colors' | 'menu_colors' | 'blog_colors' | 'features' | 'section_visibility' | 'social_list' | 'social'>]: readonly (keyof SiteConfigRecord[C])[];
+  [C in Exclude<SiteConfigCategory, 'branding' | 'theme_colors' | 'header_colors' | 'menu_colors' | 'blog_colors' | 'features' | 'section_visibility' | 'social_list' | 'social'>]: readonly (keyof SiteConfigRecord[C])[];
 } & {
   // theme_colors adds 1 heading row (_heading_tarjetas) + full 152 color/opacity fields
   theme_colors: readonly (
     | keyof SiteConfigRecord['theme_colors']
     | '_heading_tarjetas'
+  )[];
+  // branding adds 4 heading rows (Organización / memberOf / funder / parentOrganization)
+  branding: readonly (
+    | keyof SiteConfigRecord['branding']
+    | '_heading_organizacion'
+    | '_heading_memberof'
+    | '_heading_funder'
+    | '_heading_parent'
   )[];
   // header_colors adds full 52 color/opacity fields
   header_colors: readonly (keyof SiteConfigRecord['header_colors'])[];
@@ -61,8 +69,19 @@ const EXPECTED_FIELDS = {
     'legal_name',
     'funder_name',
     'funder_url',
+    'founding_date',
+    'omms_name',
+    'omms_url',
+    'osi_name',
+    'wagggs_name',
+    'wagggs_url',
+    // Heading rows (visual separators in Footer → Marca)
+    '_heading_organizacion',
+    '_heading_memberof',
+    '_heading_funder',
+    '_heading_parent',
   ],
-  contact: ['sede_nombre', 'direccion', 'maps_embed'],
+  contact: ['sede_nombre', 'direccion', 'maps_embed', 'ciudad', 'region', 'codigo_postal', 'pais'],
   hero: [
     // Content fields (6 existing)
     'frases', 'fondo', 'intervalo', 'imagenes_pool', 'top_count', 'bottom_count',

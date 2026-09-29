@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react'
 import { isAdmin, isDirectivo } from '@/lib/roles'
 import { toggleUsuarioEstado } from '@/lib/user-utils'
 import { calcularEdad } from '@/utils/date-utils'
+import { exportarNominaExcel } from '@/utils/excel-export'
 import type { Perfil } from '@/types'
 
 interface DashUsuariosProps {
@@ -29,14 +30,31 @@ export default function DashUsuarios({ userPerfil, usuarios = [], onEdit, onVer,
     return (a.nombres || '').localeCompare(b.nombres || '')
   }), [filtered])
 
+  const handleExportarExcel = () => {
+    exportarNominaExcel(usuarios, 'Nomina_Grupo_NuaMana', 'Nómina Grupo')
+  }
+
   return (
     <div className="space-y-8 animate-in fade-in duration-500">
-      <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-        <h2 className="text-[1.8em] font-black text-pclr4 dark:text-pdclr4 uppercase tracking-tighter">Gestión de Grupo</h2>
+      <div className="flex flex-col md:flex-row justify-between items-stretch md:items-center gap-4">
+        <div className="flex flex-wrap items-center gap-3">
+          <h2 className="text-[1.8em] font-black text-pclr4 dark:text-pdclr4 uppercase tracking-tighter">Gestión de Grupo</h2>
+          {isDirectivo(userPerfil) && (
+            <button
+              type="button"
+              onClick={handleExportarExcel}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 rounded-xl text-[0.8em] font-black uppercase tracking-wider shadow-sm hover:brightness-110 active:scale-95 transition-all cursor-pointer"
+              title="Descargar archivo Excel con los miembros activos de todo el grupo"
+            >
+              <span>📥</span>
+              <span>Descargar Excel Grupo</span>
+            </button>
+          )}
+        </div>
         <input 
           type="text" 
           placeholder="🔍 Buscar por nombre o RUT..." 
-          className="w-full md:w-96 p-4 rounded-2xl border-2 border-pclr13 dark:border-pdclr13 bg-pclr1 dark:bg-pdclr1 outline-none focus:border-pclr14 transition-all text-[1em] font-medium"
+          className="w-full md:w-80 p-3 rounded-2xl border-2 border-pclr13 dark:border-pdclr13 bg-pclr1 dark:bg-pdclr1 outline-none focus:border-pclr14 transition-all text-[0.9em] font-medium"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />

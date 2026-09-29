@@ -211,6 +211,23 @@ function SectionCard({ section, config }: SectionCardProps) {
   };
 
   const renderField = (field: ZoneSectionField) => {
+    // Heading rows are visual separators — never registered inputs.
+    if (field.type === 'heading') {
+      return (
+        <div key={field.key} className="flex items-center gap-2 pt-4 border-t-2 border-clr7 dark:border-dclr7 first:border-t-0 first:pt-0">
+          <span className="text-[0.85em] font-black uppercase tracking-widest text-tclr3 dark:text-tdclr3">
+            {field.label}
+          </span>
+          {field.tooltip && (
+            <span className="text-[0.7em] text-clr3 dark:text-dclr3 normal-case tracking-normal">
+              — {field.tooltip}
+            </span>
+          )}
+          <span className="flex-1 h-px bg-clr7 dark:bg-dclr7 ml-2" />
+        </div>
+      );
+    }
+
     const error = (errors as Record<string, { message?: string } | undefined>)[field.key];
     const fieldId = `${section.id}-${field.key}`;
 

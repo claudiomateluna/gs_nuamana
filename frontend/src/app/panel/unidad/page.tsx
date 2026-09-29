@@ -40,15 +40,27 @@ export default function UnidadPage() {
 
     const fetchData = async () => {
       try {
-        const [miembrosRes, actividadesRes, autorizacionesRes] = await Promise.all([
+        const [miembrosRes, actividadesRes] = await Promise.all([
           supabase.from('perfiles').select('*, roles(name), unidades(nombre, colores, logo_unidad_url, logo_rama_url), contactos_emergencia(*), apoderado:apoderado_id(id, nombres, apellidos, telefono, email)').eq('unidad_id', perfil.unidad_id).order('nombres'),
           supabase.from('actividades_programadas').select('*, unidades(nombre)').order('fecha_inicio', { ascending: false }),
-          supabase.from('autorizaciones_actividades').select('*').in('perfil_id', miembros.map(m => m.id)).order('fecha_firma', { ascending: false }),
         ])
 
-        setMiembros((miembrosRes.data || []) as Perfil[])
+        const miembrosData = (miembrosRes.data || []) as Perfil[]
+        const memberIds = miembrosData.map(m => m.id)
+
+        let authsData: AutorizacionActividad[] = []
+        if (memberIds.length > 0) {
+          const { data } = await supabase
+            .from('autorizaciones_actividades')
+            .select('*')
+            .in('perfil_id', memberIds)
+            .order('fecha_firma', { ascending: false })
+          authsData = (data || []) as AutorizacionActividad[]
+        }
+
+        setMiembros(miembrosData)
         setActividades((actividadesRes.data || []) as ActividadProgramada[])
-        setAutorizaciones((autorizacionesRes.data || []) as AutorizacionActividad[])
+        setAutorizaciones(authsData)
       } catch (err) {
         console.error('Error fetching unidad data:', err)
       } finally {

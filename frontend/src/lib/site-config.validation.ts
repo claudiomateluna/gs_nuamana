@@ -49,6 +49,12 @@ export const brandingSchema = z.object({
   legal_name: z.string().optional(),
   funder_name: z.string().optional(),
   funder_url: z.string().url('URL inválida').or(z.string().length(0)).optional(),
+  founding_date: z.string().optional(),
+  omms_name: z.string().optional(),
+  omms_url: z.string().url('URL inválida').or(z.string().length(0)).optional(),
+  osi_name: z.string().optional(),
+  wagggs_name: z.string().optional(),
+  wagggs_url: z.string().url('URL inválida').or(z.string().length(0)).optional(),
 });
 
 export type BrandingFormData = z.infer<typeof brandingSchema>;
@@ -77,6 +83,10 @@ export const contactSchema = z.object({
   sede_nombre: nonEmpty,
   direccion: nonEmpty,
   maps_embed: z.string().url('URL inválida').or(z.string().length(0)),
+  ciudad: z.string().optional(),
+  region: z.string().optional(),
+  codigo_postal: z.string().optional(),
+  pais: z.string().optional(),
 });
 
 export type ContactFormData = z.infer<typeof contactSchema>;
@@ -860,6 +870,12 @@ export const brandingFooterSchema = z
     legal_name: z.string().optional(),
     funder_name: z.string().optional(),
     funder_url: z.string().url('URL inválida').or(z.string().length(0)).optional(),
+    founding_date: z.string().optional(),
+    omms_name: z.string().optional(),
+    omms_url: z.string().url('URL inválida').or(z.string().length(0)).optional(),
+    osi_name: z.string().optional(),
+    wagggs_name: z.string().optional(),
+    wagggs_url: z.string().url('URL inválida').or(z.string().length(0)).optional(),
   })
   .partial();
 
@@ -889,6 +905,10 @@ export const contactVisitSchema = z
   .strictObject({
     direccion: nonEmpty,
     maps_embed: z.string().url('URL inválida').or(z.string().length(0)),
+    ciudad: z.string().optional(),
+    region: z.string().optional(),
+    codigo_postal: z.string().optional(),
+    pais: z.string().optional(),
   })
   .partial();
 

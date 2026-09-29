@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import PageTemplate from '@/components/PageTemplate';
+import { JsonLd } from '@/components/json-ld';
 import MarkdownRenderer from '@/components/markdown-renderer';
 import { readContentFile } from '@/lib/content-service';
 
@@ -29,6 +30,15 @@ export default async function AcercaDeSubPage({ params }: { params: Promise<{ sl
     const { content, metadata, format } = await readContentFile('acerca-de', slug);
     return (
       <PageTemplate title={metadata.title || slug}>
+        <JsonLd data={{
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          'itemListElement': [
+            { '@type': 'ListItem', 'position': 1, 'name': 'Inicio', 'item': 'https://nuamana.cl' },
+            { '@type': 'ListItem', 'position': 2, 'name': 'Acerca de', 'item': 'https://nuamana.cl/acerca-de' },
+            { '@type': 'ListItem', 'position': 3, 'name': metadata.title || slug, 'item': `https://nuamana.cl/acerca-de/${slug}` },
+          ],
+        }} />
         <article className="space-y-6">
           
           {/* Cabecera Refinada: Imagen + Texto */}

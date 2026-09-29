@@ -78,6 +78,25 @@ export default async function RootLayout({
 }>) {
   const config = await loadSiteConfig();
 
+  // Scout network affiliations (Schema.org memberOf) — admin-editable via
+  // Footer → Marca → "Afiliaciones Scout (memberOf)".
+  const memberOf = [
+    {
+      '@type': 'Organization',
+      'name': config.branding.omms_name || 'Organización Mundial del Movimiento Scout',
+      'url': config.branding.omms_url || 'https://www.scout.org/',
+      'department': {
+        '@type': 'Organization',
+        'name': config.branding.osi_name || 'Organización Scout Interamericana',
+      },
+    },
+    {
+      '@type': 'Organization',
+      'name': config.branding.wagggs_name || 'World Association of Girl Guides and Girl Scouts',
+      'url': config.branding.wagggs_url || 'https://www.wagggs.org/',
+    },
+  ];
+
   return (
     <html lang="es" suppressHydrationWarning>
       <body
@@ -104,9 +123,12 @@ export default async function RootLayout({
           'address': {
             '@type': 'PostalAddress',
             'streetAddress': config.contact?.direccion?.replace(/<br\s*\/?>/g, ', ').replace(/<[^>]*>/g, '') || '',
-            'addressCountry': 'CL',
+            'addressLocality': config.contact?.ciudad || 'La Granja',
+            'addressRegion': config.contact?.region || 'Región Metropolitana',
+            'postalCode': config.contact?.codigo_postal || '8801144',
+            'addressCountry': config.contact?.pais || 'CL',
           },
-          'foundingDate': '2005-09-23',
+          'foundingDate': config.branding.founding_date || '2005-09-23',
           'isFamilyFriendly': true,
           'inLanguage': {
             '@type': 'Language',
@@ -156,24 +178,11 @@ export default async function RootLayout({
               },
             ],
           },
-          'memberOf': {
-            '@type': 'Organization',
-            'name': 'Organización Mundial del Movimiento Scout',
-            'url': 'https://www.scout.org/',
-            'department': {
-              '@type': 'Organization',
-              'name': 'Organización Scout Interamericana',
-            },
-          },
+          'memberOf': memberOf,
           'parentOrganization': config.branding.parent_organization_name ? {
             '@type': 'Organization',
             'name': config.branding.parent_organization_name,
             'url': config.branding.parent_organization_url || undefined,
-            'parentOrganization': {
-              '@type': 'Organization',
-              'name': 'World Association of Girl Guides and Girl Scouts',
-              'url': 'https://www.wagggs.org/',
-            },
           } : undefined,
           'sameAs': config.social_list?.items
             ?.filter(item => item.enabled && item.url && !item.url.startsWith('mailto:'))

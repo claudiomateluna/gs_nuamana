@@ -61,11 +61,11 @@ const renderFormattedText = (text: string, className?: string) => {
   )
 }
 
-function BlogCatchAllContent({ slug }: { slug: string }) {
+function BlogCatchAllContent({ slugPath }: { slugPath?: string }) {
   const searchParams = useSearchParams()
-  const slugArray = slug.split('/')
-  const lastSlug = slugArray[slugArray.length - 1]
-  const currentPath = slug
+  const slugArray = (slugPath || '').split('/').filter(Boolean)
+  const lastSlug = slugArray[slugArray.length - 1] || ''
+  const currentPath = slugPath || ''
 
   const [articulo, setArticulo] = useState<Articulo | null>(null)
   const [categoria, setCategoria] = useState<Categoria | null>(null)
@@ -561,10 +561,10 @@ function BlogCatchAllContent({ slug }: { slug: string }) {
   return <NotFound />
 }
 
-export default function BlogArticleClient({ slug }: { slug: string }) {
+export default function BlogArticleClient({ slugPath }: { slugPath?: string }) {
   return (
     <Suspense fallback={null}>
-      <BlogCatchAllContent slug={slug} />
+      <BlogCatchAllContent slugPath={slugPath} />
     </Suspense>
   )
 }

@@ -57,6 +57,12 @@ export interface BrandingConfig {
   legal_name?: string;
   funder_name?: string;
   funder_url?: string;
+  founding_date?: string;
+  omms_name?: string;
+  omms_url?: string;
+  osi_name?: string;
+  wagggs_name?: string;
+  wagggs_url?: string;
 }
 
 export interface SocialConfig {
@@ -88,6 +94,10 @@ export interface ContactConfig {
   sede_nombre: string;
   direccion: string;
   maps_embed: string;
+  ciudad?: string;
+  region?: string;
+  codigo_postal?: string;
+  pais?: string;
 }
 
 export interface HeroConfig {

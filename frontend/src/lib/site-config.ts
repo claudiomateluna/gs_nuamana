@@ -74,6 +74,12 @@ export const DEFAULT_SITE_CONFIG: SiteConfigRecord = {
     legal_name: 'Grupo de Guías y Scouts Nua Mana',
     funder_name: 'Sede Social San José de la Estrella',
     funder_url: '',
+    founding_date: '2005-09-23',
+    omms_name: 'Organización Mundial del Movimiento Scout',
+    omms_url: 'https://www.scout.org/',
+    osi_name: 'Organización Scout Interamericana',
+    wagggs_name: 'World Association of Girl Guides and Girl Scouts',
+    wagggs_url: 'https://www.wagggs.org/',
   },
   social: {
     instagram: 'https://instagram.com/gruponuamana/',
@@ -88,6 +94,10 @@ export const DEFAULT_SITE_CONFIG: SiteConfigRecord = {
     sede_nombre: 'Sede San José',
     direccion: 'San José de la Estrella 1004<br/>La Granja, Santiago, Chile',
     maps_embed: 'https://maps.google.com/maps?q=Guias%20y%20Scouts%20Nua%20Mana&t=&z=17&ie=UTF8&iwloc=&output=embed',
+    ciudad: 'La Granja',
+    region: 'Región Metropolitana',
+    codigo_postal: '8801144',
+    pais: 'CL',
   },
   hero: {
     frases: [
