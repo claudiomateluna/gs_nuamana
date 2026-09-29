@@ -2,7 +2,11 @@
 .atl/
 sdd/
 _archive/
+scratch/
 docs/registro_extraccion_articulos.md
+
+# editor/backup leftovers
+*.bak
 
 # dependencies
 node_modules/
