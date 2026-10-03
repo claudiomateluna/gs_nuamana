@@ -1,6 +1,15 @@
 import { Metadata } from 'next';
 import { supabase } from '@/lib/supabase';
 import { JsonLd } from '@/components/json-ld';
+import { buildArticleGraph } from '@/lib/schema/build-article';
+import { categoryChain, deepestChain } from '@/lib/schema/chains';
+import {
+  EDU_OBJECTIVES_SELECT,
+  mapEduObjectives,
+  type EduObjectiveRow,
+} from '@/lib/schema/educational-objectives';
+import type { CategoriaRow } from '@/lib/schema/types';
+import type { ArticuloMetadata, ObjEducacionMeta } from '@/types';
 import BlogArticleClient from './BlogArticleClient';
 
 interface PageProps {
@@ -11,39 +20,10 @@ interface PageProps {
 // Category hierarchy → canonical article URL
 // ---------------------------------------------------------------------------
 
-interface CategoriaRow {
-  id: number;
-  nombre: string;
-  slug: string;
-  parent_id: number | null;
-}
-
 /** All categories indexed by id (small table — one fetch powers the whole walk). */
 async function loadCategorias(): Promise<Map<number, CategoriaRow>> {
   const { data } = await supabase.from('categorias').select('id, nombre, slug, parent_id');
   return new Map(((data ?? []) as CategoriaRow[]).map((c) => [c.id, c]));
-}
-
-/** Walk parent_id up to the root → root-to-leaf chain (depth capped at 10). */
-function categoryChain(catId: number, byId: Map<number, CategoriaRow>): CategoriaRow[] {
-  const chain: CategoriaRow[] = [];
-  let actual = byId.get(catId);
-  while (actual && chain.length < 10 && !chain.some((c) => c.id === actual!.id)) {
-    chain.unshift(actual);
-    actual = actual.parent_id != null ? byId.get(actual.parent_id) : undefined;
-  }
-  return chain;
-}
-
-/**
- * An article is reachable through every category path it belongs to
- * (/blog/actividades/<slug> and /blog/actividades/dinamicas/<slug>), plus any
- * legacy or bogus variant. Search engines need exactly ONE URL per article,
- * so canonical always resolves to the DEEPEST chain — the one the app uses
- * for breadcrumbs — and every other variant consolidates into it.
- */
-function deepestChain(chains: CategoriaRow[][]): CategoriaRow[] {
-  return chains.reduce<CategoriaRow[]>((best, chain) => (chain.length > best.length ? chain : best), []);
 }
 
 function articleUrl(chain: CategoriaRow[], articleSlug: string): string {
@@ -102,6 +82,36 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 // ---------------------------------------------------------------------------
+// Educational objectives (the same source the article page renders)
+// ---------------------------------------------------------------------------
+
+/**
+ * Objectives come from the relational table joined against progresion_objetivos
+ * — that is what BlogArticleClient shows. The metadata JSONB is only a fallback
+ * for articles with no relational rows, so the schema never claims objectives
+ * the reader cannot see. Failures degrade to the fallback, never to a 500.
+ */
+async function loadEduObjectives(articuloId: string): Promise<ObjEducacionMeta[]> {
+  try {
+    const { data, error } = (await supabase
+      .from('articulo_objetivos_educativos')
+      .select(EDU_OBJECTIVES_SELECT)
+      .eq('articulo_id', articuloId)) as unknown as {
+      data: EduObjectiveRow[] | null;
+      error: { message: string } | null;
+    };
+    if (error) {
+      console.error('[blog-jsonld]', error);
+      return [];
+    }
+    return mapEduObjectives(data);
+  } catch (err) {
+    console.error('[blog-jsonld]', err);
+    return [];
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Page (Article + Breadcrumb JSON-LD)
 // ---------------------------------------------------------------------------
 
@@ -112,14 +122,17 @@ export default async function BlogArticlePage({ params }: PageProps) {
 
   const { data: articulo } = await supabase
     .from('articulos')
-    .select('titulo, extracto, imagen_destacada, created_at, updated_at, autor:perfiles(nombres, apellidos), etiquetas, articulo_categorias(categoria_id, categorias(id, nombre, slug, parent_id))')
+    .select('id, titulo, contenido, extracto, imagen_destacada, created_at, updated_at, metadata, autor:perfiles(nombres, apellidos), etiquetas, articulo_categorias(categoria_id, categorias(id, nombre, slug, parent_id))')
     .eq('slug', articleSlug)
     .single() as { data: {
+      id: string;
       titulo: string;
+      contenido: string | null;
       extracto: string | null;
       imagen_destacada: string | null;
       created_at: string;
       updated_at: string | null;
+      metadata: ArticuloMetadata | null;
       autor: { nombres: string; apellidos: string } | null;
       etiquetas: string[] | null;
       articulo_categorias: Array<{ categoria_id: number; categorias: { id: number; nombre: string; slug: string; parent_id: number } | null }> | null;
@@ -135,44 +148,32 @@ export default async function BlogArticlePage({ params }: PageProps) {
     ? articleUrl(chain, articleSlug)
     : `https://nuamana.cl/blog/${slug.join('/')}`;
 
-  const articleJsonLd = articulo ? {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    'headline': articulo.titulo,
-    'description': articulo.extracto || '',
-    'image': articulo.imagen_destacada
-      ? {
-          '@type': 'ImageObject',
-          // Schema.org requires an absolute URL — resolve relative uploads
-          'url': articulo.imagen_destacada.startsWith('http')
-            ? articulo.imagen_destacada
-            : `https://nuamana.cl${articulo.imagen_destacada}`,
-          'width': 1200,
-          'height': 630,
-        }
-      : undefined,
-    'datePublished': articulo.created_at,
-    'dateModified': articulo.updated_at || articulo.created_at,
-    'author': articulo.autor
-      ? { '@type': 'Person', 'name': `${articulo.autor.nombres} ${articulo.autor.apellidos}` }
-      : { '@id': 'https://nuamana.cl/#organization' },
-    'publisher': {
-      '@id': 'https://nuamana.cl/#organization',
-      '@type': 'Organization',
-      'name': 'Guías y Scouts Nua Mana',
-      'logo': {
-        '@type': 'ImageObject',
-        'url': 'https://nuamana.cl/images/logos/logo-nuamana.webp',
-        'width': 512,
-        'height': 512,
-      },
-    },
-    'mainEntityOfPage': { '@type': 'WebPage', '@id': canonicalUrl },
-    'articleSection': articulo.articulo_categorias?.[0]?.categorias?.nombre || undefined,
-    'keywords': articulo.etiquetas?.join(', ') || undefined,
-    'isFamilyFriendly': true,
-    'inLanguage': 'es',
-  } : null;
+  // JSON-LD is cosmetic: any failure must degrade to "no JSON-LD", never to a 500.
+  let articleJsonLd: Record<string, unknown> | null = null;
+  if (articulo) {
+    try {
+      const objetivosEducativos = await loadEduObjectives(articulo.id);
+      articleJsonLd = buildArticleGraph({
+        titulo: articulo.titulo,
+        contenido: articulo.contenido,
+        extracto: articulo.extracto,
+        imagen_destacada: articulo.imagen_destacada,
+        created_at: articulo.created_at,
+        updated_at: articulo.updated_at,
+        etiquetas: articulo.etiquetas,
+        autor: articulo.autor,
+        metadata: articulo.metadata,
+        objetivosEducativos: objetivosEducativos.length ? objetivosEducativos : null,
+        chain,
+        chains,
+        canonicalUrl,
+      });
+    } catch (err) {
+      console.error('[blog-jsonld]', err);
+      articleJsonLd = null;
+    }
+  }
+
 
   // Breadcrumb mirrors the DB hierarchy — names and URLs always consistent
   const breadcrumbItems: Array<Record<string, unknown>> = [

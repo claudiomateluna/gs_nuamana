@@ -9,6 +9,7 @@ import { es } from 'date-fns/locale'
 import Link from 'next/link'
 import SecondaryHeader from '@/components/SecondaryHeader'
 import DOMPurify from 'dompurify'
+import { EDU_OBJECTIVES_SELECT, mapEduObjectives, type EduObjectiveRow } from '@/lib/schema/educational-objectives'
 import type { Articulo, ArticuloResena, Categoria, ArticuloMetadata, ObjEducacionMeta } from '@/types'
 
 const POSTS_PER_PAGE = 9
@@ -140,21 +141,14 @@ function BlogCatchAllContent({ slugPath }: { slugPath?: string }) {
         if (allPossiblePaths.includes(currentPath)) {
           const { data: relObjs } = await supabase
             .from('articulo_objetivos_educativos')
-            .select('objetivo_id, como_se_cumple, objetivo:progresion_objetivos(id, texto_infantil, texto_terminal, rango_edad, area_id, unidad_id, area:progresion_areas(nombre), unidad:unidades(nombre, colores))')
-            .eq('articulo_id', art.id) as unknown as { data: Array<{ objetivo_id: string; como_se_cumple: string | null; objetivo: { id: string; texto_infantil: string; texto_terminal: string; rango_edad: string; area: { nombre: string } | null; unidad: { nombre: string; colores: { primario?: string } | string | null } | null } | null }> | null }
+            .select(EDU_OBJECTIVES_SELECT)
+            .eq('articulo_id', art.id) as unknown as { data: EduObjectiveRow[] | null }
 
           art.metadata = art.metadata || {} as ArticuloMetadata
-          if (relObjs && relObjs.length > 0) {
-            art.metadata.objetivos_educativos = relObjs.map((r) => ({
-              id: r.objetivo_id,
-              texto: r.objetivo?.texto_infantil,
-              texto_terminal: r.objetivo?.texto_terminal,
-              rango_edad: r.objetivo?.rango_edad,
-              unidad: r.objetivo?.unidad?.nombre,
-              area: r.objetivo?.area?.nombre,
-              color: typeof r.objetivo?.unidad?.colores === 'object' && r.objetivo?.unidad?.colores ? r.objetivo.unidad.colores.primario : undefined,
-              como_se_cumple: r.como_se_cumple
-            }))
+          // Same mapper the JSON-LD builder uses: page and schema never drift apart
+          const objetivos = mapEduObjectives(relObjs)
+          if (objetivos.length > 0) {
+            art.metadata.objetivos_educativos = objetivos
           }
           setArticulo(art)
           const sortedCats = [...linkedCats].sort((a, b) => buildCatPathSlugs(b.id).length - buildCatPathSlugs(a.id).length)
