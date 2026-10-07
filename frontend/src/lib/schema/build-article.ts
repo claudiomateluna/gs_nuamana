@@ -18,6 +18,7 @@ import {
   objetivosQuest,
   stringsAThing,
   toStringArray,
+  unidadNombres,
   unidadRango,
 } from './mappings';
 import { stripHtml } from './normalize';
@@ -57,16 +58,14 @@ export const GAME_METADATA_KEYS = [
   'objetivos_educativos',
 ] as const;
 
+/**
+ * Reference ONLY. src/app/layout.tsx already publishes the full organization
+ * node under this @id (EducationalOrganization, name and logo from config), so
+ * inlining them here would put two contradictory nodes with the same @id in one
+ * page. Same rule `authorNode` follows.
+ */
 const PUBLISHER: Record<string, unknown> = {
   '@id': ORGANIZATION_ID,
-  '@type': 'Organization',
-  name: 'Guías y Scouts Nua Mana',
-  logo: {
-    '@type': 'ImageObject',
-    url: `${SITE_URL}/images/logos/logo-nuamana.webp`,
-    width: 512,
-    height: 512,
-  },
 };
 
 // ---------------------------------------------------------------------------
@@ -258,8 +257,11 @@ function placeName(...values: unknown[]): string | undefined {
 
 /**
  * AlignmentObject per objective row — every kind emits this, because the article
- * page renders the objectives for any article type. Empty input yields [] so the
- * graph is cleaned of the key instead of publishing an empty array.
+ * page renders the objectives for any article type. The unit is NOT one of the
+ * properties AlignmentObject allows (alignmentType, educationalFramework,
+ * targetDescription, targetName, targetUrl): it belongs to `educationalLevel`
+ * on the CreativeWork itself, emitted once at the root. Empty input yields []
+ * so the graph is cleaned of the key instead of publishing an empty array.
  */
 function educationalAlignment(list: unknown): Array<Record<string, unknown>> {
   if (!Array.isArray(list)) return [];
@@ -270,8 +272,6 @@ function educationalAlignment(list: unknown): Array<Record<string, unknown>> {
       '@type': 'AlignmentObject',
       educationalFramework: 'Progresión Educativa Nua Mana',
     };
-    const level = asText(raw.unidad);
-    if (level) item.educationalLevel = level;
     // 122 of 1855 rows only carry texto_terminal — fall back instead of dropping.
     const target = asText(raw.texto) ?? asText(raw.texto_terminal) ?? asText(raw.texto_infantil);
     if (target) item.targetDescription = target;
@@ -319,7 +319,7 @@ function applyGame(node: Record<string, unknown>, input: ArticleSchemaInput): vo
 
   const variaciones = htmlText(meta?.variaciones);
   if (variaciones) {
-    node.workExample = { '@type': 'Thing', name: 'Variaciones', description: variaciones };
+    node.workExample = { '@type': 'CreativeWork', name: 'Variaciones', description: variaciones };
   }
 
   const recomendaciones = htmlText(meta?.recomendaciones);
@@ -434,6 +434,11 @@ export function buildArticleGraph(input: ArticleSchemaInput): Record<string, unk
       ? input.objetivosEducativos
       : meta?.objetivos_educativos;
 
+  // The SAME unit list typicalAgeRange unions, so the level and the age range can
+  // never disagree. One name → plain string, two or more → array, none →
+  // undefined, which limpiar() drops so the key never reaches the HTML.
+  const niveles = unidadNombres(meta?.unidades);
+
   const node: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': typeFor(kind, steps.length > 0),
@@ -451,6 +456,7 @@ export function buildArticleGraph(input: ArticleSchemaInput): Record<string, unk
     articleBody: body || undefined,
     keywords: keywordsFor(input, chains),
     about,
+    educationalLevel: niveles.length > 1 ? niveles : niveles[0],
     educationalAlignment: educationalAlignment(objetivos),
   };
 

@@ -304,7 +304,7 @@ describe('buildArticleGraph — game', () => {
     expect(graph.datePublished).toBe('2026-01-15T10:00:00.000Z');
     expect(graph.dateModified).toBe('2026-01-15T10:00:00.000Z');
     expect(graph.author).toEqual({ '@type': 'Person', name: 'Ana Pérez' });
-    expect(graph.publisher).toMatchObject({ '@id': 'https://nuamana.cl/#organization', '@type': 'Organization' });
+    expect(graph.publisher).toEqual({ '@id': 'https://nuamana.cl/#organization' });
     expect(graph.image).toEqual({
       '@type': 'ImageObject',
       url: 'https://nuamana.cl/uploads/portada.webp',
@@ -339,16 +339,16 @@ describe('buildArticleGraph — game', () => {
       description: 'Jugar en equipo. Cuidar el fuego.',
     });
     expect(graph.workExample).toEqual({
-      '@type': 'Thing',
+      '@type': 'CreativeWork',
       name: 'Variaciones',
       description: 'Jugar con menos luz.',
     });
     expect(graph.disambiguatingDescription).toBe('Vigilar siempre el fuego.');
+    expect(graph.educationalLevel).toBe('Manada');
     expect(graph.educationalAlignment).toEqual([
       {
         '@type': 'AlignmentObject',
         educationalFramework: 'Progresión Educativa Nua Mana',
-        educationalLevel: 'Manada',
         targetDescription: 'Cuido el entorno',
         description: 'Reutiliza materiales',
       },
@@ -383,11 +383,11 @@ describe('buildArticleGraph — game', () => {
       {
         '@type': 'AlignmentObject',
         educationalFramework: 'Progresión Educativa Nua Mana',
-        educationalLevel: 'Manada',
         targetDescription: 'De la tabla',
         description: 'Observa',
       },
     ]);
+    expect(withRelational.educationalLevel).toBe('Manada');
   });
 
   it('falls back to the metadata JSONB when there are no relational rows', () => {
@@ -396,7 +396,6 @@ describe('buildArticleGraph — game', () => {
       {
         '@type': 'AlignmentObject',
         educationalFramework: 'Progresión Educativa Nua Mana',
-        educationalLevel: 'Manada',
         targetDescription: 'Cuido el entorno',
         description: 'Reutiliza materiales',
       },
@@ -410,6 +409,7 @@ describe('buildArticleGraph — game without metadata', () => {
   it('is a Game with no empty game properties', () => {
     expect(graph['@type']).toEqual(['Article', 'Game']);
     expect(graph).not.toHaveProperty('typicalAgeRange');
+    expect(graph).not.toHaveProperty('educationalLevel');
     expect(graph).not.toHaveProperty('timeRequired');
     expect(graph).not.toHaveProperty('numberOfPlayers');
     expect(graph).not.toHaveProperty('material');
@@ -452,6 +452,38 @@ describe('buildArticleGraph — game aliases and legacy values', () => {
         targetDescription: 'El niño distingue...',
       },
     ]);
+    // Objectives without a unit in metadata must not invent a level.
+    expect(graph).not.toHaveProperty('educationalLevel');
+  });
+});
+
+describe('buildArticleGraph — educationalLevel', () => {
+  it('lives on the root node, never inside an AlignmentObject', () => {
+    const graph = buildArticleGraph(gameInput);
+    const alignment = graph.educationalAlignment as Array<Record<string, unknown>>;
+    expect(alignment[0]).not.toHaveProperty('educationalLevel');
+    expect(graph.educationalLevel).toBe('Manada');
+  });
+
+  it('is a plain string when metadata carries exactly one unit', () => {
+    const graph = buildArticleGraph(makeInput({ categoriaIds: [7], metadata: { unidades: ['manada'] } }));
+    expect(graph.educationalLevel).toBe('Manada');
+    expect(Array.isArray(graph.educationalLevel)).toBe(false);
+  });
+
+  it('is an array holding every unit, sorted by age, from two units on', () => {
+    const graph = buildArticleGraph(
+      makeInput({ categoriaIds: [7], metadata: { unidades: ['clan', 'manada'] } }),
+    );
+    expect(graph.educationalLevel).toEqual(['Manada', 'Clan']);
+  });
+
+  it('is absent when metadata carries no recognizable unit', () => {
+    expect(buildArticleGraph(articuloSinCategoria)).not.toHaveProperty('educationalLevel');
+    expect(buildArticleGraph(gameWithoutMetadata)).not.toHaveProperty('educationalLevel');
+    expect(
+      buildArticleGraph(makeInput({ categoriaIds: [7], metadata: { unidades: ['piratas'] } })),
+    ).not.toHaveProperty('educationalLevel');
   });
 });
 

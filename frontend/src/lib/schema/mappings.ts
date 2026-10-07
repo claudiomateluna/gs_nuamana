@@ -43,20 +43,55 @@ const UNIDAD_RANGES: Record<string, readonly [number, number]> = {
   clan: [17, 20],
 };
 
-/** Accept legacy/dirty values, return undefined when nothing is usable. */
-export function unidadRango(unidades?: string[] | null): string | undefined {
-  if (!Array.isArray(unidades)) return undefined;
-  let min = Number.POSITIVE_INFINITY;
-  let max = Number.NEGATIVE_INFINITY;
+interface UnidadReconocida {
+  label: string;
+  range: readonly [number, number];
+}
+
+/**
+ * The ONE place that decides which units a list really contains. Unknown and
+ * blank entries are dropped, duplicates collapse on the accent-free key, and
+ * the survivors are sorted by age (then key) so every consumer — the age range
+ * AND the unit names — sees the same units in the same order no matter how the
+ * metadata was typed.
+ */
+function unidadesReconocidas(unidades?: string[] | null): UnidadReconocida[] {
+  if (!Array.isArray(unidades)) return [];
+  const byKey = new Map<string, UnidadReconocida>();
   for (const unidad of unidades) {
     if (typeof unidad !== 'string') continue;
-    const range = UNIDAD_RANGES[sinAcentos(unidad.trim())];
-    if (!range) continue;
-    min = Math.min(min, range[0]);
-    max = Math.max(max, range[1]);
+    const label = unidad.trim();
+    const key = sinAcentos(label);
+    // Own-property lookup: inherited Object.prototype keys are not unit names.
+    const range = Object.prototype.hasOwnProperty.call(UNIDAD_RANGES, key)
+      ? UNIDAD_RANGES[key]
+      : undefined;
+    if (!range || byKey.has(key)) continue;
+    byKey.set(key, { label, range });
   }
+  return [...byKey.values()].sort(
+    (a, b) =>
+      a.range[0] - b.range[0] || a.range[1] - b.range[1] || sinAcentos(a.label).localeCompare(sinAcentos(b.label)),
+  );
+}
+
+/** Accept legacy/dirty values, return undefined when nothing is usable. */
+export function unidadRango(unidades?: string[] | null): string | undefined {
+  const found = unidadesReconocidas(unidades);
+  if (!found.length) return undefined;
+  const min = Math.min(...found.map((unidad) => unidad.range[0]));
+  const max = Math.max(...found.map((unidad) => unidad.range[1]));
   if (!Number.isFinite(min) || !Number.isFinite(max)) return undefined;
   return `${min}-${max}`;
+}
+
+/**
+ * Title-cased unit NAMES for the very same list unidadRango unions — the labels
+ * `educationalLevel` publishes. Sorted by age and deduped, so [] means "nothing
+ * recognized" and the caller decides between a string, an array or no key.
+ */
+export function unidadNombres(unidades?: string[] | null): string[] {
+  return unidadesReconocidas(unidades).map((unidad) => titleCase(unidad.label));
 }
 
 /**

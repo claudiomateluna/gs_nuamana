@@ -6,6 +6,7 @@ import {
   lugaresPlaces,
   objetivosQuest,
   stringsAThing,
+  unidadNombres,
   unidadRango,
 } from '@/lib/schema/mappings';
 import { sinAcentos, stripHtml, titleCase } from '@/lib/schema/normalize';
@@ -87,6 +88,33 @@ describe('unidadRango', () => {
     expect(unidadRango([])).toBeUndefined();
     expect(unidadRango(null)).toBeUndefined();
     expect(unidadRango(undefined)).toBeUndefined();
+  });
+});
+
+describe('unidadNombres', () => {
+  it('title-cases a single unit', () => {
+    expect(unidadNombres(['manada'])).toEqual(['Manada']);
+    expect(unidadNombres(['Compañía'])).toEqual(['Compañía']);
+  });
+
+  it('sorts every unit by age, independent of input order', () => {
+    expect(unidadNombres(['clan', 'manada'])).toEqual(['Manada', 'Clan']);
+    expect(unidadNombres(['avanzada', 'clan', 'manada'])).toEqual(['Manada', 'Avanzada', 'Clan']);
+    expect(unidadNombres(['manada', 'avanzada', 'clan'])).toEqual(['Manada', 'Avanzada', 'Clan']);
+  });
+
+  it('collapses accents and casing on the accent-free key', () => {
+    expect(unidadNombres(['manada', 'MANADA', 'Manada'])).toEqual(['Manada']);
+    expect(unidadNombres(['compania', 'compañía'])).toEqual(['Compania']);
+    expect(unidadNombres(['compañía', 'compania'])).toEqual(['Compañía']);
+  });
+
+  it('returns an empty list for unknown or empty input', () => {
+    expect(unidadNombres(['piratas'])).toEqual([]);
+    expect(unidadNombres(['manada', 'piratas'])).toEqual(['Manada']);
+    expect(unidadNombres([])).toEqual([]);
+    expect(unidadNombres(null)).toEqual([]);
+    expect(unidadNombres(undefined)).toEqual([]);
   });
 });
 

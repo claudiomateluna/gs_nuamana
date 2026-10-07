@@ -10,9 +10,8 @@ import Link from 'next/link'
 import SecondaryHeader from '@/components/SecondaryHeader'
 import DOMPurify from 'dompurify'
 import { EDU_OBJECTIVES_SELECT, mapEduObjectives, type EduObjectiveRow } from '@/lib/schema/educational-objectives'
+import { POSTS_PER_PAGE, UNIDADES, AREAS } from '@/lib/blog-listing'
 import type { Articulo, ArticuloResena, Categoria, ArticuloMetadata, ObjEducacionMeta } from '@/types'
-
-const POSTS_PER_PAGE = 9
 
 const ICON_URLS = {
   categoria: "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/icono_category.svg",  
@@ -31,9 +30,6 @@ const ICON_URLS = {
   recomendacion: "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/icono_recomendacion.svg",
   etiquetas: "https://raw.githubusercontent.com/claudiomateluna/nua_mana/gh-pages/uploads/icono_categoriaa.svg" 
 }
-
-const UNIDADES = ['manada', 'compania', 'tropa', 'avanzada', 'clan']
-const AREAS = ['corporalidad', 'creatividad', 'caracter', 'afectividad', 'sociabilidad', 'espiritualidad']      
 
 const Icon = ({ url, className = "w-4 h-4" }: { url: string, className?: string }) => (
   <img src={url} alt="icon" className={`${className} inline-block`} />
@@ -123,6 +119,10 @@ function BlogCatchAllContent({ slugPath }: { slugPath?: string }) {
         art = simpleArt
       }
 
+      // El walk canónico del listing/sitemap vive en lib/schema/chains.ts
+      // (resolveArticlePath). Este es el 4º derivado de ese walk, usado solo
+      // para allPossiblePaths y el orden de categorías: queda pendiente como
+      // unidad de refactor separada, no se toca acá.
       const buildCatPathSlugs = (catId: number): string[] => {
         const cat = allCats.find(c => c.id === catId)
         if (!cat) return []

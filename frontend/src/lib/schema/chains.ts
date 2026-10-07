@@ -38,3 +38,25 @@ export function deepestChain(chains: CategoriaRow[][]): CategoriaRow[] {
 export function chainPath(chain: CategoriaRow[]): string {
   return chain.map((cat) => cat.slug).join('/');
 }
+
+/**
+ * Canonical article path ('actividades/dinamicas/mi-slug') — THE walk. Every
+ * consumer (blog listing, sitemap, article canonical) must build the URL from
+ * here or the crawler HTML and the indexed URL drift apart.
+ *
+ * @param linkedCatIds ids from `articulo_categorias`; ids missing from `byId`
+ * contribute no chain (they are skipped, they never fail the resolution).
+ * @returns the deepest linked chain + `/${slug}`, or `general/${slug}` when no
+ * linked category resolves. `general/` and the fallback order are a contract.
+ */
+export function resolveArticlePath(
+  slug: string,
+  linkedCatIds: number[],
+  byId: Map<number, CategoriaRow>,
+): string {
+  const chains = linkedCatIds
+    .map((id) => categoryChain(id, byId))
+    .filter((candidate) => candidate.length > 0);
+  const chain = deepestChain(chains);
+  return chain.length ? `${chainPath(chain)}/${slug}` : `general/${slug}`;
+}
