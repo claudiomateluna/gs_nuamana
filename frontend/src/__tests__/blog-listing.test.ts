@@ -41,9 +41,9 @@ describe('contrato del listado', () => {
     expect(POSTS_PER_PAGE).toBe(9);
   });
 
-  it('mantiene los valores de filtros sin normalizar (decisión de producto pendiente)', () => {
-    expect(UNIDADES).toEqual(['manada', 'compania', 'tropa', 'avanzada', 'clan']);
-    expect(AREAS).toEqual(['corporalidad', 'creatividad', 'caracter', 'afectividad', 'sociabilidad', 'espiritualidad']);
+  it('usa los valores de filtros con tilde, alineados a lo que la BD guarda', () => {
+    expect(UNIDADES).toEqual(['manada', 'compañía', 'tropa', 'avanzada', 'clan']);
+    expect(AREAS).toEqual(['corporalidad', 'creatividad', 'carácter', 'afectividad', 'sociabilidad', 'espiritualidad']);
   });
 });
 

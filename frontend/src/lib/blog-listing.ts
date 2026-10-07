@@ -13,9 +13,11 @@ import type { CategoriaRow } from './schema/types';
 
 export const POSTS_PER_PAGE = 9;
 
-// Normalizado para coincidir exactamente con los valores en la base de datos
-export const UNIDADES = ['manada', 'compania', 'tropa', 'avanzada', 'clan'];
-export const AREAS = ['corporalidad', 'creatividad', 'caracter', 'afectividad', 'sociabilidad', 'espiritualidad'];
+// Accented values, matching exactly what the crear/editar forms write into
+// `metadata.unidades` / `metadata.areas` — and therefore what the DB stores.
+// Filtering with the unaccented spelling silently returned 0 rows.
+export const UNIDADES = ['manada', 'compañía', 'tropa', 'avanzada', 'clan'];
+export const AREAS = ['corporalidad', 'creatividad', 'carácter', 'afectividad', 'sociabilidad', 'espiritualidad'];
 
 export interface BlogFilters {
   q: string;

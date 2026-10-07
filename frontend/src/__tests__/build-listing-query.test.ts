@@ -4,6 +4,8 @@ import {
   parseBlogFilters,
   BLOG_LISTING_SELECT,
   POSTS_PER_PAGE,
+  UNIDADES,
+  AREAS,
   type BlogFilters,
 } from '@/lib/blog-listing';
 import type { SupabaseClient } from '@supabase/supabase-js';
@@ -60,7 +62,7 @@ describe('buildListingQuery — garantías de base', () => {
     ['sin filtros', noFilters],
     ['búsqueda', filtersFrom('q=agua')],
     ['categoría', filtersFrom('category=10')],
-    ['unidad + área', filtersFrom('unidades=compania&areas=caracter')],
+    ['unidad + área', filtersFrom(`unidades=${UNIDADES[1]}&areas=${AREAS[2]}`)],
     ['tag', filtersFrom('tag=nudos')],
     ['meta', filtersFrom('meta_key=duracion&meta_value=30')],
     ['objetivo educativo', filtersFrom('obj_ed=objetivo')],
@@ -163,16 +165,16 @@ describe('buildListingQuery — filtros opcionales', () => {
 
   it('filters.unidades → contains sobre metadata.unidades', () => {
     const { client, find } = createFakeClient();
-    buildListingQuery(client, filtersFrom('unidades=compania'), 0);
+    buildListingQuery(client, filtersFrom(`unidades=${UNIDADES[1]}`), 0);
 
-    expect(find('contains').map((c) => c.args)).toContainEqual(['metadata', { unidades: ['compania'] }]);
+    expect(find('contains').map((c) => c.args)).toContainEqual(['metadata', { unidades: [UNIDADES[1]] }]);
   });
 
   it('filters.areas → contains sobre metadata.areas', () => {
     const { client, find } = createFakeClient();
-    buildListingQuery(client, filtersFrom('areas=caracter'), 0);
+    buildListingQuery(client, filtersFrom(`areas=${AREAS[2]}`), 0);
 
-    expect(find('contains').map((c) => c.args)).toContainEqual(['metadata', { areas: ['caracter'] }]);
+    expect(find('contains').map((c) => c.args)).toContainEqual(['metadata', { areas: [AREAS[2]] }]);
   });
 
   it('sin meta_key/meta_value no se llama .or()', () => {

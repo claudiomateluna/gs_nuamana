@@ -163,7 +163,7 @@ export default function BlogListing({
           </select>
           <select className="p-2 rounded-2xl border bg-blclr1 dark:bg-bldclr1 text-[0.8em] focus:outline-blclr10 transition-colors border-blclr13 dark:border-bldclr13 font-bold" value={selUnidad} onChange={(e) => updateURL('unidades', e.target.value)}>
             <option value="">Unidad (Todas)</option>
-            {UNIDADES.map(u => <option key={u} value={u}>{u === 'compania' ? 'COMPAÑÍA' : u.toUpperCase()}</option>)}
+            {UNIDADES.map(u => <option key={u} value={u}>{u.toUpperCase()}</option>)}
           </select>
           <select className="p-2 rounded-2xl border bg-blclr1 dark:bg-bldclr1 text-[0.8em] focus:outline-blclr10 transition-colors border-blclr13 dark:border-bldclr13 font-bold" value={selArea} onChange={(e) => updateURL('areas', e.target.value)}>
             <option value="">Área (Todas)</option>
