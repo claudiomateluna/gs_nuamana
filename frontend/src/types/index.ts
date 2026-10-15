@@ -15,13 +15,76 @@ export interface Rol {
   name: string
 }
 
+export interface UnidadColores {
+  primario?: string | null
+  secundario?: string | null
+  fondo?: string | null
+  fondo_oscuro?: string | null
+  hero_gradient_from?: string | null
+  hero_gradient_via?: string | null
+  hero_gradient_to?: string | null
+  borde?: string | null
+  borde_oscuro?: string | null
+  tab_inactivo_bg?: string | null
+  tab_inactivo_bg_oscuro?: string | null
+  tab_hover_bg?: string | null
+  tab_hover_bg_oscuro?: string | null
+  hero_desc_texto?: string | null
+  hero_desc_texto_oscuro?: string | null
+  tarjeta_bg?: string | null
+  tarjeta_bg_oscuro?: string | null
+  tarjeta_b_bg?: string | null
+  tarjeta_b_bg_oscuro?: string | null
+  texto?: string | null
+  texto_oscuro?: string | null
+}
+
+export interface UnidadCicloFase {
+  nombre: string
+  descripcion: string
+}
+
+export interface UnidadCicloData {
+  titulo?: string
+  subtitulo?: string
+  descripcion?: string
+  fases?: UnidadCicloFase[]
+  extra_info?: string
+}
+
+export interface UnidadSimboloItem {
+  titulo: string
+  descripcion: string
+  icono?: string
+  imagen_url?: string
+}
+
+export interface UnidadSimbolosData {
+  titulo?: string
+  descripcion?: string
+  promesa_titulo?: string
+  promesa_texto?: string
+  promesa_puntos?: string[]
+  ley_titulo?: string
+  ley_articulos?: string[]
+  elementos?: UnidadSimboloItem[]
+}
+
 export interface Unidad {
   id: number
   nombre: string
   nombre_unidad?: string | null
-  colores?: { primario?: string | null; secundario?: string | null } | string | null
+  descripcion?: string | null
+  colores?: UnidadColores | string | null
   logo_unidad_url?: string | null
   logo_rama_url?: string | null
+  bandera_url?: string | null
+  lema?: string | null
+  rango_edad?: string | null
+  marco_simbolico?: string | null
+  descripcion_larga?: string | null
+  ciclo_data?: UnidadCicloData | null
+  simbolos_data?: UnidadSimbolosData | null
 }
 
 // -- Perfil (con joins de Supabase) -----------------------------------------

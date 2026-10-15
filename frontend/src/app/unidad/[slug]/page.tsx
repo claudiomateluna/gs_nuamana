@@ -13,6 +13,9 @@ interface PageProps {
   params: Promise<{ slug: string }>
 }
 
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 // Generar parámetros estáticos para SSG (Static Site Generation)
 export async function generateStaticParams() {
   return [
@@ -91,10 +94,31 @@ export default async function UnidadPage({ params }: PageProps) {
 
   if (!unit) return notFound()
 
-  // Parsear colores de la unidad (primario y secundario)
+  // Parsear colores de la unidad (primario, secundario, fondos y degradado del hero)
   const colors = (typeof unit.colores === 'string' ? JSON.parse(unit.colores) : unit.colores) || { primario: '#cb3327', secundario: '#1b1b1b' }
   const primario = colors.primario || '#cb3327'
   const secundario = colors.secundario || '#1b1b1b'
+  const fondo = colors.fondo || null
+  const fondoOscuro = colors.fondo_oscuro || null
+  const heroFrom = colors.hero_gradient_from || 'var(--clr2)'
+  const heroVia = colors.hero_gradient_via || 'var(--clr2)'
+  const heroTo = colors.hero_gradient_to || (fondo ? fondo : 'var(--clr7)')
+
+  // Colores adicionales de unidad (bordes, tabs, tarjetas, textos y hero)
+  const borde = colors.borde || null
+  const bordeOscuro = colors.borde_oscuro || null
+  const tabInactivoBg = colors.tab_inactivo_bg || null
+  const tabInactivoBgOscuro = colors.tab_inactivo_bg_oscuro || null
+  const tabHoverBg = colors.tab_hover_bg || null
+  const tabHoverBgOscuro = colors.tab_hover_bg_oscuro || null
+  const heroDescTexto = colors.hero_desc_texto || null
+  const heroDescTextoOscuro = colors.hero_desc_texto_oscuro || null
+  const tarjetaBg = colors.tarjeta_bg || null
+  const tarjetaBgOscuro = colors.tarjeta_bg_oscuro || null
+  const tarjetaBBg = colors.tarjeta_b_bg || null
+  const tarjetaBBgOscuro = colors.tarjeta_b_bg_oscuro || null
+  const texto = colors.texto || null
+  const textoOscuro = colors.texto_oscuro || null
 
   // 2. Obtener categorías para resolver las rutas jerárquicas del blog
   const { data: allCats } = await supabase.from('categorias').select('*')
@@ -149,7 +173,59 @@ export default async function UnidadPage({ params }: PageProps) {
   }
 
   return (
-    <div className="bg-clr7 dark:bg-dclr7 text-clr2 dark:text-dclr2 min-h-screen flex flex-col transition-colors duration-300">
+    <div className="unit-page-bg text-clr2 dark:text-dclr2 min-h-screen flex flex-col transition-colors duration-300">
+      {/* Estilos dinámicos y variables CSS para la Unidad (Modo Claro y Oscuro) */}
+      <style>{`
+        :root {
+          --u-fondo: ${fondo || 'var(--clr1)'};
+          --u-borde: ${borde || 'var(--clr7)'};
+          --u-tab-bg: ${tabInactivoBg || 'var(--clr7)'};
+          --u-tab-hover: ${tabHoverBg || 'var(--clr8)'};
+          --u-hero-desc: ${heroDescTexto || 'var(--clr3)'};
+          --u-card-bg: ${tarjetaBg || 'var(--clr1)'};
+          --u-card-b-bg: ${tarjetaBBg || 'var(--clr7)'};
+          --u-texto: ${texto || 'var(--clr2)'};
+        }
+        html.dark, .dark {
+          --u-fondo: ${fondoOscuro || 'var(--dclr1)'};
+          --u-borde: ${bordeOscuro || 'var(--dclr7)'};
+          --u-tab-bg: ${tabInactivoBgOscuro || 'var(--dclr7)'};
+          --u-tab-hover: ${tabHoverBgOscuro || 'var(--dclr8)'};
+          --u-hero-desc: ${heroDescTextoOscuro || 'var(--dclr3)'};
+          --u-card-bg: ${tarjetaBgOscuro || 'var(--dclr1)'};
+          --u-card-b-bg: ${tarjetaBBgOscuro || 'var(--dclr7)'};
+          --u-texto: ${textoOscuro || 'var(--dclr2)'};
+        }
+        .unit-page-bg {
+          background-color: var(--u-fondo) !important;
+        }
+        .unit-card {
+          background-color: var(--u-card-bg) !important;
+          border-color: var(--u-borde) !important;
+          color: var(--u-texto) !important;
+        }
+        .unit-card-b {
+          background-color: var(--u-card-b-bg) !important;
+          border-color: var(--u-borde) !important;
+          color: var(--u-texto) !important;
+        }
+        .unit-border {
+          border-color: var(--u-borde) !important;
+        }
+        .unit-text {
+          color: var(--u-texto) !important;
+        }
+        .unit-hero-desc {
+          color: var(--u-hero-desc) !important;
+        }
+        .unit-tab-inactive {
+          background-color: var(--u-tab-bg) !important;
+          border-color: var(--u-borde) !important;
+        }
+        .unit-tab-inactive:hover {
+          background-color: var(--u-tab-hover) !important;
+        }
+      `}</style>
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
@@ -176,8 +252,13 @@ export default async function UnidadPage({ params }: PageProps) {
           className="absolute inset-0 w-full h-full object-cover scale-140 md:scale-105 object-top md:object-center z-1" 
         />
 
-        {/* Gradiente y Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-clr2 via-clr2 to-clr7 dark:to-dclr7 transition-colors duration-300 z-2" />
+        {/* Gradiente y Overlay Personalizable */}
+        <div
+          className="absolute inset-0 z-2 transition-colors duration-300"
+          style={{
+            background: `linear-gradient(to bottom, ${heroFrom}, ${heroVia}, ${heroTo})`
+          }}
+        />
 
         {/* Contenido centrado absolutamente */}
         <div className="absolute inset-0 flex items-center justify-center z-10">
@@ -185,8 +266,11 @@ export default async function UnidadPage({ params }: PageProps) {
             {/* Columna 1: Logo de la Unidad */}
             <div className="md:col-span-4 flex justify-center">
               <div 
-                className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-clr1 backdrop-blur-md border-4 p-6 shadow-2xl flex items-center justify-center transform hover:rotate-6 transition-transform duration-500"
-                style={{ borderColor: primario }}
+                className="w-48 h-48 md:w-64 md:h-64 rounded-full backdrop-blur-md border-4 p-6 shadow-2xl flex items-center justify-center transform hover:rotate-6 transition-transform duration-500"
+                style={{ 
+                  backgroundColor: primario,
+                  borderColor: secundario 
+                }}
               >
                 <img 
                   src={unit.logo_unidad_url || "/images/logos/LogoColor.svg"} 
@@ -206,7 +290,7 @@ export default async function UnidadPage({ params }: PageProps) {
                   borderColor: `${secundario}80`
                 }}
               >
-                {unit.nombre}
+                {unit.nombre} {unit.rango_edad ? `(${unit.rango_edad})` : ''} {unit.lema ? `• ${unit.lema}` : ''}
               </span>
               <h1 className="text-[2.5em] md:text-[4.5em] font-bold px-4 pt-4 pb-1 rounded-bl-3xl rounded-br-3xl rounded-tr-3xl uppercase tracking-tighter leading-none text-clr1 drop-shadow-lg font-inika"
                 style={{ 
@@ -216,7 +300,7 @@ export default async function UnidadPage({ params }: PageProps) {
               >
                 {unit.nombre_unidad || unit.nombre}
               </h1>
-              <p className="text-[1em] md:text-[1.25em] text-center md:text-right font-bold text-clr7 leading-relaxed max-w-2xl drop-shadow">
+              <p className="unit-hero-desc text-[1em] md:text-[1.25em] text-center md:text-right font-bold leading-relaxed max-w-2xl drop-shadow">
                 {unit.descripcion}
               </p>
             </div>
@@ -225,26 +309,55 @@ export default async function UnidadPage({ params }: PageProps) {
       </section>
 
       {/* Sección Fuera del Full-Screen */}
-      <section className="py-20 relative z-10 border-t border-clr7 dark:border-dclr7 bg-clr7 dark:bg-dclr7 transition-colors duration-300">
+      <section className="unit-page-bg unit-border py-20 relative z-10 border-t transition-colors duration-300">
         <div className="max-w-5xl mx-auto px-6 space-y-20">
           {/* Descripción Detallada */}
           <div className="space-y-6">
             <div className="p-1 rounded-[1rem] shadow-sm hover:shadow-xl" style={{ backgroundColor: secundario }}>
-            <h2 className="text-[2em] font-black uppercase tracking-tight flex items-center gap-3">
-              <span className="w-2.5 h-8 rounded-full inline-block" style={{ backgroundColor: primario }} />
-              <span style={{ color: primario }}>Nuestra {unit.nombre} </span>
-            </h2>
+              <h2 className="text-[2em] font-black uppercase tracking-tight flex items-center gap-3">
+                <span className="w-2.5 h-8 rounded-full inline-block" style={{ backgroundColor: primario }} />
+                <span style={{ color: primario }}>Nuestra {unit.nombre} </span>
+              </h2>
             </div>
+
+            {unit.descripcion_larga && (
+              <p className="unit-card text-[1.15em] leading-relaxed whitespace-pre-line font-medium p-6 rounded-2xl border shadow-sm">
+                {unit.descripcion_larga}
+              </p>
+            )}
+
             {slug === 'clan' ? (
-              <ClanCustomContent objectives={unitObjectives} nombreUnidad={unit.nombre_unidad} />
+              <ClanCustomContent
+                objectives={unitObjectives}
+                nombreUnidad={unit.nombre_unidad}
+                cicloData={unit.ciclo_data}
+                simbolosData={unit.simbolos_data}
+              />
             ) : slug === 'manada' ? (
-              <ManadaCustomContent objectives={unitObjectives} />
+              <ManadaCustomContent
+                objectives={unitObjectives}
+                cicloData={unit.ciclo_data}
+                simbolosData={unit.simbolos_data}
+              />
             ) : slug === 'compania' ? (
-              <CompaniaCustomContent objectives={unitObjectives} />
+              <CompaniaCustomContent
+                objectives={unitObjectives}
+                cicloData={unit.ciclo_data}
+                simbolosData={unit.simbolos_data}
+              />
             ) : slug === 'tropa' ? (
-              <TropaCustomContent objectives={unitObjectives} nombreUnidad={unit.nombre_unidad} />
+              <TropaCustomContent
+                objectives={unitObjectives}
+                nombreUnidad={unit.nombre_unidad}
+                cicloData={unit.ciclo_data}
+                simbolosData={unit.simbolos_data}
+              />
             ) : slug === 'avanzada' ? (
-              <AvanzadaCustomContent objectives={unitObjectives} />
+              <AvanzadaCustomContent
+                objectives={unitObjectives}
+                cicloData={unit.ciclo_data}
+                simbolosData={unit.simbolos_data}
+              />
             ) : (
               <p className="text-[1.15em] text-clr2 dark:text-dclr2 leading-relaxed whitespace-pre-line font-medium">
                 {detailedDescriptions[unit.id]}
@@ -254,7 +367,7 @@ export default async function UnidadPage({ params }: PageProps) {
 
           {/* Muestra de Actividades (Artículos) */}
           <div className="space-y-8">
-            <div className="p-1 rounded-[1rem] shadow-sm border-b border-clr7 dark:border-dclr7 flex items-center gap-3" style={{ backgroundColor: primario }}>
+            <div className="p-1 rounded-[1rem] shadow-sm border-b unit-border flex items-center gap-3" style={{ backgroundColor: primario }}>
               <span className="w-2.5 h-8 rounded-full inline-block" style={{ backgroundColor: secundario }} />
               <div>
                 <h2 className="text-[2em] font-black uppercase tracking-tight text-clr2 dark:text-dclr2 leading-none"
@@ -268,7 +381,7 @@ export default async function UnidadPage({ params }: PageProps) {
             </div>
 
             {processedArticles.length === 0 ? (
-              <div className="p-12 rounded-3xl bg-clr7 dark:bg-dclr7 border border-clr7 dark:border-dclr7 text-center">
+              <div className="p-12 rounded-3xl unit-card-b border unit-border text-center">
                 <span className="text-4xl mb-2 block">🎒</span>
                 <p className="text-clr3 dark:text-dclr3 font-bold">Aún no hay actividades publicadas para esta unidad.</p>
               </div>
@@ -280,7 +393,7 @@ export default async function UnidadPage({ params }: PageProps) {
                     <a 
                       key={art.id} 
                       href={`/blog/${art.path}`}
-                      className="group rounded-3xl bg-clr1 dark:bg-clr1 border border-clr7 dark:border-dclr7 hover:border-clr3 dark:hover:border-clr1 overflow-hidden shadow-sm hover:shadow-xl hover:scale-[1.01] transition-all flex flex-col justify-between border-l-[6px]"
+                      className="group rounded-3xl unit-card border unit-border hover:border-clr3 dark:hover:border-clr1 overflow-hidden shadow-sm hover:shadow-xl hover:scale-[1.01] transition-all flex flex-col justify-between border-l-[6px]"
                       style={{ borderLeftColor: primario }}
                     >
                       <div>

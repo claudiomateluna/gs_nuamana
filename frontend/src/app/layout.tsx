@@ -59,6 +59,11 @@ export const metadata: Metadata = {
     statusBarStyle: "default",
     title: "Nua Mana",
   },
+  // Google Search Console ownership check — replace with the token GSC gives
+  // you and it is rendered as <meta name="google-site-verification"> everywhere.
+  verification: {
+    google: 'google-site-verification=zD79zluRDEjJA3pdzOMrpF8MiSwygm7GvUS2rySdh0M',
+  },
 };
 
 export async function generateViewport(): Promise<Viewport> {

@@ -24,6 +24,7 @@ import ZoneConfigForm from '@/components/admin/ZoneConfigForm';
 import MenuManager from '@/components/admin/MenuManager';
 import SocialEditor from '@/components/admin/SocialEditor';
 import ContentManager from '@/components/admin/ContentManager';
+import UnitManager from '@/components/admin/UnitManager';
 import type { SiteConfigRecord } from '@/lib/site-config.types';
 import type { MenuItem } from '@/lib/menu-items.types';
 import type { PaginaContenido } from '@/lib/paginas-contenido.types';
@@ -155,6 +156,16 @@ export default function AdministracionPage() {
               Administra el contenido de las páginas estáticas (Acerca De / Lo Que Hacemos). Los cambios se reflejan al recargar.
             </p>
             <ContentManager pages={pages} onUpdate={fetchPages} />
+          </div>
+        ) : activeZone.id === 'unidades' ? (
+          <div className="bg-gradient-to-br from-tclr1 to-tclr2 dark:from-tdclr1 dark:to-tdclr2 rounded-[1rem] p-4 md:p-6 shadow-2xl border border-clr7 dark:border-dclr7">
+            <h2 className="text-xl font-black font-display text-tclr3 dark:text-tdclr3 uppercase tracking-tighter mb-4">
+              Administración de Unidades
+            </h2>
+            <p className="text-xs text-tclr6 dark:text-tdclr6 mb-6">
+              Administra la identidad, mística, lemas, propuesta pedagógica, colores y logos de cada unidad scout.
+            </p>
+            <UnitManager />
           </div>
         ) : (
           <ZoneConfigForm key={activeZone.id} zone={activeZone} config={config} />

@@ -57,7 +57,7 @@ export function UnitView({
   return (
     <div className="space-y-6">
       {/* Tab Navigation */}
-      <div className="border-b border-clr7 dark:border-dclr7 pb-2">
+      <div className="border-b unit-border pb-2">
         <div className="flex flex-wrap gap-2">
           {tabs.map(tab => (
             <button
@@ -66,7 +66,7 @@ export function UnitView({
               className={`px-2 py-1 rounded-[0.5rem] text-[0.9em] font-black uppercase tracking-wider transition-all duration-300 ${
                 activeTab === tab.key
                   ? 'text-clr1 shadow-lg'
-                  : 'bg-clr7 dark:bg-dclr7 text-clr2 dark:text-dclr2 hover:bg-clr7 dark:hover:bg-clr1'
+                  : 'unit-tab-inactive text-clr2 dark:text-dclr2'
               }`}
               style={{
                 backgroundColor: activeTab === tab.key
@@ -95,14 +95,14 @@ export function UnitView({
       {/* Profile Sub-Tabs (shared across all units) */}
       {activeTab === 'perfil' && (
         <div className="space-y-8 animate-in fade-in duration-300">
-          <div className="flex justify-center border-b border-clr7 dark:border-dclr7 pb-4">
+          <div className="flex justify-center border-b unit-border pb-4">
             <div className="flex gap-2">
               <button
                 onClick={() => setProfileTab('desarrollo')}
                 className={`px-4 py-2 rounded-xl text-[0.85em] font-black uppercase tracking-wider transition-all duration-300 ${
                   profileTab === 'desarrollo'
                     ? 'text-clr1 shadow-md'
-                    : 'bg-clr7 dark:bg-dclr7 text-clr2 dark:text-dclr2'
+                    : 'unit-tab-inactive text-clr2 dark:text-dclr2'
                 }`}
                 style={{
                   backgroundColor: profileTab === 'desarrollo'
@@ -120,7 +120,7 @@ export function UnitView({
                 className={`px-4 py-2 rounded-xl text-[0.85em] font-black uppercase tracking-wider transition-all duration-300 ${
                   profileTab === 'egreso'
                     ? 'text-clr1 shadow-md'
-                    : 'bg-clr7 dark:bg-dclr7 text-clr2 dark:text-dclr2'
+                    : 'unit-tab-inactive text-clr2 dark:text-dclr2'
                 }`}
                 style={{
                   backgroundColor: profileTab === 'egreso'

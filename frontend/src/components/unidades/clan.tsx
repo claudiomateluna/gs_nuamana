@@ -1,12 +1,25 @@
 'use client';
 
 import { UnitView } from './UnitView';
+import DynamicCicloView from './DynamicCicloView';
+import DynamicSimbolosView from './DynamicSimbolosView';
 import { SHARED_AREAS } from '@/data/unit-configs';
+import type { UnidadCicloData, UnidadSimbolosData } from '@/types';
 
 interface Objective { id: string; area_id: number; texto_infantil: string; texto_terminal: string; }
-interface ClanCustomContentProps { objectives: Objective[]; nombreUnidad?: string | null; }
+interface ClanCustomContentProps {
+  objectives: Objective[];
+  nombreUnidad?: string | null;
+  cicloData?: UnidadCicloData | null;
+  simbolosData?: UnidadSimbolosData | null;
+}
 
-export default function ClanCustomContent({ objectives = [], nombreUnidad }: ClanCustomContentProps) {
+export default function ClanCustomContent({
+  objectives = [],
+  nombreUnidad,
+  cicloData,
+  simbolosData,
+}: ClanCustomContentProps) {
   const primario = '#e32328';
   const secundario = '#fac620';
   const areas = SHARED_AREAS[5];
@@ -27,8 +40,24 @@ export default function ClanCustomContent({ objectives = [], nombreUnidad }: Cla
         { key: 'perfil', label: 'Perfil de Egreso', content: <ClanPerfil primario={primario} /> },
         { key: 'compromiso', label: 'El Compromiso', content: <ClanCompromiso primario={primario} secundario={secundario} /> },
         { key: 'objetivos', label: 'Objetivos Terminales', content: <ClanObjetivos primario={primario} areas={areas} objectives={objectives} /> },
-        { key: 'proyectos', label: 'Proyectos', content: <ClanProyectos /> },
-        { key: 'mistica', label: 'Marco Simbolico', content: <ClanMistica primario={primario} secundario={secundario} /> },
+        {
+          key: 'proyectos',
+          label: 'Proyectos',
+          content: cicloData ? (
+            <DynamicCicloView data={cicloData} primario={primario} secundario={secundario} />
+          ) : (
+            <ClanProyectos />
+          ),
+        },
+        {
+          key: 'mistica',
+          label: 'Marco Simbolico',
+          content: simbolosData ? (
+            <DynamicSimbolosView data={simbolosData} primario={primario} secundario={secundario} />
+          ) : (
+            <ClanMistica primario={primario} secundario={secundario} />
+          ),
+        },
       ]}
     />
   );
@@ -58,7 +87,7 @@ function ClanCamino({ primario, secundario, nombreUnidad }: { primario: string; 
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-4 gap-6 pt-4">
         {[{ title: "Bienvenida", desc: "Iniciación en el Clan. El caminante descubre la mística del servicio.", img: "/images/progresion/clan/etapa_bienvenida.png" },{ title: "Etapa Fuego", desc: "El Fuego es la Insignia que identifica al Caminante con su primera etapa de vivencia en el Clan.", img: "/images/progresion/clan/etapa_fuego.png" },{ title: "Etapa Antorcha", desc: "La Antorcha identifica la segunda etapa del caminante y la última etapa de vivencia como joven.", img: "/images/progresion/clan/etapa_antorcha.png" },{ title: "La Partida", desc: "El hito terminal. El rover egresa del grupo listo para remar su propia canoa.", img: "/images/progresion/clan/etapa_partida.png" }].map((etapa, idx) => (
-          <div key={idx} className="bg-clr1 dark:bg-clr1 border border-clr7 dark:border-dclr7 rounded-3xl p-5 space-y-4 flex flex-col items-center text-center shadow-md">
+          <div key={idx} className="unit-card border unit-border rounded-3xl p-5 space-y-4 flex flex-col items-center text-center shadow-md">
             <div className="w-30 h-30 flex items-center justify-center"><img src={etapa.img} alt={etapa.title} className="max-w-full max-h-full object-contain" /></div>
             <div><h4 className="font-extrabold uppercase text-[1.1em] text-clr2 dark:text-dclr2" style={{ color: idx === 3 ? secundario : undefined }}>{etapa.title}</h4><p className="text-[0.9em] text-clr2 dark:text-dclr2 mt-2 leading-relaxed">{etapa.desc}</p></div>
           </div>
@@ -96,14 +125,14 @@ function ClanObjetivos({ primario, areas, objectives }: { primario: string; area
         {areas.map(area => {
           const areaObjectives = objectives.filter(o => o.area_id === area.id);
           return (
-            <div key={area.id} className="bg-clr1 dark:bg-clr1 border border-clr7 dark:border-dclr7 rounded-3xl p-6 shadow-md space-y-4 flex flex-col justify-between">
+            <div key={area.id} className="unit-card border unit-border rounded-3xl p-6 shadow-md space-y-4 flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 flex-shrink-0 bg-clr7 dark:bg-dclr7 rounded-2xl p-1.5 border" style={{ borderColor: `${area.color}30` }}><img src={area.img} alt={area.name} className="w-full h-full object-contain" /></div>
-                  <div><h4 className="font-extrabold uppercase text-[1.25em]" style={{ color: area.color }}>{area.name}</h4><p className="text-[0.8em] text-clr3 dark:text-dclr3 font-semibold leading-tight">{area.desc}</p></div>
+                  <div className="w-14 h-14 flex-shrink-0 unit-card-b rounded-2xl p-1.5 border" style={{ borderColor: `${area.color}30` }}><img src={area.img} alt={area.name} className="w-full h-full object-contain" /></div>
+                  <div><h4 className="font-extrabold uppercase text-[1.25em]" style={{ color: area.color }}>{area.name}</h4><p className="text-[0.8em] unit-hero-desc font-semibold leading-tight">{area.desc}</p></div>
                 </div>
                 <div className="pt-2">
-                  {areaObjectives.length === 0 ? (<p className="text-[0.9em] text-clr3 dark:text-dclr3 italic">No hay objetivos registrados para esta área.</p>) : (
+                  {areaObjectives.length === 0 ? (<p className="text-[0.9em] unit-hero-desc italic">No hay objetivos registrados para esta área.</p>) : (
                     <ul className="space-y-2">
                       {areaObjectives.map((obj) => (<li key={obj.id} className="text-[0.95em] text-clr2 dark:text-dclr2 flex items-start gap-2.5 leading-relaxed"><span className="font-bold text-[1.1em] mt-0.5" style={{ color: area.color }}>•</span><span>{obj.texto_terminal}</span></li>))}
                     </ul>
@@ -126,21 +155,21 @@ function ClanProyectos() {
         <p className="text-[1.05em] leading-relaxed text-clr2 dark:text-dclr2">La metodología de trabajo del Clan son los proyectos. Proyectos colectivos o individuales diseñados, ejecutados y evaluados por los propios caminantes.</p>
       </div>
       <div className="space-y-8">
-        <div className="flex flex-col md:flex-row gap-6 bg-clr1 dark:bg-clr1 border border-clr7 dark:border-dclr7 rounded-3xl p-6 shadow-md items-center">
+        <div className="flex flex-col md:flex-row gap-6 unit-card border unit-border rounded-3xl p-6 shadow-md items-center">
           <div className="w-full md:w-1/3 aspect-[4/3] rounded-2xl overflow-hidden relative shadow-inner"><img src="/images/unidades/bandera_clan.webp" alt="Proyectos Colectivos" className="w-full h-full object-cover filter brightness-90 hover:scale-105 transition-transform duration-500" /></div>
           <div className="w-full md:w-2/3 space-y-3">
             <h4 className="text-[1.35em] font-black uppercase text-clr2 dark:text-dclr2 leading-tight">Proyectos Colectivos</h4>
             <p className="text-[0.95em] text-clr2 dark:text-dclr2 leading-relaxed">Un proyecto colectivo de caminantes es un conjunto de actividades que tienen un objetivo en común.</p>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row-reverse gap-6 bg-clr1 dark:bg-clr1 border border-clr7 dark:border-dclr7 rounded-3xl p-6 shadow-md items-center">
+        <div className="flex flex-col md:flex-row-reverse gap-6 unit-card border unit-border rounded-3xl p-6 shadow-md items-center">
           <div className="w-full md:w-1/3 aspect-[4/3] rounded-2xl overflow-hidden relative shadow-inner"><img src="/images/unidades/bandera_clan.webp" alt="Campos de Accion" className="w-full h-full object-cover filter brightness-90 hover:scale-105 transition-transform duration-500" /></div>
           <div className="w-full md:w-2/3 space-y-3 text-right">
             <h4 className="text-[1.35em] font-black uppercase text-clr2 dark:text-dclr2 leading-tight">Campos de Accion Prioritarios</h4>
             <p className="text-[0.95em] text-clr2 dark:text-dclr2 leading-relaxed">Cuatro campos se destacan como prioritarios: el servicio, la naturaleza, el viaje y el trabajo.</p>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row gap-6 bg-clr1 dark:bg-clr1 border border-clr7 dark:border-dclr7 rounded-3xl p-6 shadow-md items-center">
+        <div className="flex flex-col md:flex-row gap-6 unit-card border unit-border rounded-3xl p-6 shadow-md items-center">
           <div className="w-full md:w-1/3 aspect-[4/3] rounded-2xl overflow-hidden relative shadow-inner"><img src="/images/unidades/servicio.webp" alt="Servicio" className="w-full h-full object-cover filter brightness-90 hover:scale-105 transition-transform duration-500" /></div>
           <div className="w-full md:w-2/3 space-y-3">
             <span className="text-[0.8em] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-clr4 dark:bg-dclr4 text-clr1 dark:text-dclr1 border border-clr4 dark:border-dclr4 mb-3">Campo de Accion Prioritario</span>
@@ -148,7 +177,7 @@ function ClanProyectos() {
             <p className="text-[0.95em] text-clr2 dark:text-dclr2 leading-relaxed">Desde el origen de nuestro movimiento, Baden Powell imprimio el compromiso con los demas.</p>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row-reverse gap-6 bg-clr1 dark:bg-clr1 border border-clr7 dark:border-dclr7 rounded-3xl p-6 shadow-md items-center">
+        <div className="flex flex-col md:flex-row-reverse gap-6 unit-card border unit-border rounded-3xl p-6 shadow-md items-center">
           <div className="w-full md:w-1/3 aspect-[4/3] rounded-2xl overflow-hidden relative shadow-inner"><img src="/images/unidades/bandera_clan.webp" alt="Trabajo" className="w-full h-full object-cover filter brightness-90 hover:scale-105 transition-transform duration-500" /></div>
           <div className="w-full md:w-2/3 space-y-3 text-right">
             <span className="text-[0.8em] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-clr4 dark:bg-dclr4 text-clr1 dark:text-dclr1 border border-clr4 dark:border-dclr4 mb-3">Campo de Accion Prioritario</span>
@@ -156,7 +185,7 @@ function ClanProyectos() {
             <p className="text-[0.95em] text-clr2 dark:text-dclr2 leading-relaxed">Este campo nos invita a ver la vivencia del trabajo como posibilidad de experimentar el mundo laboral.</p>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row gap-6 bg-clr1 dark:bg-clr1 border border-clr7 dark:border-dclr7 rounded-3xl p-6 shadow-md items-center">
+        <div className="flex flex-col md:flex-row gap-6 unit-card border unit-border rounded-3xl p-6 shadow-md items-center">
           <div className="w-full md:w-1/3 aspect-[4/3] rounded-2xl overflow-hidden relative shadow-inner"><img src="/images/unidades/viaje.webp" alt="Viaje" className="w-full h-full object-cover filter brightness-90 hover:scale-105 transition-transform duration-500" /></div>
           <div className="w-full md:w-2/3 space-y-3">
             <span className="text-[0.8em] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-clr5 dark:bg-dclr5 text-clr1 dark:text-dclr1 border border-clr5 dark:border-dclr5 mb-3">Campo de Accion Prioritario</span>
@@ -164,7 +193,7 @@ function ClanProyectos() {
             <p className="text-[0.95em] text-clr2 dark:text-dclr2 leading-relaxed">Un recorrido donde puedas conocer lugares cercanos y enriquecerte como persona.</p>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row-reverse gap-6 bg-clr1 dark:bg-clr1 border border-clr7 dark:border-dclr7 rounded-3xl p-6 shadow-md items-center">
+        <div className="flex flex-col md:flex-row-reverse gap-6 unit-card border unit-border rounded-3xl p-6 shadow-md items-center">
           <div className="w-full md:w-1/3 aspect-[4/3] rounded-2xl overflow-hidden relative shadow-inner"><img src="/images/unidades/naturaleza.webp" alt="Naturaleza" className="w-full h-full object-cover filter brightness-90 hover:scale-105 transition-transform duration-500" /></div>
           <div className="w-full md:w-2/3 space-y-3 text-right">
             <span className="text-[0.8em] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-clr6 dark:bg-dclr6 text-clr1 dark:text-dclr1 border border-clr6 dark:border-dclr6 mb-3">Campo de Accion Prioritario</span>
@@ -186,7 +215,7 @@ function ClanMistica({ primario, secundario }: { primario: string; secundario: s
         <p className="text-[1.05em] leading-relaxed text-clr2 dark:text-dclr2">Tengo un proyecto para mi vida, es la expresion symbolica que se propone a los caminantes: "toma tu propia canoa y rema".</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-        <div className="md:col-span-7 bg-clr1 dark:bg-clr1 border border-clr7 dark:border-dclr7 rounded-3xl p-6 shadow-lg space-y-4 relative overflow-hidden">
+        <div className="md:col-span-7 unit-card border unit-border rounded-3xl p-6 shadow-lg space-y-4 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-2 h-full" style={{ backgroundColor: primario }} />
           <h4 className="text-[1.25em] font-black uppercase text-clr2 dark:text-dclr2 pl-2">Nuestra Ley</h4>
           <ul className="space-y-3 text-[0.95em] text-clr2 dark:text-dclr2 leading-relaxed font-medium pl-2">
@@ -207,7 +236,7 @@ function ClanMistica({ primario, secundario }: { primario: string; secundario: s
           <h4 className="text-[3em] font-black tracking-tight uppercase mt-2 drop-shadow-xl" style={{ color: primario }}>ROJO</h4>
           <p className="text-[1em] italic mt-3 max-w-xs leading-relaxed">El rojo es el color que identifica a toda la Rama Caminantes.</p>
         </div>
-        <div className="md:col-span-7 bg-clr1 dark:bg-clr1 border border-clr7 dark:border-dclr7 rounded-3xl p-6 shadow-lg space-y-4 relative overflow-hidden">
+        <div className="md:col-span-7 unit-card border unit-border rounded-3xl p-6 shadow-lg space-y-4 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-2 h-full" style={{ backgroundColor: secundario }} />
           <h4 className="text-[1.25em] font-black uppercase text-clr2 dark:text-dclr2 pl-2">Flor de Liz y Trebol</h4>
           <img src="/images/logos/iconos_caminantes.svg" alt="Logo Caminantes" className="w-24 h-24 object-contain mx-auto mt-2" />
@@ -215,7 +244,7 @@ function ClanMistica({ primario, secundario }: { primario: string; secundario: s
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-        <div className="md:col-span-7 bg-clr1 dark:bg-clr1 border border-clr7 dark:border-dclr7 rounded-3xl py-6 pl-0 pr-6 shadow-lg relative overflow-hidden">
+        <div className="md:col-span-7 unit-card border unit-border rounded-3xl py-6 pl-0 pr-6 shadow-lg relative overflow-hidden">
           <div className="absolute top-0 left-0 w-2 h-full" style={{ backgroundColor: primario }} />
           <div className="grid grid-cols-12 gap-1 items-center pl-2">
             <div className="col-span-4 mx-2 flex justify-center"><img src="/images/unidades/baston_rover.jpg" alt="Baston Rover" /></div>

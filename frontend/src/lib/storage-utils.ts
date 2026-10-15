@@ -24,9 +24,10 @@ export async function uploadToStorage(
 ): Promise<string> {
   const { compress = true, maxWidth = 1200, fileNamePrefix = '' } = options
 
-  // 1. Comprimir archivo si es una imagen y compresión está habilitada
+  // 1. Comprimir archivo si es una imagen y compresión está habilitada (excluyendo vectores SVG)
   let fileToUpload = file
-  if (compress && file.type.startsWith('image/')) {
+  const isSvg = file.type === 'image/svg+xml' || file.name.toLowerCase().endsWith('.svg')
+  if (compress && file.type.startsWith('image/') && !isSvg) {
     try {
       fileToUpload = await compressImage(file, maxWidth)
     } catch (e) {
