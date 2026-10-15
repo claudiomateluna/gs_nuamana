@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import dynamic from 'next/dynamic'
 import { useDashboardContext } from '@/contexts/DashboardContext'
 import { supabase } from '@/lib/supabase'
@@ -11,7 +11,7 @@ const DashModVerFicha = dynamic(() => import('@/components/dashboard/inicio/mod_
 const DashModPerfil = dynamic(() => import('@/components/dashboard/inicio/mod_inicio_perfil'), { ssr: false })
 
 export default function UsuariosPage() {
-  const { perfil, fetchProfile, loading: ctxLoading } = useDashboardContext()
+  const { perfil, roles, unidades, fetchProfile, loading: ctxLoading } = useDashboardContext()
   
   const [usuarios, setUsuarios] = useState<Perfil[]>([])
   const [loading, setLoading] = useState(true)
@@ -25,26 +25,30 @@ export default function UsuariosPage() {
   const [editData, setEditData] = useState<Partial<Perfil>>({})
   const [editContactos, setEditContactos] = useState<any[]>([])
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const { data } = await supabase.from('perfiles').select('*, roles(name), unidades(nombre, colores, logo_unidad_url, logo_rama_url), contactos_emergencia(*), apoderado:apoderado_id(id, nombres, apellidos, telefono, email)').order('nombres')
-        setUsuarios((data || []) as Perfil[])
-      } catch (err) {
-        console.error('Error fetching usuarios:', err)
-      } finally {
-        setLoading(false)
-      }
+  const fetchUsuarios = useCallback(async () => {
+    try {
+      const { data } = await supabase.from('perfiles').select('*, roles(name), unidades(nombre, colores, logo_unidad_url, logo_rama_url), contactos_emergencia(*), apoderado:apoderado_id(id, nombres, apellidos, telefono, email)').order('nombres')
+      setUsuarios((data || []) as Perfil[])
+    } catch (err) {
+      console.error('Error fetching usuarios:', err)
+    } finally {
+      setLoading(false)
     }
-
-    fetchData()
   }, [])
+
+  useEffect(() => {
+    fetchUsuarios()
+  }, [fetchUsuarios])
 
   if (ctxLoading || loading) {
     return <div className="p-20 text-center font-body text-pclr7 dark:text-pdclr7 italic tracking-widest uppercase text-[0.8em]">Cargando...</div>
   }
 
   if (!perfil) return null
+
+  const handleRefresh = async () => {
+    await Promise.all([fetchProfile(), fetchUsuarios()])
+  }
 
   return (
     <div className="animate-in fade-in duration-500">
@@ -53,12 +57,24 @@ export default function UsuariosPage() {
         usuarios={usuarios}
         onVer={(u) => { setViewingFicha(u); setIsModVerFichaOpen(true) }}
         onEdit={(u) => { setEditingPupilo(u); setEditData(u); setEditContactos(u.contactos_emergencia || []); setIsModPerfilOpen(true) }}
-        onSuccess={fetchProfile}
+        onSuccess={handleRefresh}
       />
 
       {/* Modales */}
       <DashModVerFicha isOpen={isModVerFichaOpen} onClose={() => setIsModVerFichaOpen(false)} miembro={viewingFicha} perfil={perfil} autorizaciones={[]} />
-      <DashModPerfil isOpen={isModPerfilOpen} onClose={() => setIsModPerfilOpen(false)} editingPupilo={editingPupilo} perfil={perfil} editData={editData} setEditData={setEditData} editContactos={editContactos} setEditContactos={setEditContactos} roles={[]} unidades={[]} onSuccess={fetchProfile} />
+      <DashModPerfil 
+        isOpen={isModPerfilOpen} 
+        onClose={() => setIsModPerfilOpen(false)} 
+        editingPupilo={editingPupilo} 
+        perfil={perfil} 
+        editData={editData} 
+        setEditData={setEditData} 
+        editContactos={editContactos} 
+        setEditContactos={setEditContactos} 
+        roles={roles} 
+        unidades={unidades} 
+        onSuccess={handleRefresh} 
+      />
     </div>
   )
 }

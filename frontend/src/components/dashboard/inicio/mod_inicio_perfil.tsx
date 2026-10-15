@@ -45,6 +45,28 @@ export default function DashModPerfil({
   const [adultos, setAdultos] = useState<Pick<Perfil, 'id' | 'nombres' | 'apellidos' | 'rut'>[]>([])
   const [searchTerm, setSearchTerm] = useState('')
   const [showDropdown, setShowDropdown] = useState(false)
+  const [internalRoles, setInternalRoles] = useState<{ id: number; name: string }[]>(roles || [])
+  const [internalUnidades, setInternalUnidades] = useState<Unidad[]>(unidades || [])
+
+  useEffect(() => {
+    if (roles && roles.length > 0) {
+      setInternalRoles(roles)
+    } else if (isOpen) {
+      supabase.from('roles').select('id, name').order('id').then(({ data }) => {
+        if (data && data.length > 0) setInternalRoles(data)
+      })
+    }
+  }, [roles, isOpen])
+
+  useEffect(() => {
+    if (unidades && unidades.length > 0) {
+      setInternalUnidades(unidades)
+    } else if (isOpen) {
+      supabase.from('unidades').select('*').order('id').then(({ data }) => {
+        if (data && data.length > 0) setInternalUnidades(data)
+      })
+    }
+  }, [unidades, isOpen])
 
   const formatInitialDate = (isoDate: string) => {
     if (!isoDate) return ''
@@ -213,6 +235,8 @@ export default function DashModPerfil({
   }
 
   const isAdminUser = isAdmin(perfil)
+  const isDirOrGui = isDirigenteOrGuiadora(perfil)
+  const canManage = isAdminUser || isDirOrGui
 
   return (
     <div className="fixed inset-0 bg-pclr2 backdrop-blur-sm z-[100] flex items-center justify-center p-4 animate-in fade-in duration-300">
@@ -242,13 +266,11 @@ export default function DashModPerfil({
                   <select 
                     value={editData.rol_id || ''} 
                     onChange={(e) => setEditData({...editData, rol_id: parseInt(e.target.value)})} 
-                    disabled={editData.rol_id === RolId.Admin && !isAdminUser}
+                    disabled={(editData.rol_id === RolId.Admin && !isAdminUser) || !canManage}
                     className="w-full p-3 rounded-xl border bg-pclr3 dark:bg-pdclr3 text-[0.9em] disabled:opacity-50"
                   >
-                    {roles.map(r => {
+                    {internalRoles.map(r => {
                       const isOptionAdmin = r.id === RolId.Admin;
-                      const isDirOrGui = isDirigenteOrGuiadora(perfil);
-                      const canManage = isAdminUser || isDirOrGui;
                       const isDisabled = (isOptionAdmin && !isAdminUser) || (!canManage && r.id !== editData.rol_id);
                       return <option key={r.id} value={r.id} disabled={isDisabled}>{r.name.toUpperCase()}</option>;
                     })}
@@ -261,10 +283,11 @@ export default function DashModPerfil({
                   <select 
                     value={editData.unidad_id || ''} 
                     onChange={(e) => setEditData({...editData, unidad_id: e.target.value ? parseInt(e.target.value) : null})}
-                    className="w-full p-3 rounded-xl border bg-pclr3 dark:bg-pdclr3 text-[0.9em]"
+                    disabled={!canManage}
+                    className="w-full p-3 rounded-xl border bg-pclr3 dark:bg-pdclr3 text-[0.9em] disabled:opacity-50"
                   >
                     <option value="">SIN UNIDAD / GRUPO GENERAL</option>
-                    {unidades?.map(u => (
+                    {internalUnidades?.map(u => (
                       <option key={u.id} value={u.id}>{u.nombre.toUpperCase()}</option>
                     ))}
                   </select>

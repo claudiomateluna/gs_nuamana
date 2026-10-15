@@ -20,7 +20,7 @@ const DashModVincularPupilo = dynamic(() => import('@/components/dashboard/unida
 export default function FichaPage() {
   const router = useRouter()
   const searchParams = useSearchParams()
-  const { perfil, unidades, directivo, nnj, fetchProfile, loading } = useDashboardContext()
+  const { perfil, unidades, roles, directivo, nnj, fetchProfile, loading } = useDashboardContext()
   
   const modal = searchParams.get('modal')
   const modalId = searchParams.get('id')
@@ -233,7 +233,7 @@ export default function FichaPage() {
         setEditData={setEditData}
         editContactos={editContactos}
         setEditContactos={setEditContactos}
-        roles={[]}
+        roles={roles}
         unidades={unidades}
         onSuccess={() => { fetchProfile(); closeModal() }}
       />

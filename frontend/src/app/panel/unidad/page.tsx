@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import dynamic from 'next/dynamic'
 import { useDashboardContext } from '@/contexts/DashboardContext'
 import { supabase } from '@/lib/supabase'
@@ -12,7 +12,7 @@ const DashModPerfil = dynamic(() => import('@/components/dashboard/inicio/mod_in
 const DashModAutorizacionVer = dynamic(() => import('@/components/dashboard/autorizacion/mod_autorizacion_ver'), { ssr: false })
 
 export default function UnidadPage() {
-  const { perfil, directivo, fetchProfile, loading: ctxLoading } = useDashboardContext()
+  const { perfil, directivo, roles, unidades, fetchProfile, loading: ctxLoading } = useDashboardContext()
   
   const [miembros, setMiembros] = useState<Perfil[]>([])
   const [actividades, setActividades] = useState<ActividadProgramada[]>([])
@@ -32,44 +32,44 @@ export default function UnidadPage() {
   const [viewingAuth, setViewingAuth] = useState<any>(null)
   const [viewingAuthProfile, setViewingAuthProfile] = useState<Perfil | null>(null)
 
-  useEffect(() => {
+  const fetchData = useCallback(async () => {
     if (!perfil?.unidad_id || !directivo) {
       setLoading(false)
       return
     }
 
-    const fetchData = async () => {
-      try {
-        const [miembrosRes, actividadesRes] = await Promise.all([
-          supabase.from('perfiles').select('*, roles(name), unidades(nombre, colores, logo_unidad_url, logo_rama_url), contactos_emergencia(*), apoderado:apoderado_id(id, nombres, apellidos, telefono, email)').eq('unidad_id', perfil.unidad_id).order('nombres'),
-          supabase.from('actividades_programadas').select('*, unidades(nombre)').order('fecha_inicio', { ascending: false }),
-        ])
+    try {
+      const [miembrosRes, actividadesRes] = await Promise.all([
+        supabase.from('perfiles').select('*, roles(name), unidades(nombre, colores, logo_unidad_url, logo_rama_url), contactos_emergencia(*), apoderado:apoderado_id(id, nombres, apellidos, telefono, email)').eq('unidad_id', perfil.unidad_id).order('nombres'),
+        supabase.from('actividades_programadas').select('*, unidades(nombre)').order('fecha_inicio', { ascending: false }),
+      ])
 
-        const miembrosData = (miembrosRes.data || []) as Perfil[]
-        const memberIds = miembrosData.map(m => m.id)
+      const miembrosData = (miembrosRes.data || []) as Perfil[]
+      const memberIds = miembrosData.map(m => m.id)
 
-        let authsData: AutorizacionActividad[] = []
-        if (memberIds.length > 0) {
-          const { data } = await supabase
-            .from('autorizaciones_actividades')
-            .select('*')
-            .in('perfil_id', memberIds)
-            .order('fecha_firma', { ascending: false })
-          authsData = (data || []) as AutorizacionActividad[]
-        }
-
-        setMiembros(miembrosData)
-        setActividades((actividadesRes.data || []) as ActividadProgramada[])
-        setAutorizaciones(authsData)
-      } catch (err) {
-        console.error('Error fetching unidad data:', err)
-      } finally {
-        setLoading(false)
+      let authsData: AutorizacionActividad[] = []
+      if (memberIds.length > 0) {
+        const { data } = await supabase
+          .from('autorizaciones_actividades')
+          .select('*')
+          .in('perfil_id', memberIds)
+          .order('fecha_firma', { ascending: false })
+        authsData = (data || []) as AutorizacionActividad[]
       }
-    }
 
-    fetchData()
+      setMiembros(miembrosData)
+      setActividades((actividadesRes.data || []) as ActividadProgramada[])
+      setAutorizaciones(authsData)
+    } catch (err) {
+      console.error('Error fetching unidad data:', err)
+    } finally {
+      setLoading(false)
+    }
   }, [perfil?.unidad_id, directivo])
+
+  useEffect(() => {
+    fetchData()
+  }, [fetchData])
 
   if (ctxLoading || loading) {
     return <div className="p-20 text-center font-body text-pclr7 dark:text-pdclr7 italic tracking-widest uppercase text-[0.8em]">Cargando...</div>
@@ -77,6 +77,10 @@ export default function UnidadPage() {
 
   if (!perfil || !directivo) {
     return <div className="p-20 text-center font-body text-pclr7 dark:text-pdclr7 italic tracking-widest uppercase text-[0.8em]">Sin acceso</div>
+  }
+
+  const handleRefresh = async () => {
+    await Promise.all([fetchProfile(), fetchData()])
   }
 
   return (
@@ -89,12 +93,24 @@ export default function UnidadPage() {
         onVerFicha={(m) => { setViewingFicha(m); setIsModVerFichaOpen(true) }}
         onEdit={(m) => { setEditingPupilo(m); setEditData(m); setIsModPerfilOpen(true) }}
         onVerAutorizacion={(a, p) => { setViewingAuth(a); setViewingAuthProfile(p); setIsModAutorizacionVerOpen(true) }}
-        onSuccess={fetchProfile}
+        onSuccess={handleRefresh}
       />
 
       {/* Modales */}
       <DashModVerFicha isOpen={isModVerFichaOpen} onClose={() => setIsModVerFichaOpen(false)} miembro={viewingFicha} perfil={perfil} autorizaciones={autorizaciones} />
-      <DashModPerfil isOpen={isModPerfilOpen} onClose={() => setIsModPerfilOpen(false)} editingPupilo={editingPupilo} perfil={perfil} editData={editData} setEditData={setEditData} editContactos={editContactos} setEditContactos={setEditContactos} roles={[]} unidades={[]} onSuccess={fetchProfile} />
+      <DashModPerfil 
+        isOpen={isModPerfilOpen} 
+        onClose={() => setIsModPerfilOpen(false)} 
+        editingPupilo={editingPupilo} 
+        perfil={perfil} 
+        editData={editData} 
+        setEditData={setEditData} 
+        editContactos={editContactos} 
+        setEditContactos={setEditContactos} 
+        roles={roles} 
+        unidades={unidades} 
+        onSuccess={handleRefresh} 
+      />
       <DashModAutorizacionVer isOpen={isModAutorizacionVerOpen} onClose={() => setIsModAutorizacionVerOpen(false)} auth={viewingAuth} perfil={viewingAuthProfile} />
     </div>
   )
