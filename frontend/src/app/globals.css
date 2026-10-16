@@ -456,3 +456,20 @@ img {
   height: auto;
   border-radius: 1.5rem;
 }
+
+@keyframes heroFadeIn {
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Fondos de modales adaptativos al modo claro/oscuro con translucidez */
+.fixed.inset-0.bg-pclr2 {
+  background-color: rgba(248, 249, 250, 0.75);
+  background-color: color-mix(in srgb, var(--pclr2, #f8f9fa) 75%, transparent);
+}
+
+.dark .fixed.inset-0.bg-pclr2 {
+  background-color: rgba(38, 38, 43, 0.85) !important;
+  background-color: color-mix(in srgb, var(--pdclr2, #26262b) 85%, transparent) !important;
+}
+

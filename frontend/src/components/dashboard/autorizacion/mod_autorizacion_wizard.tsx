@@ -26,6 +26,7 @@ import Step16_AutorizacionParticipacion from './Step16_AutorizacionParticipacion
 import Step17_AutorizacionImagen from './Step17_AutorizacionImagen'
 import Step18_FirmaDigital from './Step18_FirmaDigital'
 import { toast } from 'sonner';
+import { getErrorMessage } from '@/lib/error-utils';
 
 interface Props {
   isOpen: boolean
@@ -64,49 +65,120 @@ export default function DashModAutorizacionWizard({ isOpen, onClose, perfil, act
 
   if (!isOpen) return null
 
-  const handleNext = () => { if (canAdvance && step < 18) setStep(step + 1) }
+  const getStepMissingFields = (currentStep: number): string[] => {
+    const missing: string[] = []
+
+    if (currentStep === 0) {
+      if (!actividadSelected) missing.push('Seleccionar una actividad programada')
+    }
+
+    if (currentStep === 1) {
+      const nom = (formData.nombres || perfil.nombres || '').trim()
+      const ape = (formData.apellidos || perfil.apellidos || '').trim()
+      if (!nom) missing.push('Nombres de la persona')
+      if (!ape) missing.push('Apellidos de la persona')
+    }
+
+    if (currentStep === 4) {
+      const sis = (formData.sistema_salud || perfil.sistema_salud || '').trim()
+      if (!sis) missing.push('Sistema de salud (FONASA, Isapre, etc.)')
+      const sisLower = sis.toLowerCase()
+      if ((sisLower.includes('isapre') || sisLower.includes('particular')) && !(formData.detalle_sistema_salud || perfil.detalle_sistema_salud || '').trim()) {
+        missing.push('Nombre de la Isapre o Institución de salud')
+      }
+      if (formData.seguro_complementario && !(formData.nombre_seguro_complementario || perfil.nombre_seguro_complementario || '').trim()) {
+        missing.push('Nombre de la compañía de seguro complementario')
+      }
+    }
+
+    if (currentStep === 5) {
+      const sang = (formData.tipo_sangre || perfil.tipo_sangre || '').trim()
+      if (!sang) missing.push('Tipo de sangre')
+    }
+
+    if (currentStep === 16) {
+      const rutU = (formData.rut_usuario || perfil.rut || '').trim()
+      const nomU = (formData.nombres_usuario || perfil.nombres || '').trim()
+      const apeU = (formData.apellidos_usuario || perfil.apellidos || '').trim()
+      if (!nomU) missing.push('Nombre del participante')
+      if (!apeU) missing.push('Apellidos del participante')
+      if (!rutU || !validarRut(rutU)) missing.push('R.U.N. válido del participante')
+
+      if (edad < 18) {
+        const rutA = (formData.rut_apoderado || apoderadoData?.rut || '').trim()
+        const nomA = (formData.nombre_apoderado || apoderadoData?.nombres || perfil.nombre_apoderado_contacto || '').trim()
+        const apeA = (formData.apellidos_apoderado || apoderadoData?.apellidos || '').trim()
+        if (!nomA) missing.push('Nombre del apoderado responsable')
+        if (!apeA) missing.push('Apellidos del apoderado responsable')
+        if (!rutA || !validarRut(rutA)) missing.push('R.U.N. válido del apoderado responsable')
+      }
+    }
+
+    if (currentStep === 17) {
+      const rutU = (formData.rut_usuario_img || perfil.rut || '').trim()
+      const nomU = (formData.nombres_usuario_img || perfil.nombres || '').trim()
+      const apeU = (formData.apellidos_usuario_img || perfil.apellidos || '').trim()
+      if (!nomU) missing.push('Nombre del participante (Uso de imagen)')
+      if (!apeU) missing.push('Apellidos del participante (Uso de imagen)')
+      if (!rutU || !validarRut(rutU)) missing.push('R.U.N. válido del participante (Uso de imagen)')
+
+      if (edad < 18) {
+        const rutA = (formData.rut_apoderado_img || apoderadoData?.rut || '').trim()
+        const nomA = (formData.nombre_apoderado_img || apoderadoData?.nombres || perfil.nombre_apoderado_contacto || '').trim()
+        const apeA = (formData.apellidos_apoderado_img || apoderadoData?.apellidos || '').trim()
+        if (!nomA) missing.push('Nombre del apoderado (Uso de imagen)')
+        if (!apeA) missing.push('Apellidos del apoderado (Uso de imagen)')
+        if (!rutA || !validarRut(rutA)) missing.push('R.U.N. válido del apoderado (Uso de imagen)')
+      }
+    }
+
+    if (currentStep === 18) {
+      if (!formData.firma) missing.push('Confirmar tu firma digital en el recuadro')
+    }
+
+    return missing
+  }
+
+  const getAllMissingFields = (): string[] => {
+    const allMissing: string[] = []
+    for (let s = 0; s <= 18; s++) {
+      const stepMissing = getStepMissingFields(s)
+      allMissing.push(...stepMissing)
+    }
+    return Array.from(new Set(allMissing))
+  }
+
+  const showMissingFieldsToast = (fields: string[]) => {
+    toast.error(
+      <div>
+        <p className="font-black mb-1">Te faltan completar información de los siguientes campos obligatorios:</p>
+        <ul className="list-disc pl-4 space-y-0.5 text-xs font-semibold">
+          {fields.map((f, i) => (
+            <li key={i}>{f}</li>
+          ))}
+        </ul>
+      </div>,
+      { duration: 5000 }
+    )
+  }
+
+  const handleNext = () => {
+    const missing = getStepMissingFields(step)
+    if (missing.length > 0) {
+      showMissingFieldsToast(missing)
+      return
+    }
+    if (step < 18) setStep(step + 1)
+  }
+
   const handleBack = () => { if (step > 0) setStep(step - 1) }
 
-  const canAdvance = (() => {
-    if (step === 0 && !actividadSelected) return false;
-    
-    // Validación Paso 16
-    if (step === 16) {
-      const rutU = (formData.rut_usuario || perfil.rut || '').trim();
-      const nomU = (formData.nombres_usuario || perfil.nombres || '').trim();
-      const apeU = (formData.apellidos_usuario || perfil.apellidos || '').trim();
-      
-      if (!nomU || !apeU || !validarRut(rutU)) return false;
-      
-      if (edad < 18) {
-        const rutA = (formData.rut_apoderado || apoderadoData?.rut || '').trim();
-        const nomA = (formData.nombre_apoderado || apoderadoData?.nombres || perfil.nombre_apoderado_contacto || '').trim();
-        const apeA = (formData.apellidos_apoderado || apoderadoData?.apellidos || '').trim();
-        if (!nomA || !apeA || !validarRut(rutA)) return false;
-      }
-    }
-
-    // Validación Paso 17
-    if (step === 17) {
-      const rutU = (formData.rut_usuario_img || perfil.rut || '').trim();
-      const nomU = (formData.nombres_usuario_img || perfil.nombres || '').trim();
-      const apeU = (formData.apellidos_usuario_img || perfil.apellidos || '').trim();
-
-      if (!nomU || !apeU || !validarRut(rutU)) return false;
-
-      if (edad < 18) {
-        const rutA = (formData.rut_apoderado_img || apoderadoData?.rut || '').trim();
-        const nomA = (formData.nombre_apoderado_img || apoderadoData?.nombres || perfil.nombre_apoderado_contacto || '').trim();
-        const apeA = (formData.apellidos_apoderado_img || apoderadoData?.apellidos || '').trim();
-        if (!nomA || !apeA || !validarRut(rutA)) return false;
-      }
-    }
-
-    return true;
-  })();
-
   const handleFinalSave = async () => {
-    if (!actividadSelected) { toast.warning('Debes seleccionar una actividad.'); return; }
+    const missing = getAllMissingFields()
+    if (missing.length > 0 || !actividadSelected) {
+      showMissingFieldsToast(missing.length > 0 ? missing : ['Seleccionar una actividad programada'])
+      return
+    }
     setSaving(true)
     try {
       // 1. Lista blanca estricta de columnas reales en perfiles_ficha_medica (según migración 20260308000000)
@@ -178,46 +250,53 @@ export default function DashModAutorizacionWizard({ isOpen, onClose, perfil, act
       const { error: fE } = await supabase.from('perfiles_ficha_medica').upsert(dataToSave)
       if (fE) throw fE
 
-      // 2. Actualizar Perfil del Usuario si hubo cambios
-      const profileUpdates: Record<string, unknown> = {}
-      if (formData.nombres) profileUpdates.nombres = formData.nombres
-      if (formData.apellidos) profileUpdates.apellidos = formData.apellidos
-      if (formData.rut_usuario) profileUpdates.rut = formData.rut_usuario
-      if (formData.sexo) profileUpdates.sexo = formData.sexo
-      if (formData.fecha_nacimiento) profileUpdates.fecha_nacimiento = formData.fecha_nacimiento
-      if (formData.nombre_social) profileUpdates.nombre_social = formData.nombre_social
-      if (formData.nacionalidad) profileUpdates.nacionalidad = formData.nacionalidad
-      
-      // Sincronizar Salud en Perfil
-      if (formData.sistema_salud) profileUpdates.sistema_salud = formData.sistema_salud
-      if (formData.detalle_sistema_salud) profileUpdates.detalle_sistema_salud = formData.detalle_sistema_salud
-      if (formData.tipo_sangre) profileUpdates.tipo_sangre = formData.tipo_sangre
-      if (formData.alergias) profileUpdates.alergias = formData.alergias
-      if (formData.medicamentos) profileUpdates.medicamentos = formData.medicamentos
-      if (formData.dieta_alimentaria) profileUpdates.dieta_alimentaria = formData.dieta_alimentaria
-      
-      // Si es menor, actualizamos el contacto directo en su perfil
-      if (edad < 18) {
-        if (formData.nombre_apoderado || formData.apellidos_apoderado) {
-          profileUpdates.nombre_apoderado_contacto = `${formData.nombre_apoderado || ''} ${formData.apellidos_apoderado || ''}`.trim() || perfil.nombre_apoderado_contacto
-        }
-      }
-
-      if (Object.keys(profileUpdates).length > 0) {
-        await supabase.from('perfiles').update(profileUpdates).eq('id', perfil.id)
-      }
-
-      // 3. Actualizar Perfil del Apoderado si está vinculado y hubo cambios
-      if (perfil.apoderado_id && (formData.nombre_apoderado || formData.apellidos_apoderado || formData.rut_apoderado)) {
-        const apoUpdates: Record<string, unknown> = {}
-        if (formData.nombre_apoderado) apoUpdates.nombres = formData.nombre_apoderado
-        if (formData.apellidos_apoderado) apoUpdates.apellidos = formData.apellidos_apoderado
-        if (formData.rut_apoderado) apoUpdates.rut = formData.rut_apoderado
+      // 2. Actualizar Perfil del Usuario si hubo cambios (no fatal si las RLS restringen campos secundarios)
+      try {
+        const profileUpdates: Record<string, unknown> = {}
+        if (formData.nombres) profileUpdates.nombres = formData.nombres
+        if (formData.apellidos) profileUpdates.apellidos = formData.apellidos
+        if (formData.rut_usuario) profileUpdates.rut = formData.rut_usuario
+        if (formData.sexo) profileUpdates.sexo = formData.sexo
+        if (formData.fecha_nacimiento) profileUpdates.fecha_nacimiento = formData.fecha_nacimiento
+        if (formData.nombre_social) profileUpdates.nombre_social = formData.nombre_social
+        if (formData.nacionalidad) profileUpdates.nacionalidad = formData.nacionalidad
         
-        await supabase.from('perfiles').update(apoUpdates).eq('id', perfil.apoderado_id)
+        // Sincronizar Salud en Perfil
+        if (formData.sistema_salud) profileUpdates.sistema_salud = formData.sistema_salud
+        if (formData.detalle_sistema_salud) profileUpdates.detalle_sistema_salud = formData.detalle_sistema_salud
+        if (formData.tipo_sangre) profileUpdates.tipo_sangre = formData.tipo_sangre
+        if (formData.alergias) profileUpdates.alergias = formData.alergias
+        if (formData.medicamentos) profileUpdates.medicamentos = formData.medicamentos
+        if (formData.dieta_alimentaria) profileUpdates.dieta_alimentaria = formData.dieta_alimentaria
+        
+        // Si es menor, actualizamos el contacto directo en su perfil
+        if (edad < 18) {
+          if (formData.nombre_apoderado || formData.apellidos_apoderado) {
+            profileUpdates.nombre_apoderado_contacto = `${formData.nombre_apoderado || ''} ${formData.apellidos_apoderado || ''}`.trim() || perfil.nombre_apoderado_contacto
+          }
+        }
+
+        if (Object.keys(profileUpdates).length > 0) {
+          await supabase.from('perfiles').update(profileUpdates).eq('id', perfil.id)
+        }
+
+        // 3. Actualizar Perfil del Apoderado si está vinculado y hubo cambios
+        if (perfil.apoderado_id && (formData.nombre_apoderado || formData.apellidos_apoderado || formData.rut_apoderado)) {
+          const apoUpdates: Record<string, unknown> = {}
+          if (formData.nombre_apoderado) apoUpdates.nombres = formData.nombre_apoderado
+          if (formData.apellidos_apoderado) apoUpdates.apellidos = formData.apellidos_apoderado
+          if (formData.rut_apoderado) apoUpdates.rut = formData.rut_apoderado
+          
+          await supabase.from('perfiles').update(apoUpdates).eq('id', perfil.apoderado_id)
+        }
+      } catch (profileErr) {
+        console.warn('Advertencia actualizando campos secundarios del perfil:', profileErr);
       }
 
       // 4. Determinar datos del firmante
+      const { data: { session } } = await supabase.auth.getSession()
+      const currentAuthId = session?.user?.id || perfil.apoderado_id || perfil.id
+
       const nombreFirmante = edad >= 18 
         ? `${formData.nombres_usuario || perfil.nombres} ${formData.apellidos_usuario || perfil.apellidos}` 
         : `${formData.nombre_apoderado || apoderadoData?.nombres || perfil.nombre_apoderado_contacto || ''} ${formData.apellidos_apoderado || apoderadoData?.apellidos || ''}`.trim()
@@ -235,7 +314,7 @@ export default function DashModAutorizacionWizard({ isOpen, onClose, perfil, act
         fecha_inicio: actividadSelected.fecha_inicio,
         fecha_fin: actividadSelected.fecha_fin || actividadSelected.fecha_inicio,
         tipo_formulario: edad >= 18 ? 'Mayor de Edad' : 'Menor de Edad',
-        firmado_por_id: perfil.apoderado_id || perfil.id,
+        firmado_por_id: currentAuthId,
         nombre_firmante: nombreFirmante,
         rut_firmante: rutFirmante,
         firma_digital_b64: formData.firma, // La columna real es firma_digital_b64
@@ -247,7 +326,7 @@ export default function DashModAutorizacionWizard({ isOpen, onClose, perfil, act
       if (onSuccess) onSuccess()
       onClose()
     } catch (e: unknown) {
-      toast.error('Error: ' + (e instanceof Error ? e.message : String(e)))
+      toast.error('Error al firmar: ' + getErrorMessage(e))
     } finally {
       setSaving(false)
     }
@@ -327,13 +406,18 @@ export default function DashModAutorizacionWizard({ isOpen, onClose, perfil, act
           {step < 18 ? (
             <button 
               onClick={handleNext} 
-              disabled={!canAdvance}
-              className={`px-4 py-2.5 bg-pclr10 text-pclr12 font-black uppercase rounded-xl shadow-lg text-[0.85em] sm:text-[1em] tracking-widest min-h-[44px] flex items-center justify-center ${!canAdvance ? 'opacity-50 cursor-not-allowed' : 'hover:brightness-110 active:scale-95'}`}
+              className="px-4 py-2.5 bg-pclr10 text-pclr12 font-black uppercase rounded-xl shadow-lg text-[0.85em] sm:text-[1em] tracking-widest min-h-[44px] flex items-center justify-center hover:brightness-110 active:scale-95 transition-all"
             >
               Siguiente →
             </button>
           ) : (
-            <button onClick={handleFinalSave} disabled={saving || !formData.firma} className="px-4 py-2.5 bg-pclr6 text-pclr12 font-black uppercase rounded-xl shadow-lg text-[0.85em] sm:text-[1em] tracking-widest min-h-[44px] flex items-center justify-center">✍️ FINALIZAR</button>
+            <button 
+              onClick={handleFinalSave} 
+              disabled={saving} 
+              className={`px-4 py-2.5 bg-pclr6 text-pclr12 font-black uppercase rounded-xl shadow-lg text-[0.85em] sm:text-[1em] tracking-widest min-h-[44px] flex items-center justify-center transition-all ${saving ? 'opacity-50 cursor-not-allowed' : 'hover:brightness-110 active:scale-95'}`}
+            >
+              {saving ? 'Guardando...' : '✍️ FINALIZAR'}
+            </button>
           )}
         </div>
       </div>

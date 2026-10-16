@@ -28,6 +28,7 @@ const Hero = () => {
   const [topImages, setTopImages] = useState<string[]>([]);
   const [bottomImages, setBottomImages] = useState<string[]>([]);
   const [borderColors, setBorderColors] = useState<string[]>([]);
+  const [rotations, setRotations] = useState<number[]>([]);
   const [screenWidth, setScreenWidth] = useState(1024);
   const [isClient, setIsClient] = useState(false);
   const [isDark, setIsDark] = useState(false);
@@ -67,13 +68,17 @@ const Hero = () => {
 
   useEffect(() => {
     const shuffledImages = [...allImages].sort(() => Math.random() - 0.5);
+    const total = topCount + bottomCount;
 
     setTopImages(shuffledImages.slice(0, topCount));
-    setBottomImages(shuffledImages.slice(topCount, topCount + bottomCount));
+    setBottomImages(shuffledImages.slice(topCount, total));
     setBorderColors(
-      Array.from({ length: topCount + bottomCount }, (_, i) =>
+      Array.from({ length: total }, (_, i) =>
         pickHeroBorderColor(heroColorCfg, i),
       ),
+    );
+    setRotations(
+      Array.from({ length: total }, () => (Math.random() * 6) - 3),
     );
   }, [allImages, topCount, bottomCount, screenWidth, heroColorCfg.heclr6, heroColorCfg.heclr7, heroColorCfg.heclr8, heroColorCfg.heclr9, heroColorCfg.heclr10, heroColorCfg.heclr11, heroColorCfg.heclr12, heroColorCfg.heclr13, heroColorCfg.heclr6_opacity, heroColorCfg.heclr7_opacity, heroColorCfg.heclr8_opacity, heroColorCfg.heclr9_opacity, heroColorCfg.heclr10_opacity, heroColorCfg.heclr11_opacity, heroColorCfg.heclr12_opacity, heroColorCfg.heclr13_opacity]);
 
@@ -103,11 +108,10 @@ const Hero = () => {
         {topImages.map((image, idx) => (
           <div
             key={`top-${idx}`}
-            className="w-40 sm:w-64 border-4 rounded-[1.8em] overflow-hidden shadow-2xl transition-all duration-700 hover:scale-110"
+            className="w-40 sm:w-64 border-4 rounded-[1.8em] overflow-hidden shadow-2xl transition-transform duration-700 hover:scale-110"
             style={{
-              transform: `rotate(${(Math.random() * 6) - 3}deg)`,
-              animation: `fadeIn 1s ease-out forwards ${idx * 0.2}s`,
-              opacity: 0,
+              transform: `rotate(${rotations[idx] ?? 0}deg)`,
+              animation: `heroFadeIn 1s ease-out forwards ${idx * 0.2}s`,
               borderColor: borderColors[idx],
             }}
           >
@@ -139,11 +143,10 @@ const Hero = () => {
         {bottomImages.map((image, idx) => (
           <div
             key={`bottom-${idx}`}
-            className="w-40 sm:w-64 border-4 rounded-[1.8em] overflow-hidden shadow-2xl transition-all duration-700 hover:scale-110"
+            className="w-40 sm:w-64 border-4 rounded-[1.8em] overflow-hidden shadow-2xl transition-transform duration-700 hover:scale-110"
             style={{
-              transform: `rotate(${(Math.random() * 6) - 3}deg)`,
-              animation: `fadeIn 1s ease-out forwards ${0.5 + idx * 0.2}s`,
-              opacity: 0,
+              transform: `rotate(${rotations[topImages.length + idx] ?? 0}deg)`,
+              animation: `heroFadeIn 1s ease-out forwards ${0.5 + idx * 0.2}s`,
               borderColor: borderColors[idx + topImages.length],
             }}
           >
@@ -151,13 +154,6 @@ const Hero = () => {
           </div>
         ))}
       </div>
-
-      <style jsx>{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: scale(0.9) translateY(20px); }
-          to { opacity: 1; transform: scale(1) translateY(0); }
-        }
-      `}</style>
     </section>
   );
 };

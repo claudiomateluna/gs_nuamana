@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic'
 import { useDashboardContext } from '@/contexts/DashboardContext'
 import { supabase } from '@/lib/supabase'
 import { isApoderado, isDirigenteOrGuiadora, isInactive } from '@/lib/roles'
-import type { Perfil } from '@/types'
+import type { Perfil, AutorizacionActividad } from '@/types'
 import { toast } from 'sonner'
 
 const DashInicio = dynamic(() => import('@/components/dashboard/p_inicio'), { ssr: false })
@@ -36,6 +36,7 @@ export default function FichaPage() {
   
   const [isModAutorizacionOpen, setIsModAutorizacionOpen] = useState(false)
   const [targetAuthProfile, setTargetAuthProfile] = useState<Perfil | null>(null)
+  const [isSelectTargetAuthOpen, setIsSelectTargetAuthOpen] = useState(false)
   
   const [isModAutorizacionVerOpen, setIsModAutorizacionVerOpen] = useState(false)
   const [viewingAuth, setViewingAuth] = useState<any>(null)
@@ -46,6 +47,32 @@ export default function FichaPage() {
   
   const [showPassModal, setShowPassModal] = useState(false)
   const [newPass, setNewPass] = useState('')
+
+  // Fetch pupilos for apoderados
+  const [pupilos, setPupilos] = useState<Perfil[]>([])
+  useEffect(() => {
+    if (perfil && isApoderado(perfil)) {
+      supabase.from('perfiles').select('*, roles(name), unidades(nombre, colores, logo_unidad_url, logo_rama_url)').eq('apoderado_id', perfil.id)
+        .then(({ data }) => setPupilos((data || []) as Perfil[]))
+    }
+  }, [perfil])
+
+  // Fetch autorizaciones de la cuenta y sus pupilos
+  const [autorizaciones, setAutorizaciones] = useState<AutorizacionActividad[]>([])
+  const fetchAutorizaciones = useCallback(async () => {
+    if (!perfil) return
+    const ids = [perfil.id, ...pupilos.map(p => p.id)]
+    const { data } = await supabase
+      .from('autorizaciones_actividades')
+      .select('*')
+      .in('perfil_id', ids)
+      .order('fecha_firma', { ascending: false })
+    if (data) setAutorizaciones(data as AutorizacionActividad[])
+  }, [perfil, pupilos])
+
+  useEffect(() => {
+    fetchAutorizaciones()
+  }, [fetchAutorizaciones])
   
   // Sync state
   const [isSyncing, setIsSyncing] = useState(false)
@@ -56,6 +83,7 @@ export default function FichaPage() {
     setIsModPerfilOpen(false)
     setIsModVerFichaOpen(false)
     setIsModAutorizacionOpen(false)
+    setIsSelectTargetAuthOpen(false)
     setIsModAutorizacionVerOpen(false)
     setIsModActividadOpen(false)
     setIsModVincularPupiloOpen(false)
@@ -83,8 +111,12 @@ export default function FichaPage() {
           }
         })
     } else if (modal === 'autorizacion') {
-      setTargetAuthProfile(perfil)
-      setIsModAutorizacionOpen(true)
+      if (isApoderado(perfil) && pupilos.length > 0) {
+        setIsSelectTargetAuthOpen(true)
+      } else {
+        setTargetAuthProfile(perfil)
+        setIsModAutorizacionOpen(true)
+      }
     } else if (modal === 'programar-actividad' && directivo) {
       setIsModActividadOpen(true)
     } else if (modal === 'cambiar-contrasena') {
@@ -100,12 +132,13 @@ export default function FichaPage() {
       setIsModPerfilOpen(false)
       setIsModVerFichaOpen(false)
       setIsModAutorizacionOpen(false)
+      setIsSelectTargetAuthOpen(false)
       setIsModAutorizacionVerOpen(false)
       setIsModActividadOpen(false)
       setIsModVincularPupiloOpen(false)
       setShowPassModal(false)
     }
-  }, [modal, modalId, perfil, directivo])
+  }, [modal, modalId, perfil, directivo, pupilos])
 
   const handleSyncOffline = async () => {
     setIsSyncing(true)
@@ -152,15 +185,6 @@ export default function FichaPage() {
   const inactive = isInactive(perfil)
   const isDirigente = isDirigenteOrGuiadora(perfil)
 
-  // Fetch pupilos for apoderados
-  const [pupilos, setPupilos] = useState<Perfil[]>([])
-  useEffect(() => {
-    if (isApoderado(perfil)) {
-      supabase.from('perfiles').select('*, roles(name), unidades(nombre, colores, logo_unidad_url, logo_rama_url)').eq('apoderado_id', perfil.id)
-        .then(({ data }) => setPupilos((data || []) as Perfil[]))
-    }
-  }, [perfil])
-
   return (
     <div className="space-y-6 animate-in fade-in duration-500">
       {/* ACCIONES RAPIDAS */}
@@ -206,7 +230,7 @@ export default function FichaPage() {
         perfil={perfil}
         pupilos={pupilos}
         apoderado={null}
-        autorizaciones={[]}
+        autorizaciones={autorizaciones}
         onEdit={(p) => {
           setEditingPupilo(p || null)
           setEditData(p || perfil)
@@ -215,9 +239,9 @@ export default function FichaPage() {
         onGenerateAuth={handleOpenWizard}
         onProgramActividad={() => router.push('/panel/ficha?modal=programar-actividad')}
         onVincularExistente={() => router.push('/panel/ficha?modal=vincular-pupilo')}
-        onVerAutorizacion={(a) => {
+        onVerAutorizacion={(a, p) => {
           setViewingAuth(a)
-          setViewingAuthProfile(perfil)
+          setViewingAuthProfile(p || perfil)
           setIsModAutorizacionVerOpen(true)
         }}
         setShowPassModal={() => router.push('/panel/ficha?modal=cambiar-contrasena')}
@@ -246,12 +270,77 @@ export default function FichaPage() {
         autorizaciones={[]}
       />
       
+      {/* Modal de selección de destinatario de autorización (para apoderados) */}
+      {isSelectTargetAuthOpen && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[120] flex items-center justify-center p-4 animate-in fade-in duration-300">
+          <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-md rounded-3xl p-6 shadow-2xl border-2 border-pclr13 dark:border-pdclr13 space-y-4">
+            <div className="flex justify-between items-center border-b border-pclr13 dark:border-pdclr13 pb-3">
+              <h3 className="text-[1.1em] font-black uppercase tracking-tight text-pclr4 dark:text-pdclr4 font-inika">
+                Seleccionar Persona
+              </h3>
+              <button onClick={closeModal} className="text-xl font-bold opacity-60 hover:opacity-100">✕</button>
+            </div>
+            
+            <p className="text-[0.85em] text-pclr7 dark:text-pdclr7 leading-relaxed font-bold">
+              ¿Para quién deseas completar y firmar la autorización?
+            </p>
+
+            <div className="space-y-2 pt-2">
+              {/* Opción 1: El mismo Apoderado como adulto */}
+              <button
+                type="button"
+                onClick={() => {
+                  setIsSelectTargetAuthOpen(false)
+                  setTargetAuthProfile(perfil)
+                  setIsModAutorizacionOpen(true)
+                }}
+                className="w-full flex items-center justify-between p-4 bg-pclr3 dark:bg-pdclr3 hover:bg-pclr10 dark:hover:bg-pdclr10 text-pclr4 dark:text-pdclr4 hover:text-pclr12 dark:hover:text-pdclr12 rounded-2xl border border-pclr13 dark:border-pdclr13 transition-all group"
+              >
+                <div className="text-left">
+                  <p className="text-[0.9em] font-black uppercase leading-tight">{perfil.nombres} {perfil.apellidos}</p>
+                  <p className="text-[0.75em] opacity-70 font-bold uppercase tracking-wider">Para mí mismo (Adulto)</p>
+                </div>
+                <span className="text-lg group-hover:scale-125 transition-transform">👤</span>
+              </button>
+
+              {/* Opción 2: Cada uno de sus Pupilos */}
+              {pupilos.map((pup) => (
+                <button
+                  key={pup.id}
+                  type="button"
+                  onClick={() => {
+                    setIsSelectTargetAuthOpen(false)
+                    setTargetAuthProfile(pup)
+                    setIsModAutorizacionOpen(true)
+                  }}
+                  className="w-full flex items-center justify-between p-4 bg-pclr3 dark:bg-pdclr3 hover:bg-pclr8 dark:hover:bg-pdclr8 text-pclr4 dark:text-pdclr4 hover:text-pclr12 dark:hover:text-pdclr12 rounded-2xl border border-pclr13 dark:border-pdclr13 transition-all group"
+                >
+                  <div className="text-left">
+                    <p className="text-[0.9em] font-black uppercase leading-tight">{pup.nombres} {pup.apellidos}</p>
+                    <p className="text-[0.75em] opacity-70 font-bold uppercase tracking-wider">Pupilo / Beneficiario</p>
+                  </div>
+                  <span className="text-lg group-hover:scale-125 transition-transform">🐾</span>
+                </button>
+              ))}
+            </div>
+
+            <button
+              type="button"
+              onClick={closeModal}
+              className="w-full py-2.5 mt-2 bg-transparent text-pclr7 dark:text-pdclr7 hover:text-pclr4 text-[0.85em] font-black uppercase tracking-wider transition-colors"
+            >
+              Cancelar
+            </button>
+          </div>
+        </div>
+      )}
+
       {isModAutorizacionOpen && targetAuthProfile && (
         <DashModAutorizacionWizard
           isOpen={isModAutorizacionOpen}
           onClose={closeModal}
           perfil={targetAuthProfile}
-          onSuccess={() => { fetchProfile(); closeModal() }}
+          onSuccess={() => { fetchAutorizaciones(); fetchProfile(); closeModal() }}
         />
       )}
       
@@ -259,7 +348,10 @@ export default function FichaPage() {
         isOpen={isModAutorizacionVerOpen}
         onClose={closeModal}
         auth={viewingAuth}
-        perfil={viewingAuthProfile}
+        perfil={viewingAuthProfile || perfil}
+        onDelete={() => {
+          fetchAutorizaciones()
+        }}
       />
       
       <DashModActividadCrear

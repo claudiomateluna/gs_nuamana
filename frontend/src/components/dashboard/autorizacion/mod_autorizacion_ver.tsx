@@ -91,12 +91,12 @@ export default function DashModAutorizacionVer({ isOpen, onClose, auth, perfil: 
 
   return (
     <div className="fixed inset-0 bg-pclr2 backdrop-blur-xl z-[200] flex items-center justify-center p-0 md:p-4 overflow-hidden">
-      <div className="bg-pclr2 text-pclr12 w-full h-full max-w-6xl flex flex-col shadow-2xl relative rounded-none md:rounded-3xl overflow-hidden border border-pclr1">
+      <div className="bg-pclr1 dark:bg-pdclr1 text-pclr4 dark:text-pdclr4 w-full h-full max-w-6xl flex flex-col shadow-2xl relative rounded-none md:rounded-3xl overflow-hidden border border-pclr13 dark:border-pdclr13">
         
         {/* HEADER */}
-        <div className="p-4 border-b border-pclr1 flex justify-between items-center bg-pclr2 backdrop-blur-md">
+        <div className="p-4 border-b border-pclr13 dark:border-pdclr13 flex justify-between items-center bg-pclr3 dark:bg-pdclr3 backdrop-blur-md">
           <div className="flex flex-col">
-            <h2 className="text-sm font-black uppercase tracking-widest text-pclr4">Expediente Oficial Digital</h2>
+            <h2 className="text-sm font-black uppercase tracking-widest text-pclr4 dark:text-pdclr4">Expediente Oficial Digital</h2>
             <p className="text-[0.8em] opacity-40 font-mono">{(auth as any)?.actividad_nombre || 'Actividad'} • {perfil.nombres} {perfil.apellidos}</p>
           </div>
           
@@ -104,19 +104,19 @@ export default function DashModAutorizacionVer({ isOpen, onClose, auth, perfil: 
             <button 
               onClick={handleDelete} 
               disabled={isDeleting}
-              className="px-4 py-2 bg-pclr10 text-pclr4 rounded-xl font-bold uppercase text-[0.8em] border border-pclr14 hover:bg-pclr10 hover:text-pclr12 transition-all"
+              className="px-4 py-2 bg-pclr10 text-pclr12 rounded-xl font-bold uppercase text-[0.8em] border border-pclr14 hover:bg-pclr10/80 transition-all"
             >
               {isDeleting ? '...' : '🗑️ Eliminar'}
             </button>
             <button 
               onClick={() => generateOfficialPDF(auth as any, perfil as any, fichaMedica, true)} 
-              className="px-4 py-2 bg-pclr10 text-pclr12 rounded-xl font-bold uppercase text-[0.8em] hover:brightness-110 shadow-lg shadow-clr4"
+              className="px-4 py-2 bg-pclr10 text-pclr12 rounded-xl font-bold uppercase text-[0.8em] hover:brightness-110 shadow-lg"
             >
               📥 Descargar
             </button>
             <button 
               onClick={onClose} 
-              className="w-10 h-10 bg-pclr1 rounded-full flex items-center justify-center hover:bg-pclr1 transition-all border border-pclr1"
+              className="w-10 h-10 bg-pclr1 dark:bg-pdclr1 text-pclr4 dark:text-pdclr4 rounded-full flex items-center justify-center hover:scale-110 transition-all border border-pclr13 dark:border-pdclr13"
             >
               ✕
             </button>
@@ -124,7 +124,7 @@ export default function DashModAutorizacionVer({ isOpen, onClose, auth, perfil: 
         </div>
 
         {/* CONTENIDO: VISOR DE PDF */}
-        <div className="flex-1 bg-pclr2 relative">
+        <div className="flex-1 bg-pclr2 dark:bg-pdclr2 relative">
           {loading ? (
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
               <div className="w-10 h-10 border-4 border-pclr14 border-t-transparent rounded-full animate-spin"></div>

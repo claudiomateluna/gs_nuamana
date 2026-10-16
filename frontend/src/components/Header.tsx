@@ -75,7 +75,7 @@ const Header = () => {
       setUser(session?.user ?? null);
     });
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
       window.removeEventListener('scroll', handleScroll);
       subscription.unsubscribe();
@@ -85,7 +85,7 @@ const Header = () => {
   return (
     <header
       aria-label="Encabezado de Sitio"
-      className={`fixed top-0 left-0 right-0 w-full z-[100] transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 w-full z-[100] transform-gpu [transform:translateZ(0)] transition-[padding,background-color,background-image,box-shadow] duration-500 ${
         isScrolled
           ? 'bg-gradient-to-r from-hclr12 dark:from-hdclr12 to-hclr13 dark:to-hdclr13 backdrop-blur-lg shadow-2xl py-2'
           : 'bg-transparent py-4'

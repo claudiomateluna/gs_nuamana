@@ -405,8 +405,8 @@ function fieldIn(zoneId: string, sectionId: string, key: string): ZoneSectionFie
 // ---------------------------------------------------------------------------
 
 describe('ADMIN_ZONES coverage', () => {
-  it('contains exactly the 7 zones with ids, labels and icons', () => {
-    expect(ADMIN_ZONES.map((z) => z.id)).toEqual(['inicio', 'header', 'footer', 'global', 'social', 'menu', 'contenido']);
+  it('contains exactly the 8 zones with ids, labels and icons', () => {
+    expect(ADMIN_ZONES.map((z) => z.id)).toEqual(['inicio', 'header', 'footer', 'global', 'social', 'menu', 'contenido', 'unidades']);
     expect(ADMIN_ZONES.map((z) => z.label)).toEqual([
       'Inicio',
       'Header',
@@ -415,6 +415,7 @@ describe('ADMIN_ZONES coverage', () => {
       'Redes Sociales',
       'Menú de Navegación',
       'Contenido',
+      'Unidades',
     ]);
     expect(ADMIN_ZONES.every((z) => z.icon.length > 0)).toBe(true);
   });
@@ -488,9 +489,9 @@ describe('ADMIN_ZONES coverage', () => {
     ]);
   });
 
-  it('marks the Menú de Navegación, Redes Sociales, and Contenido zones as tab-only with no field metadata', () => {
+  it('marks the Menú de Navegación, Redes Sociales, Contenido, and Unidades zones as tab-only with no field metadata', () => {
     const tabOnlyZones = ADMIN_ZONES.filter((z) => z.tabOnly === true);
-    expect(tabOnlyZones.map((z) => z.id)).toEqual(['social', 'menu', 'contenido']);
+    expect(tabOnlyZones.map((z) => z.id)).toEqual(['social', 'menu', 'contenido', 'unidades']);
     for (const zone of tabOnlyZones) {
       expect(zone.sections).toEqual([]);
     }

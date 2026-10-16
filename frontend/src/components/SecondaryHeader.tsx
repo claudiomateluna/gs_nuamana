@@ -78,7 +78,7 @@ const SecondaryHeader = () => {
       if (currentUser) fetchNotifications(currentUser.id);
     });
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
       window.removeEventListener('scroll', handleScroll);
       subscription.unsubscribe();
@@ -134,7 +134,7 @@ const SecondaryHeader = () => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 w-full z-[90] transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 w-full z-[90] transform-gpu [transform:translateZ(0)] transition-[padding,background-color,background-image,box-shadow] duration-500 ${
           isScrolled
             ? 'bg-gradient-to-br from-shclr12 dark:from-shdclr12 via-shclr13 dark:via-shdclr13 to-shclr14 dark:to-shdclr14 backdrop-blur-lg shadow-xl py-1'
             : 'bg-transparent py-4'

@@ -13,7 +13,7 @@ interface DashInicioProps {
   apoderado: Perfil | null
   autorizaciones?: AutorizacionActividad[]
   onEdit: (pupilo?: Perfil) => void
-  onVerAutorizacion: (auth: AutorizacionActividad) => void
+  onVerAutorizacion: (auth: AutorizacionActividad, pupilo?: Perfil) => void
   onGenerateAuth: (p: Perfil) => void
   onProgramActividad: () => void
   onVincularExistente: () => void
@@ -52,26 +52,74 @@ export default function DashInicio({
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {pupilos.map(p => (
-              <div key={p.id} className="p-6 bg-pclr3 dark:bg-pdclr3 rounded-3xl border border-transparent hover:border-pclr8 dark:hover:border-pdclr8 transition-all group">
-                <div className="flex justify-between items-start mb-4">
+            {pupilos.map(p => {
+              const pupiloAuths = autorizaciones.filter(a => a.perfil_id === p.id)
+              return (
+                <div key={p.id} className="p-6 bg-pclr3 dark:bg-pdclr3 rounded-3xl border border-transparent hover:border-pclr8 dark:hover:border-pdclr8 transition-all group flex flex-col justify-between">
                   <div>
-                    <p className="font-black text-pclr4 dark:text-pdclr4 uppercase text-sm leading-tight font-bold">{p.nombres} {p.apellidos}</p>
-                    <span className={`px-2 py-0.5 rounded-full text-[0.7em] font-bold uppercase ${
-                      p.estado === 'activo' ? 'bg-pclr6 dark:bg-pdclr6 text-pclr12 dark:text-pdclr12' :
-                      p.estado === 'inactivo' ? 'bg-pclr5 dark:bg-pdclr5 text-pclr12 dark:text-pdclr12' :
-                      'bg-pclr11 dark:bg-pdclr11 text-pclr12 dark:text-pdclr12'
-                    }`}>{p.estado}</span>
-                    <p className="text-[0.8em] font-bold text-pclr5 dark:text-pdclr5 uppercase tracking-wider">{calcularEdad(p.fecha_nacimiento)} • {p.roles?.name} • {p.unidades?.nombre || 'Sin Unidad'}</p>
+                    <div className="flex justify-between items-start mb-4">
+                      <div>
+                        <p className="font-black text-pclr4 dark:text-pdclr4 uppercase text-sm leading-tight font-bold">{p.nombres} {p.apellidos}</p>
+                        <span className={`px-2 py-0.5 rounded-full text-[0.8em] font-bold uppercase ${
+                          p.estado === 'activo' ? 'bg-pclr6 dark:bg-pdclr6 text-pclr12 dark:text-pdclr12' :
+                          p.estado === 'inactivo' ? 'bg-pclr5 dark:bg-pdclr5 text-pclr12 dark:text-pdclr12' :
+                          'bg-pclr11 dark:bg-pdclr11 text-pclr12 dark:text-pdclr12'
+                        }`}>{p.estado}</span>
+                        <p className="text-[0.8em] font-bold text-pclr5 dark:text-pdclr5 uppercase tracking-wider">{calcularEdad(p.fecha_nacimiento)} • {p.roles?.name} • {p.unidades?.nombre || 'Sin Unidad'}</p>
+                      </div>
+                      <button onClick={() => onEdit(p)} className="p-2 bg-pclr1 dark:bg-pdclr1 rounded-xl shadow-sm hover:scale-110 transition-all">✏️</button>
+                    </div>
+                    <div className="space-y-1 mb-4">
+                      <p className="text-[0.8em] font-black uppercase text-pclr7 dark:text-pdclr7 font-bold">RUT: {p.rut}</p>
+                      <p className="text-[0.8em] font-black uppercase text-pclr7 dark:text-pdclr7 font-bold">Salud: {p.alergias ? '⚠️ Alerta Médica' : '✅ Ficha al día'}</p>
+                    </div>
                   </div>
-                  <button onClick={() => onEdit(p)} className="p-2 bg-pclr1 dark:bg-pdclr1 rounded-xl shadow-sm hover:scale-110 transition-all">✏️</button>
+
+                  {/* Sección Últimas Autorizaciones Firmadas */}
+                  <div className="border-t border-pclr13 dark:border-pdclr13 pt-3 mt-2">
+                    <div className="flex justify-between items-center mb-2">
+                      <p className="text-[0.8em] font-black uppercase tracking-wider text-pclr4 dark:text-pdclr4 flex items-center gap-1.5 font-bold">
+                        <span>📄</span> Autorizaciones
+                      </p>
+                      {pupiloAuths.length > 0 && (
+                        <span className="text-[0.8em] font-bold px-2 py-0.5 bg-pclr10/10 text-pclr10 dark:text-pdclr10 rounded-full">
+                          {pupiloAuths.length} {pupiloAuths.length === 1 ? 'firmada' : 'firmadas'}
+                        </span>
+                      )}
+                    </div>
+                    {pupiloAuths.length > 0 ? (
+                      <div className="space-y-1.5">
+                        {pupiloAuths.slice(0, 3).map(auth => (
+                          <button
+                            key={auth.id}
+                            onClick={() => onVerAutorizacion(auth, p)}
+                            className="w-full text-left p-2.5 rounded-xl bg-pclr1 dark:bg-pdclr1 hover:bg-pclr10 hover:text-pclr12 dark:hover:bg-pdclr10 dark:hover:text-pdclr12 transition-all flex items-center justify-between group/auth border border-pclr13 dark:border-pdclr13 shadow-sm hover:shadow"
+                          >
+                            <div className="truncate pr-2">
+                              <p className="text-[0.85em] font-black uppercase truncate leading-tight group-hover/auth:text-pclr12 text-pclr4 dark:text-pdclr4">
+                                {auth.actividad_nombre || auth.actividad_titulo || 'Actividad Programada'}
+                              </p>
+                              <p className="text-[0.8em] text-pclr7 dark:text-pdclr7 group-hover/auth:text-pclr12/80 font-bold">
+                                {auth.fecha_inicio ? `${auth.fecha_inicio.split('-')[2]}/${auth.fecha_inicio.split('-')[1]}/${auth.fecha_inicio.split('-')[0]}` : ''} • {auth.estado || 'Vigente'}
+                              </p>
+                            </div>
+                            <span className="text-[0.8em] font-black tracking-wider uppercase opacity-80 group-hover/auth:opacity-100 shrink-0">
+                              Ver →
+                            </span>
+                          </button>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="p-2.5 rounded-xl bg-pclr1/50 dark:bg-pdclr1/50 border border-dashed border-pclr13 dark:border-pdclr13 text-center">
+                        <p className="text-[0.8em] italic text-pclr7 dark:text-pdclr7">
+                          Sin autorizaciones firmadas
+                        </p>
+                      </div>
+                    )}
+                  </div>
                 </div>
-                <div className="space-y-1">
-                  <p className="text-[0.8em] font-black uppercase text-pclr7 dark:text-pdclr7 font-bold">RUT: {p.rut}</p>
-                  <p className="text-[0.8em] font-black uppercase text-pclr7 dark:text-pdclr7 font-bold">Salud: {p.alergias ? '⚠️ Alerta Médica' : '✅ Ficha al día'}</p>
-                </div>
-              </div>
-            ))}
+              )
+            })}
             {pupilos.length === 0 && (
               <div className="col-span-full p-8 bg-pclr3 dark:bg-pdclr3 rounded-3xl text-center border-2 border-dashed border-pclr13 dark:border-pdclr13">
                 <p className="text-lg italic opacity-40 text-pclr7 dark:text-pdclr7">No tienes pupilos registrados bajo tu RUT.</p>
