@@ -41,8 +41,10 @@ export interface PerfilWizard extends Perfil {
   vacuna_viaje?: string | null
   vacunas_al_dia?: boolean | null
   vacunas_extra?: string | null
-  menstruaciones?: string | null
-  embarazo?: string | null
+  menstruaciones?: string | boolean | null
+  ciclo_regular?: string | boolean | null
+  dismenorrea?: string | boolean | null
+  embarazo?: string | boolean | null
   medicamento_colicos?: string | null
   metodo_anticonceptivo?: string | null
   fecha_ultimo_control_embarazo?: string | null

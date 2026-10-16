@@ -181,7 +181,7 @@ export default function DashModAutorizacionWizard({ isOpen, onClose, perfil, act
     }
     setSaving(true)
     try {
-      // 1. Lista blanca estricta de columnas reales en perfiles_ficha_medica (según migración 20260308000000)
+      // 1. Lista blanca estricta de columnas reales en perfiles_ficha_medica (según migración 20260223000000 / init)
       const validColumns = [
         'perfil_id', 'estatura_m', 'peso_kg', 'asma', 'diabetes', 'hipertension', 
         'epilepsia', 'enfermedad_renal', 'alteraciones_sanguineas', 'enfermedad_autoinmune', 
@@ -195,15 +195,73 @@ export default function DashModAutorizacionWizard({ isOpen, onClose, perfil, act
         'situaciones_estres', 'conductas_previas_desregulacion', 'estrategias_calma', 
         'apoyo_comunicacion', 'dificultades_sensoriales', 'ayuda_organizacion', 
         'otras_necesidades', 'observaciones_adicionales',
-        // Columnas añadidas en wizard_overhaul
         'tiene_seguro_complementario', 'intolerancia_alimentaria', 'medicamentos_detalle',
         'salud_mental_diagnostico', 'salud_mental_tratamiento', 'salud_mental_medicamentos',
         'salud_mental_profesional', 'salud_mental_contacto', 'lista_hospitalizaciones',
         'lista_cirugias', 'reciente_fiebre', 'reciente_diarrea', 'reciente_vomitos',
         'reciente_erupciones', 'reciente_tos', 'reciente_otros', 'contacto_infecto',
         'contacto_infecto_detalle', 'vacunas_covid', 'vacunas_observaciones',
-        'presenta_diagnostico_relevante', 'diagnostico_relevante_detalle', 'updated_at'
+        'presenta_diagnostico_relevante', 'diagnostico_relevante_detalle', 'updated_at',
+        'semanas_embarazo', 'fecha_ultimo_control_embarazo', 'especifique_tratamiento_dental',
+        'inicio_tratamiento_reciente', 'medicamentos_malestar', 'pais_viaje', 'fecha_viaje', 'vacuna_viaje'
       ];
+
+      const booleanColumns = new Set([
+        'alteraciones_sanguineas', 'asma', 'ciclo_regular', 'contacto_infecto',
+        'diabetes', 'diagnostico_salud_mental', 'dismenorrea', 'embarazo',
+        'enfermedad_autoinmune', 'enfermedad_renal', 'epilepsia', 'hipertension',
+        'hipo_hipertiroidismo', 'menstruaciones', 'patologia_cardiaca',
+        'presenta_diagnostico_relevante', 'reciente_diarrea', 'reciente_erupciones',
+        'reciente_fiebre', 'reciente_tos', 'reciente_vomitos', 'salud_mental_tratamiento',
+        'tiene_seguro_complementario', 'tratamiento_dental_curso', 'tratamiento_salud_mental',
+        'vacunas_al_dia'
+      ]);
+
+      const integerColumns = new Set(['semanas_embarazo', 'vacunas_covid']);
+      const dateColumns = new Set([
+        'fecha_ultimo_control_embarazo', 'fecha_viaje',
+        'inicio_tratamiento_reciente', 'ultimo_control_dental'
+      ]);
+
+      const toBoolean = (val: unknown): boolean | null => {
+        if (val === null || val === undefined) return null;
+        if (typeof val === 'boolean') return val;
+        if (typeof val === 'number') return val !== 0;
+        if (typeof val === 'string') {
+          const clean = val.trim().toLowerCase();
+          if (['regulares', 'regular', 'si', 'sí', 'true', '1', 't', 's'].includes(clean)) return true;
+          if (['irregulares', 'irregular', 'no', 'false', '0', 'f', 'n'].includes(clean)) return false;
+          if (clean === '') return null;
+        }
+        return null;
+      };
+
+      const toInteger = (val: unknown): number | null => {
+        if (val === null || val === undefined) return null;
+        if (typeof val === 'number') return Math.round(val);
+        if (typeof val === 'string') {
+          const digits = val.replace(/\D/g, '');
+          if (!digits) return null;
+          const num = parseInt(digits, 10);
+          return isNaN(num) ? null : num;
+        }
+        return null;
+      };
+
+      const toDate = (val: unknown): string | null => {
+        if (!val) return null;
+        if (typeof val === 'string') {
+          const clean = val.trim();
+          if (/^\d{4}-\d{2}-\d{2}$/.test(clean)) return clean;
+          if (clean) {
+            const parsed = new Date(clean);
+            if (!isNaN(parsed.getTime())) {
+              return parsed.toISOString().split('T')[0];
+            }
+          }
+        }
+        return null;
+      };
 
       // Mapeo manual de campos del form que tienen nombres distintos en la DB
       const dataToSave: Record<string, unknown> = { 
@@ -216,18 +274,71 @@ export default function DashModAutorizacionWizard({ isOpen, onClose, perfil, act
       if (formData.hospitalizaciones) dataToSave.lista_hospitalizaciones = formData.hospitalizaciones;
       if (formData.has_hospitalizaciones) dataToSave.hospitalizaciones_previas = formData.has_hospitalizaciones;
       
-      // Mapeo de seguro complementario
-      if (formData.seguro_complementario !== undefined) dataToSave.tiene_seguro_complementario = formData.seguro_complementario;
-      if (formData.nombre_seguro_complementario) dataToSave.seguro_complementario = formData.nombre_seguro_complementario;
+      // Mapeo de seguro complementario (en perfiles_ficha_medica la columna es tiene_seguro_complementario)
+      const tieneSeguroVal = formData.seguro_complementario !== undefined 
+        ? toBoolean(formData.seguro_complementario) 
+        : (formData.seguro_complementario_radio !== undefined ? toBoolean(formData.seguro_complementario_radio) : undefined);
+      if (tieneSeguroVal !== undefined) {
+        dataToSave.tiene_seguro_complementario = tieneSeguroVal ?? false;
+      }
+
+      // Mapeos de nombres de campos alternativos
+      if (formData.tratamiento_dental_bool !== undefined || formData.tratamiento_dental_radio !== undefined) {
+        dataToSave.tratamiento_dental_curso = toBoolean(formData.tratamiento_dental_bool ?? formData.tratamiento_dental_radio);
+      }
+      if (formData.presenta_diagnostico_bool !== undefined || formData.presenta_diagnostico_radio !== undefined) {
+        dataToSave.presenta_diagnostico_relevante = toBoolean(formData.presenta_diagnostico_bool ?? formData.presenta_diagnostico_radio);
+      }
+      if (formData.malestares_recientes_detalle) {
+        dataToSave.malestares_recientes = formData.malestares_recientes_detalle;
+      }
+      if (formData.tratamiento_reciente_fecha) {
+        dataToSave.inicio_tratamiento_reciente = toDate(formData.tratamiento_reciente_fecha);
+      }
+      if (formData.tratamiento_reciente_medicamentos) {
+        dataToSave.medicamentos_malestar = formData.tratamiento_reciente_medicamentos;
+      }
+      if (formData.contacto_infecto !== undefined || formData.contacto_infecto_radio !== undefined) {
+        dataToSave.contacto_infecto = toBoolean(formData.contacto_infecto ?? formData.contacto_infecto_radio);
+      }
+      if (formData.viajes_extranjero_radio) {
+        dataToSave.viajes_extranjero = formData.viajes_extranjero_radio;
+      }
+      if (formData.tratamientos_medicos) {
+        dataToSave.necesidades_especiales = formData.tratamientos_medicos;
+      }
+
+      // Mapeo de enfermedades crónicas seleccionadas
+      if (Array.isArray(formData.enfermedades_cronicas_json)) {
+        const enf = formData.enfermedades_cronicas_json;
+        if (!enf.includes('Ninguna')) {
+          if (enf.includes('Diabetes mellitus')) dataToSave.diabetes = true;
+          if (enf.includes('Hipertensión arterial')) dataToSave.hipertension = true;
+          if (enf.includes('Patología cardiaca')) dataToSave.patologia_cardiaca = true;
+          if (enf.includes('Asma')) dataToSave.asma = true;
+          if (enf.includes('Epilepsia')) dataToSave.epilepsia = true;
+          if (enf.includes('Enfermedad renal')) dataToSave.enfermedad_renal = true;
+          if (enf.includes('Alteraciones sanguíneas')) dataToSave.alteraciones_sanguineas = true;
+          if (enf.includes('Enfermedad autoinmune')) dataToSave.enfermedad_autoinmune = true;
+          if (enf.includes('Hipo/Hipertiroidismo')) dataToSave.hipo_hipertiroidismo = true;
+          if (enf.includes('Otra') && formData.enfermedad_otra_nombre) {
+            dataToSave.otras_cronicas = formData.enfermedad_otra_nombre;
+          }
+        }
+      }
 
       // Llenar solo lo que está en la lista blanca con saneamiento de tipos
-      const finalValidColumns = [...validColumns, 'seguro_complementario'];
-      finalValidColumns.forEach(col => {
+      validColumns.forEach(col => {
         if (formData[col] !== undefined) {
           let value: unknown = formData[col];
           
-          // Saneamiento de campos numéricos (Evitar numeric field overflow)
-          if (col === 'estatura_m' || col === 'peso_kg') {
+          if (booleanColumns.has(col)) {
+            value = toBoolean(value);
+          } else if (integerColumns.has(col)) {
+            value = toInteger(value);
+          } else if (dateColumns.has(col)) {
+            value = toDate(value);
+          } else if (col === 'estatura_m' || col === 'peso_kg') {
             if (typeof value === 'string') value = value.replace(',', '.');
             let num = parseFloat(String(value));
             
@@ -268,6 +379,8 @@ export default function DashModAutorizacionWizard({ isOpen, onClose, perfil, act
         if (formData.alergias) profileUpdates.alergias = formData.alergias
         if (formData.medicamentos) profileUpdates.medicamentos = formData.medicamentos
         if (formData.dieta_alimentaria) profileUpdates.dieta_alimentaria = formData.dieta_alimentaria
+        if (tieneSeguroVal !== undefined) profileUpdates.seguro_complementario = tieneSeguroVal
+        if (formData.nombre_seguro_complementario) profileUpdates.nombre_seguro_complementario = formData.nombre_seguro_complementario
         
         // Si es menor, actualizamos el contacto directo en su perfil
         if (edad < 18) {

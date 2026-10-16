@@ -15,9 +15,23 @@ export default function Step12_SaludGineco({ formData, setFormData, perfil }: St
   const infoIconStyle = "text-pclr4 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
   const tooltipStyle = "fixed z-[300] left-1/2 -translate-x-1/2 top-1/4 w-[90%] max-w-lg p-6 bg-pclr2 dark:bg-pdclr2 text-pclr12 text-[1em] font-medium leading-relaxed rounded-[2rem] shadow-2xl opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 border-2 border-pclr14 backdrop-blur-md";
 
-  // Lógica de visibilidad
-  const hasMenstruacion = formData.menstruaciones === 'Si' || (formData.menstruaciones === undefined && perfil.menstruaciones === 'Si');
-  const isEmbarazada = formData.embarazo === 'Si' || (formData.embarazo === undefined && perfil.embarazo === 'Si');
+  // Lógica de visibilidad y conversión flexible boolean / string
+  const parseBoolOrString = (val: unknown): boolean => {
+    if (typeof val === 'boolean') return val;
+    if (typeof val === 'string') {
+      const s = val.trim().toLowerCase();
+      return s === 'si' || s === 'sí' || s === 'true' || s === 'regulares' || s === 'regular';
+    }
+    return false;
+  };
+
+  const hasMenstruacion = formData.menstruaciones !== undefined 
+    ? parseBoolOrString(formData.menstruaciones) 
+    : parseBoolOrString(perfil.menstruaciones);
+
+  const isEmbarazada = formData.embarazo !== undefined 
+    ? parseBoolOrString(formData.embarazo) 
+    : parseBoolOrString(perfil.embarazo);
 
   const FieldInfo = ({ label, info }: { label: string; info: string }) => (
     <div className={labelContainerStyle}>
@@ -58,11 +72,16 @@ export default function Step12_SaludGineco({ formData, setFormData, perfil }: St
         <div className="space-y-4">
           <FieldInfo label="¿Tienes menstruaciones?" info="Por favor cuéntanos si ya has tenido menstruaciones" />
           <div className="flex gap-4">
-            {['Si', 'No'].map(o => (
-              <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] transition-all ${formData.menstruaciones === o ? 'border-pclr14 bg-pclr10 text-pclr12' : 'border-pclr13 dark:border-pdclr13 dark:text-pdclr4'}`}>
-                <input type="radio" name="mens_radio" checked={formData.menstruaciones === o} onChange={() => setFormData({ ...formData, menstruaciones: o })} className="hidden" /> {o}
-              </label>
-            ))}
+            {['Si', 'No'].map(o => {
+              const isChecked = formData.menstruaciones !== undefined
+                ? formData.menstruaciones === o
+                : (o === 'Si' ? parseBoolOrString(perfil.menstruaciones) : (perfil.menstruaciones !== undefined && perfil.menstruaciones !== null && !parseBoolOrString(perfil.menstruaciones)));
+              return (
+                <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] transition-all ${isChecked ? 'border-pclr14 bg-pclr10 text-pclr12' : 'border-pclr13 dark:border-pdclr13 dark:text-pdclr4'}`}>
+                  <input type="radio" name="mens_radio" checked={isChecked} onChange={() => setFormData({ ...formData, menstruaciones: o })} className="hidden" /> {o}
+                </label>
+              );
+            })}
           </div>
         </div>
 
@@ -74,11 +93,16 @@ export default function Step12_SaludGineco({ formData, setFormData, perfil }: St
               <div className="space-y-4">
                 <FieldInfo label="¿Tus ciclos menstruales son…?" info="Cuantanos si tienes ciclos menstruales regulares o irregulares" />
                 <div className="flex gap-4">
-                  {['Regulares', 'Irregulares'].map(o => (
-                    <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.8em] transition-all ${formData.ciclo_regular === o ? 'border-pclr14 bg-pclr10 text-pclr12' : 'border-pclr13 dark:border-pdclr13 dark:text-pdclr4'}`}>
-                      <input type="radio" name="ciclo_radio" checked={formData.ciclo_regular === o} onChange={() => setFormData({ ...formData, ciclo_regular: o })} className="hidden" /> {o}
-                    </label>
-                  ))}
+                  {['Regulares', 'Irregulares'].map(o => {
+                    const isChecked = formData.ciclo_regular !== undefined
+                      ? formData.ciclo_regular === o
+                      : (o === 'Regulares' ? perfil.ciclo_regular === true || perfil.ciclo_regular === 'Regulares' : (perfil.ciclo_regular === false || perfil.ciclo_regular === 'Irregulares'));
+                    return (
+                      <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.8em] transition-all ${isChecked ? 'border-pclr14 bg-pclr10 text-pclr12' : 'border-pclr13 dark:border-pdclr13 dark:text-pdclr4'}`}>
+                        <input type="radio" name="ciclo_radio" checked={isChecked} onChange={() => setFormData({ ...formData, ciclo_regular: o })} className="hidden" /> {o}
+                      </label>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -86,11 +110,16 @@ export default function Step12_SaludGineco({ formData, setFormData, perfil }: St
               <div className="space-y-4">
                 <FieldInfo label="¿Sufres de dismenorrea?" info="Por favor cuentanos si sufres cólicos o dolores durante tu menstruación" />
                 <div className="flex gap-4">
-                  {['Si', 'No'].map(o => (
-                    <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.8em] transition-all ${formData.dismenorrea === o ? 'border-pclr14 bg-pclr10 text-pclr12' : 'border-pclr13 dark:border-pdclr13 dark:text-pdclr4'}`}>
-                      <input type="radio" name="dis_radio" checked={formData.dismenorrea === o} onChange={() => setFormData({ ...formData, dismenorrea: o })} className="hidden" /> {o}
-                    </label>
-                  ))}
+                  {['Si', 'No'].map(o => {
+                    const isChecked = formData.dismenorrea !== undefined
+                      ? formData.dismenorrea === o
+                      : (o === 'Si' ? parseBoolOrString(perfil.dismenorrea) : (perfil.dismenorrea !== undefined && perfil.dismenorrea !== null && !parseBoolOrString(perfil.dismenorrea)));
+                    return (
+                      <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.8em] transition-all ${isChecked ? 'border-pclr14 bg-pclr10 text-pclr12' : 'border-pclr13 dark:border-pdclr13 dark:text-pdclr4'}`}>
+                        <input type="radio" name="dis_radio" checked={isChecked} onChange={() => setFormData({ ...formData, dismenorrea: o })} className="hidden" /> {o}
+                      </label>
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -113,11 +142,16 @@ export default function Step12_SaludGineco({ formData, setFormData, perfil }: St
             <div className="space-y-4">
               <FieldInfo label="¿Estás cursando un embarazo?" info="Cuéntanos si actualmente estas embarazada" />
               <div className="flex gap-4">
-                {['Si', 'No'].map(o => (
-                  <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] transition-all ${formData.embarazo === o ? 'border-pclr14 bg-pclr10 text-pclr12' : 'border-pclr13 dark:border-pdclr13 dark:text-pdclr4'}`}>
-                    <input type="radio" name="emb_radio" checked={formData.embarazo === o} onChange={() => setFormData({ ...formData, embarazo: o })} className="hidden" /> {o}
-                  </label>
-                ))}
+                {['Si', 'No'].map(o => {
+                  const isChecked = formData.embarazo !== undefined
+                    ? formData.embarazo === o
+                    : (o === 'Si' ? parseBoolOrString(perfil.embarazo) : (perfil.embarazo !== undefined && perfil.embarazo !== null && !parseBoolOrString(perfil.embarazo)));
+                  return (
+                    <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] transition-all ${isChecked ? 'border-pclr14 bg-pclr10 text-pclr12' : 'border-pclr13 dark:border-pdclr13 dark:text-pdclr4'}`}>
+                      <input type="radio" name="emb_radio" checked={isChecked} onChange={() => setFormData({ ...formData, embarazo: o })} className="hidden" /> {o}
+                    </label>
+                  );
+                })}
               </div>
             </div>
 
