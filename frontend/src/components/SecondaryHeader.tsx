@@ -41,6 +41,8 @@ const SecondaryHeader = () => {
       '/lo-que-hacemos/vida-reflexiva': 'Vida Reflexiva',
       '/lo-que-hacemos/programa-y-actividades': 'Programa y Actividades',
       '/blog': 'Blog',
+      '/recuperar-contrasena': 'Recuperar Contraseña',
+      '/cambiar-contrasena': 'Nueva Contraseña',
     };
     
     if (pathname.startsWith('/blog')) {
