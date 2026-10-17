@@ -31,7 +31,14 @@ export default function RecuperarContrasenaPage() {
 
       const data = await res.json()
       if (!res.ok) {
-        throw new Error(data.error || 'Ocurrió un error al procesar la solicitud.')
+        let errorMsg = data.error || 'Ocurrió un error al procesar la solicitud.'
+        const lower = errorMsg.toLowerCase()
+        if (lower.includes('rate limit') || lower.includes('too many requests')) {
+          errorMsg = 'Demasiadas solicitudes. Por favor espera unos momentos antes de reintentar.'
+        } else if (lower.includes('network') || lower.includes('failed to fetch')) {
+          errorMsg = 'Error de red o conexión con el servidor.'
+        }
+        throw new Error(errorMsg)
       }
 
       setMensaje(data.message || 'Si el R.U.T. coincide con un usuario registrado, hemos enviado las instrucciones a tu correo electrónico personal.')
@@ -44,21 +51,23 @@ export default function RecuperarContrasenaPage() {
   }
 
   return (
-    <div className="min-h-screen bg-clr7 dark:bg-dclr7 font-body transition-colors">
+    <div className="min-h-screen bg-clr1 dark:bg-dclr1 font-body transition-colors">
       <SecondaryHeader />
       
-      <main className="container mx-auto px-4 py-12 flex justify-center items-center">
-        <div className="w-full max-w-md bg-clr1 dark:bg-dclr1 p-8 sm:p-10 rounded-[2.5rem] shadow-2xl border border-clr7/20 dark:border-dclr7/20">
+      <main className="max-w-[1080px] mx-auto px-6 py-32 flex justify-center">
+        <div className="w-full max-w-md bg-clr1 dark:bg-dclr1 rounded-[3rem] p-10 shadow-2xl border border-clr7 dark:border-dclr7 animate-in fade-in zoom-in duration-700">
           
-          <div className="text-center mb-8">
-            <span className="text-[0.8em] font-black uppercase tracking-widest text-clr4 bg-clr4/10 px-4 py-1.5 rounded-full inline-block mb-3">
-              Seguridad
-            </span>
-            <h1 className="text-2xl sm:text-3xl font-black font-display uppercase tracking-tight text-clr2 dark:text-dclr2">
+          <div className="text-center mb-10">
+            <div className="inline-block p-4 bg-clr4 dark:bg-dclr4 rounded-full mb-4 shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-clr1 dark:text-dclr1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+              </svg>
+            </div>
+            <h1 className="text-3xl font-black font-display text-clr4 dark:text-dclr4 uppercase leading-none">
               Recuperar Acceso
             </h1>
-            <p className="text-clr3 text-xs sm:text-sm mt-2 font-bold leading-relaxed">
-              Ingresa tu R.U.T. y enviaremos un enlace a tu correo registrado para restablecer tu contraseña.
+            <p className="text-clr2 dark:text-dclr2 text-xs font-bold uppercase tracking-widest mt-3 italic">
+              Ingresa tu R.U.N. registrado
             </p>
           </div>
 
@@ -72,7 +81,7 @@ export default function RecuperarContrasenaPage() {
               <div className="text-center pt-2">
                 <Link 
                   href="/login" 
-                  className="inline-block py-3 px-6 bg-clr4 text-clr1 font-bold text-xs uppercase rounded-xl hover:brightness-110 active:scale-95 transition-all tracking-wider shadow-md"
+                  className="inline-block py-3 px-6 bg-clr7 dark:bg-dclr7 text-clr1 dark:text-dclr1 font-bold text-xs uppercase rounded-xl hover:brightness-110 active:scale-95 transition-all tracking-wider shadow-md"
                 >
                   Volver a Iniciar Sesión
                 </Link>
@@ -81,8 +90,8 @@ export default function RecuperarContrasenaPage() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label className="block text-[0.8em] font-black uppercase tracking-widest text-clr3 mb-2 ml-4">
-                  R.U.T. de Acceso
+                <label className="block text-[0.8em] font-black uppercase tracking-widest text-clr4 dark:text-dclr4 mb-2 ml-4">
+                  R.U.N. de Usuario
                 </label>
                 <input 
                   type="text" 
@@ -93,7 +102,7 @@ export default function RecuperarContrasenaPage() {
                     if (v.length > 1) v = v.slice(0, -1) + '-' + v.slice(-1); 
                     setRut(v);
                   }}
-                  className="w-full bg-clr7 dark:bg-dclr7 border-2 border-transparent focus:border-clr4 dark:focus:border-dclr4 rounded-2xl p-4 text-clr2 dark:text-dclr2 outline-none transition-all font-bold text-lg text-center tracking-widest shadow-inner placeholder:text-clr3/50 dark:placeholder:text-dclr3/50" 
+                  className="w-full bg-clr1 dark:bg-dclr1 border-2 border-transparent border-clr7 dark:border-dclr7 focus:border-clr6 dark:focus:border-dclr6 rounded-2xl p-4 text-clr2 dark:text-dclr2 outline-none transition-all font-bold text-lg text-center tracking-widest shadow-inner placeholder:text-clr3/50 dark:placeholder:text-dclr3/50" 
                   required
                 />
               </div>
@@ -107,12 +116,12 @@ export default function RecuperarContrasenaPage() {
               <button 
                 type="submit" 
                 disabled={loading}
-                className="w-full py-5 bg-clr4 dark:bg-dclr4 text-clr1 dark:text-dclr1 font-black font-display uppercase rounded-[2rem] shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest text-sm disabled:opacity-50"
+                className="w-full py-5 bg-clr7 dark:bg-dclr7 text-clr1 dark:text-dclr1 font-black font-display uppercase rounded-[2rem] shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest text-sm disabled:opacity-50"
               >
                 {loading ? 'Consultando...' : 'Enviar Instrucciones'}
               </button>
 
-              <div className="text-center pt-4 border-t border-clr7 dark:border-dclr7 mt-6">
+              <div className="text-center pt-6 border-t border-clr7 dark:border-dclr7 mt-8">
                 <Link 
                   href="/login" 
                   className="text-[0.8em] font-bold text-clr3 dark:text-dclr3 uppercase tracking-widest hover:text-clr4 dark:hover:text-dclr4 transition-colors"

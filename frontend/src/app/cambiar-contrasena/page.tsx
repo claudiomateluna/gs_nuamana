@@ -69,7 +69,25 @@ function CambiarContrasenaForm() {
         password
       })
 
-      if (updateErr) throw updateErr
+      if (updateErr) {
+        // Traducir mensajes comunes de Supabase Auth
+        let errorSpanish = updateErr.message
+        const msgLower = updateErr.message.toLowerCase()
+        if (msgLower.includes('password should be at least') || msgLower.includes('password is too short')) {
+          errorSpanish = 'La contraseña debe tener al menos 6 caracteres.'
+        } else if (msgLower.includes('same password') || msgLower.includes('different from the old')) {
+          errorSpanish = 'La nueva contraseña debe ser diferente a la anterior.'
+        } else if (msgLower.includes('token') && (msgLower.includes('expired') || msgLower.includes('invalid'))) {
+          errorSpanish = 'El enlace de recuperación ha expirado o es inválido. Por favor solicita uno nuevo.'
+        } else if (msgLower.includes('rate limit') || msgLower.includes('too many requests')) {
+          errorSpanish = 'Demasiados intentos. Por favor espera unos minutos antes de intentar nuevamente.'
+        } else if (msgLower.includes('user not found')) {
+          errorSpanish = 'Usuario no encontrado o sesión no válida.'
+        } else if (msgLower.includes('network') || msgLower.includes('fetch')) {
+          errorSpanish = 'Error de conexión. Verifica tu conexión a internet.'
+        }
+        throw new Error(errorSpanish)
+      }
 
       setSuccess(true)
       // Cerrar sesión para que inicie limpiamente con sus nuevas credenciales
@@ -100,12 +118,12 @@ function CambiarContrasenaForm() {
   if (error && !verified) {
     return (
       <div className="text-center space-y-6">
-        <div className="p-5 bg-clr4/10 border border-clr4 text-clr4 rounded-2xl text-xs sm:text-sm font-bold leading-relaxed">
+        <div className="p-4 bg-clr4/10 dark:bg-dclr4/15 border-l-4 border-clr4 dark:border-dclr4 text-clr4 dark:text-dclr4 rounded-xl text-xs sm:text-sm font-bold leading-relaxed">
           {error}
         </div>
         <Link
           href="/recuperar-contrasena"
-          className="inline-block py-4 px-8 bg-clr4 text-clr1 font-bold text-xs uppercase rounded-2xl hover:brightness-110 active:scale-95 transition-all tracking-wider shadow-lg"
+          className="inline-block py-4 px-8 bg-clr7 dark:bg-dclr7 text-clr1 dark:text-dclr1 font-bold text-xs uppercase rounded-[2rem] hover:brightness-110 active:scale-95 transition-all tracking-wider shadow-lg"
         >
           Solicitar Nuevo Enlace
         </Link>
@@ -115,15 +133,17 @@ function CambiarContrasenaForm() {
 
   return (
     <div className="space-y-6">
-      <div className="text-center mb-6">
-        <span className="text-[0.8em] font-black uppercase tracking-widest text-clr4 bg-clr4/10 px-4 py-1.5 rounded-full inline-block mb-3">
-          Nueva Credencial
-        </span>
-        <h1 className="text-2xl sm:text-3xl font-black font-display uppercase tracking-tight text-clr2 dark:text-dclr2">
+      <div className="text-center mb-10">
+        <div className="inline-block p-4 bg-clr4 dark:bg-dclr4 rounded-full mb-4 shadow-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-clr1 dark:text-dclr1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+        </div>
+        <h1 className="text-3xl font-black font-display text-clr4 dark:text-dclr4 uppercase leading-none">
           Nueva Contraseña
         </h1>
-        <p className="text-clr3 text-xs sm:text-sm mt-2 font-bold leading-relaxed">
-          Ingresa y confirma tu nueva clave de acceso para tu cuenta.
+        <p className="text-clr2 dark:text-dclr2 text-xs font-bold uppercase tracking-widest mt-3 italic">
+          Define tu clave personal
         </p>
       </div>
 
@@ -133,9 +153,9 @@ function CambiarContrasenaForm() {
           <p className="font-normal opacity-90">Redirigiendo a la pantalla de inicio de sesión...</p>
         </div>
       ) : (
-        <form onSubmit={handleUpdate} className="space-y-5">
+        <form onSubmit={handleUpdate} className="space-y-6">
           <div>
-            <label className="block text-[0.8em] font-black uppercase tracking-widest text-clr3 dark:text-dclr3 mb-2 ml-4">
+            <label className="block text-[0.8em] font-black uppercase tracking-widest text-clr4 dark:text-dclr4 mb-2 ml-4">
               Nueva Contraseña
             </label>
             <input
@@ -143,13 +163,13 @@ function CambiarContrasenaForm() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
-              className="w-full bg-clr7 dark:bg-dclr7 border-2 border-transparent focus:border-clr4 dark:focus:border-dclr4 rounded-2xl p-4 text-clr2 dark:text-dclr2 outline-none font-bold text-sm shadow-inner transition-all placeholder:text-clr3/50 dark:placeholder:text-dclr3/50"
+              className="w-full bg-clr1 dark:bg-dclr1 border-2 border-transparent border-clr7 dark:border-dclr7 focus:border-clr6 dark:focus:border-dclr6 rounded-2xl p-4 text-clr2 dark:text-dclr2 outline-none font-bold text-sm shadow-inner transition-all placeholder:text-clr3/50 dark:placeholder:text-dclr3/50"
               required
             />
           </div>
 
           <div>
-            <label className="block text-[0.8em] font-black uppercase tracking-widest text-clr3 dark:text-dclr3 mb-2 ml-4">
+            <label className="block text-[0.8em] font-black uppercase tracking-widest text-clr4 dark:text-dclr4 mb-2 ml-4">
               Confirmar Nueva Contraseña
             </label>
             <input
@@ -157,7 +177,7 @@ function CambiarContrasenaForm() {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               placeholder="••••••••"
-              className="w-full bg-clr7 dark:bg-dclr7 border-2 border-transparent focus:border-clr4 dark:focus:border-dclr4 rounded-2xl p-4 text-clr2 dark:text-dclr2 outline-none font-bold text-sm shadow-inner transition-all placeholder:text-clr3/50 dark:placeholder:text-dclr3/50"
+              className="w-full bg-clr1 dark:bg-dclr1 border-2 border-transparent border-clr7 dark:border-dclr7 focus:border-clr6 dark:focus:border-dclr6 rounded-2xl p-4 text-clr2 dark:text-dclr2 outline-none font-bold text-sm shadow-inner transition-all placeholder:text-clr3/50 dark:placeholder:text-dclr3/50"
               required
             />
           </div>
@@ -171,7 +191,7 @@ function CambiarContrasenaForm() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-5 bg-clr4 dark:bg-dclr4 text-clr1 dark:text-dclr1 font-black font-display uppercase rounded-[2rem] shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest text-sm disabled:opacity-50"
+            className="w-full py-5 bg-clr7 dark:bg-dclr7 text-clr1 dark:text-dclr1 font-black font-display uppercase rounded-[2rem] shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest text-sm disabled:opacity-50"
           >
             {loading ? 'Guardando cambios...' : 'Guardar Nueva Contraseña'}
           </button>
@@ -183,14 +203,14 @@ function CambiarContrasenaForm() {
 
 export default function CambiarContrasenaPage() {
   return (
-    <div className="min-h-screen bg-clr7 dark:bg-dclr7 font-body transition-colors">
+    <div className="min-h-screen bg-clr1 dark:bg-dclr1 font-body transition-colors">
       <SecondaryHeader />
       
-      <main className="container mx-auto px-4 py-12 flex justify-center items-center">
-        <div className="w-full max-w-md bg-clr1 dark:bg-dclr1 p-8 sm:p-10 rounded-[2.5rem] shadow-2xl border border-clr7/20 dark:border-dclr7/20">
+      <main className="max-w-[1080px] mx-auto px-6 py-32 flex justify-center">
+        <div className="w-full max-w-md bg-clr1 dark:bg-dclr1 rounded-[3rem] p-10 shadow-2xl border border-clr7 dark:border-dclr7 animate-in fade-in zoom-in duration-700">
           <Suspense fallback={
             <div className="text-center p-8">
-              <p className="font-bold text-clr3 uppercase text-xs tracking-widest">Cargando...</p>
+              <p className="font-bold text-clr3 dark:text-dclr3 uppercase text-xs tracking-widest">Cargando...</p>
             </div>
           }>
             <CambiarContrasenaForm />
