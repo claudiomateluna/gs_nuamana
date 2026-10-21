@@ -195,6 +195,10 @@ export default function FichaPage() {
               <div className="w-6 h-6 bg-current" style={{ WebkitMaskImage: 'url(/images/iconos/icono_programar_actividad.svg)', maskImage: 'url(/images/iconos/icono_programar_actividad.svg)', WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center' }}></div>
               Crear Salida
             </button>
+            <button onClick={() => router.push('/panel/unidad?tab=salidas')} className="flex items-center justify-between gap-2 p-2 bg-pclr8 dark:bg-pdclr8 text-pclr12 dark:text-pdclr12 font-bold uppercase rounded-[1rem] shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest text-[0.9em] font-inika text-right leading-none cursor-pointer">
+              <span className="text-xl">🏕️</span>
+              <span>Revisar Salidas</span>
+            </button>
             <button onClick={() => router.push('/panel/ficha?modal=preparar-campamento')} className="flex items-center justify-between gap-2 p-2 bg-pclr6 dark:bg-pdclr6 text-pclr12 dark:text-pdclr12 font-bold uppercase rounded-[1rem] shadow-xl active:scale-95 transition-all tracking-widest text-[0.9em] font-inika text-right leading-none relative group">
               <div className="w-6 h-6 flex items-center justify-center bg-transparent text-pclr12 dark:text-pdclr12">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">

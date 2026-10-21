@@ -41,6 +41,7 @@ export const syncService = {
       await db.fichas_medicas.clear();
       await db.contactos_emergencia.clear();
       await db.autorizaciones.clear();
+      await db.actividades_programadas.clear();
       await db.progresion_avance.clear();
       await db.progresion_objetivos.clear();
       await db.progresion_etapas.clear();
@@ -93,31 +94,72 @@ export const syncService = {
         }
       }
 
+      // 1.5. Obtener actividades programadas (activas y pasadas)
+      reportProgress(38, 'Descargando salidas y campamentos programados...');
+      const { data: acts, error: actsErr } = await supabase
+        .from('actividades_programadas')
+        .select('*, unidades(nombre)')
+        .order('fecha_inicio', { ascending: false });
+
+      if (actsErr) {
+        console.warn('Aviso al descargar actividades programadas:', actsErr);
+      } else if (acts) {
+        for (const act of acts) {
+          await db.actividades_programadas.put({
+            id: act.id,
+            tipo: act.tipo,
+            nombre: act.nombre,
+            lugar: act.lugar,
+            fecha_inicio: act.fecha_inicio,
+            fecha_fin: act.fecha_fin,
+            unidad_id: act.unidad_id,
+            creado_por: act.creado_por,
+            estado: act.estado,
+            created_at: act.created_at,
+            unidades: act.unidades
+          });
+        }
+      }
+
       // 2. Obtener autorizaciones de actividades
-      reportProgress(45, 'Descargando autorizaciones activas...');
+      reportProgress(45, 'Descargando autorizaciones activas y pasadas...');
       const miembroIds = miembros.map(m => m.id);
+      const actIds = acts ? acts.map(a => a.id) : [];
       
-      if (miembroIds.length > 0) {
-        const { data: auths, error: authsErr } = await supabase
-          .from('autorizaciones_actividades')
-          .select('*')
-          .in('perfil_id', miembroIds);
+      // Consultar autorizaciones vinculadas a los miembros o a las actividades
+      let queryAuths = supabase.from('autorizaciones_actividades').select('*');
+      if (actIds.length > 0) {
+        queryAuths = queryAuths.in('actividad_id', actIds);
+      } else if (miembroIds.length > 0) {
+        queryAuths = queryAuths.in('perfil_id', miembroIds);
+      }
 
-        if (authsErr) throw authsErr;
+      const { data: auths, error: authsErr } = await queryAuths;
 
-        if (auths) {
-          for (const a of auths) {
-            await db.autorizaciones.put({
-              id: a.id,
-              perfil_id: a.perfil_id,
-              actividad_id: a.actividad_id,
-              actividad_titulo: a.actividad_titulo || 'Salida Scout',
-              firmado: a.firmado || false,
-              nombre_firmante: a.nombre_firmante || null,
-              fecha_firma: a.fecha_firma || null,
-              firma_url: a.firma_url || null
-            });
-          }
+      if (authsErr) throw authsErr;
+
+      if (auths) {
+        for (const a of auths) {
+          await db.autorizaciones.put({
+            id: a.id,
+            perfil_id: a.perfil_id,
+            actividad_id: a.actividad_id,
+            actividad_titulo: a.actividad_nombre || a.actividad_titulo || 'Salida Scout',
+            actividad_nombre: a.actividad_nombre || a.actividad_titulo || 'Salida Scout',
+            lugar: a.lugar || '',
+            fecha_inicio: a.fecha_inicio,
+            fecha_fin: a.fecha_fin,
+            tipo_formulario: a.tipo_formulario || null,
+            firmado: a.firmado ?? true,
+            firmado_por_id: a.firmado_por_id || null,
+            nombre_firmante: a.nombre_firmante || null,
+            rut_firmante: a.rut_firmante || null,
+            firma_digital_b64: a.firma_digital_b64 || null,
+            fecha_firma: a.fecha_firma || null,
+            firma_url: a.firma_url || null,
+            estado: a.estado || 'Vigente',
+            created_at: a.created_at
+          });
         }
       }
 

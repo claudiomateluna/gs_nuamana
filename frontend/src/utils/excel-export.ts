@@ -136,3 +136,136 @@ export function exportarNominaExcel(
 
   XLSX.writeFile(workbook, filename);
 }
+
+export const COLUMNAS_SALIDA_EXCEL = [
+  'N°',
+  'R.U.T.',
+  'Participante',
+  'Unidad',
+  'Edad',
+  'Fecha Nacimiento',
+  'Estado Firma',
+  'Fecha Firma',
+  'Firmante (Apoderado)',
+  'RUT Firmante',
+  'Teléfono Firmante',
+  'Contacto Emergencia',
+  'Teléfono Emergencia',
+  'Parentesco',
+  'Previsión / Salud',
+  'Grupo Sangre',
+  'Alergias',
+  'Antecedentes / Observaciones',
+  'Medicamentos',
+  'Restricciones Alimentarias',
+] as const;
+
+export interface AsistenteSalidaData {
+  perfil: Perfil;
+  autorizacion: {
+    fecha_firma?: string | null;
+    nombre_firmante?: string | null;
+    rut_firmante?: string | null;
+    estado?: string | null;
+  };
+  authOriginal?: any;
+}
+
+export interface ActividadSalidaHeader {
+  nombre: string;
+  tipo?: string | null;
+  lugar?: string | null;
+  fecha_inicio?: string | null;
+  fecha_fin?: string | null;
+  unidades?: { nombre: string } | null;
+}
+
+export function mapearAsistenteSalidaRow(
+  asistente: AsistenteSalidaData,
+  index: number
+): Record<string, string | number> {
+  const u = asistente.perfil;
+  const auth = asistente.autorizacion;
+  const edad = calcularEdad(u.fecha_nacimiento);
+  const contactoPrimario = u.contactos_emergencia?.find((c) => c.es_primario) || u.contactos_emergencia?.[0];
+
+  const nombreApoderado = u.apoderado
+    ? `${u.apoderado.nombres || ''} ${u.apoderado.apellidos || ''}`.trim()
+    : (contactoPrimario?.nombre || '');
+
+  const telefonoApoderado = u.apoderado?.telefono || contactoPrimario?.telefono || '';
+
+  const dieta = Array.isArray(u.dieta_alimentaria)
+    ? u.dieta_alimentaria.join(', ')
+    : (u.restricciones_alimentarias || '');
+
+  let fechaFirmaFormateada = '';
+  if (auth.fecha_firma) {
+    try {
+      const d = new Date(auth.fecha_firma);
+      fechaFirmaFormateada = d.toLocaleString('es-CL');
+    } catch {
+      fechaFirmaFormateada = auth.fecha_firma;
+    }
+  }
+
+  return {
+    'N°': index + 1,
+    'R.U.T.': u.rut || '',
+    'Participante': `${u.nombres || ''} ${u.apellidos || ''}`.trim(),
+    'Unidad': u.unidades?.nombre || '',
+    'Edad': edad ?? '',
+    'Fecha Nacimiento': formatearFechaNacimiento(u.fecha_nacimiento),
+    'Estado Firma': auth.estado || 'Firmada',
+    'Fecha Firma': fechaFirmaFormateada,
+    'Firmante (Apoderado)': auth.nombre_firmante || nombreApoderado || '',
+    'RUT Firmante': auth.rut_firmante || '',
+    'Teléfono Firmante': telefonoApoderado,
+    'Contacto Emergencia': contactoPrimario?.nombre || '',
+    'Teléfono Emergencia': contactoPrimario?.telefono || '',
+    'Parentesco': contactoPrimario?.parentesco || (contactoPrimario as unknown as { relacion?: string })?.relacion || '',
+    'Previsión / Salud': u.sistema_salud || u.prevision || '',
+    'Grupo Sangre': u.tipo_sangre || u.grupo_sangre || '',
+    'Alergias': u.alergias || (u.tiene_alergias ? 'Sí' : 'Ninguna'),
+    'Antecedentes / Observaciones': u.antecedentes_medicos || u.comentarios_salud || u.enfermedades_cronicas || '',
+    'Medicamentos': u.medicamentos || u.medicamentos_uso_comun || '',
+    'Restricciones Alimentarias': dieta,
+  };
+}
+
+/**
+ * Genera y descarga un archivo Excel con la nómina de participantes autorizados para una salida específica.
+ */
+export function exportarSalidaAutorizacionesExcel(
+  actividad: ActividadSalidaHeader,
+  asistentes: AsistenteSalidaData[]
+): void {
+  const filas = asistentes.map((asistente, idx) => mapearAsistenteSalidaRow(asistente, idx));
+
+  const worksheet = XLSX.utils.json_to_sheet(filas, {
+    header: [...COLUMNAS_SALIDA_EXCEL],
+  });
+
+  // Ajustar ancho automático de columnas
+  const colWidths = COLUMNAS_SALIDA_EXCEL.map((col) => {
+    let maxLen = col.length;
+    for (const fila of filas) {
+      const valStr = String(fila[col] ?? '');
+      if (valStr.length > maxLen) {
+        maxLen = valStr.length;
+      }
+    }
+    return { wch: Math.min(Math.max(maxLen + 3, 10), 45) };
+  });
+  worksheet['!cols'] = colWidths;
+
+  const workbook = XLSX.utils.book_new();
+  const nombreHoja = 'Asistentes Autorizados';
+  XLSX.utils.book_append_sheet(workbook, worksheet, nombreHoja);
+
+  const fechaHoy = new Date().toISOString().split('T')[0];
+  const nombreLimpio = (actividad.nombre || 'Salida').replace(/[^a-zA-Z0-9_-]/g, '_');
+  const filename = `Nomina_${nombreLimpio}_${fechaHoy}.xlsx`;
+
+  XLSX.writeFile(workbook, filename);
+}

@@ -274,6 +274,27 @@ function SectionCard({ section, config }: SectionCardProps) {
       );
     }
 
+    if (field.type === 'select') {
+      const opts = field.options || [];
+      return (
+        <div key={field.key} className="space-y-2">
+          {labelRow}
+          <select
+            id={fieldId}
+            {...register(field.key)}
+            className={inputClass}
+          >
+            {opts.map((opt: any) => {
+              const val = typeof opt === 'string' ? opt : opt.value;
+              const lbl = typeof opt === 'string' ? opt : opt.label;
+              return <option key={val} value={val}>{lbl}</option>;
+            })}
+          </select>
+          {errorText}
+        </div>
+      );
+    }
+
     if (field.type === 'color') {
       return (
         <div key={field.key} className="space-y-2">

@@ -2,8 +2,13 @@
 
 import DOMPurify from 'dompurify'
 import type { StepProps } from '@/types/autorizacion'
+import { useSiteConfigSafe } from '@/contexts/site-config-context'
 
 export default function Step2_DatosGrupo({ formData, setFormData, perfil }: StepProps) {
+  const siteConfig = useSiteConfigSafe()
+  const defaultZona = siteConfig?.branding?.zona || 'La Florida'
+  const defaultDistrito = siteConfig?.branding?.distrito || 'Mapurayen'
+
   const unidadesMap: Record<number, string> = { 1: 'Manada', 2: 'Compañía', 3: 'Tropa', 4: 'Avanzada', 5: 'Clan' };
 
   const titleStyle = "text-[1.2em] font-black text-pclr4 dark:text-pdclr4 uppercase tracking-tighter mb-8 border-b-2 border-pclr14 pb-2";
@@ -28,7 +33,7 @@ export default function Step2_DatosGrupo({ formData, setFormData, perfil }: Step
     'Santiago Sur': ['La Cisterna', 'La Granja', 'Pedro Aguirre Cerda', 'San Joaquín', 'San Miguel', 'Santa Rosa']
   };
 
-  const currentZona = formData.zona || perfil.zona || 'Santiago Sur';
+  const currentZona = formData.zona || perfil.zona || defaultZona;
 
   const Field = ({ label, info, children, fullWidth = false }: { label: string; info: string; children: React.ReactNode; fullWidth?: boolean }) => {
     return (
@@ -38,7 +43,7 @@ export default function Step2_DatosGrupo({ formData, setFormData, perfil }: Step
           <div className="group">
             <div className={infoIconContainerStyle}>
               <span className={infoIconStyle}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/></svg>
               </span>
             </div>
             <div className={tooltipStyle}>
@@ -78,14 +83,14 @@ export default function Step2_DatosGrupo({ formData, setFormData, perfil }: Step
           </select>
         </Field>
 
-        <Field label="¿En que Zona está tu grupo?" info="Indica la Zona administrativa de la Asociación de Guías y Scouts de Chile a la que pertenece el grupo Guía y Scout que seleccionaste antes, normalmente es 'Santiago Sur'.<br/> *Este Dato es Obligatorio">
+        <Field label="¿En que Zona está tu grupo?" info={`Indica la Zona administrativa de la Asociación de Guías y Scouts de Chile a la que pertenece el grupo Guía y Scout que seleccionaste antes, normalmente es '${defaultZona}'.<br/> *Este Dato es Obligatorio`}>
           <select defaultValue={currentZona} onChange={(e) => setFormData({ ...formData, zona: e.target.value, distrito: zonasDistritos[e.target.value][0] })} className={inputStyle}>
             {Object.keys(zonasDistritos).map(z => <option key={z} value={z}>{z}</option>)}
           </select>
         </Field>
 
-        <Field fullWidth label="¿En que Distrito se encuentra tu grupo Guía y Scout?" info="Indica el Distrito administrativo de la Asociación de Guías y Scouts de Chile a la que pertenece el grupo Guía y Scout que seleccionaste antes, normalmente es 'La Granja'. *Este Dato es Obligatorio">
-          <select value={formData.distrito || perfil.distrito || zonasDistritos[currentZona][0]} onChange={(e) => setFormData({ ...formData, distrito: e.target.value })} className={inputStyle}>
+        <Field fullWidth label="¿En que Distrito se encuentra tu grupo Guía y Scout?" info={`Indica el Distrito administrativo de la Asociación de Guías y Scouts de Chile a la que pertenece el grupo Guía y Scout que seleccionaste antes, normalmente es '${defaultDistrito}'. *Este Dato es Obligatorio`}>
+          <select value={formData.distrito || perfil.distrito || (currentZona === defaultZona ? defaultDistrito : zonasDistritos[currentZona]?.[0])} onChange={(e) => setFormData({ ...formData, distrito: e.target.value })} className={inputStyle}>
             {zonasDistritos[currentZona]?.map(d => <option key={d} value={d}>{d}</option>)}
           </select>
         </Field>

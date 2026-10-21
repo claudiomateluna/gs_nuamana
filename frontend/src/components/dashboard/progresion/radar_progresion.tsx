@@ -1,12 +1,18 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import dynamic from 'next/dynamic'
 import { supabase } from '@/lib/supabase'
-import {
-  Radar, RadarChart, PolarGrid, 
-  PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Legend, Tooltip
-} from 'recharts'
 import { getRoleIds } from '@/lib/roles'
+
+const Radar = dynamic(() => import('recharts').then(m => m.Radar), { ssr: false })
+const RadarChart = dynamic(() => import('recharts').then(m => m.RadarChart), { ssr: false })
+const PolarGrid = dynamic(() => import('recharts').then(m => m.PolarGrid), { ssr: false })
+const PolarAngleAxis = dynamic(() => import('recharts').then(m => m.PolarAngleAxis), { ssr: false })
+const PolarRadiusAxis = dynamic(() => import('recharts').then(m => m.PolarRadiusAxis), { ssr: false })
+const ResponsiveContainer = dynamic(() => import('recharts').then(m => m.ResponsiveContainer), { ssr: false })
+const Legend = dynamic(() => import('recharts').then(m => m.Legend), { ssr: false })
+const Tooltip = dynamic(() => import('recharts').then(m => m.Tooltip), { ssr: false })
 
 interface RadarProgresionProps {
   perfilId: string

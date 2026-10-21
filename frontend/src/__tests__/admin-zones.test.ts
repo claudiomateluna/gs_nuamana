@@ -64,6 +64,8 @@ const EXPECTED_FIELDS = {
     'logo_footer',
     'copyright',
     'telefono',
+    'zona',
+    'distrito',
     'parent_organization_name',
     'parent_organization_url',
     'legal_name',
@@ -370,7 +372,7 @@ const EXPECTED_FIELDS = {
   ],
 } as const satisfies CategoryFieldMap;
 
-const FIELD_TYPES = ['text', 'textarea', 'url', 'color', 'number', 'json', 'heading'] as const;
+const FIELD_TYPES = ['text', 'textarea', 'url', 'color', 'number', 'json', 'heading', 'select'] as const;
 
 // Mirrors reserved for content the user wants editable across multiple admin
 // zones. Currently only contact.direccion / contact.maps_embed (Inicio

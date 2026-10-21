@@ -33,7 +33,8 @@ export type SchemaId =
 export interface ZoneSectionField {
   key: string;
   label: string;
-  type: 'text' | 'textarea' | 'url' | 'color' | 'number' | 'json' | 'heading';
+  type: 'text' | 'textarea' | 'url' | 'color' | 'number' | 'json' | 'heading' | 'select';
+  options?: readonly string[] | { label: string; value: string }[];
   tooltip?: string;
 }
 
@@ -493,6 +494,8 @@ export const ADMIN_ZONES: AdminZone[] = [
           { key: 'logo_sidebar', label: 'Logo Sidebar (path)', type: 'text', tooltip: 'Ruta de la imagen del logo en el sidebar del menú. Ej: "/images/logos/LogoColor.svg"' },
           { key: 'pretitulo', label: 'Pretitulo', type: 'text', tooltip: 'Texto pequeño arriba del nombre en el header. Ej: "Guías y Scouts"' },
           { key: 'nombre_corto', label: 'Nombre Corto', type: 'text', tooltip: 'Nombre corto en header y título del sitio. Ej: "Nua Mana"' },
+          { key: 'zona', label: 'Zona Scout', type: 'select', options: ['Cajón del Maipo', 'La Florida', 'Maipo', 'Santiago Centro', 'Santiago Cordillera', 'Santiago Norte', 'Santiago Oeste', 'Santiago Oriente', 'Santiago Sur'], tooltip: 'Zona territorial de la Asociación Guías y Scouts de Chile a la que pertenece el grupo' },
+          { key: 'distrito', label: 'Distrito Scout', type: 'select', options: ['Mapurayen', 'Bellavista', 'Peñimahuida', 'Camilo Henríquez', 'Las Vizcachas', 'Puente Alto Poniente', 'San Bernardo', 'El Bosque', 'Valle del Maipo', 'Cerro Huelén', 'Santiago Centro', 'Providencia', 'Apoquindo', 'Los Leones', 'Manquehue', 'Vitacura', 'Chacabuco', 'Conchalí', 'La Cañadilla', 'Quilicura', 'Renca', 'Cerrillos', 'Maipú Nuevo Extremo', 'Melipilla', 'Pila del Ganso', 'Quilamapu', 'Quinta Normal-Cerro Navia', 'Talakanta', 'La Reina', 'Macul', 'Ñuñoa', 'Pedro de Valdivia', 'Peñalolén', 'La Cisterna', 'La Granja', 'Pedro Aguirre Cerda', 'San Joaquín', 'San Miguel', 'Santa Rosa'], tooltip: 'Distrito administrativo al que pertenece el grupo por defecto' },
           { key: 'slogan', label: 'Slogan', type: 'text', tooltip: 'Frase corta debajo del nombre. Ej: "una nueva aventura"' },
         ],
       },

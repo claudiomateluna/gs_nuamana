@@ -9,6 +9,7 @@ import { useSearchParams } from 'next/navigation'
 import SecondaryHeader from '@/components/SecondaryHeader'
 import { validarRut } from '@/lib/validation-utils'
 import { toast } from 'sonner';
+import { useSiteConfigSafe } from '@/contexts/site-config-context';
 
 // --- FUNCIONES DE AYUDA ---
 const aplicarMascaraTelefono = (val: string) => {
@@ -88,6 +89,9 @@ function RegistroContent() {
   const searchParams = useSearchParams()
   const apoderadoIdParam = searchParams.get('apoderado_id')
 
+  const siteConfig = useSiteConfigSafe()
+  const defaultZona = siteConfig?.branding?.zona || 'La Florida'
+  const defaultDistrito = siteConfig?.branding?.distrito || 'Mapurayen'
   const [currentStep, setCurrentStep] = useState(1)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [registroError, setRegistroError] = useState<string | null>(null)
@@ -101,8 +105,8 @@ function RegistroContent() {
       dietaAlimentaria: [],
       enfermedadesCronicas: [],
       nacionalidad: 'Chilena',
-      zona: 'Santiago Sur',
-      distrito: 'La Granja',
+      zona: defaultZona,
+      distrito: defaultDistrito,
       apoderado_id_vinculado: apoderadoIdParam || ''
     }
   })
@@ -115,6 +119,50 @@ function RegistroContent() {
       setValue('apoderado_id_vinculado', apoderadoIdParam)
     }
   }, [apoderadoIdParam, setValue])
+
+  // Sincronizar zona y distrito desde siteConfig o directamente desde configuracion_sitio
+  useEffect(() => {
+    if (siteConfig?.branding?.zona) {
+      setValue('zona', siteConfig.branding.zona)
+      if (siteConfig.branding.distrito) {
+        setValue('distrito', siteConfig.branding.distrito)
+      }
+    }
+
+    const fetchConfig = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('configuracion_sitio')
+          .select('clave, valor')
+          .eq('categoria', 'branding')
+          .in('clave', ['zona', 'distrito'])
+
+        if (!error && data && data.length > 0) {
+          let bZona = ''
+          let bDistrito = ''
+          for (const row of data) {
+            let val = row.valor
+            if (typeof val === 'string') {
+              try { val = JSON.parse(val) } catch {}
+            }
+            if (row.clave === 'zona' && typeof val === 'string') bZona = val
+            if (row.clave === 'distrito' && typeof val === 'string') bDistrito = val
+          }
+          if (bZona) {
+            setValue('zona', bZona)
+            if (bDistrito && zonasDistritos[bZona]?.includes(bDistrito)) {
+              setValue('distrito', bDistrito)
+            } else if (zonasDistritos[bZona]?.[0]) {
+              setValue('distrito', zonasDistritos[bZona][0])
+            }
+          }
+        }
+      } catch (err) {
+        console.error('Error fetching branding for registro:', err)
+      }
+    }
+    fetchConfig()
+  }, [siteConfig?.branding?.zona, siteConfig?.branding?.distrito, setValue])
 
   const rol = watch('rol')
   const sistemaSalud = watch('sistemaSalud')
@@ -482,19 +530,19 @@ function RegistroContent() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                   <div className="space-y-2">
                     <label className="text-[0.8em] font-black uppercase text-clr3 tracking-widest ml-4">Zona Administrativa</label>
-                    <select {...register('zona')} className={inputStyle}>
+                    <select {...register('zona', { onChange: (e) => { const nZ = e.target.value; const pD = zonasDistritos[nZ]?.[0] || ''; setValue('distrito', pD); } })} className={inputStyle}>
                       {Object.keys(zonasDistritos).map(z => <option key={z} value={z}>{z}</option>)}
                     </select>
                   </div>
                   <div className="space-y-2">
                     <label className="text-[0.8em] font-black uppercase text-clr3 tracking-widest ml-4">Distrito</label>
                     <select {...register('distrito')} className={inputStyle}>
-                      {zonasDistritos[zonaSeleccionada || 'Santiago Sur']?.map(d => <option key={d} value={d}>{d}</option>)}
+                      {zonasDistritos[zonaSeleccionada || defaultZona]?.map(d => <option key={d} value={d}>{d}</option>)}
                     </select>
                   </div>
                 </div>
 
-                <p className={infoBoxStyle}>Indica la Zona y Distrito administrativo de la Asociación de Guías y Scouts de Chile a la que pertenece tu grupo. Normalmente es Zona "La Florida" y Distrito "Mapurayen". <br></br><br></br><span className="font-black text-clr4">* Estos campos son obligatorios</span></p>
+                <p className={infoBoxStyle}>Indica la Zona y Distrito administrativo de la Asociación de Guías y Scouts de Chile a la que pertenece tu grupo. Normalmente es Zona "{siteConfig?.branding?.zona || 'La Florida'}" y Distrito "{siteConfig?.branding?.distrito || 'Mapurayen'}". <br></br><br></br><span className="font-black text-clr4">* Estos campos son obligatorios</span></p>
               </div>
             )}
 

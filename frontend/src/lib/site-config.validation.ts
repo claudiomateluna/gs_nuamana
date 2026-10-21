@@ -44,6 +44,8 @@ export const brandingSchema = z.object({
   logo_footer: nonEmpty,
   copyright: nonEmpty,
   telefono: z.string().optional(),
+  zona: z.string().optional(),
+  distrito: z.string().optional(),
   parent_organization_name: z.string().optional(),
   parent_organization_url: z.string().url('URL inválida').or(z.string().length(0)).optional(),
   legal_name: z.string().optional(),
@@ -854,6 +856,8 @@ export const brandingHeaderSchema = z
     pretitulo: nonEmpty,
     nombre_corto: nonEmpty,
     slogan: nonEmpty,
+    zona: z.string().optional(),
+    distrito: z.string().optional(),
   })
   .partial();
 

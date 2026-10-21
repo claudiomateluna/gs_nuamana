@@ -40,24 +40,6 @@ export async function getMenuItems(): Promise<MenuItemNode[]> {
 }
 
 /**
- * Fetches ALL menu items (including hidden) for the admin panel.
- */
-export async function getAllMenuItems(): Promise<MenuItem[]> {
-  const supabase = getSupabase();
-  const { data, error } = await supabase
-    .from('menu_items')
-    .select('*')
-    .order('orden');
-
-  if (error || !data) {
-    console.warn('[menu-items] Failed to fetch all menu items:', error?.message);
-    return [];
-  }
-
-  return data as MenuItem[];
-}
-
-/**
  * Builds a tree from a flat array of menu items.
  * Items with a parent_id that exists in the array are nested under that parent;
  * items without a parent (or with a missing one) become roots.

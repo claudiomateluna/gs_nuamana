@@ -52,6 +52,8 @@ export interface BrandingConfig {
   logo_sidebar?: string;
   copyright: string;
   telefono?: string;
+  zona?: string;
+  distrito?: string;
   parent_organization_name?: string;
   parent_organization_url?: string;
   legal_name?: string;

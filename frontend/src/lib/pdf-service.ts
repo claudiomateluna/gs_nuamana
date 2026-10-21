@@ -1,6 +1,7 @@
 import { PDFDocument, rgb, StandardFonts, type PDFForm, type PDFPage } from 'pdf-lib';
 import { format, parseISO, differenceInYears } from 'date-fns';
 import { toast } from 'sonner';
+import { DEFAULT_SITE_CONFIG } from './site-config';
 
 interface AuthData {
   tipo_formulario: string;
@@ -178,8 +179,8 @@ export async function generateOfficialPDF(auth: AuthData, perfil: PerfilData, fi
       'peso_p2': String(fichaMedica?.peso_kg || ''),
       'grupo_p2': 'Nua Mana',
       'unidad_p2': perfil.unidades?.nombre || '',
-      'zona_p2': perfil.zona || 'La Florida',
-      'distrito_p2': perfil.distrito || 'Mapurayen',
+      'zona_p2': perfil.zona || DEFAULT_SITE_CONFIG.branding.zona || 'La Florida',
+      'distrito_p2': perfil.distrito || DEFAULT_SITE_CONFIG.branding.distrito || 'Mapurayen',
       'emerg_1_nom_p2': contacts[0]?.nombre || '',
       'emerg_1_par_p2': contacts[0]?.relacion || '',
       'emerg_1_tel_p2': contacts[0]?.telefono || '',

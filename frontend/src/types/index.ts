@@ -384,10 +384,14 @@ export interface Rendicion {
 export interface ActividadProgramada {
   id: string
   nombre: string
+  tipo?: string | null
+  lugar?: string | null
   descripcion?: string | null
   fecha_inicio?: string | null
   fecha_fin?: string | null
   unidad_id?: number | null
+  creado_por?: string | null
+  estado?: string | null
   created_at?: string | null
   // Join
   unidades?: Pick<Unidad, 'nombre'> | null

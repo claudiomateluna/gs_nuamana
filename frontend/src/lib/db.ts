@@ -38,11 +38,35 @@ export interface AutorizacionOffline {
   id: string;
   perfil_id: string;
   actividad_id: string;
-  actividad_titulo: string;
+  actividad_titulo?: string;
+  actividad_nombre?: string;
+  lugar?: string;
+  fecha_inicio?: string;
+  fecha_fin?: string;
+  tipo_formulario?: string | null;
   firmado: boolean;
+  firmado_por_id?: string | null;
   nombre_firmante: string | null;
+  rut_firmante?: string | null;
+  firma_digital_b64?: string | null;
   fecha_firma: string | null;
-  firma_url: string | null;
+  firma_url?: string | null;
+  estado?: string | null;
+  created_at?: string;
+}
+
+export interface ActividadProgramadaOffline {
+  id: string;
+  tipo: string;
+  nombre: string;
+  lugar: string;
+  fecha_inicio: string;
+  fecha_fin: string;
+  unidad_id: number | null;
+  creado_por?: string | null;
+  estado?: string | null;
+  created_at?: string;
+  unidades?: { nombre: string } | null;
 }
 
 export interface ProgresionAvanceOffline {
@@ -143,6 +167,7 @@ class NuaManaOfflineDB extends Dexie {
   fichas_medicas!: Table<FichaMedicaOffline, string>;
   contactos_emergencia!: Table<ContactoEmergenciaOffline, string>;
   autorizaciones!: Table<AutorizacionOffline, string>;
+  actividades_programadas!: Table<ActividadProgramadaOffline, string>;
   progresion_avance!: Table<ProgresionAvanceOffline, string>;
   progresion_objetivos!: Table<ProgresionObjetivoOffline, string>;
   progresion_etapas!: Table<ProgresionEtapaOffline, number>;
@@ -154,11 +179,12 @@ class NuaManaOfflineDB extends Dexie {
 
   constructor() {
     super('NuaManaOfflineDB');
-    this.version(2).stores({
+    this.version(3).stores({
       perfiles: 'id, rut, unidad_id',
       fichas_medicas: 'perfil_id',
       contactos_emergencia: 'id, perfil_id',
       autorizaciones: 'id, perfil_id, actividad_id',
+      actividades_programadas: 'id, fecha_inicio, fecha_fin, unidad_id',
       progresion_avance: 'id, perfil_id, objetivo_id',
       progresion_objetivos: 'id, unidad_id',
       progresion_etapas: 'id, unidad_id',
