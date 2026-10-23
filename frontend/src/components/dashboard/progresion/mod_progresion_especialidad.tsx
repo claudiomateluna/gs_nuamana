@@ -922,7 +922,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
   }
 
   return (
-    <div className="fixed inset-0 bg-pclr2 backdrop-blur-md z-[140] flex items-center justify-center p-4 overflow-y-auto">
+    <div className="fixed inset-0 bg-pclr2 dark:bg-pdclr2 backdrop-blur-md z-[140] flex items-center justify-center p-4 overflow-y-auto">
       <div 
         className="bg-pclr1 dark:bg-pdclr1 w-full max-w-2xl rounded-l-[1rem] p-2 shadow-2xl border-2 space-y-6 max-h-[90vh] overflow-y-auto"
         style={{ borderColor: color }}
@@ -970,7 +970,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
           </div>
           <button 
             onClick={onClose}
-            className="text-pclr7 hover:text-pclr4 dark:hover:text-dclr2 text-2xl font-bold p-1 self-start md:self-auto"
+            className="text-pclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 dark:hover:text-dclr2 text-2xl font-bold p-1 self-start md:self-auto"
           >
             ✕
           </button>
@@ -997,7 +997,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                     <div className="flex gap-3 flex-wrap">
                       <button
                         onClick={handleSaveExploracionChanges}
-                        className="px-4 py-2 text-[0.85em] font-bold uppercase text-pclr12 bg-pclr2 rounded-xl"
+                        className="px-4 py-2 text-[0.85em] font-bold uppercase text-pclr12 bg-pclr2 dark:bg-pdclr2 rounded-xl"
                       >
                         Guardar Cambios 📂
                       </button>
@@ -1111,7 +1111,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                               setWMonitorName('');
                               setShowMonitorDropdown(false);
                             }}
-                            className="absolute right-4 top-1/2 -translate-y-1/2 text-pclr7 hover:text-pclr4 dark:hover:text-dclr2 font-bold"
+                            className="absolute right-4 top-1/2 -translate-y-1/2 text-pclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 dark:hover:text-dclr2 font-bold"
                           >
                             ✕
                           </button>
@@ -1135,7 +1135,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                                       setWMonitorSearchText(`${m.nombres} ${m.apellidos}`);
                                       setShowMonitorDropdown(false);
                                     }}
-                                    className="w-full text-left px-4 py-3 hover:bg-pclr3 dark:hover:bg-pdclr3 text-[0.9em] font-bold text-pclr4 dark:text-pdclr4"
+                                    className="w-full text-left px-4 py-3 hover:bg-pclr3 dark:hover:bg-pdclr3 dark:bg-pdclr3 dark:hover:bg-pdclr3 text-[0.9em] font-bold text-pclr4 dark:text-pdclr4"
                                   >
                                     {m.nombres} {m.apellidos}
                                   </button>
@@ -1193,7 +1193,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                           </div>
                         ) : (
                           act.fecha_limite && (
-                            <span className="inline-block px-2.5 py-0.5 mt-1 rounded bg-pclr10 dark:bg-pdclr10 text-pclr4 text-[0.8em] font-extrabold">
+                            <span className="inline-block px-2.5 py-0.5 mt-1 rounded bg-pclr10 dark:bg-pdclr10 text-pclr4 dark:text-pdclr4 text-[0.8em] font-extrabold">
                               Límite: {new Date(act.fecha_limite + 'T00:00:00').toLocaleDateString('es-CL')}
                             </span>
                           )
@@ -1201,7 +1201,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
 
                         {/* Calendar activity & article detail rendering */}
                         {act.actividades_programadas && (
-                          <div className="mt-1 flex items-center gap-1.5 text-[0.8em] font-semibold text-pclr4">
+                          <div className="mt-1 flex items-center gap-1.5 text-[0.8em] font-semibold text-pclr4 dark:text-pdclr4">
                             <span>📅 Actividad: {act.actividades_programadas.nombre}</span>
                             <span className="opacity-75">({new Date(act.actividades_programadas.fecha_inicio + 'T00:00:00').toLocaleDateString('es-CL')})</span>
                           </div>
@@ -1224,7 +1224,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                       {isSpecOwner && ep.estado === 'activo' && (
                         <button
                           onClick={() => handleDeleteActivity(act.id)}
-                          className="text-pclr4 hover:text-pclr4 font-bold p-1 text-[0.9em]"
+                          className="text-pclr4 dark:text-pdclr4 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 font-bold p-1 text-[0.9em]"
                         >
                           ✕
                         </button>
@@ -1349,7 +1349,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                                               setNewActivityArticleTitle(art.titulo)
                                               setActivitySearchQuery('')
                                             }}
-                                            className={`w-full p-3 text-left text-sm hover:bg-pclr3 border-b last:border-b-0 ${
+                                            className={`w-full p-3 text-left text-sm hover:bg-pclr3 dark:hover:bg-pdclr3 dark:bg-pdclr3 border-b last:border-b-0 ${
                                               wNewActivityArticleId === art.id ? 'bg-pclr10 border-pclr14' : ''
                                             }`}
                                           >
@@ -1360,7 +1360,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                                     </div>
                                   )}
                                   {wNewActivityArticleId && newActivityArticleTitle && !activitySearchQuery && (
-                                    <p className="text-sm text-pclr4">Vinculada: {newActivityArticleTitle}</p>
+                                    <p className="text-sm text-pclr4 dark:text-pdclr4">Vinculada: {newActivityArticleTitle}</p>
                                   )}
                                 </div>
                               </div>
@@ -1372,7 +1372,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
 
                     <button
                       onClick={handleAddActivityToExisting}
-                      className="w-full py-2.5 bg-pclr2 hover:brightness-110 text-pclr12 rounded-xl text-[0.8em] font-bold uppercase tracking-wider shadow"
+                      className="w-full py-2.5 bg-pclr2 dark:bg-pdclr2 hover:brightness-110 text-pclr12 rounded-xl text-[0.8em] font-bold uppercase tracking-wider shadow"
                     >
                       Añadir Tarea ➕
                     </button>
@@ -1385,7 +1385,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                 <div className="flex justify-end gap-3 pt-4 border-t border-pclr13 dark:border-pdclr13">
                   <button
                     onClick={handleUpdateSpecialtyInfo}
-                    className="px-5 py-3 text-[0.85em] font-bold uppercase text-pclr4 bg-pclr3 rounded-xl"
+                    className="px-5 py-3 text-[0.85em] font-bold uppercase text-pclr4 dark:text-pdclr4 bg-pclr3 dark:bg-pdclr3 rounded-xl"
                   >
                     Guardar Planificación 📂
                   </button>
@@ -1463,7 +1463,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                           
                           <div className="flex items-center gap-2 flex-wrap">
                             {act.fecha_limite && (
-                              <span className="inline-block px-2.5 py-0.5 rounded bg-pclr10 text-pclr12 text-[0.9em] font-extrabold">
+                              <span className="inline-block px-2.5 py-0.5 rounded bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 text-[0.9em] font-extrabold">
                                 Fecha Límite: {new Date(act.fecha_limite + 'T00:00:00').toLocaleDateString('es-CL')}
                               </span>
                             )}
@@ -1490,7 +1490,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
 
                           {/* Calendar activity & article detail rendering */}
                           {act.actividades_programadas ? (
-                            <div className="mt-1 flex items-center gap-2 text-[0.9em] font-semibold text-pclr4 flex-wrap">
+                            <div className="mt-1 flex items-center gap-2 text-[0.9em] font-semibold text-pclr4 dark:text-pdclr4 flex-wrap">
                               <span>
                                 📅 Actividad: {act.actividades_programadas.nombre}
                               </span>
@@ -1513,7 +1513,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                                     })
                                     setIsModActividadOpen(true)
                                   }}
-                                  className="text-[0.8em] text-pclr7 hover:text-pclr4"
+                                  className="text-[0.8em] text-pclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4"
                                 >
                                   ✏️
                                 </button>
@@ -1552,7 +1552,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                                 toast.success('Artículo creado como borrador. Edítalo para agregar los detalles.')
                                 await refreshLocalSpecialty()
                               }}
-                              className="mt-1 text-[0.9em] text-pclr4 hover:text-pclr4 font-semibold"
+                              className="mt-1 text-[0.9em] text-pclr4 dark:text-pdclr4 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 font-semibold"
                             >
                               📰 Crear Ficha para esta tarea
                             </button>
@@ -1594,7 +1594,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                                   href={act.evidencia_url} 
                                   target="_blank" 
                                   rel="noopener noreferrer" 
-                                  className="text-pclr4 underline font-bold block mt-1 hover:text-pclr4"
+                                  className="text-pclr4 dark:text-pdclr4 underline font-bold block mt-1 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4"
                                 >
                                   🔗 Ver adjunto o enlace de evidencia
                                 </a>
@@ -1608,7 +1608,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                           {/* Comentario / Corrección del monitor */}
                           {act.comentario_monitor && (
                             <div className="mt-2 p-3 rounded-2xl bg-pclr10 dark:bg-pdclr10 border border-pclr14 text-[0.85em] space-y-1">
-                              <span className="font-extrabold text-pclr4 uppercase text-[0.75em] block">⚠️ Observación de Mejora (Monitor):</span>
+                              <span className="font-extrabold text-pclr4 dark:text-pdclr4 uppercase text-[0.75em] block">⚠️ Observación de Mejora (Monitor):</span>
                               <p className="text-pclr4 dark:text-pdclr4 font-semibold">"{act.comentario_monitor}"</p>
                             </div>
                           )}
@@ -1625,7 +1625,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                               setActEvidenceUrl(act.evidencia_url || '');
                               setActAutoevaluacionText(act.autoevaluacion || '');
                             }}
-                            className="px-4 py-2 bg-pclr2 text-pclr12 rounded-xl text-[0.8em] font-bold uppercase hover:brightness-110"
+                            className="px-4 py-2 bg-pclr2 dark:bg-pdclr2 text-pclr12 rounded-xl text-[0.8em] font-bold uppercase hover:brightness-110"
                           >
                             {act.evidencia_texto ? 'Actualizar Evidencia 📂' : 'Subir Evidencia 📤'}
                           </button>
@@ -1645,7 +1645,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                                 setReviewingActId(act.id);
                                 setActReviewComment(act.comentario_monitor || '');
                               }}
-                              className="px-4 py-2 border border-pclr14 text-pclr4 hover:bg-pclr10 dark:hover:bg-dclr4 font-bold rounded-xl text-[0.8em] uppercase tracking-wider"
+                              className="px-4 py-2 border border-pclr14 text-pclr4 dark:text-pdclr4 hover:bg-pclr10 dark:hover:bg-dclr4 font-bold rounded-xl text-[0.8em] uppercase tracking-wider"
                             >
                               Corregir / Observar 📝
                             </button>
@@ -1705,7 +1705,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                       {/* Modal de ingresar corrección */}
                       {reviewingActId === act.id && (
                         <div className="mt-4 p-4 border rounded-2xl bg-pclr10 dark:bg-pdclr10 border-pclr14 space-y-3">
-                          <span className="text-[0.8em] font-extrabold uppercase text-pclr4 block">Indicar Comentario de Mejora</span>
+                          <span className="text-[0.8em] font-extrabold uppercase text-pclr4 dark:text-pdclr4 block">Indicar Comentario de Mejora</span>
                           <div className="space-y-1">
                             <label className="text-[0.75em] font-bold text-pclr4 dark:text-pdclr4 block">¿Qué debe mejorar o completar el participante?</label>
                             <DebouncedTextarea 
@@ -1724,7 +1724,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                             </button>
                             <button
                               onClick={() => handleReviewActivity(act.id)}
-                              className="px-5 py-2.5 bg-pclr10 text-pclr12 text-xs uppercase font-extrabold rounded-lg hover:brightness-110"
+                              className="px-5 py-2.5 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 text-xs uppercase font-extrabold rounded-lg hover:brightness-110"
                             >
                               Enviar Corrección
                             </button>
@@ -1796,7 +1796,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                     </button>
                     <button
                       onClick={() => setShowFeedbackInput(true)}
-                      className="px-5 py-3 border border-pclr14 text-pclr4 hover:bg-pclr10 dark:hover:bg-dclr4 font-bold rounded-xl text-[0.8em] uppercase tracking-wider"
+                      className="px-5 py-3 border border-pclr14 text-pclr4 dark:text-pdclr4 hover:bg-pclr10 dark:hover:bg-dclr4 font-bold rounded-xl text-[0.8em] uppercase tracking-wider"
                     >
                       Solicitar Mejoras / Retroalimentar 📝
                     </button>
@@ -1820,7 +1820,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                         </button>
                         <button
                           onClick={handleMonitorFeedbackSpecialty}
-                          className="px-5 py-2 bg-pclr10 text-pclr12 text-xs uppercase font-extrabold rounded-lg hover:brightness-110"
+                          className="px-5 py-2 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 text-xs uppercase font-extrabold rounded-lg hover:brightness-110"
                         >
                           Enviar Comentarios
                         </button>
@@ -1864,7 +1864,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                     </button>
                     <button
                       onClick={() => setShowFeedbackInput(true)}
-                      className="px-5 py-3 border border-pclr14 text-pclr4 hover:bg-pclr10 dark:hover:bg-dclr4 font-bold rounded-xl text-[0.8em] uppercase tracking-wider"
+                      className="px-5 py-3 border border-pclr14 text-pclr4 dark:text-pdclr4 hover:bg-pclr10 dark:hover:bg-dclr4 font-bold rounded-xl text-[0.8em] uppercase tracking-wider"
                     >
                       Solicitar Mejoras 📝
                     </button>
@@ -1888,7 +1888,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                         </button>
                         <button
                           onClick={handleMonitorFeedbackSpecialty}
-                          className="px-5 py-2 bg-pclr10 text-pclr12 text-xs uppercase font-extrabold rounded-lg hover:brightness-110"
+                          className="px-5 py-2 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 text-xs uppercase font-extrabold rounded-lg hover:brightness-110"
                         >
                           Enviar
                         </button>
@@ -1948,7 +1948,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                         fecha_entrega: ep.fecha_entrega ?? undefined,
                         fecha_fin: ep.fecha_fin ?? undefined
                       })}
-                      className="px-6 py-3 bg-pclr2 hover:brightness-110 text-pclr12 text-[0.85em] font-extrabold uppercase rounded-xl tracking-wider shadow-md transition-all active:scale-95 cursor-pointer"
+                      className="px-6 py-3 bg-pclr2 dark:bg-pdclr2 hover:brightness-110 text-pclr12 text-[0.85em] font-extrabold uppercase rounded-xl tracking-wider shadow-md transition-all active:scale-95 cursor-pointer"
                     >
                       Descargar Certificado Oficial 📜
                     </button>
@@ -1989,7 +1989,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
             
             <button
               onClick={handleDeleteSpecialty}
-              className="px-4 py-2 text-[0.8em] font-bold uppercase text-pclr4 hover:bg-pclr10 dark:hover:bg-dclr4 rounded-xl"
+              className="px-4 py-2 text-[0.8em] font-bold uppercase text-pclr4 dark:text-pdclr4 hover:bg-pclr10 dark:hover:bg-dclr4 rounded-xl"
             >
               Eliminar Especialidad ✕
             </button>
@@ -2014,11 +2014,11 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
 
       {/* Modal de Captura de Firma Digital (Especialidades) */}
       {showSignatureModal && (
-        <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-pclr2 backdrop-blur-md animate-in fade-in duration-200">
+        <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-pclr2 dark:bg-pdclr2 backdrop-blur-md animate-in fade-in duration-200">
           <div className="bg-pclr1 dark:bg-pdclr1 p-6 rounded-[2.5rem] border border-pclr13 dark:border-pdclr13 w-full max-w-md shadow-2xl relative">
             <button 
               onClick={() => { setShowSignatureModal(false); setSigModalType(null); }}
-              className="absolute top-4 right-4 text-pclr7 hover:text-pclr4 dark:hover:text-pclr12 font-extrabold text-[1.1em] cursor-pointer"
+              className="absolute top-4 right-4 text-pclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 dark:hover:text-pclr12 font-extrabold text-[1.1em] cursor-pointer"
             >
               ✕
             </button>
@@ -2033,7 +2033,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                 : 'Dibuja tu firma a continuación para confirmar la finalización y agendamiento de esta especialidad.'}
             </p>
 
-            <div className="border-4 border-dashed border-pclr13 dark:border-pdclr13 rounded-[1.5rem] bg-pclr1 overflow-hidden shadow-inner touch-none relative">
+            <div className="border-4 border-dashed border-pclr13 dark:border-pdclr13 rounded-[1.5rem] bg-pclr1 dark:bg-pdclr1 overflow-hidden shadow-inner touch-none relative">
               <SignatureCanvas 
                 ref={sigCanvasRef}
                 penColor='#1b1b1b'
@@ -2057,7 +2057,7 @@ const DashmodProgresionEspecialidadDetalle = React.memo(function DashmodProgresi
                   sigCanvasRef.current?.clear();
                   setTempSignature(null);
                 }}
-                className="px-4 py-2 text-[0.8em] font-black uppercase text-pclr4 hover:bg-pclr10 dark:hover:bg-dclr4 rounded-xl transition-colors border border-pclr14 cursor-pointer"
+                className="px-4 py-2 text-[0.8em] font-black uppercase text-pclr4 dark:text-pdclr4 hover:bg-pclr10 dark:hover:bg-dclr4 rounded-xl transition-colors border border-pclr14 cursor-pointer"
               >
                 Limpiar
               </button>

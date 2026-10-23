@@ -128,10 +128,10 @@ export default function DashTesoreria({
         </div>
         
         <div className="flex gap-1 overflow-x-auto scrollbar-hide flex-1">
-          <button onClick={() => setSelectedUnidad('todas')} className={`px-4 py-2 rounded-xl text-[0.8em] font-bold uppercase transition-all whitespace-nowrap ${selectedUnidad === 'todas' ? 'bg-pclr10 text-pclr12' : 'opacity-40 hover:opacity-100'}`}>Todo</button>
-          <button onClick={() => setSelectedUnidad('grupal')} className={`px-4 py-2 rounded-xl text-[0.8em] font-bold uppercase transition-all whitespace-nowrap ${selectedUnidad === 'grupal' ? 'bg-pclr10 text-pclr12' : 'opacity-40 hover:opacity-100'}`}>⚜️ Grupo</button>
+          <button onClick={() => setSelectedUnidad('todas')} className={`px-4 py-2 rounded-xl text-[0.8em] font-bold uppercase transition-all whitespace-nowrap ${selectedUnidad === 'todas' ? 'bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12' : 'opacity-40 hover:opacity-100'}`}>Todo</button>
+          <button onClick={() => setSelectedUnidad('grupal')} className={`px-4 py-2 rounded-xl text-[0.8em] font-bold uppercase transition-all whitespace-nowrap ${selectedUnidad === 'grupal' ? 'bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12' : 'opacity-40 hover:opacity-100'}`}>⚜️ Grupo</button>
           {unidades?.map(u => (
-            <button key={u.id} onClick={() => setSelectedUnidad(u.id.toString())} className={`px-4 py-2 rounded-xl text-[0.8em] font-bold uppercase transition-all whitespace-nowrap ${selectedUnidad === u.id.toString() ? 'bg-pclr10 text-pclr12' : 'opacity-40 hover:opacity-100'}`}>{u.nombre}</button>
+            <button key={u.id} onClick={() => setSelectedUnidad(u.id.toString())} className={`px-4 py-2 rounded-xl text-[0.8em] font-bold uppercase transition-all whitespace-nowrap ${selectedUnidad === u.id.toString() ? 'bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12' : 'opacity-40 hover:opacity-100'}`}>{u.nombre}</button>
           ))}
         </div>
       </div>
@@ -153,24 +153,24 @@ export default function DashTesoreria({
             </thead>
             <tbody className="text-[0.9em]">
               {filteredMovs.map(mov => (
-                <tr key={mov.id} className="border-t border-pclr13 dark:border-pdclr13 hover:bg-pclr3 dark:hover:bg-pdclr3 transition-colors group">
+                <tr key={mov.id} className="border-t border-pclr13 dark:border-pdclr13 hover:bg-pclr3 dark:hover:bg-pdclr3 dark:bg-pdclr3 dark:hover:bg-pdclr3 transition-colors group">
                   <td className="p-4 font-black opacity-40 leading-tight">
                     {mov.dia}<br/>
                     <span className="text-[0.8em] uppercase">{MESES[mov.mes-1].slice(0,3)}</span>
                   </td>
                   <td className="p-4 font-bold">
-                    <span className={`px-2 py-1 rounded-md text-[0.8em] ${mov.tipo_documento === 'I' ? 'bg-pclr6 text-pclr12 dark:bg-pdclr6 dark:text-pdclr12' : 'bg-pclr10 text-pclr4'}`}>{mov.tipo_documento}</span>
+                    <span className={`px-2 py-1 rounded-md text-[0.8em] ${mov.tipo_documento === 'I' ? 'bg-pclr6 text-pclr12 dark:bg-pdclr6 dark:text-pdclr12' : 'bg-pclr10 text-pclr4 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4'}`}>{mov.tipo_documento}</span>
                     <span className="ml-2 opacity-60">#{mov.comprobante_numero || 'S/N'}</span>
                   </td>
                   <td className="p-4">
                     <p className="font-bold uppercase text-[0.85em]">{mov.descripcion}</p>
                     <div className="flex gap-2 items-center mt-1">
                       <p className="text-[0.8em] opacity-40 font-black uppercase">{mov.tesoreria_items?.nombre}</p>
-                      {mov.unidades && <span className="text-[0.8em] bg-pclr10 text-pclr4 px-1 rounded font-black">{mov.unidades.nombre}</span>}
+                      {mov.unidades && <span className="text-[0.8em] bg-pclr10 text-pclr4 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4 px-1 rounded font-black">{mov.unidades.nombre}</span>}
                     </div>
                   </td>
                   <td className="p-4 text-right font-bold text-pclr6">{mov.monto_ingreso > 0 ? `$${mov.monto_ingreso.toLocaleString('es-CL')}` : '-'}</td>
-                  <td className="p-4 text-right font-bold text-pclr4">{mov.monto_egreso > 0 ? `$${mov.monto_egreso.toLocaleString('es-CL')}` : '-'}</td>
+                  <td className="p-4 text-right font-bold text-pclr4 dark:text-pdclr4">{mov.monto_egreso > 0 ? `$${mov.monto_egreso.toLocaleString('es-CL')}` : '-'}</td>
                   <td className="p-4 text-center">
                     <p className="text-[0.8em] font-black uppercase leading-tight">
                       {mov.registrado_por?.nombres?.split(' ')[0]} {mov.registrado_por?.apellidos?.split(' ')[0]}

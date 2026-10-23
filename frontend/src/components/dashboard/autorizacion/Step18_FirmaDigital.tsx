@@ -15,7 +15,7 @@ export default function Step18_FirmaDigital({ formData, setFormData, perfil, apo
   const labelStyle = "text-[0.9em] font-black uppercase text-pclr7 tracking-widest block opacity-70 mb-1";
   
   const infoIconContainerStyle = "inline-block";
-  const infoIconStyle = "text-pclr4 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
+  const infoIconStyle = "text-pclr4 dark:text-pdclr4 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
   const tooltipStyle = "fixed z-[300] left-1/2 -translate-x-1/2 top-1/4 w-[90%] max-w-lg p-6 bg-pclr2 dark:bg-pdclr2 text-pclr12 text-[1em] font-medium leading-relaxed rounded-[2rem] shadow-2xl opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 border-2 border-pclr14 backdrop-blur-md";
 
   // Solo sincronizar el ref al padre cuando el usuario hace click en "Borrar" o al montar
@@ -78,7 +78,7 @@ export default function Step18_FirmaDigital({ formData, setFormData, perfil, apo
               </span>
             </div>
             <div className={tooltipStyle}>
-              <div className="text-pclr4 font-black uppercase text-[0.8em] tracking-tight mb-3 border-b border-pclr14 pb-2 leading-tight">{label}</div>
+              <div className="text-pclr4 dark:text-pdclr4 font-black uppercase text-[0.8em] tracking-tight mb-3 border-b border-pclr14 pb-2 leading-tight">{label}</div>
               <div className="text-[0.95em]">{info}</div>
             </div>
           </div>
@@ -108,7 +108,7 @@ export default function Step18_FirmaDigital({ formData, setFormData, perfil, apo
         info="Esta firma es la aceptación legal de todo el documento de autorización (Ficha médica, Participación e Imagen)."
       >
         <div className="relative mt-2">
-          <div className="border-4 border-dashed border-pclr13 dark:border-pdclr13 rounded-[2rem] bg-pclr1 overflow-hidden shadow-inner touch-none">
+          <div className="border-4 border-dashed border-pclr13 dark:border-pdclr13 rounded-[2rem] bg-pclr1 dark:bg-pdclr1 overflow-hidden shadow-inner touch-none">
             <SignatureCanvas 
               ref={sigCanvas}
               penColor='#1b1b1b'
@@ -125,7 +125,7 @@ export default function Step18_FirmaDigital({ formData, setFormData, perfil, apo
             <button 
               type="button"
               onClick={clear}
-              className="px-6 py-2 text-[0.8em] font-black uppercase text-pclr4 hover:bg-pclr10 rounded-xl transition-colors border-2 border-pclr14"
+              className="px-6 py-2 text-[0.8em] font-black uppercase text-pclr4 dark:text-pdclr4 hover:bg-pclr10 rounded-xl transition-colors border-2 border-pclr14"
             >
               ✕ Borrar Firma
             </button>
@@ -136,7 +136,7 @@ export default function Step18_FirmaDigital({ formData, setFormData, perfil, apo
               disabled={firmaCapturada}
               className={`px-6 py-2 text-[0.8em] font-black uppercase rounded-xl transition-all border-2 ${
                 !firmaCapturada
-                  ? 'bg-pclr10 text-pclr12 border-pclr14 hover:brightness-110 active:scale-95 shadow-lg'
+                  ? 'bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 border-pclr14 hover:brightness-110 active:scale-95 shadow-lg'
                   : 'bg-pclr6 text-pclr12 dark:bg-pdclr6 dark:text-pdclr12 border-pclr6 cursor-default'
               }`}
             >

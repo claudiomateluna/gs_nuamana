@@ -10,7 +10,7 @@ export default function Step7_SaludMental({ formData, setFormData, perfil }: Ste
   const inputStyle = "w-full bg-pclr3 dark:bg-pdclr3 dark:text-pdclr4 border-2 border-transparent focus:border-pclr14 rounded-xl p-3 text-[1em] font-bold outline-none transition-all shadow-inner";
   
   const infoIconContainerStyle = "inline-block";
-  const infoIconStyle = "text-pclr4 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
+  const infoIconStyle = "text-pclr4 dark:text-pdclr4 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
   const tooltipStyle = "fixed z-[300] left-1/2 -translate-x-1/2 top-1/4 w-[90%] max-w-lg p-6 bg-pclr2 dark:bg-pdclr2 text-pclr12 text-[1em] font-medium leading-relaxed rounded-[2rem] shadow-2xl opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 border-2 border-pclr14 backdrop-blur-md";
 
   // Lógica de visibilidad
@@ -34,7 +34,7 @@ export default function Step7_SaludMental({ formData, setFormData, perfil }: Ste
           </span>
         </div>
         <div className={tooltipStyle}>
-          <div className="text-pclr4 font-black uppercase text-[0.8em] tracking-tight mb-3 border-b border-pclr14 pb-2 leading-tight">{label}</div>
+          <div className="text-pclr4 dark:text-pdclr4 font-black uppercase text-[0.8em] tracking-tight mb-3 border-b border-pclr14 pb-2 leading-tight">{label}</div>
           <div className="text-[0.95em]" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(info) }} />
         </div>
       </div>
@@ -57,7 +57,7 @@ export default function Step7_SaludMental({ formData, setFormData, perfil }: Ste
             {['Si', 'No'].map(o => {
               const isChecked = (o === 'Si' && hasDiagnostico) || (o === 'No' && !hasDiagnostico);
               return (
-                <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] tracking-widest transition-all ${isChecked ? 'border-pclr14 bg-pclr10 text-pclr12 shadow-lg' : 'border-pclr13 dark:border-pdclr13 dark:text-pdclr4'}`}>
+                <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] tracking-widest transition-all ${isChecked ? 'border-pclr14 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 shadow-lg' : 'border-pclr13 dark:border-pdclr13 dark:text-pdclr4'}`}>
                   <input type="radio" checked={isChecked} onChange={() => setFormData({ ...formData, diagnostico_salud_mental_radio: o, diagnostico_salud_mental: o })} className="hidden" /> {o}
                 </label>
               );
@@ -94,7 +94,7 @@ export default function Step7_SaludMental({ formData, setFormData, perfil }: Ste
                 {['Si', 'No'].map(o => {
                   const isChecked = (o === 'Si' && isEnTratamiento) || (o === 'No' && !isEnTratamiento);
                   return (
-                    <label key={o} className={`flex-1 p-2 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] tracking-widest transition-all ${isChecked ? 'border-pclr14 bg-pclr10 text-pclr12 shadow-lg' : 'border-pclr13 dark:border-pdclr13 dark:text-pdclr4'}`}>
+                    <label key={o} className={`flex-1 p-2 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] tracking-widest transition-all ${isChecked ? 'border-pclr14 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 shadow-lg' : 'border-pclr13 dark:border-pdclr13 dark:text-pdclr4'}`}>
                       <input type="radio" checked={isChecked} onChange={() => setFormData({ ...formData, tratamiento_salud_mental_radio: o, tratamiento_salud_mental: o })} className="hidden" /> {o}
                     </label>
                   );
@@ -106,7 +106,7 @@ export default function Step7_SaludMental({ formData, setFormData, perfil }: Ste
             <div className="space-y-1">
               <FieldInfo 
                 label="¿Estás consumiendo algún medicamento?" 
-                info="Indique si está consumiendo algún Tipo de medicamento <br></br><br></br>(**indique cual y su horario**) <br></br><br></br>Si no consume, por favor escriba <b>No Consume</b>.<br></br><br></br><span class='font-black text-pclr4'>* Este campo es obligatorio</span>" 
+                info="Indique si está consumiendo algún Tipo de medicamento <br></br><br></br>(**indique cual y su horario**) <br></br><br></br>Si no consume, por favor escriba <b>No Consume</b>.<br></br><br></br><span class='font-black text-pclr4 dark:text-pdclr4'>* Este campo es obligatorio</span>" 
               />
               <textarea 
                 defaultValue={formData.medicamentos || perfil.medicamentos || ''}

@@ -220,7 +220,7 @@ export default function DashSalidasManager({
               className={`px-4 py-2 rounded-xl text-[0.8em] font-black uppercase transition-all cursor-pointer ${
                 tabFiltro === 'activas'
                   ? 'bg-pclr8 dark:bg-pdclr8 text-pclr12 dark:text-pdclr12 shadow-sm'
-                  : 'text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4'
+                  : 'text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 dark:hover:text-pdclr4'
               }`}
             >
               Activas ({activas.length})
@@ -231,7 +231,7 @@ export default function DashSalidasManager({
               className={`px-4 py-2 rounded-xl text-[0.8em] font-black uppercase transition-all cursor-pointer ${
                 tabFiltro === 'historial'
                   ? 'bg-pclr8 dark:bg-pdclr8 text-pclr12 dark:text-pdclr12 shadow-sm'
-                  : 'text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4'
+                  : 'text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 dark:hover:text-pdclr4'
               }`}
             >
               Historial ({pasadas.length})
@@ -258,7 +258,7 @@ export default function DashSalidasManager({
               <button
                 type="button"
                 onClick={() => setBusquedaSalida('')}
-                className="absolute right-3 top-2.5 text-pclr7 dark:text-pdclr7 hover:text-pclr4 text-xs font-bold"
+                className="absolute right-3 top-2.5 text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 text-xs font-bold"
               >
                 ✕
               </button>

@@ -127,9 +127,9 @@ export default function DashModCrearActividadFase4({ isOpen, onClose, cicloId, p
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-pclr2 backdrop-blur-md z-[130] flex items-center justify-center p-2 animate-in fade-in duration-300">
+    <div className="fixed inset-0 bg-pclr2 dark:bg-pdclr2 backdrop-blur-md z-[130] flex items-center justify-center p-2 animate-in fade-in duration-300">
       <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-2xl rounded-[2rem] p-4 md:p-4 shadow-2xl overflow-y-auto max-h-[90vh]">
-        <h2 className="text-2xl font-black font-display uppercase text-pclr4 tracking-tighter mb-6">
+        <h2 className="text-2xl font-black font-display uppercase text-pclr4 dark:text-pdclr4 tracking-tighter mb-6">
           🆕 Nueva Actividad
         </h2>
 
@@ -227,7 +227,7 @@ export default function DashModCrearActividadFase4({ isOpen, onClose, cicloId, p
             <button 
               type="submit" 
               disabled={loading}
-              className="flex-1 py-4 bg-pclr10 text-pclr12 font-black font-display uppercase rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest"
+              className="flex-1 py-4 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 font-black font-display uppercase rounded-2xl shadow-xl hover:brightness-110 active:scale-95 transition-all tracking-widest"
             >
               {loading ? '⌛ Creando...' : '✨ Crear Actividad'}
             </button>

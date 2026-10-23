@@ -105,13 +105,13 @@ export default function DashModComprobante({ isOpen, onClose, onSuccess, perfil,
   }
 
   return (
-    <div className="fixed inset-0 bg-pclr2 backdrop-blur-sm z-[120] flex items-center justify-center p-2 md:p-4 animate-in fade-in duration-300">
+    <div className="fixed inset-0 bg-pclr2 dark:bg-pdclr2 backdrop-blur-sm z-[120] flex items-center justify-center p-2 md:p-4 animate-in fade-in duration-300">
       <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-4xl rounded-[3rem] p-6 md:p-10 shadow-2xl border-4 border-pclr13 dark:border-pdclr13 overflow-y-auto max-h-[95vh]">
         
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl md:text-3xl font-black font-display uppercase text-pclr6 tracking-tighter">Emitir Vale Institucional</h2>
           <div className="flex bg-pclr3 dark:bg-pdclr3 p-1 rounded-xl">
-            <button onClick={() => setTipo('Egreso')} className={`px-4 py-2 rounded-lg text-[0.8em] font-bold uppercase transition-all ${tipo === 'Egreso' ? 'bg-pclr10 text-pclr12' : 'opacity-40'}`}>Egreso (FOR-05)</button>
+            <button onClick={() => setTipo('Egreso')} className={`px-4 py-2 rounded-lg text-[0.8em] font-bold uppercase transition-all ${tipo === 'Egreso' ? 'bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12' : 'opacity-40'}`}>Egreso (FOR-05)</button>
             <button onClick={() => setTipo('Ingreso')} className={`px-4 py-2 rounded-lg text-[0.8em] font-bold uppercase transition-all ${tipo === 'Ingreso' ? 'bg-pclr6 text-pclr12' : 'opacity-40'}`}>Ingreso (FOR-06)</button>
           </div>
         </div>

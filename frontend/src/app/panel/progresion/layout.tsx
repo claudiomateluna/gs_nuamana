@@ -23,7 +23,7 @@ export default function ProgresionLayout({ children }: { children: React.ReactNo
             className={`px-6 py-2 rounded-xl text-[0.8em] font-black uppercase transition-colors ${
               pathname === tab.href
                 ? 'bg-pclr8 dark:bg-pdclr8 text-pclr12 dark:text-pdclr12 shadow-md'
-                : 'text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4'
+                : 'text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 dark:hover:text-pdclr4'
             }`}
           >
             {tab.label}

@@ -148,7 +148,7 @@ export default function DashModMovimiento({ isOpen, onClose, onSuccess, editingM
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-pclr2 backdrop-blur-sm z-[110] flex items-center justify-center p-2 md:p-4 animate-in fade-in duration-300">
+    <div className="fixed inset-0 bg-pclr2 dark:bg-pdclr2 backdrop-blur-sm z-[110] flex items-center justify-center p-2 md:p-4 animate-in fade-in duration-300">
       <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-2xl rounded-[2.5rem] p-6 md:p-10 shadow-2xl border-4 border-pclr13 dark:border-pdclr13 overflow-y-auto max-h-[95vh]">
         <h2 className="text-2xl font-black font-display uppercase text-pclr6 mb-8 tracking-tighter">
           {editingMov ? 'Editar Movimiento' : 'Registrar Movimiento'}
@@ -213,7 +213,7 @@ export default function DashModMovimiento({ isOpen, onClose, onSuccess, editingM
               />
             </div>
             <div className="space-y-1">
-              <label className="text-[0.8em] font-bold uppercase text-pclr4">Egreso ($)</label>
+              <label className="text-[0.8em] font-bold uppercase text-pclr4 dark:text-pdclr4">Egreso ($)</label>
               <input 
                 type="text" 
                 inputMode="numeric" 
@@ -241,12 +241,12 @@ export default function DashModMovimiento({ isOpen, onClose, onSuccess, editingM
             <label className="text-[0.8em] font-bold uppercase opacity-40">Documento de Respaldo (Boleta/Factura)</label>
             <div className="mt-2 flex flex-col items-center gap-4">
               {formData.imagen_respaldo_url ? (
-                <div className="relative group w-full h-40 bg-pclr1 rounded-xl overflow-hidden shadow-inner border">
+                <div className="relative group w-full h-40 bg-pclr1 dark:bg-pdclr1 rounded-xl overflow-hidden shadow-inner border">
                   <img src={formData.imagen_respaldo_url} className="w-full h-full object-contain" alt="Respaldo" />
-                  <button type="button" onClick={() => setFormData({...formData, imagen_respaldo_url: ''})} className="absolute top-2 right-2 bg-pclr10 text-pclr12 p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">✕</button>
+                  <button type="button" onClick={() => setFormData({...formData, imagen_respaldo_url: ''})} className="absolute top-2 right-2 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">✕</button>
                 </div>
               ) : (
-                <label className="w-full h-24 flex flex-col items-center justify-center border-2 border-dashed rounded-xl cursor-pointer hover:bg-pclr1 dark:hover:bg-pdclr1 transition-all">
+                <label className="w-full h-24 flex flex-col items-center justify-center border-2 border-dashed rounded-xl cursor-pointer hover:bg-pclr1 dark:bg-pdclr1 dark:hover:bg-pdclr1 transition-all">
                   <span className="text-2xl">{uploading ? '⌛' : '📸'}</span>
                   <span className="text-[0.8em] font-bold uppercase opacity-40">{uploading ? 'Subiendo...' : 'Subir Foto o PDF'}</span>
                   <input type="file" className="hidden" accept="image/*,application/pdf" onChange={handleFileUpload} disabled={uploading} />

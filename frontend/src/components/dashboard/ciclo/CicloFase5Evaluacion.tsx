@@ -91,7 +91,7 @@ export default function CicloFase5Evaluacion({
                       setSelectedPropuesta(act)
                       setIsModEvalNNJOpen(true)
                     }}
-                    className="px-2 py-1 bg-pclr2 text-pclr12 text-[0.8em] font-black uppercase rounded-[0.6rem] shadow-lg hover:scale-105 active:scale-95 transition-all tracking-widest border-none"
+                    className="px-2 py-1 bg-pclr2 dark:bg-pdclr2 text-pclr12 text-[0.8em] font-black uppercase rounded-[0.6rem] shadow-lg hover:scale-105 active:scale-95 transition-all tracking-widest border-none"
                   >
                     Evaluar {getObjetivoTerm(perfil.unidad_id ?? 1)}s
                   </button>
@@ -145,7 +145,7 @@ export default function CicloFase5Evaluacion({
                         className={`px-2 py-2 rounded-xl text-[0.9em] font-bold transition-all border ${
                           cicloActivo.fase_actual === 5 
                             ? 'bg-pclr3 dark:bg-pdclr1 hover:bg-pclr10 hover:text-pclr12 border-pclr13 dark:border-transparent' 
-                            : 'bg-pclr3 opacity-50 cursor-not-allowed border-transparent'
+                            : 'bg-pclr3 dark:bg-pdclr3 opacity-50 cursor-not-allowed border-transparent'
                         }`}
                         title={cicloActivo.fase_actual === 5 ? `Evaluar ${act.titulo}` : 'Solo disponible en Fase 5'}
                       >
@@ -153,7 +153,7 @@ export default function CicloFase5Evaluacion({
                       </button>
                     ))}
                     {nnj.actividades.length === 0 && (
-                      <p className="text-[1em] italic text-pclr4">Sin asistencias registradas.</p>
+                      <p className="text-[1em] italic text-pclr4 dark:text-pdclr4">Sin asistencias registradas.</p>
                     )}
                   </div>
                 </div>
@@ -163,7 +163,7 @@ export default function CicloFase5Evaluacion({
                     setSelectedNNJ(nnj);
                     setIsModRadarOpen(true);
                   }}
-                  className="w-full py-2 bg-pclr2 text-pclr12 text-[0.9em] font-bold uppercase rounded-xl shadow-md hover:scale-105 transition-all tracking-widest flex items-center justify-center gap-2 border-none"
+                  className="w-full py-2 bg-pclr2 dark:bg-pdclr2 text-pclr12 text-[0.9em] font-bold uppercase rounded-xl shadow-md hover:scale-105 transition-all tracking-widest flex items-center justify-center gap-2 border-none"
                 >
                   <span>📊</span> Ver Radar de Progresión
                 </button>
@@ -193,7 +193,7 @@ export default function CicloFase5Evaluacion({
           {canManage && cicloActivo.fase_actual === 5 && !readOnlyOverride && (
             <button 
               onClick={cerrarCiclo}
-              className="px-3 py-3 bg-pclr10 text-pclr12 font-black uppercase rounded-2xl shadow-lg hover:bg-pclr10 transition-all text-[1em] flex items-center gap-2 border-none"
+              className="px-3 py-3 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 font-black uppercase rounded-2xl shadow-lg hover:bg-pclr10 transition-all text-[1em] flex items-center gap-2 border-none"
             >
               <span>🔒</span> Cerrar Ciclo Oficialmente
             </button>

@@ -512,13 +512,13 @@ export default function DashModActaCrear({ isOpen, onClose, perfil, miembrosUnid
   }
 
   return (
-    <div className="fixed inset-0 bg-pclr2 backdrop-blur-sm z-[100] flex items-center justify-center p-2 animate-in fade-in duration-300 text-[1em]">
+    <div className="fixed inset-0 bg-pclr2 dark:bg-pdclr2 backdrop-blur-sm z-[100] flex items-center justify-center p-2 animate-in fade-in duration-300 text-[1em]">
       <div className="bg-pclr1 dark:bg-pdclr1 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg rounded-l-[1rem] p-4 shadow-2xl overflow-y-auto max-h-[95vh]">
         <div className="flex justify-between items-center mb-4 border-b pb-4">
           <h2 className="text-3xl font-bold font-display uppercase text-pclr6 tracking-tighter">
             {editingActa ? `Editando: ${editingActa.codigo}` : 'Nueva Acta de Sesión'}
           </h2>
-          <button onClick={onClose} className="text-2xl opacity-40 hover:opacity-100 hover:text-pclr4 font-bold">✕</button>
+          <button onClick={onClose} className="text-2xl opacity-40 hover:opacity-100 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 font-bold">✕</button>
         </div>
 
         <form onSubmit={handleSave} className="space-y-6">
@@ -588,7 +588,7 @@ export default function DashModActaCrear({ isOpen, onClose, perfil, miembrosUnid
                     <button 
                       type="button" 
                       onClick={() => setParticipantes(participantes.filter(p => p.id !== m.id))}
-                      className="absolute -top-1 -right-1 bg-pclr10 text-pclr12 w-5 h-5 rounded-full text-[0.8em] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10"
+                      className="absolute -top-1 -right-1 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 w-5 h-5 rounded-full text-[0.8em] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10"
                     >
                       ✕
                     </button>
@@ -598,8 +598,8 @@ export default function DashModActaCrear({ isOpen, onClose, perfil, miembrosUnid
                     </select>
                     <select value={actaData.asistencia[m.id] || 'Ausente'} onChange={e => setActaData({...actaData, asistencia: {...actaData.asistencia, [m.id]: e.target.value}})} className={`text-[0.8em] font-bold rounded-[0.6em] px-2 py-1 border-none uppercase ${
                       actaData.asistencia[m.id] === 'Presente' ? 'bg-pclr6 text-pclr12 dark:bg-pdclr6 dark:text-pdclr12' : 
-                      actaData.asistencia[m.id] === 'No Invitado' ? 'bg-pclr3 text-pclr7' :
-                      'bg-pclr10 text-pclr4'
+                      actaData.asistencia[m.id] === 'No Invitado' ? 'bg-pclr3 dark:bg-pdclr3 text-pclr7' :
+                      'bg-pclr10 text-pclr4 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4'
                     }`}>
                       <option value="Ausente">Ausente</option>
                       <option value="Presente">Presente</option>
@@ -618,10 +618,10 @@ export default function DashModActaCrear({ isOpen, onClose, perfil, miembrosUnid
             <div className="space-y-3">
               {actaData.temas.map((t: TemaData, i: number) => (
                 <div key={i} className="p-2 bg-pclr3 dark:bg-pdclr3 rounded-[1rem] border dark:border-pdclr13 shadow-sm relative group">
-                  <button type="button" onClick={() => setActaData((v: ActaData) => ({ ...v, temas: v.temas.filter((_: TemaData, idx: number)=>idx!==i)}))} className="absolute top-3 right-2 text-pclr4 font-bold opacity-60 hover:opacity-100">✕</button>
+                  <button type="button" onClick={() => setActaData((v: ActaData) => ({ ...v, temas: v.temas.filter((_: TemaData, idx: number)=>idx!==i)}))} className="absolute top-3 right-2 text-pclr4 dark:text-pdclr4 font-bold opacity-60 hover:opacity-100">✕</button>
                   <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
                     <div className="md:col-span-3 space-y-2">
-                      <input placeholder="TÍTULO DEL TEMA" value={t.titulo} onChange={e => { const nt = [...actaData.temas]; nt[i].titulo = e.target.value; setActaData({...actaData, temas: nt}); }} className="w-full bg-transparent border-b-2 border-pclr13 font-bold text-[1.1em] pb-1 uppercase outline-none" />
+                      <input placeholder="TÍTULO DEL TEMA" value={t.titulo} onChange={e => { const nt = [...actaData.temas]; nt[i].titulo = e.target.value; setActaData({...actaData, temas: nt}); }} className="w-full bg-transparent border-b-2 border-pclr13 dark:border-pdclr13 font-bold text-[1.1em] pb-1 uppercase outline-none" />
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                         <textarea placeholder="Descripción / Agenda..." value={t.descripcion} onChange={e => { const nt = [...actaData.temas]; nt[i].descripcion = e.target.value; setActaData({...actaData, temas: nt}); }} className="w-full p-3 rounded-[0.5em] border dark:border-pdclr13 bg-pclr1 dark:bg-pdclr1 h-24 text-[1em] font-bold" />
                         <textarea placeholder="Conclusiones / Decisiones..." value={t.conclusiones} onChange={e => { const nt = [...actaData.temas]; nt[i].conclusiones = e.target.value; setActaData({...actaData, temas: nt}); }} className="w-full p-3 rounded-[0.5em] border dark:border-pdclr13 bg-pclr3 dark:bg-pdclr3 border border-pclr6 dark:border-pdclr6 h-24 text-[1em] font-bold text-pclr4 dark:text-pdclr4" />
@@ -672,7 +672,7 @@ export default function DashModActaCrear({ isOpen, onClose, perfil, miembrosUnid
                         id={`grupal-${i}`}
                         checked={!!a.es_actividad_grupal} 
                         onChange={e => { const na = [...actaData.acuerdos]; na[i].es_actividad_grupal = e.target.checked; setActaData({...actaData, acuerdos: na}); }} 
-                        className="w-4 h-4 rounded border-pclr13 text-pclr4 focus:ring-pclr14"
+                        className="w-4 h-4 rounded border-pclr13 dark:border-pdclr13 text-pclr4 dark:text-pdclr4 focus:ring-pclr14"
                       />
                       <label htmlFor={`grupal-${i}`} className="text-[0.8em] font-black uppercase text-pclr4 dark:text-pdclr4 cursor-pointer">
                         ¿Actividad Grupal? 👥

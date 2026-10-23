@@ -115,7 +115,7 @@ export default function DashModResena({ isOpen, onClose, propuesta, perfil, onSu
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-pclr2 backdrop-blur-sm animate-in fade-in duration-300">
+    <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-pclr2 dark:bg-pdclr2 backdrop-blur-sm animate-in fade-in duration-300">
       <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-lg rounded-[2.5rem] shadow-2xl overflow-hidden border-4 border-pclr1 dark:border-pdclr1 animate-in zoom-in duration-300">
         <div className="p-8 space-y-6">
           <div className="text-center space-y-2">
@@ -135,7 +135,7 @@ export default function DashModResena({ isOpen, onClose, propuesta, perfil, onSu
                     className={`w-10 h-10 rounded-xl font-black transition-all flex items-center justify-center text-lg ${
                       calificacion >= num 
                         ? 'bg-pclr5 text-pclr12 shadow-lg scale-110' 
-                        : 'bg-pclr3 text-pclr7 dark:bg-pdclr3'
+                        : 'bg-pclr3 dark:bg-pdclr3 text-pclr7 dark:bg-pdclr3'
                     }`}
                   >
                     {num}

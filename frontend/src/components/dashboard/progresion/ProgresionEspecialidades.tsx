@@ -199,7 +199,7 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                   <div
                     key={ep.id}
                     onClick={() => setActiveEspecialidad(ep)}
-                    className="p-6 rounded-[2rem] bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 hover:border-pclr13 dark:hover:border-dclr7 shadow-lg cursor-pointer hover:shadow-xl transition-all relative overflow-hidden group border-l-[6px]"
+                    className="p-6 rounded-[2rem] bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 hover:border-pclr13 dark:border-pdclr13 dark:hover:border-dclr7 shadow-lg cursor-pointer hover:shadow-xl transition-all relative overflow-hidden group border-l-[6px]"
                     style={{ borderLeftColor: color }}
                   >
                     <div className="flex gap-4 items-start mb-3">
@@ -231,7 +231,7 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                             {getPhaseLabel(ep.fase)}
                           </span>
                         </div>
-                        <h4 className="font-bold text-[1.2em] text-pclr4 dark:text-pdclr4 uppercase leading-tight group-hover:text-pclr4 dark:group-hover:text-pclr7 truncate">
+                        <h4 className="font-bold text-[1.2em] text-pclr4 dark:text-pdclr4 uppercase leading-tight group-hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 dark:group-hover:text-pclr7 truncate">
                           {name}
                         </h4>
                         <p className="text-[0.8em] font-bold text-pclr7 dark:text-pdclr7 mt-1">
@@ -261,7 +261,7 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                         <span className="text-pclr6 uppercase">Completada 🎉</span>
                       ) : (
                         (ep.especialidades_actividades || []).some((a: EspecialidadActividad) => !a.completada && a.evidencia_texto) && (
-                          <span className="text-pclr4 animate-pulse uppercase font-extrabold">Pendiente Aprobación 🔔</span>
+                          <span className="text-pclr4 dark:text-pdclr4 animate-pulse uppercase font-extrabold">Pendiente Aprobación 🔔</span>
                         )
                       )}
                     </div>
@@ -300,7 +300,7 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                 <div
                   key={ep.id}
                   onClick={() => setActiveEspecialidad(ep)}
-                  className="p-6 rounded-[2rem] bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 hover:border-pclr13 dark:hover:border-dclr7 shadow-lg cursor-pointer hover:shadow-xl transition-all relative overflow-hidden group border-l-[6px]"
+                  className="p-6 rounded-[2rem] bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 hover:border-pclr13 dark:border-pdclr13 dark:hover:border-dclr7 shadow-lg cursor-pointer hover:shadow-xl transition-all relative overflow-hidden group border-l-[6px]"
                   style={{ borderLeftColor: color }}
                 >
                   <div className="flex gap-4 items-start mb-3">
@@ -332,7 +332,7 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                           {getPhaseLabel(ep.fase)}
                         </span>
                       </div>
-                      <h4 className="font-bold text-[1.2em] text-pclr4 dark:text-pdclr4 uppercase leading-tight group-hover:text-pclr4 dark:group-hover:text-pclr7 truncate">
+                      <h4 className="font-bold text-[1.2em] text-pclr4 dark:text-pdclr4 uppercase leading-tight group-hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 dark:group-hover:text-pclr7 truncate">
                         {name}
                       </h4>
                       <p className="text-[0.8em] font-bold text-pclr7 dark:text-pdclr7 mt-1">
@@ -362,7 +362,7 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                       <span className="text-pclr6 uppercase">Completada 🎉</span>
                     ) : (
                       (ep.especialidades_actividades || []).some((a: EspecialidadActividad) => !a.completada && a.evidencia_texto) && (
-                        <span className="text-pclr4 animate-pulse uppercase font-extrabold">Pendiente Aprobación 🔔</span>
+                        <span className="text-pclr4 dark:text-pdclr4 animate-pulse uppercase font-extrabold">Pendiente Aprobación 🔔</span>
                       )
                     )}
                   </div>
@@ -417,7 +417,7 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                 <div
                   key={ep.id}
                   onClick={() => setActiveEspecialidad(ep)}
-                  className="p-6 rounded-[2rem] bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 hover:border-pclr13 dark:hover:border-dclr7 shadow-lg cursor-pointer hover:shadow-xl transition-all relative overflow-hidden group border-l-[6px]"
+                  className="p-6 rounded-[2rem] bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 hover:border-pclr13 dark:border-pdclr13 dark:hover:border-dclr7 shadow-lg cursor-pointer hover:shadow-xl transition-all relative overflow-hidden group border-l-[6px]"
                   style={{ borderLeftColor: color, contentVisibility: 'auto' } as React.CSSProperties}
                 >
                   <div className="flex gap-4 items-start mb-3">
@@ -453,7 +453,7 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                           </span>
                         )}
                       </div>
-                      <h4 className="font-bold text-[1.2em] text-pclr4 dark:text-pdclr4 uppercase leading-tight group-hover:text-pclr4 dark:group-hover:text-pclr7 truncate">
+                      <h4 className="font-bold text-[1.2em] text-pclr4 dark:text-pdclr4 uppercase leading-tight group-hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 dark:group-hover:text-pclr7 truncate">
                         {name}
                       </h4>
                       {ep.monitor_nombre && (
@@ -539,7 +539,7 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                 return (
                   <div
                     key={def.id}
-                    className="p-2 rounded-[1rem] bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 hover:border-pclr13 dark:hover:border-dclr7 shadow-md hover:shadow-xl hover:scale-[1.01] transition-all cursor-pointer flex flex-col justify-between group border-l-[6px]"
+                    className="p-2 rounded-[1rem] bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 hover:border-pclr13 dark:border-pdclr13 dark:hover:border-dclr7 shadow-md hover:shadow-xl hover:scale-[1.01] transition-all cursor-pointer flex flex-col justify-between group border-l-[6px]"
                     style={{ borderLeftColor: color, contentVisibility: 'auto' } as React.CSSProperties}
                     onClick={() => handleCatalogClick(def)}
                   >
@@ -573,7 +573,7 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
                           decoding="async"
                         />
                         <div className="flex-1 min-w-0">
-                          <h4 className="font-bold text-[1.25em] text-pclr4 dark:text-pdclr4 uppercase leading-tight mb-2 group-hover:text-pclr4 dark:group-hover:text-pclr7 truncate">
+                          <h4 className="font-bold text-[1.25em] text-pclr4 dark:text-pdclr4 uppercase leading-tight mb-2 group-hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 dark:group-hover:text-pclr7 truncate">
                             {def.nombre}
                           </h4>
                           <p className="text-[0.9em] font-medium text-pclr7 dark:text-pdclr7 line-clamp-3 leading-relaxed">

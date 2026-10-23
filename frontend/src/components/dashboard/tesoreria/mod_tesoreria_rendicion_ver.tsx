@@ -34,8 +34,8 @@ export default function DashModRendicionVer({ isOpen, onClose, rendicion, perfil
   if (!isOpen || !rendicion) return null
 
   return (
-    <div className="fixed inset-0 bg-pclr2 backdrop-blur-sm z-[130] flex items-center justify-center p-2 md:p-4 overflow-y-auto">
-      <div className="bg-pclr1 dark:bg-pdclr1 text-pclr4 dark:text-pdclr4 w-full max-w-5xl p-4 md:p-8 shadow-2xl font-sans border-[1px] border-pclr2 dark:border-pdclr2 my-auto print:p-0 print:border-none print:bg-pclr1 print:text-pclr4">
+    <div className="fixed inset-0 bg-pclr2 dark:bg-pdclr2 backdrop-blur-sm z-[130] flex items-center justify-center p-2 md:p-4 overflow-y-auto">
+      <div className="bg-pclr1 dark:bg-pdclr1 text-pclr4 dark:text-pdclr4 w-full max-w-5xl p-4 md:p-8 shadow-2xl font-sans border-[1px] border-pclr2 dark:border-pdclr2 my-auto print:p-0 print:border-none print:bg-pclr1 dark:bg-pdclr1 print:text-pclr4 dark:text-pdclr4">
         
         <div className="border-[1.5px] border-pclr2 dark:border-pdclr2 p-4 space-y-4 print:border-pclr2">
           {/* 1. Encabezado Oficial Nua Mana */}
@@ -88,7 +88,7 @@ export default function DashModRendicionVer({ isOpen, onClose, rendicion, perfil
           {/* 3. Tabla de Detalles Técnica (DAF Standard) */}
           <table className="w-full border-collapse border-[1.5px] border-pclr2 dark:border-pdclr2 text-[0.8em] print:border-pclr2">
             <thead>
-              <tr className="bg-pclr3 dark:bg-pdclr3 uppercase font-bold print:bg-pclr3">
+              <tr className="bg-pclr3 dark:bg-pdclr3 uppercase font-bold print:bg-pclr3 dark:bg-pdclr3">
                 <th rowSpan={2} className="border border-pclr2 dark:border-pdclr2 p-1 w-8 print:border-pclr2">Nº</th>
                 <th colSpan={3} className="border border-pclr2 dark:border-pdclr2 p-1 text-center print:border-pclr2">FECHA</th>
                 <th rowSpan={2} className="border border-pclr2 dark:border-pdclr2 p-1 w-12 text-center print:border-pclr2">TIPO</th>
@@ -97,7 +97,7 @@ export default function DashModRendicionVer({ isOpen, onClose, rendicion, perfil
                 <th rowSpan={2} className="border border-pclr2 dark:border-pdclr2 p-1 print:border-pclr2">MOTIVO / CONCEPTO</th>
                 <th rowSpan={2} className="border border-pclr2 dark:border-pdclr2 p-1 w-24 text-right print:border-pclr2">VALOR</th>
               </tr>
-              <tr className="bg-pclr3 dark:bg-pdclr3 uppercase font-bold print:bg-pclr3">
+              <tr className="bg-pclr3 dark:bg-pdclr3 uppercase font-bold print:bg-pclr3 dark:bg-pdclr3">
                 <th className="border border-pclr2 dark:border-pdclr2 p-1 w-8 print:border-pclr2">D</th>
                 <th className="border border-pclr2 dark:border-pdclr2 p-1 w-8 print:border-pclr2">M</th>
                 <th className="border border-pclr2 dark:border-pdclr2 p-1 w-10 print:border-pclr2">A</th>
@@ -151,7 +151,7 @@ export default function DashModRendicionVer({ isOpen, onClose, rendicion, perfil
                 <span>MONTO A RENDIR $</span>
                 <span>{rendicion.monto_a_rendir.toLocaleString('es-CL')}</span>
               </div>
-              <div className={`flex justify-between p-1.5 ${rendicion.saldo_final >= 0 ? 'bg-pclr3 dark:bg-pdclr3' : 'bg-pclr10 dark:bg-pdclr10'} print:bg-pclr3`}>
+              <div className={`flex justify-between p-1.5 ${rendicion.saldo_final >= 0 ? 'bg-pclr3 dark:bg-pdclr3' : 'bg-pclr10 dark:bg-pdclr10'} print:bg-pclr3 dark:bg-pdclr3`}>
                 <span>SALDO $</span>
                 <span>{rendicion.saldo_final.toLocaleString('es-CL')}</span>
               </div>
@@ -184,7 +184,7 @@ export default function DashModRendicionVer({ isOpen, onClose, rendicion, perfil
 
         {/* Acciones de Sistema */}
         <div className="mt-8 flex justify-center gap-4 no-print">
-          <button onClick={() => window.print()} className="px-10 py-3 bg-pclr10 text-pclr12 font-bold uppercase rounded-xl shadow-lg hover:brightness-110 transition-all text-xs tracking-widest">🖨️ Imprimir Rendición</button>
+          <button onClick={() => window.print()} className="px-10 py-3 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 font-bold uppercase rounded-xl shadow-lg hover:brightness-110 transition-all text-xs tracking-widest">🖨️ Imprimir Rendición</button>
           <button onClick={onClose} className="px-10 py-3 bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4 font-bold uppercase rounded-xl hover:brightness-110 transition-all text-xs tracking-widest">Cerrar</button>
         </div>
       </div>
@@ -194,9 +194,9 @@ export default function DashModRendicionVer({ isOpen, onClose, rendicion, perfil
           .no-print { display: none !important; }
           .fixed { position: absolute !important; top: 0; left: 0; width: 100%; height: auto; background: white !important; padding: 0 !important; }
           body { background: white !important; }
-          :global(.dark) .bg-pclr2 { background-color: white !important; color: black !important; }
+          :global(.dark) .bg-pclr2 dark:bg-pdclr2 { background-color: white !important; color: black !important; }
           :global(.dark) .border-pclr1 { border-color: black !important; }
-          :global(.dark) .bg-pclr1\/10, :global(.dark) .bg-pclr1\/5 { background-color: #f4f4f5 !important; color: black !important; }
+          :global(.dark) .bg-pclr1 dark:bg-pdclr1\/10, :global(.dark) .bg-pclr1 dark:bg-pdclr1\/5 { background-color: #f4f4f5 !important; color: black !important; }
         }
       `}</style>
     </div>

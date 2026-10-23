@@ -46,7 +46,7 @@ export default function DashModCicloCrear({ isOpen, onClose, perfil, onSuccess }
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-pclr2 backdrop-blur-md z-[130] flex items-center justify-center p-4 animate-in fade-in duration-300">
+    <div className="fixed inset-0 bg-pclr2 dark:bg-pdclr2 backdrop-blur-md z-[130] flex items-center justify-center p-4 animate-in fade-in duration-300">
       <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-2xl rounded-[2rem] p-2 md:p-4 shadow-2xl overflow-y-auto max-h-[90vh]">
         <h2 className="text-3xl font-black font-display uppercase text-pclr6 tracking-tighter mb-8 border-b pb-4">
           ✨ Iniciar Nuevo Ciclo
@@ -66,7 +66,7 @@ export default function DashModCicloCrear({ isOpen, onClose, perfil, onSuccess }
           </div>
 
           <div className="space-y-1">
-            <label className="text-[1em] font-black uppercase opacity-70 ml-4 tracking-widest text-pclr4">Énfasis del Ciclo (La Frase Motiva)</label>
+            <label className="text-[1em] font-black uppercase opacity-70 ml-4 tracking-widest text-pclr4 dark:text-pdclr4">Énfasis del Ciclo (La Frase Motiva)</label>
             <input 
               required
               type="text" 

@@ -49,7 +49,7 @@ export default function Step0_SeleccionActividad({ perfil, setActividadSelected,
         <div className="py-20 text-center animate-pulse text-pclr7 font-black uppercase text-[1em] tracking-widest">Buscando actividades disponibles...</div>
       ) : actividades.length === 0 ? (
         <div className="py-20 text-center bg-pclr3 dark:bg-pdclr3 rounded-[2.5rem] border-2 border-dashed border-pclr13 dark:border-pdclr13">
-          <p className="text-pclr4 font-black uppercase text-sm">No se encontraron actividades programadas para tu unidad.</p>
+          <p className="text-pclr4 dark:text-pdclr4 font-black uppercase text-sm">No se encontraron actividades programadas para tu unidad.</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 gap-4 max-w-xl mx-auto pb-4">
@@ -57,10 +57,10 @@ export default function Step0_SeleccionActividad({ perfil, setActividadSelected,
             <button
               key={act.id}
               onClick={() => setActividadSelected(act)}
-              className={`p-4 rounded-[1rem] border-2 text-left transition-all duration-300 flex justify-between items-center group shadow-sm ${actividadSelected?.id === act.id ? 'border-pclr14 bg-pclr10 text-pclr12 shadow-xl scale-[1.03]' : 'border-pclr13 dark:border-pdclr13 bg-pclr1 dark:bg-pdclr3 hover:border-pclr14'}`}
+              className={`p-4 rounded-[1rem] border-2 text-left transition-all duration-300 flex justify-between items-center group shadow-sm ${actividadSelected?.id === act.id ? 'border-pclr14 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 shadow-xl scale-[1.03]' : 'border-pclr13 dark:border-pdclr13 bg-pclr1 dark:bg-pdclr3 hover:border-pclr14'}`}
             >
               <div className="space-y-2">
-                <div className={`text-[0.9em] uppercase tracking-widest ${actividadSelected?.id === act.id ? 'text-pclr12' : 'text-pclr4'}`}>
+                <div className={`text-[0.9em] uppercase tracking-widest ${actividadSelected?.id === act.id ? 'text-pclr12' : 'text-pclr4 dark:text-pdclr4'}`}>
                   {act.unidad_id ? `Actividad de Unidad` : 'Actividad Grupal'}
                 </div>
                 <div className="text-[1.2em] font-bold uppercase tracking-tight leading-tight">{act.nombre}</div>
@@ -68,7 +68,7 @@ export default function Step0_SeleccionActividad({ perfil, setActividadSelected,
                   {act.fecha_inicio && parseFechaLocal(act.fecha_inicio) ? format(parseFechaLocal(act.fecha_inicio)!, "eeee dd 'de' MMMM", { locale: es }) : 'Fecha pendiente'} • {act.lugar || 'Lugar por definir'}
                 </div>
               </div>
-              <div className={`w-12 h-12 rounded-full flex items-center justify-center border-2 transition-all ${actividadSelected?.id === act.id ? 'bg-pclr1 border-pclr1 text-pclr4' : 'border-pclr13 dark:border-pdclr13 group-hover:border-pclr14 group-hover:text-pclr4'}`}>
+              <div className={`w-12 h-12 rounded-full flex items-center justify-center border-2 transition-all ${actividadSelected?.id === act.id ? 'bg-pclr1 dark:bg-pdclr1 border-pclr1 text-pclr4 dark:text-pdclr4' : 'border-pclr13 dark:border-pdclr13 group-hover:border-pclr14 group-hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4'}`}>
                 {actividadSelected?.id === act.id ? <span className="text-xl font-black">✓</span> : <span className="text-xl">→</span>}
               </div>
             </button>

@@ -57,10 +57,10 @@ const ProgresionCeremonias = React.memo(function ProgresionCeremonias({
           {ceremonias.map(c => {
             const formattedDate = c.fecha ? new Date(c.fecha + 'T00:00:00').toLocaleDateString('es-CL', { day: 'numeric', month: 'long', year: 'numeric' }) : ''
 
-            let badgeColor = 'bg-pclr10 text-pclr12'
+            let badgeColor = 'bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12'
             if (c.tipo === 'promesa') badgeColor = 'bg-pclr5 text-pclr12'
-            if (c.tipo === 'paso') badgeColor = 'bg-pclr10 text-pclr12'
-            if (c.tipo === 'egreso') badgeColor = 'bg-pclr10 text-pclr12'
+            if (c.tipo === 'paso') badgeColor = 'bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12'
+            if (c.tipo === 'egreso') badgeColor = 'bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12'
             if (c.tipo === 'bienvenida') badgeColor = 'bg-pclr6 text-pclr12'
 
             const hasMessages = c.mensajes && c.mensajes.length > 0
@@ -186,7 +186,7 @@ const ProgresionCeremonias = React.memo(function ProgresionCeremonias({
                 {c.tipo === 'paso' && (
                   <button
                     onClick={() => handleViewReport(c)}
-                    className="mt-4 w-full py-2 border-2 border-dashed border-pclr14 hover:border-pclr14 hover:bg-pclr10 text-pclr4 dark:text-pdclr4 text-[0.8em] font-bold uppercase rounded-2xl shadow-sm transition-all"
+                    className="mt-4 w-full py-2 border-2 border-dashed border-pclr14 hover:border-pclr14 hover:bg-pclr10 text-pclr4 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4 dark:text-pdclr4 text-[0.8em] font-bold uppercase rounded-2xl shadow-sm transition-all"
                   >
                     📄 Ver Informe de Logros
                   </button>

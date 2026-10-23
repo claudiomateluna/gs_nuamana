@@ -106,10 +106,10 @@ export default function DashModAsistencia({ isOpen, onClose, propuesta, perfil, 
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-pclr2 backdrop-blur-sm animate-in fade-in duration-300">
+    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-pclr2 dark:bg-pdclr2 backdrop-blur-sm animate-in fade-in duration-300">
       <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-xl rounded-[1rem] shadow-2xl overflow-hidden border-4 border-pclr1 dark:border-pdclr1 animate-in zoom-in duration-300 flex flex-col max-h-[90vh]">
         <div className="p-2 pb-4 space-y-2 border-b border-pclr13 dark:border-pdclr13">
-          <span className="text-[1em] font-black uppercase tracking-[0.2em] text-pclr4">Registro de Asistencia</span>
+          <span className="text-[1em] font-black uppercase tracking-[0.2em] text-pclr4 dark:text-pdclr4">Registro de Asistencia</span>
           <h3 className="text-2xl font-black uppercase text-pclr4 dark:text-pdclr4 leading-tight">
             {propuesta?.titulo}
           </h3>
@@ -132,7 +132,7 @@ export default function DashModAsistencia({ isOpen, onClose, propuesta, perfil, 
                   className={`p-2 rounded-2xl border-2 transition-all cursor-pointer flex items-center justify-between group ${
                     asistencia[nnj.id] 
                       ? 'bg-pclr6 border-pclr6 dark:bg-pdclr6 dark:border-pdclr6' 
-                      : 'bg-pclr3 border-pclr13 dark:bg-pdclr3 dark:border-pdclr13 opacity-60'
+                      : 'bg-pclr3 dark:bg-pdclr3 border-pclr13 dark:border-pdclr13 dark:bg-pdclr3 dark:border-pdclr13 opacity-60'
                   }`}
                 >
                   <div className="flex items-center gap-4">
@@ -167,14 +167,14 @@ export default function DashModAsistencia({ isOpen, onClose, propuesta, perfil, 
         <div className="p-4 pt-4 border-t border-pclr13 dark:border-pdclr13 flex gap-4">
           <button 
             onClick={onClose}
-            className="flex-1 py-4 text-sm font-black uppercase tracking-widest text-pclr7 hover:text-pclr4 transition-all"
+            className="flex-1 py-4 text-sm font-black uppercase tracking-widest text-pclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 transition-all"
           >
             Cerrar
           </button>
           <button 
             onClick={guardarAsistencia}
             disabled={saving || loading}
-            className="flex-[2] py-4 bg-pclr2 text-pclr12 text-sm font-black uppercase rounded-2xl shadow-xl hover:scale-105 active:scale-95 transition-all tracking-widest disabled:opacity-50"
+            className="flex-[2] py-4 bg-pclr2 dark:bg-pdclr2 text-pclr12 text-sm font-black uppercase rounded-2xl shadow-xl hover:scale-105 active:scale-95 transition-all tracking-widest disabled:opacity-50"
           >
             {saving ? 'âŒ› Guardando...' : 'ðŸ’¾ Guardar Asistencia'}
           </button>

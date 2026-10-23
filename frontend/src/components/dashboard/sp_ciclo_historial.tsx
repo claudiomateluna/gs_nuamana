@@ -93,14 +93,14 @@ export default function DashCicloHistorial({ perfil }: DashCicloHistorialProps) 
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <button 
             onClick={() => setCicloSeleccionado(null)}
-            className="flex items-center gap-2 text-[0.8em] font-bold uppercase tracking-widest text-pclr4 hover:scale-105 transition-all"
+            className="flex items-center gap-2 text-[0.8em] font-bold uppercase tracking-widest text-pclr4 dark:text-pdclr4 hover:scale-105 transition-all"
           >
             ❮ Volver al Historial
           </button>
           {canDelete && (
             <button
               onClick={(e) => handleEliminarCiclo(e, cicloSeleccionado)}
-              className="px-5 py-2.5 bg-pclr10 hover:bg-pclr10 text-pclr4 hover:text-pclr12 dark:bg-pdclr10 dark:text-pdclr4 dark:hover:bg-dclr4 rounded-xl transition-all shadow-sm text-[0.8em] font-bold uppercase tracking-wider flex items-center gap-1.5"
+              className="px-5 py-2.5 bg-pclr10 hover:bg-pclr10 text-pclr4 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4 hover:text-pclr12 dark:bg-pdclr10 dark:text-pdclr4 dark:hover:bg-dclr4 rounded-xl transition-all shadow-sm text-[0.8em] font-bold uppercase tracking-wider flex items-center gap-1.5"
             >
               🗑️ Eliminar este Ciclo
             </button>
@@ -121,7 +121,7 @@ export default function DashCicloHistorial({ perfil }: DashCicloHistorialProps) 
   return (
     <div className="max-w-6xl mx-auto space-y-8 py-6">
       <div className="text-center space-y-2">
-        <span className="text-[0.8em] font-bold uppercase tracking-[0.3em] text-pclr4">Memoria Institucional</span>
+        <span className="text-[0.8em] font-bold uppercase tracking-[0.3em] text-pclr4 dark:text-pdclr4">Memoria Institucional</span>
         <h2 className="text-3xl md:text-5xl font-black font-display uppercase tracking-tighter leading-none text-pclr4 dark:text-pdclr4">
           Historial de Ciclos
         </h2>
@@ -150,7 +150,7 @@ export default function DashCicloHistorial({ perfil }: DashCicloHistorialProps) 
                   <span className="text-[0.8em] font-medium uppercase opacity-40 tracking-widest">
                     {c.unidades?.nombre} • {c.fecha_inicio ? format(new Date(c.fecha_inicio), 'MMMM yyyy', { locale: es }) : 'Sin fecha'}
                   </span>
-                  <h3 className="text-xl font-bold uppercase text-pclr4 dark:text-pdclr4 leading-tight group-hover:text-pclr4 transition-colors">
+                  <h3 className="text-xl font-bold uppercase text-pclr4 dark:text-pdclr4 leading-tight group-hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 transition-colors">
                     {c.nombre}
                   </h3>
                 </div>
@@ -166,7 +166,7 @@ export default function DashCicloHistorial({ perfil }: DashCicloHistorialProps) 
                   {canDelete && (
                     <button
                       onClick={(e) => handleEliminarCiclo(e, c)}
-                      className="px-3 py-1.5 bg-pclr10 hover:bg-pclr10 text-pclr4 hover:text-pclr12 dark:bg-pdclr10 dark:text-pdclr4 dark:hover:bg-dclr4 rounded-lg transition-all text-[0.8em] font-bold"
+                      className="px-3 py-1.5 bg-pclr10 hover:bg-pclr10 text-pclr4 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4 hover:text-pclr12 dark:bg-pdclr10 dark:text-pdclr4 dark:hover:bg-dclr4 rounded-lg transition-all text-[0.8em] font-bold"
                       title="Eliminar ciclo del historial"
                     >
                       🗑️ Borrar

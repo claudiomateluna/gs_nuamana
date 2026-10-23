@@ -40,11 +40,11 @@ export default function DashRendiciones({ rendiciones, isAdmin, onNueva, onVer, 
               <div className="grid grid-cols-2 gap-2 text-[0.8em] border-t border-pclr13 dark:border-pdclr13 pt-4">
                 <div>
                   <p className="opacity-40 font-bold uppercase">Total Gastado</p>
-                  <p className="font-black text-lg text-pclr4">${r.total_rendicion.toLocaleString('es-CL')}</p>
+                  <p className="font-black text-lg text-pclr4 dark:text-pdclr4">${r.total_rendicion.toLocaleString('es-CL')}</p>
                 </div>
                 <div className="text-right">
                   <p className="opacity-40 font-bold uppercase">Saldo</p>
-                  <p className={`font-black text-lg ${r.saldo_final >= 0 ? 'text-pclr6' : 'text-pclr4'}`}>
+                  <p className={`font-black text-lg ${r.saldo_final >= 0 ? 'text-pclr6' : 'text-pclr4 dark:text-pdclr4'}`}>
                     ${r.saldo_final.toLocaleString('es-CL')}
                   </p>
                 </div>

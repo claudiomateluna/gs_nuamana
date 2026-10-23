@@ -239,7 +239,7 @@ export default function DashModPerfil({
   const canManage = isAdminUser || isDirOrGui
 
   return (
-    <div className="fixed inset-0 bg-pclr2 backdrop-blur-sm z-[100] flex items-center justify-center p-4 animate-in fade-in duration-300">
+    <div className="fixed inset-0 bg-pclr2 dark:bg-pdclr2 backdrop-blur-sm z-[100] flex items-center justify-center p-4 animate-in fade-in duration-300">
       <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-5xl rounded-[1rem] p-4 shadow-2xl overflow-y-auto max-h-[90vh]">
         <h2 className="text-2xl font-bold font-display uppercase text-pclr6 mb-8 border-b pb-1">
           {editingPupilo ? `Ficha de Socio: ${editingPupilo.nombres}` : 'Actualizar Mis Datos'}
@@ -333,13 +333,13 @@ export default function DashModPerfil({
 
             {/* 2. FICHA MEDICA BASE */}
             <div className="space-y-4">
-              <h3 className="text-[0.9em] font-black uppercase text-pclr4 tracking-widest border-b border-dclr4 pb-2">Ficha Médica</h3>
+              <h3 className="text-[0.9em] font-black uppercase text-pclr4 dark:text-pdclr4 tracking-widest border-b border-dclr4 pb-2">Ficha Médica</h3>
               <div className="grid grid-cols-2 gap-2">
                 <div className="space-y-1"><label className="text-[0.9em] uppercase opacity-40 font-black">Salud</label><select value={editData.sistema_salud || ''} onChange={(e) => setEditData({...editData, sistema_salud: e.target.value})} className="w-full p-3 rounded-xl border bg-pclr3 dark:bg-pdclr3 text-[0.9em]"><option value="Fonasa">Fonasa</option><option value="Isapre">Isapre</option><option value="Otro">Otro</option></select></div>
                 <div className="space-y-1"><label className="text-[0.9em] uppercase opacity-40 font-black">Sangre</label><select value={editData.tipo_sangre || ''} onChange={(e) => setEditData({...editData, tipo_sangre: e.target.value})} className="w-full p-3 rounded-xl border bg-pclr3 dark:bg-pdclr3 text-[0.9em]"><option value="">S/I</option>{TIPOS_SANGRE.map(t => <option key={t} value={t}>{t}</option>)}</select></div>
               </div>
               <div className="space-y-1"><label className="text-[0.9em] uppercase opacity-40 font-black">Detalle Previsión</label><input type="text" value={editData.detalle_sistema_salud || ''} onChange={(e) => setEditData({...editData, detalle_sistema_salud: e.target.value})} className="w-full p-3 rounded-xl border bg-pclr3 dark:bg-pdclr3 text-[0.9em]" /></div>
-              <div className="space-y-1"><label className="text-[0.9em] uppercase opacity-80 font-black text-pclr4">Alergias</label><textarea value={editData.alergias || ''} onChange={(e) => setEditData({...editData, alergias: e.target.value})} className="w-full p-3 rounded-xl border bg-pclr3 dark:bg-pdclr3 text-[0.9em] h-20 font-bold text-pclr4" /></div>
+              <div className="space-y-1"><label className="text-[0.9em] uppercase opacity-80 font-black text-pclr4 dark:text-pdclr4">Alergias</label><textarea value={editData.alergias || ''} onChange={(e) => setEditData({...editData, alergias: e.target.value})} className="w-full p-3 rounded-xl border bg-pclr3 dark:bg-pdclr3 text-[0.9em] h-20 font-bold text-pclr4 dark:text-pdclr4" /></div>
               <div className="space-y-1"><label className="text-[0.9em] uppercase opacity-40 font-black">Medicamentos</label><textarea value={editData.medicamentos || ''} onChange={(e) => setEditData({...editData, medicamentos: e.target.value})} className="w-full p-3 rounded-xl border bg-pclr3 dark:bg-pdclr3 text-[0.9em] h-20" /></div>
               <div className="space-y-1"><label className="text-[0.9em] uppercase opacity-40 font-black">Antecedentes</label><textarea value={editData.antecedentes_medicos || ''} onChange={(e) => setEditData({...editData, antecedentes_medicos: e.target.value})} className="w-full p-3 rounded-xl border bg-pclr3 dark:bg-pdclr3 text-[0.9em] h-20" /></div>
               <div className="space-y-1"><label className="text-[0.9em] uppercase opacity-40 font-black">Tratamientos</label><textarea value={editData.tratamientos_medicos || ''} onChange={(e) => setEditData({...editData, tratamientos_medicos: e.target.value})} className="w-full p-3 rounded-xl border bg-pclr3 dark:bg-pdclr3 text-[0.9em] h-20" /></div>
@@ -350,7 +350,7 @@ export default function DashModPerfil({
               <div className="space-y-1"><label className="text-[0.9em] uppercase opacity-40 font-black">Dietas</label>
                 <div className="grid grid-cols-2 gap-1 p-3 bg-pclr3 dark:bg-pdclr3 rounded-xl border border-dclr4 overflow-y-auto max-h-32">
                   {DIETAS.map(d => (
-                    <label key={d} className="flex items-center gap-2 cursor-pointer font-bold"><input type="checkbox" checked={Array.isArray(editData.dieta_alimentaria) && editData.dieta_alimentaria.includes(d)} onChange={() => toggleDieta(d)} className="w-3 h-3 rounded text-pclr4" /><span className="text-[0.8em] uppercase">{d}</span></label>
+                    <label key={d} className="flex items-center gap-2 cursor-pointer font-bold"><input type="checkbox" checked={Array.isArray(editData.dieta_alimentaria) && editData.dieta_alimentaria.includes(d)} onChange={() => toggleDieta(d)} className="w-3 h-3 rounded text-pclr4 dark:text-pdclr4" /><span className="text-[0.8em] uppercase">{d}</span></label>
                   ))}
                 </div>
               </div>
@@ -389,7 +389,7 @@ export default function DashModPerfil({
                               key={a.id}
                               type="button"
                               onClick={() => handleSelectApoderado(a)}
-                              className="w-full text-left p-3 hover:bg-pclr3 dark:hover:bg-pdclr3 border-b border-pclr13 last:border-0 transition-colors"
+                              className="w-full text-left p-3 hover:bg-pclr3 dark:hover:bg-pdclr3 dark:bg-pdclr3 dark:hover:bg-pdclr3 border-b border-pclr13 dark:border-pdclr13 last:border-0 transition-colors"
                             >
                               <p className="text-[0.85em] font-bold uppercase">{a.nombres} {a.apellidos}</p>
                               <p className="text-[0.8em] opacity-50 font-black tracking-widest">RUT: {a.rut}</p>
@@ -398,7 +398,7 @@ export default function DashModPerfil({
                         ) : (
                           <div className="p-4 text-center">
                             <p className="text-[0.8em] italic opacity-40 mb-2">No se encontraron rastros...</p>
-                            <Link href="/registro" target="_blank" className="text-[0.8em] font-black uppercase text-pclr4 hover:underline">Crear Perfil de Apoderado →</Link>
+                            <Link href="/registro" target="_blank" className="text-[0.8em] font-black uppercase text-pclr4 dark:text-pdclr4 hover:underline">Crear Perfil de Apoderado →</Link>
                           </div>
                         )}
                       </div>
@@ -409,7 +409,7 @@ export default function DashModPerfil({
                       <button 
                         type="button"
                         onClick={() => { setEditData({...editData, apoderado_id: null}); setSearchTerm(''); }}
-                        className="absolute right-3 top-3 text-pclr7 hover:text-pclr4"
+                        className="absolute right-3 top-3 text-pclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4"
                       >
                         ✕
                       </button>
@@ -434,7 +434,7 @@ export default function DashModPerfil({
                 <div className="space-y-3 max-h-56 overflow-y-auto pr-2 custom-scrollbar">
                   {editContactos.map((c, i) => (
                     <div key={i} className="p-4 bg-pclr3 dark:bg-pdclr3 rounded-xl border border-pclr13 dark:border-pdclr13 relative">
-                      <button type="button" onClick={() => removeEditContacto(i)} className="absolute top-2 right-2 w-6 h-6 bg-pclr10 text-pclr12 rounded-full flex items-center justify-center text-[12px] shadow-lg">×</button>
+                      <button type="button" onClick={() => removeEditContacto(i)} className="absolute top-2 right-2 w-6 h-6 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 rounded-full flex items-center justify-center text-[12px] shadow-lg">×</button>
                       <input placeholder="Nombre" value={c.nombre || ''} onChange={(e) => updateEditContacto(i, 'nombre', e.target.value)} className="w-full bg-transparent text-[0.9em] font-bold mb-2 border-b border-pclr13 dark:border-pdclr13" />
                       <div className="grid grid-cols-2 gap-2">
                         <input placeholder="Relación" value={c.relacion || ''} onChange={(e) => updateEditContacto(i, 'relacion', e.target.value)} className="w-full bg-transparent text-[0.9em] border-b border-pclr13 dark:border-pdclr13" />
@@ -446,16 +446,16 @@ export default function DashModPerfil({
               </div>
 
               <div className="p-5 bg-pclr3 dark:bg-pdclr3 rounded-2xl space-y-4 mt-4 border-2 border-pclr13 dark:border-pdclr13">
-                <label className="flex items-center gap-4 cursor-pointer"><input type="checkbox" checked={!!editData.autoriza_fotos} onChange={(e) => setEditData({...editData, autoriza_fotos: e.target.checked})} className="w-5 h-5 rounded-lg text-pclr4" /><span className="text-[0.9em] font-bold">Autorizo Imagen/Voz</span></label>
-                <label className="flex items-center gap-4 cursor-pointer"><input type="checkbox" checked={!!editData.fe_publica} onChange={(e) => setEditData({...editData, fe_publica: e.target.checked})} className="w-5 h-5 rounded-lg text-pclr4" /><span className="text-[0.9em] font-bold">Fe Pública de Datos</span></label>
+                <label className="flex items-center gap-4 cursor-pointer"><input type="checkbox" checked={!!editData.autoriza_fotos} onChange={(e) => setEditData({...editData, autoriza_fotos: e.target.checked})} className="w-5 h-5 rounded-lg text-pclr4 dark:text-pdclr4" /><span className="text-[0.9em] font-bold">Autorizo Imagen/Voz</span></label>
+                <label className="flex items-center gap-4 cursor-pointer"><input type="checkbox" checked={!!editData.fe_publica} onChange={(e) => setEditData({...editData, fe_publica: e.target.checked})} className="w-5 h-5 rounded-lg text-pclr4 dark:text-pdclr4" /><span className="text-[0.9em] font-bold">Fe Pública de Datos</span></label>
               </div>
             </div>
           </div>
           <div className="flex gap-4 pt-8 border-t-2 mt-6">
-            <button type="submit" disabled={saving} className="flex-1 py-5 bg-pclr10 text-pclr12 font-black uppercase rounded-2xl shadow-2xl tracking-widest text-[0.9em] hover:scale-[1.02] transition-all disabled:opacity-50">
+            <button type="submit" disabled={saving} className="flex-1 py-5 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 font-black uppercase rounded-2xl shadow-2xl tracking-widest text-[0.9em] hover:scale-[1.02] transition-all disabled:opacity-50">
               {saving ? '⌛ Guardando...' : '💾 Guardar Ficha Permanente'}
             </button>
-            <button type="button" onClick={onClose} className="px-12 py-5 bg-pclr3 text-pclr7 font-black uppercase rounded-2xl tracking-widest text-[0.9em]">Cancelar</button>
+            <button type="button" onClick={onClose} className="px-12 py-5 bg-pclr3 dark:bg-pdclr3 text-pclr7 font-black uppercase rounded-2xl tracking-widest text-[0.9em]">Cancelar</button>
           </div>
         </form>
       </div>

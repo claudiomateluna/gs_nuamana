@@ -165,21 +165,21 @@ export const CampamentoRecetasModal: React.FC<Props> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 overflow-y-auto">
-      <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl w-full max-w-5xl shadow-2xl max-h-[92vh] flex flex-col overflow-hidden text-[1em]">
+      <div className="bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 rounded-2xl w-full max-w-5xl shadow-2xl max-h-[92vh] flex flex-col overflow-hidden text-[1em]">
         
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800/40">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-pclr13 dark:border-pdclr13 bg-pclr2 dark:bg-pdclr2">
           <div>
-            <h2 className="text-[1.2em] font-semibold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
+            <h2 className="text-[1.2em] font-semibold text-pclr4 dark:text-pdclr4 flex items-center gap-2">
               <span>📖</span> Catálogo de Fichas de Comida y Recetas
             </h2>
-            <p className="text-[0.85em] text-zinc-500 dark:text-zinc-400">
+            <p className="text-[0.85em] text-pclr7 dark:text-pdclr7">
               Define los ingredientes con sus cantidades de rendimiento para la base de comensales.
             </p>
           </div>
           <button
             onClick={onClose}
-            className="text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 p-2 text-[1.2em]"
+            className="text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4 p-2 text-[1.2em]"
             aria-label="Cerrar modal"
           >
             ✕
@@ -191,15 +191,15 @@ export const CampamentoRecetasModal: React.FC<Props> = ({
           {recetaEditando ? (
             /* Formulario de Edición de Ficha */
             <form onSubmit={guardarReceta} className="space-y-6">
-              <div className="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-3">
-                <h3 className="text-[1.1em] font-semibold text-zinc-900 dark:text-zinc-100">
+              <div className="flex items-center justify-between border-b border-pclr13 dark:border-pdclr13 pb-3">
+                <h3 className="text-[1.1em] font-semibold text-pclr4 dark:text-pdclr4">
                   {recetaEditando.id.includes('custom') ? '✨ Nueva Ficha de Preparación' : `✏️ Editar: ${recetaEditando.nombre}`}
                 </h3>
                 <div className="flex gap-2">
                   <button
                     type="button"
                     onClick={() => setRecetaEditando(null)}
-                    className="px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition"
+                    className="px-4 py-2 border border-pclr13 dark:border-pdclr13 rounded-lg text-pclr4 dark:text-pdclr4 hover:bg-pclr3 dark:hover:bg-pdclr3 transition"
                   >
                     Volver a la lista
                   </button>
@@ -215,7 +215,7 @@ export const CampamentoRecetasModal: React.FC<Props> = ({
               {/* Datos generales */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="md:col-span-2">
-                  <label className="block text-[0.9em] font-medium text-zinc-700 dark:text-zinc-300 mb-1">
+                  <label className="block text-[0.9em] font-medium text-pclr4 dark:text-pdclr4 mb-1">
                     Nombre del Plato / Preparación
                   </label>
                   <input
@@ -224,18 +224,18 @@ export const CampamentoRecetasModal: React.FC<Props> = ({
                     value={recetaEditando.nombre}
                     onChange={e => setRecetaEditando({ ...recetaEditando, nombre: e.target.value })}
                     placeholder="Ej: Charquicán Campesino, Tomaticán, etc."
-                    className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 text-[1em]"
+                    className="w-full px-3 py-2 border border-pclr13 dark:border-pdclr13 rounded-lg bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4 text-[1em]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[0.9em] font-medium text-zinc-700 dark:text-zinc-300 mb-1">
+                  <label className="block text-[0.9em] font-medium text-pclr4 dark:text-pdclr4 mb-1">
                     Tiempo de Comida Base
                   </label>
                   <select
                     value={recetaEditando.tipo_comida}
                     onChange={e => setRecetaEditando({ ...recetaEditando, tipo_comida: e.target.value as TiempoComidaTipo })}
-                    className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 text-[1em]"
+                    className="w-full px-3 py-2 border border-pclr13 dark:border-pdclr13 rounded-lg bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4 text-[1em]"
                   >
                     {TIEMPOS_COMIDA.map(t => (
                       <option key={t.id} value={t.id}>{t.label}</option>
@@ -244,7 +244,7 @@ export const CampamentoRecetasModal: React.FC<Props> = ({
                 </div>
 
                 <div className="md:col-span-2">
-                  <label className="block text-[0.9em] font-medium text-zinc-700 dark:text-zinc-300 mb-1">
+                  <label className="block text-[0.9em] font-medium text-pclr4 dark:text-pdclr4 mb-1">
                     Base de Comensales (Rendimiento estándar)
                   </label>
                   <div className="flex items-center gap-2">
@@ -254,23 +254,23 @@ export const CampamentoRecetasModal: React.FC<Props> = ({
                       max={200}
                       value={recetaEditando.porciones_base}
                       onChange={e => setRecetaEditando({ ...recetaEditando, porciones_base: Number(e.target.value) || 10 })}
-                      className="w-full max-w-[150px] px-3 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 text-[1em]"
+                      className="w-full max-w-[150px] px-3 py-2 border border-pclr13 dark:border-pdclr13 rounded-lg bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4 text-[1em]"
                     />
-                    <span className="text-zinc-500 text-[0.9em] whitespace-nowrap">personas</span>
+                    <span className="text-pclr7 dark:text-pdclr7 text-[0.9em] whitespace-nowrap">personas</span>
                   </div>
                 </div>
 
                 {/* Selección Múltiple de Clasificaciones */}
                 <div className="md:col-span-3 pt-2">
                   <div className="flex items-center justify-between mb-1">
-                    <label className="text-[0.9em] font-medium text-zinc-700 dark:text-zinc-300">
+                    <label className="text-[0.9em] font-medium text-pclr4 dark:text-pdclr4">
                       Clasificación del Alimento (puedes seleccionar más de una opción) *
                     </label>
-                    <span className="text-[0.8em] text-zinc-500">
+                    <span className="text-[0.8em] text-pclr7 dark:text-pdclr7">
                       {obtenerCategoriasReceta(recetaEditando).length} seleccionadas
                     </span>
                   </div>
-                  <p className="text-[0.8em] text-zinc-500 mb-2">
+                  <p className="text-[0.8em] text-pclr7 dark:text-pdclr7 mb-2">
                     Determina en cuáles slots del menú se podrá buscar y elegir esta receta (ej: una preparación puede ser Plato Principal y Agregado a la vez).
                   </p>
                   <div className="flex flex-wrap gap-1.5">
@@ -284,7 +284,7 @@ export const CampamentoRecetasModal: React.FC<Props> = ({
                           className={`px-3 py-1.5 rounded-lg text-[0.85em] font-medium transition border ${
                             seleccionada
                               ? 'bg-[#cb3327] text-white border-[#b02920] shadow-xs'
-                              : 'bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border-zinc-300 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-700'
+                              : 'bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4 border-pclr13 dark:border-pdclr13 hover:bg-pclr3 dark:hover:bg-pdclr3'
                           }`}
                         >
                           {seleccionada ? '✓ ' : '+ '}{cat}
@@ -295,30 +295,30 @@ export const CampamentoRecetasModal: React.FC<Props> = ({
                 </div>
 
                 <div className="md:col-span-2 flex items-center gap-6 pt-5">
-                  <label className="flex items-center gap-2 cursor-pointer text-zinc-700 dark:text-zinc-300">
+                  <label className="flex items-center gap-2 cursor-pointer text-pclr4 dark:text-pdclr4">
                     <input
                       type="checkbox"
                       checked={recetaEditando.es_vegetariano || false}
                       onChange={e => setRecetaEditando({ ...recetaEditando, es_vegetariano: e.target.checked })}
-                      className="rounded border-zinc-400 text-[#cb3327] focus:ring-[#cb3327]"
+                      className="rounded border-pclr13 dark:border-pdclr13 text-[#cb3327] focus:ring-[#cb3327]"
                     />
                     <span>🌱 Apto Vegetariano</span>
                   </label>
-                  <label className="flex items-center gap-2 cursor-pointer text-zinc-700 dark:text-zinc-300">
+                  <label className="flex items-center gap-2 cursor-pointer text-pclr4 dark:text-pdclr4">
                     <input
                       type="checkbox"
                       checked={recetaEditando.es_sin_lactosa || false}
                       onChange={e => setRecetaEditando({ ...recetaEditando, es_sin_lactosa: e.target.checked })}
-                      className="rounded border-zinc-400 text-[#cb3327] focus:ring-[#cb3327]"
+                      className="rounded border-pclr13 dark:border-pdclr13 text-[#cb3327] focus:ring-[#cb3327]"
                     />
                     <span>🥛 Sin Lactosa</span>
                   </label>
-                  <label className="flex items-center gap-2 cursor-pointer text-zinc-700 dark:text-zinc-300">
+                  <label className="flex items-center gap-2 cursor-pointer text-pclr4 dark:text-pdclr4">
                     <input
                       type="checkbox"
                       checked={recetaEditando.es_sin_gluten || false}
                       onChange={e => setRecetaEditando({ ...recetaEditando, es_sin_gluten: e.target.checked })}
-                      className="rounded border-zinc-400 text-[#cb3327] focus:ring-[#cb3327]"
+                      className="rounded border-pclr13 dark:border-pdclr13 text-[#cb3327] focus:ring-[#cb3327]"
                     />
                     <span>🌾 Sin Gluten</span>
                   </label>
@@ -326,20 +326,20 @@ export const CampamentoRecetasModal: React.FC<Props> = ({
               </div>
 
               {/* Desglose de Ingredientes con Formato de Contenedor y Rendimiento Oficial */}
-              <div className="border border-zinc-200 dark:border-zinc-800 rounded-xl p-4 bg-zinc-50/50 dark:bg-zinc-800/30">
+              <div className="border border-pclr13 dark:border-pdclr13 rounded-xl p-4 bg-pclr2 dark:bg-pdclr2/50 dark:bg-pdclr3/30">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
                   <div>
-                    <h4 className="font-semibold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
+                    <h4 className="font-semibold text-pclr4 dark:text-pdclr4 flex items-center gap-2">
                       <span>🥗</span> Ingredientes para base de {recetaEditando.porciones_base} personas
                     </h4>
-                    <p className="text-[0.8em] text-zinc-500">
+                    <p className="text-[0.8em] text-pclr7 dark:text-pdclr7">
                       Indica la cantidad neta de la receta, el contenedor comercial (ej: Malla 1kg, Cajón 18kg), para cuántas personas alcanza y el valor referencial de internet.
                     </p>
                   </div>
                   <button
                     type="button"
                     onClick={agregarIngredienteFila}
-                    className="px-3 py-1.5 bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-700 dark:hover:bg-zinc-600 text-zinc-800 dark:text-zinc-100 rounded-lg text-[0.9em] font-medium transition whitespace-nowrap self-start sm:self-auto"
+                    className="px-3 py-1.5 bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4 hover:bg-pclr3/80 rounded-lg text-[0.9em] font-medium transition whitespace-nowrap self-start sm:self-auto"
                   >
                     + Agregar Ingrediente
                   </button>
@@ -354,29 +354,29 @@ export const CampamentoRecetasModal: React.FC<Props> = ({
                     return (
                       <div
                         key={ing.id || idx}
-                        className="bg-white dark:bg-zinc-900 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 space-y-2 shadow-xs"
+                        className="bg-pclr1 dark:bg-pdclr1 p-3 rounded-xl border border-pclr13 dark:border-pdclr13 space-y-2 shadow-xs"
                       >
                         <div className="grid grid-cols-12 gap-2 items-center">
                           {/* 1. Nombre Ingrediente */}
                           <div className="col-span-12 sm:col-span-4">
-                            <label className="block text-[0.8em] font-semibold text-zinc-600 dark:text-zinc-400 mb-0.5">Ingrediente</label>
+                            <label className="block text-[0.8em] font-semibold text-pclr7 dark:text-pdclr7 mb-0.5">Ingrediente</label>
                             <input
                               type="text"
                               required
                               value={ing.ingrediente_nombre}
                               onChange={e => actualizarIngrediente(idx, 'ingrediente_nombre', e.target.value)}
                               placeholder="Ej: Zanahoria, Arroz, Papas"
-                              className="w-full px-2.5 py-1.5 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-[0.9em]"
+                              className="w-full px-2.5 py-1.5 border border-pclr13 dark:border-pdclr13 rounded-lg bg-pclr3 dark:bg-pdclr3 text-[0.9em]"
                             />
                           </div>
 
                           {/* 2. Categoría */}
                           <div className="col-span-6 sm:col-span-3">
-                            <label className="block text-[0.8em] font-semibold text-zinc-600 dark:text-zinc-400 mb-0.5">Categoría</label>
+                            <label className="block text-[0.8em] font-semibold text-pclr7 dark:text-pdclr7 mb-0.5">Categoría</label>
                             <select
                               value={ing.categoria}
                               onChange={e => actualizarIngrediente(idx, 'categoria', e.target.value)}
-                              className="w-full px-2 py-1.5 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-[0.9em]"
+                              className="w-full px-2 py-1.5 border border-pclr13 dark:border-pdclr13 rounded-lg bg-pclr3 dark:bg-pdclr3 text-[0.9em]"
                             >
                               {CATEGORIAS_INSUMO.map(c => (
                                 <option key={c} value={c}>{c}</option>
@@ -386,7 +386,7 @@ export const CampamentoRecetasModal: React.FC<Props> = ({
 
                           {/* 3. Cantidad neta en la receta */}
                           <div className="col-span-3 sm:col-span-2">
-                            <label className="block text-[0.8em] font-semibold text-zinc-600 dark:text-zinc-400 mb-0.5">Cantidad</label>
+                            <label className="block text-[0.8em] font-semibold text-pclr7 dark:text-pdclr7 mb-0.5">Cantidad</label>
                             <input
                               type="number"
                               step="0.05"
@@ -394,17 +394,17 @@ export const CampamentoRecetasModal: React.FC<Props> = ({
                               required
                               value={ing.cantidad_base}
                               onChange={e => actualizarIngrediente(idx, 'cantidad_base', parseFloat(e.target.value) || 0)}
-                              className="w-full px-2 py-1.5 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-[0.9em]"
+                              className="w-full px-2 py-1.5 border border-pclr13 dark:border-pdclr13 rounded-lg bg-pclr3 dark:bg-pdclr3 text-[0.9em]"
                             />
                           </div>
 
                           {/* 4. Unidad de Medida */}
                           <div className="col-span-3 sm:col-span-2">
-                            <label className="block text-[0.8em] font-semibold text-zinc-600 dark:text-zinc-400 mb-0.5">Unidad</label>
+                            <label className="block text-[0.8em] font-semibold text-pclr7 dark:text-pdclr7 mb-0.5">Unidad</label>
                             <select
                               value={ing.unidad_medida}
                               onChange={e => actualizarIngrediente(idx, 'unidad_medida', e.target.value)}
-                              className="w-full px-2 py-1.5 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-[0.9em]"
+                              className="w-full px-2 py-1.5 border border-pclr13 dark:border-pdclr13 rounded-lg bg-pclr3 dark:bg-pdclr3 text-[0.9em]"
                             >
                               <option value="unidad">unidad(es)</option>
                               <option value="kg">kg</option>
@@ -430,34 +430,34 @@ export const CampamentoRecetasModal: React.FC<Props> = ({
                         </div>
 
                         {/* Fila secundaria: Contenedor comercial, Rendimiento comensales y Valor Ref */}
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-2 border-t border-zinc-100 dark:border-zinc-800/60 bg-zinc-50/50 dark:bg-zinc-800/20 p-2 rounded-lg text-[0.9em]">
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-2 border-t border-pclr13 dark:border-pdclr13 bg-pclr2 dark:bg-pdclr2 p-2 rounded-lg text-[0.9em]">
                           <div>
-                            <span className="text-[0.8em] text-zinc-500 font-semibold block">Contenedor de... (Formato de compra)</span>
+                            <span className="text-[0.8em] text-pclr7 dark:text-pdclr7 font-semibold block">Contenedor de... (Formato de compra)</span>
                             <input
                               type="text"
                               value={ing.contenedor_formato || ''}
                               onChange={e => actualizarIngrediente(idx, 'contenedor_formato', e.target.value)}
                               placeholder="Ej: Malla 1kg / Cajón 18kg"
-                              className="w-full px-2 py-1 border border-zinc-300 dark:border-zinc-700 rounded bg-white dark:bg-zinc-800 text-[0.9em]"
+                              className="w-full px-2 py-1 border border-pclr13 dark:border-pdclr13 rounded bg-pclr3 dark:bg-pdclr3 text-[0.9em]"
                             />
                           </div>
 
                           <div>
-                            <span className="text-[0.8em] text-zinc-500 font-semibold block">Alcanza para... (Personas)</span>
+                            <span className="text-[0.8em] text-pclr7 dark:text-pdclr7 font-semibold block">Alcanza para... (Personas)</span>
                             <input
                               type="number"
                               min="1"
                               value={ing.rendimiento_personas_por_contenedor || ''}
                               onChange={e => actualizarIngrediente(idx, 'rendimiento_personas_por_contenedor', Number(e.target.value) || undefined)}
                               placeholder="Ej: 10 personas"
-                              className="w-full px-2 py-1 border border-zinc-300 dark:border-zinc-700 rounded bg-white dark:bg-zinc-800 text-[0.9em]"
+                              className="w-full px-2 py-1 border border-pclr13 dark:border-pdclr13 rounded bg-pclr3 dark:bg-pdclr3 text-[0.9em]"
                             />
                           </div>
 
                           <div>
-                            <span className="text-[0.8em] text-zinc-500 font-semibold block">Valor Ref. ($ CLP internet)</span>
+                            <span className="text-[0.8em] text-pclr7 dark:text-pdclr7 font-semibold block">Valor Ref. ($ CLP internet)</span>
                             <div className="flex items-center gap-1.5">
-                              <span className="text-zinc-400 font-bold">$</span>
+                              <span className="text-pclr7 dark:text-pdclr7 font-bold">$</span>
                               <input
                                 type="number"
                                 min="0"
@@ -467,7 +467,7 @@ export const CampamentoRecetasModal: React.FC<Props> = ({
                                   actualizarIngrediente(idx, 'valor_referencia_contenedor', val)
                                   actualizarIngrediente(idx, 'precio_referencia_unitario', val)
                                 }}
-                                className="w-full px-2 py-1 border border-zinc-300 dark:border-zinc-700 rounded bg-white dark:bg-zinc-800 text-[0.9em] font-bold text-emerald-600"
+                                className="w-full px-2 py-1 border border-pclr13 dark:border-pdclr13 rounded bg-pclr3 dark:bg-pdclr3 text-[0.9em] font-bold text-emerald-600"
                               />
                             </div>
                           </div>
@@ -480,7 +480,7 @@ export const CampamentoRecetasModal: React.FC<Props> = ({
 
               {/* Instrucciones */}
               <div>
-                <label className="block text-[0.9em] font-medium text-zinc-700 dark:text-zinc-300 mb-1">
+                <label className="block text-[0.9em] font-medium text-pclr4 dark:text-pdclr4 mb-1">
                   Instrucciones o Recomendaciones de Cocina para la Unidad de Turno
                 </label>
                 <textarea
@@ -488,7 +488,7 @@ export const CampamentoRecetasModal: React.FC<Props> = ({
                   value={recetaEditando.instrucciones || ''}
                   onChange={e => setRecetaEditando({ ...recetaEditando, instrucciones: e.target.value })}
                   placeholder="Detalla cómo cocer, sofreír o servir la preparación en el campamento..."
-                  className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 text-[0.9em]"
+                  className="w-full px-3 py-2 border border-pclr13 dark:border-pdclr13 rounded-lg bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4 text-[0.9em]"
                 />
               </div>
             </form>
@@ -497,13 +497,13 @@ export const CampamentoRecetasModal: React.FC<Props> = ({
             <div className="space-y-4">
               <div className="flex flex-col sm:flex-row gap-3 items-center justify-between">
                 <div className="flex gap-2 flex-wrap items-center">
-                  <span className="text-[0.9em] font-medium text-zinc-500">Filtrar por:</span>
+                  <span className="text-[0.9em] font-medium text-pclr7 dark:text-pdclr7">Filtrar por:</span>
                   <button
                     onClick={() => setFiltroTiempo('todos')}
                     className={`px-3 py-1 rounded-full text-[0.8em] transition ${
                       filtroTiempo === 'todos'
                         ? 'bg-[#cb3327] text-white font-medium'
-                        : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400'
+                        : 'bg-pclr3 dark:bg-pdclr3 text-pclr7 dark:text-pdclr7'
                     }`}
                   >
                     Todos ({recetas.length})
@@ -515,7 +515,7 @@ export const CampamentoRecetasModal: React.FC<Props> = ({
                       className={`px-3 py-1 rounded-full text-[0.8em] transition ${
                         filtroTiempo === t.id
                           ? 'bg-[#cb3327] text-white font-medium'
-                          : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400'
+                          : 'bg-pclr3 dark:bg-pdclr3 text-pclr7 dark:text-pdclr7'
                       }`}
                     >
                       {t.label}
@@ -529,7 +529,7 @@ export const CampamentoRecetasModal: React.FC<Props> = ({
                     value={busqueda}
                     onChange={e => setBusqueda(e.target.value)}
                     placeholder="Buscar plato o ingrediente..."
-                    className="px-3 py-1.5 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-[0.9em] w-full sm:w-60"
+                    className="px-3 py-1.5 border border-pclr13 dark:border-pdclr13 rounded-lg bg-pclr3 dark:bg-pdclr3 text-[0.9em] w-full sm:w-60"
                   />
                   <button
                     onClick={iniciarNuevaReceta}
@@ -541,15 +541,15 @@ export const CampamentoRecetasModal: React.FC<Props> = ({
               </div>
 
               {/* Filtro por Categorías Literales */}
-              <div className="flex gap-1.5 flex-wrap items-center pt-2 border-t border-zinc-100 dark:border-zinc-800">
-                <span className="text-[0.8em] font-medium text-zinc-500">Categoría:</span>
+              <div className="flex gap-1.5 flex-wrap items-center pt-2 border-t border-pclr13 dark:border-pdclr13">
+                <span className="text-[0.8em] font-medium text-pclr7 dark:text-pdclr7">Categoría:</span>
                 <button
                   type="button"
                   onClick={() => setFiltroCategoria('todas')}
                   className={`px-2.5 py-0.5 rounded-md text-[0.8em] transition ${
                     filtroCategoria === 'todas'
-                      ? 'bg-zinc-800 text-white dark:bg-zinc-100 dark:text-zinc-900 font-medium shadow-xs'
-                      : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200'
+                      ? 'bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 font-medium shadow-xs'
+                      : 'bg-pclr3 dark:bg-pdclr3 text-pclr7 dark:text-pdclr7 hover:bg-pclr3 dark:hover:bg-pdclr3'
                   }`}
                 >
                   Todas
@@ -561,8 +561,8 @@ export const CampamentoRecetasModal: React.FC<Props> = ({
                     onClick={() => setFiltroCategoria(cat)}
                     className={`px-2.5 py-0.5 rounded-md text-[0.8em] transition ${
                       filtroCategoria === cat
-                        ? 'bg-zinc-800 text-white dark:bg-zinc-100 dark:text-zinc-900 font-medium shadow-xs'
-                        : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200'
+                        ? 'bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 font-medium shadow-xs'
+                        : 'bg-pclr3 dark:bg-pdclr3 text-pclr7 dark:text-pdclr7 hover:bg-pclr3 dark:hover:bg-pdclr3'
                     }`}
                   >
                     {cat}
@@ -575,7 +575,7 @@ export const CampamentoRecetasModal: React.FC<Props> = ({
                 {recetasFiltradas.map(rec => (
                   <div
                     key={rec.id}
-                    className="border border-zinc-200 dark:border-zinc-800 rounded-xl p-4 bg-white dark:bg-zinc-900 hover:border-zinc-400 dark:hover:border-zinc-600 transition flex flex-col justify-between"
+                    className="border border-pclr13 dark:border-pdclr13 rounded-xl p-4 bg-pclr1 dark:bg-pdclr1 hover:border-pclr8 dark:hover:border-pdclr8 transition flex flex-col justify-between"
                   >
                     <div>
                       <div className="flex items-start justify-between gap-2">
@@ -587,20 +587,20 @@ export const CampamentoRecetasModal: React.FC<Props> = ({
                             {obtenerCategoriasReceta(rec).map(cat => (
                               <span
                                 key={cat}
-                                className="px-1.5 py-0.2 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 text-[0.8em] font-medium border border-zinc-200 dark:border-zinc-700"
+                                className="px-1.5 py-0.2 rounded bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4 text-[0.8em] font-medium border border-pclr13 dark:border-pdclr13"
                               >
                                 {cat}
                               </span>
                             ))}
                           </div>
-                          <h4 className="font-semibold text-zinc-900 dark:text-zinc-100 text-[1.05em] mt-0.5">
+                          <h4 className="font-semibold text-pclr4 dark:text-pdclr4 text-[1.05em] mt-0.5">
                             {rec.nombre}
                           </h4>
                         </div>
                         <div className="flex gap-1">
                           <button
                             onClick={() => setRecetaEditando(rec)}
-                            className="p-1.5 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded text-zinc-600 dark:text-zinc-300 text-[0.9em]"
+                            className="p-1.5 hover:bg-pclr3 dark:hover:bg-pdclr3 rounded text-pclr7 dark:text-pdclr7 text-[0.9em]"
                             title="Editar preparación"
                           >
                             ✏️ Editar
@@ -612,7 +612,7 @@ export const CampamentoRecetasModal: React.FC<Props> = ({
                                   onDeleteReceta(rec.id)
                                 }
                               }}
-                              className="p-1.5 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded text-red-500 text-[0.9em]"
+                              className="p-1.5 hover:bg-pclr3 dark:hover:bg-pdclr3 rounded text-red-500 text-[0.9em]"
                               title="Eliminar preparación"
                             >
                               🗑️
@@ -622,7 +622,7 @@ export const CampamentoRecetasModal: React.FC<Props> = ({
                       </div>
 
                       <div className="flex gap-2 mt-2">
-                        <span className="px-2 py-0.5 bg-zinc-100 dark:bg-zinc-800 rounded text-[0.8em] text-zinc-600 dark:text-zinc-400">
+                        <span className="px-2 py-0.5 bg-pclr3 dark:bg-pdclr3 rounded text-[0.8em] text-pclr7 dark:text-pdclr7">
                           Base: {rec.porciones_base} personas
                         </span>
                         {rec.es_vegetariano && (
@@ -638,15 +638,15 @@ export const CampamentoRecetasModal: React.FC<Props> = ({
                       </div>
 
                       {/* Lista resumida de ingredientes */}
-                      <div className="mt-3 pt-3 border-t border-zinc-100 dark:border-zinc-800">
-                        <p className="text-[0.8em] font-medium text-zinc-500 mb-1">
+                      <div className="mt-3 pt-3 border-t border-pclr13 dark:border-pdclr13">
+                        <p className="text-[0.8em] font-medium text-pclr7 dark:text-pdclr7 mb-1">
                           Ingredientes ({rec.ingredientes.length}):
                         </p>
                         <div className="flex flex-wrap gap-1.5">
                           {rec.ingredientes.map(i => (
                             <span
                               key={i.id}
-                              className="px-2 py-0.5 bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700/60 rounded text-[0.8em] text-zinc-700 dark:text-zinc-300"
+                              className="px-2 py-0.5 bg-pclr2 dark:bg-pdclr2 border border-pclr13 dark:border-pdclr13 rounded text-[0.8em] text-pclr4 dark:text-pdclr4"
                             >
                               {i.ingrediente_nombre} ({i.cantidad_base} {i.unidad_medida})
                             </span>
@@ -655,7 +655,7 @@ export const CampamentoRecetasModal: React.FC<Props> = ({
                       </div>
 
                       {rec.instrucciones && (
-                        <p className="mt-2 text-[0.8em] text-zinc-500 italic line-clamp-2">
+                        <p className="mt-2 text-[0.8em] text-pclr7 dark:text-pdclr7 italic line-clamp-2">
                           "{rec.instrucciones}"
                         </p>
                       )}
@@ -668,10 +668,10 @@ export const CampamentoRecetasModal: React.FC<Props> = ({
         </div>
 
         {/* Footer */}
-        <div className="px-6 py-3 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800/40 flex justify-end">
+        <div className="px-6 py-3 border-t border-pclr13 dark:border-pdclr13 bg-pclr2 dark:bg-pdclr2 flex justify-end">
           <button
             onClick={onClose}
-            className="px-5 py-2 bg-zinc-200 dark:bg-zinc-700 hover:bg-zinc-300 dark:hover:bg-zinc-600 text-zinc-800 dark:text-zinc-200 font-medium rounded-lg transition"
+            className="px-5 py-2 bg-pclr3 dark:bg-pdclr3 hover:bg-pclr3 dark:hover:bg-pdclr3 text-pclr4 dark:text-pdclr4 font-medium rounded-lg transition"
           >
             Cerrar
           </button>

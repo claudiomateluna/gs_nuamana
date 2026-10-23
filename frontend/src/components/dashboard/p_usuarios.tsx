@@ -105,7 +105,7 @@ export default function DashUsuarios({ userPerfil, usuarios = [], onEdit, onVer,
               <div className="mb-2 relative z-10">
                 <span className={`px-2 py-0.5 rounded-full text-[0.7em] font-bold uppercase ${
                   u.estado === 'activo' ? 'bg-pclr6 text-pclr12 dark:bg-pdclr6 dark:text-pdclr12' :
-                  u.estado === 'inactivo' ? 'bg-pclr10 text-pclr4' :
+                  u.estado === 'inactivo' ? 'bg-pclr10 text-pclr4 dark:text-pdclr4' :
                   'bg-pclr5 text-pclr12 dark:bg-pdclr5 dark:text-pdclr12'
                 }`}>{u.estado}</span>
               </div>
@@ -150,7 +150,7 @@ export default function DashUsuarios({ userPerfil, usuarios = [], onEdit, onVer,
               <div className={`grid ${isAdmin(userPerfil) ? 'grid-cols-3' : 'grid-cols-2'} gap-3 relative z-10`}>
                 <button 
                   onClick={() => onVer(u)}
-                  className="p-2 bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4 rounded-2xl text-[0.8em] font-black uppercase tracking-widest transition-all hover:bg-pclr3 dark:hover:bg-pclr1 text-center"
+                  className="p-2 bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4 rounded-2xl text-[0.8em] font-black uppercase tracking-widest transition-all hover:bg-pclr3 dark:hover:bg-pdclr3 dark:bg-pdclr3 dark:hover:bg-pclr1 dark:bg-pdclr1 text-center"
                 >
                   🔎 Ver
                 </button>

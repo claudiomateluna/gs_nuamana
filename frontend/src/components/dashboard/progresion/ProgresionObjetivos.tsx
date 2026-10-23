@@ -294,7 +294,7 @@ const ProgresionObjetivos = React.memo(function ProgresionObjetivos({
                                 onClick={() => {
                                   handleLeaderEvalValue(obj.id, valDirigente || 0)
                                 }}
-                                className="px-3 py-1.5 bg-pclr3 dark:bg-pdclr1 hover:bg-pclr3 dark:hover:bg-pdclr1 text-pclr4 dark:text-pdclr4 rounded-lg text-[0.9em] font-bold uppercase transition-all"
+                                className="px-3 py-1.5 bg-pclr3 dark:bg-pdclr1 hover:bg-pclr3 dark:hover:bg-pdclr3 dark:bg-pdclr3 dark:hover:bg-pdclr1 text-pclr4 dark:text-pdclr4 rounded-lg text-[0.9em] font-bold uppercase transition-all"
                                 style={{ backgroundColor: themePrimary, borderColor: themePrimary, color: themeSecondary }}
                               >
                                 {valDirigente !== undefined && valDirigente !== null ? '✏️ Nota Dirigente' : '✅ Evaluar'}
@@ -304,7 +304,7 @@ const ProgresionObjetivos = React.memo(function ProgresionObjetivos({
                                 onClick={() => handleLeaderValidateDefault(obj.id, dataAvance?.estado || 'en_proceso')}
                                 className={`px-3 py-1.5 rounded-lg text-[0.8em] font-bold uppercase transition-all border ${
                                   isLogrado
-                                    ? 'bg-pclr10 hover:bg-pclr10 text-pclr4 border-pclr14 dark:bg-pdclr10 dark:text-pdclr4'
+                                    ? 'bg-pclr10 hover:bg-pclr10 text-pclr4 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4 border-pclr14 dark:bg-pdclr10 dark:text-pdclr4'
                                     : 'bg-pclr6 hover:brightness-110 text-pclr12 border-pclr6'
                                 }`}
                                 style={{ backgroundColor: themePrimary, borderColor: themePrimary, color: themeSecondary }}

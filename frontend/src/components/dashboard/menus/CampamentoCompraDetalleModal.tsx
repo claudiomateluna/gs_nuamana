@@ -72,21 +72,21 @@ export const CampamentoCompraDetalleModal: React.FC<Props> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 overflow-y-auto text-[1em]">
-      <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl w-full max-w-xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
+      <div className="bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 rounded-2xl w-full max-w-xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800/40">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-pclr13 dark:border-pdclr13 bg-pclr2 dark:bg-pdclr2">
           <div>
-            <h3 className="text-[1.2em] font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
+            <h3 className="text-[1.2em] font-bold text-pclr4 dark:text-pdclr4 flex items-center gap-2">
               <span>🛒</span> Detalle de Compra y Proveedor
             </h3>
-            <p className="text-[0.85em] text-zinc-500 line-clamp-1">
+            <p className="text-[0.85em] text-pclr7 dark:text-pdclr7 line-clamp-1">
               {item.ingrediente_nombre} • {item.categoria}
             </p>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 text-[1.2em] p-1"
+            className="text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:hover:text-pdclr4 text-[1.2em] p-1"
           >
             ✕
           </button>
@@ -96,7 +96,7 @@ export const CampamentoCompraDetalleModal: React.FC<Props> = ({
         <form onSubmit={handleGuardar} className="p-6 overflow-y-auto space-y-5 flex-1">
           {/* Selector de Modalidad: Presencial vs Online */}
           <div className="space-y-1.5">
-            <label className="text-[0.9em] font-semibold text-zinc-700 dark:text-zinc-300 block">
+            <label className="text-[0.9em] font-semibold text-pclr4 dark:text-pdclr4 block">
               Modalidad de Adquisición
             </label>
             <div className="grid grid-cols-2 gap-3">
@@ -106,7 +106,7 @@ export const CampamentoCompraDetalleModal: React.FC<Props> = ({
                 className={`p-3 rounded-xl border text-left transition flex items-center gap-3 ${
                   modalidad === 'presencial'
                     ? 'border-[#cb3327] bg-rose-50/50 dark:bg-rose-950/20 text-[#cb3327] dark:text-rose-300 shadow-2xs'
-                    : 'border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50'
+                    : 'border-pclr13 dark:border-pdclr13 bg-pclr3 dark:bg-pdclr3 text-pclr7 dark:text-pdclr7 hover:bg-pclr2 dark:bg-pdclr2'
                 }`}
               >
                 <span className="text-[1.4em]">🏪</span>
@@ -122,7 +122,7 @@ export const CampamentoCompraDetalleModal: React.FC<Props> = ({
                 className={`p-3 rounded-xl border text-left transition flex items-center gap-3 ${
                   modalidad === 'online'
                     ? 'border-blue-500 bg-blue-50/50 dark:bg-blue-950/20 text-blue-700 dark:text-blue-300 shadow-2xs'
-                    : 'border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50'
+                    : 'border-pclr13 dark:border-pdclr13 bg-pclr3 dark:bg-pdclr3 text-pclr7 dark:text-pdclr7 hover:bg-pclr2 dark:bg-pdclr2'
                 }`}
               >
                 <span className="text-[1.4em]">🌐</span>
@@ -137,7 +137,7 @@ export const CampamentoCompraDetalleModal: React.FC<Props> = ({
           {/* Campo URL del Producto / Cotización */}
           <div className="space-y-1.5">
             <div className="flex items-center justify-between">
-              <label className="text-[0.9em] font-semibold text-zinc-700 dark:text-zinc-300">
+              <label className="text-[0.9em] font-semibold text-pclr4 dark:text-pdclr4">
                 URL del Producto o Precio de Referencia
               </label>
               {url && esUrlValida(url) && (
@@ -163,20 +163,20 @@ export const CampamentoCompraDetalleModal: React.FC<Props> = ({
                   }
                 }}
                 placeholder="https://www.lider.cl/... o https://acuenta.cl/..."
-                className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 text-[0.9em] focus:border-[#cb3327] focus:ring-1 focus:ring-[#cb3327] outline-hidden"
+                className="w-full px-3 py-2 border border-pclr13 dark:border-pdclr13 rounded-lg bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4 text-[0.9em] focus:border-pclr8 dark:focus:border-pdclr8 focus:ring-1 focus:ring-[#cb3327] outline-hidden"
               />
               {url && (
                 <button
                   type="button"
                   onClick={() => setUrl('')}
-                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 text-[0.85em]"
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:hover:text-pdclr4 text-[0.85em]"
                   title="Limpiar URL"
                 >
                   ✕
                 </button>
               )}
             </div>
-            <p className="text-[0.8em] text-zinc-500">
+            <p className="text-[0.8em] text-pclr7 dark:text-pdclr7">
               Guarda el enlace directo a la tienda online donde se comprará este producto o como respaldo documental de la cotización.
             </p>
           </div>
@@ -184,13 +184,13 @@ export const CampamentoCompraDetalleModal: React.FC<Props> = ({
           {/* Proveedor y Precio en 2 columnas */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <label className="text-[0.9em] font-semibold text-zinc-700 dark:text-zinc-300 block">
+              <label className="text-[0.9em] font-semibold text-pclr4 dark:text-pdclr4 block">
                 Proveedor / Tienda Asignada
               </label>
               <select
                 value={proveedor}
                 onChange={e => setProveedor(e.target.value)}
-                className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 text-[0.9em] focus:border-[#cb3327] outline-hidden"
+                className="w-full px-3 py-2 border border-pclr13 dark:border-pdclr13 rounded-lg bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4 text-[0.9em] focus:border-pclr8 dark:focus:border-pdclr8 outline-hidden"
               >
                 {proveedoresDisponibles.map(p => (
                   <option key={p} value={p}>
@@ -206,49 +206,49 @@ export const CampamentoCompraDetalleModal: React.FC<Props> = ({
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-[0.9em] font-semibold text-zinc-700 dark:text-zinc-300 block">
+              <label className="text-[0.9em] font-semibold text-pclr4 dark:text-pdclr4 block">
                 Precio Unitario por Envase ($ CLP)
               </label>
               <div className="relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[0.9em] text-zinc-400 font-bold">$</span>
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[0.9em] text-pclr7 dark:text-pdclr7 font-bold">$</span>
                 <input
                   type="number"
                   min={0}
                   step={50}
                   value={precio}
                   onChange={e => setPrecio(Math.max(0, parseInt(e.target.value, 10) || 0))}
-                  className="w-full pl-7 pr-3 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 text-[0.9em] font-bold focus:border-[#cb3327] outline-hidden"
+                  className="w-full pl-7 pr-3 py-2 border border-pclr13 dark:border-pdclr13 rounded-lg bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4 text-[0.9em] font-bold focus:border-pclr8 dark:focus:border-pdclr8 outline-hidden"
                 />
               </div>
             </div>
           </div>
 
           {/* Resumen del cálculo para este insumo */}
-          <div className="bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700 rounded-xl p-3.5 space-y-2">
-            <h4 className="text-[0.85em] font-bold text-zinc-700 dark:text-zinc-300 uppercase tracking-wide">
+          <div className="bg-pclr2 dark:bg-pdclr2 border border-pclr13 dark:border-pdclr13 rounded-xl p-3.5 space-y-2">
+            <h4 className="text-[0.85em] font-bold text-pclr4 dark:text-pdclr4 uppercase tracking-wide">
               Cálculo de Demanda y Costo Total
             </h4>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[0.85em]">
               <div>
-                <span className="text-zinc-500 block">Requerimiento</span>
-                <span className="font-semibold text-zinc-900 dark:text-zinc-100">
+                <span className="text-pclr7 dark:text-pdclr7 block">Requerimiento</span>
+                <span className="font-semibold text-pclr4 dark:text-pdclr4">
                   {item.cantidad_requerida_neta} {item.unidad_medida}
                 </span>
               </div>
               <div>
-                <span className="text-zinc-500 block">Formato Envase</span>
-                <span className="font-semibold text-zinc-900 dark:text-zinc-100 line-clamp-1">
+                <span className="text-pclr7 dark:text-pdclr7 block">Formato Envase</span>
+                <span className="font-semibold text-pclr4 dark:text-pdclr4 line-clamp-1">
                   {item.formato_envase}
                 </span>
               </div>
               <div>
-                <span className="text-zinc-500 block">A Comprar</span>
-                <span className="font-semibold text-zinc-900 dark:text-zinc-100">
+                <span className="text-pclr7 dark:text-pdclr7 block">A Comprar</span>
+                <span className="font-semibold text-pclr4 dark:text-pdclr4">
                   {item.envases_a_comprar} {item.envases_a_comprar === 1 ? 'envase' : 'envases'}
                 </span>
               </div>
               <div>
-                <span className="text-zinc-500 block">Total Estimado</span>
+                <span className="text-pclr7 dark:text-pdclr7 block">Total Estimado</span>
                 <span className="font-bold text-[#cb3327]">
                   ${(item.envases_a_comprar * precio).toLocaleString('es-CL')}
                 </span>
@@ -257,8 +257,8 @@ export const CampamentoCompraDetalleModal: React.FC<Props> = ({
 
             {/* Comidas donde se usará */}
             {item.detalles_uso && item.detalles_uso.length > 0 && (
-              <div className="pt-2 border-t border-zinc-200 dark:border-zinc-700/60 text-[0.8em] text-zinc-500 space-y-0.5">
-                <span className="font-medium text-zinc-600 dark:text-zinc-400 block">
+              <div className="pt-2 border-t border-pclr13 dark:border-pdclr13 text-[0.8em] text-pclr7 dark:text-pdclr7 space-y-0.5">
+                <span className="font-medium text-pclr7 dark:text-pdclr7 block">
                   Uso en el cronograma:
                 </span>
                 {item.detalles_uso.map((u, i) => (
@@ -269,11 +269,11 @@ export const CampamentoCompraDetalleModal: React.FC<Props> = ({
           </div>
 
           {/* Footer */}
-          <div className="flex items-center justify-end gap-3 pt-3 border-t border-zinc-200 dark:border-zinc-800">
+          <div className="flex items-center justify-end gap-3 pt-3 border-t border-pclr13 dark:border-pdclr13">
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition text-[0.9em]"
+              className="px-4 py-2 border border-pclr13 dark:border-pdclr13 rounded-lg text-pclr4 dark:text-pdclr4 hover:bg-pclr3 dark:hover:bg-pdclr3 transition text-[0.9em]"
             >
               Cancelar
             </button>

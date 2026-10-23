@@ -55,13 +55,13 @@ export default function DashModRecaudacionCrear({ isOpen, onClose, onSuccess, pe
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-pclr2 backdrop-blur-sm z-[110] flex items-center justify-center p-2 md:p-4 animate-in fade-in duration-300">
+    <div className="fixed inset-0 bg-pclr2 dark:bg-pdclr2 backdrop-blur-sm z-[110] flex items-center justify-center p-2 md:p-4 animate-in fade-in duration-300">
       <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-lg rounded-[2.5rem] p-6 md:p-10 shadow-2xl border-4 border-pclr13 dark:border-pdclr13 overflow-y-auto max-h-[95vh]">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl font-black font-display uppercase text-pclr6 tracking-tighter">
             Crear Nueva Recaudación
           </h2>
-          <button onClick={onClose} className="text-pclr7 hover:text-pclr4 dark:text-pdclr7 dark:hover:text-pclr12 font-bold text-[1.2em]">✕</button>
+          <button onClick={onClose} className="text-pclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr7 dark:hover:text-pclr12 font-bold text-[1.2em]">✕</button>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6 text-[1em]">
@@ -123,7 +123,7 @@ export default function DashModRecaudacionCrear({ isOpen, onClose, onSuccess, pe
             <button
               type="button"
               onClick={onClose}
-              className="px-6 py-3 border-2 border-pclr13 text-pclr7 rounded-xl text-[0.85em] font-bold uppercase hover:bg-pclr3 dark:hover:bg-pdclr3 transition-all"
+              className="px-6 py-3 border-2 border-pclr13 dark:border-pdclr13 text-pclr7 rounded-xl text-[0.85em] font-bold uppercase hover:bg-pclr3 dark:hover:bg-pdclr3 dark:bg-pdclr3 dark:hover:bg-pdclr3 transition-all"
             >
               Cancelar
             </button>

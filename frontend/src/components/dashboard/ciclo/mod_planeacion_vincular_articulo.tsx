@@ -143,7 +143,7 @@ export default function DashModVincularArticulo({ isOpen, onClose, propuestaId, 
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-pclr2 backdrop-blur-md z-[130] flex items-center justify-center p-2 animate-in fade-in duration-300">
+    <div className="fixed inset-0 bg-pclr2 dark:bg-pdclr2 backdrop-blur-md z-[130] flex items-center justify-center p-2 animate-in fade-in duration-300">
       <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-4xl rounded-[1rem] p-2 md:p-2 shadow-2xl overflow-y-auto max-h-[90vh]">
         <div className="flex justify-between items-start mb-8 border-b dark:border-pdclr13 pb-4">
           <div>
@@ -165,7 +165,7 @@ export default function DashModVincularArticulo({ isOpen, onClose, propuestaId, 
             <a 
               href="/blog/crear" 
               target="_blank"
-              className="px-6 py-2 bg-pclr10 text-pclr12 text-xs font-black uppercase rounded-xl hover:bg-pclr10 transition-all shadow-md tracking-widest"
+              className="px-6 py-2 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 text-xs font-black uppercase rounded-xl hover:bg-pclr10 transition-all shadow-md tracking-widest"
             >
               ✍️ Redactar Nueva Ficha
             </a>

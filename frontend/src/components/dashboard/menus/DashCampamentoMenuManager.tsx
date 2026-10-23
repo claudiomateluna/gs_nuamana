@@ -481,7 +481,7 @@ export const DashCampamentoMenuManager: React.FC<Props> = ({
   return (
     <div className="space-y-6 text-[1em]">
       {/* Barra superior de Campamento y Acciones */}
-      <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-2 shadow-sm space-y-4">
+      <div className="bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 rounded-2xl p-2 shadow-sm space-y-4">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-1">
             <div className="flex items-center gap-3">
@@ -490,11 +490,11 @@ export const DashCampamentoMenuManager: React.FC<Props> = ({
                 type="text"
                 value={menu.nombre}
                 onChange={e => handleUpdateConfig({ nombre: e.target.value })}
-                className="text-[1.25em] font-bold text-zinc-900 dark:text-zinc-100 bg-transparent border-b border-transparent hover:border-zinc-300 focus:border-[#cb3327] outline-hidden px-1"
+                className="text-[1.25em] font-bold text-pclr4 dark:text-pdclr4 bg-transparent border-b border-transparent hover:border-pclr13 dark:hover:border-pdclr13 focus:border-pclr8 dark:focus:border-pdclr8 outline-hidden px-1"
                 placeholder="Nombre del Menú..."
               />
             </div>
-            <p className="text-[0.85em] text-zinc-500">
+            <p className="text-[0.85em] text-pclr7 dark:text-pdclr7">
               {menu.numero_personas} comensales • {menu.dias_totales} días de campamento • Panadería y mayoristas chilenos
             </p>
           </div>
@@ -510,13 +510,13 @@ export const DashCampamentoMenuManager: React.FC<Props> = ({
             <div className="flex gap-1.5">
               <button
                 onClick={() => cargarPreset(4, 'Callejones (4 Días)')}
-                className="px-3 py-1.5 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 hover:bg-zinc-100 text-zinc-700 dark:text-zinc-300 text-[0.85em] font-medium transition"
+                className="px-3 py-1.5 rounded-lg border border-pclr13 dark:border-pdclr13 bg-pclr2 dark:bg-pdclr2 hover:bg-pclr3 dark:hover:bg-pdclr3 text-pclr4 dark:text-pdclr4 text-[0.85em] font-medium transition"
               >
                 🏕️ Preset 4 Días
               </button>
               <button
                 onClick={() => cargarPreset(9, 'Coñaripe (9 Días)')}
-                className="px-3 py-1.5 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 hover:bg-zinc-100 text-zinc-700 dark:text-zinc-300 text-[0.85em] font-medium transition"
+                className="px-3 py-1.5 rounded-lg border border-pclr13 dark:border-pdclr13 bg-pclr2 dark:bg-pdclr2 hover:bg-pclr3 dark:hover:bg-pdclr3 text-pclr4 dark:text-pdclr4 text-[0.85em] font-medium transition"
               >
                 🏔️ Preset 9 Días
               </button>
@@ -526,8 +526,8 @@ export const DashCampamentoMenuManager: React.FC<Props> = ({
 
         {/* Asociación con Actividad Oficial si existe */}
         {actividades.length > 0 && (
-          <div className="flex items-center gap-2 pt-2 border-t border-zinc-100 dark:border-zinc-800 text-[0.9em]">
-            <span className="text-zinc-500 font-medium">Vincular a Campamento Oficial:</span>
+          <div className="flex items-center gap-2 pt-2 border-t border-pclr13 dark:border-pdclr13 text-[0.9em]">
+            <span className="text-pclr7 dark:text-pdclr7 font-medium">Vincular a Campamento Oficial:</span>
             <select
               value={menu.actividad_id || ''}
               onChange={e => {
@@ -537,7 +537,7 @@ export const DashCampamentoMenuManager: React.FC<Props> = ({
                   actividad_nombre: act?.nombre || undefined
                 })
               }}
-              className="px-2.5 py-1 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100"
+              className="px-2.5 py-1 border border-pclr13 dark:border-pdclr13 rounded-lg bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4"
             >
               <option value="">(Ninguno / Menú independiente)</option>
               {actividades.map(act => (
@@ -550,13 +550,13 @@ export const DashCampamentoMenuManager: React.FC<Props> = ({
         )}
 
         {/* Pestañas de Navegación del Módulo */}
-        <div className="flex border-b border-zinc-200 dark:border-zinc-800 pt-2 gap-2">
+        <div className="flex border-b border-pclr13 dark:border-pdclr13 pt-2 gap-2">
           <button
             onClick={() => setActiveTab('cronograma')}
             className={`pb-1 px-2 font-semibold text-[1em] border-b-2 transition flex items-center gap-2 ${
               activeTab === 'cronograma'
                 ? 'border-[#cb3327] text-[#cb3327]'
-                : 'border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200'
+                : 'border-transparent text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:text-pdclr4 dark:hover:text-pdclr4'
             }`}
           >
             Cronograma
@@ -566,7 +566,7 @@ export const DashCampamentoMenuManager: React.FC<Props> = ({
             className={`pb-1 px-2 font-semibold text-[1em] border-b-2 transition flex items-center gap-2 ${
               activeTab === 'compras'
                 ? 'border-[#cb3327] text-[#cb3327]'
-                : 'border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200'
+                : 'border-transparent text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:text-pdclr4 dark:hover:text-pdclr4'
             }`}
           >
             Compras ({calculoResultado.itemsConsolidados.length})
@@ -576,7 +576,7 @@ export const DashCampamentoMenuManager: React.FC<Props> = ({
             className={`pb-1 px-2 font-semibold text-[1em] border-b-2 transition flex items-center gap-2 ${
               activeTab === 'presupuesto'
                 ? 'border-[#cb3327] text-[#cb3327]'
-                : 'border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200'
+                : 'border-transparent text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:text-pdclr4 dark:hover:text-pdclr4'
             }`}
           >
             Presupuesto

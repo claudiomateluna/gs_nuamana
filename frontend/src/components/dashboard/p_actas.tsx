@@ -46,7 +46,7 @@ export default function DashActas({ actas, perfil, onNuevaActa, onEditActa, onSi
 
       <div className="grid gap-2">
         {actas.map(a => (
-          <div key={a.id} className="p-2 bg-pclr3 dark:bg-pdclr3 rounded-3xl flex flex-col md:flex-row justify-between items-center hover:bg-pclr3 dark:hover:bg-pdclr1 transition-all group border border-transparent hover:border-pclr6">
+          <div key={a.id} className="p-2 bg-pclr3 dark:bg-pdclr3 rounded-3xl flex flex-col md:flex-row justify-between items-center hover:bg-pclr3 dark:hover:bg-pdclr3 dark:bg-pdclr3 dark:hover:bg-pdclr1 transition-all group border border-transparent hover:border-pclr6">
             <div className="flex items-center gap-6 w-full">
               <div className="w-16 h-16 rounded-2xl bg-pclr6 flex flex-col items-center justify-center shrink-0">
                 <span className="text-[0.8em] font-bold uppercase opacity-40">{new Date(a.fecha).toLocaleString('es', { month: 'short' })}</span>
@@ -86,7 +86,7 @@ export default function DashActas({ actas, perfil, onNuevaActa, onEditActa, onSi
                   {a.mi_firma && !a.mi_firma.firmado && (
                     <button 
                       onClick={() => onSign(a.id)} 
-                      className="px-4 py-2 bg-pclr10 text-pclr12 rounded-xl text-[0.8em] uppercase font-bold shadow-sm hover:brightness-110 animate-pulse"
+                      className="px-4 py-2 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 rounded-xl text-[0.8em] uppercase font-bold shadow-sm hover:brightness-110 animate-pulse"
                     >
                       ✍️ Firmar
                     </button>
@@ -98,7 +98,7 @@ export default function DashActas({ actas, perfil, onNuevaActa, onEditActa, onSi
                   )}
                   <button 
                     onClick={() => onVerActa(a)} 
-                    className="px-4 py-2 bg-pclr1 dark:bg-pdclr1 rounded-xl shadow-sm border text-[0.8em] uppercase font-bold tracking-widest hover:bg-pclr3 hover:text-pclr4 transition-all"
+                    className="px-4 py-2 bg-pclr1 dark:bg-pdclr1 rounded-xl shadow-sm border text-[0.8em] uppercase font-bold tracking-widest hover:bg-pclr3 dark:hover:bg-pdclr3 dark:bg-pdclr3 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 transition-all"
                   >
                     📂 Abrir
                   </button>

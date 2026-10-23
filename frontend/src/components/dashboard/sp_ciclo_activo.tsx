@@ -400,9 +400,9 @@ const DashCiclo = React.memo(function DashCiclo({ perfil, cicloIdOverride, readO
   if (error) return (
     <div className="p-10 bg-pclr10 border-2 border-pclr14 rounded-[2rem] text-center space-y-4">
       <span className="text-4xl">⚠️</span>
-      <h3 className="text-xl font-black text-pclr4 uppercase">Error al cargar el ciclo</h3>
-      <p className="text-pclr4 font-medium italic">{error}</p>
-      <button onClick={() => fetchCiclo()} className="px-6 py-3 bg-pclr10 text-pclr12 rounded-xl font-bold uppercase text-xs">Reintentar</button>
+      <h3 className="text-xl font-black text-pclr4 dark:text-pdclr4 uppercase">Error al cargar el ciclo</h3>
+      <p className="text-pclr4 dark:text-pdclr4 font-medium italic">{error}</p>
+      <button onClick={() => fetchCiclo()} className="px-6 py-3 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 rounded-xl font-bold uppercase text-xs">Reintentar</button>
     </div>
   )
 
@@ -428,14 +428,14 @@ const DashCiclo = React.memo(function DashCiclo({ perfil, cicloIdOverride, readO
             
             <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
               <div className="space-y-2">
-                <span className="px-4 py-1 bg-pclr1 backdrop-blur-md rounded-full text-[0.8em] font-black uppercase tracking-widest border border-pclr1">
+                <span className="px-4 py-1 bg-pclr1 dark:bg-pdclr1 backdrop-blur-md rounded-full text-[0.8em] font-black uppercase tracking-widest border border-pclr1">
                   {cicloActivo?.unidades?.nombre || perfil.unidades?.nombre} • Fase {cicloActivo.fase_actual}
                 </span>
                 <h2 className="text-4xl md:text-6xl font-black font-display uppercase tracking-tighter leading-none drop-shadow-lg">
                   {cicloActivo.nombre}
                 </h2>
                 {cicloActivo.enfasis && (
-                  <p className="text-lg font-body italic font-medium text-pclr12 max-w-2xl bg-pclr2 p-4 rounded-2xl border-l-4 border-pclr1">
+                  <p className="text-lg font-body italic font-medium text-pclr12 max-w-2xl bg-pclr2 dark:bg-pdclr2 p-4 rounded-2xl border-l-4 border-pclr1">
                     "{cicloActivo.enfasis}"
                   </p>
                 )}
@@ -445,14 +445,14 @@ const DashCiclo = React.memo(function DashCiclo({ perfil, cicloIdOverride, readO
                   {canDeleteCycle && (
                     <button 
                       onClick={eliminarCicloActivo}
-                      className="px-6 py-3 bg-pclr10 hover:bg-pclr10 text-pclr12 font-black uppercase rounded-xl shadow-xl hover:scale-105 transition-all text-[0.8em] tracking-widest"
+                      className="px-6 py-3 bg-pclr10 hover:bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 font-black uppercase rounded-xl shadow-xl hover:scale-105 transition-all text-[0.8em] tracking-widest"
                     >
                       🗑️ Eliminar Ciclo
                     </button>
                   )}
                   <button 
                     onClick={avanzarFase}
-                    className="px-6 py-3 bg-pclr1 text-pclr4 font-black uppercase rounded-xl shadow-xl hover:scale-105 transition-all text-[0.8em] tracking-widest"
+                    className="px-6 py-3 bg-pclr1 dark:bg-pdclr1 text-pclr4 dark:text-pdclr4 font-black uppercase rounded-xl shadow-xl hover:scale-105 transition-all text-[0.8em] tracking-widest"
                   >
                     ⏭️ Siguiente Fase
                   </button>
@@ -498,7 +498,7 @@ const DashCiclo = React.memo(function DashCiclo({ perfil, cicloIdOverride, readO
                     </div>
                   )}
                   {isVisualized && !isCurrent && !isPast && (
-                    <div className="absolute -top-3 px-3 py-1 bg-pclr3 text-pclr12 text-[8px] font-black rounded-full uppercase">
+                    <div className="absolute -top-3 px-3 py-1 bg-pclr3 dark:bg-pdclr3 text-pclr12 text-[8px] font-black rounded-full uppercase">
                       Viendo
                     </div>
                   )}
@@ -731,7 +731,7 @@ const DashCiclo = React.memo(function DashCiclo({ perfil, cicloIdOverride, readO
         />
       )}
             {cicloActivo && isModEvalActividadOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-pclr2 backdrop-blur-sm animate-in fade-in duration-200">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-pclr2 dark:bg-pdclr2 backdrop-blur-sm animate-in fade-in duration-200">
           <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-lg rounded-[2.5rem] shadow-2xl overflow-hidden border-2 border-pclr1 dark:border-pdclr1 animate-in zoom-in duration-300">
             <div className="p-4 space-y-6">
               <div className="text-center space-y-2">
@@ -762,7 +762,7 @@ const DashCiclo = React.memo(function DashCiclo({ perfil, cicloIdOverride, readO
                   type="button"
                   onClick={guardarEvaluacionActividad}
                   disabled={savingEvalActividad}
-                  className="flex-1 py-4 bg-pclr10 text-pclr12 font-black uppercase rounded-2xl tracking-widest text-[0.9em] shadow-lg hover:brightness-110 active:scale-95 transition-all"
+                  className="flex-1 py-4 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 font-black uppercase rounded-2xl tracking-widest text-[0.9em] shadow-lg hover:brightness-110 active:scale-95 transition-all"
                 >
                   {savingEvalActividad ? 'Guardando...' : 'Guardar'}
                 </button>
@@ -782,10 +782,10 @@ const DashCiclo = React.memo(function DashCiclo({ perfil, cicloIdOverride, readO
 
       {/* MODAL RADAR PROGRESIÓN */}
       {isModRadarOpen && selectedNNJ && (
-        <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-pclr2 backdrop-blur-md animate-in fade-in duration-300">
+        <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-pclr2 dark:bg-pdclr2 backdrop-blur-md animate-in fade-in duration-300">
           <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-2xl rounded-[3rem] shadow-2xl overflow-hidden border-4 border-pclr1 dark:border-pdclr1 animate-in zoom-in duration-300 flex flex-col">
             <div className="p-8 pb-4 space-y-2 border-b border-pclr13 dark:border-pdclr13 text-center">
-              <span className="text-[0.8em] font-black uppercase tracking-[0.2em] text-pclr4">Radar de Desarrollo 360º</span>
+              <span className="text-[0.8em] font-black uppercase tracking-[0.2em] text-pclr4 dark:text-pdclr4">Radar de Desarrollo 360º</span>
               <h3 className="text-2xl font-black uppercase text-pclr4 dark:text-pdclr4 leading-tight">
                 {selectedNNJ.nombres} {selectedNNJ.apellidos}
               </h3>
@@ -796,7 +796,7 @@ const DashCiclo = React.memo(function DashCiclo({ perfil, cicloIdOverride, readO
             <div className="p-8 pt-0 text-center">
               <button 
                 onClick={() => setIsModRadarOpen(false)}
-                className="px-8 py-4 bg-pclr2 text-pclr12 text-xs font-black uppercase rounded-2xl shadow-xl hover:scale-105 active:scale-95 transition-all tracking-widest"
+                className="px-8 py-4 bg-pclr2 dark:bg-pdclr2 text-pclr12 text-xs font-black uppercase rounded-2xl shadow-xl hover:scale-105 active:scale-95 transition-all tracking-widest"
               >
                 Cerrar Vista
               </button>

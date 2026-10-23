@@ -143,7 +143,7 @@ export default function DashUnidad({
               <div className="flex gap-2">
                 <button 
                   onClick={() => onVerFicha(m)}
-                  className="flex-1 py-3 bg-pclr1 dark:bg-pdclr1 text-pclr4 dark:text-pdclr4 font-bold uppercase text-[0.8em] rounded-xl shadow-sm border border-pclr13 dark:border-pdclr13 hover:bg-pclr3 dark:hover:bg-pdclr3 transition-all tracking-widest"
+                  className="flex-1 py-3 bg-pclr1 dark:bg-pdclr1 text-pclr4 dark:text-pdclr4 font-bold uppercase text-[0.8em] rounded-xl shadow-sm border border-pclr13 dark:border-pdclr13 hover:bg-pclr3 dark:hover:bg-pdclr3 dark:bg-pdclr3 dark:hover:bg-pdclr3 transition-all tracking-widest"
                 >
                   🔍 Ver Ficha
                 </button>

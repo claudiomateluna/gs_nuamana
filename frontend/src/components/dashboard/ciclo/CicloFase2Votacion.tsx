@@ -126,7 +126,7 @@ export default function CicloFase2Votacion({
         {canManage && cicloActivo.fase_actual === 2 && (
           <button 
             onClick={() => setIsModVincularJuegoOpen(true)}
-            className="px-6 py-3 bg-pclr2 text-pclr12 font-black uppercase rounded-2xl shadow-lg hover:brightness-125 transition-all text-xs tracking-widest flex items-center gap-2"
+            className="px-6 py-3 bg-pclr2 dark:bg-pdclr2 text-pclr12 font-black uppercase rounded-2xl shadow-lg hover:brightness-125 transition-all text-xs tracking-widest flex items-center gap-2"
           >
             <span>🎲</span>
             {cicloActivo.articulo_juego_id ? 'Cambiar Dinámica' : 'Vincular Dinámica'}
@@ -142,14 +142,14 @@ export default function CicloFase2Votacion({
             <div className="w-full md:w-32 h-32 bg-pclr10 dark:bg-pdclr10 rounded-2xl flex items-center justify-center text-4xl">🎲</div>
           )}
           <div className="flex-1 space-y-2 text-center md:text-left">
-            <span className="text-[0.8em] font-black uppercase text-pclr4 tracking-widest">Dinámica de Votación Usada</span>
+            <span className="text-[0.8em] font-black uppercase text-pclr4 dark:text-pdclr4 tracking-widest">Dinámica de Votación Usada</span>
             <h4 className="text-2xl font-bold uppercase text-pclr4 dark:text-pdclr4">{cicloActivo.articulo_juego.titulo}</h4>
             <p className="text-sm italic opacity-70 line-clamp-2">{cicloActivo.articulo_juego.extracto}</p>
           </div>
           <a 
             href={`/blog/actividades/juegos-democraticos/${cicloActivo.articulo_juego.slug}`}
             target="_blank"
-            className="px-6 py-3 bg-pclr10 text-pclr12 font-bold uppercase rounded-xl hover:bg-pclr10 transition-all text-xs shadow-md whitespace-nowrap"
+            className="px-6 py-3 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 font-bold uppercase rounded-xl hover:bg-pclr10 transition-all text-xs shadow-md whitespace-nowrap"
           >
             Reglas de la Dinámica
           </a>
@@ -238,7 +238,7 @@ export default function CicloFase2Votacion({
           </div>
         )}
         {cicloActivo.fase_actual > 2 && (
-           <div className="col-span-full py-4 text-center opacity-30 text-[0.8em] font-black uppercase tracking-widest border-t border-dashed border-pclr13 mt-4">
+           <div className="col-span-full py-4 text-center opacity-30 text-[0.8em] font-black uppercase tracking-widest border-t border-dashed border-pclr13 dark:border-pdclr13 mt-4">
              🔒 Modo Lectura (Votación Finalizada)
            </div>
         )}

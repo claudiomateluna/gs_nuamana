@@ -76,11 +76,11 @@ export default function DashModVincularPupilo({ isOpen, onClose, perfil, onSucce
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-pclr2 backdrop-blur-sm z-[110] flex items-center justify-center p-6 animate-in fade-in duration-300">
+    <div className="fixed inset-0 bg-pclr2 dark:bg-pdclr2 backdrop-blur-sm z-[110] flex items-center justify-center p-6 animate-in fade-in duration-300">
       <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-md rounded-[2rem] p-4 shadow-2xl">
         <div className="flex justify-between items-center mb-8 border-b pb-4">
-          <h2 className="text-2xl font-black font-display uppercase text-pclr4 tracking-tighter">Vincular Pupilo Existente</h2>
-          <button onClick={onClose} className="text-pclr7 hover:text-pclr4 transition-colors font-bold text-xl">✕</button>
+          <h2 className="text-2xl font-black font-display uppercase text-pclr4 dark:text-pdclr4 tracking-tighter">Vincular Pupilo Existente</h2>
+          <button onClick={onClose} className="text-pclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 transition-colors font-bold text-xl">✕</button>
         </div>
 
         <div className="space-y-6">
@@ -109,7 +109,7 @@ export default function DashModVincularPupilo({ isOpen, onClose, perfil, onSucce
                 <button 
                   onClick={() => handleVincular(r.id)}
                   disabled={vinculando !== null}
-                  className="px-4 py-2 bg-pclr10 text-pclr12 text-[1em] font-black uppercase rounded-xl shadow-lg hover:scale-110 active:scale-95 transition-all disabled:opacity-50"
+                  className="px-4 py-2 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 text-[1em] font-black uppercase rounded-xl shadow-lg hover:scale-110 active:scale-95 transition-all disabled:opacity-50"
                 >
                   {vinculando === r.id ? '⌛' : 'Vincular'}
                 </button>

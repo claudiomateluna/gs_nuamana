@@ -284,15 +284,15 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
   return (
     <div className="space-y-6 text-[1em]">
       {/* Selector de Día / Filtro y Acciones */}
-      <div className="flex flex-wrap items-center justify-between gap-3 bg-white dark:bg-zinc-900 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
+      <div className="flex flex-wrap items-center justify-between gap-3 bg-pclr1 dark:bg-pdclr1 p-4 rounded-xl border border-pclr13 dark:border-pdclr13 shadow-sm">
         <div className="flex items-center gap-2 flex-wrap">
-          <span className="font-semibold text-zinc-700 dark:text-zinc-300">Mostrar Día:</span>
+          <span className="font-semibold text-pclr4 dark:text-pdclr4">Mostrar Día:</span>
           <button
             onClick={() => setDiaSeleccionado('todos')}
             className={`px-3 py-1.5 rounded-lg text-[0.85em] font-medium transition ${
               diaSeleccionado === 'todos'
                 ? 'bg-[#cb3327] text-white shadow-sm'
-                : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200'
+                : 'bg-pclr3 dark:bg-pdclr3 text-pclr7 dark:text-pdclr7 hover:bg-pclr3 dark:hover:bg-pdclr3'
             }`}
           >
             Vista Completa ({diasTotales} Días)
@@ -304,7 +304,7 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
               className={`px-3 py-1.5 rounded-lg text-[0.85em] font-medium transition ${
                 diaSeleccionado === d
                   ? 'bg-[#cb3327] text-white shadow-sm'
-                  : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200'
+                  : 'bg-pclr3 dark:bg-pdclr3 text-pclr7 dark:text-pdclr7 hover:bg-pclr3 dark:hover:bg-pdclr3'
               }`}
             >
               Día {d}
@@ -321,7 +321,7 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
           </button>
           <button
             onClick={onOpenRecetasModal}
-            className="px-3.5 py-1.5 border border-zinc-300 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-medium rounded-lg text-[0.85em] transition flex items-center gap-1.5"
+            className="px-3.5 py-1.5 border border-pclr13 dark:border-pdclr13 hover:bg-pclr3 dark:hover:bg-pdclr3 text-pclr4 dark:text-pdclr4 font-medium rounded-lg text-[0.85em] transition flex items-center gap-1.5"
           >
             <span>📖</span> Recetas Atómicas ({recetas.length})
           </button>
@@ -330,12 +330,12 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
 
       {/* Barra de Desplazamiento Horizontal Superior Sincronizada */}
       {diaSeleccionado === 'todos' && diasArray.length > 1 && (
-        <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl p-2.5 shadow-xs flex items-center gap-3">
+        <div className="bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 rounded-xl p-2.5 shadow-xs flex items-center gap-3">
           <button
             type="button"
             onClick={() => scrollHorizontally('izq')}
             title="Desplazar a la izquierda"
-            className="p-1.5 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 transition text-[0.85em] flex items-center justify-center shrink-0"
+            className="p-1.5 rounded-lg border border-pclr13 dark:border-pdclr13 bg-pclr2 dark:bg-pdclr2 hover:bg-pclr3 dark:hover:bg-pdclr3 text-pclr4 dark:text-pdclr4 transition text-[0.85em] flex items-center justify-center shrink-0"
           >
             ◀
           </button>
@@ -343,7 +343,7 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
           <div
             ref={topScrollRef}
             onScroll={handleTopScroll}
-            className="flex-1 overflow-x-auto overflow-y-hidden py-1 scrollbar-thin scrollbar-thumb-zinc-400 dark:scrollbar-thumb-zinc-600"
+            className="flex-1 overflow-x-auto overflow-y-hidden py-1 scrollbar-thin scrollbar-thumb-pclr7 dark:scrollbar-thumb-pdclr7"
           >
             <div style={{ width: contentWidth > 0 ? `${contentWidth}px` : '100%', height: '1px' }} />
           </div>
@@ -352,7 +352,7 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
             type="button"
             onClick={() => scrollHorizontally('der')}
             title="Desplazar a la derecha"
-            className="p-1.5 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 transition text-[0.85em] flex items-center justify-center shrink-0"
+            className="p-1.5 rounded-lg border border-pclr13 dark:border-pdclr13 bg-pclr2 dark:bg-pdclr2 hover:bg-pclr3 dark:hover:bg-pdclr3 text-pclr4 dark:text-pdclr4 transition text-[0.85em] flex items-center justify-center shrink-0"
           >
             ▶
           </button>
@@ -363,7 +363,7 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
       <div
         ref={mainScrollRef}
         onScroll={handleMainScroll}
-        className="overflow-x-auto pb-4 pt-1 -mx-2 px-2 scrollbar-thin scrollbar-thumb-zinc-300 dark:scrollbar-thumb-zinc-700"
+        className="overflow-x-auto pb-4 pt-1 -mx-2 px-2 scrollbar-thin scrollbar-thumb-pclr7 dark:scrollbar-thumb-pdclr7"
       >
         <div className="flex gap-2 items-start min-w-max">
           {diasArray
@@ -378,20 +378,20 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
               return (
                 <div
                   key={d}
-                  className="w-72 sm:w-80 shrink-0 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-2 shadow-sm flex flex-col gap-3"
+                  className="w-72 sm:w-80 shrink-0 bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 rounded-2xl p-2 shadow-sm flex flex-col gap-3"
                 >
                   {/* Cabecera de la Columna del Día */}
-                  <div className="border-b border-zinc-200 dark:border-zinc-800 pb-3 space-y-2">
+                  <div className="border-b border-pclr13 dark:border-pdclr13 pb-3 space-y-2">
                     <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2.5">
                         <span className="w-8 h-8 rounded-full bg-[#cb3327] text-white font-bold flex items-center justify-center text-[0.9em] shrink-0">
                           {d}
                         </span>
                         <div>
-                          <h3 className="text-[1.1em] font-bold text-zinc-900 dark:text-zinc-100 line-clamp-1">
+                          <h3 className="text-[1.1em] font-bold text-pclr4 dark:text-pdclr4 line-clamp-1">
                             {diaEtiqueta}
                           </h3>
-                          <span className="text-[0.8em] text-zinc-500">
+                          <span className="text-[0.8em] text-pclr7 dark:text-pdclr7">
                             {bloquesDia.length} {bloquesDia.length === 1 ? 'comida' : 'comidas'}
                           </span>
                         </div>
@@ -401,7 +401,7 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
                     <button
                       type="button"
                       onClick={() => setModalAgregarDia(d)}
-                      className="w-full py-1.5 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 rounded-lg text-[0.85em] font-medium transition flex items-center justify-center gap-1.5 border border-dashed border-zinc-300 dark:border-zinc-700"
+                      className="w-full py-1.5 bg-pclr3 dark:bg-pdclr3 hover:bg-pclr3 dark:bg-pdclr3 dark:hover:bg-pdclr3 text-pclr4 dark:text-pdclr4 rounded-lg text-[0.85em] font-medium transition flex items-center justify-center gap-1.5 border border-dashed border-pclr13 dark:border-pdclr13"
                     >
                       <span>➕</span> Agregar Comida al Día
                     </button>
@@ -409,8 +409,8 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
 
                   {/* Lista Vertical de Comidas del Día */}
                   {bloquesDia.length === 0 ? (
-                    <div className="p-6 text-center bg-zinc-50 dark:bg-zinc-800/30 rounded-xl border border-dashed border-zinc-300 dark:border-zinc-700">
-                      <p className="text-zinc-500 text-[0.85em]">
+                    <div className="p-6 text-center bg-pclr2 dark:bg-pdclr2/30 rounded-xl border border-dashed border-pclr13 dark:border-pdclr13">
+                      <p className="text-pclr7 dark:text-pdclr7 text-[0.85em]">
                         No hay comidas programadas para este día. Puedes agregar una con el botón superior.
                       </p>
                     </div>
@@ -463,7 +463,7 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
                                   disabled={index === 0}
                                   onClick={() => moverComida(bloque, 'arriba')}
                                   title="Mover antes"
-                                  className="w-5 h-5 rounded flex items-center justify-center text-[0.8em] text-zinc-500 hover:bg-black/10 dark:hover:bg-white/10 disabled:opacity-30 disabled:hover:bg-transparent"
+                                  className="w-5 h-5 rounded flex items-center justify-center text-[0.8em] text-pclr7 dark:text-pdclr7 hover:bg-black/10 dark:hover:bg-white/10 disabled:opacity-30 disabled:hover:bg-transparent"
                                 >
                                   ↑
                                 </button>
@@ -472,7 +472,7 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
                                   disabled={index === bloquesDia.length - 1}
                                   onClick={() => moverComida(bloque, 'abajo')}
                                   title="Mover después"
-                                  className="w-5 h-5 rounded flex items-center justify-center text-[0.8em] text-zinc-500 hover:bg-black/10 dark:hover:bg-white/10 disabled:opacity-30 disabled:hover:bg-transparent"
+                                  className="w-5 h-5 rounded flex items-center justify-center text-[0.8em] text-pclr7 dark:text-pdclr7 hover:bg-black/10 dark:hover:bg-white/10 disabled:opacity-30 disabled:hover:bg-transparent"
                                 >
                                   ↓
                                 </button>
@@ -525,43 +525,43 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
                               <div className="text-[0.8em] opacity-90 space-y-0.5">
                                 {bloque.bebidas_ids && bloque.bebidas_ids.length > 0 && (
                                   <p className="line-clamp-1">
-                                    <span className="font-semibold text-zinc-700 dark:text-zinc-300">Bebida o Liquido:</span>{' '}
+                                    <span className="font-semibold text-pclr4 dark:text-pdclr4">Bebida o Liquido:</span>{' '}
                                     {bloque.bebidas_ids.map(id => recetas.find(r => r.id === id)?.nombre).filter(Boolean).join(', ')}
                                   </p>
                                 )}
                                 {bloque.plato_principal_ids && bloque.plato_principal_ids.length > 0 && (
                                   <p className="line-clamp-1 font-semibold">
-                                    <span className="font-semibold text-zinc-700 dark:text-zinc-300">Plato Principal:</span>{' '}
+                                    <span className="font-semibold text-pclr4 dark:text-pdclr4">Plato Principal:</span>{' '}
                                     {bloque.plato_principal_ids.map(id => recetas.find(r => r.id === id)?.nombre).filter(Boolean).join(', ')}
                                   </p>
                                 )}
                                 {bloque.agregados_ids && bloque.agregados_ids.length > 0 && (
                                   <p className="line-clamp-1">
-                                    <span className="font-semibold text-zinc-700 dark:text-zinc-300">Agregado:</span>{' '}
+                                    <span className="font-semibold text-pclr4 dark:text-pdclr4">Agregado:</span>{' '}
                                     {bloque.agregados_ids.map(id => recetas.find(r => r.id === id)?.nombre).filter(Boolean).join(', ')}
                                   </p>
                                 )}
                                 {bloque.alternativas_ids && bloque.alternativas_ids.length > 0 && (
                                   <p className="line-clamp-1">
-                                    <span className="font-semibold text-zinc-700 dark:text-zinc-300">Alternativa:</span>{' '}
+                                    <span className="font-semibold text-pclr4 dark:text-pdclr4">Alternativa:</span>{' '}
                                     {bloque.alternativas_ids.map(id => recetas.find(r => r.id === id)?.nombre).filter(Boolean).join(', ')}
                                   </p>
                                 )}
                                 {bloque.ensaladas_ids && bloque.ensaladas_ids.length > 0 && (
                                   <p className="line-clamp-1">
-                                    <span className="font-semibold text-zinc-700 dark:text-zinc-300">Ensalada:</span>{' '}
+                                    <span className="font-semibold text-pclr4 dark:text-pdclr4">Ensalada:</span>{' '}
                                     {bloque.ensaladas_ids.map(id => recetas.find(r => r.id === id)?.nombre).filter(Boolean).join(', ')}
                                   </p>
                                 )}
                                 {bloque.postres_ids && bloque.postres_ids.length > 0 && (
                                   <p className="line-clamp-1">
-                                    <span className="font-semibold text-zinc-700 dark:text-zinc-300">Postre:</span>{' '}
+                                    <span className="font-semibold text-pclr4 dark:text-pdclr4">Postre:</span>{' '}
                                     {bloque.postres_ids.map(id => recetas.find(r => r.id === id)?.nombre).filter(Boolean).join(', ')}
                                   </p>
                                 )}
                                 {bloque.sopas_ids && bloque.sopas_ids.length > 0 && (
                                   <p className="line-clamp-1">
-                                    <span className="font-semibold text-zinc-700 dark:text-zinc-300">Sopa:</span>{' '}
+                                    <span className="font-semibold text-pclr4 dark:text-pdclr4">Sopa:</span>{' '}
                                     {bloque.sopas_ids.map(id => recetas.find(r => r.id === id)?.nombre).filter(Boolean).join(', ')}
                                   </p>
                                 )}
@@ -596,22 +596,22 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
       {/* Modal / Drawer de Edición de Comida */}
       {bloqueEditando && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 overflow-y-auto">
-          <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl w-full max-w-3xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
+          <div className="bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 rounded-2xl w-full max-w-3xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
             
             {/* Header Modal */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800/40">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-pclr13 dark:border-pdclr13 bg-pclr2 dark:bg-pdclr2">
               <div>
-                <h3 className="text-[1.25em] font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
+                <h3 className="text-[1.25em] font-bold text-pclr4 dark:text-pdclr4 flex items-center gap-2">
                   <span>{TIEMPO_INFO[bloqueEditando.tiempo_comida]?.icono || '🍲'}</span>
                   Editar {bloqueEditando.nombre_personalizado || TIEMPO_INFO[bloqueEditando.tiempo_comida]?.label} - {bloqueEditando.dia_etiqueta}
                 </h3>
-                <p className="text-[0.85em] text-zinc-500">
+                <p className="text-[0.85em] text-pclr7 dark:text-pdclr7">
                   Selecciona una plantilla para autocompletar o configura cada slot con el buscador dinámico.
                 </p>
               </div>
               <button
                 onClick={() => setBloqueEditando(null)}
-                className="text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 text-[1.2em] p-1"
+                className="text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:hover:text-pdclr4 text-[1.2em] p-1"
               >
                 ✕
               </button>
@@ -622,10 +622,10 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
               <div className="bg-amber-50/50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/40 rounded-xl p-4 space-y-3">
                 <div className="flex items-center justify-between flex-wrap gap-2">
                   <div>
-                    <label className="text-[0.95em] font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5">
+                    <label className="text-[0.95em] font-bold text-pclr4 dark:text-pdclr4 flex items-center gap-1.5">
                       <span>🍱</span> Cargar desde Plantilla de Menú
                     </label>
-                    <p className="text-[0.85em] text-zinc-500">
+                    <p className="text-[0.85em] text-pclr7 dark:text-pdclr7">
                       Al seleccionar una plantilla, se precargan de golpe todos los slots culinarios de la comida.
                     </p>
                   </div>
@@ -644,8 +644,8 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
                     onClick={() => aplicarPlantillaAlBloque(undefined)}
                     className={`px-3 py-1.5 rounded-lg text-[0.85em] font-medium transition border ${
                       !bloqueEditando.plantilla_id
-                        ? 'bg-zinc-800 text-white border-zinc-900 dark:bg-zinc-100 dark:text-zinc-900'
-                        : 'bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border-zinc-300 dark:border-zinc-700 hover:bg-zinc-50'
+                        ? 'bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 border-transparent'
+                        : 'bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4 border-pclr13 dark:border-pdclr13 hover:bg-pclr2 dark:bg-pdclr2'
                     }`}
                   >
                     (Personalizado / Sin plantilla)
@@ -662,7 +662,7 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
                           className={`px-3 py-1.5 rounded-lg text-[0.85em] font-medium transition border ${
                             seleccionada
                               ? 'bg-[#cb3327] text-white border-[#b02920] shadow-xs'
-                              : 'bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 border-zinc-300 dark:border-zinc-700 hover:bg-zinc-50'
+                              : 'bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4 border-pclr13 dark:border-pdclr13 hover:bg-pclr2 dark:bg-pdclr2'
                           }`}
                         >
                           {seleccionada ? '✓ ' : '🍱 '}{plt.nombre}
@@ -673,11 +673,11 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
               </div>
 
               {/* Sección Turnos */}
-              <div className="bg-zinc-50 dark:bg-zinc-800/40 border border-zinc-200 dark:border-zinc-700 rounded-xl p-4 space-y-2">
-                <label className="text-[0.95em] font-bold text-zinc-900 dark:text-zinc-100 block">
+              <div className="bg-pclr2 dark:bg-pdclr2 border border-pclr13 dark:border-pdclr13 rounded-xl p-4 space-y-2">
+                <label className="text-[0.95em] font-bold text-pclr4 dark:text-pdclr4 block">
                   👥 Turnos
                 </label>
-                <p className="text-[0.85em] text-zinc-500 mb-2">
+                <p className="text-[0.85em] text-pclr7 dark:text-pdclr7 mb-2">
                   Selecciona la o las unidades responsables de preparar y servir esta comida:
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -691,7 +691,7 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
                         className={`px-3 py-1.5 rounded-lg text-[0.85em] font-medium transition ${
                           seleccionado
                             ? 'bg-[#cb3327] text-white shadow-sm'
-                            : 'bg-white dark:bg-zinc-700 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-600 hover:bg-zinc-100'
+                            : 'bg-pclr1 dark:bg-pdclr1 text-pclr4 dark:text-pdclr4 border border-pclr13 dark:border-pdclr13 hover:bg-pclr3 dark:hover:bg-pdclr3'
                         }`}
                       >
                         {seleccionado ? '✓ ' : '+ '}{u}
@@ -703,12 +703,12 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
 
               {/* Slots Culinarios Estructurados con Nombres Literales */}
               <div className="space-y-4">
-                <div className="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-2 flex-wrap gap-2">
+                <div className="flex items-center justify-between border-b border-pclr13 dark:border-pdclr13 pb-2 flex-wrap gap-2">
                   <div>
-                    <h4 className="text-[1.05em] font-bold text-zinc-900 dark:text-zinc-100">
+                    <h4 className="text-[1.05em] font-bold text-pclr4 dark:text-pdclr4">
                       Composición del Menú
                     </h4>
-                    <p className="text-[0.8em] font-normal text-zinc-500">
+                    <p className="text-[0.8em] font-normal text-pclr7 dark:text-pdclr7">
                       Búsqueda dinámica entre recetas por categorías
                     </p>
                   </div>
@@ -827,9 +827,9 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
               </div>
 
               {/* Nombre descriptivo y notas */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-3 border-t border-zinc-200 dark:border-zinc-800">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-3 border-t border-pclr13 dark:border-pdclr13">
                 <div className="sm:col-span-2">
-                  <label className="block text-[0.9em] font-medium text-zinc-700 dark:text-zinc-300 mb-1">
+                  <label className="block text-[0.9em] font-medium text-pclr4 dark:text-pdclr4 mb-1">
                     Descripción o Nombre del Menú para este Bloque
                   </label>
                   <input
@@ -837,12 +837,12 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
                     value={bloqueEditando.platos_texto || ''}
                     onChange={e => setBloqueEditando({ ...bloqueEditando, platos_texto: e.target.value })}
                     placeholder="Ej: Tallarines con salsa y ensalada mixta"
-                    className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 text-[1em]"
+                    className="w-full px-3 py-2 border border-pclr13 dark:border-pdclr13 rounded-lg bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4 text-[1em]"
                   />
                 </div>
 
                 <div className="sm:col-span-2">
-                  <label className="block text-[0.9em] font-medium text-zinc-700 dark:text-zinc-300 mb-1">
+                  <label className="block text-[0.9em] font-medium text-pclr4 dark:text-pdclr4 mb-1">
                     Notas de Logística o Seguridad
                   </label>
                   <textarea
@@ -850,14 +850,14 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
                     value={bloqueEditando.notas || ''}
                     onChange={e => setBloqueEditando({ ...bloqueEditando, notas: e.target.value })}
                     placeholder="Ej: Dejar hervida el agua antes de la actividad / Sanitización de manos..."
-                    className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-[0.9em]"
+                    className="w-full px-3 py-2 border border-pclr13 dark:border-pdclr13 rounded-lg bg-pclr3 dark:bg-pdclr3 text-[0.9em]"
                   />
                 </div>
               </div>
             </div>
 
             {/* Footer Modal */}
-            <div className="flex items-center justify-between gap-3 px-6 py-4 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800/40">
+            <div className="flex items-center justify-between gap-3 px-6 py-4 border-t border-pclr13 dark:border-pdclr13 bg-pclr2 dark:bg-pdclr2">
               <button
                 type="button"
                 onClick={() => handleEliminarComida(bloqueEditando)}
@@ -870,7 +870,7 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
                 <button
                   type="button"
                   onClick={() => setBloqueEditando(null)}
-                  className="px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 transition text-[0.9em]"
+                  className="px-4 py-2 border border-pclr13 dark:border-pdclr13 rounded-lg text-pclr4 dark:text-pdclr4 hover:bg-pclr3 dark:hover:bg-pdclr3 transition text-[0.9em]"
                 >
                   Cancelar
                 </button>
@@ -890,17 +890,17 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
       {/* Modal Agregar Comida al Día */}
       {modalAgregarDia !== null && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 overflow-y-auto">
-          <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl w-full max-w-md shadow-2xl overflow-hidden p-6 space-y-4 text-[1em]">
-            <h3 className="text-[1.2em] font-bold text-zinc-900 dark:text-zinc-100">
+          <div className="bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 rounded-2xl w-full max-w-md shadow-2xl overflow-hidden p-6 space-y-4 text-[1em]">
+            <h3 className="text-[1.2em] font-bold text-pclr4 dark:text-pdclr4">
               ➕ Agregar Comida Programada al Día {modalAgregarDia}
             </h3>
-            <p className="text-[0.85em] text-zinc-500">
+            <p className="text-[0.85em] text-pclr7 dark:text-pdclr7">
               Podrás moverla y posicionarla libremente entre las comidas fijas con las flechas ↑ y ↓.
             </p>
 
             <div className="space-y-3">
               <div>
-                <label className="block text-[0.9em] font-medium text-zinc-700 dark:text-zinc-300 mb-1">
+                <label className="block text-[0.9em] font-medium text-pclr4 dark:text-pdclr4 mb-1">
                   Nombre de la Comida *
                 </label>
                 <input
@@ -909,18 +909,18 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
                   value={nuevoNombreComida}
                   onChange={e => setNuevoNombreComida(e.target.value)}
                   placeholder="Ej: Colación Media Mañana / Snack de Fogón"
-                  className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-[1em]"
+                  className="w-full px-3 py-2 border border-pclr13 dark:border-pdclr13 rounded-lg bg-pclr3 dark:bg-pdclr3 text-[1em]"
                 />
               </div>
 
               <div>
-                <label className="block text-[0.9em] font-medium text-zinc-700 dark:text-zinc-300 mb-1">
+                <label className="block text-[0.9em] font-medium text-pclr4 dark:text-pdclr4 mb-1">
                   Tipo Base de Horario
                 </label>
                 <select
                   value={nuevoTipoComida}
                   onChange={e => setNuevoTipoComida(e.target.value as TiempoComidaTipo)}
-                  className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-[1em]"
+                  className="w-full px-3 py-2 border border-pclr13 dark:border-pdclr13 rounded-lg bg-pclr3 dark:bg-pdclr3 text-[1em]"
                 >
                   <option value="desayuno">🌅 Desayuno</option>
                   <option value="almuerzo">🍲 Almuerzo</option>
@@ -931,11 +931,11 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-3 pt-3 border-t border-zinc-200 dark:border-zinc-800">
+            <div className="flex items-center justify-end gap-3 pt-3 border-t border-pclr13 dark:border-pdclr13">
               <button
                 type="button"
                 onClick={() => setModalAgregarDia(null)}
-                className="px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 transition text-[0.9em]"
+                className="px-4 py-2 border border-pclr13 dark:border-pdclr13 rounded-lg text-pclr4 dark:text-pdclr4 hover:bg-pclr3 dark:hover:bg-pdclr3 transition text-[0.9em]"
               >
                 Cancelar
               </button>

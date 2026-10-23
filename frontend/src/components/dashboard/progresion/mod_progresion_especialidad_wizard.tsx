@@ -103,7 +103,7 @@ export default function DashmodProgresionEspecialidadWizard({
   }
 
   return (
-    <div className="fixed inset-0 bg-pclr2 backdrop-blur-md z-[150] flex items-center justify-center p-1 overflow-y-auto">
+    <div className="fixed inset-0 bg-pclr2 dark:bg-pdclr2 backdrop-blur-md z-[150] flex items-center justify-center p-1 overflow-y-auto">
       <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-2xl rounded-[1rem] p-2 shadow-2xl border-2 border-pclr13 dark:border-pdclr13 space-y-6 max-h-[90vh] overflow-y-auto">
         
         {/* Header */}
@@ -116,7 +116,7 @@ export default function DashmodProgresionEspecialidadWizard({
           </div>
           <button 
             onClick={onClose}
-            className="text-pclr7 hover:text-pclr4 dark:hover:text-dclr2 text-2xl font-bold p-1"
+            className="text-pclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 dark:hover:text-dclr2 text-2xl font-bold p-1"
           >
             ✕
           </button>
@@ -249,7 +249,7 @@ export default function DashmodProgresionEspecialidadWizard({
             <div className="flex flex-col md:flex-row gap-4 pt-4">
               <button
                 onClick={() => setWizardStep(1)}
-                className="px-6 py-3 text-[0.9em] font-bold uppercase tracking-wider text-pclr7 hover:text-pclr4 bg-pclr3 dark:bg-pdclr3 rounded-2xl"
+                className="px-6 py-3 text-[0.9em] font-bold uppercase tracking-wider text-pclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 bg-pclr3 dark:bg-pdclr3 rounded-2xl"
               >
                 ← Atrás
               </button>

@@ -88,7 +88,7 @@ export default function CicloFase1Lluvia({
                   <button 
                     onClick={() => togglePreseleccion(p.id, !p.preseleccionada)}
                     className={`px-4 py-2 rounded-xl text-[0.9em] font-bold text-shadow-lg uppercase transition-all shadow-sm ${
-                      p.preseleccionada ? 'bg-pclr3 text-pclr7 hover:bg-pclr3' : 'text-pclr12 hover:brightness-110'
+                      p.preseleccionada ? 'bg-pclr3 dark:bg-pdclr3 text-pclr7 hover:bg-pclr3 dark:hover:bg-pdclr3 dark:bg-pdclr3' : 'text-pclr12 hover:brightness-110'
                     }`}
                     style={{ backgroundColor: p.preseleccionada ? undefined : unitColor }}
                   >
@@ -120,7 +120,7 @@ export default function CicloFase1Lluvia({
           </div>
         )}
         {cicloActivo.fase_actual !== 1 && (
-           <div className="col-span-full py-4 text-center opacity-30 text-[0.8em] font-black uppercase tracking-widest border-t border-dashed border-pclr13 mt-4">
+           <div className="col-span-full py-4 text-center opacity-30 text-[0.8em] font-black uppercase tracking-widest border-t border-dashed border-pclr13 dark:border-pdclr13 mt-4">
              🔒 Modo Lectura (Fase Finalizada)
            </div>
         )}

@@ -80,7 +80,7 @@ export default function CicloFase3Planeacion({
           <button 
             type="button"
             onClick={() => setCurrentMonth(subMonths(currentMonth, 1))} 
-            className="w-8 h-8 flex items-center justify-center hover:bg-pclr3 dark:hover:bg-pdclr3 rounded-full transition-colors font-black"
+            className="w-8 h-8 flex items-center justify-center hover:bg-pclr3 dark:hover:bg-pdclr3 dark:bg-pdclr3 dark:hover:bg-pdclr3 rounded-full transition-colors font-black"
           >
             ❮
           </button>
@@ -90,7 +90,7 @@ export default function CicloFase3Planeacion({
           <button 
             type="button"
             onClick={() => setCurrentMonth(addMonths(currentMonth, 1))} 
-            className="w-8 h-8 flex items-center justify-center hover:bg-pclr3 dark:hover:bg-pdclr3 rounded-full transition-colors font-black"
+            className="w-8 h-8 flex items-center justify-center hover:bg-pclr3 dark:hover:bg-pdclr3 dark:bg-pdclr3 dark:hover:bg-pdclr3 rounded-full transition-colors font-black"
           >
             ❯
           </button>
@@ -116,7 +116,7 @@ export default function CicloFase3Planeacion({
                 className={`aspect-square flex flex-col items-center justify-center rounded-2xl text-[0.8em] relative group transition-all ${
                   !isCurrentMonth ? 'text-pclr7 dark:text-pdclr7' : 'font-bold'
                 } ${
-                  isToday ? 'bg-pclr3 dark:bg-pdclr3 border-2 border-pclr13 dark:border-pdclr13' : 'border-2 border-transparent hover:border-pclr13 dark:hover:border-dclr7'
+                  isToday ? 'bg-pclr3 dark:bg-pdclr3 border-2 border-pclr13 dark:border-pdclr13' : 'border-2 border-transparent hover:border-pclr13 dark:border-pdclr13 dark:hover:border-dclr7'
                 } ${
                   allActivities.length > 0 ? 'cursor-pointer hover:scale-110 shadow-sm' : ''
                 } ${hasGrupal ? 'ring-2 ring-pclr14 bg-pclr10' : ''}`}
@@ -181,7 +181,7 @@ export default function CicloFase3Planeacion({
                     {canManage && cicloActivo.fase_actual === 3 && (
                       <button 
                         onClick={() => { setSelectedPropuesta(p); setIsModAgendarOpen(true); }}
-                        className="p-2 bg-pclr10 text-pclr12 text-[0.9em] font-bold uppercase rounded-xl hover:scale-105 transition-all shadow-md shrink-0 border-none"
+                        className="p-2 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 text-[0.9em] font-bold uppercase rounded-xl hover:scale-105 transition-all shadow-md shrink-0 border-none"
                       >
                         Agendar
                       </button>
@@ -231,7 +231,7 @@ export default function CicloFase3Planeacion({
                           {p.fichas_vinculadas.map((f: any) => (
                             <a key={f.id} href={`/blog/actividades/${f.slug}`} target="_blank"
                                className={`px-2 py-0.5 rounded-full text-[0.7em] font-bold ${
-                                 p.es_grupal_global ? 'bg-pclr1 hover:bg-pclr1' : 'bg-pclr10 text-pclr4 hover:bg-pclr10'
+                                 p.es_grupal_global ? 'bg-pclr1 dark:bg-pdclr1 hover:bg-pclr1 dark:bg-pdclr1' : 'bg-pclr10 text-pclr4 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4 hover:bg-pclr10'
                                }`}>
                               📋 {f.titulo}
                             </a>
@@ -244,7 +244,7 @@ export default function CicloFase3Planeacion({
                         </p>
                       )}
                       {p.es_grupal_global && (
-                        <span className="inline-block mt-1 px-2 py-0.5 bg-pclr1 rounded-full text-[0.7em] font-bold uppercase">👥 Actividad Grupal</span>
+                        <span className="inline-block mt-1 px-2 py-0.5 bg-pclr1 dark:bg-pdclr1 rounded-full text-[0.7em] font-bold uppercase">👥 Actividad Grupal</span>
                       )}
                     </div>
                   </div>
@@ -262,7 +262,7 @@ export default function CicloFase3Planeacion({
                     ) : p.articulo ? (
                       <div className="flex items-center gap-3">
                         <span className="px-2 py-1 bg-pclr6 text-pclr12 dark:bg-pdclr6 dark:text-pdclr12 rounded-md text-[0.8em] font-bold uppercase">Planificada</span>
-                        <a href={`/blog/actividades/${p.articulo.slug}`} target="_blank" className="text-[1em] font-bold underline hover:text-pclr4 transition-colors">
+                        <a href={`/blog/actividades/${p.articulo.slug}`} target="_blank" className="text-[1em] font-bold underline hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 transition-colors">
                           Ver Ficha
                         </a>
                       </div>
@@ -270,9 +270,9 @@ export default function CicloFase3Planeacion({
                       /* Actividad grupal de acta — sin botones de edición */
                       <div className="flex items-center gap-2">
                         {p.fichas_vinculadas && p.fichas_vinculadas.length > 0 ? (
-                          <span className="px-2 py-1 bg-pclr1 rounded-md text-[0.8em] font-bold uppercase">✅ Vinculada</span>
+                          <span className="px-2 py-1 bg-pclr1 dark:bg-pdclr1 rounded-md text-[0.8em] font-bold uppercase">✅ Vinculada</span>
                         ) : (
-                          <span className="px-2 py-1 bg-pclr1 rounded-md text-[0.8em] font-bold uppercase opacity-60">Sin ficha</span>
+                          <span className="px-2 py-1 bg-pclr1 dark:bg-pdclr1 rounded-md text-[0.8em] font-bold uppercase opacity-60">Sin ficha</span>
                         )}
                       </div>
                     ) : (
@@ -290,7 +290,7 @@ export default function CicloFase3Planeacion({
                       {perfil?.unidad_id != null && (perfil.unidad_id === UNIT_IDS.AVANZADA || perfil.unidad_id === UNIT_IDS.CLAN) && !p.es_grupal_global && (
                         <button
                           onClick={() => handleProjectWizardOpen(p.titulo)}
-                          className="text-[0.8em] font-black uppercase text-pclr4 hover:text-pclr4 transition-colors border-none bg-transparent"
+                          className="text-[0.8em] font-black uppercase text-pclr4 dark:text-pdclr4 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 transition-colors border-none bg-transparent"
                         >
                           📋 Proyecto {perfil.unidad_id === UNIT_IDS.AVANZADA ? 'Empresa' : '12 Pasos'}
                         </button>
@@ -299,7 +299,7 @@ export default function CicloFase3Planeacion({
                       {canManage && cicloActivo.fase_actual === 3 && !p.es_actividad_programada && !p.es_grupal_global && (
                         <button 
                           onClick={() => onUnscheduleProposal(p.id)}
-                          className="text-[0.8em] opacity-60 hover:opacity-100 hover:text-pclr4 transition-colors uppercase font-bold border-none bg-transparent"
+                          className="text-[0.8em] opacity-60 hover:opacity-100 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 transition-colors uppercase font-bold border-none bg-transparent"
                         >
                           Desagendar
                         </button>
@@ -318,7 +318,7 @@ export default function CicloFase3Planeacion({
           </div>
         </div>
         {cicloActivo.fase_actual > 3 && (
-           <div className="col-span-full py-4 text-center opacity-30 text-[0.8em] font-black uppercase tracking-widest border-t border-dashed border-pclr13 mt-4">
+           <div className="col-span-full py-4 text-center opacity-30 text-[0.8em] font-black uppercase tracking-widest border-t border-dashed border-pclr13 dark:border-pdclr13 mt-4">
              🔒 Modo Lectura (Calendario Cerrado)
            </div>
         )}

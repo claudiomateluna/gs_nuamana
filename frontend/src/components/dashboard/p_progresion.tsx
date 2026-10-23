@@ -445,14 +445,14 @@ const fetchInitialData = useCallback(async () => {
               <div className="mt-6 flex gap-2">
                 <button 
                   onClick={() => { setSelectedProjectSheet(p); loadSheetParticipants(p.id); }}
-                  className="flex-1 py-2 bg-pclr3 dark:bg-pdclr1 hover:bg-pclr3 dark:hover:bg-pdclr1 rounded-xl text-[0.8em] font-bold uppercase tracking-tight"
+                  className="flex-1 py-2 bg-pclr3 dark:bg-pdclr1 hover:bg-pclr3 dark:hover:bg-pdclr3 dark:bg-pdclr3 dark:hover:bg-pdclr1 rounded-xl text-[0.8em] font-bold uppercase tracking-tight"
                 >
                   📋 Ver Ficha
                 </button>
                 {isOwner && p.fase !== 'completado' && (
                   <button 
                     onClick={() => { setWizardProyecto(p); setWizardEsGrupal(p.es_grupal ?? false); setWizardInitialStep(1); setIsWizardOpen(true); }}
-                    className="px-3 py-2 bg-pclr3 hover:bg-pclr3 dark:bg-pdclr3 dark:hover:bg-pdclr1 text-pclr4 dark:text-pdclr4 rounded-xl text-[0.8em]"
+                    className="px-3 py-2 bg-pclr3 dark:bg-pdclr3 hover:bg-pclr3 dark:hover:bg-pdclr3 dark:bg-pdclr3 dark:hover:bg-pdclr1 text-pclr4 dark:text-pdclr4 rounded-xl text-[0.8em]"
                   >
                     ✏️
                   </button>
@@ -486,7 +486,7 @@ const fetchInitialData = useCallback(async () => {
         {/* Top Info section */}
         <div className="flex flex-col md:flex-row items-center gap-6 w-full relative z-10">
           {/* Insignia de Etapa */}
-          <div className="w-32 h-32 bg-pclr1 rounded-full flex items-center justify-center shadow-2xl border-4 overflow-hidden shrink-0" style={{ borderColor: themeSecondary }}>
+          <div className="w-32 h-32 bg-pclr1 dark:bg-pdclr1 rounded-full flex items-center justify-center shadow-2xl border-4 overflow-hidden shrink-0" style={{ borderColor: themeSecondary }}>
             {etapaActual?.imagen_url ? (
               <img src={etapaActual.imagen_url} alt={etapaActual.nombre} className="w-full h-full object-cover" onError={(e: React.SyntheticEvent<HTMLImageElement>) => e.currentTarget.style.display='none'} />
             ) : (
@@ -510,12 +510,12 @@ const fetchInitialData = useCallback(async () => {
               </div>
               
               {isLeader && (
-                <div className="bg-pclr1 backdrop-blur-md p-4 rounded-3xl border-2 border-pclr1 shadow-lg shrink-0 z-20">
+                <div className="bg-pclr1 dark:bg-pdclr1 backdrop-blur-md p-4 rounded-3xl border-2 border-pclr1 shadow-lg shrink-0 z-20">
                   <label className="block text-[0.8em] font-bold uppercase mb-2 ml-1 drop-shadow-md" style={{ color: themeSecondary }}>Asignar Etapa</label>
                   <select 
                     value={etapaActual?.id || ''} 
                     onChange={(e) => handleSetEtapaDefault(e.target.value)}
-                    className="bg-pclr1 font-bold text-[0.9em] p-2 rounded-xl outline-none cursor-pointer uppercase tracking-tight w-full shadow-inner min-w-[150px]"
+                    className="bg-pclr1 dark:bg-pdclr1 font-bold text-[0.9em] p-2 rounded-xl outline-none cursor-pointer uppercase tracking-tight w-full shadow-inner min-w-[150px]"
                     style={{ color: themeTextDark }}
                   >
                     <option value="">Seleccionar...</option>
@@ -744,7 +744,7 @@ const fetchInitialData = useCallback(async () => {
                   className={`p-6 rounded-3xl border-2 flex flex-col items-center text-center transition-all ${
                     agenda.etapa_progresion === 'fuego' || agenda.etapa_progresion === 'antorcha' || agenda.etapa_progresion === 'partida'
                       ? 'shadow-lg' 
-                      : 'bg-pclr1 dark:bg-pdclr1 border-pclr13 opacity-60'
+                      : 'bg-pclr1 dark:bg-pdclr1 border-pclr13 dark:border-pdclr13 opacity-60'
                   }`}
                   style={
                     agenda.etapa_progresion === 'fuego' || agenda.etapa_progresion === 'antorcha' || agenda.etapa_progresion === 'partida'
@@ -778,7 +778,7 @@ const fetchInitialData = useCallback(async () => {
                 <div className={`p-6 rounded-3xl border-2 flex flex-col items-center text-center transition-all ${
                   agenda.etapa_progresion === 'antorcha' || agenda.etapa_progresion === 'partida'
                     ? 'bg-pclr5 border-pclr5 shadow-lg' 
-                    : 'bg-pclr1 dark:bg-pdclr1 border-pclr13 opacity-60'
+                    : 'bg-pclr1 dark:bg-pdclr1 border-pclr13 dark:border-pdclr13 opacity-60'
                 }`}>
                   <img 
                     src="/images/progresion/clan/etapa_antorcha.png" 
@@ -805,7 +805,7 @@ const fetchInitialData = useCallback(async () => {
                 <div className={`p-6 rounded-3xl border-2 flex flex-col items-center text-center transition-all ${
                   agenda.etapa_progresion === 'partida'
                     ? 'bg-pclr10 border-pclr14 shadow-lg' 
-                    : 'bg-pclr1 dark:bg-pdclr1 border-pclr13 opacity-60'
+                    : 'bg-pclr1 dark:bg-pdclr1 border-pclr13 dark:border-pdclr13 opacity-60'
                 }`}>
                   <img 
                     src="/images/progresion/clan/etapa_partida.png" 
@@ -821,7 +821,7 @@ const fetchInitialData = useCallback(async () => {
                   {isLeader && agenda.etapa_progresion === 'antorcha' && (
                     <button 
                       onClick={() => handleUpdateAgendaEtapa('partida')}
-                      className="mt-4 px-4 py-2 bg-pclr10 text-pclr12 rounded-xl text-[0.8em] font-bold uppercase"
+                      className="mt-4 px-4 py-2 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 rounded-xl text-[0.8em] font-bold uppercase"
                     >
                       Otorgar Partida
                     </button>
@@ -868,7 +868,7 @@ const fetchInitialData = useCallback(async () => {
                   <div 
                     key={meta.id} 
                     className={`p-6 rounded-[2rem] border-2 shadow-md relative flex flex-col justify-between ${
-                      isAlcanzada ? 'bg-pclr1 dark:bg-pdclr1 border-pclr6' : isEnProceso ? 'bg-pclr10 border-pclr14' : 'bg-pclr1 dark:bg-pdclr1 border-pclr13'
+                      isAlcanzada ? 'bg-pclr1 dark:bg-pdclr1 border-pclr6' : isEnProceso ? 'bg-pclr10 border-pclr14' : 'bg-pclr1 dark:bg-pdclr1 border-pclr13 dark:border-pdclr13'
                     }`}
                   >
                     <div>
@@ -881,7 +881,7 @@ const fetchInitialData = useCallback(async () => {
                         </span>
                         
                         <span className={`text-[0.8em] font-bold uppercase ${
-                          isAlcanzada ? 'text-pclr6' : isEnProceso ? 'text-pclr4' : 'text-pclr7'
+                          isAlcanzada ? 'text-pclr6' : isEnProceso ? 'text-pclr4 dark:text-pdclr4' : 'text-pclr7'
                         }`}>
                           ● {isAlcanzada ? 'Alcanzada' : isEnProceso ? 'En Evaluación' : 'Pendiente'}
                         </span>
@@ -903,7 +903,7 @@ const fetchInitialData = useCallback(async () => {
                           <span className="text-[0.8em] font-bold uppercase text-pclr6 block mb-1">Evidencia Enviada:</span>
                           "{meta.evidencia_texto}"
                           {meta.evidencia_url && (
-                            <a href={meta.evidencia_url} target="_blank" rel="noopener noreferrer" className="block text-pclr4 mt-1 font-bold underline">
+                            <a href={meta.evidencia_url} target="_blank" rel="noopener noreferrer" className="block text-pclr4 dark:text-pdclr4 mt-1 font-bold underline">
                               🔗 Ver evidencia externa
                             </a>
                           )}
@@ -922,7 +922,7 @@ const fetchInitialData = useCallback(async () => {
                       {isOwner && !isAlcanzada && !isEnProceso && !inactive && (
                         <button
                           onClick={() => setActiveMetaIdForEvidence(meta.id)}
-                          className="px-4 py-2 bg-pclr10 text-pclr12 rounded-xl text-[0.8em] font-bold uppercase tracking-tight"
+                          className="px-4 py-2 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 rounded-xl text-[0.8em] font-bold uppercase tracking-tight"
                         >
                           Enviar Evidencia
                         </button>
@@ -943,7 +943,7 @@ const fetchInitialData = useCallback(async () => {
                       {isOwner && !isAlcanzada && (
                         <button
                           onClick={() => handleDeleteGoal(meta.id)}
-                          className="px-3 py-2 bg-pclr10 text-pclr4 hover:bg-pclr10 rounded-xl text-[0.8em] font-bold"
+                          className="px-3 py-2 bg-pclr10 text-pclr4 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4 hover:bg-pclr10 rounded-xl text-[0.8em] font-bold"
                         >
                           ✕
                         </button>
@@ -953,7 +953,7 @@ const fetchInitialData = useCallback(async () => {
                     {activeMetaIdForEvidence === meta.id && (
                       <div className="absolute inset-0 bg-pclr1 dark:bg-pdclr1 rounded-[2rem] p-6 z-20 flex flex-col justify-between border-2 border-pclr14">
                         <div className="space-y-4">
-                          <span className="text-[0.8em] font-bold uppercase tracking-widest text-pclr4 block">Reportar Evidencia</span>
+                          <span className="text-[0.8em] font-bold uppercase tracking-widest text-pclr4 dark:text-pdclr4 block">Reportar Evidencia</span>
                           
                           <div className="space-y-1">
                             <label className="text-[0.8em] font-bold uppercase tracking-wider text-pclr7">¿Qué hiciste para lograrlo? (Mínimo 150 caracteres)</label>
@@ -963,7 +963,7 @@ const fetchInitialData = useCallback(async () => {
                               placeholder="Detalla de forma madura y seria cómo cumpliste esta meta..."
                               className="w-full p-3 rounded-xl border dark:border-pclr1 bg-pclr3 dark:bg-pdclr3 text-[0.85em] font-bold h-24"
                             />
-                            <span className={`text-[0.8em] font-bold block text-right ${evidenceText.length >= 150 ? 'text-pclr6' : 'text-pclr4'}`}>
+                            <span className={`text-[0.8em] font-bold block text-right ${evidenceText.length >= 150 ? 'text-pclr6' : 'text-pclr4 dark:text-pdclr4'}`}>
                               {evidenceText.length} / 150 caracteres
                             </span>
                           </div>
@@ -989,7 +989,7 @@ const fetchInitialData = useCallback(async () => {
                           </button>
                           <button 
                             onClick={() => handleRegisterGoalEvidence(meta.id)}
-                            className="px-4 py-2 bg-pclr10 text-pclr12 rounded-xl text-[0.8em] font-bold uppercase"
+                            className="px-4 py-2 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 rounded-xl text-[0.8em] font-bold uppercase"
                           >
                             Enviar
                           </button>
@@ -1025,7 +1025,7 @@ const fetchInitialData = useCallback(async () => {
                           </button>
                           <button 
                             onClick={() => handleLeaderReviewGoal(meta.id, false)}
-                            className="px-4 py-2 bg-pclr10 hover:bg-pclr10 text-pclr4 rounded-xl text-[0.8em] font-bold uppercase"
+                            className="px-4 py-2 bg-pclr10 hover:bg-pclr10 text-pclr4 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4 rounded-xl text-[0.8em] font-bold uppercase"
                           >
                             Pedir Cambios
                           </button>
@@ -1053,7 +1053,7 @@ const fetchInitialData = useCallback(async () => {
 
         {/* Modal: Añadir Meta */}
         {showAddGoalModal && (
-          <div className="fixed inset-0 bg-pclr2 backdrop-blur-md z-[140] flex items-center justify-center p-4">
+          <div className="fixed inset-0 bg-pclr2 dark:bg-pdclr2 backdrop-blur-md z-[140] flex items-center justify-center p-4">
             <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-xl rounded-[2rem] p-6 shadow-2xl space-y-6">
               <h4 className="text-xl font-bold uppercase tracking-tight text-pclr4 dark:text-pdclr4">
                 ➕ Añadir Meta a mi Agenda de Vida
@@ -1211,11 +1211,11 @@ const fetchInitialData = useCallback(async () => {
                     isAprobada 
                       ? 'text-pclr6' 
                       : isPendiente 
-                        ? 'text-pclr4' 
+                        ? 'text-pclr4 dark:text-pdclr4' 
                         : isCambio 
                           ? 'text-pclr5' 
                           : isRechazada
-                            ? 'text-pclr4'
+                            ? 'text-pclr4 dark:text-pdclr4'
                             : 'text-pclr7'
                   }`}>
                     {isAprobada ? 'Aprobada' : isPendiente ? 'Pendiente' : isCambio ? 'Cambio Solicitado' : isRechazada ? 'Rechazada' : 'Inactiva'}
@@ -1245,7 +1245,7 @@ const fetchInitialData = useCallback(async () => {
                               setLeaderReviewText('')
                             }
                           }}
-                          className="w-full py-1 text-[0.9em] font-bold uppercase rounded-lg bg-pclr10 hover:bg-pclr10 text-pclr12 shadow-sm transition-colors"
+                          className="w-full py-1 text-[0.9em] font-bold uppercase rounded-lg bg-pclr10 hover:bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 shadow-sm transition-colors"
                         >
                           ✅ Resolver
                         </button>
@@ -1258,7 +1258,7 @@ const fetchInitialData = useCallback(async () => {
                                 const pendingRow = areaRows.find(c => c.estado === 'pendiente')
                                 if (pendingRow) handleDeleteCompetencia(pendingRow.id)
                               }}
-                              className="px-2 py-1 text-[0.9em] font-bold uppercase rounded-lg bg-pclr10 hover:bg-pclr10 text-pclr4 transition-colors"
+                              className="px-2 py-1 text-[0.9em] font-bold uppercase rounded-lg bg-pclr10 hover:bg-pclr10 text-pclr4 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4 transition-colors"
                               title="Retirar solicitud"
                             >
                               ❌
@@ -1290,7 +1290,7 @@ const fetchInitialData = useCallback(async () => {
                               const activeRow = areaRows.find(c => c.estado === 'solicitud_cambio')
                               if (activeRow) handleDeleteCompetencia(activeRow.id)
                             }}
-                            className="px-2 py-1 text-[0.9em] font-bold uppercase rounded-lg bg-pclr10 hover:bg-pclr10 text-pclr4 transition-colors"
+                            className="px-2 py-1 text-[0.9em] font-bold uppercase rounded-lg bg-pclr10 hover:bg-pclr10 text-pclr4 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4 transition-colors"
                             title="Retirar solicitud"
                           >
                             ❌
@@ -1305,7 +1305,7 @@ const fetchInitialData = useCallback(async () => {
                               setLeaderReviewText(activeRow.evaluacion_lider || '')
                             }
                           }}
-                          className="w-full py-1 text-[0.9em] font-bold uppercase rounded-lg bg-pclr3 hover:bg-pclr3 dark:bg-pdclr1 dark:hover:bg-pdclr1 text-pclr4 dark:text-pdclr4 transition-colors"
+                          className="w-full py-1 text-[0.9em] font-bold uppercase rounded-lg bg-pclr3 dark:bg-pdclr3 hover:bg-pclr3 dark:hover:bg-pdclr3 dark:bg-pdclr1 dark:hover:bg-pdclr1 text-pclr4 dark:text-pdclr4 transition-colors"
                         >
                           🔍 Resolver
                         </button>
@@ -1331,7 +1331,7 @@ const fetchInitialData = useCallback(async () => {
                               const rejectedRow = areaRows.find(c => c.estado === 'rechazada')
                               if (rejectedRow) handleDeleteCompetencia(rejectedRow.id)
                             }}
-                            className="px-2.5 py-1 text-[0.9em] font-bold uppercase rounded-lg bg-pclr10 hover:bg-pclr10 text-pclr12 shadow-sm transition-colors"
+                            className="px-2.5 py-1 text-[0.9em] font-bold uppercase rounded-lg bg-pclr10 hover:bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 shadow-sm transition-colors"
                             title="Eliminar solicitud rechazada"
                           >
                             🗑️
@@ -1362,7 +1362,7 @@ const fetchInitialData = useCallback(async () => {
                             setCompProyectoId('')
                             setShowCompetenciaModal(true)
                           }}
-                          className="w-full py-1 text-[0.9em] font-bold uppercase rounded-lg bg-pclr3 hover:bg-pclr10 dark:bg-pdclr1 dark:hover:bg-dclr4 text-pclr4 dark:text-pdclr4 transition-colors"
+                          className="w-full py-1 text-[0.9em] font-bold uppercase rounded-lg bg-pclr3 dark:bg-pdclr3 hover:bg-pclr10 dark:bg-pdclr1 dark:hover:bg-dclr4 text-pclr4 dark:text-pdclr4 transition-colors"
                         >
                           🚀 Solicitar
                         </button>
@@ -1391,7 +1391,7 @@ const fetchInitialData = useCallback(async () => {
                         {c.area_competencia.replace('_', ' ')}
                       </span>
                       <span className={`text-[0.8em] font-bold uppercase ${
-                        c.estado === 'aprobada' ? 'text-pclr6' : c.estado === 'solicitud_cambio' ? 'text-pclr5' : c.estado === 'rechazada' ? 'text-pclr4' : 'text-pclr4'
+                        c.estado === 'aprobada' ? 'text-pclr6' : c.estado === 'solicitud_cambio' ? 'text-pclr5' : c.estado === 'rechazada' ? 'text-pclr4 dark:text-pdclr4' : 'text-pclr4 dark:text-pdclr4'
                       }`}>
                         ● {c.estado === 'solicitud_cambio' ? 'cambios solicitados' : c.estado}
                       </span>
@@ -1431,7 +1431,7 @@ const fetchInitialData = useCallback(async () => {
                     {(c.estado === 'aprobada' || c.estado === 'rechazada') && (
                       <button
                         onClick={() => setActiveMetaIdForReview(c.id)}
-                        className="px-4 py-2 bg-pclr3 dark:bg-pdclr1 hover:bg-pclr3 dark:hover:bg-pdclr1 text-pclr4 dark:text-pdclr4 rounded-xl text-[0.8em] font-bold uppercase tracking-tight"
+                        className="px-4 py-2 bg-pclr3 dark:bg-pdclr1 hover:bg-pclr3 dark:hover:bg-pdclr3 dark:bg-pdclr3 dark:hover:bg-pdclr1 text-pclr4 dark:text-pdclr4 rounded-xl text-[0.8em] font-bold uppercase tracking-tight"
                       >
                         🔎 Ver Detalles
                       </button>
@@ -1442,7 +1442,7 @@ const fetchInitialData = useCallback(async () => {
                       c.estado === 'pendiente' ? (
                         <button
                           onClick={() => handleDeleteCompetencia(c.id)}
-                          className="px-4 py-2 bg-pclr10 hover:bg-pclr10 text-pclr4 rounded-xl text-[0.8em] font-bold uppercase tracking-tight"
+                          className="px-4 py-2 bg-pclr10 hover:bg-pclr10 text-pclr4 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4 rounded-xl text-[0.8em] font-bold uppercase tracking-tight"
                         >
                           ❌ Retirar Solicitud
                         </button>
@@ -1463,7 +1463,7 @@ const fetchInitialData = useCallback(async () => {
                           </button>
                           <button
                             onClick={() => handleDeleteCompetencia(c.id)}
-                            className="px-4 py-2 bg-pclr10 hover:bg-pclr10 text-pclr4 rounded-xl text-[0.8em] font-bold uppercase tracking-tight text-center"
+                            className="px-4 py-2 bg-pclr10 hover:bg-pclr10 text-pclr4 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4 rounded-xl text-[0.8em] font-bold uppercase tracking-tight text-center"
                           >
                             ❌ Retirar
                           </button>
@@ -1471,7 +1471,7 @@ const fetchInitialData = useCallback(async () => {
                       ) : c.estado === 'rechazada' ? (
                         <button
                           onClick={() => handleDeleteCompetencia(c.id)}
-                          className="px-4 py-2 bg-pclr10 hover:bg-pclr10 text-pclr12 rounded-xl text-[0.8em] font-bold uppercase tracking-tight"
+                          className="px-4 py-2 bg-pclr10 hover:bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 rounded-xl text-[0.8em] font-bold uppercase tracking-tight"
                         >
                           🗑️ Eliminar Registro
                         </button>
@@ -1481,7 +1481,7 @@ const fetchInitialData = useCallback(async () => {
 
                   {/* Formulario de Aprobación de Competencia */}
                   {activeMetaIdForReview === c.id && (
-                    <div className="fixed inset-0 bg-pclr2 backdrop-blur-md z-[150] flex items-center justify-center p-4">
+                    <div className="fixed inset-0 bg-pclr2 dark:bg-pdclr2 backdrop-blur-md z-[150] flex items-center justify-center p-4">
                       <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-lg rounded-[2rem] p-6 shadow-2xl space-y-6">
                         <h4 className="text-xl font-bold uppercase tracking-tight text-pclr4 dark:text-pdclr4">
                           🎓 Resolver Competencia ({c.area_competencia.replace('_', ' ')})
@@ -1514,7 +1514,7 @@ const fetchInitialData = useCallback(async () => {
                                 href={c.evidencia_url} 
                                 target="_blank" 
                                 rel="noopener noreferrer" 
-                                className="text-pclr4 hover:text-pclr4 underline font-bold inline-flex items-center gap-1"
+                                className="text-pclr4 dark:text-pdclr4 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 underline font-bold inline-flex items-center gap-1"
                               >
                                 🔗 Ver portafolio/evidencia
                               </a>
@@ -1572,7 +1572,7 @@ const fetchInitialData = useCallback(async () => {
                                     handleLeaderReviewCompetencia(c.id, 'rechazar');
                                   }
                                 }}
-                                className="px-4 py-3 bg-pclr10 hover:bg-pclr10 text-pclr4 rounded-2xl font-bold uppercase text-[0.8em]"
+                                className="px-4 py-3 bg-pclr10 hover:bg-pclr10 text-pclr4 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4 rounded-2xl font-bold uppercase text-[0.8em]"
                               >
                                 Rechazar
                               </button>
@@ -1610,7 +1610,7 @@ const fetchInitialData = useCallback(async () => {
 
         {/* Modal: Solicitar Competencia */}
         {showCompetenciaModal && (
-          <div className="fixed inset-0 bg-pclr2 backdrop-blur-md z-[140] flex items-center justify-center p-4">
+          <div className="fixed inset-0 bg-pclr2 dark:bg-pdclr2 backdrop-blur-md z-[140] flex items-center justify-center p-4">
             <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-xl rounded-[2rem] p-6 shadow-2xl space-y-6">
               <h4 className="text-xl font-bold uppercase tracking-tight text-pclr4 dark:text-pdclr4">
                 {editingSolicitudId ? '✏️ Corregir Solicitud de Competencia' : '🎓 Solicitar Competencia (Rumbo)'}
@@ -1680,7 +1680,7 @@ const fetchInitialData = useCallback(async () => {
                   placeholder="Detalla de forma madura y seria qué rol desempeñaste, qué aprendiste..."
                   className="w-full p-4 rounded-2xl border dark:border-pclr1 bg-pclr3 dark:bg-pdclr3 text-[0.9em] font-bold h-32"
                 />
-                <span className={`text-[0.8em] font-bold block text-right ${justificacionNnj.length >= 150 ? 'text-pclr6' : 'text-pclr4'}`}>
+                <span className={`text-[0.8em] font-bold block text-right ${justificacionNnj.length >= 150 ? 'text-pclr6' : 'text-pclr4 dark:text-pdclr4'}`}>
                   {justificacionNnj.length} / 150 caracteres
                 </span>
               </div>
@@ -1717,7 +1717,7 @@ const fetchInitialData = useCallback(async () => {
 
         {/* Modal: Entregar Competencia Directamente (Líder) */}
         {showDirectCompetenciaModal && (
-          <div className="fixed inset-0 bg-pclr2 backdrop-blur-md z-[140] flex items-center justify-center p-4">
+          <div className="fixed inset-0 bg-pclr2 dark:bg-pdclr2 backdrop-blur-md z-[140] flex items-center justify-center p-4">
             <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-xl rounded-[2rem] p-6 shadow-2xl space-y-6">
               <h4 className="text-xl font-bold uppercase tracking-tight text-pclr4 dark:text-pdclr4">
                 🎓 Entregar Competencia Directamente ({selectedDirectCompetenciaArea.replace('_', ' ')})
@@ -1933,10 +1933,10 @@ const fetchInitialData = useCallback(async () => {
           {/* Text & Button Area */}
           <div className="relative z-10 text-center md:text-left flex-1 w-full">
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-2">
-              <span className="p-2 rounded-full text-[0.8em] font-bold uppercase tracking-widest text-pclr12 bg-pclr1">
+              <span className="p-2 rounded-full text-[0.8em] font-bold uppercase tracking-widest text-pclr12 bg-pclr1 dark:bg-pdclr1">
                 {p.es_grupal ? 'Proyecto Colectivo' : 'Proyecto Individual'}
               </span>
-              <span className="p-2 rounded-full border text-[0.8em] font-bold uppercase tracking-widest text-pclr12 border-pclr1 bg-pclr2">
+              <span className="p-2 rounded-full border text-[0.8em] font-bold uppercase tracking-widest text-pclr12 border-pclr1 bg-pclr2 dark:bg-pdclr2">
                 Fase: {p.fase}
               </span>
             </div>
@@ -1958,7 +1958,7 @@ const fetchInitialData = useCallback(async () => {
             <div className="pt-2 flex flex-wrap justify-center md:justify-start gap-2">
               <button 
                 onClick={() => setSelectedProjectSheet(null)}
-                className="p-2 bg-pclr1 hover:bg-pclr1 text-pclr12 rounded-xl font-bold uppercase tracking-wider text-[0.8em] transition-all border"
+                className="p-2 bg-pclr1 dark:bg-pdclr1 hover:bg-pclr1 dark:bg-pdclr1 text-pclr12 rounded-xl font-bold uppercase tracking-wider text-[0.8em] transition-all border"
                 style={{ borderColor: themeSecondary }}
               >
                 ← Volver a Progresión
@@ -1972,7 +1972,7 @@ const fetchInitialData = useCallback(async () => {
                     setWizardInitialStep(1);
                     setIsWizardOpen(true); 
                   }}
-                  className="p-2 bg-pclr1 hover:bg-pclr3 rounded-xl font-bold uppercase tracking-wider text-[0.8em] transition-all shadow-lg"
+                  className="p-2 bg-pclr1 dark:bg-pdclr1 hover:bg-pclr3 dark:hover:bg-pdclr3 dark:bg-pdclr3 rounded-xl font-bold uppercase tracking-wider text-[0.8em] transition-all shadow-lg"
                   style={{ color: themeTextDark }}
                 >
                   ✏️ Editar Formulación
@@ -1997,7 +1997,7 @@ const fetchInitialData = useCallback(async () => {
               {(userPerfil.id === p.perfil_id || isLeader) && (
                 <button 
                   onClick={handleDeleteProyecto}
-                  className="p-2 bg-pclr10 hover:bg-pclr10 text-pclr12 rounded-xl font-bold uppercase tracking-wider text-[0.8em] transition-all border border-pclr14 shadow-lg flex items-center gap-1.5"
+                  className="p-2 bg-pclr10 hover:bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 rounded-xl font-bold uppercase tracking-wider text-[0.8em] transition-all border border-pclr14 shadow-lg flex items-center gap-1.5"
                 >
                   🗑️ Eliminar Proyecto
                 </button>
@@ -2121,7 +2121,7 @@ const fetchInitialData = useCallback(async () => {
                   </div>
                   
                   {act.articulo_id && (
-                    <div className="mt-3 pt-3 border-t border-pclr13 dark:border-pdclr13 flex items-center gap-1.5 text-[0.8em] font-bold text-pclr4">
+                    <div className="mt-3 pt-3 border-t border-pclr13 dark:border-pdclr13 flex items-center gap-1.5 text-[0.8em] font-bold text-pclr4 dark:text-pdclr4">
                       <span>🔗 Vinculada a Ficha de Actividad</span>
                     </div>
                   )}
@@ -2234,7 +2234,7 @@ const fetchInitialData = useCallback(async () => {
                       <tr key={idx}>
                         <td className="p-3">{item.descripcion || 'Sin descripción'}</td>
                         <td className="p-3 text-center">
-                          <span className={`px-2 py-0.5 rounded text-[0.9em] uppercase ${item.tipo === 'ingreso' ? 'bg-pclr6 text-pclr12 dark:bg-pdclr6 dark:text-pdclr12' : 'bg-pclr10 text-pclr4'}`}>
+                          <span className={`px-2 py-0.5 rounded text-[0.9em] uppercase ${item.tipo === 'ingreso' ? 'bg-pclr6 text-pclr12 dark:bg-pdclr6 dark:text-pdclr12' : 'bg-pclr10 text-pclr4 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4'}`}>
                             {item.tipo}
                           </span>
                         </td>
@@ -2263,11 +2263,11 @@ const fetchInitialData = useCallback(async () => {
               </div>
               <div className="p-4 rounded-2xl bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 flex flex-col justify-between">
                 <span className="text-[0.8em] font-bold uppercase text-pclr7">Total Gastos</span>
-                <span className="text-xl font-bold text-pclr4">${totalGastos.toLocaleString()}</span>
+                <span className="text-xl font-bold text-pclr4 dark:text-pdclr4">${totalGastos.toLocaleString()}</span>
               </div>
               <div className="p-4 rounded-2xl bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 flex flex-col justify-between">
                 <span className="text-[0.8em] font-bold uppercase text-pclr7">Balance Estimado</span>
-                <span className={`text-xl font-bold ${balance >= 0 ? 'text-pclr6' : 'text-pclr4'}`}>
+                <span className={`text-xl font-bold ${balance >= 0 ? 'text-pclr6' : 'text-pclr4 dark:text-pdclr4'}`}>
                   ${balance.toLocaleString()}
                 </span>
               </div>
@@ -2293,7 +2293,7 @@ const fetchInitialData = useCallback(async () => {
                     </div>
                   </div>
                   {item.fecha && (
-                    <div className="mt-3 pt-3 border-t border-pclr13 dark:border-pdclr13 text-[0.8em] font-bold text-pclr4 uppercase">
+                    <div className="mt-3 pt-3 border-t border-pclr13 dark:border-pdclr13 text-[0.8em] font-bold text-pclr4 dark:text-pdclr4 uppercase">
                       📅 Fecha Estimada: {item.fecha}
                     </div>
                   )}
@@ -2380,11 +2380,11 @@ const fetchInitialData = useCallback(async () => {
         };
 
         return (
-          <div className="fixed inset-0 z-[999] flex items-center justify-center p-2 bg-pclr2 backdrop-blur-md animate-in fade-in duration-300">
+          <div className="fixed inset-0 z-[999] flex items-center justify-center p-2 bg-pclr2 dark:bg-pdclr2 backdrop-blur-md animate-in fade-in duration-300">
             <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-2xl rounded-[1rem] shadow-2xl overflow-hidden border-4 border-pclr1 dark:border-pdclr1 animate-in zoom-in duration-300 flex flex-col max-h-[90vh]">
               
               <div className="p-4 pb-3 space-y-2 border-b border-pclr13 dark:border-pdclr13">
-                <span className="text-[0.8em] font-black uppercase tracking-wider text-pclr4 block">
+                <span className="text-[0.8em] font-black uppercase tracking-wider text-pclr4 dark:text-pdclr4 block">
                   {isOwner ? 'Autoevaluación de Objetivo' : isParent ? 'Evaluación de Apoderado' : `Evaluando a ${perfil.nombres}`}
                 </span>
                 <div className="flex items-center gap-2">
@@ -2420,7 +2420,7 @@ const fetchInitialData = useCallback(async () => {
                         }`}
                       >
                         <span className={`w-7 h-7 rounded-full flex items-center justify-center font-black shrink-0 text-[0.9em] ${
-                          isSelected ? 'bg-pclr1 text-pclr4' : 'bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4'
+                          isSelected ? 'bg-pclr1 dark:bg-pdclr1 text-pclr4 dark:text-pdclr4' : 'bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4'
                         }`}>
                           {step.value}
                         </span>
@@ -2439,7 +2439,7 @@ const fetchInitialData = useCallback(async () => {
                     setActiveObjForEval(null);
                     setTempEvalValue(null);
                   }}
-                  className="flex-1 py-3 text-[0.8em] font-black uppercase tracking-wider text-pclr7 hover:text-pclr4 transition-all"
+                  className="flex-1 py-3 text-[0.8em] font-black uppercase tracking-wider text-pclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 transition-all"
                 >
                   Cancelar
                 </button>
@@ -2447,7 +2447,7 @@ const fetchInitialData = useCallback(async () => {
                   type="button"
                   onClick={handleSaveEval}
                   disabled={tempEvalValue === null}
-                  className="flex-[2] py-3 bg-pclr10 text-pclr12 text-[0.8em] font-black uppercase rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition-all tracking-wider disabled:opacity-50"
+                  className="flex-[2] py-3 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 text-[0.8em] font-black uppercase rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition-all tracking-wider disabled:opacity-50"
                 >
                   🚀 Guardar Evaluación
                 </button>
@@ -2459,7 +2459,7 @@ const fetchInitialData = useCallback(async () => {
 
       {/* Modal de Crear Ceremonia */}
       {cer.activeCeremonyType && (
-        <div className="fixed inset-0 bg-pclr2 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-pclr2 dark:bg-pdclr2 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="bg-pclr1 dark:bg-pdclr1 border dark:border-pclr1 w-full max-w-lg rounded-[2rem] shadow-2xl flex flex-col max-h-[90vh] overflow-hidden animate-in zoom-in duration-200">
             <div className="p-6 border-b border-pclr13 dark:border-pdclr13 flex justify-between items-center bg-pclr3 dark:bg-pdclr3">
               <h3 className="font-extrabold uppercase text-[1.25em] text-pclr4 dark:text-pdclr4">
@@ -2467,7 +2467,7 @@ const fetchInitialData = useCallback(async () => {
               </h3>
               <button 
                 onClick={() => cer.setActiveCeremonyType(null)} 
-                className="text-pclr7 hover:text-pclr4 dark:hover:text-pclr12 font-black text-xl"
+                className="text-pclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 dark:hover:text-pclr12 font-black text-xl"
               >
                 ✕
               </button>
@@ -2569,7 +2569,7 @@ const fetchInitialData = useCallback(async () => {
                   type="file"
                   accept="image/*"
                   onChange={(e) => cer.setCFotoFile(e.target.files?.[0] || null)}
-                  className="w-full file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-[0.8em] file:font-black file:uppercase file:bg-pclr3 dark:file:bg-dclr7 file:text-pclr4 dark:file:text-pclr12 hover:file:bg-pclr3 cursor-pointer font-bold text-pclr7"
+                  className="w-full file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-[0.8em] file:font-black file:uppercase file:bg-pclr3 dark:bg-pdclr3 dark:file:bg-dclr7 file:text-pclr4 dark:text-pdclr4 dark:file:text-pclr12 hover:file:bg-pclr3 dark:bg-pdclr3 cursor-pointer font-bold text-pclr7"
                 />
               </div>
 
@@ -2585,7 +2585,7 @@ const fetchInitialData = useCallback(async () => {
                 type="button"
                 onClick={() => cer.setActiveCeremonyType(null)} 
                 disabled={cer.cLoading}
-                className="flex-1 py-3 text-[0.8em] font-black uppercase tracking-wider text-pclr7 hover:text-pclr4 transition-all disabled:opacity-50"
+                className="flex-1 py-3 text-[0.8em] font-black uppercase tracking-wider text-pclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 transition-all disabled:opacity-50"
               >
                 Cancelar
               </button>
@@ -2593,7 +2593,7 @@ const fetchInitialData = useCallback(async () => {
                 type="button"
                 onClick={cer.handleSaveCeremonia}
                 disabled={cer.cLoading || (cer.activeCeremonyType === 'etapa' && !cer.cNombreHito)}
-                className="flex-[2] py-3 bg-pclr10 text-pclr12 text-[0.8em] font-black uppercase rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition-all tracking-wider disabled:opacity-50 cursor-pointer"
+                className="flex-[2] py-3 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 text-[0.8em] font-black uppercase rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition-all tracking-wider disabled:opacity-50 cursor-pointer"
               >
                 {cer.cLoading ? 'Guardando...' : '🏆 Registrar Ceremonia'}
               </button>
@@ -2604,7 +2604,7 @@ const fetchInitialData = useCallback(async () => {
 
       {/* Modal para dejar Mensaje (por url de notificación) */}
       {cer.activeCeremonyForMessage && (
-        <div className="fixed inset-0 bg-pclr2 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-pclr2 dark:bg-pdclr2 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="bg-pclr1 dark:bg-pdclr1 border dark:border-pclr1 w-full max-w-md rounded-[2rem] shadow-2xl flex flex-col overflow-hidden animate-in zoom-in duration-200">
             <div className="p-6 border-b border-pclr13 dark:border-pdclr13 flex justify-between items-center bg-pclr3 dark:bg-pdclr3">
               <h3 className="font-extrabold uppercase text-[1.1em] text-pclr4 dark:text-pdclr4">
@@ -2612,7 +2612,7 @@ const fetchInitialData = useCallback(async () => {
               </h3>
               <button 
                 onClick={cer.handleCloseMessageModal} 
-                className="text-pclr7 hover:text-pclr4 dark:hover:text-pclr12 font-black text-xl"
+                className="text-pclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 dark:hover:text-pclr12 font-black text-xl"
               >
                 ✕
               </button>
@@ -2620,7 +2620,7 @@ const fetchInitialData = useCallback(async () => {
 
             <div className="p-6 space-y-4 text-[0.9em]">
               <p className="font-bold text-pclr4 dark:text-pdclr4">
-                Deja tus palabras para <span className="text-pclr4 dark:text-pdclr4 uppercase font-extrabold">{cer.activeCeremonyForMessage.perfil?.nombres} {cer.activeCeremonyForMessage.perfil?.apellidos}</span> en su ceremonia de <span className="text-pclr4 font-extrabold uppercase">{cer.activeCeremonyForMessage.nombre_hito}</span>:
+                Deja tus palabras para <span className="text-pclr4 dark:text-pdclr4 uppercase font-extrabold">{cer.activeCeremonyForMessage.perfil?.nombres} {cer.activeCeremonyForMessage.perfil?.apellidos}</span> en su ceremonia de <span className="text-pclr4 dark:text-pdclr4 font-extrabold uppercase">{cer.activeCeremonyForMessage.nombre_hito}</span>:
               </p>
               <textarea
                 value={cer.farewellMessageText}
@@ -2635,7 +2635,7 @@ const fetchInitialData = useCallback(async () => {
               <button 
                 type="button"
                 onClick={cer.handleCloseMessageModal}
-                className="flex-1 py-3 text-[0.8em] font-black uppercase tracking-wider text-pclr7 hover:text-pclr4 transition-all"
+                className="flex-1 py-3 text-[0.8em] font-black uppercase tracking-wider text-pclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 transition-all"
               >
                 Cancelar
               </button>
@@ -2643,7 +2643,7 @@ const fetchInitialData = useCallback(async () => {
                 type="button"
                 onClick={cer.handleSaveCeremonyMessage}
                 disabled={!cer.farewellMessageText.trim()}
-                className="flex-[2] py-3 bg-pclr10 text-pclr12 text-[0.8em] font-black uppercase rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition-all tracking-wider disabled:opacity-50 cursor-pointer"
+                className="flex-[2] py-3 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 text-[0.8em] font-black uppercase rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition-all tracking-wider disabled:opacity-50 cursor-pointer"
               >
                 🚀 Enviar Mensaje
               </button>
@@ -2654,7 +2654,7 @@ const fetchInitialData = useCallback(async () => {
 
       {/* Modal de Informe de Paso (Transition report) */}
       {cer.viewingReportCeremony && (
-        <div className="fixed inset-0 bg-pclr2 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-pclr2 dark:bg-pdclr2 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="bg-pclr1 dark:bg-pdclr1 border dark:border-pclr1 w-full max-w-xl rounded-[2rem] shadow-2xl flex flex-col max-h-[90vh] overflow-hidden animate-in zoom-in duration-200">
             <div className="p-6 border-b border-pclr13 dark:border-pdclr13 flex justify-between items-center bg-pclr3 dark:bg-pdclr3">
               <div>
@@ -2667,7 +2667,7 @@ const fetchInitialData = useCallback(async () => {
               </div>
               <button 
                 onClick={() => cer.setViewingReportCeremony(null)} 
-                className="text-pclr7 hover:text-pclr4 dark:hover:text-pclr12 font-black text-xl"
+                className="text-pclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 dark:hover:text-pclr12 font-black text-xl"
               >
                 ✕
               </button>
@@ -2727,7 +2727,7 @@ const fetchInitialData = useCallback(async () => {
               <button 
                 type="button"
                 onClick={() => cer.setViewingReportCeremony(null)} 
-                className="w-full py-3 bg-pclr2 text-pclr12 text-[0.8em] font-black uppercase rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition-all tracking-wider cursor-pointer"
+                className="w-full py-3 bg-pclr2 dark:bg-pdclr2 text-pclr12 text-[0.8em] font-black uppercase rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition-all tracking-wider cursor-pointer"
               >
                 Cerrar Informe
               </button>

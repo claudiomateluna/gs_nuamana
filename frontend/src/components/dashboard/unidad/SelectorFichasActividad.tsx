@@ -120,7 +120,7 @@ export default function SelectorFichasActividad({ selectedIds, onChange, unidadN
           type="button"
           onClick={handleClear}
           disabled={filtered.every(a => !selectedIds.includes(a.id))}
-          className="text-xs px-3 py-1 rounded-lg bg-pclr10 text-pclr4 font-bold hover:bg-pclr10 disabled:opacity-40 transition-all"
+          className="text-xs px-3 py-1 rounded-lg bg-pclr10 text-pclr4 dark:text-pdclr4 font-bold hover:bg-pclr10 disabled:opacity-40 transition-all"
         >
           Limpiar
         </button>
@@ -135,7 +135,7 @@ export default function SelectorFichasActividad({ selectedIds, onChange, unidadN
           filtered.map(articulo => (
             <label
               key={articulo.id}
-              className="flex items-start gap-3 p-2 rounded-lg hover:bg-pclr3 dark:hover:bg-pdclr3 cursor-pointer transition-all"
+              className="flex items-start gap-3 p-2 rounded-lg hover:bg-pclr3 dark:hover:bg-pdclr3 dark:bg-pdclr3 dark:hover:bg-pdclr3 cursor-pointer transition-all"
             >
               <input
                 type="checkbox"

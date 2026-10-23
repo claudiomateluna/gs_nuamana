@@ -69,7 +69,7 @@ export default function DashModActaVer({ isOpen, onClose, acta }: DashModActaVer
   const grupalAcuerdos = acta.acuerdos?.filter((a: any) => a.es_actividad_grupal) || []
 
   return (
-    <div className="fixed inset-0 bg-pclr2 backdrop-blur-md z-[100] flex items-center justify-center p-2 xs:p-1 sm:p-2 md:p-3 lg:p-4 animate-in zoom-in-95 duration-300 text-[1em]">
+    <div className="fixed inset-0 bg-pclr2 dark:bg-pdclr2 backdrop-blur-md z-[100] flex items-center justify-center p-2 xs:p-1 sm:p-2 md:p-3 lg:p-4 animate-in zoom-in-95 duration-300 text-[1em]">
       <div className="bg-pclr1 dark:bg-pdclr1 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg rounded-[1em] p-3 shadow-2xl overflow-y-auto max-h-[90vh]">
         <button onClick={onClose} className="absolute top-8 right-8 text-2xl opacity-60 hover:opacity-100 font-bold">✕</button>
         
@@ -148,7 +148,7 @@ export default function DashModActaVer({ isOpen, onClose, acta }: DashModActaVer
                       <div className="flex justify-between items-start mb-3">
                         <h4 className="font-bold uppercase text-pclr4 dark:text-pdclr4">{a.titulo}</h4>
                         <span className={`px-2 py-0.5 rounded-full text-[1em] ${
-                          a.prioridad === 'Alta' || a.prioridad === 'Urgente' ? 'bg-pclr10 text-pclr4' : 'bg-pclr10 text-pclr4'
+                          a.prioridad === 'Alta' || a.prioridad === 'Urgente' ? 'bg-pclr10 text-pclr4 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4' : 'bg-pclr10 text-pclr4 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4'
                         }`}>{a.prioridad}</span>
                       </div>
                       <p className="mb-4 font-bold">{a.descripcion}</p>
@@ -164,7 +164,7 @@ export default function DashModActaVer({ isOpen, onClose, acta }: DashModActaVer
                         <div className="flex flex-wrap gap-2 mt-2">
                           {fichasPorAcuerdo[i].map((ficha: Articulo) => (
                             <a key={ficha.id} href={`/blog/actividades/${ficha.slug}`} target="_blank" rel="noopener noreferrer"
-                               className="px-3 py-1 bg-pclr10 text-pclr4 rounded-full text-xs font-bold hover:bg-pclr10">
+                               className="px-3 py-1 bg-pclr10 text-pclr4 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4 rounded-full text-xs font-bold hover:bg-pclr10">
                               📋 {ficha.titulo}
                             </a>
                           ))}
@@ -243,7 +243,7 @@ export default function DashModActaVer({ isOpen, onClose, acta }: DashModActaVer
                   {acta.proxima_reunion && (
                     <div>
                       <p className="text-[0.9em] uppercase opacity-60 mb-1">Próxima Reunión</p>
-                      <p className="font-bold text-pclr4">{acta.proxima_reunion}</p>
+                      <p className="font-bold text-pclr4 dark:text-pdclr4">{acta.proxima_reunion}</p>
                     </div>
                   )}
                   <div>
@@ -258,7 +258,7 @@ export default function DashModActaVer({ isOpen, onClose, acta }: DashModActaVer
 
         <button 
           onClick={onClose} 
-          className="w-full py-4 bg-pclr2 text-pclr12 font-black uppercase rounded-[0.5em] mt-12 font-inika tracking-widest shadow-xl hover:brightness-125 transition-all text-[1em]"
+          className="w-full py-4 bg-pclr2 dark:bg-pdclr2 text-pclr12 font-black uppercase rounded-[0.5em] mt-12 font-inika tracking-widest shadow-xl hover:brightness-125 transition-all text-[1em]"
         >
           Cerrar Libro de Actas
         </button>

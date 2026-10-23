@@ -11,7 +11,7 @@ export default function Step8_HistorialClinico({ formData, setFormData, perfil }
   const inputStyle = "w-full bg-pclr3 dark:bg-pdclr3 dark:text-pdclr4 border-2 border-transparent focus:border-pclr14 rounded-xl p-3 text-[1em] font-bold outline-none transition-all shadow-inner";
   
   const infoIconContainerStyle = "inline-block";
-  const infoIconStyle = "text-pclr4 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
+  const infoIconStyle = "text-pclr4 dark:text-pdclr4 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
   const tooltipStyle = "fixed z-[300] left-1/2 -translate-x-1/2 top-1/4 w-[90%] max-w-lg p-6 bg-pclr2 dark:bg-pdclr2 text-pclr12 text-[1em] font-medium leading-relaxed rounded-[2rem] shadow-2xl opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 border-2 border-pclr14 backdrop-blur-md";
 
   // Inicialización de listas dinámicas
@@ -69,7 +69,7 @@ export default function Step8_HistorialClinico({ formData, setFormData, perfil }
           </span>
         </div>
         <div className={tooltipStyle}>
-          <div className="text-pclr4 font-black uppercase text-[0.8em] tracking-tight mb-3 border-b border-pclr14 pb-2 leading-tight">{label}</div>
+          <div className="text-pclr4 dark:text-pdclr4 font-black uppercase text-[0.8em] tracking-tight mb-3 border-b border-pclr14 pb-2 leading-tight">{label}</div>
           <div className="text-[0.95em]" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(info) }} />
         </div>
       </div>
@@ -91,7 +91,7 @@ export default function Step8_HistorialClinico({ formData, setFormData, perfil }
             />
             <div className="flex gap-4">
               {['Si', 'No'].map(o => (
-                <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] tracking-widest transition-all ${formData.has_hospitalizaciones === o ? 'border-pclr14 bg-pclr10 text-pclr12 shadow-lg' : 'border-pclr13 dark:border-pdclr13 dark:text-pdclr4'}`}>
+                <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] tracking-widest transition-all ${formData.has_hospitalizaciones === o ? 'border-pclr14 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 shadow-lg' : 'border-pclr13 dark:border-pdclr13 dark:text-pdclr4'}`}>
                   <input type="radio" checked={formData.has_hospitalizaciones === o} onChange={() => setFormData({ ...formData, has_hospitalizaciones: o })} className="hidden" /> {o}
                 </label>
               ))}
@@ -103,8 +103,8 @@ export default function Step8_HistorialClinico({ formData, setFormData, perfil }
               {(formData.hospitalizaciones || []).map((h, i) => (
                 <div key={i} className="space-y-4 pb-6 border-b border-pclr13 dark:border-pdclr13 last:border-0 last:pb-0">
                   <div className="flex justify-between items-center">
-                    <span className="text-[0.8em] font-black uppercase tracking-widest text-pclr4">Registro #{i + 1}</span>
-                    {i > 0 && <button onClick={() => removeHospitalizacion(i)} className="text-[0.8em] font-black uppercase text-pclr4">Eliminar</button>}
+                    <span className="text-[0.8em] font-black uppercase tracking-widest text-pclr4 dark:text-pdclr4">Registro #{i + 1}</span>
+                    {i > 0 && <button onClick={() => removeHospitalizacion(i)} className="text-[0.8em] font-black uppercase text-pclr4 dark:text-pdclr4">Eliminar</button>}
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-1">
@@ -118,7 +118,7 @@ export default function Step8_HistorialClinico({ formData, setFormData, perfil }
                   </div>
                 </div>
               ))}
-              <button onClick={addHospitalizacion} className="w-full py-3 border-2 border-dashed border-pclr14 rounded-xl text-[0.8em] font-black text-pclr4 uppercase hover:bg-pclr10 transition-all">+ Agregar otra hospitalización</button>
+              <button onClick={addHospitalizacion} className="w-full py-3 border-2 border-dashed border-pclr14 rounded-xl text-[0.8em] font-black text-pclr4 dark:text-pdclr4 uppercase hover:bg-pclr10 transition-all">+ Agregar otra hospitalización</button>
             </div>
           )}
         </div>
@@ -132,7 +132,7 @@ export default function Step8_HistorialClinico({ formData, setFormData, perfil }
             />
             <div className="flex gap-4">
               {['Si', 'No'].map(o => (
-                <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] tracking-widest transition-all ${formData.has_cirugias === o ? 'border-pclr14 bg-pclr10 text-pclr12 shadow-lg' : 'border-pclr13 dark:border-pdclr13 dark:text-pdclr4'}`}>
+                <label key={o} className={`flex-1 p-3 border-2 rounded-xl text-center cursor-pointer font-bold uppercase text-[0.9em] tracking-widest transition-all ${formData.has_cirugias === o ? 'border-pclr14 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 shadow-lg' : 'border-pclr13 dark:border-pdclr13 dark:text-pdclr4'}`}>
                   <input type="radio" checked={formData.has_cirugias === o} onChange={() => setFormData({ ...formData, has_cirugias: o })} className="hidden" /> {o}
                 </label>
               ))}
@@ -144,8 +144,8 @@ export default function Step8_HistorialClinico({ formData, setFormData, perfil }
               {(formData.cirugias || []).map((c, i) => (
                 <div key={i} className="space-y-4 pb-6 border-b border-pclr13 dark:border-pdclr13 last:border-0 last:pb-0">
                   <div className="flex justify-between items-center">
-                    <span className="text-[0.8em] font-black uppercase tracking-widest text-pclr4">Cirugía #{i + 1}</span>
-                    {i > 0 && <button onClick={() => removeCirugia(i)} className="text-[0.8em] font-black uppercase text-pclr4">Eliminar</button>}
+                    <span className="text-[0.8em] font-black uppercase tracking-widest text-pclr4 dark:text-pdclr4">Cirugía #{i + 1}</span>
+                    {i > 0 && <button onClick={() => removeCirugia(i)} className="text-[0.8em] font-black uppercase text-pclr4 dark:text-pdclr4">Eliminar</button>}
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-1">
@@ -159,7 +159,7 @@ export default function Step8_HistorialClinico({ formData, setFormData, perfil }
                   </div>
                 </div>
               ))}
-              <button onClick={addCirugia} className="w-full py-3 border-2 border-dashed border-pclr14 rounded-xl text-[0.8em] font-black text-pclr4 uppercase hover:bg-pclr10 transition-all">+ Agregar otra cirugía</button>
+              <button onClick={addCirugia} className="w-full py-3 border-2 border-dashed border-pclr14 rounded-xl text-[0.8em] font-black text-pclr4 dark:text-pdclr4 uppercase hover:bg-pclr10 transition-all">+ Agregar otra cirugía</button>
             </div>
           )}
         </div>

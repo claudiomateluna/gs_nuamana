@@ -404,7 +404,7 @@ const DashRecaudaciones = React.memo(function DashRecaudaciones({ perfil, unidad
         <button
           onClick={() => setSelectedUnidadFilter('todas')}
           className={`px-4 py-2 rounded-xl text-[0.8em] font-bold uppercase transition-all whitespace-nowrap ${
-            selectedUnidadFilter === 'todas' ? 'bg-pclr10 text-pclr12' : 'opacity-40 hover:opacity-100'
+            selectedUnidadFilter === 'todas' ? 'bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12' : 'opacity-40 hover:opacity-100'
           }`}
         >
           Todas
@@ -414,7 +414,7 @@ const DashRecaudaciones = React.memo(function DashRecaudaciones({ perfil, unidad
             key={u}
             onClick={() => setSelectedUnidadFilter(u)}
             className={`px-4 py-2 rounded-xl text-[0.8em] font-bold uppercase transition-all whitespace-nowrap ${
-              selectedUnidadFilter === u ? 'bg-pclr10 text-pclr12' : 'opacity-40 hover:opacity-100'
+              selectedUnidadFilter === u ? 'bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12' : 'opacity-40 hover:opacity-100'
             }`}
           >
             {u}
@@ -446,11 +446,11 @@ const DashRecaudaciones = React.memo(function DashRecaudaciones({ perfil, unidad
                 <div className="space-y-3">
                   <div className="flex justify-between items-start">
                     <span className={`text-[0.85em] px-2.5 py-0.5 rounded-full font-black uppercase ${
-                      isAbierta ? 'bg-pclr6 text-pclr12 dark:bg-pdclr6 dark:text-pdclr12 dark:bg-pdclr6 dark:text-pdclr6' : 'bg-pclr3 text-pclr4 dark:bg-pdclr3 dark:text-pdclr4'
+                      isAbierta ? 'bg-pclr6 text-pclr12 dark:bg-pdclr6 dark:text-pdclr12 dark:bg-pdclr6 dark:text-pdclr6' : 'bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4 dark:bg-pdclr3 dark:text-pdclr4'
                     }`}>
                       {isAbierta ? 'Abierta' : 'Completada'}
                     </span>
-                    <span className="text-[0.85em] bg-pclr10 text-pclr12 px-2.5 py-0.5 rounded-full font-black uppercase">
+                    <span className="text-[0.85em] bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 px-2.5 py-0.5 rounded-full font-black uppercase">
                       {r.unidad}
                     </span>
                   </div>
@@ -474,11 +474,11 @@ const DashRecaudaciones = React.memo(function DashRecaudaciones({ perfil, unidad
                             className="p-1 rounded bg-pclr3 dark:bg-pdclr3 border text-[0.9em] font-bold text-center"
                           />
                           <button onClick={() => handleUpdateDeadline(r.id)} className="text-pclr6 hover:scale-110">✔</button>
-                          <button onClick={() => setEditingDeadlineId(null)} className="text-pclr4 hover:scale-110">✕</button>
+                          <button onClick={() => setEditingDeadlineId(null)} className="text-pclr4 dark:text-pdclr4 hover:scale-110">✕</button>
                         </div>
                       ) : (
                         <div className="flex items-center gap-1.5">
-                          <span className="font-bold text-pclr4">
+                          <span className="font-bold text-pclr4 dark:text-pdclr4">
                             {new Date(r.plazo_maximo).toLocaleDateString('es-CL')}
                           </span>
                           {isAbierta && canEditDeadline && (
@@ -523,7 +523,7 @@ const DashRecaudaciones = React.memo(function DashRecaudaciones({ perfil, unidad
                             className="w-20 p-1 rounded bg-pclr1 dark:bg-pdclr1 border text-[0.9em] font-black text-center"
                           />
                           <button onClick={() => handleUpdateGasto(r.id)} className="text-pclr6 hover:scale-110">✔</button>
-                          <button onClick={() => setEditingGastoId(null)} className="text-pclr4 hover:scale-110">✕</button>
+                          <button onClick={() => setEditingGastoId(null)} className="text-pclr4 dark:text-pdclr4 hover:scale-110">✕</button>
                         </div>
                       ) : (
                         <div className="flex items-center gap-1.5">
@@ -564,7 +564,7 @@ const DashRecaudaciones = React.memo(function DashRecaudaciones({ perfil, unidad
                         setSelectedRecaudacion(r)
                         setIsComprobanteOpen(true)
                       }}
-                      className="w-full py-2.5 bg-pclr10 hover:bg-pclr6 text-pclr12 rounded-xl text-[0.8em] font-bold uppercase tracking-wider transition-all"
+                      className="w-full py-2.5 bg-pclr10 hover:bg-pclr6 text-pclr12 dark:bg-pdclr10 dark:text-pdclr12 rounded-xl text-[0.8em] font-bold uppercase tracking-wider transition-all"
                     >
                       ✉️ Enviar comprobante
                     </button>
@@ -580,8 +580,8 @@ const DashRecaudaciones = React.memo(function DashRecaudaciones({ perfil, unidad
                         }}
                         className={`flex-1 py-2 rounded-xl text-[0.85em] font-bold uppercase border transition-all ${
                           viewingDetailId === r.id
-                            ? 'bg-pclr3 text-pclr12 border-pclr13'
-                            : 'bg-transparent text-pclr7 hover:bg-pclr3 dark:text-pdclr7 dark:hover:bg-pdclr3 border-pclr13 dark:border-pdclr13'
+                            ? 'bg-pclr3 dark:bg-pdclr3 text-pclr12 border-pclr13 dark:border-pdclr13'
+                            : 'bg-transparent text-pclr7 hover:bg-pclr3 dark:hover:bg-pdclr3 dark:bg-pdclr3 dark:text-pdclr7 dark:hover:bg-pdclr3 border-pclr13 dark:border-pdclr13'
                         }`}
                       >
                         🔎 Ver Detalle
@@ -593,7 +593,7 @@ const DashRecaudaciones = React.memo(function DashRecaudaciones({ perfil, unidad
                             setSelectedRecaudacion(r)
                             setIsCerrarOpen(true)
                           }}
-                          className="py-1 px-2 bg-pclr10 text-pclr12 rounded-xl text-[0.85em] font-bold uppercase hover:brightness-110 transition-all flex items-center gap-1"
+                          className="py-1 px-2 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 rounded-xl text-[0.85em] font-bold uppercase hover:brightness-110 transition-all flex items-center gap-1"
                         >
                           🔒 Cerrar
                         </button>
@@ -632,7 +632,7 @@ const DashRecaudaciones = React.memo(function DashRecaudaciones({ perfil, unidad
                               statusColor = 'text-pclr6 bg-pclr6 dark:bg-pdclr6'
                               statusText = 'Aprobado'
                             } else if (c.estado === 'rechazado') {
-                              statusColor = 'text-pclr4 bg-pclr10 dark:bg-pdclr10'
+                              statusColor = 'text-pclr4 dark:text-pdclr4 bg-pclr10 dark:bg-pdclr10'
                               statusText = 'Rechazado'
                             }
 
@@ -649,7 +649,7 @@ const DashRecaudaciones = React.memo(function DashRecaudaciones({ perfil, unidad
                                   <button
                                     type="button"
                                     onClick={() => handleVerAdjunto(c.imagen_url)}
-                                    className="text-[0.85em] text-pclr4 hover:underline font-bold"
+                                    className="text-[0.85em] text-pclr4 dark:text-pdclr4 hover:underline font-bold"
                                   >
                                     Ver Comprobante
                                   </button>
@@ -687,7 +687,7 @@ const DashRecaudaciones = React.memo(function DashRecaudaciones({ perfil, unidad
             </div>
             <button
               onClick={() => setViewingDetailId(null)}
-              className="text-pclr7 hover:text-pclr4 dark:text-pdclr7 dark:hover:text-pclr12 font-bold text-[1.1em] border-2 px-3 py-1 rounded-xl"
+              className="text-pclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr7 dark:hover:text-pclr12 font-bold text-[1.1em] border-2 px-3 py-1 rounded-xl"
             >
               Cerrar Detalle
             </button>
@@ -697,7 +697,7 @@ const DashRecaudaciones = React.memo(function DashRecaudaciones({ perfil, unidad
             
             {/* Sección A: Validación de comprobantes pendientes de este evento */}
             <div className="space-y-4">
-              <h4 className="font-black font-display uppercase text-[0.9em] tracking-wider text-pclr4 border-b pb-2 dark:border-pdclr13">
+              <h4 className="font-black font-display uppercase text-[0.9em] tracking-wider text-pclr4 dark:text-pdclr4 border-b pb-2 dark:border-pdclr13">
                 📁 Comprobantes Cargados
               </h4>
               
@@ -734,7 +734,7 @@ const DashRecaudaciones = React.memo(function DashRecaudaciones({ perfil, unidad
                             <span className={`text-[0.8em] px-2 py-0.5 rounded-full font-black uppercase ${
                               isPend ? 'bg-pclr5 text-pclr12 dark:bg-pdclr5 dark:text-pdclr12 dark:bg-pdclr5 dark:text-pdclr5' :
                               c.estado === 'validado' ? 'bg-pclr6 text-pclr12 dark:bg-pdclr6 dark:text-pdclr12 dark:bg-pdclr6 dark:text-pdclr6' :
-                              'bg-pclr10 text-pclr4 dark:bg-pdclr10 dark:text-pdclr4'
+                              'bg-pclr10 text-pclr4 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4'
                             }`}>
                               {c.estado}
                             </span>
@@ -781,7 +781,7 @@ const DashRecaudaciones = React.memo(function DashRecaudaciones({ perfil, unidad
                                     }
                                     handleValidateComprobante(c.id, false, undefined, motivo.trim())
                                   }}
-                                  className="px-3 py-1.5 bg-pclr10 text-pclr12 rounded-xl text-[0.8em] font-bold uppercase hover:brightness-105 transition-all"
+                                  className="px-3 py-1.5 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 rounded-xl text-[0.8em] font-bold uppercase hover:brightness-105 transition-all"
                                 >
                                   Rechazar
                                 </button>
@@ -865,7 +865,7 @@ const DashRecaudaciones = React.memo(function DashRecaudaciones({ perfil, unidad
                                 />
                                 <div className="flex gap-2 justify-end">
                                   <button onClick={() => handleSaveDiscount(m.id)} className="px-3 py-1 bg-pclr6 text-pclr12 rounded-md text-[0.8em] font-bold">✔</button>
-                                  <button onClick={() => setEditingDiscountUserId(null)} className="px-3 py-1 bg-pclr3 text-pclr12 rounded-md text-[0.8em] font-bold">✕</button>
+                                  <button onClick={() => setEditingDiscountUserId(null)} className="px-3 py-1 bg-pclr3 dark:bg-pdclr3 text-pclr12 rounded-md text-[0.8em] font-bold">✕</button>
                                 </div>
                               </div>
                             ) : (

@@ -55,8 +55,8 @@ export default function DashModTesoreriaVer({ isOpen, onClose, data }: DashModTe
   if (!isOpen || !data) return null
 
   return (
-    <div className="fixed inset-0 bg-pclr2 backdrop-blur-sm z-[130] flex items-center justify-center p-2 md:p-4 overflow-y-auto font-quicksand">
-      <div className="font-quicksand bg-pclr1 dark:bg-pdclr1 text-pclr4 dark:text-pdclr4 w-full max-w-4xl p-4 md:p-8 shadow-2xl font-sans border-[1px] border-pclr2 dark:border-pdclr2 my-auto print:bg-pclr1 print:text-pclr4 print:border-pclr2 print:p-0">
+    <div className="fixed inset-0 bg-pclr2 dark:bg-pdclr2 backdrop-blur-sm z-[130] flex items-center justify-center p-2 md:p-4 overflow-y-auto font-quicksand">
+      <div className="font-quicksand bg-pclr1 dark:bg-pdclr1 text-pclr4 dark:text-pdclr4 w-full max-w-4xl p-4 md:p-8 shadow-2xl font-sans border-[1px] border-pclr2 dark:border-pdclr2 my-auto print:bg-pclr1 dark:bg-pdclr1 print:text-pclr4 dark:text-pdclr4 print:border-pclr2 print:p-0">
 
         {loading ? (
           <div className="py-20 text-center animate-pulse font-bold uppercase tracking-widest">Cargando Documento Institucional...</div>
@@ -67,7 +67,7 @@ export default function DashModTesoreriaVer({ isOpen, onClose, data }: DashModTe
             <div className="flex justify-between items-start border-b-[1.5px] border-pclr2 dark:border-pdclr2 pb-4 mb-4 print:border-pclr2">
               <div className="flex items-center gap-4">
                 <img src="/images/logos/LogoColor.svg" alt="Logo" className="w-16 h-16 object-contain" /> 
-                <div className="text-[0.8em] leading-tight font-bold uppercase dark:text-pdclr4 print:text-pclr4">
+                <div className="text-[0.8em] leading-tight font-bold uppercase dark:text-pdclr4 print:text-pclr4 dark:text-pdclr4">
                   <p>CENTRO JUVENIL CULTURAL DE OUTDOOR NUA MANA</p>
                   <p>R.U.T.: 65.015.731-1</p>
                   <p>Dirección: Bahía Catalina 11781</p>
@@ -76,9 +76,9 @@ export default function DashModTesoreriaVer({ isOpen, onClose, data }: DashModTe
               </div>
               <div className="text-right">
                 <div className="border-[1.5px] border-pclr2 dark:border-pdclr2 p-2 min-w-[200px] text-center mb-1 rounded-[0.5em] print:border-pclr2">
-                  <p className="text-[1em] font-bold uppercase text-dclr2 print:text-pclr4">COMPROBANTE DE {comprobante.tipo.toUpperCase()}</p>
+                  <p className="text-[1em] font-bold uppercase text-dclr2 print:text-pclr4 dark:text-pdclr4">COMPROBANTE DE {comprobante.tipo.toUpperCase()}</p>
                 </div>
-                <div className="text-[0.8em] font-bold uppercase flex justify-end gap-4 mr-2 dark:text-pdclr4 print:text-pclr4">
+                <div className="text-[0.8em] font-bold uppercase flex justify-end gap-4 mr-2 dark:text-pdclr4 print:text-pclr4 dark:text-pdclr4">
                   <span>Rev 3</span>
                   <span>03-11-2021</span>
                   <span className="border-l border-pclr2 dark:border-pdclr2 pl-2 print:border-pclr2">FOLIO: {comprobante.folio}</span>
@@ -87,7 +87,7 @@ export default function DashModTesoreriaVer({ isOpen, onClose, data }: DashModTe
             </div>
 
             {/* CUERPO DEL VALE */}
-            <div className="grid grid-cols-12 border-b-[1.5px] border-pclr2 dark:border-pdclr2 mt-[-14px] mb-4 print:border-pclr2 dark:text-pdclr4 print:text-pclr4">
+            <div className="grid grid-cols-12 border-b-[1.5px] border-pclr2 dark:border-pdclr2 mt-[-14px] mb-4 print:border-pclr2 dark:text-pdclr4 print:text-pclr4 dark:text-pdclr4">
               <div className="col-span-9 p-2 border-r-[1.5px] border-pclr2 dark:border-pdclr2 print:border-pclr2">
                 <p className="text-[0.8em] font-bold uppercase mb-1">{comprobante.tipo === 'Egreso' ? 'PAGADO A:' : 'RECIBIDO DE:'}</p>
                 <p className="text-[0.9em] font-bold uppercase">{comprobante.pagado_recibido_nombre}</p> 
@@ -98,7 +98,7 @@ export default function DashModTesoreriaVer({ isOpen, onClose, data }: DashModTe
               </div>
             </div>
 
-            <div className="p-2 mt-[-10px] border-b-[1.5px] border-pclr2 dark:border-pdclr2 mb-4 print:border-pclr2 dark:text-pdclr4 print:text-pclr4">
+            <div className="p-2 mt-[-10px] border-b-[1.5px] border-pclr2 dark:border-pdclr2 mb-4 print:border-pclr2 dark:text-pdclr4 print:text-pclr4 dark:text-pdclr4">
               <p className="text-[0.8em] font-bold uppercase mb-1">LA SUMA DE:</p>
               <p className="text-[0.9em] font-bold italic uppercase pb-1">{comprobante.suma_palabras}</p> 
             </div>
@@ -106,7 +106,7 @@ export default function DashModTesoreriaVer({ isOpen, onClose, data }: DashModTe
             {/* TABLA DE DETALLES */}
             <table className="w-full border-collapse border-[1.5px] border-pclr2 dark:border-pdclr2 mb-4 text-[0.9em] print:border-pclr2">
               <thead>
-                <tr className="bg-pclr3 dark:bg-pdclr3 uppercase font-bold print:bg-pclr3">
+                <tr className="bg-pclr3 dark:bg-pdclr3 uppercase font-bold print:bg-pclr3 dark:bg-pdclr3">
                   <th className="border-[1.5px] border-pclr2 dark:border-pdclr2 p-1 w-20 print:border-pclr2">ITEM</th>
                   <th className="border-[1.5px] border-pclr2 dark:border-pdclr2 p-1 print:border-pclr2">POR CONCEPTO DE:</th>
                   <th className="border-[1.5px] border-pclr2 dark:border-pdclr2 p-1 w-32 text-right print:border-pclr2">VALOR</th>
@@ -123,7 +123,7 @@ export default function DashModTesoreriaVer({ isOpen, onClose, data }: DashModTe
                     </tr>
                   )
                 })}
-                <tr className="h-10 bg-pclr3 dark:bg-pdclr3 font-bold print:bg-pclr3">
+                <tr className="h-10 bg-pclr3 dark:bg-pdclr3 font-bold print:bg-pclr3 dark:bg-pdclr3">
                   <td colSpan={2} className="border-[1.5px] border-pclr2 dark:border-pdclr2 p-2 text-right uppercase print:border-pclr2">Nombre de la Estructura: NUA MANA • TOTAL</td>
                   <td className="border-[1.5px] border-pclr2 dark:border-pdclr2 p-2 text-right text-lg print:border-pclr2">
                     ${(data.monto_ingreso || data.monto_egreso).toLocaleString('es-CL')}
@@ -138,19 +138,19 @@ export default function DashModTesoreriaVer({ isOpen, onClose, data }: DashModTe
                 <p className="text-[0.8em] font-bold uppercase mb-2">FORMA DE PAGO</p>
                 <div className="grid grid-cols-2 gap-1 text-[0.8em] font-bold">
                   <div className="flex items-center gap-1">
-                    <div className={`w-3 h-3 border border-pclr2 dark:border-pdclr2 print:border-pclr2 ${comprobante.forma_pago === 'Transferencia' ? 'bg-pclr2 dark:bg-pdclr1 print:bg-pclr2' : ''}`}></div>
+                    <div className={`w-3 h-3 border border-pclr2 dark:border-pdclr2 print:border-pclr2 ${comprobante.forma_pago === 'Transferencia' ? 'bg-pclr2 dark:bg-pdclr1 print:bg-pclr2 dark:bg-pdclr2' : ''}`}></div>
                     <span>TRANSF.</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <div className={`w-3 h-3 border border-pclr2 dark:border-pdclr2 print:border-pclr2 ${comprobante.forma_pago === 'Depósito' ? 'bg-pclr2 dark:bg-pdclr1 print:bg-pclr2' : ''}`}></div>
+                    <div className={`w-3 h-3 border border-pclr2 dark:border-pdclr2 print:border-pclr2 ${comprobante.forma_pago === 'Depósito' ? 'bg-pclr2 dark:bg-pdclr1 print:bg-pclr2 dark:bg-pdclr2' : ''}`}></div>
                     <span>DEPÓSITO</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <div className={`w-3 h-3 border border-pclr2 dark:border-pdclr2 print:border-pclr2 ${comprobante.forma_pago === 'Documento' ? 'bg-pclr2 dark:bg-pdclr1 print:bg-pclr2' : ''}`}></div>
+                    <div className={`w-3 h-3 border border-pclr2 dark:border-pdclr2 print:border-pclr2 ${comprobante.forma_pago === 'Documento' ? 'bg-pclr2 dark:bg-pdclr1 print:bg-pclr2 dark:bg-pdclr2' : ''}`}></div>
                     <span>DOC.</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <div className={`w-3 h-3 border border-pclr2 dark:border-pdclr2 print:border-pclr2 ${comprobante.forma_pago === 'Efectivo' ? 'bg-pclr2 dark:bg-pdclr1 print:bg-pclr2' : ''}`}></div>
+                    <div className={`w-3 h-3 border border-pclr2 dark:border-pdclr2 print:border-pclr2 ${comprobante.forma_pago === 'Efectivo' ? 'bg-pclr2 dark:bg-pdclr1 print:bg-pclr2 dark:bg-pdclr2' : ''}`}></div>
                     <span>EFECTIVO</span>
                   </div>
                 </div>
@@ -192,9 +192,9 @@ export default function DashModTesoreriaVer({ isOpen, onClose, data }: DashModTe
                   <p className="text-md font-bold uppercase text-pclr6">{data.tesoreria_items?.nombre}</p> 
                 </div>
               </div>
-              <div className="bg-pclr3 dark:bg-pdclr3 p-6 border-2 border-pclr2 dark:border-pdclr2 rounded-3xl text-right print:bg-pclr3 print:border-pclr2">
+              <div className="bg-pclr3 dark:bg-pdclr3 p-6 border-2 border-pclr2 dark:border-pdclr2 rounded-3xl text-right print:bg-pclr3 dark:bg-pdclr3 print:border-pclr2">
                 <p className="text-xs font-bold uppercase opacity-40">Monto Total</p>
-                <p className={`text-4xl font-bold ${data.monto_ingreso > 0 ? 'text-pclr6' : 'text-pclr4'}`}>
+                <p className={`text-4xl font-bold ${data.monto_ingreso > 0 ? 'text-pclr6' : 'text-pclr4 dark:text-pdclr4'}`}>
                   ${(data.monto_ingreso || data.monto_egreso).toLocaleString('es-CL')}
                 </p>
                 <p className="text-xs font-bold mt-2 opacity-60 uppercase">REGISTRADO EL {new Date(data.fecha_completa).toLocaleDateString('es-CL')}</p>
@@ -209,7 +209,7 @@ export default function DashModTesoreriaVer({ isOpen, onClose, data }: DashModTe
         )}
 
         <div className="mt-8 flex justify-center gap-4 no-print">
-          <button onClick={() => window.print()} className="px-8 py-3 bg-pclr10 text-pclr12 font-bold uppercase rounded-xl shadow-lg hover:brightness-110 transition-all text-xs tracking-widest">🖨️ Imprimir</button>
+          <button onClick={() => window.print()} className="px-8 py-3 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 font-bold uppercase rounded-xl shadow-lg hover:brightness-110 transition-all text-xs tracking-widest">🖨️ Imprimir</button>
           <button onClick={onClose} className="px-8 py-3 bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4 font-bold uppercase rounded-xl hover:brightness-110 transition-all text-xs tracking-widest">Cerrar</button>
         </div>
       </div>
@@ -218,12 +218,12 @@ export default function DashModTesoreriaVer({ isOpen, onClose, data }: DashModTe
         @media print {
           .no-print { display: none !important; }
           .fixed { position: absolute !important; top: 0; left: 0; width: 100%; height: auto; background: white !important; padding: 0 !important; }
-          .bg-pclr2\/80 { background: white !important; }
+          .bg-pclr2 dark:bg-pdclr2\/80 { background: white !important; }
           /* Forzar modo claro en impresión */
-          :global(.dark) .bg-pclr2 { background-color: white !important; color: black !important; }    
+          :global(.dark) .bg-pclr2 dark:bg-pdclr2 { background-color: white !important; color: black !important; }    
           :global(.dark) .border-pclr1 { border-color: black !important; }
-          :global(.dark) .bg-pclr1\/10 { background-color: #f4f4f5 !important; }
-          :global(.dark) .bg-pclr1\/5 { background-color: #fafafa !important; }
+          :global(.dark) .bg-pclr1 dark:bg-pdclr1\/10 { background-color: #f4f4f5 !important; }
+          :global(.dark) .bg-pclr1 dark:bg-pdclr1\/5 { background-color: #fafafa !important; }
         }
       `}</style>
     </div>

@@ -191,7 +191,7 @@ export default function DashModAutorizacionVer({ isOpen, onClose, auth, perfil: 
     : ((resolvedAuth || auth)?.nombre_firmante || 'Participante')
 
   return (
-    <div className="fixed inset-0 bg-pclr2 backdrop-blur-xl z-[200] flex items-center justify-center p-0 md:p-4 overflow-hidden">
+    <div className="fixed inset-0 bg-pclr2 dark:bg-pdclr2 backdrop-blur-xl z-[200] flex items-center justify-center p-0 md:p-4 overflow-hidden">
       <div className="bg-pclr1 dark:bg-pdclr1 text-pclr4 dark:text-pdclr4 w-full h-full max-w-6xl flex flex-col shadow-2xl relative rounded-none md:rounded-3xl overflow-hidden border border-pclr13 dark:border-pdclr13">
         
         {/* HEADER */}
@@ -207,7 +207,7 @@ export default function DashModAutorizacionVer({ isOpen, onClose, auth, perfil: 
             <button 
               onClick={handleDelete} 
               disabled={isDeleting}
-              className="px-4 py-2 bg-pclr10 text-pclr12 rounded-xl font-bold uppercase text-[0.8em] border border-pclr14 hover:bg-pclr10/80 transition-all cursor-pointer"
+              className="px-4 py-2 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 rounded-xl font-bold uppercase text-[0.8em] border border-pclr14 hover:bg-pclr10/80 transition-all cursor-pointer"
             >
               {isDeleting ? '...' : '🗑️ Eliminar'}
             </button>
@@ -217,7 +217,7 @@ export default function DashModAutorizacionVer({ isOpen, onClose, auth, perfil: 
                   generateOfficialPDF((resolvedAuth || auth) as any, currentPerfil as any, fichaMedica, true)
                 }
               }} 
-              className="px-4 py-2 bg-pclr10 text-pclr12 rounded-xl font-bold uppercase text-[0.8em] hover:brightness-110 shadow-lg cursor-pointer"
+              className="px-4 py-2 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 rounded-xl font-bold uppercase text-[0.8em] hover:brightness-110 shadow-lg cursor-pointer"
             >
               📥 Descargar
             </button>
@@ -244,7 +244,7 @@ export default function DashModAutorizacionVer({ isOpen, onClose, auth, perfil: 
               title="Previsualización de Autorización"
             />
           ) : (
-            <div className="absolute inset-0 flex items-center justify-center text-pclr4 font-bold uppercase text-xs">
+            <div className="absolute inset-0 flex items-center justify-center text-pclr4 dark:text-pdclr4 font-bold uppercase text-xs">
               Error al cargar la previsualización del PDF.
             </div>
           )}

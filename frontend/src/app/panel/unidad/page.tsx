@@ -153,7 +153,7 @@ export default function UnidadPage() {
           className={`px-5 py-2 rounded-xl text-[0.82em] font-black uppercase transition-all cursor-pointer ${
             activeTab === 'nomina'
               ? 'bg-pclr8 dark:bg-pdclr8 text-pclr12 dark:text-pdclr12 shadow-sm'
-              : 'text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4'
+              : 'text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 dark:hover:text-pdclr4'
           }`}
         >
           👥 Nómina {perfil?.unidades?.nombre || 'de Unidad'}
@@ -164,7 +164,7 @@ export default function UnidadPage() {
           className={`px-5 py-2 rounded-xl text-[0.82em] font-black uppercase transition-all cursor-pointer ${
             activeTab === 'salidas'
               ? 'bg-pclr8 dark:bg-pdclr8 text-pclr12 dark:text-pdclr12 shadow-sm'
-              : 'text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4'
+              : 'text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 dark:hover:text-pdclr4'
           }`}
         >
           🏕️ Salidas y Autorizaciones

@@ -166,7 +166,7 @@ export default function DashModInventarioItem({ isOpen, onClose, onSuccess, edit
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-pclr2 backdrop-blur-sm z-[110] flex items-center justify-center p-2 md:p-4 animate-in fade-in duration-300">
+    <div className="fixed inset-0 bg-pclr2 dark:bg-pdclr2 backdrop-blur-sm z-[110] flex items-center justify-center p-2 md:p-4 animate-in fade-in duration-300">
       <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-3xl rounded-[2.5rem] p-6 md:p-10 shadow-2xl border-4 border-pclr13 dark:border-pdclr13 overflow-y-auto max-h-[95vh]">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl md:text-3xl font-black font-display uppercase text-pclr6 tracking-tighter">
@@ -229,7 +229,7 @@ export default function DashModInventarioItem({ isOpen, onClose, onSuccess, edit
                   <button 
                     type="button" 
                     onClick={() => handleRemoveImage(idx)}
-                    className="absolute top-1 right-1 w-6 h-6 bg-pclr10 text-pclr12 rounded-full flex items-center justify-center text-xs opacity-0 group-hover:opacity-100 transition-opacity"
+                    className="absolute top-1 right-1 w-6 h-6 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 rounded-full flex items-center justify-center text-xs opacity-0 group-hover:opacity-100 transition-opacity"
                   >✕</button>
                 </div>
               ))}
@@ -237,7 +237,7 @@ export default function DashModInventarioItem({ isOpen, onClose, onSuccess, edit
                 type="button"
                 disabled={uploading}
                 onClick={() => fileInputRef.current?.click()}
-                className={`aspect-square rounded-2xl border-2 border-dashed border-pclr6 flex flex-col items-center justify-center gap-1 hover:bg-pclr3 transition-all ${uploading ? 'animate-pulse opacity-50' : ''}`}
+                className={`aspect-square rounded-2xl border-2 border-dashed border-pclr6 flex flex-col items-center justify-center gap-1 hover:bg-pclr3 dark:hover:bg-pdclr3 dark:bg-pdclr3 transition-all ${uploading ? 'animate-pulse opacity-50' : ''}`}
               >
                 <span className="text-2xl">{uploading ? '⏳' : '📸'}</span>
                 <span className="text-[8px] font-black uppercase text-pclr6">Añadir</span>

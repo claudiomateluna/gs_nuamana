@@ -12,7 +12,7 @@ export default function Step3_ContactosEmergencia({ formData, setFormData, perfi
   const labelStyle = "text-[0.9em] font-black uppercase text-pclr7 tracking-widest block";
   const inputStyle = "w-full bg-pclr3 dark:bg-pdclr3 dark:text-pdclr4 border-2 border-transparent focus:border-pclr14 rounded-xl p-3 text-[1em] font-bold outline-none transition-all shadow-inner";
   const infoIconContainerStyle = "inline-block";
-  const infoIconStyle = "text-pclr4 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
+  const infoIconStyle = "text-pclr4 dark:text-pdclr4 cursor-help text-[1.1em] hover:scale-110 transition-transform flex items-center justify-center";
   const tooltipStyle = "fixed z-[300] left-1/2 -translate-x-1/2 top-1/4 w-[90%] max-w-lg p-6 bg-pclr2 dark:bg-pdclr2 text-pclr12 text-[1em] font-medium leading-relaxed rounded-[2rem] shadow-2xl opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 border-2 border-pclr14 backdrop-blur-md";
 
   const relaciones = ['No Aplica', 'Madre', 'Padre', 'Hermana (o)', 'Tía (o)', 'Abuela (o)', 'Sobrina (o)', 'Hija (o)', 'Otra'];
@@ -83,7 +83,7 @@ export default function Step3_ContactosEmergencia({ formData, setFormData, perfi
           </span>
         </div>
         <div className={tooltipStyle}>
-          <div className="text-pclr4 font-black uppercase text-[0.8em] tracking-tight mb-3 border-b border-pclr14 pb-2 leading-tight">{label}</div>
+          <div className="text-pclr4 dark:text-pdclr4 font-black uppercase text-[0.8em] tracking-tight mb-3 border-b border-pclr14 pb-2 leading-tight">{label}</div>
           <div className="text-[0.95em]">{info}</div>
         </div>
       </div>
@@ -101,9 +101,9 @@ export default function Step3_ContactosEmergencia({ formData, setFormData, perfi
           {(formData.contactos_emergencia || []).map((c, i) => (
             <div key={i} className="p-4 bg-pclr3 dark:bg-pdclr3 rounded-[1em] border border-pclr13 dark:border-pdclr13 space-y-4 relative shadow-sm">
               <div className="flex justify-between items-center border-b border-pclr13 dark:border-pdclr13 pb-2 mb-4">
-                <span className="text-[0.8em] font-black uppercase tracking-[0.2em] text-pclr4">Contacto #{i + 1}</span>
+                <span className="text-[0.8em] font-black uppercase tracking-[0.2em] text-pclr4 dark:text-pdclr4">Contacto #{i + 1}</span>
                 {i > 0 && (
-                  <button type="button" onClick={() => removeContact(i)} className="text-[0.8em] font-black uppercase text-pclr4 hover:underline">Eliminar</button>
+                  <button type="button" onClick={() => removeContact(i)} className="text-[0.8em] font-black uppercase text-pclr4 dark:text-pdclr4 hover:underline">Eliminar</button>
                 )}
               </div>
 
@@ -128,7 +128,7 @@ export default function Step3_ContactosEmergencia({ formData, setFormData, perfi
             </div>
           ))}
           
-          <button type="button" onClick={addContact} className="w-full py-6 border-2 border-dashed border-pclr13 dark:border-pdclr13 rounded-[2.5rem] text-[0.9em] font-black uppercase text-pclr7 tracking-widest hover:text-pclr4 hover:border-pclr14 transition-all bg-pclr1 dark:bg-pdclr1">
+          <button type="button" onClick={addContact} className="w-full py-6 border-2 border-dashed border-pclr13 dark:border-pdclr13 rounded-[2.5rem] text-[0.9em] font-black uppercase text-pclr7 tracking-widest hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 hover:border-pclr14 transition-all bg-pclr1 dark:bg-pdclr1">
             + AGREGAR OTRO CONTACTO DE EMERGENCIA
           </button>
         </div>

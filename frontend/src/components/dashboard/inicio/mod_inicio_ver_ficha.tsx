@@ -25,12 +25,12 @@ export default function DashModVerFicha({ isOpen, onClose, miembro, perfil, auto
   const showSignedAuths = perfil ? isDirectivo(perfil) && authsDelMiembro.length > 0 : false
 
   return (
-    <div className="fixed inset-0 bg-pclr2 backdrop-blur-md z-[100] flex items-center justify-center p-2 animate-in zoom-in-95 duration-300">
+    <div className="fixed inset-0 bg-pclr2 dark:bg-pdclr2 backdrop-blur-md z-[100] flex items-center justify-center p-2 animate-in zoom-in-95 duration-300">
       <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-5xl rounded-[1rem] p-2 shadow-2xl overflow-y-auto max-h-[90vh] text-[1em]">
         <button onClick={onClose} className="absolute top-8 right-8 text-2xl opacity-40 hover:opacity-100 font-bold">✕</button>
 
         <header className="mb-8 border-b pb-6">
-          <h2 className="text-3xl font-black font-display uppercase text-pclr4 tracking-tighter font-bold">Ficha Personal</h2>
+          <h2 className="text-3xl font-black font-display uppercase text-pclr4 dark:text-pdclr4 tracking-tighter font-bold">Ficha Personal</h2>
           <h3 className="text-2xl font-black text-pclr4 dark:text-pdclr4 uppercase">{miembro.nombres} {miembro.apellidos}</h3>
           <p className="text-lg font-bold text-pclr4 dark:text-pdclr4 opacity-60 uppercase">{calcularEdad(miembro.fecha_nacimiento)} Años • {miembro.unidades?.nombre || 'Sin Unidad'}</p>
         </header>
@@ -188,7 +188,7 @@ export default function DashModVerFicha({ isOpen, onClose, miembro, perfil, auto
                 <div className="space-y-3">
                   {miembro.contactos_emergencia?.map((c: any) => (
                     <div key={c.id} className="p-2 bg-pclr10 rounded-2xl border border-pclr14">
-                      <p className="text-[0.8em] font-bold text-pclr4 uppercase">{c.nombre}</p>
+                      <p className="text-[0.8em] font-bold text-pclr4 dark:text-pdclr4 uppercase">{c.nombre}</p>
                       <p className="text-[0.8em] font-bold opacity-60 mt-[-5px]">{c.relacion}</p>
                       <p className="text-[0.9em] text-pclr4 dark:text-pdclr4 text-right font-bold font-inika"><a href={`tel:${cleanPhone(c.telefono)}`} className="text-pclr4 dark:text-pdclr4">{cleanPhone(c.telefono)}</a></p>
                     </div>
@@ -197,7 +197,7 @@ export default function DashModVerFicha({ isOpen, onClose, miembro, perfil, auto
                     <div className="p-4 bg-pclr10 rounded-2xl border border-dashed text-center">
                       <p className="text-[0.8em] font-bold uppercase text-pclr7">Apoderado de Contacto</p>
                       <p className="font-bold text-[0.9em]">{miembro.nombre_apoderado_contacto || 'S/I'}</p>
-                      <p className="text-lg font-black text-pclr4"><a href={`tel:${cleanPhone(miembro.telefono_apoderado_contacto)}`}>📞 {cleanPhone(miembro.telefono_apoderado_contacto)}</a></p>
+                      <p className="text-lg font-black text-pclr4 dark:text-pdclr4"><a href={`tel:${cleanPhone(miembro.telefono_apoderado_contacto)}`}>📞 {cleanPhone(miembro.telefono_apoderado_contacto)}</a></p>
                     </div>
                   )}
                 </div>
@@ -209,7 +209,7 @@ export default function DashModVerFicha({ isOpen, onClose, miembro, perfil, auto
                   <div className="p-4 bg-pclr5 rounded-2xl border border-dashed text-center">
                     <p className="text-[0.8em] font-bold uppercase text-pclr7">Apoderado Vinculado</p>
                     <p className="font-bold text-[0.9em]">{miembro.apoderado.nombres} {miembro.apoderado.apellidos}</p>
-                    <p className="text-lg font-black text-pclr4"><a href={`tel:${cleanPhone(miembro.apoderado.telefono)}`}>📞 {cleanPhone(miembro.apoderado.telefono)}</a></p>
+                    <p className="text-lg font-black text-pclr4 dark:text-pdclr4"><a href={`tel:${cleanPhone(miembro.apoderado.telefono)}`}>📞 {cleanPhone(miembro.apoderado.telefono)}</a></p>
                     {miembro.apoderado.email && <p className="text-[0.8em] font-bold opacity-60 mt-1">✉️ {miembro.apoderado.email}</p>}
                   </div>
                 </section>
@@ -220,11 +220,11 @@ export default function DashModVerFicha({ isOpen, onClose, miembro, perfil, auto
                 <div className="space-y-3">
                   <div className="flex items-center justify-between p-4 bg-pclr3 dark:bg-pdclr3 rounded-2xl">
                     <span className="text-[0.8em] font-bold uppercase opacity-60">Uso de Imagen</span>
-                    <span className={`text-[0.8em] uppercase font-bold ${miembro.autoriza_fotos ? 'text-pclr6' : 'text-pclr4'}`}>{miembro.autoriza_fotos ? 'Sí' : 'No'}</span>
+                    <span className={`text-[0.8em] uppercase font-bold ${miembro.autoriza_fotos ? 'text-pclr6' : 'text-pclr4 dark:text-pdclr4'}`}>{miembro.autoriza_fotos ? 'Sí' : 'No'}</span>
                   </div>
                   <div className="flex items-center justify-between p-4 bg-pclr3 dark:bg-pdclr3 rounded-2xl">
                     <span className="text-[0.8em] font-bold uppercase opacity-60">Fe Pública</span>
-                    <span className={`text-[0.8em] uppercase font-bold ${miembro.fe_publica ? 'text-pclr6' : 'text-pclr4'}`}>{miembro.fe_publica ? 'Sí' : 'No'}</span>
+                    <span className={`text-[0.8em] uppercase font-bold ${miembro.fe_publica ? 'text-pclr6' : 'text-pclr4 dark:text-pdclr4'}`}>{miembro.fe_publica ? 'Sí' : 'No'}</span>
                   </div>
                 </div>
               </section>
@@ -244,8 +244,8 @@ export default function DashModVerFicha({ isOpen, onClose, miembro, perfil, auto
                           </div>
                           <span className={`shrink-0 px-2 py-0.5 rounded-full text-[0.7em] font-bold uppercase ${
                             auth.estado === 'Vigente' ? 'bg-pclr6 text-pclr12 dark:bg-pdclr6 dark:text-pdclr12' :
-                            auth.estado === 'Vencida' ? 'bg-pclr10 text-pclr4' :
-                            'bg-pclr3 text-pclr4'
+                            auth.estado === 'Vencida' ? 'bg-pclr10 text-pclr4 dark:text-pdclr4' :
+                            'bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4'
                           }`}>{auth.estado || 'Sin estado'}</span>
                         </div>
                         <div className="flex items-center justify-between text-[0.8em]">
@@ -258,7 +258,7 @@ export default function DashModVerFicha({ isOpen, onClose, miembro, perfil, auto
                         </div>
                         <button
                           onClick={() => { setSelectedAuth(auth); setShowPdfModal(true) }}
-                          className="w-full py-2 bg-pclr10 text-pclr12 font-bold uppercase text-[0.8em] rounded-xl hover:brightness-110 transition-all tracking-widest shadow-sm"
+                          className="w-full py-2 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 font-bold uppercase text-[0.8em] rounded-xl hover:brightness-110 transition-all tracking-widest shadow-sm"
                         >
                           Ver PDF
                         </button>
@@ -273,7 +273,7 @@ export default function DashModVerFicha({ isOpen, onClose, miembro, perfil, auto
 
         <button 
           onClick={onClose} 
-          className="w-full py-4 bg-pclr2 text-pclr12 font-black uppercase rounded-2xl mt-12 font-inika tracking-widest shadow-xl hover:brightness-125 transition-all"
+          className="w-full py-4 bg-pclr2 dark:bg-pdclr2 text-pclr12 font-black uppercase rounded-2xl mt-12 font-inika tracking-widest shadow-xl hover:brightness-125 transition-all"
         >
           Cerrar Ficha de Seguridad
         </button>

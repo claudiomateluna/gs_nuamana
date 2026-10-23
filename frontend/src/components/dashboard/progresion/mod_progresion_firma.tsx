@@ -39,11 +39,11 @@ export default function DashModFirmaDigital({
   }
 
   return (
-    <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-pclr2 backdrop-blur-md animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-pclr2 dark:bg-pdclr2 backdrop-blur-md animate-in fade-in duration-200">
       <div className="bg-pclr1 dark:bg-pdclr1 p-6 rounded-[2.5rem] border border-pclr13 dark:border-pdclr13 w-full max-w-md shadow-2xl relative font-body">
         <button 
           onClick={onClose}
-          className="absolute top-4 right-4 text-pclr7 hover:text-pclr4 dark:hover:text-pclr12 font-extrabold text-[1.1em] cursor-pointer border-none bg-transparent"
+          className="absolute top-4 right-4 text-pclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 dark:hover:text-pclr12 font-extrabold text-[1.1em] cursor-pointer border-none bg-transparent"
         >
           ✕
         </button>
@@ -56,7 +56,7 @@ export default function DashModFirmaDigital({
           {description}
         </p>
 
-        <div className="border-4 border-dashed border-pclr13 dark:border-pdclr13 rounded-[1.5rem] bg-pclr1 overflow-hidden shadow-inner touch-none relative">
+        <div className="border-4 border-dashed border-pclr13 dark:border-pdclr13 rounded-[1.5rem] bg-pclr1 dark:bg-pdclr1 overflow-hidden shadow-inner touch-none relative">
           <SignatureCanvas 
             ref={sigCanvasRef}
             penColor='#1b1b1b'
@@ -77,7 +77,7 @@ export default function DashModFirmaDigital({
           <button
             type="button"
             onClick={handleClear}
-            className="px-4 py-2 text-[0.8em] font-black uppercase text-pclr4 hover:bg-pclr10 dark:hover:bg-dclr4 rounded-xl transition-colors border border-pclr14 cursor-pointer bg-transparent"
+            className="px-4 py-2 text-[0.8em] font-black uppercase text-pclr4 dark:text-pdclr4 hover:bg-pclr10 dark:hover:bg-dclr4 rounded-xl transition-colors border border-pclr14 cursor-pointer bg-transparent"
           >
             Limpiar
           </button>

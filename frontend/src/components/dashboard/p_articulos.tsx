@@ -83,7 +83,7 @@ export default function DashBitacoras({
                   key={s} 
                   onClick={() => setFilter(s)} 
                   className={`px-4 py-1 rounded-xl text-[0.85em] uppercase tracking-wider transition-all ${
-                    filter === s ? 'bg-pclr10 text-pclr12 shadow-md' : 'bg-pclr1 dark:bg-pdclr1 text-pclr7 opacity-60 hover:opacity-100'
+                    filter === s ? 'bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 shadow-md' : 'bg-pclr1 dark:bg-pdclr1 text-pclr7 opacity-60 hover:opacity-100'
                   }`}
                 >
                   {s === 'revision' ? 'En Revisión' : s}
@@ -100,7 +100,7 @@ export default function DashBitacoras({
                 <button 
                   onClick={() => setSelectedCategoriaId('')} 
                   className={`px-4 py-1 rounded-xl text-[0.85em] uppercase tracking-wider transition-all ${
-                    selectedCategoriaId === '' ? 'bg-pclr10 text-pclr12 shadow-md' : 'bg-pclr1 dark:bg-pdclr1 text-pclr7 opacity-60 hover:opacity-100'
+                    selectedCategoriaId === '' ? 'bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 shadow-md' : 'bg-pclr1 dark:bg-pdclr1 text-pclr7 opacity-60 hover:opacity-100'
                   }`}
                 >
                   Todas
@@ -110,7 +110,7 @@ export default function DashBitacoras({
                     key={cat.id} 
                     onClick={() => setSelectedCategoriaId(cat.id)} 
                     className={`px-4 py-1 rounded-xl text-[0.85em] uppercase tracking-wider transition-all ${
-                      selectedCategoriaId === cat.id ? 'bg-pclr10 text-pclr12 shadow-md' : 'bg-pclr1 dark:bg-pdclr1 text-pclr7 opacity-60 hover:opacity-100'
+                      selectedCategoriaId === cat.id ? 'bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 shadow-md' : 'bg-pclr1 dark:bg-pdclr1 text-pclr7 opacity-60 hover:opacity-100'
                     }`}
                   >
                     {cat.nombre}
@@ -131,7 +131,7 @@ export default function DashBitacoras({
         {!inactive && (
           <Link 
             href="/blog/crear" 
-            className="px-6 py-3 bg-pclr10 text-pclr12 font-bold uppercase rounded-xl shadow-xl hover:scale-105 active:scale-95 transition-all tracking-widest text-[0.8em]"
+            className="px-6 py-3 bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 font-bold uppercase rounded-xl shadow-xl hover:scale-105 active:scale-95 transition-all tracking-widest text-[0.8em]"
           >
             🚀 Nuevo Articulo
           </Link>
@@ -141,7 +141,7 @@ export default function DashBitacoras({
       {/* Articles List */}
       <div className="grid gap-3">
         {articulos.map((art: any) => (
-          <div key={art.id} className="p-2 sm:p-4 bg-pclr3 dark:bg-pdclr3 rounded-2xl flex justify-between items-center group hover:bg-pclr3 dark:hover:bg-pdclr1 transition-all border border-transparent hover:border-pclr14">
+          <div key={art.id} className="p-2 sm:p-4 bg-pclr3 dark:bg-pdclr3 rounded-2xl flex justify-between items-center group hover:bg-pclr3 dark:hover:bg-pdclr3 dark:bg-pdclr3 dark:hover:bg-pdclr1 transition-all border border-transparent hover:border-pclr14">
             <div className="flex items-center gap-4">
               <div className="w-10 h-10 rounded-lg bg-pclr1 dark:bg-pdclr1 flex items-center justify-center shrink-0 shadow-sm">
                 {art.imagen_destacada ? (
@@ -151,7 +151,7 @@ export default function DashBitacoras({
                 )}
               </div>
               <div>
-                <p className="font-bold text-[0.9em] text-pclr4 dark:text-pclr4 uppercase truncate max-w-[200px] md:max-w-md">
+                <p className="font-bold text-[0.9em] text-pclr4 dark:text-pdclr4 dark:text-pdclr4 uppercase truncate max-w-[200px] md:max-w-md">
                   {art.titulo}
                 </p>
                 <div className="flex flex-wrap items-center gap-2 mt-1">
@@ -171,11 +171,11 @@ export default function DashBitacoras({
                   </span>
                   
                   {/* Acciones para Móvil */}
-                  <div className="flex sm:hidden items-center gap-3 ml-1 border-l pl-3 border-pclr13">
+                  <div className="flex sm:hidden items-center gap-3 ml-1 border-l pl-3 border-pclr13 dark:border-pdclr13">
                     {!inactive && (
                       <>
                         <Link href={`/blog/editar/${art.id}`} className="text-[0.8em] font-black text-pclr6 uppercase underline">Editar</Link>
-                        <button onClick={() => onDelete(art.id)} className="text-[0.8em] font-black text-pclr4 uppercase underline">Eliminar</button>
+                        <button onClick={() => onDelete(art.id)} className="text-[0.8em] font-black text-pclr4 dark:text-pdclr4 uppercase underline">Eliminar</button>
                       </>
                     )}
                   </div>
@@ -219,7 +219,7 @@ export default function DashBitacoras({
           <button
             onClick={onLoadMore}
             disabled={loadingMore}
-            className="px-8 py-3 bg-pclr3 dark:bg-pdclr3 text-pclr7 dark:text-pdclr7 font-bold uppercase rounded-xl border border-pclr13 dark:border-pdclr13 hover:bg-pclr1 dark:hover:bg-pdclr1 transition-all disabled:opacity-50"
+            className="px-8 py-3 bg-pclr3 dark:bg-pdclr3 text-pclr7 dark:text-pdclr7 font-bold uppercase rounded-xl border border-pclr13 dark:border-pdclr13 hover:bg-pclr1 dark:bg-pdclr1 dark:hover:bg-pdclr1 transition-all disabled:opacity-50"
           >
             {loadingMore ? 'Cargando...' : 'Cargar más artículos'}
           </button>

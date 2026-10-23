@@ -89,17 +89,17 @@ export const RecetaMultiBuscador: React.FC<Props> = ({
       {/* Cabecera del Slot con Nombre Literal y Clasificación Visible */}
       <div className="flex items-start justify-between gap-2">
         <div>
-          <label className="text-[0.9em] font-semibold text-zinc-800 dark:text-zinc-200 flex items-center gap-1.5">
+          <label className="text-[0.9em] font-semibold text-pclr4 dark:text-pdclr4 flex items-center gap-1.5">
             {icono && <span>{icono}</span>}
             <span>{label}</span>
             {recetasSeleccionadas.length > 0 && (
-              <span className="text-[0.8em] font-normal px-2 py-0.2 rounded-full bg-zinc-200 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-300">
+              <span className="text-[0.8em] font-normal px-2 py-0.2 rounded-full bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4">
                 {recetasSeleccionadas.length}
               </span>
             )}
           </label>
           {subtitulo && (
-            <p className="text-[0.8em] text-zinc-500 dark:text-zinc-400 mt-0.5">
+            <p className="text-[0.8em] text-pclr7 dark:text-pdclr7 mt-0.5">
               {subtitulo}
             </p>
           )}
@@ -149,13 +149,13 @@ export const RecetaMultiBuscador: React.FC<Props> = ({
               if (!abierto) setAbierto(true)
             }}
             placeholder={placeholder}
-            className="w-full px-3 py-2 text-[0.95em] border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-hidden focus:ring-2 focus:ring-[#cb3327]/30 focus:border-[#cb3327] transition"
+            className="w-full px-3 py-2 text-[0.95em] border border-pclr13 dark:border-pdclr13 rounded-lg bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4 placeholder:text-pclr7 dark:placeholder:text-pdclr7 focus:outline-hidden focus:ring-2 focus:ring-[#cb3327]/30 focus:border-pclr8 dark:focus:border-pdclr8 transition"
           />
           {busqueda && (
             <button
               type="button"
               onClick={() => setBusqueda('')}
-              className="absolute right-2.5 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 text-[0.9em]"
+              className="absolute right-2.5 text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:hover:text-pdclr4 text-[0.9em]"
             >
               ✕
             </button>
@@ -164,7 +164,7 @@ export const RecetaMultiBuscador: React.FC<Props> = ({
 
         {/* Dropdown de Opciones */}
         {abierto && (
-          <div className="absolute left-0 right-0 top-full mt-1 bg-white dark:bg-zinc-850 border border-zinc-200 dark:border-zinc-700 rounded-xl shadow-xl z-50 max-h-56 overflow-y-auto p-1.5 space-y-1">
+          <div className="absolute left-0 right-0 top-full mt-1 bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 rounded-xl shadow-xl z-50 max-h-56 overflow-y-auto p-1.5 space-y-1">
             {recetasCoincidentes.length > 0 ? (
               recetasCoincidentes.map(rec => {
                 const seleccionada = seleccionadosIds.includes(rec.id)
@@ -179,19 +179,19 @@ export const RecetaMultiBuscador: React.FC<Props> = ({
                     className={`w-full text-left px-3 py-2 rounded-lg flex items-center justify-between text-[0.85em] transition ${
                       seleccionada
                         ? 'bg-amber-100 dark:bg-amber-950/60 text-amber-900 dark:text-amber-100 font-medium'
-                        : 'hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-800 dark:text-zinc-200'
+                        : 'hover:bg-pclr3 dark:hover:bg-pdclr3 text-pclr4 dark:text-pdclr4'
                     }`}
                   >
                     <div className="space-y-0.5">
                       <div className="flex items-center gap-2">
                         <span className="font-semibold">{rec.nombre}</span>
                         {catLabel && (
-                          <span className="px-1.5 py-0.2 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500 text-[0.8em]">
+                          <span className="px-1.5 py-0.2 rounded bg-pclr3 dark:bg-pdclr3 text-pclr7 dark:text-pdclr7 text-[0.8em]">
                             {catLabel}
                           </span>
                         )}
                       </div>
-                      <p className="text-[0.8em] text-zinc-500 line-clamp-1">
+                      <p className="text-[0.8em] text-pclr7 dark:text-pdclr7 line-clamp-1">
                         {rec.ingredientes?.map(i => i.ingrediente_nombre).join(', ')}
                       </p>
                     </div>
@@ -203,7 +203,7 @@ export const RecetaMultiBuscador: React.FC<Props> = ({
                 )
               })
             ) : (
-              <div className="p-3 text-center text-zinc-500 text-[0.85em]">
+              <div className="p-3 text-center text-pclr7 dark:text-pdclr7 text-[0.85em]">
                 No hay recetas que coincidan con la búsqueda.
               </div>
             )}

@@ -363,16 +363,16 @@ export const DashCampamentosHub: React.FC = () => {
   return (
     <div className="space-y-6 text-[1em] animate-in fade-in duration-500 w-full min-w-0 max-w-full">
       {/* Barra de Encabezado Superior del Módulo */}
-      <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-2 sm:p-4 shadow-sm space-y-4 w-full min-w-0 max-w-full overflow-hidden">
+      <div className="bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 rounded-2xl p-2 sm:p-4 shadow-sm space-y-4 w-full min-w-0 max-w-full overflow-hidden">
         <div className="flex items-center gap-2">
           <span className="text-2xl">🏕️</span>
-          <h2 className="text-2xl font-black font-display uppercase tracking-tight text-zinc-900 dark:text-zinc-100">
+          <h2 className="text-2xl font-black font-display uppercase tracking-tight text-pclr4 dark:text-pdclr4">
             Preparación de Campamentos
           </h2>
         </div>
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 min-w-0">
           <div className="space-y-1 min-w-0 max-w-xl">
-            <p className="text-[0.9em] text-zinc-500 font-medium">
+            <p className="text-[0.9em] text-pclr7 dark:text-pdclr7 font-medium">
               Gestión centralizada de presupuestos, menús específicos, cotizaciones de buses con inspección técnica y terrenos.
             </p>
           </div>
@@ -390,7 +390,7 @@ export const DashCampamentosHub: React.FC = () => {
               <select
                 value={campamentoActivo.id}
                 onChange={e => setSelectedCampId(e.target.value)}
-                className="w-full sm:w-auto sm:max-w-[240px] md:max-w-[280px] lg:max-w-[340px] truncate px-3 py-2 border border-zinc-300 dark:border-zinc-700 rounded-xl bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 font-bold text-[1em] shrink-0"
+                className="w-full sm:w-auto sm:max-w-[240px] md:max-w-[280px] lg:max-w-[340px] truncate px-3 py-2 border border-pclr13 dark:border-pdclr13 rounded-xl bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4 font-bold text-[1em] shrink-0"
                 title={campamentoActivo.nombre}
               >
                 {campamentos.map(c => (
@@ -427,13 +427,13 @@ export const DashCampamentosHub: React.FC = () => {
 
         {/* Pestañas de Navegación del Campamento Activo (solo si hay campamento seleccionado) */}
         {campamentoActivo && (
-          <div className="flex border-b border-zinc-200 dark:border-zinc-800 pt-2 gap-2 overflow-x-auto max-w-full">
+          <div className="flex border-b border-pclr13 dark:border-pdclr13 pt-2 gap-2 overflow-x-auto max-w-full">
             <button
               onClick={() => setActiveTab('presupuesto')}
               className={`pb-3 px-4 font-semibold text-[1em] border-b-2 transition flex items-center gap-2 whitespace-nowrap ${
                 activeTab === 'presupuesto'
                   ? 'border-[#cb3327] text-[#cb3327]'
-                  : 'border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200'
+                  : 'border-transparent text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:text-pdclr4 dark:hover:text-pdclr4'
               }`}
             >
               <span>📊</span> Presupuesto
@@ -444,7 +444,7 @@ export const DashCampamentosHub: React.FC = () => {
               className={`pb-2 px-2 font-semibold text-[1em] border-b-2 transition flex items-center gap-2 whitespace-nowrap ${
                 activeTab === 'menu'
                   ? 'border-[#cb3327] text-[#cb3327]'
-                  : 'border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200'
+                  : 'border-transparent text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:text-pdclr4 dark:hover:text-pdclr4'
               }`}
             >
               <span>🍲</span> Alimentación
@@ -455,7 +455,7 @@ export const DashCampamentosHub: React.FC = () => {
               className={`pb-2 px-2 font-semibold text-[1em] border-b-2 transition flex items-center gap-2 whitespace-nowrap ${
                 activeTab === 'transporte'
                   ? 'border-[#cb3327] text-[#cb3327]'
-                  : 'border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200'
+                  : 'border-transparent text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:text-pdclr4 dark:hover:text-pdclr4'
               }`}
             >
               <span>🚌</span> Transporte ({campamentoActivo.cotizaciones_bus?.length || 0})
@@ -466,7 +466,7 @@ export const DashCampamentosHub: React.FC = () => {
               className={`pb-2 px-2 font-semibold text-[1em] border-b-2 transition flex items-center gap-2 whitespace-nowrap ${
                 activeTab === 'estadia'
                   ? 'border-[#cb3327] text-[#cb3327]'
-                  : 'border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200'
+                  : 'border-transparent text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:text-pdclr4 dark:hover:text-pdclr4'
               }`}
             >
               <span>🏕️</span> Lugar ({campamentoActivo.cotizaciones_lugar?.length || 0})
@@ -477,7 +477,7 @@ export const DashCampamentosHub: React.FC = () => {
               className={`pb-2 px-2 font-semibold text-[1em] border-b-2 transition flex items-center gap-2 whitespace-nowrap ${
                 activeTab === 'programa'
                   ? 'border-[#cb3327] text-[#cb3327]'
-                  : 'border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200'
+                  : 'border-transparent text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:text-pdclr4 dark:hover:text-pdclr4'
               }`}
             >
               <span>🎯</span> Cronogramas
@@ -488,15 +488,15 @@ export const DashCampamentosHub: React.FC = () => {
 
       {/* Estado vacío cuando no hay campamentos registrados aún */}
       {!campamentoActivo ? (
-        <div className="bg-white dark:bg-zinc-900 border border-dashed border-zinc-300 dark:border-zinc-700 rounded-2xl p-10 sm:p-14 text-center space-y-4 shadow-xs">
+        <div className="bg-pclr1 dark:bg-pdclr1 border border-dashed border-pclr13 dark:border-pdclr13 rounded-2xl p-10 sm:p-14 text-center space-y-4 shadow-xs">
           <div className="w-16 h-16 bg-red-50 dark:bg-red-950/30 text-[#cb3327] rounded-full flex items-center justify-center text-3xl mx-auto shadow-inner">
             🏕️
           </div>
           <div className="space-y-1.5">
-            <h3 className="text-xl font-black font-display uppercase tracking-tight text-zinc-900 dark:text-zinc-100">
+            <h3 className="text-xl font-black font-display uppercase tracking-tight text-pclr4 dark:text-pdclr4">
               No hay campamentos registrados aún
             </h3>
-            <p className="text-[0.9em] text-zinc-500 max-w-md mx-auto">
+            <p className="text-[0.9em] text-pclr7 dark:text-pdclr7 max-w-md mx-auto">
               Comienza planificando un nuevo campamento desde cero. Podrás gestionar presupuesto global, menús por día, cotizaciones de buses e inspección técnica, terreno y cronogramas.
             </p>
           </div>
@@ -511,26 +511,26 @@ export const DashCampamentosHub: React.FC = () => {
       ) : (
         <>
           {/* Tarjeta de Resumen General del Campamento Activo */}
-          <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-4 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-3 text-[0.95em] w-full min-w-0 max-w-full">
+          <div className="bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 rounded-2xl p-4 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-3 text-[0.95em] w-full min-w-0 max-w-full">
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-              <span className="font-extrabold text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5">
+              <span className="font-extrabold text-pclr4 dark:text-pdclr4 flex items-center gap-1.5">
                 <span>📍</span> {campamentoActivo.lugar_nombre || 'Lugar por definir'}
               </span>
-              <span className="text-zinc-300 dark:text-zinc-700 hidden sm:inline">•</span>
-              <span className="text-zinc-600 dark:text-zinc-400 flex items-center gap-1.5">
+              <span className="text-pclr7 dark:text-pdclr7 dark:text-pdclr7 hidden sm:inline">•</span>
+              <span className="text-pclr7 dark:text-pdclr7 flex items-center gap-1.5">
                 <span>📅</span> {formatearFechaDDMMYYYY(campamentoActivo.fecha_inicio)} al {formatearFechaDDMMYYYY(campamentoActivo.fecha_fin)} ({campamentoActivo.dias_totales} {campamentoActivo.dias_totales === 1 ? 'día' : 'días'})
               </span>
             </div>
 
             {/* Badge del Responsable de Campamento */}
-            <div className="flex items-center gap-2.5 bg-zinc-50 dark:bg-zinc-800/80 px-3.5 py-1.5 rounded-xl border border-zinc-200 dark:border-zinc-700">
+            <div className="flex items-center gap-2.5 bg-pclr2 dark:bg-pdclr2/80 px-3.5 py-1.5 rounded-xl border border-pclr13 dark:border-pdclr13">
               <span className="text-xl">👤</span>
               <div className="leading-tight">
-                <span className="block text-[0.8em] uppercase font-bold text-zinc-500 dark:text-zinc-400">
+                <span className="block text-[0.8em] uppercase font-bold text-pclr7 dark:text-pdclr7">
                   Responsable de Campamento
                 </span>
                 <div className="flex items-center gap-2 mt-0.5">
-                  <span className="font-bold text-zinc-900 dark:text-zinc-100 text-[1.05em]">
+                  <span className="font-bold text-pclr4 dark:text-pdclr4 text-[1.05em]">
                     {campamentoActivo.responsable_nombre || 'Sin asignar'}
                   </span>
                   {campamentoActivo.responsable_rol && (
@@ -594,18 +594,18 @@ export const DashCampamentosHub: React.FC = () => {
       {/* MODAL: Planificar Nuevo Campamento en Blanco */}
       {modalNuevoCampAbierto && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-5">
-            <div className="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-3">
+          <div className="bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-5">
+            <div className="flex items-center justify-between border-b border-pclr13 dark:border-pdclr13 pb-3">
               <div className="flex items-center gap-2">
                 <span className="text-2xl">🏕️</span>
-                <h3 className="text-lg font-bold font-display text-zinc-900 dark:text-zinc-100">
+                <h3 className="text-lg font-bold font-display text-pclr4 dark:text-pdclr4">
                   Planificar Nuevo Campamento
                 </h3>
               </div>
               <button
                 type="button"
                 onClick={() => setModalNuevoCampAbierto(false)}
-                className="text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 text-lg p-1"
+                className="text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:hover:text-pdclr4 text-lg p-1"
               >
                 ✕
               </button>
@@ -613,7 +613,7 @@ export const DashCampamentosHub: React.FC = () => {
 
             <form onSubmit={handleConfirmarNuevoCampamento} className="space-y-4 text-[1em]">
               <div>
-                <label className="block font-bold text-zinc-700 dark:text-zinc-300 mb-1">
+                <label className="block font-bold text-pclr4 dark:text-pdclr4 mb-1">
                   Nombre del Campamento *
                 </label>
                 <input
@@ -622,16 +622,16 @@ export const DashCampamentosHub: React.FC = () => {
                   value={nuevoNombre}
                   onChange={e => setNuevoNombre(e.target.value)}
                   placeholder="Ej: Campamento de Verano 2026 - Lago Ranco"
-                  className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-700 rounded-xl bg-white dark:bg-zinc-800 font-semibold"
+                  className="w-full px-3 py-2 border border-pclr13 dark:border-pdclr13 rounded-xl bg-pclr3 dark:bg-pdclr3 font-semibold"
                 />
               </div>
 
               {/* Responsable de Campamento (exclusivo Dirigente o Guiadora) */}
               <div>
-                <label className="block font-bold text-zinc-700 dark:text-zinc-300 mb-1">
+                <label className="block font-bold text-pclr4 dark:text-pdclr4 mb-1">
                   Responsable de Campamento *
                 </label>
-                <p className="text-[0.8em] text-zinc-500 dark:text-zinc-400 mb-1.5">
+                <p className="text-[0.8em] text-pclr7 dark:text-pdclr7 mb-1.5">
                   Encargado de que todo el campamento salga correctamente en sus tiempos y formas planificados (rol Dirigente o Guiadora).
                 </p>
                 <select
@@ -647,7 +647,7 @@ export const DashCampamentosHub: React.FC = () => {
                       setNuevoResponsableRol(found.rol_nombre)
                     }
                   }}
-                  className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-700 rounded-xl bg-white dark:bg-zinc-800 font-semibold text-[1em]"
+                  className="w-full px-3 py-2 border border-pclr13 dark:border-pdclr13 rounded-xl bg-pclr3 dark:bg-pdclr3 font-semibold text-[1em]"
                 >
                   <option value="" disabled>-- Selecciona un Dirigente o Guiadora --</option>
                   {(jefaturasDisponibles.length > 0 ? jefaturasDisponibles : FALLBACK_JEFATURAS).map(j => (
@@ -660,13 +660,13 @@ export const DashCampamentosHub: React.FC = () => {
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-bold text-zinc-700 dark:text-zinc-300 mb-1">
+                  <label className="block font-bold text-pclr4 dark:text-pdclr4 mb-1">
                     Tipo de Campamento
                   </label>
                   <select
                     value={nuevoTipo}
                     onChange={e => setNuevoTipo(e.target.value as any)}
-                    className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-700 rounded-xl bg-white dark:bg-zinc-800"
+                    className="w-full px-3 py-2 border border-pclr13 dark:border-pdclr13 rounded-xl bg-pclr3 dark:bg-pdclr3"
                   >
                     <option value="verano">☀️ Verano</option>
                     <option value="primavera">🌸 Primavera</option>
@@ -675,7 +675,7 @@ export const DashCampamentosHub: React.FC = () => {
                   </select>
                 </div>
                 <div>
-                  <label className="block font-bold text-zinc-700 dark:text-zinc-300 mb-1">
+                  <label className="block font-bold text-pclr4 dark:text-pdclr4 mb-1">
                     Lugar / Destino Tentativo
                   </label>
                   <input
@@ -683,16 +683,16 @@ export const DashCampamentosHub: React.FC = () => {
                     value={nuevoLugar}
                     onChange={e => setNuevoLugar(e.target.value)}
                     placeholder="Ej: Camping Los Notros, Ranco"
-                    className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-700 rounded-xl bg-white dark:bg-zinc-800"
+                    className="w-full px-3 py-2 border border-pclr13 dark:border-pdclr13 rounded-xl bg-pclr3 dark:bg-pdclr3"
                   />
                 </div>
               </div>
 
               {/* Fechas e Inferencia de Días */}
-              <div className="p-3.5 rounded-xl bg-zinc-50 dark:bg-zinc-800/40 border border-zinc-200 dark:border-zinc-700/60 space-y-3">
+              <div className="p-3.5 rounded-xl bg-pclr2 dark:bg-pdclr2 border border-pclr13 dark:border-pdclr13 space-y-3">
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block font-bold text-zinc-700 dark:text-zinc-300 mb-1">
+                    <label className="block font-bold text-pclr4 dark:text-pdclr4 mb-1">
                       Fecha de Inicio *
                     </label>
                     <input
@@ -700,11 +700,11 @@ export const DashCampamentosHub: React.FC = () => {
                       required
                       value={nuevoFechaInicio}
                       onChange={e => setNuevoFechaInicio(e.target.value)}
-                      className="w-full px-3 py-1.5 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800"
+                      className="w-full px-3 py-1.5 border border-pclr13 dark:border-pdclr13 rounded-lg bg-pclr3 dark:bg-pdclr3"
                     />
                   </div>
                   <div>
-                    <label className="block font-bold text-zinc-700 dark:text-zinc-300 mb-1">
+                    <label className="block font-bold text-pclr4 dark:text-pdclr4 mb-1">
                       Fecha de Término *
                     </label>
                     <input
@@ -713,7 +713,7 @@ export const DashCampamentosHub: React.FC = () => {
                       min={nuevoFechaInicio}
                       value={nuevoFechaFin}
                       onChange={e => setNuevoFechaFin(e.target.value)}
-                      className="w-full px-3 py-1.5 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800"
+                      className="w-full px-3 py-1.5 border border-pclr13 dark:border-pdclr13 rounded-lg bg-pclr3 dark:bg-pdclr3"
                     />
                   </div>
                 </div>
@@ -730,52 +730,52 @@ export const DashCampamentosHub: React.FC = () => {
 
               {/* Estimación de Comensales */}
               <div>
-                <label className="block font-bold text-zinc-700 dark:text-zinc-300 mb-1.5">
+                <label className="block font-bold text-pclr4 dark:text-pdclr4 mb-1.5">
                   Asistencia Estimada (Comensales)
                 </label>
                 <div className="grid grid-cols-3 gap-2">
                   <div>
-                    <span className="text-[0.8em] text-zinc-500 block mb-0.5">NNJ</span>
+                    <span className="text-[0.8em] text-pclr7 dark:text-pdclr7 block mb-0.5">NNJ</span>
                     <input
                       type="number"
                       min="0"
                       value={nuevoNnj}
                       onChange={e => setNuevoNnj(Number(e.target.value) || 0)}
-                      className="w-full px-2.5 py-1.5 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 font-bold"
+                      className="w-full px-2.5 py-1.5 border border-pclr13 dark:border-pdclr13 rounded-lg bg-pclr3 dark:bg-pdclr3 font-bold"
                     />
                   </div>
                   <div>
-                    <span className="text-[0.8em] text-zinc-500 block mb-0.5">Jefatura</span>
+                    <span className="text-[0.8em] text-pclr7 dark:text-pdclr7 block mb-0.5">Jefatura</span>
                     <input
                       type="number"
                       min="0"
                       value={nuevoJefatura}
                       onChange={e => setNuevoJefatura(Number(e.target.value) || 0)}
-                      className="w-full px-2.5 py-1.5 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 font-bold"
+                      className="w-full px-2.5 py-1.5 border border-pclr13 dark:border-pdclr13 rounded-lg bg-pclr3 dark:bg-pdclr3 font-bold"
                     />
                   </div>
                   <div>
-                    <span className="text-[0.8em] text-zinc-500 block mb-0.5">Apoderados</span>
+                    <span className="text-[0.8em] text-pclr7 dark:text-pdclr7 block mb-0.5">Apoderados</span>
                     <input
                       type="number"
                       min="0"
                       value={nuevoApoderados}
                       onChange={e => setNuevoApoderados(Number(e.target.value) || 0)}
-                      className="w-full px-2.5 py-1.5 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 font-bold"
+                      className="w-full px-2.5 py-1.5 border border-pclr13 dark:border-pdclr13 rounded-lg bg-pclr3 dark:bg-pdclr3 font-bold"
                     />
                   </div>
                 </div>
               </div>
 
-              <p className="text-[0.8em] text-zinc-500 italic">
+              <p className="text-[0.8em] text-pclr7 dark:text-pdclr7 italic">
                 ℹ️ Toda la información (presupuesto, cotizaciones de buses, terrenos, momentos grupales y menú) se creará en blanco lista para planificar desde cero.
               </p>
 
-              <div className="flex justify-end gap-2 pt-3 border-t border-zinc-200 dark:border-zinc-800">
+              <div className="flex justify-end gap-2 pt-3 border-t border-pclr13 dark:border-pdclr13">
                 <button
                   type="button"
                   onClick={() => setModalNuevoCampAbierto(false)}
-                  className="px-4 py-2 text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 font-bold"
+                  className="px-4 py-2 text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:text-pdclr4 dark:hover:text-pdclr4 font-bold"
                 >
                   Cancelar
                 </button>

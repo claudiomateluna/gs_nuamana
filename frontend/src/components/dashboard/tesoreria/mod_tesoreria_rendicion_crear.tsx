@@ -98,7 +98,7 @@ export default function DashModRendicionCrear({ isOpen, onClose, onSuccess, perf
   }
 
   return (
-    <div className="fixed inset-0 bg-pclr2 backdrop-blur-sm z-[120] flex items-center justify-center p-1 md:p-2 animate-in fade-in duration-300">
+    <div className="fixed inset-0 bg-pclr2 dark:bg-pdclr2 backdrop-blur-sm z-[120] flex items-center justify-center p-1 md:p-2 animate-in fade-in duration-300">
       <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-5xl rounded-l-[1rem] p-2 md:p-4 shadow-2xl border-4 border-pclr13 dark:border-pdclr13 overflow-y-auto max-h-[95vh]">
         <h2 className="text-2xl md:text-3xl font-black font-display uppercase text-pclr6 mb-4 tracking-tighter">Nueva Rendición de Cuentas (FOR-03)</h2>
 
@@ -113,7 +113,7 @@ export default function DashModRendicionCrear({ isOpen, onClose, onSuccess, perf
 
           <div className="space-y-2">
             <div className="flex justify-between items-center"><h3 className="text-[0.8em] font-black uppercase opacity-80 tracking-widest">Seleccionar Movimientos a Rendir</h3><span className="text-[0.8em] bg-pclr6 text-pclr12 px-3 py-1 rounded-full font-bold">{selectedMovs.length} Seleccionados</span></div>
-            <div className="border rounded-[1rem] overflow-hidden max-h-[300px] overflow-y-auto"><table className="w-full text-left text-[0.8em]"><thead className="sticky top-0 bg-pclr3 dark:bg-pdclr3 font-black uppercase"><tr><th className="p-3 w-10"></th><th className="p-3 w-24">Fecha</th><th className="p-3">Descripción</th><th className="p-3 text-right">Monto</th></tr></thead><tbody>{availableMovs.map(m => (<tr key={m.id} onClick={() => toggleMov(m.id)} className={`border-t cursor-pointer hover:bg-pclr3 dark:hover:bg-pdclr3 ${selectedMovs.includes(m.id) ? 'bg-pclr6 border-l-4 border-l-clr6' : ''}`}><td className="p-3 text-center"><input type="checkbox" checked={selectedMovs.includes(m.id)} readOnly className="w-4 h-4 rounded accent-clr6" /></td><td className="p-3 font-bold">{new Date(m.fecha_completa).toLocaleDateString('es-CL')}</td><td className="p-3"><p className="font-bold uppercase">{m.descripcion}</p><p className="opacity-80 text-[1em]">{m.tesoreria_items?.codigo} {m.tesoreria_items?.nombre}</p></td><td className="p-3 text-right font-black">${(m.monto_egreso || m.monto_ingreso).toLocaleString('es-CL')}</td></tr>))}</tbody></table></div>
+            <div className="border rounded-[1rem] overflow-hidden max-h-[300px] overflow-y-auto"><table className="w-full text-left text-[0.8em]"><thead className="sticky top-0 bg-pclr3 dark:bg-pdclr3 font-black uppercase"><tr><th className="p-3 w-10"></th><th className="p-3 w-24">Fecha</th><th className="p-3">Descripción</th><th className="p-3 text-right">Monto</th></tr></thead><tbody>{availableMovs.map(m => (<tr key={m.id} onClick={() => toggleMov(m.id)} className={`border-t cursor-pointer hover:bg-pclr3 dark:hover:bg-pdclr3 dark:bg-pdclr3 dark:hover:bg-pdclr3 ${selectedMovs.includes(m.id) ? 'bg-pclr6 border-l-4 border-l-clr6' : ''}`}><td className="p-3 text-center"><input type="checkbox" checked={selectedMovs.includes(m.id)} readOnly className="w-4 h-4 rounded accent-clr6" /></td><td className="p-3 font-bold">{new Date(m.fecha_completa).toLocaleDateString('es-CL')}</td><td className="p-3"><p className="font-bold uppercase">{m.descripcion}</p><p className="opacity-80 text-[1em]">{m.tesoreria_items?.codigo} {m.tesoreria_items?.nombre}</p></td><td className="p-3 text-right font-black">${(m.monto_egreso || m.monto_ingreso).toLocaleString('es-CL')}</td></tr>))}</tbody></table></div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -131,9 +131,9 @@ export default function DashModRendicionCrear({ isOpen, onClose, onSuccess, perf
             </div>
             <div className="space-y-1 p-3 bg-pclr3 dark:bg-pdclr3 rounded-[1rem] border">
               <label className="text-[0.8em] font-black uppercase opacity-40">TOTAL RENDICIÓN $</label>
-              <p className="text-2xl font-black text-pclr4">${totalRendicion.toLocaleString('es-CL')}</p>
+              <p className="text-2xl font-black text-pclr4 dark:text-pdclr4">${totalRendicion.toLocaleString('es-CL')}</p>
             </div>
-            <div className={`space-y-1 p-3 rounded-[1rem] border shadow-xl transition-colors ${saldoFinal >= 0 ? 'bg-pclr6 text-pclr12' : 'bg-pclr10 text-pclr12'}`}>
+            <div className={`space-y-1 p-3 rounded-[1rem] border shadow-xl transition-colors ${saldoFinal >= 0 ? 'bg-pclr6 text-pclr12' : 'bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12'}`}>
               <label className="text-[0.8em] font-black uppercase opacity-80">SALDO $ {saldoFinal >= 0 ? '(A FAVOR)' : '(EN CONTRA)'}</label>
               <p className="text-2xl font-black">${Math.abs(saldoFinal).toLocaleString('es-CL')}</p>
             </div>

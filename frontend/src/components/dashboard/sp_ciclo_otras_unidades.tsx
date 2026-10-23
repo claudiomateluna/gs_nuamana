@@ -49,7 +49,7 @@ export default function DashCiclosOtros({ perfil }: DashCiclosOtrosProps) {
       <div className="space-y-4 animate-in fade-in zoom-in-95 duration-300">
         <button 
           onClick={() => setSelectedCicloId(null)}
-          className="flex items-center gap-2 px-6 py-3 bg-pclr3 dark:bg-pdclr3 text-pclr7 font-black uppercase rounded-2xl hover:bg-pclr3 transition-all tracking-widest text-xs"
+          className="flex items-center gap-2 px-6 py-3 bg-pclr3 dark:bg-pdclr3 text-pclr7 font-black uppercase rounded-2xl hover:bg-pclr3 dark:hover:bg-pdclr3 dark:bg-pdclr3 transition-all tracking-widest text-xs"
         >
           <span>❮</span> Volver a Otros Ciclos
         </button>
@@ -91,7 +91,7 @@ export default function DashCiclosOtros({ perfil }: DashCiclosOtrosProps) {
               >
                 {ciclo.unidades?.nombre} • Fase {ciclo.fase_actual}
               </span>
-              <h4 className="text-2xl font-black font-display uppercase tracking-tight text-pclr4 dark:text-pdclr4 group-hover:text-pclr4 transition-colors">
+              <h4 className="text-2xl font-black font-display uppercase tracking-tight text-pclr4 dark:text-pdclr4 group-hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 transition-colors">
                 {ciclo.nombre}
               </h4>
               <p className="text-normal opacity-60 italic font-medium line-clamp-3">

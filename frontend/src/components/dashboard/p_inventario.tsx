@@ -24,10 +24,10 @@ export default function DashInventario({ items, isAdmin, onEdit, onDelete, onNue
   const getEstadoColor = (estado: string) => {
     switch (estado) {
       case 'Disponible': return 'bg-pclr6 text-pclr12 dark:bg-pdclr6 dark:text-pdclr12 dark:bg-pdclr6 dark:text-pdclr6'
-      case 'En Uso': return 'bg-pclr10 text-pclr4 dark:bg-pdclr10 dark:text-pdclr4'
+      case 'En Uso': return 'bg-pclr10 text-pclr4 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4 dark:bg-pdclr10 dark:text-pdclr4'
       case 'En Reparación': return 'bg-pclr5 text-pclr12 dark:bg-pdclr5 dark:text-pdclr12 dark:bg-pdclr5 dark:text-pdclr5'
-      case 'Baja/Perdido': return 'bg-pclr3 text-pclr7 dark:bg-pdclr3 dark:text-pdclr7'
-      default: return 'bg-pclr3 text-pclr4'
+      case 'Baja/Perdido': return 'bg-pclr3 dark:bg-pdclr3 text-pclr7 dark:bg-pdclr3 dark:text-pdclr7'
+      default: return 'bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4'
     }
   }
 
@@ -49,7 +49,7 @@ export default function DashInventario({ items, isAdmin, onEdit, onDelete, onNue
         </select>
         <div className="flex gap-1">
           {['todos', 'Disponible', 'En Uso', 'En Reparación', 'Baja/Perdido'].map(s => (
-            <button key={s} onClick={() => setFilter(s)} className={`px-4 py-2 rounded-xl text-[0.8em] uppercase font-bold tracking-widest transition-all ${filter === s ? 'bg-pclr10 text-pclr12 shadow-md' : 'bg-pclr3 dark:bg-pdclr1 text-pclr7 opacity-60 hover:opacity-100'}`}>
+            <button key={s} onClick={() => setFilter(s)} className={`px-4 py-2 rounded-xl text-[0.8em] uppercase font-bold tracking-widest transition-all ${filter === s ? 'bg-pclr10 dark:bg-pdclr10 text-pclr12 dark:text-pdclr12 shadow-md' : 'bg-pclr3 dark:bg-pdclr1 text-pclr7 opacity-60 hover:opacity-100'}`}>
               {s}
             </button>
           ))}
@@ -81,7 +81,7 @@ export default function DashInventario({ items, isAdmin, onEdit, onDelete, onNue
                   {item.estado}
                 </div>
                 {images.length > 1 && (
-                  <div className="absolute bottom-4 left-4 px-3 py-1 bg-pclr2 backdrop-blur-md text-pclr12 rounded-full text-[0.8em] font-black uppercase border border-pclr1">
+                  <div className="absolute bottom-4 left-4 px-3 py-1 bg-pclr2 dark:bg-pdclr2 backdrop-blur-md text-pclr12 rounded-full text-[0.8em] font-black uppercase border border-pclr1">
                     +{images.length - 1} fotos
                   </div>
                 )}
@@ -106,7 +106,7 @@ export default function DashInventario({ items, isAdmin, onEdit, onDelete, onNue
                       <p className="opacity-60 font-bold uppercase flex items-center gap-2">📍 <span className="truncate">{item.ubicacion || 'Sin ubicación'}</span></p>
                       {item.origen && <p className="opacity-60 font-bold uppercase flex items-center gap-2">📦 <span>{item.origen} {item.fecha_adquisicion && `(${new Date(item.fecha_adquisicion).getFullYear()})`}</span></p>}
                       {item.fecha_caducidad && (
-                        <p className={`font-bold uppercase ${new Date(item.fecha_caducidad) < new Date() ? 'text-pclr4' : 'text-pclr4'}`}>
+                        <p className={`font-bold uppercase ${new Date(item.fecha_caducidad) < new Date() ? 'text-pclr4 dark:text-pdclr4' : 'text-pclr4 dark:text-pdclr4'}`}>
                           ⌛ Caduca: {new Date(item.fecha_caducidad).toLocaleDateString()}
                         </p>
                       )}
@@ -130,7 +130,7 @@ export default function DashInventario({ items, isAdmin, onEdit, onDelete, onNue
 
       {/* Modal Galería Simple */}
       {viewingImages && (
-        <div className="fixed inset-0 bg-pclr2 z-[200] flex flex-col items-center justify-center p-4 animate-in fade-in duration-300">
+        <div className="fixed inset-0 bg-pclr2 dark:bg-pdclr2 z-[200] flex flex-col items-center justify-center p-4 animate-in fade-in duration-300">
           <button onClick={() => setViewingImages(null)} className="absolute top-8 right-8 text-pclr12 text-4xl opacity-50 hover:opacity-100 transition-all">✕</button>
           <div className="w-full max-w-5xl h-[70vh] flex overflow-x-auto gap-4 snap-x scrollbar-hide">
             {viewingImages.map((img, idx) => (

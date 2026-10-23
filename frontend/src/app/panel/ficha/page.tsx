@@ -331,7 +331,7 @@ export default function FichaPage() {
             <button
               type="button"
               onClick={closeModal}
-              className="w-full py-2.5 mt-2 bg-transparent text-pclr7 dark:text-pdclr7 hover:text-pclr4 text-[0.85em] font-black uppercase tracking-wider transition-colors"
+              className="w-full py-2.5 mt-2 bg-transparent text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:text-pdclr4 text-[0.85em] font-black uppercase tracking-wider transition-colors"
             >
               Cancelar
             </button>
@@ -377,7 +377,7 @@ export default function FichaPage() {
       {showPassModal && (
         <div className="fixed inset-0 bg-pclr4/40 backdrop-blur-sm z-[100] flex items-center justify-center p-6 animate-in fade-in duration-300">
           <div className="bg-pclr1 dark:bg-pdclr1 w-full max-w-md rounded-[3rem] p-10 shadow-2xl border border-pclr13 dark:border-pdclr13">
-            <h2 className="text-2xl font-black font-display uppercase text-pclr4 dark:text-pclr4 mb-8 border-b border-pclr13 dark:border-pdclr13 pb-4 tracking-tighter font-bold">Seguridad</h2>
+            <h2 className="text-2xl font-black font-display uppercase text-pclr4 dark:text-pclr4 dark:text-pdclr4 mb-8 border-b border-pclr13 dark:border-pdclr13 pb-4 tracking-tighter font-bold">Seguridad</h2>
             <form onSubmit={async (e) => {
               e.preventDefault()
               const { error } = await supabase.auth.updateUser({ password: newPass })

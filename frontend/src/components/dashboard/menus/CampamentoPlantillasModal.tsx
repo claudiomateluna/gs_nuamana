@@ -97,21 +97,21 @@ export const CampamentoPlantillasModal: React.FC<Props> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 overflow-y-auto">
-      <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl w-full max-w-4xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh] text-[1em]">
+      <div className="bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 rounded-2xl w-full max-w-4xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh] text-[1em]">
         
         {/* Header Modal */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800/40">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-pclr13 dark:border-pdclr13 bg-pclr2 dark:bg-pdclr2">
           <div>
-            <h2 className="text-[1.25em] font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
+            <h2 className="text-[1.25em] font-bold text-pclr4 dark:text-pdclr4 flex items-center gap-2">
               <span>🍱</span> Catálogo de Plantillas de Menú
             </h2>
-            <p className="text-[0.85em] text-zinc-500">
+            <p className="text-[0.85em] text-pclr7 dark:text-pdclr7">
               Predefine todos los alimentos en sus slots correspondientes para autocompletar el cronograma con un clic.
             </p>
           </div>
           <button
             onClick={onClose}
-            className="text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 text-[1.2em] p-1"
+            className="text-pclr7 dark:text-pdclr7 hover:text-pclr4 dark:hover:text-pdclr4 dark:hover:text-pdclr4 text-[1.2em] p-1"
           >
             ✕
           </button>
@@ -129,7 +129,7 @@ export const CampamentoPlantillasModal: React.FC<Props> = ({
                   className={`px-3 py-1.5 rounded-lg text-[0.85em] font-medium transition ${
                     filtroTipo === 'todos'
                       ? 'bg-[#cb3327] text-white shadow-sm'
-                      : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200'
+                      : 'bg-pclr3 dark:bg-pdclr3 text-pclr7 dark:text-pdclr7 hover:bg-pclr3 dark:hover:bg-pdclr3'
                   }`}
                 >
                   Todas ({plantillas.length})
@@ -145,7 +145,7 @@ export const CampamentoPlantillasModal: React.FC<Props> = ({
                       className={`px-3 py-1.5 rounded-lg text-[0.85em] font-medium transition ${
                         filtroTipo === t
                           ? 'bg-[#cb3327] text-white shadow-sm'
-                          : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200'
+                          : 'bg-pclr3 dark:bg-pdclr3 text-pclr7 dark:text-pdclr7 hover:bg-pclr3 dark:hover:bg-pdclr3'
                       }`}
                     >
                       {info.icon} {info.label} ({count})
@@ -188,15 +188,15 @@ export const CampamentoPlantillasModal: React.FC<Props> = ({
                 return (
                   <div
                     key={plantilla.id}
-                    className="border border-zinc-200 dark:border-zinc-800 rounded-xl p-4 bg-white dark:bg-zinc-850 hover:shadow-md transition space-y-3 flex flex-col justify-between"
+                    className="border border-pclr13 dark:border-pdclr13 rounded-xl p-4 bg-pclr1 dark:bg-pdclr1 hover:shadow-md transition space-y-3 flex flex-col justify-between"
                   >
                     <div className="space-y-2">
                       <div className="flex items-start justify-between gap-2">
                         <div>
-                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[0.8em] font-semibold bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[0.8em] font-semibold bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4">
                             <span>{info?.icon}</span> {info?.label || plantilla.tipo_comida}
                           </span>
-                          <h4 className="text-[1.05em] font-bold text-zinc-900 dark:text-zinc-100 mt-1">
+                          <h4 className="text-[1.05em] font-bold text-pclr4 dark:text-pdclr4 mt-1">
                             {plantilla.nombre}
                           </h4>
                         </div>
@@ -208,14 +208,14 @@ export const CampamentoPlantillasModal: React.FC<Props> = ({
                       </div>
 
                       {plantilla.descripcion && (
-                        <p className="text-[0.85em] text-zinc-600 dark:text-zinc-400 line-clamp-2">
+                        <p className="text-[0.85em] text-pclr7 dark:text-pdclr7 line-clamp-2">
                           {plantilla.descripcion}
                         </p>
                       )}
 
                       {/* Recetas Atómicas Vinculadas */}
-                      <div className="pt-2 border-t border-zinc-100 dark:border-zinc-800">
-                        <span className="text-[0.8em] font-semibold uppercase tracking-wider text-zinc-500 block mb-1">
+                      <div className="pt-2 border-t border-pclr13 dark:border-pdclr13">
+                        <span className="text-[0.8em] font-semibold uppercase tracking-wider text-pclr7 dark:text-pdclr7 block mb-1">
                           Alimentos predefinidos ({recetasAsignadas.length}):
                         </span>
                         <div className="flex flex-wrap gap-1">
@@ -237,11 +237,11 @@ export const CampamentoPlantillasModal: React.FC<Props> = ({
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-end gap-2 pt-2 border-t border-zinc-100 dark:border-zinc-800">
+                    <div className="flex items-center justify-end gap-2 pt-2 border-t border-pclr13 dark:border-pdclr13">
                       <button
                         type="button"
                         onClick={() => setPlantillaEditando(plantilla)}
-                        className="px-3 py-1 text-[0.85em] border border-zinc-300 dark:border-zinc-700 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 font-medium transition"
+                        className="px-3 py-1 text-[0.85em] border border-pclr13 dark:border-pdclr13 rounded-lg hover:bg-pclr3 dark:hover:bg-pdclr3 font-medium transition"
                       >
                         ✏️ Editar
                       </button>
@@ -265,14 +265,14 @@ export const CampamentoPlantillasModal: React.FC<Props> = ({
         ) : (
           /* Editor de Plantilla Estructurada */
           <form onSubmit={handleGuardar} className="p-6 overflow-y-auto space-y-5 flex-1">
-            <div className="flex items-center justify-between pb-3 border-b border-zinc-200 dark:border-zinc-800">
-              <h3 className="text-[1.15em] font-bold text-zinc-900 dark:text-zinc-100">
+            <div className="flex items-center justify-between pb-3 border-b border-pclr13 dark:border-pdclr13">
+              <h3 className="text-[1.15em] font-bold text-pclr4 dark:text-pdclr4">
                 {plantillaEditando.nombre ? `Editar: ${plantillaEditando.nombre}` : 'Nueva Plantilla de Menú'}
               </h3>
               <button
                 type="button"
                 onClick={() => setPlantillaEditando(null)}
-                className="text-[0.85em] text-zinc-500 hover:underline"
+                className="text-[0.85em] text-pclr7 dark:text-pdclr7 hover:underline"
               >
                 ← Volver al listado
               </button>
@@ -280,7 +280,7 @@ export const CampamentoPlantillasModal: React.FC<Props> = ({
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-[0.9em] font-medium text-zinc-700 dark:text-zinc-300 mb-1">
+                <label className="block text-[0.9em] font-medium text-pclr4 dark:text-pdclr4 mb-1">
                   Nombre de la Plantilla *
                 </label>
                 <input
@@ -289,18 +289,18 @@ export const CampamentoPlantillasModal: React.FC<Props> = ({
                   value={plantillaEditando.nombre}
                   onChange={e => setPlantillaEditando({ ...plantillaEditando, nombre: e.target.value })}
                   placeholder="Ej: Once Scout: Té con Pan y Huevos Revueltos"
-                  className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-[1em]"
+                  className="w-full px-3 py-2 border border-pclr13 dark:border-pdclr13 rounded-lg bg-pclr3 dark:bg-pdclr3 text-[1em]"
                 />
               </div>
 
               <div>
-                <label className="block text-[0.9em] font-medium text-zinc-700 dark:text-zinc-300 mb-1">
+                <label className="block text-[0.9em] font-medium text-pclr4 dark:text-pdclr4 mb-1">
                   Tiempo de Comida
                 </label>
                 <select
                   value={plantillaEditando.tipo_comida}
                   onChange={e => setPlantillaEditando({ ...plantillaEditando, tipo_comida: e.target.value as TiempoComidaTipo })}
-                  className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-[1em]"
+                  className="w-full px-3 py-2 border border-pclr13 dark:border-pdclr13 rounded-lg bg-pclr3 dark:bg-pdclr3 text-[1em]"
                 >
                   <option value="desayuno">🌅 Desayuno</option>
                   <option value="almuerzo">🍲 Almuerzo</option>
@@ -311,7 +311,7 @@ export const CampamentoPlantillasModal: React.FC<Props> = ({
               </div>
 
               <div className="md:col-span-2">
-                <label className="block text-[0.9em] font-medium text-zinc-700 dark:text-zinc-300 mb-1">
+                <label className="block text-[0.9em] font-medium text-pclr4 dark:text-pdclr4 mb-1">
                   Descripción o Recomendación de Servicio
                 </label>
                 <textarea
@@ -319,14 +319,14 @@ export const CampamentoPlantillasModal: React.FC<Props> = ({
                   value={plantillaEditando.descripcion || ''}
                   onChange={e => setPlantillaEditando({ ...plantillaEditando, descripcion: e.target.value })}
                   placeholder="Ej: Servir el té bien caliente en fondo de campamento..."
-                  className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-[0.9em]"
+                  className="w-full px-3 py-2 border border-pclr13 dark:border-pdclr13 rounded-lg bg-pclr3 dark:bg-pdclr3 text-[0.9em]"
                 />
               </div>
             </div>
 
             {/* Configuración de Slots Culinarios con Nombres Literales */}
-            <div className="space-y-4 pt-3 border-t border-zinc-200 dark:border-zinc-800">
-              <h4 className="text-[1.05em] font-bold text-zinc-900 dark:text-zinc-100">
+            <div className="space-y-4 pt-3 border-t border-pclr13 dark:border-pdclr13">
+              <h4 className="text-[1.05em] font-bold text-pclr4 dark:text-pdclr4">
                 Predefinir Alimentos en los Slots
               </h4>
 
@@ -415,11 +415,11 @@ export const CampamentoPlantillasModal: React.FC<Props> = ({
             </div>
 
             {/* Botones de acción */}
-            <div className="flex items-center justify-end gap-3 pt-4 border-t border-zinc-200 dark:border-zinc-800">
+            <div className="flex items-center justify-end gap-3 pt-4 border-t border-pclr13 dark:border-pdclr13">
               <button
                 type="button"
                 onClick={() => setPlantillaEditando(null)}
-                className="px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 transition text-[0.9em]"
+                className="px-4 py-2 border border-pclr13 dark:border-pdclr13 rounded-lg text-pclr4 dark:text-pdclr4 hover:bg-pclr3 dark:hover:bg-pdclr3 transition text-[0.9em]"
               >
                 Cancelar
               </button>
@@ -434,12 +434,12 @@ export const CampamentoPlantillasModal: React.FC<Props> = ({
         )}
 
         {/* Footer info */}
-        <div className="px-6 py-3 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800/40 flex items-center justify-between text-[0.85em] text-zinc-500">
+        <div className="px-6 py-3 border-t border-pclr13 dark:border-pdclr13 bg-pclr2 dark:bg-pdclr2 flex items-center justify-between text-[0.85em] text-pclr7 dark:text-pdclr7">
           <span>Las plantillas guardadas autocompletan todos los slots en el cronograma.</span>
           <button
             type="button"
             onClick={onClose}
-            className="text-zinc-600 dark:text-zinc-400 hover:underline"
+            className="text-pclr7 dark:text-pdclr7 hover:underline"
           >
             Cerrar Ventana
           </button>
