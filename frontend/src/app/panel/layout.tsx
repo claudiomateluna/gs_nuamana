@@ -18,6 +18,7 @@ const tabs = [
   { key: 'tally', label: 'Bitacora', icon: 'icono_tally.svg', href: '/panel/tally', requiresDirectivoOrNnj: true },
   { key: 'progresion', label: 'Progresion', icon: 'icono_progresion.svg', href: '/panel/progresion', alwaysShow: true },
   { key: 'inventario', label: 'Inventario', icon: 'icono_inventario.svg', href: '/panel/inventario', requiresCanSeeAll: true },
+  { key: 'campamentos', label: 'Campamentos', icon: 'icono_programar_actividad.svg', href: '/panel/campamentos', requiresCanSeeAll: true },
 ]
 
 function PanelLayoutContent({ children }: { children: React.ReactNode }) {

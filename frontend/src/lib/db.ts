@@ -1,4 +1,6 @@
 import Dexie, { type Table } from 'dexie';
+import type { CampamentoMenu, CampamentoReceta, CampamentoPlantillaComida } from '@/types/campamento-menu';
+import type { CampamentoPreparacion } from '@/types/campamento-preparacion';
 
 export interface PerfilOffline {
   id: string;
@@ -175,6 +177,10 @@ class NuaManaOfflineDB extends Dexie {
   ciclo_activo!: Table<CicloActivoOffline, string>;
   propuestas!: Table<PropuestaOffline, string>;
   articulos_actividades!: Table<ArticuloActividadOffline, string>;
+  campamento_menus!: Table<CampamentoMenu, string>;
+  campamento_recetas!: Table<CampamentoReceta, string>;
+  campamento_plantillas!: Table<CampamentoPlantillaComida, string>;
+  campamento_preparaciones!: Table<CampamentoPreparacion, string>;
   outbox_queue!: Table<OutboxItem, number>;
 
   constructor() {
@@ -192,6 +198,63 @@ class NuaManaOfflineDB extends Dexie {
       ciclo_activo: 'id, unidad_id',
       propuestas: 'id, ciclo_id, seleccionada',
       articulos_actividades: 'id, slug',
+      outbox_queue: '++id, tabla, timestamp'
+    });
+
+    this.version(4).stores({
+      perfiles: 'id, rut, unidad_id',
+      fichas_medicas: 'perfil_id',
+      contactos_emergencia: 'id, perfil_id',
+      autorizaciones: 'id, perfil_id, actividad_id',
+      actividades_programadas: 'id, fecha_inicio, fecha_fin, unidad_id',
+      progresion_avance: 'id, perfil_id, objetivo_id',
+      progresion_objetivos: 'id, unidad_id',
+      progresion_etapas: 'id, unidad_id',
+      progresion_areas: 'id',
+      ciclo_activo: 'id, unidad_id',
+      propuestas: 'id, ciclo_id, seleccionada',
+      articulos_actividades: 'id, slug',
+      campamento_menus: 'id, actividad_id, updated_at',
+      campamento_recetas: 'id, nombre, categoria',
+      outbox_queue: '++id, tabla, timestamp'
+    });
+
+    this.version(5).stores({
+      perfiles: 'id, rut, unidad_id',
+      fichas_medicas: 'perfil_id',
+      contactos_emergencia: 'id, perfil_id',
+      autorizaciones: 'id, perfil_id, actividad_id',
+      actividades_programadas: 'id, fecha_inicio, fecha_fin, unidad_id',
+      progresion_avance: 'id, perfil_id, objetivo_id',
+      progresion_objetivos: 'id, unidad_id',
+      progresion_etapas: 'id, unidad_id',
+      progresion_areas: 'id',
+      ciclo_activo: 'id, unidad_id',
+      propuestas: 'id, ciclo_id, seleccionada',
+      articulos_actividades: 'id, slug',
+      campamento_menus: 'id, actividad_id, updated_at',
+      campamento_recetas: 'id, nombre, categoria',
+      campamento_preparaciones: 'id, fecha_inicio, updated_at',
+      outbox_queue: '++id, tabla, timestamp'
+    });
+
+    this.version(6).stores({
+      perfiles: 'id, rut, unidad_id',
+      fichas_medicas: 'perfil_id',
+      contactos_emergencia: 'id, perfil_id',
+      autorizaciones: 'id, perfil_id, actividad_id',
+      actividades_programadas: 'id, fecha_inicio, fecha_fin, unidad_id',
+      progresion_avance: 'id, perfil_id, objetivo_id',
+      progresion_objetivos: 'id, unidad_id',
+      progresion_etapas: 'id, unidad_id',
+      progresion_areas: 'id',
+      ciclo_activo: 'id, unidad_id',
+      propuestas: 'id, ciclo_id, seleccionada',
+      articulos_actividades: 'id, slug',
+      campamento_menus: 'id, actividad_id, updated_at',
+      campamento_recetas: 'id, nombre, categoria',
+      campamento_plantillas: 'id, tipo_comida, updated_at',
+      campamento_preparaciones: 'id, fecha_inicio, updated_at',
       outbox_queue: '++id, tabla, timestamp'
     });
   }

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams, useRouter } from 'next/navigation'
 import dynamic from 'next/dynamic'
 import { useDashboardContext } from '@/contexts/DashboardContext'
 import { supabase } from '@/lib/supabase'
@@ -16,6 +16,7 @@ const DashModAutorizacionVer = dynamic(() => import('@/components/dashboard/auto
 const DashModActividadCrear = dynamic(() => import('@/components/dashboard/unidad/mod_unidad_actividad_crear'), { ssr: false })
 
 export default function UnidadPage() {
+  const router = useRouter()
   const searchParams = useSearchParams()
   const tabParam = searchParams.get('tab')
   const { perfil, directivo, roles, unidades, fetchProfile, loading: ctxLoading } = useDashboardContext()
@@ -23,6 +24,7 @@ export default function UnidadPage() {
   const [activeTab, setActiveTab] = useState<'nomina' | 'salidas'>(
     tabParam === 'salidas' ? 'salidas' : 'nomina'
   )
+  const [selectedMenuActId, setSelectedMenuActId] = useState<string | null>(null)
   const [miembros, setMiembros] = useState<Perfil[]>([])
   const [actividades, setActividades] = useState<ActividadProgramada[]>([])
   const [autorizaciones, setAutorizaciones] = useState<AutorizacionActividad[]>([])
@@ -50,6 +52,8 @@ export default function UnidadPage() {
       setActiveTab('salidas')
     } else if (tabParam === 'nomina') {
       setActiveTab('nomina')
+    } else if (tabParam === 'menus') {
+      router.replace('/panel/campamentos')
     }
   }, [tabParam])
 
@@ -141,8 +145,8 @@ export default function UnidadPage() {
 
   return (
     <div className="space-y-6 animate-in fade-in duration-500">
-      {/* Sub-pestañas de navegación: Nómina de Unidad vs Salidas y Autorizaciones */}
-      <div className="flex bg-pclr3 dark:bg-pdclr3 p-1 rounded-2xl w-fit border border-pclr13 dark:border-pdclr13">
+      {/* Sub-pestañas de navegación: Nómina de Unidad vs Salidas */}
+      <div className="flex bg-pclr3 dark:bg-pdclr3 p-1 rounded-2xl w-fit border border-pclr13 dark:border-pdclr13 flex-wrap gap-1">
         <button
           type="button"
           onClick={() => setActiveTab('nomina')}
@@ -168,7 +172,7 @@ export default function UnidadPage() {
       </div>
 
       {/* Contenido según la pestaña activa */}
-      {activeTab === 'nomina' ? (
+      {activeTab === 'nomina' && (
         <DashUnidad
           perfil={perfil}
           miembros={miembros}
@@ -179,7 +183,9 @@ export default function UnidadPage() {
           onVerAutorizacion={(a, p) => { setViewingAuth(a); setViewingAuthProfile(p); setIsModAutorizacionVerOpen(true) }}
           onSuccess={handleRefresh}
         />
-      ) : (
+      )}
+
+      {activeTab === 'salidas' && (
         <DashSalidasManager
           perfil={perfil}
           actividades={actividades}
@@ -188,6 +194,9 @@ export default function UnidadPage() {
           isOffline={isOffline}
           onVerAutorizacion={(a, p) => { setViewingAuth(a); setViewingAuthProfile(p); setIsModAutorizacionVerOpen(true) }}
           onCrearSalida={() => setIsModActividadOpen(true)}
+          onPlanificarMenu={() => {
+            router.push('/panel/campamentos')
+          }}
         />
       )}
 
