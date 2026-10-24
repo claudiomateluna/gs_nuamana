@@ -671,7 +671,7 @@ export const CampamentoProgramaTab: React.FC<Props> = ({
 
       {/* MODAL: EDITAR / CREAR MOMENTO GRUPAL */}
       {editandoMomento && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 overflow-y-auto">
+        <div className="fixed inset-0 z-[110] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 overflow-y-auto">
           <div className="bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 rounded-2xl w-full max-w-lg shadow-2xl p-6 space-y-4">
             <div className="flex justify-between items-center border-b border-pclr13 dark:border-pdclr13 pb-3">
               <h3 className="font-bold text-[1.2em] text-pclr4 dark:text-pdclr4">
@@ -867,7 +867,7 @@ export const CampamentoProgramaTab: React.FC<Props> = ({
 
       {/* MODAL: EDITAR / CREAR ACTIVIDAD DE UNIDAD */}
       {editandoActividad && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 overflow-y-auto">
+        <div className="fixed inset-0 z-[110] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 overflow-y-auto">
           <div className="bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 rounded-2xl w-full max-w-lg shadow-2xl p-6 space-y-4">
             <div className="flex justify-between items-center border-b border-pclr13 dark:border-pdclr13 pb-3">
               <h3 className="font-bold text-[1.2em] text-pclr4 dark:text-pdclr4">

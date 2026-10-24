@@ -595,7 +595,7 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
 
       {/* Modal / Drawer de Edición de Comida */}
       {bloqueEditando && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 overflow-y-auto">
+        <div className="fixed inset-0 z-[110] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 overflow-y-auto">
           <div className="bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 rounded-2xl w-full max-w-3xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
             
             {/* Header Modal */}
@@ -889,7 +889,7 @@ export const CampamentoCronogramaMenu: React.FC<Props> = ({
 
       {/* Modal Agregar Comida al Día */}
       {modalAgregarDia !== null && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 overflow-y-auto">
+        <div className="fixed inset-0 z-[110] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 overflow-y-auto">
           <div className="bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 rounded-2xl w-full max-w-md shadow-2xl overflow-hidden p-6 space-y-4 text-[1em]">
             <h3 className="text-[1.2em] font-bold text-pclr4 dark:text-pdclr4">
               ➕ Agregar Comida Programada al Día {modalAgregarDia}

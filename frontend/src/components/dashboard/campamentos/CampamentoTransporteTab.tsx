@@ -351,7 +351,7 @@ export const CampamentoTransporteTab: React.FC<Props> = ({
 
       {/* MODAL: Cotización de Bus */}
       {modalCotizacionAbierto && cotizacionEditando && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
+        <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
           <div className="bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 rounded-2xl max-w-lg w-full p-6 shadow-xl space-y-4">
             <h4 className="text-lg font-bold font-display text-pclr4 dark:text-pdclr4">
               {cotizaciones.some(c => c.id === cotizacionEditando.id) ? 'Editar Cotización' : 'Nueva Cotización de Bus'}
@@ -484,7 +484,7 @@ export const CampamentoTransporteTab: React.FC<Props> = ({
 
       {/* MODAL: Inspección Técnica Oficial (PDF 23 PUNTOS) */}
       {modalInspeccionAbierto && inspeccionTemp && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 md:p-6 bg-black/70 backdrop-blur-sm animate-in fade-in duration-200 overflow-y-auto">
+        <div className="fixed inset-0 z-[110] flex items-center justify-center p-3 md:p-6 bg-black/70 backdrop-blur-sm animate-in fade-in duration-200 overflow-y-auto">
           <div className="bg-pclr1 dark:bg-pdclr1 border border-pclr13 dark:border-pdclr13 rounded-2xl max-w-4xl w-full max-h-[92vh] flex flex-col shadow-2xl my-auto overflow-hidden">
             {/* Header del Modal */}
             <div className="p-4 md:p-5 bg-pclr2 dark:bg-pdclr2 text-pclr4 dark:text-pdclr4 flex justify-between items-center gap-4 border-b border-pclr13 dark:border-pdclr13 shrink-0">
