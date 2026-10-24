@@ -37,9 +37,50 @@ function articleUrl(chain: CategoriaRow[], articleSlug: string): string {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  // The actual article slug is always the last segment of the catch-all path
-  const articleSlug = slug[slug.length - 1];
+  const lastSlug = slug[slug.length - 1];
 
+  // 1. Fetch category hierarchy to verify if this route is a category listing or an article
+  const byId = await loadCategorias();
+
+  // Check if lastSlug matches a known category
+  let matchedCategory: CategoriaRow | undefined;
+  for (const cat of byId.values()) {
+    if (cat.slug === lastSlug) {
+      const expectedPath = categoryChain(cat.id, byId).map((c) => c.slug).join('/');
+      if (expectedPath === slug.join('/')) {
+        matchedCategory = cat;
+        break;
+      }
+    }
+  }
+
+  if (matchedCategory) {
+    const chain = categoryChain(matchedCategory.id, byId);
+    const categoryTitle = chain.map((c) => c.nombre).join(' - ');
+    const canonicalUrl = `https://nuamana.cl/blog/${slug.join('/')}`;
+
+    return {
+      title: `${categoryTitle} | Blog Nua Mana`,
+      description: `Explora todas las publicaciones, recursos y actividades de la categoría ${matchedCategory.nombre} en el Grupo Guía y Scout Nua Mana.`,
+      alternates: {
+        canonical: canonicalUrl,
+      },
+      openGraph: {
+        title: `${categoryTitle} | Blog Nua Mana`,
+        description: `Explora todas las publicaciones y recursos de ${matchedCategory.nombre}.`,
+        url: canonicalUrl,
+        type: 'website',
+      },
+      twitter: {
+        card: 'summary_large_image',
+        site: '@gruponuamana',
+        creator: '@gruponuamana',
+      },
+    };
+  }
+
+  // 2. Not a category, resolve as an article
+  const articleSlug = lastSlug;
   const { data: articulo } = await supabase
     .from('articulos')
     .select('titulo, extracto, imagen_destacada, articulo_categorias(categoria_id)')
@@ -51,7 +92,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   // Canonical comes from the DB hierarchy — never from untrusted URL segments
-  const byId = await loadCategorias();
   const chains = ((articulo.articulo_categorias ?? []) as Array<{ categoria_id: number }>)
     .map((ac) => categoryChain(ac.categoria_id, byId))
     .filter((chain) => chain.length > 0);
