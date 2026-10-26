@@ -14,12 +14,19 @@ export default function ProgresionProgresoPage() {
   
   const [selectedProgresionPerfil, setSelectedProgresionPerfil] = useState<Perfil | null>(null)
 
-  // Auto-select profile for NNJ users
+  // Auto-select profile for NNJ users or leaders with beneficiaries
   useEffect(() => {
     if (nnj && perfil) {
       setSelectedProgresionPerfil(perfil)
+    } else if (directivo && !selectedProgresionPerfil && miembrosUnidad.length > 0) {
+      const firstBeneficiary = miembrosUnidad.find(m => (m.rol_id ?? 0) > 8)
+      if (firstBeneficiary) {
+        setSelectedProgresionPerfil(firstBeneficiary)
+      }
+    } else if (perfil && isApoderado(perfil) && !selectedProgresionPerfil && pupilos.length > 0) {
+      setSelectedProgresionPerfil(pupilos[0])
     }
-  }, [nnj, perfil])
+  }, [nnj, directivo, perfil, miembrosUnidad, pupilos, selectedProgresionPerfil])
 
   if (loading) {
     return <div className="p-20 text-center font-body text-pclr7 dark:text-pdclr7 italic tracking-widest uppercase text-[0.8em]">Cargando...</div>

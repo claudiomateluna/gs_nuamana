@@ -78,7 +78,11 @@ const DashmodProgresion = React.memo(function DashmodProgresion({ perfil, userPe
   // Roles (must be before hooks that depend on them)
   const isOwner = userPerfil.id === perfil.id
   const isParent = userPerfil.id === perfil.apoderado_id
-  const isLeader = isDirectivo(userPerfil) && (isAdmin(userPerfil) || userPerfil.unidad_id === perfil.unidad_id)
+  const isLeader = isDirectivo(userPerfil) && (
+    isAdmin(userPerfil) || 
+    !userPerfil.unidad_id || 
+    (perfil.unidad_id != null && Number(userPerfil.unidad_id) === Number(perfil.unidad_id))
+  )
   const inactive = isInactive(userPerfil)
 
   // Lógica de Unidad y Tema
@@ -193,6 +197,14 @@ const DashmodProgresion = React.memo(function DashmodProgresion({ perfil, userPe
   const [showObjEvalModal, setShowObjEvalModal] = useState(false)
   const [activeObjForEval, setActiveObjForEval] = useState<ProgresionObjetivo | null>(null)
   const [tempEvalValue, setTempEvalValue] = useState<number | null>(null)
+  const [evalModalRole, setEvalModalRole] = useState<'self' | 'leader' | 'parent'>('leader')
+
+  const handleOpenObjEvalModal = useCallback((obj: ProgresionObjetivo, currentVal?: number | null, role: 'self' | 'leader' | 'parent' = 'leader') => {
+    setActiveObjForEval(obj)
+    setTempEvalValue(currentVal ?? null)
+    setEvalModalRole(role)
+    setShowObjEvalModal(true)
+  }, [])
 
   // --- Estados de Formulario de Evidencia/Evaluación de Meta ---
 
@@ -1892,6 +1904,7 @@ const fetchInitialData = useCallback(async () => {
         handleSelfEvalValue={handleSelfEvalValue}
         handleLeaderEvalValue={handleLeaderEvalValue}
         handleParentEvalValue={handleParentEvalValue}
+        onOpenEvalModal={handleOpenObjEvalModal}
         isManada={isManada}
         isCompania={isCompania}
         isTropa={isTropa}
@@ -2367,12 +2380,12 @@ const fetchInitialData = useCallback(async () => {
             toast.warning('Por favor, selecciona una calificación del 1 al 8.');
             return;
           }
-          if (isOwner) {
+          if (evalModalRole === 'self') {
             await handleSelfEvalValue(activeObjForEval.id, tempEvalValue);
-          } else if (isLeader) {
-            await handleLeaderEvalValue(activeObjForEval.id, tempEvalValue);
-          } else if (isParent) {
+          } else if (evalModalRole === 'parent') {
             await handleParentEvalValue(activeObjForEval.id, tempEvalValue);
+          } else {
+            await handleLeaderEvalValue(activeObjForEval.id, tempEvalValue);
           }
           setShowObjEvalModal(false);
           setActiveObjForEval(null);
@@ -2385,7 +2398,7 @@ const fetchInitialData = useCallback(async () => {
               
               <div className="p-4 pb-3 space-y-2 border-b border-pclr13 dark:border-pdclr13">
                 <span className="text-[0.8em] font-black uppercase tracking-wider text-pclr4 dark:text-pdclr4 block">
-                  {isOwner ? 'Autoevaluación de Objetivo' : isParent ? 'Evaluación de Apoderado' : `Evaluando a ${perfil.nombres}`}
+                  {evalModalRole === 'self' ? 'Autoevaluación de Objetivo' : evalModalRole === 'parent' ? 'Evaluación de Apoderado' : `Evaluando a ${perfil.nombres}`}
                 </span>
                 <div className="flex items-center gap-2">
                   <span className="px-2.5 py-0.5 bg-pclr3 dark:bg-pdclr3 text-pclr4 dark:text-pdclr4 rounded-full text-[0.8em] font-bold uppercase">

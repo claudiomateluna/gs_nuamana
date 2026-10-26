@@ -39,6 +39,7 @@ interface ProgresionObjetivosProps {
   handleSelfEvalValue: (objId: string, val: number) => void
   handleLeaderEvalValue: (objId: string, val: number) => void
   handleParentEvalValue: (objId: string, val: number) => void
+  onOpenEvalModal?: (obj: ProgresionObjetivo, currentVal?: number | null, role?: 'self' | 'leader' | 'parent') => void
   isManada: boolean
   isCompania: boolean
   isTropa: boolean
@@ -68,6 +69,7 @@ const ProgresionObjetivos = React.memo(function ProgresionObjetivos({
   handleSelfEvalValue,
   handleLeaderEvalValue,
   handleParentEvalValue,
+  onOpenEvalModal,
   isManada,
   isCompania,
   isTropa,
@@ -265,7 +267,11 @@ const ProgresionObjetivos = React.memo(function ProgresionObjetivos({
                             <button
                               type="button"
                               onClick={() => {
-                                handleSelfEvalValue(obj.id, val || 0)
+                                if (onOpenEvalModal) {
+                                  onOpenEvalModal(obj, val, 'self')
+                                } else {
+                                  handleSelfEvalValue(obj.id, val || 0)
+                                }
                               }}
                               className="px-3 py-1.5 bg-pclr10 hover:brightness-110 text-pclr12 rounded-lg text-[0.8em] font-bold uppercase transition-all shadow-sm"
                               style={{ backgroundColor: themePrimary, color: themeSecondary }}
@@ -278,7 +284,11 @@ const ProgresionObjetivos = React.memo(function ProgresionObjetivos({
                             <button
                               type="button"
                               onClick={() => {
-                                handleParentEvalValue(obj.id, valApoderado || 0)
+                                if (onOpenEvalModal) {
+                                  onOpenEvalModal(obj, valApoderado, 'parent')
+                                } else {
+                                  handleParentEvalValue(obj.id, valApoderado || 0)
+                                }
                               }}
                               className="px-3 py-1.5 bg-pclr5 hover:brightness-110 text-pclr12 rounded-lg text-[0.9em] font-bold uppercase transition-all shadow-sm"
                               style={{ backgroundColor: themePrimary, borderColor: themePrimary, color: themeSecondary }}
@@ -292,7 +302,11 @@ const ProgresionObjetivos = React.memo(function ProgresionObjetivos({
                               <button
                                 type="button"
                                 onClick={() => {
-                                  handleLeaderEvalValue(obj.id, valDirigente || 0)
+                                  if (onOpenEvalModal) {
+                                    onOpenEvalModal(obj, valDirigente, 'leader')
+                                  } else {
+                                    handleLeaderEvalValue(obj.id, valDirigente || 0)
+                                  }
                                 }}
                                 className="px-3 py-1.5 bg-pclr3 dark:bg-pdclr1 hover:bg-pclr3 dark:hover:bg-pdclr3 dark:bg-pdclr3 dark:hover:bg-pdclr1 text-pclr4 dark:text-pdclr4 rounded-lg text-[0.9em] font-bold uppercase transition-all"
                                 style={{ backgroundColor: themePrimary, borderColor: themePrimary, color: themeSecondary }}
