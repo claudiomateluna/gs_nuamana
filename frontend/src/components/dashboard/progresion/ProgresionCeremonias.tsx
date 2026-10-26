@@ -7,6 +7,7 @@ import type { Perfil } from '@/types'
 
 interface ProgresionCeremoniasProps {
   ceremonias: CeremoniaConJoins[]
+  perfil?: Perfil
   userPerfil: Perfil
   themePrimary: string
   themeSecondary: string
@@ -26,6 +27,7 @@ function getRoleLabel(rolId: number) {
 
 const ProgresionCeremonias = React.memo(function ProgresionCeremonias({
   ceremonias,
+  perfil,
   userPerfil,
   themePrimary,
   themeSecondary,
@@ -34,14 +36,18 @@ const ProgresionCeremonias = React.memo(function ProgresionCeremonias({
   handleSaveInlineMessage,
   handleViewReport,
 }: ProgresionCeremoniasProps) {
+  const isOwner = !perfil || userPerfil.id === perfil.id
+
   return (
     <div className="space-y-6 animate-in fade-in duration-500">
       <div>
         <h3 className="font-bold uppercase text-[1.5em] text-pclr4 dark:text-pdclr4">
-          🏆 Álbum de Ceremonias e Hitos
+          🏆 Álbum de Ceremonias e Hitos{isOwner ? '' : ` de ${perfil.nombres}`}
         </h3>
         <p className="text-[0.9em] font-bold text-pclr7 mt-1">
-          Los momentos más importantes de tu vida scout, celebraciones y cambios de etapa.
+          {isOwner
+            ? 'Los momentos más importantes de tu vida scout, celebraciones y cambios de etapa.'
+            : `Momentos más importantes, celebraciones y cambios de etapa de ${perfil.nombres} ${perfil.apellidos}.`}
         </p>
       </div>
 
@@ -49,7 +55,9 @@ const ProgresionCeremonias = React.memo(function ProgresionCeremonias({
         <div className="p-16 text-center border-2 border-dashed rounded-[3rem] opacity-50 bg-pclr1 dark:bg-pdclr1 dark:border-pclr1">
           <span className="text-4xl mb-4 block">🎪</span>
           <p className="italic font-bold uppercase tracking-widest text-[0.8em]">
-            No hay ceremonias registradas aún. ¡Cada gran paso es un momento de celebración!
+            {isOwner
+              ? 'No hay ceremonias registradas aún. ¡Cada gran paso es un momento de celebración!'
+              : `No hay ceremonias registradas aún para ${perfil?.nombres || 'el beneficiario'}. ¡Podés registrar la entrega de insignia, promesa o paso de unidad usando las acciones de dirigente!`}
           </p>
         </div>
       ) : (

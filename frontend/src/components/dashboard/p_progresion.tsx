@@ -643,6 +643,7 @@ const fetchInitialData = useCallback(async () => {
     return (
       <ProgresionCeremonias
         ceremonias={cer.ceremonias}
+        perfil={perfil}
         userPerfil={userPerfil}
         themePrimary={themePrimary}
         themeSecondary={themeSecondary}
