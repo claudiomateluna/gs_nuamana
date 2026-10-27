@@ -527,8 +527,8 @@ const fetchInitialData = useCallback(async () => {
                   <select 
                     value={etapaActual?.id || ''} 
                     onChange={(e) => handleSetEtapaDefault(e.target.value)}
-                    className="bg-pclr1 dark:bg-pdclr1 font-bold text-[0.9em] p-2 rounded-xl outline-none cursor-pointer uppercase tracking-tight w-full shadow-inner min-w-[150px]"
-                    style={{ color: themeTextDark }}
+                    className="bg-pclr1 dark:bg-pdclr1 text-pclr4 dark:text-pdclr4 font-bold text-[0.9em] p-2 rounded-xl outline-none cursor-pointer uppercase tracking-tight w-full shadow-inner min-w-[150px]"
+                    // style={{ color: themeTextDark }}
                   >
                     <option value="">Seleccionar...</option>
                     {todasEtapas.map(e => (
@@ -656,6 +656,7 @@ const fetchInitialData = useCallback(async () => {
   }
 
   const renderEspecialidadesSection = () => {
+    const isDirectivoViewingSelf = isOwner && isDirectivo(perfil)
     return (
       <ProgresionEspecialidades
         perfil={perfil}
@@ -663,6 +664,8 @@ const fetchInitialData = useCallback(async () => {
         themePrimary={themePrimary}
         themeSecondary={themeSecondary}
         isOwner={isOwner}
+        isLeader={isLeader}
+        onlyTutorias={isDirectivoViewingSelf}
         inactive={inactive}
         definicionesEspecialidades={esp.definicionesEspecialidades}
         especialidadesPersonales={esp.especialidadesPersonales}
@@ -699,6 +702,8 @@ const fetchInitialData = useCallback(async () => {
         themePrimary={themePrimary}
         themeSecondary={themeSecondary}
         isOwner={isOwner}
+        isLeader={isLeader}
+        onlyTutorias={true}
         inactive={inactive}
         definicionesEspecialidades={esp.definicionesEspecialidades}
         especialidadesPersonales={esp.especialidadesPersonales}
@@ -901,7 +906,7 @@ const fetchInitialData = useCallback(async () => {
                       </div>
 
                       <p className="font-bold text-[0.95em] text-pclr4 dark:text-pdclr4 mb-2">
-                        {meta.progresion_objetivos?.texto_terminal}
+                        {meta.progresion_objetivos?.texto_infantil || meta.progresion_objetivos?.texto_terminal}
                       </p>
 
                       <div className="mt-3 p-3 bg-pclr3 dark:bg-pdclr3 rounded-xl border dark:border-pclr1">
@@ -1084,7 +1089,7 @@ const fetchInitialData = useCallback(async () => {
                     .filter(obj => !agendaObjetivos.some(meta => meta.objetivo_id === obj.id))
                     .map(obj => (
                       <option key={obj.id} value={obj.id}>
-                        [{obj.progresion_areas?.nombre || 'General'}] {obj.texto_terminal}
+                        [{obj.progresion_areas?.nombre || 'General'}] {obj.texto_infantil || obj.texto_terminal}
                       </option>
                     ))
                   }
@@ -2371,7 +2376,7 @@ const fetchInitialData = useCallback(async () => {
 
       {/* Modal de Evaluación de Objetivo (1 a 8) */}
       {showObjEvalModal && activeObjForEval && (() => {
-        const objText = activeObjForEval.texto_terminal || activeObjForEval.texto_infantil;
+        const objText = activeObjForEval.texto_infantil || activeObjForEval.texto_terminal;
         const areaId = activeObjForEval.area_id;
         const areaObj = areas.find(a => a.id === areaId);
         const areaName = areaObj ? areaObj.nombre : 'Área de Desarrollo';
@@ -2409,6 +2414,7 @@ const fetchInitialData = useCallback(async () => {
                 <h3 className="text-lg font-bold text-pclr4 dark:text-pdclr4 leading-tight mt-1">
                   {objText}
                 </h3>
+                
                 <p className="text-[0.8em] text-pclr7 italic">
                   {isOwner 
                     ? `Selecciona el nivel que mejor represente tu desarrollo en esta ${termObjSingular}.`
@@ -2726,7 +2732,7 @@ const fetchInitialData = useCallback(async () => {
                     <ul className="space-y-2">
                       {achieved.map(obj => (
                         <li key={obj.id} className="p-3 bg-pclr3 dark:bg-pdclr3 rounded-xl border dark:border-pclr1 text-[0.85em] font-medium leading-relaxed">
-                          ✅ {obj.texto_terminal}
+                          ✅ {obj.texto_infantil || obj.texto_terminal}
                         </li>
                       ))}
                     </ul>

@@ -97,7 +97,7 @@ export function useDefaultProgresion({ perfil, userPerfil, isOwner, isParent, is
       if (isManada) {
         const isTardia = (perfil.edad ?? 0) >= 9
         etapa = logradosCount >= 6 ? (isTardia ? etapas[3] : etapas[1]) : (isTardia ? etapas[2] : etapas[0])
-      } else if (isCompania) {
+      } else if (isCompania || isTropa) {
         const isTardia = (perfil.edad ?? 0) >= 13
         etapa = logradosCount >= 6 ? (isTardia ? etapas[3] : etapas[1]) : (isTardia ? etapas[2] : etapas[0])
       } else {
@@ -111,7 +111,7 @@ export function useDefaultProgresion({ perfil, userPerfil, isOwner, isParent, is
       if (isAvanzada) rangoParaCargar = '15 a 17 años'
       else if (isClan) rangoParaCargar = '17 a 20 años'
       else if (isManada) rangoParaCargar = (perfil.edad ?? 0) >= 9 ? 'Infancia Tardía' : 'Infancia Media'
-      else if (isCompania) rangoParaCargar = (perfil.edad ?? 0) >= 13 ? '13 a 15 años' : '11 a 13 años'
+      else if (isCompania || isTropa) rangoParaCargar = (perfil.edad ?? 0) >= 13 ? '13 a 15 años' : '11 a 13 años'
     }
 
     let objsData: ProgresionObjetivo[] = []
@@ -166,7 +166,7 @@ export function useDefaultProgresion({ perfil, userPerfil, isOwner, isParent, is
 
     setObjetivosDefault(objsData)
     setAvanceDefault(avanceData)
-  }, [perfil, isClan, isAvanzada, isManada, isCompania, agenda])
+  }, [perfil, isClan, isAvanzada, isManada, isCompania, isTropa, agenda])
 
   const handleSetEtapaDefault = async (etapaId: string) => {
     if (!isLeader) return
@@ -174,6 +174,27 @@ export function useDefaultProgresion({ perfil, userPerfil, isOwner, isParent, is
     // Optimistically update UI from local state (todasEtapas ya está cargada)
     const newEtapa = todasEtapas.find(e => e.id === idVal) || null
     setEtapaActual(newEtapa)
+    if (perfil) {
+      perfil.progresion_etapa_id = idVal
+    }
+
+    // Recargar objetivos acordes al rango_edad de la nueva etapa
+    const nuevoRango = newEtapa?.rango_edad
+    if (nuevoRango) {
+      try {
+        const { data: nuevosObjs } = await supabase
+          .from('progresion_objetivos')
+          .select('*')
+          .eq('unidad_id', perfil.unidad_id)
+          .eq('rango_edad', nuevoRango)
+        if (nuevosObjs) {
+          setObjetivosDefault(nuevosObjs)
+        }
+      } catch (err) {
+        console.error('Error al actualizar objetivos de la etapa:', err)
+      }
+    }
+
     const { error } = await supabase.from('perfiles').update({ progresion_etapa_id: idVal }).eq('id', perfil.id)
     if (error) {
       // Si falla, revertir al valor anterior

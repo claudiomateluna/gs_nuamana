@@ -26,6 +26,8 @@ interface ProgresionEspecialidadesProps {
   themePrimary: string
   themeSecondary: string
   isOwner: boolean
+  isLeader?: boolean
+  onlyTutorias?: boolean
   inactive: boolean
   definicionesEspecialidades: EspecialidadDefinicion[]
   especialidadesPersonales: EspecialidadPersonal[]
@@ -68,6 +70,8 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
   themePrimary,
   themeSecondary,
   isOwner,
+  isLeader = false,
+  onlyTutorias = false,
   inactive,
   definicionesEspecialidades,
   especialidadesPersonales,
@@ -124,7 +128,7 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
   }, [especialidadesSupervisadas])
 
   const handleCatalogClick = (def: EspecialidadDefinicion) => {
-    if (isOwner && !isNNJConAgenda(perfil)) {
+    if ((isOwner || isLeader) && !isNNJConAgenda(perfil)) {
       resetWizard()
       setWSelectedField(def.campo_interes || '')
       setWSelectedDefId(def.id)
@@ -153,7 +157,7 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
     ])
   }
 
-  if (subTab === 'especialidades' && especialidadesSupervisadas.length > 0) {
+  if (onlyTutorias) {
     return (
       <div className="space-y-6 animate-in fade-in duration-300">
         {activeEspecialidad && (
@@ -278,7 +282,7 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
   return (
     <div className="space-y-10 animate-in fade-in duration-300">
       {/* Sección Tutorías y Supervisiones (si soy monitor de alguna especialidad) */}
-      {especialidadesSupervisadas.length > 0 && (
+      {isOwner && especialidadesSupervisadas.length > 0 && (
         <div className="space-y-4">
           <div className="border-b pb-4 border-pclr13 dark:border-pdclr13 flex justify-between items-center">
             <div>
@@ -380,7 +384,7 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
             <h3 className="font-bold uppercase text-[1.5em] text-pclr4 dark:text-pdclr4">Especialidades en Desarrollo</h3>
             <p className="text-[0.9em] font-bold text-pclr7">Tus proyectos personales y especialidades activas.</p>
           </div>
-          {isOwner && canSeeAllTabs(perfil) && !isNNJConAgenda(perfil) && !inactive && (
+          {(isOwner || isLeader) && canSeeAllTabs(perfil) && !isNNJConAgenda(perfil) && !inactive && (
             <button
               onClick={() => {
                 resetWizard()
@@ -402,9 +406,9 @@ const ProgresionEspecialidades = React.memo(function ProgresionEspecialidades({
         ) : personalSpecialtyProgress.length === 0 ? (
           <div className="p-2 rounded-[1rem] bg-pclr3 dark:bg-pdclr3 border border-pclr13 dark:border-pdclr13 text-center">
             <span className="text-4xl mb-2 block">✨</span>
-            <h4 className="font-bold text-[1.1em] text-pclr4 dark:text-pdclr4">¡Aún no tienes especialidades activas!</h4>
+            <h4 className="font-bold text-[1.1em] text-pclr4 dark:text-pdclr4">{isOwner ? '¡Aún no tienes especialidades activas!' : '¡El beneficiario aún no tiene especialidades activas!'}</h4>
             <p className="text-[0.9em] text-pclr7 dark:text-pdclr7 mt-1 max-w-md mx-auto">
-              Explora el catálogo abajo para elegir un campo de interés y proponer tu primera especialidad.
+              {isOwner ? 'Explora el catálogo abajo para elegir un campo de interés y proponer tu primera especialidad.' : 'Explora el catálogo abajo para proponer o iniciar una especialidad para este beneficiario.'}
             </p>
           </div>
         ) : (

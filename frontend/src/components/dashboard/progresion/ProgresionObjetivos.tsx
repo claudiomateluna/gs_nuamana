@@ -138,7 +138,7 @@ const ProgresionObjetivos = React.memo(function ProgresionObjetivos({
 
           if (searchQuery.trim() !== '') {
             const query = searchQuery.toLowerCase()
-            areaObjs = areaObjs.filter(o => (o.texto_terminal || o.texto_infantil || '').toLowerCase().includes(query))
+            areaObjs = areaObjs.filter(o => (o.texto_infantil || o.texto_terminal || '').toLowerCase().includes(query))
           }
 
           const baseAreaObjs = objetivosDefault.filter(o => o.area_id === area.id)
@@ -197,7 +197,7 @@ const ProgresionObjetivos = React.memo(function ProgresionObjetivos({
                         isLogrado ? 'bg-pclr1 dark:bg-pdclr1' : isEnProceso ? 'bg-pclr10' : 'bg-pclr1 dark:bg-pdclr1'
                       }`} style={{ borderColor: isLogrado ? '#22c55e' : isEnProceso ? '#60a5fa' : themePrimary }}>
                         <div className="space-y-2">
-                          <p className="font-bold text-[0.9em] text-pclr4 dark:text-pdclr4 leading-tight text-center">{obj.texto_terminal || obj.texto_infantil}</p>
+                          <p className="font-bold text-[0.9em] text-pclr4 dark:text-pdclr4 leading-tight text-center">{obj.texto_infantil || obj.texto_terminal}</p>
 
                           {/* Información de la Evaluación 360º */}
                           <div className="space-y-2">
